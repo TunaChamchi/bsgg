@@ -11,12 +11,12 @@ class Main extends Component {
         return (
             <div>
                 <MainBanner />
-                <div class='main'>
-                    <div class='main-left'>
+                <div className='main'>
+                    <div className='main-left'>
                         <Search />
                         <Characters />
                     </div>
-                    <div class='main-right'>
+                    <div className='main-right'>
                         <Rank />
                     </div>
                 </div>

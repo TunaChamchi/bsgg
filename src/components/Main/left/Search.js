@@ -6,9 +6,9 @@ class Search extends Component {
         const { intl } = this.props;
 
         return (            
-            <div class="search">
-                <input class="search1" placeholder={intl.formatMessage({id:'main.left.search.placeholder'})} />
-                <button class="search2">{intl.formatMessage({id:'search'})}</button>
+            <div className="search">
+                <input className="search1" placeholder={intl.formatMessage({id:'main.left.search.placeholder'})} />
+                <button className="search2">{intl.formatMessage({id:'search'})}</button>
             </div>
         );
     };

@@ -1,31 +1,32 @@
 import React, { Component } from 'react';
 import { injectIntl  } from 'react-intl';
-import logo from 'img/bsgglogo.png';
+import langaugeLogo from 'img/langauge logo.png';
+import logo from 'img/bsgglogo.svg';
 
 class MainBanner extends Component {
     render() {
         const { intl } = this.props;
 
         return (
-            <div class="banner"> 
-                <div class="banner-top">
-                    <div class="language">
-                        <span>지구본</span>
-                        <button>{intl.formatMessage({id:'main.banner.language'})}</button>
+            <div className="banner"> 
+                <div className="banner-top">
+                    <div className="language">
+                        <img className="langaugelogo" src={langaugeLogo} />
+                        <button className="langaugebutton">{intl.formatMessage({id:'main.banner.language'})}</button>
                     </div>
                     
-                    <div class="mainlogo">
-                        <img class="logo" src={logo}/>
+                    <div className="mainlogo">
+                        <img className="logo" src={logo}/>
                     </div>
                 </div>
 
-                <div class="banner-menu">
-                    <div class="banner-botton">
-                        <button>{intl.formatMessage({id:'ranking'})}</button>
-                        <button>{intl.formatMessage({id:'item'})}</button>
+                <div className="banner-menu">
+                    <div className="banner-botton">
+                        <button className="menubutton">{intl.formatMessage({id:'ranking'})}</button>
+                        <button className="menubutton">{intl.formatMessage({id:'item'})}</button>
                     </div>
 
-                    <div class="Data-period">
+                    <div className="Data-period">
                         <span>{intl.formatMessage({id:'Data-period'})}</span>
                     </div>
                 </div>

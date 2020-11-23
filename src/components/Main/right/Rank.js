@@ -24,7 +24,7 @@ class Rank extends Component {
         const { range, rangeFocus } = this.state;
 
         return range.map((name, idx) => 
-            <div class={'tabHeader0 ' + (idx === rangeFocus ? 'actived' : '')}
+            <div className={'tabHeader0 ' + (idx === rangeFocus ? 'actived' : '')}
                 key={'range'+idx}
                 onClick={(e) => this.rangeHandler(idx)}>
                 {name}
@@ -36,7 +36,7 @@ class Rank extends Component {
         const { type, typeFocus } = this.state;
 
         return type.map((name, idx) => 
-            <div class={'tabHeader1 ' + (idx === typeFocus ? 'actived' : '')}
+            <div className={'tabHeader1 ' + (idx === typeFocus ? 'actived' : '')}
                 key={'type'+idx}
                 onClick={(e) => this.typeHandler(idx)}>
                 {intl.formatMessage({id: name})}
@@ -49,18 +49,19 @@ class Rank extends Component {
 
         return (
             <div>
-                <div class="rank0">
-                    <div class="rank0-2">
-                        <div class="tabHeaders">
+                <div className="rank0">
+                    <div className="tri"></div>
+                    <div className="rank0-2">
+                        <div className="tabHeaders">
                             {this.rangeView()}
                         </div>
                     </div>
-                    <div class="rank0-1">
-                        <img class="s-logo" src="../img/bsgglogo.png" />RANK
+                    <div className="rank0-1">
+                        <span>RANK</span>
                     </div>
                 </div>
-                <div class="rank1">
-                    <div class="tabHeaders">
+                <div className="rank1">
+                    <div className="tabHeaders">
                         {this.typeView()}
                     </div>
                 </div>

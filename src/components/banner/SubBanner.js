@@ -7,25 +7,25 @@ class SubBanner extends Component {
         const { intl } = this.props
 
         return (
-            <div class="banner"> 
-                <div class="banner-top">
-                    <div class="language">
+            <div className="banner"> 
+                <div className="banner-top">
+                    <div className="language">
                         <span>지구본</span>
                         <button>{intl.formatMessage({id:'main.banner.language'})}</button>
                     </div>
                     
-                    <div class="mainlogo">
-                        <img class="logo" src={logo}/>
+                    <div className="mainlogo">
+                        <img className="logo" src={logo}/>
                     </div>
                 </div>
 
-                <div class="banner-menu">
-                    <div class="banner-botton">
+                <div className="banner-menu">
+                    <div className="banner-botton">
                         <button>{intl.formatMessage({id:'main.banner.menu.rank'})}</button>
                         <button>{intl.formatMessage({id:'main.banner.menu.item'})}</button>
                     </div>
 
-                    <div class="Data-period">
+                    <div className="Data-period">
                         <span>{intl.formatMessage({id:'Data-period'})}</span>
                     </div>
                 </div>
