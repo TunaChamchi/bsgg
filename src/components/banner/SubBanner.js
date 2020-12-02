@@ -1,32 +1,29 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { injectIntl  } from 'react-intl';
-import logo from 'img/bsgglogo.png';
+//import langaugeLogo from 'img/langauge_logo.png';
+import logo from 'img/sub_logo.svg';
 
 class SubBanner extends Component {
     render() {
         const { intl } = this.props
 
         return (
-            <div className="banner"> 
-                <div className="banner-top">
+            <div className="S_banner">
+                <div className="S_banner-top">
                     <div className="language">
-                        <span>지구본</span>
-                        <button>{intl.formatMessage({id:'main.banner.language'})}</button>
+                        <img className="langaugelogo" src={'https://i.ibb.co/MRF3VmN/image.png'} />
+                        <button className="langaugebutton">{intl.formatMessage({id:'main.banner.language'})}</button>
                     </div>
-                    
-                    <div className="mainlogo">
-                        <img className="logo" src={logo}/>
+            
+                    <div className="S_mainlogo">
+                        <Link to="/" >
+                            <img className="S_logo" src={logo} />
+                        </Link>
                     </div>
-                </div>
-
-                <div className="banner-menu">
-                    <div className="banner-botton">
-                        <button>{intl.formatMessage({id:'main.banner.menu.rank'})}</button>
-                        <button>{intl.formatMessage({id:'main.banner.menu.item'})}</button>
-                    </div>
-
-                    <div className="Data-period">
-                        <span>{intl.formatMessage({id:'Data-period'})}</span>
+                    <div className="S_search">
+                        <input className="S_search1" placeholder="  챔피언을 검색하세요." /> 
+                        <button className="S_search2">검색</button>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { injectIntl  } from 'react-intl';
-import langaugeLogo from 'img/langauge logo.png';
-import logo from 'img/bsgglogo.svg';
+//import langaugeLogo from 'img/langauge_logo.png';
+import logo from 'img/main_logo.svg';
 
 class MainBanner extends Component {
     render() {
@@ -11,7 +11,7 @@ class MainBanner extends Component {
             <div className="banner"> 
                 <div className="banner-top">
                     <div className="language">
-                        <img className="langaugelogo" src={langaugeLogo} />
+                        <img className="langaugelogo" src={'https://i.ibb.co/MRF3VmN/image.png'} />
                         <button className="langaugebutton">{intl.formatMessage({id:'main.banner.language'})}</button>
                     </div>
                     
@@ -22,8 +22,8 @@ class MainBanner extends Component {
 
                 <div className="banner-menu">
                     <div className="banner-botton">
-                        <button className="menubutton">{intl.formatMessage({id:'ranking'})}</button>
-                        <button className="menubutton">{intl.formatMessage({id:'item'})}</button>
+                        <div className="trirank"></div>
+                        <button className="menubutton">{intl.formatMessage({id:'main.banner.menu.rank'})}</button>
                     </div>
 
                     <div className="Data-period">

@@ -6,8 +6,8 @@ class Rank extends Component {
 	constructor(props) {
         super(props);
         this.state = {
-            range: ['TOP 100', 'ALL'],
-            rangeFocus: 1,
+            range: ['RANKER', 'ALL'],
+            rangeFocus: 0,
             type: ['solo', 'duo', 'squad'],
             typeFocus: 0,
         };

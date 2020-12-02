@@ -11,7 +11,7 @@
     "duo": "듀오",
     "squad": "스쿼드",
     "tier": "티어",
-    "score-rank": "티어",
+    "total": "티어",
     "win-rate": "승률",
     "pick-rate": "픽률",
     "kill": "킬",
@@ -23,7 +23,7 @@
         "banner": {
             "language": "한국어",
             "menu": {
-                "rank": "랭킹",
+                "rank": "랭크",
                 "item": "아이템"
             }
         },
@@ -38,6 +38,16 @@
         "right": {
 
         }
+    },
+
+    "detail": {
+        "upState": "상위 능력치",
+        "downState": "하위 능력치",
+        "attack": "공격력",
+        "attack_speed": "공격속도",
+        "health": "체력",
+        "skill_info": "스킬 정보",
+        "avg": "평균"
     },
 
     "characters": {
