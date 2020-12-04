@@ -79,7 +79,7 @@ class Detail extends Component {
         weaponList.sort((a, b) => b['pick'] - a['pick']);
 
         return weaponList.map((weapon, idx) => {
-            const pick = (weapon['pick'] / weaponTotal * 100).toFixed(1);
+            const pick = (weapon['pick'] / weaponTotal * 100).toFixed(0);
 
             return (
                 <Link to={'Detail?range='+rangeFocus+'&type='+typeFocus+'&character='+character+'&weapon='+weapon['name']} key={'weaponList' + idx}>
