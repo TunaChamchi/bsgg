@@ -170,22 +170,18 @@ class Detail extends Component {
                             {this.weaponListView()}
                         </div>
                         <div className="S_top-stat">
-                            <span className="S_top-stat1">{intl.formatMessage({ id: 'detail.upState' })}</span>
-                            <span className="S_top-stat2">{intl.formatMessage({ id: 'detail.attack' })}</span>
-                            <span className="S_top-stat3">#1</span>
-                            <span className="S_top-stat2">{intl.formatMessage({ id: 'detail.attack_speed' })}</span>
-                            <span className="S_top-stat3">#3</span>
-                            <span className="S_top-stat2">{intl.formatMessage({ id: 'detail.health' })}</span>
-                            <span className="S_top-stat3">#14</span>
+                            <span className="S_top-stat1">{intl.formatMessage({ id: 'detail.squadStat' })}</span>
+                            <span className="S_top-stat2">{intl.formatMessage({ id: 'detail.giveDmg' })}</span>
+                            <span className="S_top-stat3">-10%</span>
+                            <span className="S_top-stat2">{intl.formatMessage({ id: 'detail.takeDmg' })}</span>
+                            <span className="S_top-stat3">0%</span>
                         </div>
                         <div className="S_top-stat">
-                            <span className="S_top-stat1">{intl.formatMessage({ id: 'detail.downState' })}</span>
-                            <span className="S_top-stat2">{intl.formatMessage({ id: 'detail.attack' })}</span>
-                            <span className="S_top-stat3">#1</span>
-                            <span className="S_top-stat2">{intl.formatMessage({ id: 'detail.attack_speed' })}</span>
-                            <span className="S_top-stat3">#3</span>
-                            <span className="S_top-stat2">{intl.formatMessage({ id: 'detail.health' })}</span>
-                            <span className="S_top-stat3">#14</span>
+                            <span className="S_top-stat1">{intl.formatMessage({ id: 'detail.duoStat' })}</span>
+                            <span className="S_top-stat2">{intl.formatMessage({ id: 'detail.giveDmg' })}</span>
+                            <span className="S_top-stat3">-15%</span>
+                            <span className="S_top-stat2">{intl.formatMessage({ id: 'detail.takeDmg' })}</span>
+                            <span className="S_top-stat3">0%</span>
                         </div>
                         <div className="S_Data-period">
                             <span>{intl.formatMessage({ id: 'Data-period' })}</span>

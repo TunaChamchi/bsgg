@@ -41,13 +41,12 @@
     },
 
     "detail": {
-        "upState": "상위 능력치",
-        "downState": "하위 능력치",
-        "attack": "공격력",
-        "attack_speed": "공격속도",
-        "health": "체력",
-        "skill_info": "스킬 정보",
-        "avg": "평균"
+        "duoStat": "듀오 피해증폭",
+        "squadStat": "스쿼드 피해증폭",
+        "giveDmg": "주는 피해",
+        "takeDmg": "받는 피해",
+        "avg": "평균",
+        "skill_info": "스킬 정보"
     },
 
     "characters": {
