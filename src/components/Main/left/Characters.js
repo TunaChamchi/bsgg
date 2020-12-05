@@ -42,7 +42,7 @@ class Characters extends Component {
                 <div className="cha4" key={'cha4'+idx}>
                     <Link to={link0}><img className="chaimg" key={'chaimg'+sub[0]} src={'img/Characters/'+sub[0]+'.png'} /></Link>&nbsp;
                     {sub[1] ? <Link to={link1}><img className="chaimg" key={'chaimg'+sub[1]} src={sub[1] ? 'img/Characters/'+sub[1]+'.png' : ''} /></Link>: <img className="chaimg-blank" key={'chaimg'+idx} />}&nbsp;
-                    {sub[2] ? <Link to={link2}><img className="chaimg" key={'chaimg'+sub[2]} src={sub[2] ? 'img/Characters/'+sub[2]+'.png' : ''} /></Link> : <img className="chaimg-blank" key={'chaimg'+idx+1} />}
+                    {sub[2] ? <Link to={link2}><img className="chaimg" key={'chaimg'+sub[2]} src={sub[2] ? 'img/Characters/'+sub[2]+'.png' : ''} /></Link> : <img className="chaimg-blank" key={'chaimg'+idx} />}
                 </div>
             )
         });
