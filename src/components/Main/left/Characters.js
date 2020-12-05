@@ -1,4 +1,5 @@
 import React, { Component, Suspense } from 'react';
+import { Link } from 'react-router-dom';
 import { injectIntl  } from 'react-intl';
 import CharList from 'data/character.json';
 
@@ -23,7 +24,7 @@ class Characters extends Component {
     }
 
     characterList = () => {
-        const { searchList, image } = this.state;
+        const { searchList } = this.state;
 
         const list = []
 
@@ -32,13 +33,19 @@ class Characters extends Component {
             list.push(sub);
         }
 
-        return list.map((sub, idx) =>
-            <div className="cha4" key={'cha4'+idx}>
-                <img className="chaimg" key={'chaimg'+sub[0]} src={'img/Characters/'+sub[0]+'.png'} />&nbsp;
-                <img className="chaimg" key={'chaimg'+sub[1]} src={sub[1] ? 'img/Characters/'+sub[1]+'.png' : ''} />&nbsp;
-                <img className="chaimg" key={'chaimg'+sub[2]} src={sub[2] ? 'img/Characters/'+sub[2]+'.png' : ''} />
-            </div>
-        );
+        return list.map((sub, idx) => {            
+            const link0 = 'Detail?character='+sub[0];
+            const link1 = 'Detail?character='+sub[1];
+            const link2 = 'Detail?character='+sub[2];
+            
+            return (
+                <div className="cha4" key={'cha4'+idx}>
+                    <Link to={link0}><img className="chaimg" key={'chaimg'+sub[0]} src={'img/Characters/'+sub[0]+'.png'} /></Link>&nbsp;
+                    {sub[1] ? <Link to={link1}><img className="chaimg" key={'chaimg'+sub[1]} src={sub[1] ? 'img/Characters/'+sub[1]+'.png' : ''} /></Link>: <img className="chaimg-blank" key={'chaimg'+idx} />}&nbsp;
+                    {sub[2] ? <Link to={link2}><img className="chaimg" key={'chaimg'+sub[2]} src={sub[2] ? 'img/Characters/'+sub[2]+'.png' : ''} /></Link> : <img className="chaimg-blank" key={'chaimg'+idx} />}
+                </div>
+            )
+        });
     }
 
 

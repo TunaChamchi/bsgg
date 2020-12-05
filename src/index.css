@@ -191,6 +191,9 @@ button:hover{
     width: 95px;
     background-color: rgb(120, 120, 120);
 }
+.chaimg-blank{
+    width: 95px;
+}
 .main-right{
     float: right;
     background-color: rgb(83, 83, 83);
@@ -736,7 +739,7 @@ button:hover{
 .S_Skill2_info{
     white-space: pre-line;
     font-size: 13pt;
-    margin-top: -5px;
+    margin-top: 15px;
 }
 .S_right{
     width: 390px;

@@ -1,16 +1,18 @@
 import avg from 'data/avg.json';
 import CharList from 'data/character.json';
 import WeaponList from 'data/weapon.json';
-import ItemList from 'data/item.json';
+import ArmorList from 'data/armor.json';
+import version from 'data/version.json';
 
 const max = {};
+
+export const Version = 'Upadated ' + version['updated'] + ' / Data period ' + version['data-period'];
 
 export const Avg = (range, type) => {
     return avg[range][type];
 }
 
 export const Max = (range, type) => {
-    console.log('max', max[range][type]);
     return max[range][type];
 }
 
@@ -144,14 +146,14 @@ export const Weapon = (character, weapon, type) => {
     return list;
 }
 
-export const Item = (range, type) => {
-    const itemList = ItemList[type]
+export const Armor = (range, type) => {
+    const armorist = ArmorList[type]
     const list = [];
-    for (const key in itemList) {
+    for (const key in armorist) {
         try {
             const data = {
                 name: key,
-                'win-rate': itemList[key][range]
+                'win-rate': armorist[key][range]
             };
 
             list.push(data);
@@ -159,11 +161,6 @@ export const Item = (range, type) => {
             break;
         }
     }
-
-    console.log('range', range);
-    console.log('type', type);
-    console.log('itemList', itemList);
-    console.log('list', list);
 
     return list;    
 }

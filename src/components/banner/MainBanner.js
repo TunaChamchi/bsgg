@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { injectIntl  } from 'react-intl';
-//import langaugeLogo from 'img/langauge_logo.png';
+import { Langauge  } from 'components/banner';
+import { Version } from 'lib/data'
 import logo from 'img/main_logo.svg';
 
 class MainBanner extends Component {
@@ -10,10 +11,7 @@ class MainBanner extends Component {
         return (
             <div className="banner"> 
                 <div className="banner-top">
-                    <div className="language">
-                        <img className="langaugelogo" src={'https://i.ibb.co/MRF3VmN/image.png'} />
-                        <button className="langaugebutton">{intl.formatMessage({id:'main.banner.language'})}</button>
-                    </div>
+                    <Langauge />
                     
                     <div className="mainlogo">
                         <img className="logo" src={logo}/>
@@ -27,7 +25,7 @@ class MainBanner extends Component {
                     </div>
 
                     <div className="Data-period">
-                        <span>{intl.formatMessage({id:'Data-period'})}</span>
+                        <span>{Version}</span>
                     </div>
                 </div>
             </div>

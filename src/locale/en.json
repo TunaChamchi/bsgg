@@ -17,6 +17,7 @@
     "kill": "Kill",
     "avg-kill": "Avg-kill",
     "lately-patch": "Recent patch",
+    "name":"Name",
 
 
     "main": {
@@ -47,7 +48,9 @@
         "giveDmg": "Inflict",
         "takeDmg": "Receive",
         "avg": "avg",
-        "skill_info": "Skill Info"
+        "skill_info": "Skill Info",
+        "passive": "Passive",
+        "weaponSkill": "WeaponSkill"
     },
 
     "characters": {
@@ -89,6 +92,13 @@
         "배트": "Bat", 
         "망치": "Hammer", 
         "석궁": "Crossbow"        
+    },
+    "armor": {
+        "옷": "Chest",
+        "머리":" Head",
+        "팔": "Arm",
+        "다리": "Leg",
+        "장식": "Accessory"
     },
     "items":{
         "마탄의사수": "마탄의사수",

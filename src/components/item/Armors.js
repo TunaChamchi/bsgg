@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { injectIntl } from 'react-intl';
-import { Tier } from 'components/Main/right'
-import { Item } from 'lib/data'
+import { Armor } from 'lib/data'
 
-class Items extends Component {
+class Armors extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -26,7 +25,7 @@ class Items extends Component {
         const { type, typeFocus } = this.state;
         const { range } = this.props;
 
-        this.setState({ itemList: Item(range, type[typeFocus]) });
+        this.setState({ itemList: Armor(range, type[typeFocus]) });
     };
 
     typeHandler = (idx) => {
@@ -40,44 +39,47 @@ class Items extends Component {
             <div className={'S_item_tab ' + (idx === typeFocus ? 'actived' : '')}
                 key={'type'+idx}
                 onClick={(e) => this.typeHandler(idx)}>
-                {intl.formatMessage({id: name})}
+                {intl.formatMessage({id:'armor.'+name})}
             </div>
         );        
     }
 
-    itemsView = () => { 
+    armorsView = () => { 
+        const { intl } = this.props;
         const { itemList, type, typeFocus } = this.state;
 
         itemList.sort((a, b) => b['win-rate'] - a['win-rate']);
 
-        return itemList.map((item, idx) =>
-            <div class="S_item_rank"
+        return itemList.map((armor, idx) =>
+            <div className="S_item_rank"
                 key={'item' + idx}>
-                <span class="S_item_rank1">{idx+1}</span>
-                <img class="S_item_rank2" src={'img/Item/Item/'+type[typeFocus]+'/'+item['name']+'.jpg'} />
-                <span class="S_item_rank3">{item['name']}</span>
-                <span class="S_item_rank6">{item['win-rate']}%</span>
+                <span className="S_item_rank1">{idx+1}</span>
+                <img className="S_item_rank2" src={'img/Item/Armor/'+type[typeFocus]+'/'+armor['name']+'.jpg'} />
+                <span className="S_item_rank3">{intl.formatMessage({id: 'items.'+armor['name']})}</span>
+                <span className="S_item_rank6">{armor['win-rate']}%</span>
             </div>
         );
     }
 
     render() {
+        const { intl } = this.props;
+
         return (
-            <div class="S_right2">
-                <div class="S_item_tab_banner2">
-                    <div class="tabHeaders">
+            <div className="S_right2">
+                <div className="S_item_tab_banner2">
+                    <div className="tabHeaders">
                         {this.typeView()}
                     </div>
-                    <div class="S_item_sort_b">
-                        <span class="S_item_sort_b1">순위</span>
-                        <span class="S_item_sort_b2">이름</span>
-                        <span class="S_item_sort_b3">승률</span>
+                    <div className="S_item_sort_b">
+                        <span className="S_item_sort_b1">{intl.formatMessage({id:'rank'})}</span>
+                        <span className="S_item_sort_b2">{intl.formatMessage({id:'name'})}</span>
+                        <span className="S_item_sort_b3">{intl.formatMessage({id:'win-rate'})}</span>
                     </div>
                 </div>
-                {this.itemsView()}
+                {this.armorsView()}
             </div>
         );
     };
 }
 
-export default injectIntl(Items);
+export default injectIntl(Armors);

@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { injectIntl } from 'react-intl';
 import queryString from 'query-string';
 import { SubBanner } from 'components/banner';
-import { Weapons, Items } from 'components/item';
-import { CharacterScore, Max, Avg } from 'lib/data';
+import { Weapons, Armors } from 'components/item';
+import { Version, CharacterScore, Max, Avg } from 'lib/data';
 
 class Detail extends Component {
     constructor(props) {
@@ -45,22 +45,29 @@ class Detail extends Component {
         const rangeFocus = query.range || 'RANKER';
         const typeFocus = query.type || 'solo';
 
-        const character = query.character;
-        const weapon = query.weapon;
-
         const list = CharacterScore(rangeFocus, typeFocus);
+
+        const character = query.character;
 
         let weaponTotal = 0;
         list.forEach(data => {
             if (data['character'] === character) {
-                if (data['weapon'] === weapon) {
-                    this.setState({ data: data });
-                }
                 weaponTotal += data['data']['pick-rate'];
                 this.state.weaponList.push({
                     name: data['weapon'],
                     pick: data['data']['pick-rate']
                 });
+            }
+        });
+
+        this.state.weaponList.sort((a, b) => b['pick'] - a['pick']);
+        let weapon = query.weapon || this.state.weaponList[0]['name'];
+
+        list.forEach(data => {
+            if (data['character'] === character) {
+                if (data['weapon'] === weapon) {
+                    this.setState({ data: data });
+                }
             }
         });
 
@@ -138,7 +145,7 @@ class Detail extends Component {
 
     render() {
         const { intl } = this.props;
-        const { data, character, weapon, rangeFocus, typeFocus } = this.state;
+        const { data, character, weapon, rangeFocus, typeFocus,skill, skillFocus } = this.state;
 
         const img_char = 'img/Characters/' + data['character'] + (data['tier'] > 0 ? '' : '_오피') + '.png';
         const img_tier = data['tier'] > 0 ? 'img/Tier/' + data['tier'] + '티어.png' : 'img/Tier/1티어.png';
@@ -154,6 +161,10 @@ class Detail extends Component {
         const pick_rate_avg = (avg['pick-rate'] / max['pick-rate']) * 320 - 22;
         const avg_kill_avg  = (avg['avg-kill']  / max['avg-kill'])  * 320 - 22;
         const avg_rank_avg  = (max['avg-rank']  / avg['avg-rank'])  * 320 - 22;
+
+        const skillType  = skill[skillFocus] === 'T' ? intl.formatMessage({ id: 'detail.passive' }) : skill[skillFocus] === 'D' ? intl.formatMessage({ id: 'detail.weaponSkill' }) : skill[skillFocus];
+        const skilName   = skill[skillFocus] === 'D' ? intl.formatMessage({ id: 'skill.'+weapon+'.name' })   : intl.formatMessage({ id: 'skill.'+character+'.'+skill[skillFocus]+'.name' });
+        const skilDetail = skill[skillFocus] === 'D' ? intl.formatMessage({ id: 'skill.'+weapon+'.Detail' }) : intl.formatMessage({ id: 'skill.'+character+'.'+skill[skillFocus]+'.Detail' });
 
         return (
             <div>
@@ -183,7 +194,7 @@ class Detail extends Component {
                             <span className="S_top-stat3">0%</span>
                         </div>
                         <div className="S_Data-period">
-                            <span>{intl.formatMessage({ id: 'Data-period' })}</span>
+                            <span>{Version}</span>
                         </div>
                     </div>
                     <div className="S_left">
@@ -257,14 +268,13 @@ class Detail extends Component {
                             </div>
                             <div className="S_Skill2">
                                 <div className="S_Skill2_keyname">
-                                    <span>패시브</span>
+                                    <span>{skillType}</span>
                                 </div>
                                 <div className="S_Skill2_name">
-                                    <span>피의 축제</span>
+                                    <span>{skilName}</span>
                                 </div>
                                 <div className="S_Skill2_info">
-                                    <span>재키가 누군가를 처치하면 일시적으로 공격력이 상승합니다.
-                            ※2가지의 피의 축제 효과는 중첩 됩니다.</span>
+                                    <span>{skilDetail}</span>
                                 </div>
                             </div>
                         </div>
@@ -275,7 +285,7 @@ class Detail extends Component {
                         range={rangeFocus}
                         type={typeFocus}
                     />
-                    <Items 
+                    <Armors 
                         range={typeFocus}
                     />
                 </div>
