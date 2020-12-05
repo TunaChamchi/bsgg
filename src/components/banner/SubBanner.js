@@ -22,7 +22,7 @@ class SubBanner extends Component {
                         </Link>
                     </div>
                     <div className="S_search">
-                        <input className="S_search1" placeholder="  챔피언을 검색하세요." /> 
+                        <input className="S_search1" onChange={this.searchHandler} placeholder={intl.formatMessage({id:'main.banner.placeholder'})} /> 
                         <button className="S_search2">검색</button>
                     </div>
                 </div>

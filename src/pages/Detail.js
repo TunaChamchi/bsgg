@@ -165,7 +165,6 @@ class Detail extends Component {
                             <img className="S_top-cha2" src={img_tier} />
                             <span className="S_top-cha3">{intl.formatMessage({id: 'characters.'+data['character']})}</span>
                         </div>
-                        <div className="S_top-Nurf"><span>NURF</span></div>
                         <div className="tabHeaders">
                             {this.weaponListView()}
                         </div>

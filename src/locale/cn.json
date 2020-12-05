@@ -1,40 +1,39 @@
 {
     "Data-period": "Upadated 2020.11.19 / Data period 2020.11.17 ~ 11.18",
-    "search": "검색",
-    "character": "캐릭터",
-    "weapon": "무기",
-    "ranking": "랭킹",
-    "rank": "순위",
-    "avg-rank": "평균순위",
-    "item": "아이템",
-    "solo": "솔로",
-    "duo": "듀오",
-    "squad": "스쿼드",
-    "tier": "티어",
-    "total": "티어",
-    "win-rate": "승률",
-    "pick-rate": "픽률",
-    "kill": "킬",
-    "avg-kill": "평균킬",
-    "lately-patch": "최근패치",
-    
+    "search": "搜索",
+    "character": "性格",
+    "weapon": "兵器",
+    "ranking": "排名",
+    "rank": "排名",
+    "avg-rank": "平均-排名",
+    "item": "物品",
+    "solo": "单人",
+    "duo": "二人",
+    "squad": "三人",
+    "tier": "层级",
+    "total": "层级",
+    "win-rate": "胜率",
+    "pick-rate": "登场率",
+    "kill": "击杀",
+    "avg-kill": "平均-击杀",
+    "lately-patch": "最近-",
 
 
     "main": {
         "banner": {
-            "language": "한국어",
+            "language": "简体中文",
             "menu": {
-                "rank": "랭크",
-                "item": "아이템"
+                "rank": "排名",
+                "item": "物品"
             },
-            "placeholder": "  캐릭터를 검색하세요."
+            "placeholder": "  角色搜索."
         },
         "left": {
             "search": {
-                "placeholder": "아이디를 입력하세요."
+                "placeholder": "別名搜索"
             },
             "characters": {
-                "placeholder": "캐릭터를 검색하세요."
+                "placeholder": "角色搜索"
             }
         },
         "right": {
@@ -43,53 +42,54 @@
     },
 
     "detail": {
-        "duoStat": "듀오 피해증폭",
-        "squadStat": "스쿼드 피해증폭",
-        "giveDmg": "주는 피해",
-        "takeDmg": "받는 피해",
-        "avg": "평균",
-        "skill_info": "스킬 정보"
+        "duoStat": "二人 害-增幅",
+        "squadStat": "三人 害-增幅",
+        "giveDmg": "给害",
+        "takeDmg": "被害",
+        "avg": "平均",
+        "skill_info": "技能资讯"
     },
 
     "characters": {
-        "아야": "아야",
-        "피오라": "피오라",
-        "현우": "현우",
-        "재키": "재키",
-        "매그너스": "매그너스",
-        "나딘": "나딘",
-        "자히르": "자히르",
-        "하트": "하트",
-        "아이솔": "아이솔",
-        "리 다이린": "리 다이린",
-        "유키": "유키",
-        "혜진": "혜진",
-        "쇼우": "쇼우",
-        "시셀라": "시셀라",
-        "키아라": "키아라",
-        "아드리아나": "아드리아나",
-        "쇼이치": "쇼이치"
+        "아야": "阿雅",
+        "피오라": "菲欧娜",
+        "현우": "Hyunwoo",
+        "재키": "杰琪",
+        "매그너스": "马格努斯",
+        "나딘": "娜町",
+        "자히르": "扎希尔",
+        "하트": "Hart",
+        "아이솔": "Isol",
+        "리 다이린": "Li Dailin",
+        "유키": "Yuki",
+        "혜진": "Hyejin",
+
+        "쇼우": "Xiukai",
+        "시셀라": "Sissela",
+        "키아라": "Chiara",
+        "아드리아나": "Adriana",
+        "쇼이치": "Shoichi"
     },
     "weapons": {
-        "투척": "투척", 
-        "권총": "권총", 
-        "돌격소총": "돌격소총", 
-        "저격총": "저격총", 
-        "레이피어": "레이피어", 
-        "창": "창", 
-        "양손검": "양손검", 
-        "기타": "기타", 
-        "활": "활", 
-        "암기": "암기", 
-        "톤파": "톤파", 
-        "글러브": "글러브", 
-        "도끼": "도끼", 
-        "쌍검": "쌍검", 
-        "단검": "단검", 
-        "쌍절곤": "쌍절곤", 
-        "배트": "배트", 
-        "망치": "망치", 
-        "석궁": "석궁"        
+        "투척": "Throw", 
+        "권총": "Pistol", 
+        "돌격소총": "Assault Rifle", 
+        "저격총": "Sniper Rifle", 
+        "레이피어": "Rapier", 
+        "창": "Spear", 
+        "양손검": "Two-Handed Sword", 
+        "기타": "Guitar", 
+        "활": "Bow", 
+        "암기": "Shuriken", 
+        "톤파": "Tonfa", 
+        "글러브": "Glove", 
+        "도끼": "Axe", 
+        "쌍검": "Dual Swords", 
+        "단검": "Dagger", 
+        "쌍절곤": "Nunchaku", 
+        "배트": "Bat", 
+        "망치": "Hammer", 
+        "석궁": "Crossbow"        
     },
     "items":{
         "마탄의사수": "마탄의사수",

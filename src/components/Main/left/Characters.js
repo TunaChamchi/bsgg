@@ -51,13 +51,6 @@ class Characters extends Component {
                     <span>{intl.formatMessage({id:'character'})}</span>
                 </div>
                 <div className="cha1">
-                    <div className="tabHeaders">
-                        <img className="tabHeader3 actived" src="https://i.ibb.co/BchSVM0/Warrior.png"/>
-                        <img className="tabHeader3" src="https://i.ibb.co/KrRJTMb/Tanker.png"/>
-                        <img className="tabHeader3" src="https://i.ibb.co/j6rvtLs/Dealer.png"/>
-                        <img className="tabHeader3" src="https://i.ibb.co/LSGxBQq/Assassin.png"/>
-                        <img className="tabHeader3" src="https://i.ibb.co/LNHPGTj/Nuker.png"/>
-                    </div>
                     <input className="chasearch" onChange={this.searchHandler} placeholder={intl.formatMessage({id:'main.left.characters.placeholder'})} /> 
                 </div>
                 <div className="cha2">
