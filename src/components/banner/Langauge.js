@@ -23,7 +23,7 @@ class Langauge extends Component {
         }
 
         return Object.keys(locale).map((lang, idx) => 
-            <option key={idx} value={lang}>{locale[lang]['name']}</option>
+            <option className="langaugebutton2" key={idx} value={lang}>{locale[lang]['name']}</option>
         );
     }
 
@@ -33,10 +33,9 @@ class Langauge extends Component {
         return (
             <div className="language">
                 <img className="langaugelogo" src={'https://i.ibb.co/MRF3VmN/image.png'} />
-                <select value={defaultLang()} onChange={(e) => {this.langaugeHandler(e)}}>
+                <select className="langaugebutton" value={defaultLang()} onChange={(e) => {this.langaugeHandler(e)}}>
                     {this.langaugeView()}
                 </select>
-                <button className="langaugebutton">{intl.formatMessage({id:'main.banner.language'})}</button>
             </div>
         );
     };

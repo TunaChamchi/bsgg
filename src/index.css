@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100;300;400;500;700;900&display=swap');
 @font-face {
     font-family: 'congruency3d';
     src: url('fonts/congruency3d-webfont.ttf') format('truetype');
@@ -44,6 +45,10 @@ button:hover{
 .tabHeaders :hover{
     cursor: pointer;
 }
+.S_search3 :hover{
+    cursor: pointer;
+    background-color:  rgba(0,0,0,0);
+}
 /* 1page */
 .banner {
     background-color: rgb(83, 83, 83);
@@ -62,13 +67,20 @@ button:hover{
     float: left;
 }
 .langaugebutton{
+    width: 90px;
     border-color: rgba(0,0,0,0);
-    background-color:  rgba(0,0,0,0);
+    background-color: rgb(83, 83, 83);
     border-radius: 0px;
     font-size: 17px;
     font-weight: bold;
     margin-left: 3px;
     margin-top: -3px;
+}
+.langaugebutton2{
+    width: 90px;
+    background-color:  rgba(0,0,0,0);
+    border-radius: 3px;
+    font-size: 17px;
 }
 .banner-top {
     width: 1152px;
@@ -453,6 +465,7 @@ button:hover{
     margin-top: 45px;
     height: 30px;
     width: 300px;
+    border-radius: 3px;
 }
 .S_search1{
     border-color: rgba(0,0,0,0);
@@ -460,16 +473,42 @@ button:hover{
     font-size: 11pt;
     margin-top: 5px;
     float: left;
-    width: 241px;
+    width: 300px;
+    padding-left: 10px;
+    color:gray;
 }
-.S_search2{
-    width: 51px;
-    border-color: rgba(0,0,0,0);
-    background-color:  rgb(120, 120, 120);
-    border-radius: 0px;
+.S_search3{
+    background-color: rgb(83, 83, 83);
+    position: absolute;
+    margin-top: 77px;
+    margin-left: 852px;
+    width: 300px;
     font-size: 13pt;
-    font-weight: bold;
+    padding-top: 1px;
+    padding-bottom: 3px;
+    text-align: left;
+    box-shadow: 0px 3px 3px 3px;
+    border-radius: 3px;
+}
+.S_search4{
+    width: 300px;
+    height: 45px;
+    background-color: rgb(120, 120, 120);
+    margin-top: 2px;
+}
+.searchimg{
+    height: 45px;
+    margin-left: 30px;
+    margin-right: 20px;
     float: left;
+}
+.searchfont{
+    display: inline-block;
+    width: 125px;
+    padding-top: 8px;
+    float: left;
+    font-weight: 400;
+    text-align: center;
 }
 .S_main{
     width: 1152px;
@@ -840,7 +879,7 @@ button:hover{
 .S_item_sort_b3{
     float: left;
     width: 40px;
-    margin-left: 140px;
+    margin-left: 130px;
 }
 .S_item_rank{
     clear: both;

@@ -29,7 +29,10 @@ class SubBanner extends Component {
         const { searchList } = this.state;
 
         return searchList.map((name, idx) => 
-            <option key={idx} onClick={(e) => this.link(name)}>{name}</option>
+            <div className="S_search4" key={idx} onClick={(e) => this.link(name)}>
+                <img className="searchimg" key={'searchimg'+name} src={'img/rank/'+name+'.png'} />
+                <div className="searchfont"> {name} </div>
+            </div>
         );
     }
     link = (name) => {
@@ -38,6 +41,7 @@ class SubBanner extends Component {
 
     render() {
         const { intl } = this.props
+        const { searchList } = this.state;
 
         return (
             <div className="S_banner">
@@ -51,13 +55,14 @@ class SubBanner extends Component {
                     </div>
                     <div className="S_search">
                         <input className="S_search1" onChange={this.searchHandler} placeholder={intl.formatMessage({id:'main.banner.placeholder'})} /> 
-                        <button className="S_search2">{intl.formatMessage({id:'search'})}</button>
                     </div>
-                    <div>
-                        <select multiple>
-                            {this.searchView()}
-                        </select>
-                    </div>
+                    {
+                        searchList.length !== 0 &&
+                            <div multiple className="S_search3">
+                                {this.searchView()}
+                            </div>
+                    }
+                    
                 </div>
             </div>
         );
