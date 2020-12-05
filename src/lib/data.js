@@ -31,7 +31,7 @@ export const CharacterScore = (range, type) => {
     let max_win_rate = 0;
     let max_pick_rate = 0;
     let max_avg_kill = 0;
-    let max_avg_rank = 0;
+    let max_avg_rank = 18;
 
     // 값 가져오기
     for (const key1 in list) {
@@ -40,10 +40,10 @@ export const CharacterScore = (range, type) => {
             const value = {character:key1, weapon:key2, data:data};
 
             tier.push(value);
-            if (data['win-rate'] >  max_win_rate)   max_win_rate  = data['win-rate'];
+            if (data['win-rate']  > max_win_rate)   max_win_rate  = data['win-rate'];
             if (data['pick-rate'] > max_pick_rate)  max_pick_rate = data['pick-rate'];
-            if (data['avg-kill'] >  max_avg_kill)   max_avg_kill  = data['avg-kill'];
-            if (data['avg-rank'] >  max_avg_rank)   max_avg_rank  = data['avg-rank'];
+            if (data['avg-kill']  > max_avg_kill)   max_avg_kill  = data['avg-kill'];
+            if (data['avg-rank']  < max_avg_rank)   max_avg_rank  = data['avg-rank'];
         }
     }
 
@@ -144,6 +144,26 @@ export const Weapon = (character, weapon, type) => {
     return list;
 }
 
-export const Item = () => {
-    
+export const Item = (range, type) => {
+    const itemList = ItemList[type]
+    const list = [];
+    for (const key in itemList) {
+        try {
+            const data = {
+                name: key,
+                'win-rate': itemList[key][range]
+            };
+
+            list.push(data);
+        } catch {
+            break;
+        }
+    }
+
+    console.log('range', range);
+    console.log('type', type);
+    console.log('itemList', itemList);
+    console.log('list', list);
+
+    return list;    
 }

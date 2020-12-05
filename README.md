@@ -1,4 +1,8 @@
 # server npm start http://15.164.233.67:3000/
+
+git pull
+netstat -anop | grep 3000
+kill pid
 (npm run start&)
 
 # Getting Started with Create React App

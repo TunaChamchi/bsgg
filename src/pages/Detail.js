@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { injectIntl } from 'react-intl';
 import queryString from 'query-string';
 import { SubBanner } from 'components/banner';
-import { Weapons } from 'components/item';
+import { Weapons, Items } from 'components/item';
 import { CharacterScore, Max, Avg } from 'lib/data';
 
 class Detail extends Component {
@@ -148,12 +148,12 @@ class Detail extends Component {
         const win_rate_width  = (data['data']['win-rate']  / max['win-rate'])  * 320;
         const pick_rate_width = (data['data']['pick-rate'] / max['pick-rate']) * 320;
         const avg_kill_width  = (data['data']['avg-kill']  / max['avg-kill'])  * 320;
-        const avg_rank_width  = (data['data']['avg-kill']  / max['avg-kill'])  * 320;
+        const avg_rank_width  = (max['avg-rank']  / data['data']['avg-rank'])  * 320;
 
         const win_rate_avg  = (avg['win-rate']  / max['win-rate'])  * 320 - 22;
         const pick_rate_avg = (avg['pick-rate'] / max['pick-rate']) * 320 - 22;
         const avg_kill_avg  = (avg['avg-kill']  / max['avg-kill'])  * 320 - 22;
-        const avg_rank_avg  = (avg['avg-kill']  / max['avg-kill'])  * 320 - 22;
+        const avg_rank_avg  = (max['avg-rank']  / avg['avg-rank'])  * 320 - 22;
 
         return (
             <div>
@@ -275,6 +275,9 @@ class Detail extends Component {
                         weapon={weapon}
                         range={rangeFocus}
                         type={typeFocus}
+                    />
+                    <Items 
+                        range={typeFocus}
                     />
                 </div>
             </div>
