@@ -69,7 +69,6 @@ class Tier extends Component {
                     <span className="rank3pick1">{data['data']['pick-rate'].toFixed(1)}%</span>&nbsp;
                     <span className="rank3kill1">{data['data']['avg-kill'].toFixed(1)}</span>&nbsp;
                     <span className="rank3avg1">{data['data']['avg-rank'].toFixed(1)}</span>&nbsp;
-                    <span className="rank3recentNurf">NURF</span>
                 </div>
             );
         });
@@ -110,7 +109,6 @@ class Tier extends Component {
                     <span className="rank3pick">{intl.formatMessage({id: 'pick-rate'})}</span>&nbsp;
                     <span className="rank3kill">{intl.formatMessage({id: 'avg-kill'})}</span>&nbsp;
                     <span className="rank3avg">{intl.formatMessage({id: 'avg-rank'})}</span>&nbsp;
-                    <span className="rank3recent">{intl.formatMessage({id: 'lately-patch'})}</span>
                 </div>
                 {this.listView()}
             </div>
