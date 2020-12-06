@@ -91,8 +91,8 @@ class Detail extends Component {
             return (
                 <Link to={'Detail?range='+rangeFocus+'&type='+typeFocus+'&character='+character+'&weapon='+weapon['name']} key={'weaponList' + idx}>
                     <div className={'tabHeader4 ' + (weapon['name'] === data['weapon'] ? 'actived' : '')}>
-                        <img className="S_top-weapone1" src={'img/Weapons/' + weapon['name'] + '.jpg'} />
-                        <span className="S_top-weapone2">{pick}%</span>
+                        <img className="S_top-weapon1" src={'img/Weapons/' + weapon['name'] + '.jpg'} />
+                        <span className="S_top-weapon2">{pick}%</span>
                     </div>
                 </Link>
             )

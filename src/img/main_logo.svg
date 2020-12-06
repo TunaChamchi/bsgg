@@ -8,7 +8,7 @@
 	.st2{font-size:50.5406px;}
 </style>
 <g>
-	<polygon className="st0" points="81.43,1093.32 164.73,1175.61 164.73,1011.04 	"/>
+	<polygon class="st0" points="81.43,1093.32 164.73,1175.61 164.73,1011.04 	"/>
 	<g>
 		<path d="M958.54,1072.7L846.9,961.06l336.02-336.02l-56.37-56.37L902.17,793.05c-31.01,31.01-68.23,46.34-111.64,45.97
 			c-43.78,0-81.17-15.5-112.19-46.52l-55.82-55.82C591.51,705.67,576,668.27,576,624.49c0-43.78,15.32-80.99,45.97-111.64
@@ -56,7 +56,7 @@
 	</g>
 </g>
 <g>
-	<text transform="matrix(1 0 0 1 1303.8782 1770.8289)" className="st1 st2">For.</text>
+	<text transform="matrix(1 0 0 1 1303.8782 1770.8289)" class="st1 st2">For.</text>
 	
 		<image style="overflow:visible;" width="600" height="350" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAFeCAYAAABZ12FcAAAgAElEQVR4nO3dd7zkVX3/8de9u8su
 y+4K0qVJsVBFYAFplsSYX5QIiYn5qUSNvSAoFhRjFxEbGogmomKMvZeYKJYfvQRUlLpSAkgXWFhg

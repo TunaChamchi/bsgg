@@ -63,7 +63,7 @@ class Tier extends Component {
                     <img className="rank3Updown" src={'img/UpDown/유지.png'} />&nbsp;
                     <span className="rank3Updown1">1</span>&nbsp;
                     <Link to={link}><img className="rank3cha1" src={character} /></Link>&nbsp;
-                    <img className="rank3weapone1" src={'img/Weapons/'+data['weapon']+'.jpg'} />&nbsp;
+                    <img className="rank3weapon1" src={'img/Weapons/'+data['weapon']+'.jpg'} />&nbsp;
                     <img className="rank3tier1" src={tier} />&nbsp;
                     <span className="rank3win1">{data['data']['win-rate'].toFixed(1)}%</span>&nbsp;
                     <span className="rank3pick1">{data['data']['pick-rate'].toFixed(1)}%</span>&nbsp;
@@ -103,7 +103,7 @@ class Tier extends Component {
                 <div className="rank3">
                     <span className="rank3rank">{intl.formatMessage({id: 'rank'})}</span>&nbsp;
                     <span className="rank3cha">{intl.formatMessage({id: 'character'})}</span>&nbsp;
-                    <span className="rank3weapone">{intl.formatMessage({id: 'weapon'})}</span>&nbsp;
+                    <span className="rank3weapon">{intl.formatMessage({id: 'weapon'})}</span>&nbsp;
                     <span className="rank3tier">{intl.formatMessage({id: 'tier'})}</span>&nbsp;
                     <span className="rank3win">{intl.formatMessage({id: 'win-rate'})}</span>&nbsp;
                     <span className="rank3pick">{intl.formatMessage({id: 'pick-rate'})}</span>&nbsp;
