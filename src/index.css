@@ -14,6 +14,7 @@ body {
   background-color: rgb(37, 37, 37);
   font-family: "Noto Sans KR", "noto sans sc";
   font-weight: 500;
+  min-height: 1700px;
 }
 
 input:focus{
