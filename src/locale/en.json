@@ -1,5 +1,5 @@
 {
-    "Data-period": "Upadated 2020.11.19 / Data period 2020.11.17 ~ 11.18",
+    "Data-period": "Updated 2020.11.19 / Data period 2020.11.17 ~ 11.18",
     "search": "Search",
     "character": "Character",
     "weapon": "Weapon",
@@ -17,7 +17,7 @@
     "kill": "Kill",
     "avg-kill": "Avg-kill",
     "lately-patch": "Recent patch",
-    "name":"Name",
+    "name":"名",
 
 
     "main": {
@@ -70,7 +70,8 @@
         "시셀라": "Sissela",
         "키아라": "Chiara",
         "아드리아나": "Adriana",
-        "쇼이치": "Shoichi"
+        "쇼이치": "Shoichi",
+        "실비아": "Silvia"
     },
     "weapons": {
         "투척": "Throw", 
