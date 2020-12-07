@@ -18,8 +18,8 @@ class Main extends Component {
                         <Rank />
                     </div>
                 </div>
-                <AdS />
-                <Footer />
+                {/*<AdS />
+                <Footer />*/}
             </div>
         );
     };
