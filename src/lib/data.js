@@ -93,11 +93,11 @@ export const CharacterScore = (range, type) => {
         }
 
         if (type === "solo")
-            data['score']['total'] = ( data['score']['win-rate']     + data['score']['pick-rate'] + data['score']['avg-kill']    + data['score']['avg-rank']/2 ) / 3.5;
+            data['score']['total'] = data['score']['win-rate']*1.5   + data['score']['pick-rate'] + data['score']['avg-kill']    + data['score']['avg-rank'];
         else if (type === "duo")
-            data['score']['total'] = ( data['score']['win-rate']*1.5 + data['score']['pick-rate'] + data['score']['avg-kill']/2  + data['score']['avg-rank']/3 ) / 4;
+            data['score']['total'] = data['score']['win-rate']*1.5   + data['score']['pick-rate'] + data['score']['avg-kill']/2  + data['score']['avg-rank']/2;
         else if (type === "squad")
-            data['score']['total'] = ( data['score']['win-rate']*2   + data['score']['pick-rate'] + data['score']['avg-kill']/3  + data['score']['avg-rank']/4 ) / 4.5;
+            data['score']['total'] = data['score']['win-rate']*1.5   + data['score']['pick-rate'] + data['score']['avg-kill']/3  + data['score']['avg-rank']/3;
         
         if (data['score']['total'] > max_score) max_score = data['score']['total'];
     });
