@@ -27,6 +27,9 @@ input::placeholder{
     font-family: "noto sans kr";
     font-weight: 300;
 }
+a{
+    color: black;
+}
 .chasearch::placeholder{
     color: black;
     opacity: 1;

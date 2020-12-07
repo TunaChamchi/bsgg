@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { injectIntl  } from 'react-intl';
 import { Langauge  } from 'components/banner';
 import logo from 'img/sub_logo.svg';
-import CharList from 'data/character.json';
+import { charList } from 'lib/utility'
 
 class SubBanner extends Component {
 	constructor(props) {
@@ -14,29 +14,28 @@ class SubBanner extends Component {
     }
 
     searchHandler = (event) => {
-        const value = event.target.value;
+        const value = event.target.value.toLowerCase();
 
         if (!value) {
             this.setState({searchList: []});
             return;
         }
 
-        const list = Object.keys(CharList).filter(key => key.indexOf(value) !== -1);
-        
+        const list = charList().filter(data => data['name'].toLowerCase().indexOf(value) !== -1);
+
         this.setState({searchList: list});
     }
     searchView = () => {
         const { searchList } = this.state;
 
-        return searchList.map((name, idx) => 
-            <div className="S_search4" key={idx} onClick={(e) => this.link(name)}>
-                <img className="searchimg" key={'searchimg'+name} src={'img/rank/'+name+'.png'} />
-                <div className="searchfont"> {name} </div>
-            </div>
+        return searchList.map((data, idx) => 
+            <Link to={'Detail?character='+data['key']} key={idx}>
+                <div className="S_search4" >
+                    <img className="searchimg" src={'img/rank/'+data['key']+'.png'} />
+                    <div className="searchfont"> {data['name']} </div>
+                </div>
+            </Link>
         );
-    }
-    link = (name) => {
-        window.location.href = 'Detail?character='+name;
     }
 
     render() {

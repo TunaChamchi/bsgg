@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { injectIntl  } from 'react-intl';
 import { Langauge  } from 'components/banner';
 import { Version } from 'lib/data'
+import { defaultLang } from 'lib/utility'
 import logo from 'img/main_logo.svg';
 
 class MainBanner extends Component {
@@ -21,7 +23,9 @@ class MainBanner extends Component {
                 <div className="banner-menu">
                     <div className="banner-botton">
                         <div className="trirank"></div>
-                        <button className="menubutton">{intl.formatMessage({id:'main.banner.menu.rank'})}</button>
+                        <a href={'https://playeternalreturn.com/'+defaultLang()+'/ranking/'} target="_blank">
+                            <button className="menubutton">{intl.formatMessage({id:'main.banner.menu.rank'})}</button>
+                        </a>
                     </div>
 
                     <div className="Data-period">

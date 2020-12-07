@@ -23,6 +23,7 @@ class Detail extends Component {
         };
     }
     componentWillMount() {
+        window.scrollTo(0, 0);
         this.init();
     };
     componentDidUpdate(prevProps, prevState){
@@ -32,6 +33,9 @@ class Detail extends Component {
 
         if (query.character !== prevquery.character || query.weapon !== prevquery.weapon
             || query.range !== prevquery.range || query.type !== prevquery.type) {
+            if (query.character !== prevquery.character) {
+                window.scrollTo(0, 0);
+            }
             this.init();
         }
     };

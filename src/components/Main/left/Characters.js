@@ -1,7 +1,7 @@
-import React, { Component, Suspense } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { injectIntl  } from 'react-intl';
-import CharList from 'data/character.json';
+import { charList } from 'lib/utility'
 
 class Characters extends Component {
 	constructor(props) {
@@ -12,14 +12,14 @@ class Characters extends Component {
     }
     
     componentDidMount() {
-        this.setState({searchList: Object.keys(CharList)});
+        this.setState({searchList: charList()});
     };
 
     searchHandler = (event) => {
-        const value = event.target.value;
+        const value = event.target.value.toLowerCase();
 
-        const list = Object.keys(CharList).filter(key => key.indexOf(value) !== -1);
-        
+        const list = charList().filter(data => data['name'].toLowerCase().indexOf(value) !== -1);
+
         this.setState({searchList: list});
     }
 
@@ -33,16 +33,16 @@ class Characters extends Component {
             list.push(sub);
         }
 
-        return list.map((sub, idx) => {            
-            const link0 = 'Detail?character='+sub[0];
-            const link1 = 'Detail?character='+sub[1];
-            const link2 = 'Detail?character='+sub[2];
+        return list.map((sub, idx) => {
+            const link0 = 'Detail?character='+sub[0]['key'];
+            const link1 = sub[1] ? 'Detail?character='+sub[1]['key'] : '';
+            const link2 = sub[1] ? 'Detail?character='+sub[2]['key'] : '';
             
             return (
                 <div className="cha4" key={'cha4'+idx}>
-                    <Link to={link0}><img className="chaimg" key={'chaimg'+sub[0]} src={'img/Characters/'+sub[0]+'.png'} /></Link>&nbsp;
-                    {sub[1] ? <Link to={link1}><img className="chaimg" key={'chaimg'+sub[1]} src={sub[1] ? 'img/Characters/'+sub[1]+'.png' : ''} /></Link>: <img className="chaimg-blank" key={'chaimg'+idx} />}&nbsp;
-                    {sub[2] ? <Link to={link2}><img className="chaimg" key={'chaimg'+sub[2]} src={sub[2] ? 'img/Characters/'+sub[2]+'.png' : ''} /></Link> : <img className="chaimg-blank" key={'chaimg'+idx+1} />}
+                              <Link to={link0}><img className="chaimg" key={'chaimg'+sub[0]['key']} src={'img/Characters/'+sub[0]['key']+'.png'} /></Link>&nbsp;
+                    {sub[1] ? <Link to={link1}><img className="chaimg" key={'chaimg'+sub[1]['key']} src={sub[1] ? 'img/Characters/'+sub[1]['key']+'.png' : ''} /></Link>: <img className="chaimg-blank" key={'chaimg'+idx} />}&nbsp;
+                    {sub[2] ? <Link to={link2}><img className="chaimg" key={'chaimg'+sub[2]['key']} src={sub[2] ? 'img/Characters/'+sub[2]['key']+'.png' : ''} /></Link> : <img className="chaimg-blank" key={'chaimg'+idx+1} />}
                 </div>
             )
         });
