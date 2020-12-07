@@ -19,7 +19,6 @@ body {
 .Ad_box_L{
     width: 300px;
     height: 400px;
-    background-color: white;
     position: absolute;
     top: 480px;
     left: 40px;
@@ -27,33 +26,16 @@ body {
 .Ad_box_R{
     width: 300px;
     height: 400px;
-    background-color: white;
     position: absolute;
     top: 480px;
-    left: 1580px;
-}
-.Ad_box_L2{
-    width: 300px;
-    height: 400px;
-    background-color: white;
-    position: absolute;
-    top: 400px;
-    left: 40px;
-}
-.Ad_box_R2{
-    width: 300px;
-    height: 400px;
-    background-color: white;
-    position: absolute;
-    top: 400px;
-    left: 1580px;
+    right: 40px;
 }
 .Ad_box_B{
     width: 1150px;
-    height: 200px;
-    background-color: white;
-    bottom: 50px;
-    left: 385px;
+    height: 400px;
+    position: absolute;
+    bottom: -1700px;
+    margin-left: calc(50% - 575px);
 }
 input:focus{
     outline: none;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { injectIntl } from 'react-intl';
 import queryString from 'query-string';
-import { SubBanner } from 'components/banner';
+import { SubBanner, AdS, Footer } from 'components/banner';
 import { Weapons, Armors } from 'components/item';
 import { Version, CharacterScore, Max, Avg } from 'lib/data';
 
@@ -20,10 +20,12 @@ class Detail extends Component {
             typeFocus: '',
             skill: ['T', 'Q', 'W', 'E', 'R', 'D'],
             skillFocus: 0,
+            ad_style: {},
         };
     }
     componentWillMount() {
         window.scrollTo(0, 0);
+
         this.init();
     };
     componentDidUpdate(prevProps, prevState){
@@ -149,7 +151,7 @@ class Detail extends Component {
 
     render() {
         const { intl } = this.props;
-        const { data, character, weapon, rangeFocus, typeFocus,skill, skillFocus } = this.state;
+        const { data, character, weapon, rangeFocus, typeFocus,skill, skillFocus, ad_style } = this.state;
 
         const img_char = 'img/Characters/' + data['character'] + (data['tier'] > 0 ? '' : '_오피') + '.png';
         const img_tier = data['tier'] > 0 ? 'img/Tier/' + data['tier'] + '티어.png' : 'img/Tier/1티어.png';
@@ -293,9 +295,8 @@ class Detail extends Component {
                         range={typeFocus}
                     />
                 </div>
-                <div className="Ad_box_L2">ad</div>
-                <div className="Ad_box_R2">ad</div>
-                <div className="Ad_box_B">ad</div>
+                <AdS />
+                <Footer />
             </div>
             
         );

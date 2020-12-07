@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { injectIntl  } from 'react-intl';
 import { Langauge  } from 'components/banner';
 import { Version } from 'lib/data'
