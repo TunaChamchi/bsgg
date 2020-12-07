@@ -293,7 +293,11 @@ class Detail extends Component {
                         range={typeFocus}
                     />
                 </div>
+                <div className="Ad_box_L2">ad</div>
+                <div className="Ad_box_R2">ad</div>
+                <div className="Ad_box_B">ad</div>
             </div>
+            
         );
     };
 }

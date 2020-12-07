@@ -17,7 +17,7 @@
     "kill": "Kill",
     "avg-kill": "Avg-kill",
     "lately-patch": "Recent patch",
-    "name":"名",
+    "name":"Name",
 
 
     "main": {
@@ -31,10 +31,10 @@
         },
         "left": {
             "search": {
-                "placeholder": "Enter your ID"
+                "placeholder": "Enter your ID."
             },
             "characters": {
-                "placeholder": "Search character"
+                "placeholder": "Search character."
             }
         },
         "right": {

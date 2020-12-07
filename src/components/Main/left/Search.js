@@ -20,7 +20,7 @@ class Search extends Component {
             console.log('value', value);
 
             var link = 'http://matchhistory.playeternalreturn.com/kr/name=';
-            
+
             if (defaultLang() === 'ko') {
                 link = 'http://matchhistory.playeternalreturn.com/kr/name=';
             } else if (defaultLang() === 'en') {
@@ -44,8 +44,7 @@ class Search extends Component {
             <div className="search">
                 <div className="trisearch"></div>
                 <input className="search1" placeholder={intl.formatMessage({id:'main.left.search.placeholder'})} 
-                    value={search} onChange={(e) => {this.onChange(e)}} onKeyPress={(e) => {this.onSubmit(e)}} />
-                <button className="search2">{intl.formatMessage({id:'search'})}</button>
+                    value={search} onChange={(e) => {this.onChange(e)}} onKeyPress={(e) => {this.onSubmit(e)}} />                
             </div>
         );
     };

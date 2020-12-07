@@ -12,6 +12,7 @@ class MainBanner extends Component {
 
         return (
             <div className="banner"> 
+            
                 <div className="banner-top">
                     <Langauge />
                     
