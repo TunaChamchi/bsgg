@@ -1,6 +1,24 @@
 # server npm start http://15.164.233.67:3000/
 
+ec2-user
+
+cd bsgg
 git pull
+npm run build
+sudo systemctl stop nginx
+sudo systemctl start nginx
+
+# nginx start
+sudo systemctl stop nginx
+sudo systemctl start nginx
+
+# nginx setting file
+/etc/nginx/conf.d/default.conf
+
+# nginx log view
+tail -f /var/log/nginx/error.log
+
+# pre
 netstat -anop | grep 3000
 kill pid
 (npm run start&)
