@@ -9,7 +9,6 @@ class Search extends Component {
             <div className="search">
                 <div className="trisearch"></div>
                 <input className="search1" placeholder={intl.formatMessage({id:'main.left.search.placeholder'})} />
-                <button className="search2">{intl.formatMessage({id:'search'})}</button>
             </div>
         );
     };

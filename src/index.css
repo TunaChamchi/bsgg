@@ -16,7 +16,45 @@ body {
   font-weight: 500;
   min-height: 1700px;
 }
-
+.Ad_box_L{
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    position: absolute;
+    top: 480px;
+    left: 40px;
+}
+.Ad_box_R{
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    position: absolute;
+    top: 480px;
+    left: 1580px;
+}
+.Ad_box_L2{
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    position: absolute;
+    top: 400px;
+    left: 40px;
+}
+.Ad_box_R2{
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    position: absolute;
+    top: 400px;
+    left: 1580px;
+}
+.Ad_box_B{
+    width: 1150px;
+    height: 200px;
+    background-color: white;
+    bottom: 50px;
+    left: 385px;
+}
 input:focus{
     outline: none;
 }
@@ -57,6 +95,7 @@ button:hover{
     height: 450px;
     width: 100%;
     text-align: center;
+    min-width: 1152px;
 }
 .language {
     width: 150px;
@@ -137,24 +176,13 @@ button:hover{
     border-radius: 3px;
 }
 .search1{
-    width: 303px;
+    width: 350px;
     height: 22px;
     float: left;
     border-color: rgba(0,0,0,0);
     background-color: rgba(0,0,0,0);
     font-size: 13pt;
     margin-top: 6px;
-}
-.search2{
-    border-color: rgba(0,0,0,0);
-    background-color:  rgb(120, 120, 120);
-    border-radius: 0px;
-    height: 37px;
-    width: 71px;
-    font-size: 13pt;
-    font-weight: bold;
-    border-radius: 3px;
-    
 }
 .cha{
     margin-top: 7px;
@@ -448,6 +476,7 @@ button:hover{
     background-color: rgb(83, 83, 83);
     height: 80px;
     text-align: center;
+    min-width: 1160px;
 }
 .S_banner-top{
     width: 1152px;

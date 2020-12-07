@@ -20,6 +20,9 @@ class Main extends Component {
                         <Rank />
                     </div>
                 </div>
+                <div className="Ad_box_L">ad</div>
+                <div className="Ad_box_R">ad</div>
+                <div className="Ad_box_B">ad</div>
             </div>
         );
     };

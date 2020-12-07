@@ -31,10 +31,10 @@
         },
         "left": {
             "search": {
-                "placeholder": "別名搜索"
+                "placeholder": "別名搜索."
             },
             "characters": {
-                "placeholder": "角色搜索"
+                "placeholder": "角色搜索."
             }
         },
         "right": {

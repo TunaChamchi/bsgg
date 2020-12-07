@@ -30,7 +30,7 @@ class SubBanner extends Component {
 
         return searchList.map((name, idx) => 
             <div className="S_search4" key={idx} onClick={(e) => this.link(name)}>
-                <img className="searchimg" key={'searchimg'+name} src={'img/rank/'+name+'.png'} />
+                <img className="searchimg" key={'searchimg'+name} src={'img/Rank/'+name+'.png'} />
                 <div className="searchfont"> {name} </div>
             </div>
         );
