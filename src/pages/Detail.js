@@ -4,7 +4,7 @@ import { injectIntl } from 'react-intl';
 import queryString from 'query-string';
 import { SubBanner, AdS, Footer } from 'components/banner';
 import { Weapons, Armors } from 'components/item';
-import { Version, CharacterScore, Max, Avg } from 'lib/data';
+import { Version, CharacterScore, Max, Min, Avg, dmgPlus } from 'lib/data';
 
 class Detail extends Component {
     constructor(props) {
@@ -157,16 +157,17 @@ class Detail extends Component {
         const img_tier = data['tier'] > 0 ? 'img/Tier/' + data['tier'] + '티어.png' : 'img/Tier/1티어.png';
         const avg = Avg(rangeFocus, typeFocus);
         const max = Max(rangeFocus, typeFocus);
+        const min = Min(rangeFocus, typeFocus);
 
-        const win_rate_width  = (data['data']['win-rate']  / max['win-rate'])  * 320;
-        const pick_rate_width = (data['data']['pick-rate'] / max['pick-rate']) * 320;
-        const avg_kill_width  = (data['data']['avg-kill']  / max['avg-kill'])  * 320;
-        const avg_rank_width  = (max['avg-rank']  / data['data']['avg-rank'])  * 320;
+        const win_rate_width  = ((data['data']['win-rate']  - min['win-rate'])  / (max['win-rate']  - min['win-rate']) ) * 320;
+        const pick_rate_width = ((data['data']['pick-rate'] - min['pick-rate']) / (max['pick-rate'] - min['pick-rate'])) * 320;
+        const avg_kill_width  = ((data['data']['avg-kill']  - min['avg-kill'])  / (max['avg-kill']  - min['avg-kill']) ) * 320;
+        const avg_rank_width  = ((data['data']['avg-rank']  - min['avg-rank'])  / (max['avg-rank']  - min['avg-rank']) ) * 320;
 
-        const win_rate_avg  = (avg['win-rate']  / max['win-rate'])  * 320 - 22;
-        const pick_rate_avg = (avg['pick-rate'] / max['pick-rate']) * 320 - 22;
-        const avg_kill_avg  = (avg['avg-kill']  / max['avg-kill'])  * 320 - 22;
-        const avg_rank_avg  = (max['avg-rank']  / avg['avg-rank'])  * 320 - 22;
+        const win_rate_avg  = ((avg['win-rate']  - min['win-rate'])  / (max['win-rate']  - min['win-rate']) ) * 320 - 22;
+        const pick_rate_avg = ((avg['pick-rate'] - min['pick-rate']) / (max['pick-rate'] - min['pick-rate'])) * 320 - 22;
+        const avg_kill_avg  = ((avg['avg-kill']  - min['avg-kill'])  / (max['avg-kill']  - min['avg-kill']) ) * 320 - 22;
+        const avg_rank_avg  = ((avg['avg-rank']  - min['avg-rank'])  / (max['avg-rank']  - min['avg-rank']) ) * 320 - 22;
 
         const skillType  = skill[skillFocus] === 'T' ? intl.formatMessage({ id: 'detail.passive' }) : skill[skillFocus] === 'D' ? intl.formatMessage({ id: 'detail.weaponSkill' }) : skill[skillFocus];
         const skilName   = skill[skillFocus] === 'D' ? intl.formatMessage({ id: 'skill.'+weapon+'.name' })   : intl.formatMessage({ id: 'skill.'+character+'.'+skill[skillFocus]+'.name' });
@@ -188,16 +189,16 @@ class Detail extends Component {
                         <div className="S_top-stat">
                             <span className="S_top-stat1">{intl.formatMessage({ id: 'detail.squadStat' })}</span>
                             <span className="S_top-stat2">{intl.formatMessage({ id: 'detail.giveDmg' })}</span>
-                            <span className="S_top-stat3">-10%</span>
+                            <span className="S_top-stat3">{dmgPlus(character, 'squad', 'inflict')}%</span>
                             <span className="S_top-stat2">{intl.formatMessage({ id: 'detail.takeDmg' })}</span>
-                            <span className="S_top-stat3">0%</span>
+                            <span className="S_top-stat3">{dmgPlus(character, 'squad', 'receive')}%</span>
                         </div>
                         <div className="S_top-stat">
                             <span className="S_top-stat1">{intl.formatMessage({ id: 'detail.duoStat' })}</span>
                             <span className="S_top-stat2">{intl.formatMessage({ id: 'detail.giveDmg' })}</span>
-                            <span className="S_top-stat3">-15%</span>
+                            <span className="S_top-stat3">{dmgPlus(character, 'duo', 'inflict')}%</span>
                             <span className="S_top-stat2">{intl.formatMessage({ id: 'detail.takeDmg' })}</span>
-                            <span className="S_top-stat3">0%</span>
+                            <span className="S_top-stat3">{dmgPlus(character, 'duo', 'receive')}%</span>
                         </div>
                         <div className="S_Data-period">
                             <span>{Version}</span>

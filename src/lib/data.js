@@ -4,8 +4,10 @@ import CharListPre from 'data/character_pre.json';
 import WeaponList from 'data/weapon.json';
 import ArmorList from 'data/armor.json';
 import version from 'data/version.json';
+import dmg_plus from 'data/dmg_plus.json'
 
 const max = {};
+const min = {};
 
 export const Version = 'Upadated ' + version['updated'] + ' / Data period ' + version['data-period'];
 
@@ -15,6 +17,9 @@ export const Avg = (range, type) => {
 
 export const Max = (range, type) => {
     return max[range][type];
+}
+export const Min = (range, type) => {
+    return min[range][type];
 }
 
 export const CharacterScore = (range, type) => {
@@ -36,6 +41,12 @@ export const CharacterScore = (range, type) => {
     let max_avg_kill = 0;
     let max_avg_rank = 18;
 
+    let min_score = 100;
+    let min_win_rate = 100;
+    let min_pick_rate = 100;
+    let min_avg_kill = 100;
+    let min_avg_rank = 0;
+
     // 값 가져오기
     for (const key1 in list) {
         for (const key2 in list[key1]) {
@@ -47,16 +58,28 @@ export const CharacterScore = (range, type) => {
             if (data['pick-rate'] > max_pick_rate)  max_pick_rate = data['pick-rate'];
             if (data['avg-kill']  > max_avg_kill)   max_avg_kill  = data['avg-kill'];
             if (data['avg-rank']  < max_avg_rank)   max_avg_rank  = data['avg-rank'];
+            
+            if (data['win-rate']  < min_win_rate)   min_win_rate  = data['win-rate'];
+            if (data['pick-rate'] < min_pick_rate)  min_pick_rate = data['pick-rate'];
+            if (data['avg-kill']  < min_avg_kill)   min_avg_kill  = data['avg-kill'];
+            if (data['avg-rank']  > min_avg_rank)   min_avg_rank  = data['avg-rank'];
         }
     }
 
-    // max 값 지정
+    // max, min 값 지정
     max[range] = {}
     max[range][type] = {
         'win-rate' : max_win_rate,
         'pick-rate': max_pick_rate,
         'avg-kill' : max_avg_kill,
         'avg-rank' : max_avg_rank 
+    }
+    min[range] = {}
+    min[range][type] = {
+        'win-rate' : min_win_rate,
+        'pick-rate': min_pick_rate,
+        'avg-kill' : min_avg_kill,
+        'avg-rank' : min_avg_rank 
     }
 
     // 순위 계산
@@ -94,11 +117,11 @@ export const CharacterScore = (range, type) => {
         }
 
         if (type === "solo")
-            data['score']['total'] = data['score']['win-rate']*1.5   + data['score']['pick-rate'] + data['score']['avg-kill']    + data['score']['avg-rank'];
+            data['score']['total'] = (data['score']['win-rate']*1.5   + data['score']['pick-rate'] + data['score']['avg-kill']    + data['score']['avg-rank']  )/4.5;
         else if (type === "duo")
-            data['score']['total'] = data['score']['win-rate']*1.5   + data['score']['pick-rate'] + data['score']['avg-kill']/2  + data['score']['avg-rank']/2;
+            data['score']['total'] = (data['score']['win-rate']*1.5   + data['score']['pick-rate'] + data['score']['avg-kill']/2  + data['score']['avg-rank']/2)/3.5;
         else if (type === "squad")
-            data['score']['total'] = data['score']['win-rate']*1.5   + data['score']['pick-rate'] + data['score']['avg-kill']/3  + data['score']['avg-rank']/3;
+            data['score']['total'] = (data['score']['win-rate']*1.5   + data['score']['pick-rate'] + data['score']['avg-kill']/3  + data['score']['avg-rank']/3)/3.2;
         
         if (data['score']['total'] > max_score) max_score = data['score']['total'];
     });
@@ -106,15 +129,15 @@ export const CharacterScore = (range, type) => {
     // 티어, 순위 계산
     tier.forEach(data1 => {
         const tier_score = data1['score']['total']/max_score;
-        if (tier_score > 0.95) {
+        if (data1['score']['total']/100 > 0.90) {
             data1['tier'] = 0;
         } else if (tier_score > 0.9) {
             data1['tier'] = 1;
-        } else if (tier_score > 0.7) {
+        } else if (tier_score > 0.75) {
             data1['tier'] = 2;
-        } else if (tier_score > 0.4) {
+        } else if (tier_score > 0.6) {
             data1['tier'] = 3;
-        } else if (tier_score > 0.2) {
+        } else if (tier_score > 0.45) {
             data1['tier'] = 4;
         } else {
             data1['tier'] = 5;
@@ -268,4 +291,8 @@ export const Armor = (range, type) => {
     }
 
     return list;    
+}
+
+export const dmgPlus = (character, type, value) => {
+    return dmg_plus[character][type][value];
 }

@@ -4,6 +4,7 @@ import { MainBanner, AdS, Footer } from 'components/banner'
 import { Search, Characters } from 'components/Main/left'
 import { Rank } from 'components/Main/right'
 
+
 class Main extends Component {
     render() {
         return (
@@ -18,8 +19,8 @@ class Main extends Component {
                         <Rank />
                     </div>
                 </div>
-                {/*<AdS />
-                <Footer />*/}
+                <AdS />
+                <Footer />
             </div>
         );
     };
