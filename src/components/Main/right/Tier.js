@@ -68,7 +68,8 @@ class Tier extends Component {
                     <span className="rank3win1">{data['data']['win-rate'].toFixed(1)}%</span>&nbsp;
                     <span className="rank3pick1">{data['data']['pick-rate'].toFixed(1)}%</span>&nbsp;
                     <span className="rank3kill1">{data['data']['avg-kill'].toFixed(1)}</span>&nbsp;
-                    <span className="rank3avg1">{data['data']['avg-rank'].toFixed(1)}</span>&nbsp;
+                    {/*<span className="rank3avg1">{data['data']['avg-rank'].toFixed(1)}</span>&nbsp;*/}
+                    <span className="rank3avg1">{data['score']['total'].toFixed(1)}</span>&nbsp;
                 </div>
             );
         });
