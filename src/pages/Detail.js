@@ -285,6 +285,7 @@ class Detail extends Component {
                                 </div>
                             </div>
                         </div>
+                        <div className="Ad_box_Detail"></div>
                     </div>
                     <Weapons 
                         character={character}
