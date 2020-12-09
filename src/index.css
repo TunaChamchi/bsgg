@@ -6,8 +6,6 @@
     font-weight: normal;
     font-style: normal;
 }
-html{
-}
 body {
   margin: 0;
   background-color: rgb(37, 37, 37);
@@ -18,12 +16,12 @@ body {
 .Ad_box_L{
     position: absolute;
     top: 480px;
-    left: 40px;
+    right: calc(50vw + 615px);
 }
 .Ad_box_R{
     position: absolute;
     top: 480px;
-    right: 40px;
+    left: calc(50vw + 615px);
 }
 .Ad_box_Main{
     width: 300px;

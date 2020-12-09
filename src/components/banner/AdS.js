@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { injectIntl  } from 'react-intl';
-import ScriptTag from 'react-script-tag';
 
 class AdS extends Component {
     constructor(props) {
