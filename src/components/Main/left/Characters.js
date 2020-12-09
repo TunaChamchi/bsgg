@@ -53,6 +53,7 @@ class Characters extends Component {
         const { intl } = this.props;
 
         return (
+        <div>
             <div className="cha">
                 <div className="cha0">
                     <span>{intl.formatMessage({id:'character'})}</span>
@@ -66,6 +67,8 @@ class Characters extends Component {
                     </div>
                 </div>
             </div>
+            <div className="Ad_box_Main"></div>
+        </div>
         );
     };
 }

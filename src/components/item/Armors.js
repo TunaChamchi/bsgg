@@ -54,7 +54,7 @@ class Armors extends Component {
             <div className="S_item_rank"
                 key={'item' + idx}>
                 <span className="S_item_rank1">{idx+1}</span>
-                <img className="S_item_rank2" src={'img/Item/Armor/'+type[typeFocus]+'/'+armor['name']+'.jpg'} />
+                <img className="S_item_rank2" src={'img/Item/Armor/'+type[typeFocus]+'/'+armor['name']+'.png'} />
                 <span className="S_item_rank3">{intl.formatMessage({id: 'items.'+armor['name']})}</span>
                 <span className="S_item_rank6">{armor['win-rate']}%</span>
             </div>

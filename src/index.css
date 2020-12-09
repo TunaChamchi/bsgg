@@ -14,16 +14,34 @@ body {
   font-family: "Noto Sans KR", "noto sans sc";
   font-weight: 500;
 }
+/* ADs */
 .Ad_box_L{
     position: absolute;
+    background-color: white;
     top: 480px;
     left: 40px;
 }
 .Ad_box_R{
     position: absolute;
+    background-color: white;
     top: 480px;
     right: 40px;
 }
+.Ad_box_Main{
+    width: 300px;
+    height: 250px;
+    background-color: white;
+    margin-left: 45px;
+    margin-top: 30px;
+}
+.Ad_box_Detail{
+    width: 728px;
+    height: 90px;
+    background-color: white;
+    margin-left: 11px;
+    margin-top: 15px;
+}
+/* all pages */
 input:focus{
     outline: none;
 }
@@ -61,7 +79,7 @@ button:hover{
     cursor: pointer;
     background-color:  rgba(0,0,0,0);
 }
-/* 1page */
+/* 1 page */
 .banner {
     background-color: rgb(83, 83, 83);
     height: 450px;
@@ -325,7 +343,7 @@ button:hover{
 .rank3cha1{
     vertical-align: middle;
     width: 100px;
-    margin-left: 5px;
+    margin-left: 6px;
 }
 .rank3weapon1{
     vertical-align: middle;
@@ -443,7 +461,7 @@ button:hover{
     margin-left: 3px;
     margin-right: -8px;
   }
-/* 2page */
+/* 2 page */
 .S_banner{
     background-color: rgb(83, 83, 83);
     height: 80px;
@@ -728,7 +746,6 @@ button:hover{
 }
 .S_Skill{
     margin-top: 15px;
-    margin-bottom: 40px;
     padding-bottom: 20px;
     width: 750px;
     height: auto;

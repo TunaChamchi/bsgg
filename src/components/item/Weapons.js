@@ -37,7 +37,7 @@ class Weapons extends Component {
             <div className={'S_item_rank'}
                 key={'weapon' + idx}>
                 <span className="S_item_rank1">{idx+1}</span>&nbsp;
-                <img className="S_item_rank2" src={'img/Item/Weapons/'+weapon+'/'+_weapon['weapon']+'.jpg'} />&nbsp;
+                <img className="S_item_rank2" src={'img/Item/Weapons/'+weapon+'/'+_weapon['weapon']+'.png'} />&nbsp;
                 <span className="S_item_rank3">{intl.formatMessage({id:'items.'+_weapon['weapon']})}</span>&nbsp;
                 <span className="S_item_rank4">{_weapon['win-rate'].toFixed(1)}%</span>&nbsp;
                 <span className="S_item_rank5">{_weapon['pick-rate'].toFixed(1)}%</span>

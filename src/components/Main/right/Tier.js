@@ -63,7 +63,7 @@ class Tier extends Component {
                     <img className="rank3Updown" src={'img/UpDown/유지.png'} />&nbsp;
                     <span className="rank3Updown1">1</span>&nbsp;
                     <Link to={link}><img className="rank3cha1" src={character} /></Link>&nbsp;
-                    <img className="rank3weapon1" src={'img/Weapons/'+data['weapon']+'.jpg'} />&nbsp;
+                    <img className="rank3weapon1" src={'img/Weapons/'+data['weapon']+'.png'} />&nbsp;
                     <img className="rank3tier1" src={tier} />&nbsp;
                     <span className="rank3win1">{data['data']['win-rate'].toFixed(1)}%</span>&nbsp;
                     <span className="rank3pick1">{data['data']['pick-rate'].toFixed(1)}%</span>&nbsp;

@@ -97,7 +97,7 @@ class Detail extends Component {
             return (
                 <Link to={'Detail?range='+rangeFocus+'&type='+typeFocus+'&character='+character+'&weapon='+weapon['name']} key={'weaponList' + idx}>
                     <div className={'tabHeader4 ' + (weapon['name'] === data['weapon'] ? 'actived' : '')}>
-                        <img className="S_top-weapon1" src={'img/Weapons/' + weapon['name'] + '.jpg'} />
+                        <img className="S_top-weapon1" src={'img/Weapons/' + weapon['name'] + '.png'} />
                         <span className="S_top-weapon2">{pick}%</span>
                     </div>
                 </Link>
@@ -134,7 +134,7 @@ class Detail extends Component {
 
         return skill.map((name, idx) => {
             const img = name === 'D' ? 
-                'img/Weapons/'+weapon+'.jpg' : 
+                'img/Weapons/'+weapon+'.png' : 
                 'img/Skill/'+character+'/'+character+'_'+name+'.png';
 
             return (
@@ -285,6 +285,7 @@ class Detail extends Component {
                                 </div>
                             </div>
                         </div>
+                        <div className="Ad_box_Detail"></div>
                     </div>
                     <Weapons 
                         character={character}
