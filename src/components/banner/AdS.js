@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { injectIntl  } from 'react-intl';
-import AdSense from 'react-adsense';
-import ScriptTag from 'react-script-tag'
+import ScriptTag from 'react-script-tag';
 
 class AdS extends Component {
     constructor(props) {
@@ -92,12 +91,7 @@ class AdS extends Component {
                         client='ca-pub-2624497775833940'
                         slot='7806394673'
                     />*/}
-                </div>                
-                <ScriptTag
-                    type="text/javascript"
-                    src="//t1.daumcdn.net/kas/static/ba.min.js"
-                    async
-                    ></ScriptTag>
+                </div>
             </div>
         );
     };

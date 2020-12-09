@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { injectIntl } from 'react-intl';
 import queryString from 'query-string';
+import ScriptTag from 'react-script-tag';
 import { SubBanner, AdS, Footer } from 'components/banner';
 import { Weapons, Armors } from 'components/item';
 import { Version, CharacterScore, Max, Min, Avg, dmgPlus } from 'lib/data';
@@ -285,7 +286,14 @@ class Detail extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="Ad_box_Detail"></div>
+                        <div className="Ad_box_Detail">
+                            <ins 
+                                class="kakao_ad_area" 
+                                style={{display: 'none'}}
+                                data-ad-unit="DAN-65cQeySsxkm44L6Y" 
+                                data-ad-width="728" 
+                                data-ad-height="90"></ins>
+                        </div>
                     </div>
                     <Weapons 
                         character={character}
@@ -299,6 +307,7 @@ class Detail extends Component {
                 </div>
                 <AdS type={'Detail'}/>
                 <Footer />
+                <ScriptTag src="//t1.daumcdn.net/kas/static/ba.min.js" async />
             </div>
             
         );

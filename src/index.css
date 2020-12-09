@@ -17,27 +17,23 @@ body {
 /* ADs */
 .Ad_box_L{
     position: absolute;
-    background-color: white;
     top: 480px;
     left: 40px;
 }
 .Ad_box_R{
     position: absolute;
-    background-color: white;
     top: 480px;
     right: 40px;
 }
 .Ad_box_Main{
     width: 300px;
     height: 250px;
-    background-color: white;
     margin-left: 45px;
     margin-top: 30px;
 }
 .Ad_box_Detail{
     width: 728px;
     height: 90px;
-    background-color: white;
     margin-left: 11px;
     margin-top: 15px;
 }

@@ -67,7 +67,6 @@ class Characters extends Component {
                     </div>
                 </div>
             </div>
-            <div className="Ad_box_Main"></div>
         </div>
         );
     };
