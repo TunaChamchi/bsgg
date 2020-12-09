@@ -296,7 +296,7 @@ class Detail extends Component {
                         range={typeFocus}
                     />
                 </div>
-                <AdS />
+                <AdS type={'Detail'}/>
                 <Footer />
             </div>
             

@@ -15,15 +15,11 @@ body {
   font-weight: 500;
 }
 .Ad_box_L{
-    width: 300px;
-    height: 400px;
     position: absolute;
     top: 480px;
     left: 40px;
 }
 .Ad_box_R{
-    width: 300px;
-    height: 400px;
     position: absolute;
     top: 480px;
     right: 40px;
