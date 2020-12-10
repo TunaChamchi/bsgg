@@ -59,7 +59,7 @@ class Tier extends Component {
                 <div className="rank-1" key={'tier' + idx}>                
                     <span className="rank3rank1">{idx+1}</span>&nbsp;
                     <img className="rank3Updown"   src={rankDiff>0?'img/UpDown/상승.png':rankDiff<0?'img/UpDown/하락.png':'img/UpDown/유지.png'} />&nbsp;
-                    <span className="rank3Updown1">{rankDiff}</span>&nbsp;
+                    <span className="rank3Updown1">{Math.abs(rankDiff)}</span>&nbsp;
                     <Link to={'Detail?range='+range+'&type='+type+'&character='+data['character']+'&weapon='+ data['weapon']}>
                         <img className="rank3cha1" src={'img/Rank/'+data['character']+(data['tier']>0?'':'_오피')+'.png'} />
                     </Link>&nbsp;
