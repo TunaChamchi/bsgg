@@ -23,7 +23,8 @@ export const Min = (range, type) => {
     return min[range][type];
 }
 
-export const CharacterScore = (range, type) => {
+export const CharacterScore = useMemo(()=> {
+    return (range, type) => {
     const list = {};
     for (const key in CharList) {
         try {
@@ -152,9 +153,10 @@ export const CharacterScore = (range, type) => {
     });
     
     return tier;
-}
+}}, [range, type])
 
-export const CharacterPreRank = (range, type) => {
+export const CharacterPreRank = useMemo(()=> {
+    return (range, type) => {
     const list = {};
     for (const key in CharListPre) {
         try {
@@ -257,9 +259,10 @@ export const CharacterPreRank = (range, type) => {
     });
 
     return rank;
-}
+}}, [range, type])
 
-export const Weapon = (character, weapon, type) => {
+export const Weapon = useMemo(()=> {
+    return (character, weapon, type) => {
     const weaponList = WeaponList[character][weapon]
     const list = [];
     for (const key in weaponList) {
@@ -274,9 +277,10 @@ export const Weapon = (character, weapon, type) => {
     }
 
     return list;
-}
+}}, [character, weapon, type])
 
-export const Armor = (range, type) => {
+export const Armor = useMemo(()=> {
+    return (range, type) => {
     const armorist = ArmorList[type]
     const list = [];
     for (const key in armorist) {
@@ -293,7 +297,7 @@ export const Armor = (range, type) => {
     }
 
     return list;    
-}
+}}, [range, type])
 
 export const dmgPlus = (character, type, value) => {
     return dmg_plus[character][type][value];
