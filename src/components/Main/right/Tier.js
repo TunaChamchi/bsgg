@@ -53,10 +53,7 @@ class Tier extends Component {
 
         this.listSort();
 
-        console.log('preRankList', preRankList);
         return tierList.map((data, idx) => {
-            console.log(data['character']+'-'+ data['weapon'], preRankList[data['character']+'-'+ data['weapon']]);
-
             const rankDiff = preRankList[data['character']+'-'+ data['weapon']][this.state.type[typeFocus]] - (idx+1);
             return (
                 <div className="rank-1" key={'tier' + idx}>                
