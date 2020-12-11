@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { injectIntl  } from 'react-intl';
-import AdSense from 'react-adsense';
+//import AdSense from 'react-adsense';
 import logo from 'img/sub_logo.svg';
 
 class Footer extends Component {
@@ -10,7 +10,7 @@ class Footer extends Component {
         return (
             <div className="footer">
                 <img className="footer_logo" src={logo}/>
-                <button className="footer_button">Contact</button>
+                <a className="footer_button" href="mailto:service@bsgg.kr">Contact</a>
             </div>
         );
     };

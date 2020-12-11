@@ -18,7 +18,7 @@ class Characters extends Component {
     searchHandler = (event) => {
         const value = event.target.value.toLowerCase();
 
-        const list = charList().filter(data => data['name'].toLowerCase().indexOf(value) !== -1);
+        const list = charList().filter(data => data['name'].replace(' ', '').toLowerCase().indexOf(value) !== -1);
 
         this.setState({searchList: list});
     }

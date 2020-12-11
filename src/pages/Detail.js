@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { injectIntl } from 'react-intl';
 import queryString from 'query-string';
 import ScriptTag from 'react-script-tag';
-import { SubBanner, AdS, Footer } from 'components/banner';
+import { Header, SubBanner, AdS, Footer } from 'components/banner';
 import { Weapons, Armors } from 'components/item';
 import { Version, CharacterScore, Max, Min, Avg, dmgPlus } from 'lib/data';
 
@@ -153,6 +153,11 @@ class Detail extends Component {
     render() {
         const { intl } = this.props;
         const { data, character, weapon, rangeFocus, typeFocus,skill, skillFocus, ad_style } = this.state;
+        
+        const metaData = {
+            title: 'BSGG.kr - ' + intl.formatMessage({id: 'characters.'+data['character']}) + ' ' + intl.formatMessage({id: 'weapons.'+data['weapon']}),
+            description: '영원회귀 : 블랙 서바이벌 통계, 캐릭터 티어, 아이템 트렌드, BS:ER Stats, Character Tier, Item Trend'
+        }
 
         const img_char = 'img/Characters/' + data['character'] + (data['tier'] > 0 ? '' : '_오피') + '.png';
         const img_tier = data['tier'] > 0 ? 'img/Tier/' + data['tier'] + '티어.png' : 'img/Tier/1티어.png';
@@ -176,6 +181,7 @@ class Detail extends Component {
 
         return (
             <div>
+                <Header data={metaData}/>
                 <SubBanner />
                 <div className="S_main">
                     <div className="S_top">
