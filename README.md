@@ -4,6 +4,8 @@ ec2-user
 
 cd bsgg
 git pull
+id
+password
 npm run build
 sudo systemctl stop nginx
 sudo systemctl start nginx
