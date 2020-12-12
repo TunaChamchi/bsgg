@@ -34,6 +34,7 @@ class Characters extends Component {
         }
 
         return list.map((sub, idx) => {
+            const { intl } = this.props;
             const link0 = 'Detail?character='+sub[0]['key'];
             const link1 = sub[1] ? 'Detail?character='+sub[1]['key'] : '';
             const link2 = sub[2] ? 'Detail?character='+sub[2]['key'] : '';
