@@ -216,9 +216,25 @@ button:hover{
 .cha4{
     margin-top: 10px;
 }
+.cha5{
+    margin:auto;
+    width: 185px;
+    height: 250px;
+    float: left;
+    margin-left: 45px;
+}
 .chaimg{
     width: 95px;
     background-color: rgb(120, 120, 120);
+}
+.chaname{
+    display: inline-block;
+    width: 180px;
+    margin-top: 2px;
+    font-size: 20pt;
+    text-align: center;
+    color: black;
+    float: left;
 }
 .chaimg-blank{
     width: 95px;

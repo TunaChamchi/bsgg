@@ -41,7 +41,7 @@ class Rank extends Component {
                 onClick={(e) => this.typeHandler(idx)}>
                 {intl.formatMessage({id: name})}
             </div>
-        );        
+        );
     }
 
     render() {

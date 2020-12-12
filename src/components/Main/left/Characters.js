@@ -40,9 +40,24 @@ class Characters extends Component {
             
             return (
                 <div className="cha4" key={'cha4'+idx}>
-                              <Link to={link0}><img className="chaimg" key={'chaimg'+sub[0]['key']} src={'img/Characters/'+sub[0]['key']+'.png'} /></Link>&nbsp;
-                    {sub[1] ? <Link to={link1}><img className="chaimg" key={'chaimg'+sub[1]['key']} src={sub[1] ? 'img/Characters/'+sub[1]['key']+'.png' : ''} /></Link>: <img className="chaimg-blank" key={'chaimg'+idx} />}&nbsp;
-                    {sub[2] ? <Link to={link2}><img className="chaimg" key={'chaimg'+sub[2]['key']} src={sub[2] ? 'img/Characters/'+sub[2]['key']+'.png' : ''} /></Link> : <img className="chaimg-blank" key={'chaimg'+idx+1} />}
+                        <Link to={link0} className="cha5">
+                                <img className="chaimg" key={'chaimg'+sub[0]['key']} src={'img/Characters/'+sub[0]['key']+'.png'} />
+                                <div className="chaname">{intl.formatMessage({id: 'characters.'+sub[0]['key']})}</div>
+                        </Link>&nbsp;
+                    {sub[1] ? 
+                        <Link to={link1} className="cha5">
+                            <img className="chaimg" key={'chaimg'+sub[1]['key']} src={sub[1] ? 'img/Characters/'+sub[1]['key']+'.png' : ''} />
+                            <div className="chaname">{intl.formatMessage({id: 'characters.'+sub[1]['key']})}</div>
+                        </Link>
+                        : 
+                        <img className="chaimg-blank" key={'chaimg'+idx} />}&nbsp;
+                    {sub[2] ? 
+                        <Link to={link2} className="cha5">
+                            <img className="chaimg" key={'chaimg'+sub[2]['key']} src={sub[2] ? 'img/Characters/'+sub[2]['key']+'.png' : ''} />
+                            <div className="chaname">{intl.formatMessage({id: 'characters.'+sub[2]['key']})}</div>
+                        </Link> 
+                        : 
+                        <img className="chaimg-blank" key={'chaimg'+idx+1} />}
                 </div>
             )
         });
