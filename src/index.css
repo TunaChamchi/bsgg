@@ -209,19 +209,19 @@ button:hover{
     border-bottom: 3px solid rgb(120, 120, 120);
 }
 .cha3{
-    word-spacing: 13px;
     padding-top: 15px;
     clear: right;
 }
 .cha4{
-    margin-top: 10px;
+    height: 125px;
 }
 .cha5{
-    margin:auto;
-    width: 185px;
-    height: 250px;
+    margin:auto;                    
+    width: 95px;
+    height: 125px;
     float: left;
-    margin-left: 45px;
+    margin-left: 34px;
+    margin-right: -15px;
 }
 .chaimg{
     width: 95px;
@@ -229,9 +229,9 @@ button:hover{
 }
 .chaname{
     display: inline-block;
-    width: 180px;
-    margin-top: 2px;
-    font-size: 20pt;
+    width: 95px;
+    margin-top: -5px;
+    font-size: 12pt;
     text-align: center;
     color: black;
     float: left;
