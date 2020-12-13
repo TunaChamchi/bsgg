@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { injectIntl } from 'react-intl';
 import { Tier } from 'components/Main/right'
 import { Weapon } from 'lib/data'
+import qusetionlogo from 'img/questionlogo.png';
 
 class Weapons extends Component {
     constructor(props) {
@@ -51,7 +52,13 @@ class Weapons extends Component {
         return (
             <div className="S_right">
                 <div className="S_item">
-                    <span className="S_item1">ITEM</span>
+                    <div className="S_item1">
+                        <span>ITEM</span>
+                        <img className="question_logo" src={qusetionlogo} />
+                        <div className="item_span_tooltip">
+                            <span>{intl.formatMessage({id:'question_item'})}</span>
+                        </div>
+                    </div>
                     <div className="S_item_tab_banner">
                         <div className="S_item_tab1"><span className="S_item_tab1">{intl.formatMessage({id:'weapon'})}</span></div>
                         <div className="S_item_sort">
