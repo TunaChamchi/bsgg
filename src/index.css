@@ -75,6 +75,44 @@ button:hover{
     cursor: pointer;
     background-color:  rgba(0,0,0,0);
 }
+.footer{
+    width: 1150px;
+    margin-top: 50px;
+    border-top: 2px solid rgb(58, 58, 58);
+    text-align: left;
+    vertical-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.footer_logo{
+    width: 80px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    float: left;
+}
+.footer_button{
+    border-color: rgba(0,0,0,0);
+    background-color:  rgba(0,0,0,0);
+    border-radius: 0px;
+    font-size: 13pt;
+    font-weight: bold;
+    float: right;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+.footer_span{
+    float: left;
+    font-size: 12pt;
+    text-align: left;
+    display: inline-block;
+    width: 900px;
+    height: 90px;
+    margin-top: 15px;
+    margin-left: 15px;
+    white-space: pre-line;
+}
+
 /* 1 page */
 .banner {
     background-color: rgb(83, 83, 83);
@@ -82,6 +120,7 @@ button:hover{
     width: 100%;
     text-align: center;
     min-width: 1152px;
+    border-bottom: 2px solid #3b4147;
 }
 .language {
     width: 150px;
@@ -226,6 +265,7 @@ button:hover{
 .chaimg{
     width: 95px;
     background-color: rgb(120, 120, 120);
+    border: 1px solid #3b4147;
 }
 .chaname{
     display: inline-block;
@@ -270,17 +310,18 @@ button:hover{
       width: 150px;
       padding-top: 0px;
       font-size: 11pt;
-      
 }
 .rank1{
     background-color: rgb(120, 120, 120);
     height: 45px;
     border-radius: 3px 3px 0px 0px / 3px 3px 0px 0px ;
+    border-bottom: 2px solid #3b4147;
 }
 .rank2{
     margin-top: 6px;
     background-color: rgb(120, 120, 120);
     height: 30px;
+    border-bottom: 2px solid #3b4147;
 }
 
 .rank3{
@@ -294,6 +335,7 @@ button:hover{
     margin-top: 3px;
     background-color:  rgb(120, 120, 120);
     text-align: left;
+    border-bottom: 2px solid #3b4147;
 }
 .rank3rank{
     display: inline-block;
@@ -529,6 +571,7 @@ button:hover{
     height: 80px;
     text-align: center;
     min-width: 1160px;
+    border-bottom: 2px solid #3b4147;
 }
 .S_banner-top{
     width: 1152px;
@@ -1032,41 +1075,277 @@ button:hover{
     color:  rgb(39, 39, 39);
     padding-right: 29px;
 }
-.footer{
-    width: 1150px;
+/* 3 page */
+.map_main{
+    width: 1152px;
+    background-color: rgba(83, 83, 83);
+    margin: auto;
     margin-top: 50px;
-    border-top: 2px solid rgb(58, 58, 58);
-    text-align: left;
-    vertical-align: center;
-    margin-left: auto;
-    margin-right: auto;
+    overflow: hidden;
+    border-radius: 0px 0px 3px 3px;
+    padding-bottom: 25px;
 }
-.footer_logo{
-    width: 80px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 5px;
-    float: left;
+.map_title{
+    text-align: center;
+    background-color: rgb(120, 120,120);
+    height: 40px;
+    font-family: "Big Shoulders Stencil Display";
+    font-size: 23pt;
+    padding-top: 5px;
 }
-.footer_button{
-    border-color: rgba(0,0,0,0);
-    background-color:  rgba(0,0,0,0);
-    border-radius: 0px;
-    font-size: 13pt;
-    font-weight: bold;
-    float: right;
-    margin-top: 10px;
-    margin-right: 5px;
-}
-.footer_span{
-    float: left;
-    font-size: 12pt;
-    text-align: left;
+.map_title_span{
     display: inline-block;
-    width: 900px;
-    height: 90px;
-    margin-top: 15px;
-    margin-left: 15px;
-    white-space: pre-line;
+    width: 200px;
+    margin-right: 24px;
+}
+.map_left{
+    position: relative;
+    width: 700px;
+    height: 700px;
+    float: right;
+}
+.mapimg{
+    width: 700px;
+}
+.map_square{
+    width: 430px;
+    background-color: rgb(120, 120, 120);
+    float:left;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+}
+.map_tab{
+    width: 430px;
+    height: 35px;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 15pt;
+    margin-bottom: 5px;
+    padding-top: 5px;
+    background-color: rgb(120, 120, 120);
+    border-bottom: 4px solid rgb(244,216,35);
+}
+.map_tab2{
+    width: 430px;
+    height: 25px;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 13pt;
+    margin-bottom: 5px;
+    padding-top: 5px;
+    padding-bottom: 3px;
+    background-color: rgb(120, 120, 120);
+    border-bottom: 4px solid rgba(83, 83, 83);
+}
+.map_img_item{
+    width: 75px;
+    margin-left: 9px;
+    margin-top: 3px;
+    border-radius: 2px;
+}
+.map_img_animal{
+    width: 90px;
+    margin-left: 14px;
+    border-radius: 3px;
+    margin-top: 5px;
+}
+.map_right{
+    width: 452px;
+    float: right;
+    margin-top: 25px;
+}
+.map_Archery{
+    position: absolute;
+    background-color: rgba(120, 120, 120);
+    color: black;
+    width: 120px;
+    font-size: 15pt;
+    text-align: center;
+    top: 210px;
+    left: 115px;
+    box-shadow: 2px 2px 10px 3px ;
+    border-radius: 3px;
+}
+.map_Alley{
+    position: absolute;
+    background-color: rgba(120, 120, 120);
+    color: black;
+    width: 120px;
+    font-size: 15pt;
+    text-align: center;
+    top: 140px;
+    left: 230px;
+    box-shadow: 2px 2px 10px 3px ;
+    border-radius: 3px;
+}
+.map_Temple{
+    position: absolute;
+    background-color: rgba(120, 120, 120);
+    color: black;
+    width: 120px;
+    font-size: 15pt;
+    text-align: center;
+    top: 225px;
+    left: 450px;
+    box-shadow: 2px 2px 10px 3px ;
+    border-radius: 3px;
+}
+.map_Avenue{
+    position: absolute;
+    background-color: rgba(120, 120, 120);
+    color: black;
+    width: 120px;
+    font-size: 15pt;
+    text-align: center;
+    top: 240px;
+    left: 320px;
+    box-shadow: 2px 2px 10px 3px ;
+    border-radius: 3px;
+}
+.map_School{
+    position: absolute;
+    background-color: rgba(120, 120, 120);
+    color: black;
+    width: 120px;
+    font-size: 15pt;
+    text-align: center;
+    top: 275px;
+    left: 180px;
+    box-shadow: 2px 2px 10px 3px ;
+    border-radius: 3px;
+}
+.map_Hotel{
+    position: absolute;
+    background-color: rgba(120, 120, 120);
+    color: black;
+    width: 120px;
+    font-size: 15pt;
+    text-align: center;
+    top: 335px;
+    left: 100px;
+    box-shadow: 2px 2px 10px 3px ;
+    border-radius: 3px;
+}
+.map_Beach{
+    position: absolute;
+    background-color: rgba(120, 120, 120);
+    color: black;
+    width: 120px;
+    font-size: 15pt;
+    text-align: center;
+    top: 450px;
+    left: 90px;
+    box-shadow: 2px 2px 10px 3px ;
+    border-radius: 3px;
+}
+.map_Dock{
+    position: absolute;
+    background-color: rgba(120, 120, 120);
+    color: black;
+    width: 120px;
+    font-size: 15pt;
+    text-align: center;
+    top: 620px;
+    left: 290px;
+    box-shadow: 2px 2px 10px 3px ;
+    border-radius: 3px;
+}
+.map_Uptown{
+    position: absolute;
+    background-color: rgba(120, 120, 120);
+    color: black;
+    width: 120px;
+    font-size: 15pt;
+    text-align: center;
+    top: 545px;
+    left: 160px;
+    box-shadow: 2px 2px 10px 3px ;
+    border-radius: 3px;
+}
+
+.map_Forest{
+    position: absolute;
+    background-color: rgba(120, 120, 120);
+    color: black;
+    width: 120px;
+    font-size: 15pt;
+    text-align: center;
+    top: 450px;
+    left: 220px;
+    box-shadow: 2px 2px 10px 3px ;
+    border-radius: 3px;
+}
+.map_Chapel{
+    position: absolute;
+    background-color: rgba(120, 120, 120);
+    color: black;
+    width: 120px;
+    font-size: 15pt;
+    text-align: center;
+    top: 530px;
+    left: 325px;
+    box-shadow: 2px 2px 10px 3px ;
+    border-radius: 3px;
+}
+.map_Cemetery{
+    position: absolute;
+    background-color: rgba(120, 120, 120);
+    color: black;
+    width: 120px;
+    font-size: 15pt;
+    text-align: center;
+    top: 440px;
+    left: 360px;
+    box-shadow: 2px 2px 10px 3px ;
+    border-radius: 3px;
+}
+.map_Hospital{
+    position: absolute;
+    background-color: rgba(120, 120, 120);
+    color: black;
+    width: 120px;
+    font-size: 15pt;
+    text-align: center;
+    top: 410px;
+    left: 500px;
+    box-shadow: 2px 2px 10px 3px ;
+    border-radius: 3px;
+}
+.map_Pond{
+    position: absolute;
+    background-color: rgba(120, 120, 120);
+    color: black;
+    width: 120px;
+    font-size: 15pt;
+    text-align: center;
+    top: 330px;
+    left: 400px;
+    box-shadow: 2px 2px 10px 3px ;
+    border-radius: 3px;
+}
+.map_Factory{
+    position: absolute;
+    background-color: rgba(120, 120, 120);
+    color: black;
+    width: 120px;
+    font-size: 15pt;
+    text-align: center;
+    top: 565px;
+    left: 450px;
+    box-shadow: 2px 2px 10px 3px ;
+    border-radius: 3px;
+}
+.map_Research{
+    position: absolute;
+    background-color: rgba(120, 120, 120);
+    color: black;
+    width: 120px;
+    font-size: 15pt;
+    text-align: center;
+    top: 365px;
+    left: 260px;
+    box-shadow: 2px 2px 10px 3px ;
+    border-radius: 3px;
 }
 

@@ -103,6 +103,24 @@
         "다리":"다리",
         "장식":"장식"
     },
+    
+        "Archery": "양궁장",
+        "Alley": "골목길",
+        "Avenue": "번화가",
+        "Temple": "절",
+        "School": "학교",
+        "Hotel": "호텔",
+        "Pond": "연못",
+        "Research": "연구소",
+        "Beach": "모래사장",
+        "Forest": "숲",
+        "Cemetery": "묘지",
+        "Hospital": "병원",
+        "Uptown": "고급 주택가",
+        "Chapel": "성당",
+        "Factory": "공장",
+        "Dock": "항구",
+
     "items":{
         "일렉트론블라스터": "일렉트론 블라스터",
         "마탄의사수": "마탄의 사수",

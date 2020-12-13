@@ -103,6 +103,24 @@
         "다리": "Leg",
         "장식": "Acc"
     },
+    
+        "Archery": "Archery",
+        "Alley": "Alley",
+        "Avenue": "Avenue",
+        "Temple": "Temple",
+        "School": "School",
+        "Hotel": "Hotel",
+        "Pond": "Pond",
+        "Research": "Research",
+        "Beach": "Beach",
+        "Forest": "Forest",
+        "Cemetery": "Cemetery",
+        "Hospital": "Hospital",
+        "Uptown": "Uptown 주택가",
+        "Chapel": "Chapel",
+        "Factory": "Factory",
+        "Dock": "Dock",
+
     "items":{
         "일렉트론블라스터": "Electron Blaster",
         "마탄의사수": "Devil's Marksman",
