@@ -6,6 +6,7 @@ import ScriptTag from 'react-script-tag';
 import { Header, SubBanner, AdS, Footer } from 'components/banner';
 import { Weapons, Armors } from 'components/item';
 import { Version, CharacterScore, Max, Min, Avg, dmgPlus } from 'lib/data';
+import skilTreeData from 'data/sub/skillTree.json'
 
 class Detail extends Component {
     constructor(props) {
@@ -23,6 +24,8 @@ class Detail extends Component {
             skillFocus: 0,
             ad_style: {},
             tierColor: ['#007fd3', '#00d3b7', '#d38900', '#8b8b8b', '#583900'],
+            skillTree: [],
+            skillTreeFocus: [],
         };
     }
     componentWillMount() {
@@ -79,12 +82,15 @@ class Detail extends Component {
             }
         });
 
+        const keys = Object.keys(skilTreeData[character]);
+
         this.setState({ 
             weaponTotal: weaponTotal,
             rangeFocus: rangeFocus,
             typeFocus: typeFocus,
             character: character,
             weapon: weapon,
+            skillTree: keys
         });
     };
 
@@ -157,6 +163,31 @@ class Detail extends Component {
             )
         });
     };
+
+    skillHandler = (idx) => {
+        this.setState({skillTreeFocus: idx});
+    };
+    skillTreeView = () => {
+        const { skillTree } = this.state;
+        
+        return skillTree.map((name, idx) => 
+            <span key={'treeTab'+idx} onClick={(e) => this.skillHandler(idx)}>{name}</span>
+        )
+    }
+    skillTree = () => {
+        const { character, skillTree, skillTreeFocus } = this.state;
+
+        if (!skillTree[skillTreeFocus]) return;
+        
+        const tree = skilTreeData[character][skillTree[skillTreeFocus]];
+
+        return tree.map((name, idx) => 
+            <div key={'tree'+idx}>
+                <img src={'img/Skill/'+character+'/'+character+'_'+name+'.png'} />
+                <span>{name}</span>
+            </div>
+        )
+    }
 
     render() {
         const { intl } = this.props;
@@ -302,14 +333,10 @@ class Detail extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="Ad_box_Detail">
-                            <ins 
-                                className="kakao_ad_area" 
-                                style={{display: 'none'}}
-                                data-ad-unit="DAN-65cQeySsxkm44L6Y" 
-                                data-ad-width="728" 
-                                data-ad-height="90"></ins>
-                        </div>
+                        
+                        {this.skillTreeView()}
+                        {this.skillTree()}
+                        
                     </div>
                     <Weapons 
                         character={character}
