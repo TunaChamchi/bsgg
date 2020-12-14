@@ -39,6 +39,7 @@ class Weapons extends Component {
                 key={'weapon' + idx}>
                 <span className="S_item_rank1">{idx+1}</span>&nbsp;
                 <div className="S_item_toolbox">
+                    <img className="S_item_rank2" src={"/img/Item/BackGround/고급.jpg"}/>
                     <img className="S_item_rank2" src={'img/Item/'+_weapon['weapon']+'.png'} />&nbsp;
                     <div className="S_item_tooltip2">
                         <span>{this.statView(weapon, _weapon['weapon'])}</span>

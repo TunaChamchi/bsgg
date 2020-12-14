@@ -75,6 +75,9 @@ button:hover{
 .tabHeaders2 :hover{
     cursor: pointer;
 }
+.tabHeaders3 :hover{
+    cursor: pointer;
+}
 .S_search3 :hover{
     cursor: pointer;
     background-color:  rgba(0,0,0,0);
@@ -297,12 +300,14 @@ button:hover{
     margin-left: -150px;
 }
 .menubutton{
+    width: 100px;
     border-color: rgba(0,0,0,0);
     background-color:  rgba(0,0,0,0);
     border-radius: 0px;
     font-size: 15px;
     font-weight: bold;
     color: rgb(209, 209, 209);
+    margin-left: -30px;
 }
 .banner-menu{
     margin: auto;
@@ -623,6 +628,10 @@ button:hover{
     border: 1px solid rgb(244,216,35);
     color: white;
 }
+.tabHeaders3 .actived {
+    border: 1px solid rgb(244,216,35);
+    color: white;
+}
 .tabHeader0 {
     width: 75px;
     float: left;
@@ -662,8 +671,8 @@ button:hover{
     border-bottom: 22px solid transparent;
     border-left: 22px solid rgb(244,216,35);
     float: left;
-    margin-top: 2px;
-    margin-left: 2px;
+    margin-top: 5px;
+    margin-left: 5px;
   }
  .trirank{
     width: 0px;
@@ -798,6 +807,7 @@ button:hover{
     text-align: center;
     float: left;
     text-align: left;
+    color: white;
 }
 .S_top-box{
     width: 955px;
@@ -816,6 +826,8 @@ button:hover{
 .tabHeaders2{
     clear: both;
     float: left;
+}
+.tabHeaders3{
 }
 .S_top-weapon1{
     width: 60px;
@@ -1007,6 +1019,7 @@ button:hover{
     background-color: rgb(38, 35, 53);
     border-radius: 3px;
     border-bottom: 1px solid #3b4147;
+    height: 340px;
 }
 .S_Skill0{
     width: 750px;
@@ -1021,10 +1034,9 @@ button:hover{
 }
 .S_Skill1{
     margin-left: 30px;
-    
 }
 .S_Skill_tab{
-    margin-top: 20px;
+    margin-top: 10px;
     float: left;
     margin-left: 30px;
     font-size: 17pt;
@@ -1043,28 +1055,41 @@ button:hover{
 .S_Skill2{
     clear: both;
     font-size: 15pt;
+    padding-top: 2px;
+    height: 32px;
+    background-color: rgb(35, 27, 47);
+    width: auto;
+    border-bottom: 1px solid rgb(23, 21, 32);
 }
-.S_Skill2_keyname{
+.skill_title{
     display: inline-block;
     width: 250px;
     float: left;
-    background-color: rgb(38, 35, 53);
     margin-top: 10px;
     background-color: rgb(35, 27, 47);
     border-bottom: 1px solid rgb(23, 21, 32);
 }
-.S_Skill2_name{
-    display: inline-block;
-    width: 500px;
-    background-color: rgb(38, 35, 53);
-    margin-top: 10px;
-    background-color: rgb(35, 27, 47);
-    border-bottom: 1px solid rgb(23, 21, 32);
+.skill_tab{
+    display: block;
+    width: 250px;
+    float: left;
+    padding-top: 3px;
+    padding-bottom: 6px;
+    height: 24px;
+    font-size: 15pt;
+    color: gray;
+    border-bottom: 1px solid #3b4147;
 }
-.S_Skill2_info{
-    white-space: pre-line;
-    font-size: 12pt;
-    margin-top: 15px;
+.skill_img{
+    width: 60px;
+    margin-top: 20px;
+    margin-left: 180px;
+    margin-right: -130px;
+    float: left;
+}
+.skill_img1{
+    width: 60px;
+    border: solid 1px  rgb(244,216,35);
 }
 .S_right{
     width: 390px;
@@ -1282,7 +1307,7 @@ button:hover{
 }
 .map_square{
     width: 430px;
-    background-color: rgb(23, 21, 32);
+    background-color: rgb(35, 27, 47);
     float:left;
     border-radius: 3px;
     margin-bottom: 15px;
@@ -1308,7 +1333,7 @@ button:hover{
     font-size: 15pt;
     margin-bottom: 5px;
     padding-top: 5px;
-    background-color: rgb(35, 27, 47);
+    background-color: rgb(23, 21, 32);
     border-bottom: 1px solid #3b4147;
 }
 .map_tab2{
@@ -1317,7 +1342,7 @@ button:hover{
     text-align: center;
     font-size: 13pt;
     margin-bottom: 5px;
-    padding-top: 5px;
+    margin-top: 115px;
     padding-bottom: 3px;
     background-color: rgb(35, 27, 47);
     border-bottom: 1px solid #3b4147;
@@ -1335,6 +1360,7 @@ button:hover{
     margin-top: 5px;
     border-radius: 3px;
     border: 1px solid #3b4147;
+    float: left;
 }
 .map_right{
     width: 452px;
@@ -1351,7 +1377,7 @@ button:hover{
     left: 115px;
     box-shadow: 2px 2px 10px 3px black;;
     border-radius: 3px;
-    border-bottom: 2px solid #3b4147;
+    border-bottom: 1px solid #3b4147;
 }
 .map_Alley{
     position: absolute;
@@ -1363,7 +1389,7 @@ button:hover{
     left: 230px;
     box-shadow: 2px 2px 10px 3px black;;
     border-radius: 3px;
-    border-bottom: 2px solid #3b4147;
+    border-bottom: 1px solid #3b4147;
 }
 .map_Temple{
     position: absolute;
@@ -1375,7 +1401,7 @@ button:hover{
     left: 450px;
     box-shadow: 2px 2px 10px 3px black;;
     border-radius: 3px;
-    border-bottom: 2px solid #3b4147;
+    border-bottom: 1px solid #3b4147;
 }
 .map_Avenue{
     position: absolute;
@@ -1387,7 +1413,7 @@ button:hover{
     left: 320px;
     box-shadow: 2px 2px 10px 3px black;;
     border-radius: 3px;
-    border-bottom: 2px solid #3b4147;
+    border-bottom: 1px solid #3b4147;
 }
 .map_School{
     position: absolute;
@@ -1399,7 +1425,7 @@ button:hover{
     left: 180px;
     box-shadow: 2px 2px 10px 3px black;;
     border-radius: 3px;
-    border-bottom: 2px solid #3b4147;
+    border-bottom: 1px solid #3b4147;
 }
 .map_Hotel{
     position: absolute;
@@ -1411,7 +1437,7 @@ button:hover{
     left: 100px;
     box-shadow: 2px 2px 10px 3px black;;
     border-radius: 3px;
-    border-bottom: 2px solid #3b4147;
+    border-bottom: 1px solid #3b4147;
 }
 .map_Beach{
     position: absolute;
@@ -1423,7 +1449,7 @@ button:hover{
     left: 90px;
     box-shadow: 2px 2px 10px 3px black;;
     border-radius: 3px;
-    border-bottom: 2px solid #3b4147;
+    border-bottom: 1px solid #3b4147;
 }
 .map_Dock{
     position: absolute;
@@ -1435,7 +1461,7 @@ button:hover{
     left: 290px;
     box-shadow: 2px 2px 10px 3px black;;
     border-radius: 3px;
-    border-bottom: 2px solid #3b4147;
+    border-bottom: 1px solid #3b4147;
 }
 .map_Uptown{
     position: absolute;
@@ -1447,7 +1473,7 @@ button:hover{
     left: 160px;
     box-shadow: 2px 2px 10px 3px black;;
     border-radius: 3px;
-    border-bottom: 2px solid #3b4147;
+    border-bottom: 1px solid #3b4147;
 }
 .map_Forest{
     position: absolute;
@@ -1459,7 +1485,7 @@ button:hover{
     left: 220px;
     box-shadow: 2px 2px 10px 3px black;;
     border-radius: 3px;
-    border-bottom: 2px solid #3b4147;
+    border-bottom: 1px solid #3b4147;
 }
 .map_Chapel{
     position: absolute;
@@ -1471,7 +1497,7 @@ button:hover{
     left: 325px;
     box-shadow: 2px 2px 10px 3px black;;
     border-radius: 3px;
-    border-bottom: 2px solid #3b4147;
+    border-bottom: 1px solid #3b4147;
 }
 .map_Cemetery{
     position: absolute;
@@ -1483,7 +1509,7 @@ button:hover{
     left: 360px;
     box-shadow: 2px 2px 10px 3px black;;
     border-radius: 3px;
-    border-bottom: 2px solid #3b4147;
+    border-bottom: 1px solid #3b4147;
 }
 .map_Hospital{
     position: absolute;
@@ -1495,7 +1521,7 @@ button:hover{
     left: 500px;
     box-shadow: 2px 2px 10px 3px black;;
     border-radius: 3px;
-    border-bottom: 2px solid #3b4147;
+    border-bottom: 1px solid #3b4147;
 }
 .map_Pond{
     position: absolute;
@@ -1507,7 +1533,7 @@ button:hover{
     left: 400px;
     box-shadow: 2px 2px 10px 3px black;;
     border-radius: 3px;
-    border-bottom: 2px solid #3b4147;
+    border-bottom: 1px solid #3b4147;
 }
 .map_Factory{
     position: absolute;
@@ -1519,7 +1545,7 @@ button:hover{
     left: 450px;
     box-shadow: 2px 2px 10px 3px black;;
     border-radius: 3px;
-    border-bottom: 2px solid #3b4147;
+    border-bottom: 1px solid #3b4147;
 }
 .map_Research{
     position: absolute;
@@ -1531,7 +1557,6 @@ button:hover{
     left: 260px;
     box-shadow: 2px 2px 10px 3px black;;
     border-radius: 3px;
-    border-bottom: 2px solid #3b4147;
+    border-bottom: 1px solid #3b4147;
 }
-
 

@@ -164,14 +164,18 @@ class Detail extends Component {
         });
     };
 
-    skillHandler = (idx) => {
+    skillTreeHandler = (idx) => {
         this.setState({skillTreeFocus: idx});
     };
     skillTreeView = () => {
         const { skillTree } = this.state;
         
         return skillTree.map((name, idx) => 
-            <span key={'treeTab'+idx} onClick={(e) => this.skillHandler(idx)}>{name}</span>
+            <div className="tabHeaders">
+                <div className="skill_tab">
+                    <span key={'treeTab'+idx} onClick={(e) => this.skillTreeHandler(idx)}>{name}</span>
+                </div>
+            </div>
         )
     }
     skillTree = () => {
@@ -182,8 +186,8 @@ class Detail extends Component {
         const tree = skilTreeData[character][skillTree[skillTreeFocus]];
 
         return tree.map((name, idx) => 
-            <div key={'tree'+idx}>
-                <img src={'img/Skill/'+character+'/'+character+'_'+name+'.png'} />
+            <div className="skill_img" key={'tree'+idx}>
+                <img className="skill_img1" src={'img/Skill/'+character+'/'+character+'_'+name+'.png'} />
                 <span>{name}</span>
             </div>
         )
@@ -322,20 +326,12 @@ class Detail extends Component {
                                 </div>
                             </div>
                             <div className="S_Skill2">
-                                <div className="S_Skill2_keyname">
-                                    <span>{skillType}</span>
-                                </div>
-                                <div className="S_Skill2_name">
-                                    <span>{skilName}</span>
-                                </div>
-                                <div className="S_Skill2_info">
-                                    <span>{skilDetail}</span>
-                                </div>
+                                <span>스킬트리</span>
+                                {this.skillTreeView()}
+                                {this.skillTree()}
                             </div>
                         </div>
                         
-                        {this.skillTreeView()}
-                        {this.skillTree()}
                         
                     </div>
                     <Weapons 
