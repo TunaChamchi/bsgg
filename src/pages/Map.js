@@ -30,6 +30,10 @@ class Map extends Component {
                     <div className="map_title">
                         <span className="map_title_span">MAP</span>
                     </div>
+                    <div className="tabHeaders">
+                        <span className="map_tab0 actived">지도 도감</span>
+                        <span className="map_tab0">루트 제작 - 준비중</span>
+                    </div>
                     <div className="map_right">
                         <div className="map_square">
                             <div className="map_tab">드랍 아이템</div>
