@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { injectIntl } from 'react-intl';
 import { Armor } from 'lib/data'
+import armorData from 'data/inGame/armor.json';
 
 class Armors extends Component {
     constructor(props) {
@@ -55,15 +56,33 @@ class Armors extends Component {
                 key={'item' + idx}>
                 <span className="S_item_rank1">{idx+1}</span>
                 <div className="S_item_toolbox1">
-                    <img className="S_item_rank2" src={'img/Item/Armor/'+type[typeFocus]+'/'+armor['name']+'.png'} />
+                    <img className="S_item_rank2" src={'img/Item/'+armor['name']+'.png'} />
                     <div className="S_item_tooltip3">
-                        <span>{intl.formatMessage({id:'question'})}</span>
+                        <span>{this.statView(type[typeFocus], armor['name'])}</span>
                     </div>
                 </div>
                 <span className="S_item_rank3">{intl.formatMessage({id: 'items.'+armor['name']})}</span>
                 <span className="S_item_rank6">{armor['win-rate']}%</span>
             </div>
         );
+    }
+    statView = (type, name) => {
+        const { intl } = this.props;
+
+        try {
+            const statList = armorData[type][name]["stat"];
+
+            let toolTip = "";
+            for (const key in statList) {
+                toolTip += intl.formatMessage({id: 'stat.'+key}) + " " + statList[key] + "\n";
+            }
+
+            return toolTip;
+        }
+        catch
+        {
+            return '';
+        }
     }
 
     render() {

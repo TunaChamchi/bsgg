@@ -26,7 +26,7 @@ class Main extends Component {
                         <Characters />
                         <div className="Ad_box_Main">
                             <ins 
-                                class="kakao_ad_area" 
+                                className="kakao_ad_area" 
                                 style={{display: 'none'}} 
                                 data-ad-unit="DAN-WUlvSzBZfRSTMEEX" 
                                 data-ad-width="300" 

@@ -22,6 +22,7 @@ class Detail extends Component {
             skill: ['T', 'Q', 'W', 'E', 'R', 'D'],
             skillFocus: 0,
             ad_style: {},
+            tierColor: ['#007fd3', '#00d3b7', '#d38900', '#8b8b8b', '#583900'],
         };
     }
     componentWillMount() {
@@ -159,15 +160,15 @@ class Detail extends Component {
 
     render() {
         const { intl } = this.props;
-        const { data, character, weapon, rangeFocus, typeFocus,skill, skillFocus, ad_style } = this.state;
+        const { data, character, weapon, rangeFocus, typeFocus,skill, skillFocus, tierColor } = this.state;
         
         const metaData = {
             title: 'BSGG.kr - ' + intl.formatMessage({id: 'characters.'+data['character']}) + ' ' + intl.formatMessage({id: 'weapons.'+data['weapon']}),
             description: '영원회귀 : 블랙 서바이벌 통계, 캐릭터 티어, 아이템 트렌드, BS:ER Stats, Character Tier, Item Trend'
         }
 
-        const img_char = 'img/Characters/' + data['character'] + (data['tier'] > 0 ? '' : '_오피') + '.png';
-        const img_tier = data['tier'] > 0 ? 'img/Tier/' + data['tier'] + '티어2.png' : 'img/Tier/1티어.png';
+        const img_char = 'img/Characters/' + data['character'] + '.png';
+        const img_tier = 'img/Tier/' + data['tier'] + '티어2.png';
         const avg = Avg(rangeFocus, typeFocus);
         const max = Max(rangeFocus, typeFocus);
         const min = Min(rangeFocus, typeFocus);
@@ -193,7 +194,7 @@ class Detail extends Component {
                 <div className="S_main">
                     <div className="S_top">
                         <div className="S_top-cha">
-                            <img className="S_top-cha1" src={img_char} />
+                            <img className="S_top-cha1" style={{border:"3px solid "+ tierColor[data['tier']-1]}} src={img_char} />
                             <img className="S_top-cha2" src={img_tier} />
                         </div>
                         <div className="S_top-box">  
@@ -303,7 +304,7 @@ class Detail extends Component {
                         </div>
                         <div className="Ad_box_Detail">
                             <ins 
-                                class="kakao_ad_area" 
+                                className="kakao_ad_area" 
                                 style={{display: 'none'}}
                                 data-ad-unit="DAN-65cQeySsxkm44L6Y" 
                                 data-ad-width="728" 
