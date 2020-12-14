@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { injectIntl  } from 'react-intl';
 import { Tier } from 'components/Main/right'
+import qusetionlogo from 'img/questionlogo.png';
 
 class Rank extends Component {
 	constructor(props) {
         super(props);
         this.state = {
             range: ['RANKER', 'ALL'],
-            rangeFocus: 0,
+            rangeFocus: 1,
             type: ['solo', 'duo', 'squad'],
             typeFocus: 0,
         };
@@ -45,6 +46,7 @@ class Rank extends Component {
     }
 
     render() {
+        const { intl } = this.props;
         const { range, rangeFocus, type, typeFocus } = this.state;
 
         return (
@@ -57,7 +59,13 @@ class Rank extends Component {
                         </div>
                     </div>
                     <div className="rank0-1">
-                        <span>RANK</span>
+                        <div className="rank_span">
+                            <span >RANK</span>
+                            <img className="question_logo" src={qusetionlogo} />
+                            <div className="rank_span_tooltip">
+                                <span>{intl.formatMessage({id:'question'})}</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className="rank1">

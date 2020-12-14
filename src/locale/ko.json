@@ -18,6 +18,9 @@
     "avg-kill": "평균킬",
     "lately-patch": "최근패치",
     "name":"이름", 
+    "footer":"BSGG.kr isn’t endorsed by Nimble Neuron.\nEternal Return: Black Survival is trademarks or registered trademarks of Nimble Neuron.\nData Based on Nimble Neuron",
+    "question":"캐릭터 티어는 공식 통계를 기반으로한 캐릭터들의 승률, 픽률, 평균킬수, 평균순위 등을 바탕으로 만들어집니다. 듀오와 스쿼드 통계에서는 평균킬수와 평균순위의 티어에 미치는 영향력이 감소합니다.",
+    "question_item":"방어구 아이템 통계는 자료부족으로 인해 전 캐릭터 기준 승률 자료입니다. 각 캐릭터별 방어구 승률이 아닙니다.",
 
     "main": {
         "banner": {
@@ -100,6 +103,24 @@
         "다리":"다리",
         "장식":"장식"
     },
+    
+        "Archery": "양궁장",
+        "Alley": "골목길",
+        "Avenue": "번화가",
+        "Temple": "절",
+        "School": "학교",
+        "Hotel": "호텔",
+        "Pond": "연못",
+        "Research": "연구소",
+        "Beach": "모래사장",
+        "Forest": "숲",
+        "Cemetery": "묘지",
+        "Hospital": "병원",
+        "Uptown": "고급 주택가",
+        "Chapel": "성당",
+        "Factory": "공장",
+        "Dock": "항구",
+
     "items":{
         "일렉트론블라스터": "일렉트론 블라스터",
         "마탄의사수": "마탄의 사수",
