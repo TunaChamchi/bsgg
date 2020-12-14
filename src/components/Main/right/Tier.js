@@ -48,7 +48,7 @@ class Tier extends Component {
     };
 
     listView = () => {
-        const { range, type,intl } = this.props;
+        const { range, type, intl } = this.props;
         const { tierList, preRankList, typeFocus } = this.state;
 
         this.listSort();
