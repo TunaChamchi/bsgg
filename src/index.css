@@ -176,11 +176,18 @@ button:hover{
     text-align: left;
 }
 .Data-period{
-    width: 565px;
+    width: auto;
     float: right;
     text-align: right;
     margin-top: 5px;
     margin-right: -10px;
+}
+.newimg{
+    height: 12px ;
+    width: 25px;
+    float: right;
+    margin-top: 8px;
+    margin-right: 5px;
 }
 .main{
     text-align: center;
@@ -401,6 +408,12 @@ button:hover{
     width: 5px;
     margin-left: -2px;
     margin-right: 25px;
+}
+.rank3new{
+    width: 18px;
+    height: 10px;
+    margin-right: 24px;
+    margin-left: -20px;
 }
 .rank3cha1{
     vertical-align: middle;
