@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { injectIntl  } from 'react-intl';
 //import AdSense from 'react-adsense';
+import { itemBgI } from 'lib/data';
 import mapData from 'data/inGame/map.json'
 
 class Item extends Component {
@@ -18,7 +19,10 @@ class Item extends Component {
 
         return itemList.map((item, idx) => {
             return (
-                <img className="map_img_item" key={'item'+idx} src={'img/Item/' + item + '.png'} />
+                <div className="map_item_locale">
+                    <img className="map_img_item2" src={itemBgI(item)}/>
+                    <img className="map_img_item" key={'item'+idx} src={'img/Item/' + item + '.png'} />
+                </div>
             )
         });
     }

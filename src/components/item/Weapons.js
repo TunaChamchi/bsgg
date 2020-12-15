@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { injectIntl } from 'react-intl';
-import { Weapon } from 'lib/data'
+import { Weapon, itemBgI, statList } from 'lib/data';
 import qusetionlogo from 'img/questionlogo.png';
-import weaponData from 'data/inGame/weapon.json';
 
 class Weapons extends Component {
     constructor(props) {
@@ -39,10 +38,10 @@ class Weapons extends Component {
                 key={'weapon' + idx}>
                 <span className="S_item_rank1">{idx+1}</span>&nbsp;
                 <div className="S_item_toolbox">
-                    <img className="S_item_rank2" src={"/img/Item/BackGround/고급.jpg"}/>
+                    <img className="S_item_rank2" src={itemBgI(_weapon['weapon'])}/>
                     <img className="S_item_rank2" src={'img/Item/'+_weapon['weapon']+'.png'} />&nbsp;
                     <div className="S_item_tooltip2">
-                        <span>{this.statView(weapon, _weapon['weapon'])}</span>
+                        <span>{this.statView(_weapon['weapon'])}</span>
                     </div>
                 </div>
                 <span className="S_item_rank3">{intl.formatMessage({id:'items.'+_weapon['weapon']})}</span>&nbsp;
@@ -51,15 +50,15 @@ class Weapons extends Component {
             </div>
         );
     }
-    statView = (type, name) => {
+    statView = (name) => {
         const { intl } = this.props;
 
         try {
-            const statList = weaponData[type][name]["stat"];
+            const list = statList(name);
 
             let toolTip = "";
-            for (const key in statList) {
-                toolTip += intl.formatMessage({id: 'stat.'+key}) + " " + statList[key] + "\n";
+            for (const key in list) {
+                toolTip += intl.formatMessage({id: 'stat.'+key}) + " " + list[key] + "\n";
             }
 
             return toolTip;

@@ -1085,100 +1085,78 @@ button:hover{
 }
 .skill_imgbox{
     clear: both;
+    text-align: center;
 }
-.skill_img{
+.skill_img {
+    vertical-align: middle;
+    display: inline-block;
+    background-color: rgb(35, 27, 47);
+    width: 23px;
+    height: 23px;
+    border-radius: 4px;
+    font-size: 12pt;
+    margin-top: -6px;
+    font-weight: 400;
+    border: 1px solid rgb(244,216,35);
+}
+.skill_span{
     width: 50px;
+    margin-left: 40px;
     margin-top: 20px;
-    margin-left: 230px;
-    margin-right: -200px;
-    float: left;
-}
-.skill_img1{
-    width: 50px;
     border: solid 1px  rgb(244,216,35);
     border-radius: 5px;
 }
 .skill_box0{
     clear: both;
-    background-color: white;
-}
-.skill_box{
-    float: left;
-    margin-top: 85px;
-    margin-left: 74px;
-    margin-right: -70px;
+    margin-top: 5px;
     text-align: center;
+}
+.skill_td {
+    margin-top: 0px;
 }
 .skill_level{
     display: inline-block;
     width: 25px;
     height: 25px;
-    margin-top: 5px;
+    margin-left: 4px;
     background-color: rgb(38, 35, 53);
     font-size: 13pt;
 }
-.skill_q{
-    background-color: #171520; 
-    margin-top: 5px;
+.skill_tr {
+    display: inline-block;
+    background-color: rgb(35, 27, 47);
+    margin-left: 4px;
     width: 23px;
     height: 23px;
-    font-size: 12pt;
     border-radius: 4px;
-    color: rgb(224, 54, 11);
+    font-size: 12pt;
     font-weight: 400;
     border: 1px solid #3b4147;
 }
-.skill_w{
-    background-color: #171520; 
-    margin-top: 5px;
-    width: 23px;
-    height: 23px;
-    font-size: 12pt;
-    border-radius: 4px;
-    color: rgb(71, 172, 40);
-    font-weight: 400;
-    border: 1px solid #3b4147;
-}
-.skill_e{
-    background-color: #171520; 
-    margin-top: 5px;
-    width: 23px;
-    height: 23px;
-    font-size: 12pt;
-    border-radius: 4px;
-    color: #007fd3;
-    font-weight: 400;
-    border: 1px solid #3b4147;
-}
-.skill_r{
-    background-color: #171520; 
-    margin-top: 5px;
-    width: 23px;
-    height: 23px;
-    font-size: 12pt;
-    border-radius: 4px;
-    color: rgb(244, 178, 35);
-    font-weight: 400;
-    border: 1px solid #3b4147;
-}
-.skill_t{
-    background-color: #171520; 
-    margin-top: 5px;
-    width: 23px;
-    height: 23px;
-    font-size: 12pt;
-    border-radius: 4px;
+.skill_T {
+    display: inline-block;
+    background-color: rgb(23, 21, 32);
     color: rgb(170, 170, 170);
-    font-weight: 400;
-    border: 1px solid #3b4147;
 }
-.skill_blank{
-    background-color: #241b2f; 
-    margin-top: 5px;
-    width: 23px;
-    height: 23px;
-    border-radius: 4px;
-    border: 1px solid #3b4147;
+.skill_Q{
+    display: inline-block;
+    background-color: rgb(23, 21, 32);
+    color: rgb(224, 54, 11);
+}
+.skill_W{
+    display: inline-block;
+    background-color: rgb(23, 21, 32);
+    color: rgb(71, 172, 40);
+}
+.skill_E{
+    display: inline-block;
+    background-color: rgb(23, 21, 32);
+    color: #007fd3;
+}
+.skill_R{
+    display: inline-block;
+    background-color: rgb(23, 21, 32);
+    color: rgb(244, 178, 35);
 }
 .S_right{
     width: 390px;
@@ -1436,11 +1414,27 @@ button:hover{
     background-color: rgb(35, 27, 47);
     border-bottom: 1px solid #3b4147;
 }
+.map_item_locale{
+    display: inline-block;
+    width: 73px;
+    height: 40.33px;
+    margin-left: 11px;
+    margin-top: 3px;
+    position: relative;
+}
 .map_img_item{
     width: 73px;
-    margin-left: 9px;
-    margin-top: 3px;
+    position: absolute;
+}
+.map_img_item2{
+    vertical-align: middle;
+    display: inline-block;
+    width: 73px;
+    text-align: center;
+    border-radius: 2px;
     border: 1px solid #3b4147;
+    position: absolute;
+    right: 0px;;
 }
 .map_img_animal{
     width: 88px;
