@@ -16,7 +16,6 @@
     "pick-rate": "Pick-rate",
     "kill": "Kill",
     "avg-kill": "Avg-kill",
-    "lately-patch": "Recent patch",
     "name":"Name",
     "footer":"BSGG.kr isn’t endorsed by Nimble Neuron.\n Eternal Return: Black Survival is trademarks or registered trademarks of Nimble Neuron.\n Data Based on Nimble Neuron",
     "question":"The character tier is based on the winning rate, pick rate, average skill, and average rank of characters based on official statistics. Duo and squad statistics reduce the influence on average kill and tier of average rank.",
@@ -27,7 +26,8 @@
             "language": "English",
             "menu": {
                 "rank": "Rank",
-                "item": "Item"
+                "item": "Item",
+                "map": "Map"
             },
             "placeholder": "Search character."
         },
@@ -53,6 +53,41 @@
         "skill_info": "Skill Info",
         "passive": "Passive",
         "weaponSkill": "Weapon Skill"
+    },
+    "stat": {
+        "공격력": "Attack Power",
+        "스킬증폭": "Skill Amplification",
+        "공격속도": "Attack Speed",
+        "생명력흡수": "Life Steal",
+        "장탄 수": "Max Ammo",
+
+        "치명타확률": "Critical Chance",
+        "치명타피해량": "Critical Damage",
+
+        "기본공격추가피해": "Extra Attack Dmg",
+        "기본공격시치유감소": "Healing Reduction(Normal)",
+        "스킬적중시치유감소": "Healing Reduction(Skill)",
+
+        "방어력": "Defense",
+        "기본공격피해감소": "Atk Dmg Reduction",
+        "스킬피해감소": "Skill Dmg Reduction",
+        
+        "체력": "Max HP",
+        "최대체력": "Max HP",
+        "체력재생": "HP Regen",
+
+        "최대스태미너": "Max SP",
+        "스태미너재생": "SP Regen",
+        "스태미너재생2": "SP Regen",
+        "스테미너재생": "SP Regen",
+        "스테미너재생2": "SP Regen",
+
+        "시야": "Vision Range",
+        "이동속도": "Speed",
+        "쿨다운감소": "Cooldown Reduction",
+        "기본공격사거리": "Attack Range",
+        "비전투중이동속도": "Speed not in combat",
+        "비전투시이동속도": "Speed not in combat"
     },
 
     "characters": {

@@ -138,7 +138,7 @@ class Detail extends Component {
         this.setState({skillFocus: idx});
     };
     skillView = () => {
-        const { character, weapon, skill, skillFocus } = this.state;
+        const { character, weapon, skill, skillfocus } = this.state;
 
         return skill.map((name, idx) => {
             const img = name === 'D' ? 
@@ -149,13 +149,9 @@ class Detail extends Component {
                 <div className='S_Skill_tab'
                     key={'type' + idx}>
                     <div className="S_skill_toolbox">
-                        <div className="tabHeaders2">
-                        <img className={'S_Skill_img ' + (idx === skillFocus ? 'actived' : '')} 
-                        src={img}
-                        onClick={(e) => this.skillHandler(idx)} />
-                        </div>
+                        <img className='S_Skill_img' src={img} onClick={(e) => this.skillHandler(idx)} />
                          <div className="S_skill_tooltip">
-                            <span>skill</span>
+                            <span>skilDaetil</span>
                         </div>
                     </div>
                     <div className="S_SKill_key"><span>{name}</span></div>          
@@ -163,17 +159,16 @@ class Detail extends Component {
             )
         });
     };
-
     skillTreeHandler = (idx) => {
         this.setState({skillTreeFocus: idx});
     };
     skillTreeView = () => {
-        const { skillTree } = this.state;
+        const { skillTree, skillTreeFocus } = this.state;
         
         return skillTree.map((name, idx) => 
-            <div className="tabHeaders">
-                <div className="skill_tab">
-                    <span key={'treeTab'+idx} onClick={(e) => this.skillTreeHandler(idx)}>{name}</span>
+            <div className={'tabHeaders' + (name===skillTreeFocus ? ' actived' : '')}>
+                <div className="skill_tab" key={'treeTab'+idx} onClick={(e) => this.skillTreeHandler(idx)}>
+                    <span>{name}</span>
                 </div>
             </div>
         )
@@ -186,10 +181,9 @@ class Detail extends Component {
         const tree = skilTreeData[character][skillTree[skillTreeFocus]];
 
         return tree.map((name, idx) => 
-            <div className="skill_img" key={'tree'+idx}>
-                <img className="skill_img1" src={'img/Skill/'+character+'/'+character+'_'+name+'.png'} />
-                <span>{name}</span>
-            </div>
+                <div className="skill_img" key={'tree'+idx}>
+                    <img className="skill_img1" src={'img/Skill/'+character+'/'+character+'_'+name+'.png'} />
+                </div>
         )
     }
 
@@ -237,21 +231,43 @@ class Detail extends Component {
                             <div className="tabHeaders2">
                             {this.weaponListView()}
                             </div>
+                        </div>
                             <div className="S_top-stat">
-                                <span className="S_top-stat1">{intl.formatMessage({ id: 'detail.squadStat' })}</span>
-                                <span className="S_top-stat2">{intl.formatMessage({ id: 'detail.giveDmg' })}</span>
+                                <span className="S_top-stat1">{intl.formatMessage({ id: 'detail.lv20stat' })}</span>
+                                <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.공격력' })}</span>
                                 <span className="S_top-stat3">{dmgPlus(character, 'squad', 'inflict')}%</span>
-                                <span className="S_top-stat2">{intl.formatMessage({ id: 'detail.takeDmg' })}</span>
+                                <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.방어력' })}</span>
+                                <span className="S_top-stat3">{dmgPlus(character, 'squad', 'receive')}%</span>
+                                <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.최대체력' })}</span>
+                                <span className="S_top-stat3">{dmgPlus(character, 'squad', 'inflict')}%</span>
+                                <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.체력재생' })}</span>
+                                <span className="S_top-stat3">{dmgPlus(character, 'squad', 'receive')}%</span>
+                                <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.최대스태미너' })}</span>
+                                <span className="S_top-stat3">{dmgPlus(character, 'squad', 'inflict')}%</span>
+                                <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.스태미너재생' })}</span>
+                                <span className="S_top-stat3">{dmgPlus(character, 'squad', 'receive')}%</span>
+                                <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.공격속도' })}</span>
                                 <span className="S_top-stat3">{dmgPlus(character, 'squad', 'receive')}%</span>
                             </div>
                             <div className="S_top-stat">
-                                <span className="S_top-stat1">{intl.formatMessage({ id: 'detail.duoStat' })}</span>
-                                <span className="S_top-stat2">{intl.formatMessage({ id: 'detail.giveDmg' })}</span>
+                                <span className="S_top-stat1">{intl.formatMessage({ id: 'detail.lv1stat' })}</span>
+                                <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.공격력' })}</span>
                                 <span className="S_top-stat3">{dmgPlus(character, 'duo', 'inflict')}%</span>
-                                <span className="S_top-stat2">{intl.formatMessage({ id: 'detail.takeDmg' })}</span>
+                                <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.방어력' })}</span>
+                                <span className="S_top-stat3">{dmgPlus(character, 'duo', 'receive')}%</span>
+                                <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.최대체력' })}</span>
+                                <span className="S_top-stat3">{dmgPlus(character, 'duo', 'inflict')}%</span>
+                                <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.체력재생' })}</span>
+                                <span className="S_top-stat3">{dmgPlus(character, 'duo', 'receive')}%</span>
+                                <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.최대스태미너' })}</span>
+                                <span className="S_top-stat3">{dmgPlus(character, 'duo', 'inflict')}%</span>
+                                <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.스태미너재생' })}</span>
+                                <span className="S_top-stat3">{dmgPlus(character, 'duo', 'receive')}%</span>
+                                <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.공격속도' })}</span>
                                 <span className="S_top-stat3">{dmgPlus(character, 'duo', 'receive')}%</span>
                             </div>
-                        </div>
+
+                        
                         <div className="S_Data-period">
                             <span>{Version}</span>
                         </div>
@@ -320,15 +336,185 @@ class Detail extends Component {
                         </div>
                         <div className="S_Skill">
                             <span className="S_Skill0">{intl.formatMessage({ id: 'detail.skill_info' })}</span>
-                            <div className="tabHeaders">
                                 <div className="S_Skill1">
                                     {this.skillView()}
                                 </div>
-                            </div>
                             <div className="S_Skill2">
                                 <span>스킬트리</span>
                                 {this.skillTreeView()}
-                                {this.skillTree()}
+                                <div className="skill_imgbox">
+                                    {this.skillTree()}
+                                </div>
+                                <div classname="skill_box0">
+                                    <div className="skill_box">
+                                        <div className="skill_level">S</div>
+                                        <div className="skill_blank"></div>
+                                        <div className="skill_blank"></div>
+                                        <div className="skill_blank"></div>
+                                        <div className="skill_blank"></div>
+                                        <div className="skill_blank"></div>
+                                    </div>
+                                    <div className="skill_box">
+                                        <div className="skill_level">1</div>
+                                        <div className="skill_t">T</div>
+                                        <div className="skill_q">Q</div>
+                                        <div className="skill_w">W</div>
+                                        <div className="skill_e">E</div>
+                                        <div className="skill_r">R</div>
+                                    </div>
+                                    <div className="skill_box">
+                                        <div className="skill_level">2</div>
+                                        <div className="skill_t">T</div>
+                                        <div className="skill_q">Q</div>
+                                        <div className="skill_w">W</div>
+                                        <div className="skill_e">E</div>
+                                        <div className="skill_r">R</div>
+                                    </div>
+                                    <div className="skill_box">
+                                        <div className="skill_level">3</div>
+                                        <div className="skill_t">T</div>
+                                        <div className="skill_q">Q</div>
+                                        <div className="skill_w">W</div>
+                                        <div className="skill_e">E</div>
+                                        <div className="skill_r">R</div>
+                                    </div>
+                                    <div className="skill_box">
+                                        <div className="skill_level">4</div>
+                                        <div className="skill_t">T</div>
+                                        <div className="skill_q">Q</div>
+                                        <div className="skill_w">W</div>
+                                        <div className="skill_e">E</div>
+                                        <div className="skill_r">R</div>
+                                    </div>
+                                    <div className="skill_box">
+                                        <div className="skill_level">5</div>
+                                        <div className="skill_t">T</div>
+                                        <div className="skill_q">Q</div>
+                                        <div className="skill_w">W</div>
+                                        <div className="skill_e">E</div>
+                                        <div className="skill_r">R</div>
+                                    </div>
+                                    <div className="skill_box">
+                                        <div className="skill_level">6</div>
+                                        <div className="skill_t">T</div>
+                                        <div className="skill_q">Q</div>
+                                        <div className="skill_w">W</div>
+                                        <div className="skill_e">E</div>
+                                        <div className="skill_r">R</div>
+                                    </div>
+                                    <div className="skill_box">
+                                        <div className="skill_level">7</div>
+                                        <div className="skill_t">T</div>
+                                        <div className="skill_q">Q</div>
+                                        <div className="skill_w">W</div>
+                                        <div className="skill_e">E</div>
+                                        <div className="skill_r">R</div>
+                                    </div>
+                                    <div className="skill_box">
+                                        <div className="skill_level">8</div>
+                                        <div className="skill_t">T</div>
+                                        <div className="skill_q">Q</div>
+                                        <div className="skill_w">W</div>
+                                        <div className="skill_e">E</div>
+                                        <div className="skill_r">R</div>
+                                    </div>
+                                    <div className="skill_box">
+                                        <div className="skill_level">9</div>
+                                        <div className="skill_t">T</div>
+                                        <div className="skill_q">Q</div>
+                                        <div className="skill_w">W</div>
+                                        <div className="skill_e">E</div>
+                                        <div className="skill_r">R</div>
+                                    </div>
+                                    <div className="skill_box">
+                                        <div className="skill_level">10</div>
+                                        <div className="skill_t">T</div>
+                                        <div className="skill_q">Q</div>
+                                        <div className="skill_w">W</div>
+                                        <div className="skill_e">E</div>
+                                        <div className="skill_r">R</div>
+                                    </div>
+                                    <div className="skill_box">
+                                        <div className="skill_level">11</div>
+                                        <div className="skill_t">T</div>
+                                        <div className="skill_q">Q</div>
+                                        <div className="skill_w">W</div>
+                                        <div className="skill_e">E</div>
+                                        <div className="skill_r">R</div>
+                                    </div>
+                                    <div className="skill_box">
+                                        <div className="skill_level">12</div>
+                                        <div className="skill_t">T</div>
+                                        <div className="skill_q">Q</div>
+                                        <div className="skill_w">W</div>
+                                        <div className="skill_e">E</div>
+                                        <div className="skill_r">R</div>
+                                    </div>
+                                    <div className="skill_box">
+                                        <div className="skill_level">13</div>
+                                        <div className="skill_t">T</div>
+                                        <div className="skill_q">Q</div>
+                                        <div className="skill_w">W</div>
+                                        <div className="skill_e">E</div>
+                                        <div className="skill_r">R</div>
+                                    </div>
+                                    <div className="skill_box">
+                                        <div className="skill_level">14</div>
+                                        <div className="skill_t">T</div>
+                                        <div className="skill_q">Q</div>
+                                        <div className="skill_w">W</div>
+                                        <div className="skill_e">E</div>
+                                        <div className="skill_r">R</div>
+                                    </div>
+                                    <div className="skill_box">
+                                        <div className="skill_level">15</div>
+                                        <div className="skill_t">T</div>
+                                        <div className="skill_q">Q</div>
+                                        <div className="skill_w">W</div>
+                                        <div className="skill_e">E</div>
+                                        <div className="skill_r">R</div>
+                                    </div>
+                                    <div className="skill_box">
+                                        <div className="skill_level">16</div>
+                                        <div className="skill_t">T</div>
+                                        <div className="skill_q">Q</div>
+                                        <div className="skill_w">W</div>
+                                        <div className="skill_e">E</div>
+                                        <div className="skill_r">R</div>
+                                    </div>
+                                    <div className="skill_box">
+                                        <div className="skill_level">17</div>
+                                        <div className="skill_t">T</div>
+                                        <div className="skill_q">Q</div>
+                                        <div className="skill_w">W</div>
+                                        <div className="skill_e">E</div>
+                                        <div className="skill_r">R</div>
+                                    </div>
+                                    <div className="skill_box">
+                                        <div className="skill_level">18</div>
+                                        <div className="skill_t">T</div>
+                                        <div className="skill_q">Q</div>
+                                        <div className="skill_w">W</div>
+                                        <div className="skill_e">E</div>
+                                        <div className="skill_r">R</div>
+                                    </div>
+                                    <div className="skill_box">
+                                        <div className="skill_level">19</div>
+                                        <div className="skill_t">T</div>
+                                        <div className="skill_q">Q</div>
+                                        <div className="skill_w">W</div>
+                                        <div className="skill_e">E</div>
+                                        <div className="skill_r">R</div>
+                                    </div>
+                                    <div className="skill_box">
+                                        <div className="skill_level">20</div>
+                                        <div className="skill_t">T</div>
+                                        <div className="skill_q">Q</div>
+                                        <div className="skill_w">W</div>
+                                        <div className="skill_e">E</div>
+                                        <div className="skill_r">R</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         

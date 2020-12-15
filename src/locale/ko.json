@@ -16,7 +16,6 @@
     "pick-rate": "픽률",
     "kill": "킬",
     "avg-kill": "평균킬",
-    "lately-patch": "최근패치",
     "name":"이름", 
     "footer":"BSGG.kr isn’t endorsed by Nimble Neuron.\nEternal Return: Black Survival is trademarks or registered trademarks of Nimble Neuron.\nData Based on Nimble Neuron",
     "question":"캐릭터 티어는 공식 통계를 기반으로한 캐릭터들의 승률, 픽률, 평균킬수, 평균순위 등을 바탕으로 만들어집니다. 듀오와 스쿼드 통계에서는 평균킬수와 평균순위의 티어에 미치는 영향력이 감소합니다.",
@@ -48,6 +47,8 @@
     "detail": {
         "duoStat": "듀오 피해증폭",
         "squadStat": "스쿼드 피해증폭",
+        "lv1stat": "LV1 능력치",
+        "lv20stat": "LV20 능력치",
         "giveDmg": "주는 피해",
         "takeDmg": "받는 피해",
         "avg": "평균",
