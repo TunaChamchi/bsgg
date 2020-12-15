@@ -6,6 +6,11 @@ import ArmorList from 'data/armor.json';
 import version from 'data/version.json';
 import dmg_plus from 'data/dmg_plus.json'
 
+import charater from 'data/inGame/charater.json'
+import item from 'data/inGame/item.json'
+
+import skilTree from 'data/sub/skillTree.json'
+
 const max = {};
 const min = {};
 
@@ -275,7 +280,7 @@ export const Weapon = (character, weapon, type) => {
 }
 
 export const Armor = (range, type) => {
-    const armorist = ArmorList[type]
+    const armorist = ArmorList[type];
     const list = [];
     for (const key in armorist) {
         try {
@@ -293,6 +298,33 @@ export const Armor = (range, type) => {
     return list;    
 }
 
-export const dmgPlus = (character, type, value) => {
-    return dmg_plus[character][type][value];
+export const dmgPlus = (character, type, name) => {
+    return dmg_plus[character][type][name];
+}
+
+export const getStat = (name, stat, idx) => {
+    return charater[name]['stat'][stat][idx];
+}
+
+export const skillTreeList = (character) => {
+    const tree = skilTree[character];
+    const list = [];
+    for (const key in tree) {
+        try {
+            const data = {
+                name: key,
+                tree: tree[key]
+            };
+
+            list.push(data);
+        } catch {
+            break;
+        }
+    }
+
+    return list;
+}
+
+export const itemBgI = (name) => {
+    return 'img/Item/BackGround/'+item[name]['grade']+'.jpg'
 }
