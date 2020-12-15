@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { injectIntl } from 'react-intl';
 import queryString from 'query-string';
 import ScriptTag from 'react-script-tag';
 import { Header, SubBanner, AdS, Footer } from 'components/banner';
 import { Top, Trend, Skill } from 'components/detail';
 import { Weapons, Armors } from 'components/item';
-import { Version, CharacterScore, Max, Min, Avg, dmgPlus, getStat, skillTreeList } from 'lib/data';
+import { CharacterScore, skillTreeList } from 'lib/data';
 
 class Detail extends Component {
     constructor(props) {

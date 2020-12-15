@@ -328,3 +328,7 @@ export const skillTreeList = (character) => {
 export const itemBgI = (name) => {
     return 'img/Item/BackGround/'+item[name]['grade']+'.jpg'
 }
+
+export const statList = (name) => {
+    return item[name]["stat"];
+}
