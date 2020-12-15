@@ -35,8 +35,8 @@ class Map extends Component {
                         <span className="map_title_span">MAP</span>
                     </div>
                     <div className="tabHeaders">
-                        <span className="map_tab0 actived">지도 도감</span>
-                        <span className="map_tab0">루트 제작 - 준비중</span>
+                        <span className="map_tab0 actived">{intl.formatMessage({id:'지도 도감'})}</span>
+                        <span className="map_tab0">{intl.formatMessage({id:'루트제작'})}</span>
                     </div>
                     <div className="map_right">
                         {
@@ -52,7 +52,7 @@ class Map extends Component {
                     </div>
                     <div className="map_left">
                         <img className="mapimg" src={map} />                        
-                        <div className="tabHeaders">
+                        <div className="tabHeaders2">
                             {
                                 selectMap === '양궁장' ? 
                                     <div className="map_Archery actived"  onClick={(e) => this.onClick(e, '양궁장')}>{intl.formatMessage({id: 'Archery'})}</div>

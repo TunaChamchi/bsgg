@@ -17,6 +17,10 @@
     "kill": "击杀",
     "avg-kill": "平均-击杀",
     "name":"名字",
+    "지도 도감":"地图鉴别",
+    "루트제작":"路径制作 - 准备中",
+    "드랍 아이템":"物品",
+    "출현 동물":"出现动物",
     "footer":"BSGG.kr isn’t endorsed by Nimble Neuron.\nEternal Return: Black Survival is trademarks or registered trademarks of Nimble Neuron.\nData Based on Nimble Neuron",
     "question":"字符层是根据官方统计的获胜率,选择率,平均技能,平均等级等来计算的。 多重和班级的统计数字减少 了普通杀戮和普通等级的影响。",
     "question_item":"装甲项目统计数据是由于缺少 数据而基于所有角色的获胜率数据。不是每个角色的装甲赢率。",
@@ -52,7 +56,11 @@
         "avg": "平均",
         "skill_info": "技能资讯",
         "passive": "被动的",
-        "weaponSkill": "武器技能"
+        "weaponSkill": "武器技能",
+        "스킬트리" : "技能次序",
+        "평타" : "基本攻击",
+        "흡혈" : "体能吸收",
+        "스킬" : "技能增幅"
     },
     "stat": {
         "공격력": "攻击力",
@@ -138,22 +146,22 @@
         "다리": "腿部",
         "장식": "装饰"
     },
-    "Archery": "Archery",
-    "Alley": "Alley",
-    "Avenue": "Avenue",
-    "Temple": "Temple",
-    "School": "School",
-    "Hotel": "Hotel",
-    "Pond": "Pond",
-    "Research": "Research",
-    "Beach": "Beach",
-    "Forest": "Forest",
-    "Cemetery": "Cemetery",
-    "Hospital": "Hospital",
-    "Uptown": "Uptown",
-    "Chapel": "Chapel",
-    "Factory": "Factory",
-    "Dock": "Dock",
+    "Archery": "靶场",
+    "Alley": "小巷",
+    "Avenue": "大街",
+    "Temple": "寺刹",
+    "School": "学校",
+    "Hotel": "旅馆",
+    "Pond": "池塘",
+    "Research": "研究所",
+    "Beach": "海滩",
+    "Forest": "森林",
+    "Cemetery": "墓园",
+    "Hospital": "医院",
+    "Uptown": "高级住宅区",
+    "Chapel": "教堂",
+    "Factory": "工厂",
+    "Dock": "码头",
     
     "items":{
         "일렉트론블라스터": "电子光束枪",
@@ -757,7 +765,7 @@
             "name": "Armor Piercing",
             "Detail": "Smash the hammer down, dealing X damage and reducing the defense of enemies hit by X% for 5 seconds."
         },
-        "방망이": {
+        "배트": {
             "name": "Full Swing",
             "Detail": "Swing your bat in front of you, dealing X damage to all enemies in the targeted area, and knocking them back.\n Enemies hit into wall are stunned for 0.5 second."
         },
