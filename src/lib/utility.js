@@ -15,6 +15,10 @@ export const locale = {
         name: '简体中文',
         data: scn
     },
+    "jp": {
+        name: '日本語',
+        data: jp
+    },
 };
 
 // 저장되어 있는 언어 데이터를 가져온다
