@@ -37,7 +37,6 @@ class MainBanner extends Component {
                         
                         <span>{Version}</span>
                     </div>
-                    <img className="newimg" src={newimg} />
                 </div>
             </div>
         );
