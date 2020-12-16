@@ -25,12 +25,12 @@ class Main extends Component {
                         <Search />
                         <Characters />
                         <div className="Ad_box_Main">
-                            <ins 
+                            {/* {<ins 
                                 className="kakao_ad_area" 
                                 style={{display: 'none'}} 
                                 data-ad-unit="DAN-WUlvSzBZfRSTMEEX" 
                                 data-ad-width="300" 
-                                data-ad-height="250"></ins> 
+                                data-ad-height="250"></ins> } */}
                         </div>
                     </div>
                     <div className='main-right'>
