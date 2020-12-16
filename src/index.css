@@ -357,6 +357,7 @@ button:hover{
     background-color: rgba(0,0,0,0);
     font-size: 13pt;
     margin-top: 6px;
+    color: rgb(209, 209, 209);
 }
 .cha{
     margin-top: 7px;
@@ -732,7 +733,7 @@ button:hover{
     width: 300px;
     padding-left: 10px;
     color:gray;
-    
+    color: rgb(209, 209, 209);    
 }
 .S_search3{
     background-color: rgb(38, 35, 53);
