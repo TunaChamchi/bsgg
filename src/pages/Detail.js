@@ -5,7 +5,7 @@ import ScriptTag from 'react-script-tag';
 import { Header, SubBanner, AdS, Footer } from 'components/banner';
 import { Top, Trend, Skill } from 'components/detail';
 import { Weapons, Armors } from 'components/item';
-import { CharacterScore, skillTreeList } from 'lib/data';
+import { CharacterScore, skillTreeList, skillTreeList2 } from 'lib/data';
 
 class Detail extends Component {
     constructor(props) {
@@ -19,6 +19,7 @@ class Detail extends Component {
             typeFocus: '',
             ad_style: {},
             skillTree: [],
+            skillTree2: [],
         };
     }
     componentWillMount() {
@@ -82,12 +83,13 @@ class Detail extends Component {
             character: character,
             weapon: weapon,
             skillTree: skillTreeList(character),
+            skillTree2: skillTreeList2(character),
         });
     };
 
     render() {
         const { intl } = this.props;
-        const { data, character, weapon, rangeFocus, typeFocus, weaponList, weaponTotal, skillTree } = this.state;
+        const { data, character, weapon, rangeFocus, typeFocus, weaponList, weaponTotal, skillTree, skillTree2 } = this.state;
         
         const metaData = {
             title: 'BSGG.kr - ' + intl.formatMessage({id: 'characters.'+data['character']}) + ' ' + intl.formatMessage({id: 'weapons.'+data['weapon']}),
@@ -112,6 +114,7 @@ class Detail extends Component {
                         <Skill
                             data={data}
                             skillTree={skillTree}
+                            skillTree2={skillTree2}
                             parameter={{character, weapon, rangeFocus, typeFocus}}
                             />
                     </div>
