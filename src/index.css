@@ -1085,6 +1085,7 @@ button:hover{
 .skill_imgbox{
     clear: both;
     text-align: center;
+    position: relative;
 }
 .skill_img {
     vertical-align: middle;
@@ -1100,10 +1101,32 @@ button:hover{
 }
 .skill_span{
     width: 50px;
-    margin-left: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
     margin-top: 20px;
     border: solid 1px  rgb(244,216,35);
     border-radius: 5px;
+}
+.skill_mark1{
+    position: absolute;
+    color:  rgb(244,216,35);
+    top: 23px;
+    left: 275px;
+    font-size: 22pt;
+}
+.skill_mark2{
+    position: absolute;
+    color:  rgb(244,216,35);
+    top: 23px;
+    left: 367px;
+    font-size: 22pt;
+}
+.skill_mark3{
+    position: absolute;
+    color:  rgb(244,216,35);
+    top: 23px;
+    left: 459px;
+    font-size: 22pt;
 }
 .skill_box0{
     clear: both;
