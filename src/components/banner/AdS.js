@@ -23,7 +23,9 @@ class AdS extends Component {
         if (type === 'Main') {
             start = 465; top = 480;
         } else if (type === 'Detail') {
-            start = 365; top = 380;
+            start = 330; top = 345;
+        } else if (type === 'Map') {
+            start = 185; top = 200;
         }
 
         const ad_style1 = { position: 'fixed', top: top };

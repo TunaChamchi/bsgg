@@ -152,7 +152,7 @@ class Map extends Component {
                         </div>
                     </div>
                 </div>
-                <AdS type={'Main'}/>
+                <AdS type={'Map'}/>
                 <Footer />
                 <ScriptTag src="//t1.daumcdn.net/kas/static/ba.min.js" async />
             </div>
