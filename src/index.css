@@ -746,6 +746,9 @@ button:hover{
     padding-bottom: 3px;
     text-align: left;
     border-radius: 3px;
+    z-index: 1;
+    max-height: 260px;
+    overflow: scroll;
 }
 .S_search4{
     width: 300px;
