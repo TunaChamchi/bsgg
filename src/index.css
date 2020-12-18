@@ -1424,6 +1424,7 @@ button:hover{
     font-family: "Noto Sans KR", "noto sans sc";
     padding-top: 4px;
     border-bottom: 1px solid #3b4147;
+    margin-bottom: 25px;
 }
 .map_tab{
     width: 430px;
@@ -1676,4 +1677,215 @@ button:hover{
     border-radius: 3px;
     border: 1px solid #3b4147;
 }
+.Route_L{
+    margin-left: 10px;
+    width: 750px;
+    height: 900px;
+    float: left;
+}
+.Route_L_Item{
+    width: 750px;
+    height: 210px;
+    border-radius: 5px;
+}
+.Route_L_ItemX{
+    text-align: center;
+}
+.Route_L_StartItem_box{
+    width: 110px;
+    float: left;
+    margin-top: 10px;
+    text-align: center;
+}
+.Route_L_StartItem1{
+    width: 40px;
+    margin-left: 28px;
+    border: 1px solid #3b4147;
+    border-radius: 5px;
+    margin-left: 0px;
+    margin-top: 10px;
+}
+.Route_L_StartItem2{
+    display:inline-block;
+    width: 80px;
+}
+.Route_L_PickItem_box{
+    position: relative;
+    float: left;
+    width: 200px;
+    height: 92px;
+    margin-left: 5px;
+    margin-top: 5px;
+    border-bottom: 1px solid #171520;
+    border-radius: 3px;
+    background-color:  #241b2f;
+}
+.Route_L_PickItem{
+    width: 200px;
+    height: 50px;
+    margin-top: 5px;
+}
+.Route_L_PickItem1{
+    position: absolute;
+    top:5px;
+    left:65px;
+    margin-top: 5px;
+    border: 1px solid #3b4147;
+    border-radius: 3px;
+}
+.Route_L_PickItem2{
+    position: absolute;
+    top:5px;
+    left:65px;
+    margin-top: 3px;
+}
+.Route_L_PickItem3{
+    display: inline-block;
+    width: 200px;
+    font-size: 15pt;
+    margin-top: 0px;
+}
+.Route_L_Route{
+    width: 750px;
+    margin-top: 10px;
+    height: 630px;
+    border-radius: 5px;
+}
+.Route_L_Route_FilterX{
+    clear: both;
+}
+.Route_L_Route_Filter{
+    display: inline-block;
+    width: 100px;
+    height: 25px;
+    margin-left: 6px;
+    margin-top: 0px;
+    margin-bottom: 15px;
+    float: left;
+    text-align: center;
+    border-bottom: solid 1px #3b4147;
+    border-radius: 5px;
+}
+.Route_L_Route_Filter2{
+    display: inline-block;
+    width: 100px;
+    height: 25px;
+    margin-left: 6px;
+    margin-bottom: 5px;
+    float: left;
+    text-align: center;
+    border-bottom: solid 1px #3b4147;
+    border-radius: 5px;
+}
+
+.Route_L_RouteX_all{
+    margin-top: 30px;
+    width: 750px;
+    height: 600px;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border-bottom: 1px solid #171520;
+    overflow: scroll;
+}
+.Route_L_RouteX{
+    padding-top: 5px;
+    width: 750px;
+    height: 115px;
+    border-bottom: solid 1px #3b4147;
+    border-radius: 5px;
+}
+.Route_L_RouteY{
+    float: left;
+    margin-left: 6px;
+}
+.Route_L_Route_region{
+    width: 100px;
+    display: inline-block;
+    text-align: center;
+}
+.Route_L_Route_item_bigbox{
+    width: 100px;
+    min-height: 57px;
+    max-height: 86px;
+}
+.Route_L_Route_item_box{
+    width: 48px;
+    height: 26.6px;
+    position: relative;
+    float: left;
+    margin: 1px;
+}
+.Route_L_Route_item1{
+    width: 48px;
+    position: absolute;
+}
+.Route_L_Route_item2{
+    width: 48px;
+    position: absolute;
+}
+.Route_R{
+    width: 372px;
+    margin-left: 10px;
+    float: left;
+}
+.Route_R_stat{
+    width: 372px;
+    height: 200px;
+    border-radius: 5px;
+    background-color:  #241b2f;
+    border-bottom: 1px solid #171520;
+}
+.Route_R_stat_title{
+    width: 372px;
+    font-size: 15pt;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 5px;
+}
+.Route_R_Map{
+    width: 372px;
+    height: 630px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+.Route_R_Mapimg{
+    width: 372px;
+    margin-bottom: 10px;
+}
+.Route_R_Mapitem_title{
+    width: 372px;
+    font-size: 15pt;
+    display: inline-block;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.Route_R_Mapitem_allbox{
+    width: 372px;
+    height: 280px;
+    background-color:  #241b2f;
+    border-bottom: 1px solid #171520;
+    border-radius: 5px;
+    margin-top: 3px;
+}
+.Route_R_Mapitem_box{
+    position: relative;
+    width: 65px;
+    height: 36px;
+    margin-top: 5px;
+    margin-left: 6.5px;
+    float: left;
+    border-radius: 3px;
+    border: 1px solid #3b4147;
+}
+.Route_R_Mapitem1{
+    position: absolute;
+    border-radius: 3px;
+}
+.Route_R_Mapitem2{
+    position: absolute;
+    border-radius: 3px;
+}
+
 
