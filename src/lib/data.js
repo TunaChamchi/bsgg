@@ -11,8 +11,7 @@ import item from 'data/inGame/item.json'
 import armor from 'data/inGame/armor.json'
 import weapon from 'data/inGame/weapon.json'
 
-import skilTree from 'data/sub/skillTree.json'
-import skilTree2 from 'data/sub/skillTree2.json'
+import skilTree from 'data/sub/skill.json'
 
 const max = {};
 const min = {};
@@ -309,27 +308,8 @@ export const getStat = (name, stat, idx) => {
     return charater[name]['stat'][stat][idx];
 }
 
-export const skillTreeList = (character) => {
-    const tree = skilTree[character];
-    const list = [];
-    for (const key in tree) {
-        try {
-            const data = {
-                name: key,
-                tree: tree[key]
-            };
-
-            list.push(data);
-        } catch {
-            break;
-        }
-    }
-
-    return list;
-}
-
-export const skillTreeList2 = (character) => {
-    return skilTree2[character];
+export const skillTreeList = (character, weapon) => {
+    return skilTree[character][weapon];
 }
 
 export const itemBgI = (name) => {
