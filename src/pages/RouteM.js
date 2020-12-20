@@ -134,11 +134,11 @@ class RouteM extends Component {
             <div className="Route_L_Item">
                 <div className="Route_L_ItemX">
                     <div className="Route_L_StartItem_box"> 
-                        <div onClick={(e) => this.selectTypeHandler('type')}>
+                        <div className="Route_L_StartItem" onClick={(e) => this.selectTypeHandler('type')}>
                             <img className="Route_L_StartItem1" src={imgType} />
                             <span className="Route_L_StartItem2">최종아이템</span>
                         </div>
-                        <div className="Route_L_StartItem_dropbox"> 
+                        <div className="Route_L_StartItem_dropbox_all"> 
                             {this.itemFilterDropBoxView('type')}
                         </div> 
                     </div>
@@ -146,11 +146,11 @@ class RouteM extends Component {
                 </div>
                 <div className="Route_L_ItemX">
                     <div className="Route_L_StartItem_box"> 
-                        <div onClick={(e) => this.selectTypeHandler('start')}>
+                        <div className="Route_L_StartItem" onClick={(e) => this.selectTypeHandler('start')}>
                             <img className="Route_L_StartItem1" src={imgStart} />
                             <span className="Route_L_StartItem2">시작아이템</span>
                         </div>
-                        <div className="Route_L_StartItem_dropbox"> 
+                        <div className="Route_L_StartItem_dropbox_all"> 
                             {this.itemFilterDropBoxView('start')}
                         </div> 
                     </div>
@@ -174,7 +174,7 @@ class RouteM extends Component {
                         </div>
                         <span className="Route_L_PickItem3">{itemName}</span>
                     </div>
-                    <div className="Route_L_PickItem_dropbox"> 
+                    <div className="Route_L_PickItem_dropbox_all"> 
                         {this.itemFilterDropBoxView(type)}
                     </div>
                 </div>
@@ -187,19 +187,19 @@ class RouteM extends Component {
         return selectView[type].map((name, idx) => {
             if (type === 'type' || type === 'start' ) {
                 return (
-                    <div key={type+'_list'+idx} onClick={(e) => this.selectHandler(type, name)}>
-                        <img className="Route_L_StartItem1" src={'img/Weapons/'+name+'.jpg'} />
-                        <span className="Route_L_StartItem2">{name}</span>
+                    <div className="Route_L_StartItem_dropbox" key={type+'_list'+idx} onClick={(e) => this.selectHandler(type, name)}>
+                        <img className="Route_L_StartItem_dropbox1" src={'img/Weapons/'+name+'.jpg'} />
+                        <span className="Route_L_StartItem_dropbox2">{name}</span>
                     </div>
                 )
             } else {
                 return (
-                    <div key={type+'_list'+idx} onClick={(e) => this.selectHandler(type, name)}>
-                        <div className="Route_L_PickItem">
-                            <img className="Route_L_PickItem1" src={'img/Item/BackGround/'+item[name]['grade']+'.jpg'} />
-                            <img className="Route_L_PickItem2" src={'img/Item/'+name+'.png'} />
+                    <div className="Route_L_PickItem_dropbox" key={type+'_list'+idx} onClick={(e) => this.selectHandler(type, name)}>
+                        <div className="Route_L_PickItem_dropbox0">
+                            <img className="Route_L_PickItem_dropbox1" src={'img/Item/BackGround/'+item[name]['grade']+'.jpg'} />
+                            <img className="Route_L_PickItem_dropbox2" src={'img/Item/'+name+'.png'} />
                         </div>
-                        <span className="Route_L_PickItem3">{name}</span>
+                        <span className="Route_L_PickItem_dropbox3">{name}</span>
                     </div>
                 )
             }

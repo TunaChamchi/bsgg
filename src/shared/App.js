@@ -10,7 +10,7 @@ class App extends Component {
                 <Switch>
                     <Route path="/Detail" component={Detail}/>
                     <Route path="/Map" component={Map}/>
-                    {/* <Route path="/Route" component={RouteM}/> */}
+                    <Route path="/Route" component={RouteM}/>
                 </Switch>
             </div>
         );

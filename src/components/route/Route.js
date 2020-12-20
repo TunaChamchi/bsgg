@@ -403,21 +403,53 @@ class Route extends Component {
             <div className="Route_L_Route">
                 <div className="Route_L_Route_FilterX">
                     <div className="Route_L_Route_Filter">우선장비</div>
-                    <div className="Route_L_Route_Filter">{filterType['1'] || 'filter'}</div>
-                    <div className="Route_L_Route_Filter">{filterType['2'] || 'filter'}</div>
-                    <div className="Route_L_Route_Filter">{filterType['3'] || 'filter'}</div>
-                    <div className="Route_L_Route_Filter">{filterType['4'] || 'filter'}</div>
-                    <div className="Route_L_Route_Filter">{filterType['5'] || 'filter'}</div>
-                    <div className="Route_L_Route_Filter" onClick={(e) => this.init()}>계산</div>
+                    <div className="Route_L_Route_Filter">
+                        {filterType['1'] || 'filter'}
+                        <div className="Route_L_Route_Filter_dropbox_all">
+                            <div className="Route_L_Route_Filter_dropbox">
+                                {filterType['1'] || 'filter'} 
+                            </div>
+                            <div className="Route_L_Route_Filter_dropbox">
+                                {filterType['1'] || 'filter'} 
+                            </div>
+                        </div>
+                    </div>
+                    <div className="Route_L_Route_Filter">
+                        {filterType['2'] || 'filter'}
+                    </div>
+                    <div className="Route_L_Route_Filter">
+                        {filterType['3'] || 'filter'}
+                    </div>
+                    <div className="Route_L_Route_Filter">
+                        {filterType['4'] || 'filter'}
+                    </div>
+                    <div className="Route_L_Route_Filter">
+                        {filterType['5'] || 'filter'}
+                    </div>
+                    <div className="Route_L_Route_cal" onClick={(e) => this.init()}>계산</div>
                 </div>
                 <div className="Route_L_Route_FilterX">
-                    <div className="Route_L_Route_Filter2">{filterMap['1'] || 'filter'}</div>
-                    <div className="Route_L_Route_Filter2">{filterMap['2'] || 'filter'}</div>
-                    <div className="Route_L_Route_Filter2">{filterMap['3'] || 'filter'}</div>
-                    <div className="Route_L_Route_Filter2">{filterMap['4'] || 'filter'}</div>
-                    <div className="Route_L_Route_Filter2">{filterMap['5'] || 'filter'}</div>
-                    <div className="Route_L_Route_Filter2">{filterMap['6'] || 'filter'}</div>
-                    <div className="Route_L_Route_Filter2">{filterMap['7'] || 'filter'}</div>
+                    <div className="Route_L_Route_Filter2">
+                        {filterMap['1'] || 'filter'}
+                    </div>
+                    <div className="Route_L_Route_Filter2">
+                        {filterMap['2'] || 'filter'}
+                    </div>
+                    <div className="Route_L_Route_Filter2">
+                        {filterMap['3'] || 'filter'}
+                    </div>
+                    <div className="Route_L_Route_Filter2">
+                        {filterMap['4'] || 'filter'}
+                    </div>
+                    <div className="Route_L_Route_Filter2">
+                        {filterMap['5'] || 'filter'}
+                    </div>
+                    <div className="Route_L_Route_Filter2">
+                        {filterMap['6'] || 'filter'}
+                    </div>
+                    <div className="Route_L_Route_Filter2">
+                        {filterMap['7'] || 'filter'}
+                    </div>
                 </div> 
                 <div className="Route_L_RouteX_all">
                     {this.routeListXView()}
