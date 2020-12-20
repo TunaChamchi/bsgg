@@ -8,6 +8,8 @@ import dmg_plus from 'data/dmg_plus.json'
 
 import charater from 'data/inGame/charater.json'
 import item from 'data/inGame/item.json'
+import armor from 'data/inGame/armor.json'
+import weapon from 'data/inGame/weapon.json'
 
 import skilTree from 'data/sub/skillTree.json'
 import skilTree2 from 'data/sub/skillTree2.json'
@@ -325,6 +327,7 @@ export const skillTreeList = (character) => {
 
     return list;
 }
+
 export const skillTreeList2 = (character) => {
     return skilTree2[character];
 }
