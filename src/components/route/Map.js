@@ -5,8 +5,9 @@ import { Langauge  } from 'components/banner';
 import { Version } from 'lib/data'
 import { defaultLang } from 'lib/utility'
 import logo from 'img/main_logo.svg';
+import newimg from 'img/new.png';
 
-class MainBanner extends Component {
+class Map extends Component {
     render() {
         const { intl } = this.props;
 
@@ -27,9 +28,6 @@ class MainBanner extends Component {
                         <a href={'https://playeternalreturn.com/'+defaultLang()+'/ranking/'} target="_blank">
                             <button className="menubutton">{intl.formatMessage({id:'main.banner.menu.rank'})}</button>
                         </a>
-                        {/* <Link to={'/Route'}>
-                            <button className="menubutton">{intl.formatMessage({id:'main.banner.menu.route'})}</button>
-                        </Link> */}
                         <Link to={'/Map'}>
                             <button className="menubutton">{intl.formatMessage({id:'main.banner.menu.map'})}</button>
                         </Link>
@@ -45,4 +43,4 @@ class MainBanner extends Component {
     };
 }
 
-export default injectIntl(MainBanner);
+export default injectIntl(Map);
