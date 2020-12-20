@@ -5,7 +5,6 @@ import { Langauge  } from 'components/banner';
 import { Version } from 'lib/data'
 import { defaultLang } from 'lib/utility'
 import logo from 'img/main_logo.svg';
-import newimg from 'img/new.png';
 
 class MainBanner extends Component {
     render() {
