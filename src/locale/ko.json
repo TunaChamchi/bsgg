@@ -35,7 +35,8 @@
             "menu": {
                 "rank": "랭크",
                 "item": "아이템",
-                "map": "맵"
+                "map": "맵",
+                "route": "루트"
             },
             "placeholder": "캐릭터를 검색하세요."
         },
