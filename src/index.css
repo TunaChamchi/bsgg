@@ -1849,9 +1849,477 @@ button:hover{
     margin-top: 20px;
     border-radius: 5px;
 }
-.Route_R_Mapimg{
-    width: 372px;
+.Route_R_Mapimg_box{
+    width: 370px;
+    height: 425px;
     margin-bottom: 10px;
+    position: relative;
+}
+.Route_R_Mapimg_box .actived{
+}
+.Route_R_Mapimg{
+    width: 370px;
+    margin-bottom: 10px;
+    position: absolute;
+}
+.Route_R_Mapimg_archery{
+    position: absolute;
+    top: 60px;
+    left: 47px;
+}
+.Route_R_Mapimg_alley{
+    position: absolute;
+    top: -2px;
+    left: 103px;
+}
+.Route_R_Mapimg_school{
+    position: absolute;
+    top: 87px;
+    left: 81px;
+}
+.Route_R_Mapimg_hotel{
+    position: absolute;
+    top: 131px;
+    left: 2px;
+}
+.Route_R_Mapimg_beach{
+    position: absolute;
+    top: 214px;
+    left: 15px;
+}
+.Route_R_Mapimg_forest{
+    position: absolute;
+    top: 173px;
+    left: 80px;
+}
+.Route_R_Mapimg_uptown{
+    position: absolute;
+    top: 268px;
+    left: 65px;
+}
+.Route_R_Mapimg_pond{
+    position: absolute;
+    top: 133px;
+    left: 203px;
+}
+.Route_R_Mapimg_temple{
+    position: absolute;
+    top: 67px;
+    left: 249px;
+}
+.Route_R_Mapimg_hospital{
+    position: absolute;
+    top: 180px;
+    left: 270px;
+}
+.Route_R_Mapimg_chapel{
+    position: absolute;
+    top: 268px;
+    left: 148px;
+}
+.Route_R_Mapimg_factory{
+    position: absolute;
+    top: 280px;
+    left: 238px;
+}
+.Route_R_Mapimg_dock{
+    position: absolute;
+    top: 329px;
+    left: 132px;
+}
+.Route_R_Mapimg_cemetery{
+    position: absolute;
+    top: 217px;
+    left: 179px;
+}
+.Route_R_Mapimg_research{
+    position: absolute;
+    top: 167px;
+    left: 129px;
+}
+.Route_R_Mapimg_avenue{
+    position: absolute;
+    top: 62px;
+    left: 146px;
+}
+.Route_R_Mapspan_box{
+    width: 370px;
+    margin-bottom: 10px;
+    position: absolute;
+}
+.Route_R_Mapspan_box .actived{
+    border: 1px solid rgb(244,216,35);
+}
+.Route_R_Mapspan_box :hover{
+    cursor: pointer;
+}
+.Route_R_Mapspan_archery{
+    position: absolute;
+    top: 90px;
+    left: 47px;
+    width: 80px;
+    text-align: center;
+    display: inline-block;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+}
+.Route_R_Mapspan_alley{
+    position: absolute;
+    top: 38px;
+    left: 153px;
+    width: 80px;
+    text-align: center;
+    display: inline-block;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+}
+.Route_R_Mapspan_school{
+    position: absolute;
+    top: 127px;
+    left: 81px;
+    width: 80px;
+    text-align: center;
+    display: inline-block;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+}
+.Route_R_Mapspan_hotel{
+    position: absolute;
+    top: 161px;
+    left: 30px;
+    width: 80px;
+    text-align: center;
+    display: inline-block;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+}
+.Route_R_Mapspan_beach{
+    position: absolute;
+    top: 265px;
+    left: 30px;
+    width: 80px;
+    text-align: center;
+    display: inline-block;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+}
+.Route_R_Mapspan_forest{
+    position: absolute;
+    top: 233px;
+    left: 80px;
+    width: 80px;
+    text-align: center;
+    display: inline-block;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+}
+.Route_R_Mapspan_uptown{
+    position: absolute;
+    top: 325px;
+    left: 65px;
+    width: 80px;
+    text-align: center;
+    display: inline-block;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+}
+.Route_R_Mapspan_pond{
+    position: absolute;
+    top: 163px;
+    left: 203px;
+    width: 80px;
+    text-align: center;
+    display: inline-block;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+}
+.Route_R_Mapspan_temple{
+    position: absolute;
+    top: 125px;
+    left: 279px;
+    width: 80px;
+    text-align: center;
+    display: inline-block;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+}
+.Route_R_Mapspan_hospital{
+    position: absolute;
+    top: 220px;
+    left: 270px;
+    width: 80px;
+    text-align: center;
+    display: inline-block;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+}
+.Route_R_Mapspan_chapel{
+    position: absolute;
+    top: 298px;
+    left: 148px;
+    width: 80px;
+    text-align: center;
+    display: inline-block;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+}
+.Route_R_Mapspan_factory{
+    position: absolute;
+    top: 330px;
+    left: 238px;
+    width: 80px;
+    text-align: center;
+    display: inline-block;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+}
+.Route_R_Mapspan_dock{
+    position: absolute;
+    top: 359px;
+    left: 132px;
+    width: 80px;
+    text-align: center;
+    display: inline-block;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+}
+.Route_R_Mapspan_cemetery{
+    position: absolute;
+    top: 260px;
+    left: 179px;
+    width: 80px;
+    text-align: center;
+    display: inline-block;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+}
+.Route_R_Mapspan_research{
+    position: absolute;
+    top: 197px;
+    left: 129px;
+    width: 80px;
+    text-align: center;
+    display: inline-block;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+}
+.Route_R_Mapspan_avenue{
+    position: absolute;
+    top: 92px;
+    left: 176px;
+    width: 80px;
+    text-align: center;
+    display: inline-block;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+}
+.Route_R_Mapspan_archery1{
+    position: absolute;
+    top: 90px;
+    left: 17px;
+    width: 30px;
+    text-align: center;
+    display: inline-block;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+    color: rgb(244,216,35);
+}
+.Route_R_Mapspan_alley1{
+    position: absolute;
+    top: 38px;
+    left: 123px;
+    width: 30px;
+    text-align: center;
+    display: inline-block;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+    color: rgb(244,216,35);
+}
+.Route_R_Mapspan_school1{
+    position: absolute;
+    top: 127px;
+    left: 51px;
+    width: 30px;
+    text-align: center;
+    display: inline-block;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+    color: rgb(244,216,35);
+}
+.Route_R_Mapspan_hotel1{
+    position: absolute;
+    top: 161px;
+    left: 0px;
+    width: 30px;
+    text-align: center;
+    display: inline-block;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+    color: rgb(244,216,35);
+}
+.Route_R_Mapspan_beach1{
+    position: absolute;
+    top: 265px;
+    left: 0px;
+    width: 30px;
+    text-align: center;
+    display: inline-block;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+    color: rgb(244,216,35);
+}
+.Route_R_Mapspan_forest1{
+    position: absolute;
+    top: 233px;
+    left: 50px;
+    width: 30px;
+    text-align: center;
+    display: inline-block;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+    color: rgb(244,216,35);
+}
+.Route_R_Mapspan_uptown1{
+    position: absolute;
+    top: 325px;
+    left: 35px;
+    width: 30px;
+    text-align: center;
+    display: inline-block;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+    color: rgb(244,216,35);
+}
+.Route_R_Mapspan_pond1{
+    position: absolute;
+    top: 163px;
+    left: 173px;
+    width: 30px;
+    text-align: center;
+    display: inline-block;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+    color: rgb(244,216,35);
+}
+.Route_R_Mapspan_temple1{
+    position: absolute;
+    top: 125px;
+    left: 249px;
+    width: 30px;
+    text-align: center;
+    display: inline-block;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+    color: rgb(244,216,35);
+}
+.Route_R_Mapspan_hospital1{
+    position: absolute;
+    top: 220px;
+    left: 240px;
+    width: 30px;
+    text-align: center;
+    display: inline-block;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+    color: rgb(244,216,35);
+}
+.Route_R_Mapspan_chapel1{
+    position: absolute;
+    top: 298px;
+    left: 118px;
+    width: 30px;
+    text-align: center;
+    display: inline-block;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+    color: rgb(244,216,35);
+}
+.Route_R_Mapspan_factory1{
+    position: absolute;
+    top: 330px;
+    left: 208px;
+    width: 30px;
+    text-align: center;
+    display: inline-block;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+    color: rgb(244,216,35);
+}
+.Route_R_Mapspan_dock1{
+    position: absolute;
+    top: 359px;
+    left: 102px;
+    width: 30px;
+    text-align: center;
+    display: inline-block;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+    color: rgb(244,216,35);
+}
+.Route_R_Mapspan_cemetery1{
+    position: absolute;
+    top: 260px;
+    left: 149px;
+    width: 30px;
+    text-align: center;
+    display: inline-block;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+    color: rgb(244,216,35);
+}
+.Route_R_Mapspan_research1{
+    position: absolute;
+    top: 197px;
+    left: 999px;
+    width: 30px;
+    text-align: center;
+    display: inline-block;
+    background-color: #171520;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+    color: rgb(244,216,35);
+}
+.Route_R_Mapspan_avenue1{
+    position: absolute;
+    top: 92px;
+    left: 146px;
+    width: 30px;
+    text-align: center;
+    display: inline-block;
+    background-color: #241b2f;
+    border-radius: 5px;
+    border: 1px solid #3b4147;
+    color: rgb(244,216,35);
 }
 .Route_R_Mapitem_title{
     width: 372px;
@@ -1887,5 +2355,6 @@ button:hover{
     position: absolute;
     border-radius: 3px;
 }
+
 
 
