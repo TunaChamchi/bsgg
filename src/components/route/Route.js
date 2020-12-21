@@ -11,50 +11,32 @@ class Route extends Component {
         super(props);
         this.state = {
             mapMove: {
-                "골목길": ["절", "번화가", "연못", "병원", "양궁장", "학교", "묘지", "공장", "호텔", "숲", "성당", "모래사장", "고급 주택가", "항구"],
-                "절": ["골목길", "번화가", "연못", "병원", "양궁장", "학교", "묘지", "공장", "호텔", "숲", "성당", "모래사장", "고급 주택가", "항구"],
-                "번화가": ["골목길", "절", "연못", "병원", "양궁장", "학교", "묘지", "공장", "호텔", "숲", "성당", "모래사장", "고급 주택가", "항구"],
-                "연못": ["번화가", "절", "병원", "묘지"], 
-                "병원": ["골목길", "절", "번화가", "연못", "양궁장", "학교", "묘지", "공장", "호텔", "숲", "성당", "모래사장", "고급 주택가", "항구"],
-                "양궁장": ["골목길", "절", "번화가", "연못", "병원", "학교", "묘지", "공장", "호텔", "숲", "성당", "모래사장", "고급 주택가", "항구"],
-                "학교": ["양궁장", "골목길", "숲", "호텔", "번화가"],
-                "묘지": ["성당", "공장", "병원", "연못"],
-                "공장": ["항구", "성당", "묘지", "병원"],
-                "호텔": ["골목길", "절", "번화가", "연못", "병원", "양궁장", "학교", "묘지", "공장", "숲", "성당", "모래사장", "고급 주택가", "항구"],
-                "숲": ["학교", "호텔", "모래사장", "고급 주택가", "번화가", "성당"],
-                "성당": ["골목길", "절", "번화가", "연못", "병원", "양궁장", "학교", "묘지", "공장", "호텔", "숲", "모래사장", "고급 주택가", "항구"],
-                "모래사장": ["골목길", "절", "번화가", "연못", "병원", "양궁장", "학교", "묘지", "공장", "호텔", "숲", "성당", "고급 주택가", "항구"],
-                "고급 주택가": ["골목길", "절", "번화가", "연못", "병원", "양궁장", "학교", "묘지", "공장", "호텔", "숲", "성당", "모래사장", "항구"],
-                "항구": ["고급 주택가", "성당", "공장"],
+                '골목길': ['절', '번화가', '연못', '병원', '양궁장', '학교', '묘지', '공장', '호텔', '숲', '성당', '모래사장', '고급 주택가', '항구'],
+                '절': ['골목길', '번화가', '연못', '병원', '양궁장', '학교', '묘지', '공장', '호텔', '숲', '성당', '모래사장', '고급 주택가', '항구'],
+                '번화가': ['골목길', '절', '연못', '병원', '양궁장', '학교', '묘지', '공장', '호텔', '숲', '성당', '모래사장', '고급 주택가', '항구'],
+                '연못': ['번화가', '절', '병원', '묘지'], 
+                '병원': ['골목길', '절', '번화가', '연못', '양궁장', '학교', '묘지', '공장', '호텔', '숲', '성당', '모래사장', '고급 주택가', '항구'],
+                '양궁장': ['골목길', '절', '번화가', '연못', '병원', '학교', '묘지', '공장', '호텔', '숲', '성당', '모래사장', '고급 주택가', '항구'],
+                '학교': ['양궁장', '골목길', '숲', '호텔', '번화가'],
+                '묘지': ['성당', '공장', '병원', '연못'],
+                '공장': ['항구', '성당', '묘지', '병원'],
+                '호텔': ['골목길', '절', '번화가', '연못', '병원', '양궁장', '학교', '묘지', '공장', '숲', '성당', '모래사장', '고급 주택가', '항구'],
+                '숲': ['학교', '호텔', '모래사장', '고급 주택가', '번화가', '성당'],
+                '성당': ['골목길', '절', '번화가', '연못', '병원', '양궁장', '학교', '묘지', '공장', '호텔', '숲', '모래사장', '고급 주택가', '항구'],
+                '모래사장': ['골목길', '절', '번화가', '연못', '병원', '양궁장', '학교', '묘지', '공장', '호텔', '숲', '성당', '고급 주택가', '항구'],
+                '고급 주택가': ['골목길', '절', '번화가', '연못', '병원', '양궁장', '학교', '묘지', '공장', '호텔', '숲', '성당', '모래사장', '항구'],
+                '항구': ['고급 주택가', '성당', '공장'],
             },
-            startWeapon: {
-                "단검":"가위",
-                "양손검":"녹슨검",
-                "도끼":"곡괭이",
-                "권총":"발터PPK",
-                "돌격소총":"페도로프자동소총",
-                "저격총":"화승총",
-                "레이피어":"바늘",
-                "창":"단창",
-                "망치":"망치",
-                "배트":"단봉",
-                "투척":"야구공",
-                "암기":"면도칼",
-                "활":"양궁",
-                "석궁":"석궁",
-                "글러브":"목장갑",
-                "톤파":"대나무",
-                "기타":"보급형 기타",
-                "쌍절곤":"쇠사슬"
-            },
+            startWeapon:{'단검':'가위','양손검':'녹슨검','도끼':'곡괭이','권총':'발터PPK','돌격소총':'페도로프자동소총','저격총':'화승총','레이피어':'바늘','창':'단창','망치':'망치','배트':'단봉','투척':'야구공','암기':'면도칼','활':'양궁','석궁':'석궁','글러브':'목장갑','톤파':'대나무','기타':'보급형기타','쌍절곤':'쇠사슬'},
             mapSrc: {},
             routeList: [],
             _select:{},
-            filterType:{
-                '1':'무기',
-                '2':'신발',
-            },
-            filterMap:{},
+            filterType: {'1':'무기','2':'신발',},
+            filterTypeSelect: 0,
+            filterTypeList: ['무기', '머리', '옷', '팔', '다리', '장신구'],
+            filterMap: {},
+            filterMapSelect: 0,
+            filterMapList: ['골목길', '절', '번화가', '연못', '병원', '양궁장', '학교', '묘지', '공장', '호텔', '숲', '성당', '모래사장', '고급 주택가', '항구'],
         };
     }
     
@@ -359,7 +341,7 @@ class Route extends Component {
 
         return routeList.map((route, idx) => {
             return (
-                <div className="Route_L_RouteX" key={'route_X'+idx}>
+                <div className='Route_L_RouteX' key={'route_X'+idx}>
                     {this.routeListYView(route)}
                 </div>
             )
@@ -368,9 +350,9 @@ class Route extends Component {
     routeListYView(route) {
         return route['view'].map((view, idx) => {
             return (
-                <div className="Route_L_RouteY" key={'route_Y'+idx}>
-                    <div className="Route_L_Route_region">{view['name']}</div>
-                    <div className="Route_L_Route_item_bigbox">
+                <div className='Route_L_RouteY' key={'route_Y'+idx}>
+                    <div className='Route_L_Route_region'>{view['name']}</div>
+                    <div className='Route_L_Route_item_bigbox'>
                         {this.routeListBoxView(view['item'])}
                     </div>
                 </div>
@@ -380,19 +362,85 @@ class Route extends Component {
     routeListBoxView(itemList) {
         return itemList.map((_item, idx) => {
             return (
-                <div className="Route_L_Route_item_box" key={'route_Box'+idx}>
-                    <img className="Route_L_Route_item1" src={'img/Item/BackGround/'+item[_item['name']]['grade']+'.jpg'} />
-                    <img className="Route_L_Route_item2" src={'img/Item/'+_item['name']+'.png'} />
+                <div className='Route_L_Route_item_box' key={'route_Box'+idx}>
+                    <img className='Route_L_Route_item1' src={'img/Item/BackGround/'+item[_item['name']]['grade']+'.jpg'} />
+                    <img className='Route_L_Route_item2' src={'img/Item/'+_item['name']+'.png'} />
                 </div>
             )
         });
     }
 
-    filterListByTypeView = () => {
-        
+    typeFilterDropHandler = (e, index) => {
+        const { filterType, filterTypeSelect } = this.state;        
+        if (e.button === 2) {
+            filterType[index] = '';
+            this.setState({filterType:filterType, filterTypeSelect:0});
+        } else if (e.button === 0 && filterTypeSelect !== index) {
+            this.setState({filterTypeSelect:index});
+        } else if (filterTypeSelect === index) {
+            this.setState({filterTypeSelect:0});
+        }
     }
-    filterListByMapView = () => {
-
+    typeFilterSelectHandler = (e, index, type) => {
+        const { filterType } = this.state;
+        filterType[index] = type;
+        this.setState({filterType:filterType, filterTypeSelect:0});
+    }
+    typeFilterDropView = (index) => {
+        const { filterTypeSelect, filterTypeList } = this.state;
+        if (filterTypeSelect === index) {
+            return (
+                <div className='Route_L_Route_Filter_dropbox_all'>
+                    {
+                        filterTypeList.map((type, idx) => {
+                            return (
+                                <div className='Route_L_Route_Filter_dropbox' key={'filter_dropbox'+idx}
+                                    onClick={(e) => this.typeFilterSelectHandler(e, index, type)}>
+                                    {type} 
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+            )
+        }
+    }
+    
+    mapFilterDropHandler = (e, index) => {
+        const { filterMap, filterMapSelect } = this.state;
+        
+        if (e.button === 2 ) {
+            filterMap[index] = '';
+            this.setState({filterMap:filterMap, filterMapSelect:0});
+        } else if (e.button === 0 && filterMapSelect !== index) {
+            this.setState({filterMapSelect:index});
+        } else if (filterMapSelect === index) {
+            this.setState({filterMapSelect:0});
+        }
+    }
+    mapFilterSelectHandler = (e, index, map) => {
+        const { filterMap } = this.state;
+        filterMap[index] = map;
+        this.setState({filterMap:filterMap, filterMapSelect:0});
+    }
+    mapFilterDropView = (index) => {
+        const { filterMapSelect, filterMapList } = this.state;
+        if (filterMapSelect === index) {
+            return (
+                <div className='Route_L_Route_Filter_dropbox_all'>
+                    {
+                        filterMapList.map((map, idx) => {
+                            return (
+                                <div className='Route_L_Route_Filter_dropbox' key={'filter_dropbox'+idx}
+                                    onClick={(e) => this.mapFilterSelectHandler(e, index, map)}>
+                                    {map} 
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+            )
+        }
     }
 
     render() {
@@ -400,58 +448,36 @@ class Route extends Component {
         const { filterType, filterMap } = this.state;
 
         return (
-            <div className="Route_L_Route">
-                <div className="Route_L_Route_FilterX">
-                    <div className="Route_L_Route_Filter">우선장비</div>
-                    <div className="Route_L_Route_Filter">
-                        {filterType['1'] || 'filter'}
-                        <div className="Route_L_Route_Filter_dropbox_all">
-                            <div className="Route_L_Route_Filter_dropbox">
-                                {filterType['1'] || 'filter'} 
+            <div className='Route_L_Route'>
+                <div className='Route_L_Route_FilterX'>
+                    <div className='Route_L_Route_Filter'>우선장비</div>
+                    {
+                        [1, 2, 3, 4, 5].map(index => 
+                            <div className='Route_L_Route_Filter'>
+                                <div onMouseUp={(e) => this.typeFilterDropHandler(e, index)}
+                                    onContextMenu={(e) => e.preventDefault()}>
+                                    {filterType[index] || 'filter'}
+                                </div>
+                                {this.typeFilterDropView(index)}
                             </div>
-                            <div className="Route_L_Route_Filter_dropbox">
-                                {filterType['1'] || 'filter'} 
-                            </div>
-                        </div>
-                    </div>
-                    <div className="Route_L_Route_Filter">
-                        {filterType['2'] || 'filter'}
-                    </div>
-                    <div className="Route_L_Route_Filter">
-                        {filterType['3'] || 'filter'}
-                    </div>
-                    <div className="Route_L_Route_Filter">
-                        {filterType['4'] || 'filter'}
-                    </div>
-                    <div className="Route_L_Route_Filter">
-                        {filterType['5'] || 'filter'}
-                    </div>
-                    <button className="Route_L_Route_cal" onClick={(e) => this.init()}>계산</button>
+                        )
+                    }
+                    <button className='Route_L_Route_cal' onClick={(e) => this.init()}>계산</button>
                 </div>
-                <div className="Route_L_Route_FilterX">
-                    <div className="Route_L_Route_Filter2">
-                        {filterMap['1'] || 'filter'}
-                    </div>
-                    <div className="Route_L_Route_Filter2">
-                        {filterMap['2'] || 'filter'}
-                    </div>
-                    <div className="Route_L_Route_Filter2">
-                        {filterMap['3'] || 'filter'}
-                    </div>
-                    <div className="Route_L_Route_Filter2">
-                        {filterMap['4'] || 'filter'}
-                    </div>
-                    <div className="Route_L_Route_Filter2">
-                        {filterMap['5'] || 'filter'}
-                    </div>
-                    <div className="Route_L_Route_Filter2">
-                        {filterMap['6'] || 'filter'}
-                    </div>
-                    <div className="Route_L_Route_Filter2">
-                        {filterMap['7'] || 'filter'}
-                    </div>
+                <div className='Route_L_Route_FilterX'>                    
+                    {
+                        [1, 2, 3, 4, 5, 6, 7].map(index => 
+                            <div className='Route_L_Route_Filter'>
+                                <div onMouseUp={(e) => this.mapFilterDropHandler(e, index)}
+                                    onContextMenu={(e) => e.preventDefault()}>
+                                    {filterMap[index] || 'filter'}
+                                </div>
+                                {this.mapFilterDropView(index)}
+                            </div>
+                        )
+                    }
                 </div> 
-                <div className="Route_L_RouteX_all">
+                <div className='Route_L_RouteX_all'>
                     {this.routeListXView()}
                 </div>  
             </div>
