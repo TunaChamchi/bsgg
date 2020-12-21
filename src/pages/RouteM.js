@@ -574,7 +574,7 @@ class RouteM extends Component {
     itemFilterView2 = (list) => {
         const { select } = this.state;
         return list.map((type, idx) => {
-            const itemName = select[type] || '';
+            const itemName = select[type] || type+' 선택';
             const imgGrade = select[type] ? 'img/Item/BackGround/'+item[select[type]]['grade']+'.jpg' : 'img/Item/BackGround/일반.jpg';
             const imgItem = select[type] ? 'img/Item/'+itemName+'.png' : '';
             return (
