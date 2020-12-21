@@ -16,19 +16,21 @@ class Main extends Component {
             <div>
                 <div className="mainpage_banner">
                     <img className="mainpage_logo" src={logo} />
-                    <div className="mainpage_buttons">
+                    <div className="mainpage_banner_option">
                         <div className="mainpage_langauge">
                             <Langauge />
                         </div>
-                        <button className="mainpage_button">
-                            랭크
-                        </button>
-                        <button className="mainpage_button">
-                            루트
-                        </button>
-                        <button className="mainpage_button">
-                            캐릭터 / 티어
-                        </button>
+                        <div className="mainpage_buttons">
+                            <button className="mainpage_button">
+                                랭크
+                            </button>
+                            <button className="mainpage_button">
+                                루트
+                            </button>
+                            <button className="mainpage_button">
+                                캐릭터 / 티어
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div className="mainpage_search">

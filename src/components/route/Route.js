@@ -426,7 +426,7 @@ class Route extends Component {
                     <div className="Route_L_Route_Filter">
                         {filterType['5'] || 'filter'}
                     </div>
-                    <div className="Route_L_Route_cal" onClick={(e) => this.init()}>계산</div>
+                    <button className="Route_L_Route_cal" onClick={(e) => this.init()}>계산</button>
                 </div>
                 <div className="Route_L_Route_FilterX">
                     <div className="Route_L_Route_Filter2">
