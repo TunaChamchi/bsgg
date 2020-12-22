@@ -797,7 +797,7 @@ class RouteM extends Component {
                             {
                                 addStat.map((stat, idx) => {
                                     return (
-                                        <div key={'stat_'+idx}>
+                                        <div className="Route_R_stat_span" key={'stat_'+idx}>
                                             <span>{stat['name'] + ' : ' + stat['value']}</span>
                                         </div>
                                     )
