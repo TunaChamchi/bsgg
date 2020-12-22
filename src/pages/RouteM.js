@@ -68,8 +68,8 @@ class RouteM extends Component {
                 '항구': 'Dock',
                 '묘지': 'Cemetery',
                 '번화가': 'Avenue'
-            }
-            
+            },
+            addStat:[]
         };
     }
 
@@ -88,11 +88,47 @@ class RouteM extends Component {
                     isEq = false;
             }
             if (!isEq) {
-                this.setState({_select: JSON.parse(JSON.stringify(select))});
-                this.routeCalc();
+                if (Object.keys(select).length === 8) {
+                    this.setState({_select: JSON.parse(JSON.stringify(select))});
+                    this.routeCalc();
+                }
             }
         }
     };
+
+    selectItemStat (select) {
+        const { intl } = this.props;
+        console.log('---------------------------------------');
+        const addStat = [];
+        ['무기', '머리', '옷', '팔', '다리', '장신구'].forEach(type => {
+            if (select[type] !== undefined && select[type] !== '') {
+                const name = select[type];
+                console.log(name);
+                const stats = item[name]['stat'];
+                console.log(stats);
+
+                for (const stat in stats) {
+                    const statName = intl.formatMessage({id:stat});
+                    let statValue = stats[stat];
+
+                    if (statValue.includes('+')) {
+                        statValue = parseFloat(statValue.replace('+', ''));
+                    } else if (statValue.includes('-')) {
+                        statValue = parseFloat(statValue.replace('-', ''))*-1;
+                    }
+
+                    const find_idx = addStat.findIndex(_ => _['name'] === statName);
+                    if (find_idx > -1) {
+                        addStat[find_idx]['value'] += statValue;
+                    } else {
+                        addStat.push({ name:statName, value:statValue })
+                    }
+                }
+            }
+        });
+        console.log(addStat);
+        this.setState({addStat:addStat})
+    }
 
     init() {
         const mapSrc = {}
@@ -173,8 +209,14 @@ class RouteM extends Component {
         }      
         //console.log('_filterType', _filterType);
 
-        const routeList = this.routeListByAll(extSrc, 7, _filterType);
-        //console.log('routeList', routeList);
+        const routeList = this.routeListByAll(extSrc, 6, _filterType);
+
+        console.log('routeList1', routeList);
+
+        if (routeList.length < 20)
+            routeList = this.routeListByAll(extSrc, 7, _filterType);
+
+        console.log('routeList2', routeList);
 
         const extTypeList = ['무기', '머리', '옷', '팔', '다리', '장식'].filter(type => !filterTypeList.includes(type));
         //console.log('extTypeList', extTypeList);
@@ -306,15 +348,19 @@ class RouteM extends Component {
         if (route['route'].length > MapIdx || idx > MapIdx) {
             return;
         }
-        if ((route[filterType['1']] === undefined && idx > 4) || route[filterType['1']] > 3) {
-            return
+
+        if (MapIdx === 7 && idx === MapIdx-1) {
+            let count = 0;
+            ['무기', '다리', '머리', '옷', '팔', '장식'].forEach(type => {
+                if (route[type] === undefined) {
+                    count++;
+                }
+            });
+            if (count > 2) { return };
         }
-        if ((route[filterType['2']] === undefined && idx > 5) || route[filterType['2']] > 4) {
-            return;
-        } 
         if (idx === MapIdx) {
             let count = 0;
-            ['머리', '옷', '팔', '장식'].forEach(type => {
+            ['무기', '다리', '머리', '옷', '팔', '장식'].forEach(type => {
                 if (route[type] === undefined) {
                     count++;
                 }
@@ -502,6 +548,7 @@ class RouteM extends Component {
         }
 
         select[type] = value;
+        this.selectItemStat(select);
         this.setState({select: select, selectViewList: [], selectType:''});
     }
     selectTypeHandler = (e, type) => {
@@ -623,6 +670,7 @@ class RouteM extends Component {
 
     
     routeSelectHandler = (e, route) => {
+        //console.log('selectRoute', route);
         this.setState({selectRoute:route});
     }
     routeListXView() {
@@ -677,10 +725,9 @@ class RouteM extends Component {
         this.setState({selectMap:mapName, selectMapSrc:getSrc});
     }
 
-
     render() {
         const { intl } = this.props;
-        const { filterType, filterMap, mapList, selectRoute, selectMap, selectMapSrc } = this.state;
+        const { filterType, filterMap, mapList, selectRoute, selectMap, selectMapSrc, addStat } = this.state;
 
         const metaData = {
             title: 'BSGG.kr - ' + intl.formatMessage({id: 'Title.Map'}),
@@ -741,6 +788,15 @@ class RouteM extends Component {
                     <div className="Route_R">
                         <div className="Route_R_stat">
                             <span className="Route_R_stat_title">능력치</span>
+                            {
+                                addStat.map((stat, idx) => {
+                                    return (
+                                        <div key={'stat_'+idx}>
+                                            <span>{stat['name'] + ' : ' + stat['value']}</span>
+                                        </div>
+                                    )
+                                })
+                            }
                         </div>
                         <div className="Route_R_Map">
                             <div className="Route_R_Mapimg_box">
