@@ -2582,12 +2582,29 @@ button:hover{
     margin: auto;
 }
 .record_top_icon{
+    width: 150px;
+    height: 150px;
     float: left;
+    position: relative;
 }
 .record_top_iconimg{
-    width: 130px;
+    width: 140px;
+    top: 5px;
+    left: 5px;
     border-radius: 100%;
-    border: solid 3px rgb(244,216,35);
+    position: absolute;
+}
+.record_top_lv{
+    display: inline-block;
+    width: 30px;
+    position: absolute;
+    top: 126px;
+    left: 60px;
+    text-align: center;
+}
+.record_top_iconborder{
+    width: 150px;
+    position: absolute;
 }
 .record_top_right{
     display: inline-block;
@@ -2619,6 +2636,7 @@ button:hover{
     float: right;
     width: 100px;
     margin-right: 15px;   
+    margin-top: 15px;
 }
 .record_main{
     width: 1152px;
@@ -2656,31 +2674,32 @@ button:hover{
 .record_rank_icon{
     width: 100px;
     float: left;
-    margin-top: 0px;
+    margin-top: 5px;
     margin-left: 25px;
     margin-right: 25px;
 }
 .record_rank_span1{
     font-size: 18pt;
-    margin-top: 5px;
+    margin-top: 7px;
 }
 .record_rank_span2{
     font-size: 9pt;
-    margin-top: 2px;
+    margin-top: 5px;
 }
 .record_rank_span3{
     font-size: 9pt;
     margin-top: 1px;
 }
 .record_rank_span4{
-    font-size: 9pt;
+    font-size: 10pt;
     margin-top: 1px;
+    color: rgb(244,216,35);
 }
 .record_rank_graph{
     background-color: rgb(255, 166, 0);
     height: 3px;
     width: 55px;
-    margin-top: 17px;
+    margin-top: 12px;
 }
 .record_most{
     background-color: #262335;
@@ -2732,7 +2751,7 @@ button:hover{
 }
 .record_most_img{
     margin-top: 7px;
-    margin-left: 23px;
+    margin-left: 33px;
     width: 43px;
     border: 1px solid #3b4147;
     border-radius: 100%;
@@ -2743,7 +2762,7 @@ button:hover{
 }
 .record_most_span1{
     display: inline-block;
-    width: 140px;
+    width: 125px;
     font-size: 12pt;
     margin-top: 8px;
     float: left;
@@ -2756,10 +2775,11 @@ button:hover{
     float: right;
     margin-top: 11px;
     text-align: right;
+    margin-right: 0px;
 }
 .record_most_span3{
     display: inline-block;
-    width: 140px;
+    width: 125px;
     font-size: 9pt;
     clear: both;
     float: left;
@@ -2788,7 +2808,6 @@ button:hover{
     margin-top: 15px;
     border-radius: 3px;
     width: 350px;
-    height: 100px;
     background-color: #262335;
 }
 .record_with0{
@@ -2802,6 +2821,26 @@ button:hover{
     height: 30px;
     font-family: 'Big Shoulders Stencil Display';
     border-bottom: 1px solid rgb(23, 21, 32);
+}
+.record_with_box{
+    width: 350px;
+    height: 25px;
+    text-align: center;
+    border-bottom: 1px solid #3b4147;
+    margin-top: 5px;
+    border-radius: 3px;
+    font-size: 10pt;
+}
+.record_with_span1{
+    display: inline-block;
+    width: 120px;
+    float: left;
+    margin-left: 5px;
+}
+.record_with_span2{
+    display: inline-block;
+    width: 55px;
+    float: left;
 }
 .record_rigth{
     float: left;
@@ -2882,10 +2921,10 @@ button:hover{
 .record_trend_winrate_graph{
     width: 60px;
     height: 60px;
-    background: conic-gradient(rgb(94, 194, 48) 0% 11%, rgb(49, 106, 190) 11% 40%, rgb(206, 51, 30) 40% 100%);
+    background: conic-gradient(rgb(244,216,35) 0% 11%, rgb(49, 106, 190) 11% 40%, gray 40% 100%);
     border-radius: 100%;
     position: relative;
-    margin-left: 80px;
+    margin-left: 85px;
     float: left;
     margin-top: 1px;
 }
@@ -2916,23 +2955,24 @@ button:hover{
     float: left;
 }
 .record_trend_winrate_span1{
-    color: rgb(94, 194, 48);
+    color: rgb(244,216,35);
 }
 .record_trend_winrate_span2{
     color: rgb(49, 106, 190);
 }
 .record_trend_winrate_span3{
-    color: rgb(206, 51, 30);
+    color:  gray;
 }
 .record_trend_kda{
     display: inline-block;
     width: 100px;
     float: left;
-    margin-top: 7px;
+    margin-top: 4px;
     margin-left: 50px;
 }
 .record_trend_kda1{
     text-align: center;
+    font-size: 15pt;
 }
 .record_trend_kda2{
     font-size: 10pt;
@@ -2958,13 +2998,179 @@ button:hover{
 }
 .record_trend_most_span{
     display: inline-block;
-    width: 180px;
+    width: 170px;
     font-size: 11pt;
     text-align: left;
-    margin-left: 5px;
+    margin-left: 15px;
 }
 .record_trend_most_span1{
     font-size: 10pt;
 }
 .record_trend_most_span2{
+}
+.record_history{
+    margin-top: 5px;
+    margin-left: 15px;
+    width: 775px;
+}
+.record_history_box{
+    width: 775px;
+    height: 90px;
+    text-align: center;
+    background-color: #262335;
+    margin-top: 5px;
+    border-radius: 0px 3px 3px 0px;
+    border-bottom: 1px solid #3b4147;
+}
+.record_history_win{
+    display: inline-block;
+    width: 10px;
+    float: left;
+    width: 10px;
+    height: 90px;
+    margin-left: -15px;
+    border-radius: 3px 0px 0px 3px;
+    background-color: rgb(244,216,35);
+    border-bottom: 1px solid #3b4147;
+}
+.record_history_top{
+    display: inline-block;
+    width: 10px;
+    float: left;
+    width: 10px;
+    height: 90px;
+    margin-left: -15px;
+    border-radius: 3px 0px 0px 3px;
+    background-color: rgb(49, 106, 190);
+    border-bottom: 1px solid #3b4147;
+}
+.record_history_loss{
+    display: inline-block;
+    width: 10px;
+    float: left;
+    width: 10px;
+    height: 90px;
+    margin-left: -15px;
+    border-radius: 3px 0px 0px 3px;
+    background-color: gray;
+    border-bottom: 1px solid #3b4147;
+}
+.record_history1{
+    display: inline-block;
+    width: 100px;
+    float: left;
+    margin-top: 5px;
+}
+.record_history_rank_win{
+    font-family: 'Big Shoulders Stencil Display';
+    font-size: 25pt;
+    color:  rgb(244,216,35);
+}
+.record_history_rank_top{
+    font-family: 'Big Shoulders Stencil Display';
+    font-size: 25pt;
+    color:  rgb(49, 106, 190);
+}
+.record_history_rank_loss{
+    font-family: 'Big Shoulders Stencil Display';
+    font-size: 25pt;
+    color:    gray;
+}
+.record_history_filter{
+    font-size: 13pt;
+    margin-top: -2px;
+}
+.record_history_date{
+    font-size: 9pt;
+    margin-top: -2px;
+}
+.record_history2{
+    display: inline-block;
+    width: 150px;
+    float: left;
+    margin-top: 5px;
+}
+.record_history_img{
+    border-radius: 100%;
+    border:solid 1px #3b4147;
+}
+.record_history_weapon{
+    margin-left: 5px;
+    width: 35px;
+    border-radius: 100%;
+    border:solid 1px #3b4147;
+}
+.record_history_name{
+    font-size: 15pt;
+    margin-top: -5px;
+}
+.record_history3{
+    display: inline-block;
+    width: 120px;
+    float: left;
+    margin-top: 20px;
+    text-align: center;
+}
+.record_history_kill{
+    display: inline-block;
+    width: 60px;
+    float: left;
+    font-size: 13pt;
+    text-align: center;
+}
+.record_history_assist{
+    display: inline-block;
+    width: 60px;
+    font-size: 13pt;
+    text-align: center;
+}
+.record_history_kda{
+    font-size: 10pt;
+}
+.record_history4{
+    display: inline-block;
+    width: 110px;
+    float: left;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+.record_history_lv{
+    font-size: 13pt;
+}
+.record_history_monster{
+    font-size: 10pt;
+}
+.record_history_item_box{
+    width: 200px;
+    float: left;
+    margin-top: 5px;
+}
+.record_history_item{
+    width: 60px;
+    height: 33px;
+    float: left;
+    position: relative;
+    margin: 2px;
+}
+.record_history_item1{
+    width: 60px;
+    border: 1px solid #3b4147;
+    position: absolute;
+    border-radius: 3px;
+}
+.record_history_item2{
+    width: 60px;
+    position: absolute;
+    border-radius: 3px;
+}
+.record_history_button{
+    width: 775px;
+    font-size: 13pt;
+    height: 35px;
+    border-radius: 3px;
+    background-color: #26242e;
+    border: none;
+    border-bottom: 1px solid #3b4147;
+    margin-top: 10px;
+    color: rgb(209, 209, 209);
 }
