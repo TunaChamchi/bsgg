@@ -583,6 +583,7 @@ class RouteM extends Component {
     }
 
     itemFilterView = () => {
+        const { intl } = this.props;
         const { select } = this.state;
         const imgType = select['type'] ? 'img/Weapons/'+select['type']+'.jpg' : '';
         const imgStart = select['start'] ? 'img/Weapons/'+select['start']+'.jpg' : '';
@@ -594,7 +595,7 @@ class RouteM extends Component {
                         <div className="Route_L_StartItem" onMouseUp={(e) => this.selectTypeHandler(e, 'type')}
                             onContextMenu={(e) => e.preventDefault()}>
                             <img className="Route_L_StartItem1" src={imgType} />
-                            <span className="Route_L_StartItem2">최종아이템</span>
+                            <span className="Route_L_StartItem2">{intl.formatMessage({id:'최종 무기'})}</span>
                         </div>
                         <div className="Route_L_StartItem_dropbox_all"> 
                             {this.itemFilterDropBoxView('type')}
@@ -607,7 +608,7 @@ class RouteM extends Component {
                         <div className="Route_L_StartItem" onMouseUp={(e) => this.selectTypeHandler(e, 'start')}
                             onContextMenu={(e) => e.preventDefault()}>
                             <img className="Route_L_StartItem1" src={imgStart} />
-                            <span className="Route_L_StartItem2">시작아이템</span>
+                            <span className="Route_L_StartItem2">{intl.formatMessage({id:'시작 무기'})}</span>
                         </div>
                         <div className="Route_L_StartItem_dropbox_all"> 
                             {this.itemFilterDropBoxView('start')}
@@ -753,7 +754,7 @@ class RouteM extends Component {
                         {this.itemFilterView()}
                         <div className='Route_L_Route'>
                             <div className='Route_L_Route_FilterX'>
-                                <div className='Route_L_Route_Filter'>우선장비</div>
+                                <div className='Route_L_Route_Filter'>{intl.formatMessage({id:'우선 장비'})}</div>
                                 {
                                     [1, 2, 3, 4, 5].map(index => 
                                         <div className='Route_L_Route_Filter'>
@@ -765,7 +766,7 @@ class RouteM extends Component {
                                         </div>
                                     )
                                 }
-                                <button className='Route_L_Route_cal' onClick={(e) => this.routeCalc()}>계산</button>
+                                <button className='Route_L_Route_cal' onClick={(e) => this.routeCalc()}>{intl.formatMessage({id:'계산'})}</button>
                             </div>
                             <div className='Route_L_Route_FilterX'>                    
                                 {
@@ -787,7 +788,7 @@ class RouteM extends Component {
                     </div>
                     <div className="Route_R">
                         <div className="Route_R_stat">
-                            <span className="Route_R_stat_title">능력치</span>
+                            <span className="Route_R_stat_title">{intl.formatMessage({id:'능력치'})}</span>
                             {
                                 addStat.map((stat, idx) => {
                                     return (
@@ -828,7 +829,7 @@ class RouteM extends Component {
                                 </div>
                             </div>
                             <div className="Route_R_Mapitem_allbox">
-                                <span className="Route_R_Mapitem_title">드랍 아이템</span>
+                                <span className="Route_R_Mapitem_title">{intl.formatMessage({id:'드랍 아이템'})}</span>
                                 {
                                     selectMap !== '' &&
                                         selectMapSrc.map((src, idx) => {

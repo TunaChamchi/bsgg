@@ -30,6 +30,8 @@ class Map extends Component {
                 <div className="record_top">
                     <div className="record_top_icon">
                         <img className="record_top_iconimg" src="img/Characters/재키.jpg" />
+                        <img className="record_top_iconborder" src="img/border/이터널.png" />
+                        <span className="record_top_lv">50</span>
                     </div>
                     <div className="record_top_right">
                         <div className="record_top_name">
@@ -78,7 +80,7 @@ class Map extends Component {
                             <span className="record_most0">MOST 5</span>
                             <div className="record_most_tabs">
                                 <div className="record_most_tab1 actived">전체</div>
-                                <div className="record_most_tab1">랭크게임</div>
+                                <div className="record_most_tab1">랭크</div>
                             </div>
                             <div className="record_most_tabs">
                                 <div className="record_most_tab2 actived">전체</div>
@@ -125,7 +127,7 @@ class Map extends Component {
                             <div className="record_most_box">
                                 <img className="record_most_img" src="img/rank/재키.jpg" />
                                 <div className="record_most_span">
-                                    <div className="record_most_span1">재키</div>
+                                    <div className="record_most_span1">아드리아나</div>
                                     <div className="record_most_span2">승률 24.4%</div>
                                     <div className="record_most_span3">4.1 KDA</div>
                                     <div className="record_most_span4">34게임</div>
@@ -137,6 +139,17 @@ class Map extends Component {
                             <div className="record_with0">RECENT 20</div>
                             <div className="record_with_box">
                                 <div className="record_with_span1">팀원</div>
+                                <div className="record_with_span2">게임</div>
+                                <div className="record_with_span2">승</div>
+                                <div className="record_with_span2">탑3</div>
+                                <div className="record_with_span2">승률</div>
+                            </div>
+                            <div className="record_with_box">
+                                <div className="record_with_span1">준돌리스</div>
+                                <div className="record_with_span2">13</div>
+                                <div className="record_with_span2">3</div>
+                                <div className="record_with_span2">5</div>
+                                <div className="record_with_span2">22.5%</div>
                             </div>
                         </div>
                     </div>
@@ -198,8 +211,152 @@ class Map extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div className="record_match">
-
+                        </div>
+                        <div className="record_history">
+                            <div className="record_history_box">
+                                <div className="record_history_win"></div>
+                                <div className="record_history1">
+                                    <div className="record_history_rank_win">1</div>
+                                    <div className="record_history_filter">랭크</div>
+                                    <div className="record_history_date">2일 전</div>
+                                </div>
+                                <div className="record_history2">
+                                    <img className="record_history_img" src="img/rank/재키.jpg" />
+                                    <img className="record_history_weapon" src="img/weapons/단검.jpg" />
+                                    <div className="record_history_name">아드리아나</div>
+                                </div>
+                                <div className="record_history3">
+                                    <div className="record_history_kill">1 킬</div>
+                                    <div className="record_history_assist">1 도움</div>
+                                    <div className="record_history_kda">2.0 KDA</div>
+                                </div>
+                                <div className="record_history4">
+                                    <div className="record_history_lv">레벨 17</div>
+                                    <div className="record_history_monster">25 CS (min 4.4)</div>
+                                </div>
+                                <div className="record_history_item_box">
+                                    <div className="record_history_item">
+                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                    </div>
+                                    <div className="record_history_item">
+                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                    </div>
+                                    <div className="record_history_item">
+                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                    </div>
+                                    <div className="record_history_item">
+                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                    </div>
+                                    <div className="record_history_item">
+                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                    </div>
+                                    <div className="record_history_item">
+                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="record_history_box">
+                                <div className="record_history_top"></div>
+                                <div className="record_history1">
+                                    <div className="record_history_rank_top">3</div>
+                                    <div className="record_history_filter">랭크</div>
+                                    <div className="record_history_date">2일 전</div>
+                                </div>
+                                <div className="record_history2">
+                                    <img className="record_history_img" src="img/rank/재키.jpg" />
+                                    <img className="record_history_weapon" src="img/weapons/단검.jpg" />
+                                    <div className="record_history_name">아드리아나</div>
+                                </div>
+                                <div className="record_history3">
+                                    <div className="record_history_kill">1 킬</div>
+                                    <div className="record_history_assist">1 도움</div>
+                                    <div className="record_history_kda">2.0 KDA</div>
+                                </div>
+                                <div className="record_history4">
+                                    <div className="record_history_lv">레벨 17</div>
+                                    <div className="record_history_monster">25 CS (min 4.4)</div>
+                                </div>
+                                <div className="record_history_item_box">
+                                    <div className="record_history_item">
+                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                    </div>
+                                    <div className="record_history_item">
+                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                    </div>
+                                    <div className="record_history_item">
+                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                    </div>
+                                    <div className="record_history_item">
+                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                    </div>
+                                    <div className="record_history_item">
+                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                    </div>
+                                    <div className="record_history_item">
+                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="record_history_box">
+                                <div className="record_history_loss"></div>
+                                <div className="record_history1">
+                                    <div className="record_history_rank_loss">11</div>
+                                    <div className="record_history_filter">랭크</div>
+                                    <div className="record_history_date">2일 전</div>
+                                </div>
+                                <div className="record_history2">
+                                    <img className="record_history_img" src="img/rank/재키.jpg" />
+                                    <img className="record_history_weapon" src="img/weapons/단검.jpg" />
+                                    <div className="record_history_name">아드리아나</div>
+                                </div>
+                                <div className="record_history3">
+                                    <div className="record_history_kill">1 킬</div>
+                                    <div className="record_history_assist">1 도움</div>
+                                    <div className="record_history_kda">2.0 KDA</div>
+                                </div>
+                                <div className="record_history4">
+                                    <div className="record_history_lv">레벨 17</div>
+                                    <div className="record_history_monster">25 CS (min 4.4)</div>
+                                </div>
+                                <div className="record_history_item_box">
+                                    <div className="record_history_item">
+                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                    </div>
+                                    <div className="record_history_item">
+                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                    </div>
+                                    <div className="record_history_item">
+                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                    </div>
+                                    <div className="record_history_item">
+                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                    </div>
+                                    <div className="record_history_item">
+                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                    </div>
+                                    <div className="record_history_item">
+                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                    </div>
+                                </div>
+                                <button className="record_history_button">더 보기</button>
                             </div>
                         </div>
                     </div>
