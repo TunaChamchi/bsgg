@@ -109,18 +109,19 @@ class RouteM extends Component {
                 for (const stat in stats) {
                     const statName = intl.formatMessage({id: 'stat.'+stat});
                     let statValue = stats[stat];
+                    let isPersent = statValue.includes('%') ? '%' : 0;
 
                     if (statValue.includes('+')) {
-                        statValue = parseFloat(statValue.replace('+', ''));
+                        statValue = Math.round(parseFloat(statValue.replace('+', ''))*100)/100;
                     } else if (statValue.includes('-')) {
-                        statValue = parseFloat(statValue.replace('-', ''))*-1;
+                        statValue = Math.round(parseFloat(statValue.replace('-', ''))*-1*100)/100;
                     }
-
+                    
                     const find_idx = addStat.findIndex(_ => _['name'] === statName);
                     if (find_idx > -1) {
-                        addStat[find_idx]['value'] = (parseFloat(addStat[find_idx]['value']) + statValue).toFixed(2);
+                        addStat[find_idx]['value'] = Math.round((parseFloat(addStat[find_idx]['value']) + statValue)*100)/100 + isPersent;
                     } else {
-                        addStat.push({ name:statName, value:statValue.toFixed(2) })
+                        addStat.push({ name:statName, value:statValue+isPersent })
                     }
                 }
             }
@@ -548,6 +549,7 @@ class RouteM extends Component {
         }
 
         select[type] = value;
+        this.selectItemStat(select);
         this.setState({select: select, selectViewList: [], selectType:''});
     }
     selectTypeHandler = (e, type) => {
