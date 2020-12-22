@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { injectIntl  } from 'react-intl';
 import ScriptTag from 'react-script-tag';
 import { Header, SubBanner, AdS, Footer } from 'components/banner'
@@ -464,11 +465,11 @@ class RouteM extends Component {
         const { filterType, filterTypeSelect } = this.state;        
         if (e.button === 2) {
             filterType[index] = '';
-            this.setState({filterType:filterType, filterTypeSelect:0});
+            this.setState({filterType:filterType, filterTypeSelect:0, filterMapSelect:0, selectViewList: [], selectType:''});
         } else if (e.button === 0 && filterTypeSelect !== index) {
-            this.setState({filterTypeSelect:index});
+            this.setState({filterTypeSelect:index, filterMapSelect:0, selectViewList: [], selectType:''});
         } else if (filterTypeSelect === index) {
-            this.setState({filterTypeSelect:0});
+            this.setState({filterTypeSelect:0, filterMapSelect:0, selectViewList: [], selectType:''});
         }
     }
     typeFilterSelectHandler = (e, index, type) => {
@@ -502,11 +503,11 @@ class RouteM extends Component {
         
         if (e.button === 2 ) {
             filterMap[index] = '';
-            this.setState({filterMap:filterMap, filterMapSelect:0});
+            this.setState({filterMap:filterMap, filterMapSelect:0, filterTypeSelect:0, selectViewList: [], selectType:''});
         } else if (e.button === 0 && filterMapSelect !== index) {
-            this.setState({filterMapSelect:index});
+            this.setState({filterMapSelect:index, filterTypeSelect:0, selectViewList: [], selectType:''});
         } else if (filterMapSelect === index) {
-            this.setState({filterMapSelect:0});
+            this.setState({filterMapSelect:0, filterTypeSelect:0, selectViewList: [], selectType:''});
         }
     }
     mapFilterSelectHandler = (e, index, map) => {
@@ -547,7 +548,6 @@ class RouteM extends Component {
         }
 
         select[type] = value;
-        this.selectItemStat(select);
         this.setState({select: select, selectViewList: [], selectType:''});
     }
     selectTypeHandler = (e, type) => {
@@ -555,7 +555,7 @@ class RouteM extends Component {
 
         if (e.button === 2) {
             select[type] = '';
-            this.setState({selectViewList:[], selectType:'', select:select});
+            this.setState({selectViewList:[], selectType:'', select:select, filterTypeSelect:0, filterMapSelect:0});
         } else if (e.button === 0 && selectType !== type) {
             let list = [];
             if (type === 'type' || type === 'start' ) {
@@ -575,9 +575,9 @@ class RouteM extends Component {
                 }
             }
             
-            this.setState({selectViewList: list, selectType:type});
+            this.setState({selectViewList: list, selectType:type, filterTypeSelect:0, filterMapSelect:0});
         } else if (selectType === type) {
-            this.setState({selectViewList: [], selectType:''});
+            this.setState({selectViewList: [], selectType:'', filterTypeSelect:0, filterMapSelect:0});
         }
     }
 
@@ -750,8 +750,8 @@ class RouteM extends Component {
                         <span className="map_title_span">MAP</span>
                     </div>
                     <div className="tabHeaders">
-                        <span className="map_tab0 actived">{intl.formatMessage({id:'지도 도감'})}</span>
-                        <span className="map_tab0">{intl.formatMessage({id:'루트제작'})}</span>
+                        <span className="map_tab0 actived">{intl.formatMessage({id:'루트제작'})}</span>
+                        <Link to='/Map'><span className="map_tab0">{intl.formatMessage({id:'지도 도감'})}</span></Link>
                     </div>
                     <div className="Route_L">
                         {this.itemFilterView()}
