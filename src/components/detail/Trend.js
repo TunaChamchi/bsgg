@@ -38,7 +38,7 @@ class Thend extends Component {
         );
     };
 
-    trendView = (name) => {
+    trendView = (name, idx) => {
         const { intl, data, parameter } = this.props
 
         const avg = Avg(parameter['rangeFocus'], parameter['typeFocus']);
@@ -49,7 +49,7 @@ class Thend extends Component {
         const _avg  = ((avg[name]           - min[name])  / (max[name]  - min[name]) ) * 320 - 22;
 
         return (
-            <div className="S_Trend_square">
+            <div className="S_Trend_square" key={'square_'+idx}>
                 <div className="S_Trend_square1"><span>{intl.formatMessage({id: name})}</span></div>
                 <div className="S_Trend_square2"><span>{data['data'][name].toFixed(1)}{name.indexOf('rate')>0?"%":""}</span></div>
                 <div className="S_Trend_square3"><span>#{data['rank'][name]}</span></div>
@@ -87,8 +87,8 @@ class Thend extends Component {
                 </div>
                 <div className="S_Trend2">
                     {
-                        trend.map(name =>
-                            this.trendView(name)
+                        trend.map((name, idx) =>
+                            this.trendView(name, idx)
                         )
                     }
                 </div>

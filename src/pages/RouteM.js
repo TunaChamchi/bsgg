@@ -40,9 +40,9 @@ class RouteM extends Component {
             mapSrc: {},
             routeList: [],
             _select:{},
-            filterType: {'1':'무기','2':'다리',},
+            filterType: {'1':'무기','2':'다리'},
             filterTypeSelect: 0,
-            filterTypeList: ['무기', '머리', '옷', '팔', '다리', '장신구'],
+            filterTypeList: ['무기', '머리', '옷', '팔', '다리', '장식'],
             filterMap: {},
             filterMapSelect: 0,
             filterMapList: ['골목길', '절', '번화가', '연못', '병원', '양궁장', '학교', '묘지', '공장', '호텔', '숲', '성당', '모래사장', '고급 주택가', '항구'],
@@ -60,6 +60,7 @@ class RouteM extends Component {
                 '모래사장': 'Beach',
                 '숲': 'Forest',
                 '고급주택가': 'Uptown',
+                '고급 주택가': 'Uptown',
                 '연못': 'Pond',
                 '절': 'Temple',
                 '병원': 'Hospital',
@@ -98,17 +99,14 @@ class RouteM extends Component {
 
     selectItemStat (select) {
         const { intl } = this.props;
-        console.log('---------------------------------------');
         const addStat = [];
-        ['무기', '머리', '옷', '팔', '다리', '장신구'].forEach(type => {
+        ['무기', '머리', '옷', '팔', '다리', '장식'].forEach(type => {
             if (select[type] !== undefined && select[type] !== '') {
                 const name = select[type];
-                console.log(name);
                 const stats = item[name]['stat'];
-                console.log(stats);
 
                 for (const stat in stats) {
-                    const statName = intl.formatMessage({id:stat});
+                    const statName = intl.formatMessage({id: 'stat.'+stat});
                     let statValue = stats[stat];
 
                     if (statValue.includes('+')) {
@@ -119,14 +117,13 @@ class RouteM extends Component {
 
                     const find_idx = addStat.findIndex(_ => _['name'] === statName);
                     if (find_idx > -1) {
-                        addStat[find_idx]['value'] += statValue;
+                        addStat[find_idx]['value'] = (parseFloat(addStat[find_idx]['value']) + statValue).toFixed(2);
                     } else {
-                        addStat.push({ name:statName, value:statValue })
+                        addStat.push({ name:statName, value:statValue.toFixed(2) })
                     }
                 }
             }
         });
-        console.log(addStat);
         this.setState({addStat:addStat})
     }
 
@@ -211,12 +208,12 @@ class RouteM extends Component {
 
         const routeList = this.routeListByAll(extSrc, 6, _filterType);
 
-        console.log('routeList1', routeList);
+        //console.log('routeList1', routeList);
 
         if (routeList.length < 20)
             routeList = this.routeListByAll(extSrc, 7, _filterType);
 
-        console.log('routeList2', routeList);
+        //console.log('routeList2', routeList);
 
         const extTypeList = ['무기', '머리', '옷', '팔', '다리', '장식'].filter(type => !filterTypeList.includes(type));
         //console.log('extTypeList', extTypeList);
@@ -248,7 +245,7 @@ class RouteM extends Component {
         //console.log('topList', topList);
 
         this.setRouteListForItem(mapSrc, selectSrc, topList);
-        console.log('topList2', topList);
+        //console.log('topList2', topList);
 
         this.setState({routeList: topList, selectRoute:{route:[]}, selectMap:'', selectMapSrc: []});
     }
@@ -480,6 +477,7 @@ class RouteM extends Component {
         this.setState({filterType:filterType, filterTypeSelect:0});
     }
     typeFilterDropView = (index) => {
+        const { intl } = this.props;
         const { filterTypeSelect, filterTypeList } = this.state;
         if (filterTypeSelect === index) {
             return (
@@ -489,7 +487,7 @@ class RouteM extends Component {
                             return (
                                 <div className='Route_L_Route_Filter_dropbox' key={'filter_dropbox'+idx}
                                     onClick={(e) => this.typeFilterSelectHandler(e, index, type)}>
-                                    {type} 
+                                    {intl.formatMessage({id: 'armor.'+type})}
                                 </div>
                             )
                         })
@@ -517,7 +515,8 @@ class RouteM extends Component {
         this.setState({filterMap:filterMap, filterMapSelect:0});
     }
     mapFilterDropView = (index) => {
-        const { filterMapSelect, filterMapList } = this.state;
+        const { intl } = this.props;
+        const { filterMapSelect, filterMapList, mapList } = this.state;
         if (filterMapSelect === index) {
             return (
                 <div className='Route_L_Route_Filter_dropbox_all'>
@@ -526,7 +525,7 @@ class RouteM extends Component {
                             return (
                                 <div className='Route_L_Route_Filter_dropbox' key={'filter_dropbox'+idx}
                                     onClick={(e) => this.mapFilterSelectHandler(e, index, map)}>
-                                    {map} 
+                                    {intl.formatMessage({id: mapList[map]})}
                                 </div>
                             )
                         })
@@ -620,11 +619,12 @@ class RouteM extends Component {
         );
     }
     itemFilterView2 = (list) => {
+        const { intl } = this.props;
         const { select } = this.state;
         return list.map((type, idx) => {
-            const itemName = select[type] || type+' 선택';
+            const itemName = select[type] ? intl.formatMessage({id: 'items.'+select[type]}) : intl.formatMessage({id: 'armor.'+type})+' '+intl.formatMessage({id: '선택'});
             const imgGrade = select[type] ? 'img/Item/BackGround/'+item[select[type]]['grade']+'.jpg' : 'img/Item/BackGround/일반.jpg';
-            const imgItem = select[type] ? 'img/Item/'+itemName+'.png' : '';
+            const imgItem = select[type] ? 'img/Item/'+select[type]+'.png' : '';
             return (
                 <div className="Route_L_PickItem_box" key={'PickItem_box'+idx}> 
                     <div onMouseUp={(e) => this.selectTypeHandler(e, type)}
@@ -643,6 +643,7 @@ class RouteM extends Component {
         });
     }
     itemFilterDropBoxView = (type) => {
+        const { intl } = this.props;
         const { selectType, selectViewList } = this.state;
 
         if (type !== selectType) return;
@@ -652,7 +653,7 @@ class RouteM extends Component {
                 return (
                     <div className="Route_L_StartItem_dropbox" key={type+'_list'+idx} onClick={(e) => this.selectHandler(e, type, name)}>
                         <img className="Route_L_StartItem_dropbox1" src={'img/Weapons/'+name+'.jpg'} />
-                        <span className="Route_L_StartItem_dropbox2">{name}</span>
+                        <span className="Route_L_StartItem_dropbox2">{intl.formatMessage({id: 'weapons.'+name})}</span>
                     </div>
                 )
             } else {
@@ -662,7 +663,7 @@ class RouteM extends Component {
                             <img className="Route_L_PickItem_dropbox1" src={'img/Item/BackGround/'+item[name]['grade']+'.jpg'} />
                             <img className="Route_L_PickItem_dropbox2" src={'img/Item/'+name+'.png'} />
                         </div>
-                        <span className="Route_L_PickItem_dropbox3">{name}</span>
+                        <span className="Route_L_PickItem_dropbox3">{intl.formatMessage({id: 'items.'+name})}</span>
                     </div>
                 )
             }
@@ -687,10 +688,12 @@ class RouteM extends Component {
         });
     }
     routeListYView(route) {
+        const { intl } = this.props;
+        const { mapList } = this.state;
         return route['view'].map((view, idx) => {
             return (
                 <div className='Route_L_RouteY' key={'route_Y'+idx}>
-                    <div className='Route_L_Route_region'>{view['name']}</div>
+                    <div className='Route_L_Route_region'>{intl.formatMessage({id: mapList[view['name']]})}</div>
                     <div className='Route_L_Route_item_bigbox'>
                         {this.routeListBoxView(view['item'])}
                     </div>
@@ -757,10 +760,10 @@ class RouteM extends Component {
                                 <div className='Route_L_Route_Filter'>{intl.formatMessage({id:'우선 장비'})}</div>
                                 {
                                     [1, 2, 3, 4, 5].map(index => 
-                                        <div className='Route_L_Route_Filter'>
+                                        <div className='Route_L_Route_Filter' key={'Filter1_'+index}>
                                             <div onMouseUp={(e) => this.typeFilterDropHandler(e, index)}
                                                 onContextMenu={(e) => e.preventDefault()}>
-                                                {filterType[index] || 'filter'}
+                                                {filterType[index] ? intl.formatMessage({id: 'armor.'+filterType[index]}) : intl.formatMessage({id: 'filter1'})}
                                             </div>
                                             {this.typeFilterDropView(index)}
                                         </div>
@@ -771,10 +774,10 @@ class RouteM extends Component {
                             <div className='Route_L_Route_FilterX'>                    
                                 {
                                     [1, 2, 3, 4, 5, 6, 7].map(index => 
-                                        <div className='Route_L_Route_Filter'>
+                                        <div className='Route_L_Route_Filter' key={'Filter2_'+index}>
                                             <div onMouseUp={(e) => this.mapFilterDropHandler(e, index)}
                                                 onContextMenu={(e) => e.preventDefault()}>
-                                                {filterMap[index] || 'filter'}
+                                                {filterMap[index] ? intl.formatMessage({id: mapList[filterMap[index]]}) : intl.formatMessage({id: 'filter2'})}
                                             </div>
                                             {this.mapFilterDropView(index)}
                                         </div>
