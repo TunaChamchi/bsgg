@@ -548,6 +548,7 @@ class RouteM extends Component {
         }
 
         select[type] = value;
+        this.selectItemStat(select);
         this.setState({select: select, selectViewList: [], selectType:''});
     }
     selectTypeHandler = (e, type) => {
@@ -795,7 +796,7 @@ class RouteM extends Component {
                             {
                                 addStat.map((stat, idx) => {
                                     return (
-                                        <div key={'stat_'+idx}>
+                                        <div className="Route_R_stat_span" key={'stat_'+idx}>
                                             <span>{stat['name'] + ' : ' + stat['value']}</span>
                                         </div>
                                     )

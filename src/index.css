@@ -1854,7 +1854,7 @@ button:hover{
 .Route_L_StartItem_dropbox_all{
     position: absolute;
     max-height: 400px;
-    overflow: scroll;
+    overflow: auto;
     border-radius: 5px;
     background-color: #171520;
     z-index: 1;
@@ -1889,7 +1889,7 @@ button:hover{
 .Route_L_PickItem_dropbox_all{
     position: absolute;
     max-height: 400px;
-    overflow: scroll;
+    overflow: auto;
     border-radius: 5px;
     margin-top: 95px;
     background-color: #171520;
@@ -2009,6 +2009,7 @@ button:hover{
     border-radius: 5px;
     border-bottom: 1px solid #171520;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 .Route_L_RouteX{
     padding-top: 5px;
@@ -2070,6 +2071,14 @@ button:hover{
     display: inline-block;
     text-align: center;
     border-radius: 5px;
+}
+
+.Route_R_stat_span{
+    margin-left: 20px;
+    display: inline-block;
+    width: 160px;
+    font-size: 11pt;
+    text-align: left;
 }
 .Route_R_Map{
     width: 372px;
@@ -2559,7 +2568,7 @@ button:hover{
 }
 .Route_R_Mapitem_allbox{
     width: 372px;
-    height: 236px;
+    height: 246px;
     background-color:  #241b2f;
     border-bottom: 1px solid #171520;
     border-radius: 5px;
