@@ -12,8 +12,8 @@ class App extends Component {
                     <Route path="/Map" component={Map}/>
                     <Route path="/Route" component={RouteM}/>
                     <Route path="/NewMain" component={NewMain}/>
-                    <Route path="/match" component={match}/>
-                    <Route path="/character" component={character}/>
+                   {/* <Route path="/match" component={match}/>
+                    <Route path="/character" component={character}/>*/}
                 </Switch>
             </div>
         );
