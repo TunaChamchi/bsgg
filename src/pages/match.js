@@ -136,7 +136,7 @@ class Map extends Component {
                             <button className="record_most_button">더 보기</button>
                         </div>
                         <div className="record_with">
-                            <div className="record_with0">RECENT 20</div>
+                            <div className="record_with0">TOGETHER</div>
                             <div className="record_with_box">
                                 <div className="record_with_span1">팀원</div>
                                 <div className="record_with_span2">게임</div>
@@ -217,7 +217,7 @@ class Map extends Component {
                                 <div className="record_history_win"></div>
                                 <div className="record_history1">
                                     <div className="record_history_rank_win">1</div>
-                                    <div className="record_history_filter">랭크</div>
+                                    <div className="record_history_filter">랭크/솔로</div>
                                     <div className="record_history_date">2일 전</div>
                                 </div>
                                 <div className="record_history2">
@@ -265,7 +265,7 @@ class Map extends Component {
                                 <div className="record_history_top"></div>
                                 <div className="record_history1">
                                     <div className="record_history_rank_top">3</div>
-                                    <div className="record_history_filter">랭크</div>
+                                    <div className="record_history_filter">랭크/듀오</div>
                                     <div className="record_history_date">2일 전</div>
                                 </div>
                                 <div className="record_history2">
@@ -313,7 +313,7 @@ class Map extends Component {
                                 <div className="record_history_loss"></div>
                                 <div className="record_history1">
                                     <div className="record_history_rank_loss">11</div>
-                                    <div className="record_history_filter">랭크</div>
+                                    <div className="record_history_filter">일반/스쿼드</div>
                                     <div className="record_history_date">2일 전</div>
                                 </div>
                                 <div className="record_history2">

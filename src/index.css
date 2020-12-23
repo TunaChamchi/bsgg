@@ -630,11 +630,11 @@ button:hover{
 .rank3rank1{
     text-align: center;
     vertical-align: middle;
-    font-family: 'congruency3d';
+    font-family: 'Big Shoulders Stencil Display';
     font-size: 20pt;
     display: inline-block;
     width: 90px;
-    margin-left: -5px;
+    margin-left: -7px;
 }
 .rank3Updown{
     text-align: center;
@@ -1962,15 +1962,13 @@ button:hover{
 }
 .Route_L_Route_Filter{
     display: inline-block;
-    width: 100px;
+    width: 107px;
     height: 25px;
-    margin-left: 6px;
     margin-top: 0px;
     margin-bottom: 15px;
     float: left;
     text-align: center;
-    border-bottom: solid 1px #3b4147;
-    border-radius: 5px;
+    border-bottom: solid 1px  #3b4147;
     z-index: 1;
 }
 .Route_L_Route_Filter :hover{
@@ -1996,7 +1994,6 @@ button:hover{
     z-index: 1;
 }
 .Route_L_Route_Filter_dropbox{
-    border-radius: 5px;
     border-bottom: solid 1px #3b4147;
     background-color: #171520;
     z-index: 1;
@@ -3197,6 +3194,7 @@ button:hover{
     background-color:#262335;
     width: 1152px;
     border-radius: 3px;
+    overflow: hidden;
 }
 .record_cha0{
     display: inline-block;
@@ -3215,7 +3213,7 @@ button:hover{
     width: 300px;
     padding-top: 2px;
     font-size: 23pt;
-    margin-left: 150px;
+    margin-left: 200px;
 }
 .record_cha0_tabs{
     float: right;
@@ -3474,4 +3472,251 @@ button:hover{
     float: left;
     margin-top: 15px;
     height: 28px;
+}
+/* 5 page */
+.rank_top_1{
+    width: 200px;
+    height: 300px;
+    float: left;
+    position: relative;
+    border-radius: 10px;
+    border: 2px solid gold;
+    margin-top: 25px;
+    margin-right: 50px;
+    margin-left: 50px;
+}
+.rank_top_2{
+    width: 200px;
+    height: 300px;
+    float: left;
+    position: relative;
+    border-radius: 10px;
+    border: 2px solid silver;
+    margin-top: 65px;
+    margin-bottom: 25px;
+    margin-left: -40px;
+}
+.rank_top_3{
+    width: 200px;
+    height: 300px;
+    float: left;
+    position: relative;
+    border-radius: 10px;
+    border: 2px solid brown;
+    margin-top: 65px;
+    margin-bottom: 25px;
+}
+.rank_top_iconimg{
+    width: 140px;
+    top: 15px;
+    left: 30px;
+    border-radius: 100%;
+    position: absolute;
+}
+.rank_top_lv{
+    display: inline-block;
+    width: 30px;
+    position: absolute;
+    top: 136px;
+    left: 85px;
+    text-align: center;
+}
+.rank_top_iconborder{
+    width: 150px;
+    top: 10px;
+    left: 25px;
+    position: absolute;
+}
+.rank_top1_span1{
+    font-size: 30pt;
+    position: absolute;
+    bottom: 90px;
+    text-align: center;
+    display: inline-block;
+    width: 200px;
+    color: gold;
+    font-family: 'Big Shoulders Stencil Display';
+}
+.rank_top2_span1{
+    font-size: 30pt;
+    position: absolute;
+    bottom: 90px;
+    text-align: center;
+    display: inline-block;
+    width: 200px;
+    color: silver;
+    font-family: 'Big Shoulders Stencil Display';
+}
+.rank_top3_span1{
+    font-size: 30pt;
+    position: absolute;
+    bottom: 90px;
+    text-align: center;
+    display: inline-block;
+    width: 200px;
+    color: brown;
+    font-family: 'Big Shoulders Stencil Display';
+}
+.rank_top_span2{
+    font-size: 20pt;
+    position: absolute;
+    bottom: 60px;
+    text-align: center;
+    display: inline-block;
+    width: 200px;
+}
+.rank_top_span3{
+    font-size: 11pt;
+    position: absolute;
+    bottom: 42px;
+    text-align: center;
+    display: inline-block;
+    width: 200px;
+}
+.rank_top_graph{
+    width: 130px;
+    height: 15px;
+    background-color:  #007fd3;
+    float: left;
+    border-radius: 10px;
+    position: relative;
+    margin-top: 260px;
+    margin-left: 10px;
+}
+.rank_top_graphW{
+    width: 30px;
+    height: 15px;
+    background-color:  rgb(244,216,35);
+    border-radius: 10px 0px 0px 10px;
+    position: absolute;
+    left:0px;
+    z-index: 1;
+    top: 0px;
+}
+.rank_top_graphL{
+    width: 60px;
+    height: 15px;
+    background-color: gray;
+    border-radius: 0px 10px 10px 0px;
+    position: absolute;
+    right:0px;
+    z-index: 1;
+    top: 0px;
+}
+.rank_top_span4{
+    display: inline-block;
+    width: 30px;
+    margin-top: -5px;
+    height: 28px;
+    position: absolute;
+    left: 10px;
+    z-index: 2;
+    top: 20px; 
+    color:  rgb(244,216,35);
+    font-size: 11pt;
+}
+.rank_top_span5{
+    display: inline-block;
+    width: 30px;
+    margin-top: -5px;
+    height: 28px;
+    position: absolute;
+    z-index: 2;
+    top: 20px;
+    left: 50px;
+    color: #007fd3;
+    font-size: 11pt;
+}
+.rank_top_span6{
+    display: inline-block;
+    width: 30px;
+    margin-top: -5px;
+    height: 28px;
+    position: absolute;
+    z-index: 2;
+    right: 10px;
+    top: 20px;
+    color: gray;
+    font-size: 11pt;
+}
+.rank_top_span7{
+    display: inline-block;
+    width: 30px;
+    height: 28px;
+    top: 2px;
+    position: absolute;
+    z-index: 2;
+    right: -43px;
+    font-size: 13pt;
+}
+.record_rank_filter1{
+    display: inline-block;
+    width: 130px;
+    float: left;
+    border-bottom: 1px solid #3b4147;
+    margin-top: 3px;
+    height: 28px;
+}
+.record_rank_filter2{
+    display: inline-block;
+    width: 135px;
+    float: left;
+    border-bottom: 1px solid #3b4147;
+    margin-top: 3px;
+    height: 28px;
+    padding-right: 5px;
+}
+.record_rank_filter3{
+    display: inline-block;
+    width: 70px;
+    padding-right: 66px;
+    margin-left: -7px;
+    float: left;
+    border-bottom: 1px solid #3b4147;
+    margin-top: 3px;
+    height: 28px;
+}
+.record_rank_span1{
+    display: inline-block;
+    width: 150px;
+    float: left;
+    margin-top: 15px;
+    height: 28px;
+    font-size: 16px;
+}
+.record_rank_span2{
+    display: inline-block;
+    width: 120px;
+    float: left;
+    margin-top: 15px;
+    height: 28px;
+    font-size: 16px;
+}
+.record_rank_span3{
+    display: inline-block;
+    width: 140px;
+    float: left;
+    margin-top: 15px;
+    height: 28px;
+    font-size: 16px;
+}
+.rank_cha_tabs :hover{
+    cursor: pointer;
+}
+.rank_cha_tabs .actived{
+    border-bottom: 1px solid rgb(244,216,35);
+}
+.rank_cha_tabs{
+    clear: both;
+    text-align: center;
+    color:gray;
+}
+.rank_cha_tab1{
+    float: left;
+    width: 384px;
+    margin-top: 2px;
+    padding-bottom: 3px;
+    height: 28px;
+    border-bottom: 1px solid #3b4147;
+    font-size: 14pt;
 }
