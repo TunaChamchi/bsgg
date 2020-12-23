@@ -3,12 +3,19 @@ import { injectIntl  } from 'react-intl';
 import ScriptTag from 'react-script-tag';
 import { Header, SubBanner, Footer } from 'components/banner'
 
-class Map extends Component {
+class Match extends Component {
     constructor(props) {
         super(props);
         this.state = {
             selectMap: '',
         };
+    }
+
+    componentDidMount() {
+        console.log('componentDidMount');  
+        fetch('/users')
+            .then(res => res.json())
+            .then(users => this.setState({ users }));
     }
 
     onClick = (e, selectMap) => {
@@ -17,6 +24,9 @@ class Map extends Component {
 
     render() {
         const { intl } = this.props;
+        const { users } = this.state;
+
+        console.log('users', users);
 
         const metaData = {
             title: 'BSGG.kr - ' + intl.formatMessage({id: 'Title.Map'}),
@@ -368,4 +378,4 @@ class Map extends Component {
     };
 }
 
-export default injectIntl(Map);
+export default injectIntl(Match);

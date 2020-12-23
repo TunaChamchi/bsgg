@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch, Link  } from 'react-router-dom';
-import { Main, Detail, Map, RouteM, NewMain ,match, character } from 'pages';
+import { Main, Detail, Map, RouteM, NewMain ,Match, character } from 'pages';
 
 class App extends Component {
     render() {
@@ -12,7 +12,7 @@ class App extends Component {
                     <Route path="/Map" component={Map}/>
                     <Route path="/Route" component={RouteM}/>
                     <Route path="/NewMain" component={NewMain}/>
-                    <Route path="/match" component={match}/>
+                    <Route path="/Match" component={Match}/>
                     <Route path="/character" component={character}/>
                 </Switch>
             </div>
