@@ -2063,6 +2063,7 @@ button:hover{
     border-radius: 5px;
     background-color:  #241b2f;
     border-bottom: 1px solid #171520;
+    overflow: scroll;
 }
 .Route_R_stat_title{
     width: 372px;
