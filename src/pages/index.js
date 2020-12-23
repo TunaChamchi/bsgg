@@ -6,4 +6,5 @@ export const Map = withSplitting(() => import('./Map'));
 export const RouteM = withSplitting(() => import('./RouteM'));
 export const NewMain = withSplitting(() => import('./NewMain'));
 export const Match = withSplitting(() => import('./Match'));
-export const character = withSplitting(() => import('./character'));
+export const Character = withSplitting(() => import('./Character'));
+export const Rank = withSplitting(() => import('./Rank'));
