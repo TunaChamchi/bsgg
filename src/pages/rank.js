@@ -3,7 +3,7 @@ import { injectIntl  } from 'react-intl';
 import ScriptTag from 'react-script-tag';
 import { Header, SubBanner, Footer } from 'components/banner'
 
-class Map extends Component {
+class Rank extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -133,4 +133,4 @@ class Map extends Component {
     };
 }
 
-export default injectIntl(Map);
+export default injectIntl(Rank);

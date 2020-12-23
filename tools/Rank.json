@@ -1,0 +1,6008 @@
+[
+    {
+      "userNum": 99121,
+      "nickname": "시륜",
+      "rank": 1,
+      "mmr": 1149
+    },
+    {
+      "userNum": 587229,
+      "nickname": "흑인42호",
+      "rank": 2,
+      "mmr": 1108
+    },
+    {
+      "userNum": 265131,
+      "nickname": "IlllIIlIIllI",
+      "rank": 3,
+      "mmr": 1055
+    },
+    {
+      "userNum": 426438,
+      "nickname": "근본원딜러",
+      "rank": 4,
+      "mmr": 1025
+    },
+    {
+      "userNum": 566568,
+      "nickname": "구름타고슝",
+      "rank": 5,
+      "mmr": 1023
+    },
+    {
+      "userNum": 349744,
+      "nickname": "한봉",
+      "rank": 6,
+      "mmr": 1022
+    },
+    {
+      "userNum": 832705,
+      "nickname": "파맛케이크",
+      "rank": 7,
+      "mmr": 1019
+    },
+    {
+      "userNum": 253527,
+      "nickname": "김리인",
+      "rank": 8,
+      "mmr": 1017
+    },
+    {
+      "userNum": 542556,
+      "nickname": "lagalbi",
+      "rank": 9,
+      "mmr": 1008
+    },
+    {
+      "userNum": 240530,
+      "nickname": "유고래Youtube",
+      "rank": 10,
+      "mmr": 1002
+    },
+    {
+      "userNum": 298385,
+      "nickname": "듀티",
+      "rank": 11,
+      "mmr": 999
+    },
+    {
+      "userNum": 414531,
+      "nickname": "진네",
+      "rank": 12,
+      "mmr": 982
+    },
+    {
+      "userNum": 516809,
+      "nickname": "비취연꽃",
+      "rank": 13,
+      "mmr": 981
+    },
+    {
+      "userNum": 654715,
+      "nickname": "아로사냥",
+      "rank": 14,
+      "mmr": 978
+    },
+    {
+      "userNum": 556238,
+      "nickname": "깐쇼",
+      "rank": 15,
+      "mmr": 972
+    },
+    {
+      "userNum": 119990,
+      "nickname": "황금GO블린",
+      "rank": 16,
+      "mmr": 968
+    },
+    {
+      "userNum": 375952,
+      "nickname": "twitch앙이요",
+      "rank": 17,
+      "mmr": 963
+    },
+    {
+      "userNum": 840203,
+      "nickname": "ebooks",
+      "rank": 18,
+      "mmr": 963
+    },
+    {
+      "userNum": 945258,
+      "nickname": "BestHyejinNA",
+      "rank": 19,
+      "mmr": 961
+    },
+    {
+      "userNum": 919731,
+      "nickname": "춘득리",
+      "rank": 20,
+      "mmr": 959
+    },
+    {
+      "userNum": 824539,
+      "nickname": "Twitch사텐",
+      "rank": 21,
+      "mmr": 956
+    },
+    {
+      "userNum": 71243,
+      "nickname": "NoVEl",
+      "rank": 22,
+      "mmr": 951
+    },
+    {
+      "userNum": 291165,
+      "nickname": "스타진",
+      "rank": 23,
+      "mmr": 950
+    },
+    {
+      "userNum": 384037,
+      "nickname": "RIOORI",
+      "rank": 24,
+      "mmr": 945
+    },
+    {
+      "userNum": 244759,
+      "nickname": "짤툰",
+      "rank": 25,
+      "mmr": 943
+    },
+    {
+      "userNum": 375328,
+      "nickname": "헨즈",
+      "rank": 26,
+      "mmr": 943
+    },
+    {
+      "userNum": 432267,
+      "nickname": "NUS",
+      "rank": 27,
+      "mmr": 940
+    },
+    {
+      "userNum": 1145,
+      "nickname": "Rem",
+      "rank": 28,
+      "mmr": 938
+    },
+    {
+      "userNum": 673906,
+      "nickname": "김영선",
+      "rank": 29,
+      "mmr": 938
+    },
+    {
+      "userNum": 193799,
+      "nickname": "얼음물",
+      "rank": 30,
+      "mmr": 936
+    },
+    {
+      "userNum": 735,
+      "nickname": "shouix",
+      "rank": 31,
+      "mmr": 932
+    },
+    {
+      "userNum": 392095,
+      "nickname": "하늘의향기",
+      "rank": 32,
+      "mmr": 932
+    },
+    {
+      "userNum": 947516,
+      "nickname": "쌈독",
+      "rank": 33,
+      "mmr": 932
+    },
+    {
+      "userNum": 564429,
+      "nickname": "IlIIlIlIIlIlIIl",
+      "rank": 34,
+      "mmr": 929
+    },
+    {
+      "userNum": 100296,
+      "nickname": "Flammable",
+      "rank": 35,
+      "mmr": 928
+    },
+    {
+      "userNum": 1031694,
+      "nickname": "뉴뉴",
+      "rank": 36,
+      "mmr": 926
+    },
+    {
+      "userNum": 136196,
+      "nickname": "BaLenTine",
+      "rank": 37,
+      "mmr": 924
+    },
+    {
+      "userNum": 505050,
+      "nickname": "닐리리엄보",
+      "rank": 38,
+      "mmr": 923
+    },
+    {
+      "userNum": 109354,
+      "nickname": "막눈",
+      "rank": 39,
+      "mmr": 919
+    },
+    {
+      "userNum": 854569,
+      "nickname": "비푸아",
+      "rank": 40,
+      "mmr": 918
+    },
+    {
+      "userNum": 578453,
+      "nickname": "행복한츄파카브라",
+      "rank": 41,
+      "mmr": 915
+    },
+    {
+      "userNum": 558437,
+      "nickname": "행신동순대국",
+      "rank": 42,
+      "mmr": 913
+    },
+    {
+      "userNum": 352832,
+      "nickname": "정현폰아인츠베른",
+      "rank": 43,
+      "mmr": 913
+    },
+    {
+      "userNum": 1067958,
+      "nickname": "Grow2",
+      "rank": 44,
+      "mmr": 912
+    },
+    {
+      "userNum": 97147,
+      "nickname": "느긋늣",
+      "rank": 45,
+      "mmr": 911
+    },
+    {
+      "userNum": 408131,
+      "nickname": "그런듯해",
+      "rank": 46,
+      "mmr": 909
+    },
+    {
+      "userNum": 412251,
+      "nickname": "김피알",
+      "rank": 47,
+      "mmr": 906
+    },
+    {
+      "userNum": 623752,
+      "nickname": "변질",
+      "rank": 48,
+      "mmr": 904
+    },
+    {
+      "userNum": 258188,
+      "nickname": "하얀늑대텐구",
+      "rank": 49,
+      "mmr": 901
+    },
+    {
+      "userNum": 285425,
+      "nickname": "존나올곧다",
+      "rank": 50,
+      "mmr": 898
+    },
+    {
+      "userNum": 384055,
+      "nickname": "M매그너스M",
+      "rank": 51,
+      "mmr": 898
+    },
+    {
+      "userNum": 995557,
+      "nickname": "하늘희락2",
+      "rank": 52,
+      "mmr": 898
+    },
+    {
+      "userNum": 118261,
+      "nickname": "fufu11",
+      "rank": 53,
+      "mmr": 895
+    },
+    {
+      "userNum": 941726,
+      "nickname": "깡패린",
+      "rank": 54,
+      "mmr": 895
+    },
+    {
+      "userNum": 252683,
+      "nickname": "프로하다인생터짐",
+      "rank": 55,
+      "mmr": 894
+    },
+    {
+      "userNum": 268425,
+      "nickname": "응애나아기야",
+      "rank": 56,
+      "mmr": 893
+    },
+    {
+      "userNum": 1201072,
+      "nickname": "야라가스",
+      "rank": 57,
+      "mmr": 891
+    },
+    {
+      "userNum": 2898,
+      "nickname": "페통",
+      "rank": 58,
+      "mmr": 891
+    },
+    {
+      "userNum": 76048,
+      "nickname": "건전한닉네임18",
+      "rank": 59,
+      "mmr": 886
+    },
+    {
+      "userNum": 207186,
+      "nickname": "마리안네",
+      "rank": 60,
+      "mmr": 882
+    },
+    {
+      "userNum": 90680,
+      "nickname": "아카기시게루",
+      "rank": 61,
+      "mmr": 882
+    },
+    {
+      "userNum": 1243902,
+      "nickname": "바른스레기",
+      "rank": 62,
+      "mmr": 881
+    },
+    {
+      "userNum": 674173,
+      "nickname": "nanabot",
+      "rank": 63,
+      "mmr": 881
+    },
+    {
+      "userNum": 463423,
+      "nickname": "MongGaL",
+      "rank": 64,
+      "mmr": 880
+    },
+    {
+      "userNum": 840053,
+      "nickname": "키로",
+      "rank": 65,
+      "mmr": 879
+    },
+    {
+      "userNum": 73379,
+      "nickname": "차캐여",
+      "rank": 66,
+      "mmr": 878
+    },
+    {
+      "userNum": 861116,
+      "nickname": "베리파파1",
+      "rank": 67,
+      "mmr": 878
+    },
+    {
+      "userNum": 517408,
+      "nickname": "구니구니",
+      "rank": 68,
+      "mmr": 875
+    },
+    {
+      "userNum": 451464,
+      "nickname": "From0419",
+      "rank": 69,
+      "mmr": 873
+    },
+    {
+      "userNum": 695581,
+      "nickname": "세계1위",
+      "rank": 70,
+      "mmr": 870
+    },
+    {
+      "userNum": 400386,
+      "nickname": "로즈너",
+      "rank": 71,
+      "mmr": 868
+    },
+    {
+      "userNum": 299440,
+      "nickname": "곽동훈찌찌사랑해",
+      "rank": 72,
+      "mmr": 867
+    },
+    {
+      "userNum": 644534,
+      "nickname": "Lidan",
+      "rank": 73,
+      "mmr": 867
+    },
+    {
+      "userNum": 683220,
+      "nickname": "주사위의모험",
+      "rank": 74,
+      "mmr": 866
+    },
+    {
+      "userNum": 173010,
+      "nickname": "초코오징어징",
+      "rank": 75,
+      "mmr": 863
+    },
+    {
+      "userNum": 494414,
+      "nickname": "커피무새",
+      "rank": 76,
+      "mmr": 863
+    },
+    {
+      "userNum": 801198,
+      "nickname": "JJACKDOO",
+      "rank": 77,
+      "mmr": 862
+    },
+    {
+      "userNum": 79568,
+      "nickname": "EZlife阿峰",
+      "rank": 78,
+      "mmr": 860
+    },
+    {
+      "userNum": 627919,
+      "nickname": "Degurechaff",
+      "rank": 79,
+      "mmr": 860
+    },
+    {
+      "userNum": 281846,
+      "nickname": "송단장",
+      "rank": 80,
+      "mmr": 859
+    },
+    {
+      "userNum": 673685,
+      "nickname": "qwe123x",
+      "rank": 81,
+      "mmr": 859
+    },
+    {
+      "userNum": 531327,
+      "nickname": "뉴비입니다만",
+      "rank": 82,
+      "mmr": 858
+    },
+    {
+      "userNum": 122148,
+      "nickname": "AdonisAmurensis",
+      "rank": 83,
+      "mmr": 858
+    },
+    {
+      "userNum": 471350,
+      "nickname": "Twitch모좀",
+      "rank": 84,
+      "mmr": 857
+    },
+    {
+      "userNum": 1227994,
+      "nickname": "625",
+      "rank": 85,
+      "mmr": 857
+    },
+    {
+      "userNum": 226445,
+      "nickname": "한만",
+      "rank": 86,
+      "mmr": 857
+    },
+    {
+      "userNum": 356405,
+      "nickname": "ECYoon",
+      "rank": 87,
+      "mmr": 857
+    },
+    {
+      "userNum": 538367,
+      "nickname": "피닉스박93",
+      "rank": 88,
+      "mmr": 857
+    },
+    {
+      "userNum": 726370,
+      "nickname": "OlivaGuy",
+      "rank": 89,
+      "mmr": 856
+    },
+    {
+      "userNum": 265367,
+      "nickname": "신권륜",
+      "rank": 90,
+      "mmr": 856
+    },
+    {
+      "userNum": 109477,
+      "nickname": "난몰라",
+      "rank": 91,
+      "mmr": 855
+    },
+    {
+      "userNum": 195817,
+      "nickname": "트다임",
+      "rank": 92,
+      "mmr": 854
+    },
+    {
+      "userNum": 222223,
+      "nickname": "앰프",
+      "rank": 93,
+      "mmr": 853
+    },
+    {
+      "userNum": 346360,
+      "nickname": "Twitch몬하는",
+      "rank": 94,
+      "mmr": 852
+    },
+    {
+      "userNum": 635857,
+      "nickname": "건전한닉네임1353",
+      "rank": 95,
+      "mmr": 852
+    },
+    {
+      "userNum": 649300,
+      "nickname": "김해의명기김찬호",
+      "rank": 96,
+      "mmr": 851
+    },
+    {
+      "userNum": 640475,
+      "nickname": "YYuki",
+      "rank": 97,
+      "mmr": 850
+    },
+    {
+      "userNum": 201900,
+      "nickname": "도란",
+      "rank": 98,
+      "mmr": 850
+    },
+    {
+      "userNum": 784614,
+      "nickname": "아이솔Ai",
+      "rank": 99,
+      "mmr": 850
+    },
+    {
+      "userNum": 610528,
+      "nickname": "어림없찌",
+      "rank": 100,
+      "mmr": 849
+    },
+    {
+      "userNum": 493229,
+      "nickname": "Macsz",
+      "rank": 101,
+      "mmr": 847
+    },
+    {
+      "userNum": 310658,
+      "nickname": "순율",
+      "rank": 102,
+      "mmr": 846
+    },
+    {
+      "userNum": 419635,
+      "nickname": "hyuni",
+      "rank": 103,
+      "mmr": 846
+    },
+    {
+      "userNum": 692207,
+      "nickname": "선택된매치매이킹",
+      "rank": 104,
+      "mmr": 846
+    },
+    {
+      "userNum": 624840,
+      "nickname": "봉하마을호카게",
+      "rank": 105,
+      "mmr": 845
+    },
+    {
+      "userNum": 93814,
+      "nickname": "이순신",
+      "rank": 106,
+      "mmr": 845
+    },
+    {
+      "userNum": 548729,
+      "nickname": "blueuld",
+      "rank": 107,
+      "mmr": 844
+    },
+    {
+      "userNum": 680758,
+      "nickname": "힝때찌",
+      "rank": 108,
+      "mmr": 844
+    },
+    {
+      "userNum": 675134,
+      "nickname": "문디멘파",
+      "rank": 109,
+      "mmr": 842
+    },
+    {
+      "userNum": 292083,
+      "nickname": "노스마이트",
+      "rank": 110,
+      "mmr": 841
+    },
+    {
+      "userNum": 793661,
+      "nickname": "월요일이면짖는개",
+      "rank": 111,
+      "mmr": 841
+    },
+    {
+      "userNum": 43759,
+      "nickname": "澪音の世界",
+      "rank": 112,
+      "mmr": 841
+    },
+    {
+      "userNum": 131110,
+      "nickname": "트롤머신",
+      "rank": 113,
+      "mmr": 841
+    },
+    {
+      "userNum": 501525,
+      "nickname": "모꼬모리",
+      "rank": 114,
+      "mmr": 840
+    },
+    {
+      "userNum": 647436,
+      "nickname": "DierMite",
+      "rank": 115,
+      "mmr": 840
+    },
+    {
+      "userNum": 645507,
+      "nickname": "투팍비기",
+      "rank": 116,
+      "mmr": 839
+    },
+    {
+      "userNum": 506311,
+      "nickname": "zx지존바이커xz",
+      "rank": 117,
+      "mmr": 839
+    },
+    {
+      "userNum": 420400,
+      "nickname": "이승승",
+      "rank": 118,
+      "mmr": 839
+    },
+    {
+      "userNum": 115458,
+      "nickname": "songL",
+      "rank": 119,
+      "mmr": 839
+    },
+    {
+      "userNum": 305505,
+      "nickname": "삣뽀리",
+      "rank": 120,
+      "mmr": 838
+    },
+    {
+      "userNum": 440558,
+      "nickname": "야옹장군샤미",
+      "rank": 121,
+      "mmr": 838
+    },
+    {
+      "userNum": 456341,
+      "nickname": "WeryNom",
+      "rank": 122,
+      "mmr": 838
+    },
+    {
+      "userNum": 658525,
+      "nickname": "유나님",
+      "rank": 123,
+      "mmr": 838
+    },
+    {
+      "userNum": 557021,
+      "nickname": "삼곰이",
+      "rank": 124,
+      "mmr": 836
+    },
+    {
+      "userNum": 1233969,
+      "nickname": "살려버려따",
+      "rank": 125,
+      "mmr": 836
+    },
+    {
+      "userNum": 80016,
+      "nickname": "달콤e",
+      "rank": 126,
+      "mmr": 835
+    },
+    {
+      "userNum": 1123415,
+      "nickname": "사고조심",
+      "rank": 127,
+      "mmr": 834
+    },
+    {
+      "userNum": 287975,
+      "nickname": "이정훈",
+      "rank": 128,
+      "mmr": 834
+    },
+    {
+      "userNum": 150,
+      "nickname": "又若见风",
+      "rank": 129,
+      "mmr": 833
+    },
+    {
+      "userNum": 85801,
+      "nickname": "뽀로로",
+      "rank": 130,
+      "mmr": 833
+    },
+    {
+      "userNum": 637196,
+      "nickname": "심규영",
+      "rank": 131,
+      "mmr": 833
+    },
+    {
+      "userNum": 446957,
+      "nickname": "jackieorafk",
+      "rank": 132,
+      "mmr": 833
+    },
+    {
+      "userNum": 752287,
+      "nickname": "2020년12월29일",
+      "rank": 133,
+      "mmr": 832
+    },
+    {
+      "userNum": 468758,
+      "nickname": "실밍",
+      "rank": 134,
+      "mmr": 831
+    },
+    {
+      "userNum": 578676,
+      "nickname": "백식관음",
+      "rank": 135,
+      "mmr": 830
+    },
+    {
+      "userNum": 254630,
+      "nickname": "송강정철",
+      "rank": 136,
+      "mmr": 828
+    },
+    {
+      "userNum": 459492,
+      "nickname": "혜아가",
+      "rank": 137,
+      "mmr": 827
+    },
+    {
+      "userNum": 180426,
+      "nickname": "사슴고래",
+      "rank": 138,
+      "mmr": 827
+    },
+    {
+      "userNum": 648367,
+      "nickname": "란희",
+      "rank": 139,
+      "mmr": 827
+    },
+    {
+      "userNum": 578308,
+      "nickname": "다이준",
+      "rank": 140,
+      "mmr": 824
+    },
+    {
+      "userNum": 541460,
+      "nickname": "기덕이",
+      "rank": 141,
+      "mmr": 824
+    },
+    {
+      "userNum": 239495,
+      "nickname": "레소",
+      "rank": 142,
+      "mmr": 823
+    },
+    {
+      "userNum": 90650,
+      "nickname": "Mephistopheles",
+      "rank": 143,
+      "mmr": 823
+    },
+    {
+      "userNum": 100304,
+      "nickname": "PookaSquad",
+      "rank": 144,
+      "mmr": 822
+    },
+    {
+      "userNum": 160990,
+      "nickname": "거친주렁",
+      "rank": 145,
+      "mmr": 822
+    },
+    {
+      "userNum": 75341,
+      "nickname": "박두식",
+      "rank": 146,
+      "mmr": 822
+    },
+    {
+      "userNum": 445230,
+      "nickname": "빨간불에도안멈춰",
+      "rank": 147,
+      "mmr": 821
+    },
+    {
+      "userNum": 119109,
+      "nickname": "Homecoming",
+      "rank": 148,
+      "mmr": 821
+    },
+    {
+      "userNum": 316916,
+      "nickname": "나잡아봐라아",
+      "rank": 149,
+      "mmr": 820
+    },
+    {
+      "userNum": 503081,
+      "nickname": "쓰우",
+      "rank": 150,
+      "mmr": 820
+    },
+    {
+      "userNum": 264220,
+      "nickname": "메로나앙",
+      "rank": 151,
+      "mmr": 820
+    },
+    {
+      "userNum": 493360,
+      "nickname": "시니아퍼시피카",
+      "rank": 152,
+      "mmr": 818
+    },
+    {
+      "userNum": 130,
+      "nickname": "Lookie",
+      "rank": 153,
+      "mmr": 818
+    },
+    {
+      "userNum": 628537,
+      "nickname": "유수현",
+      "rank": 154,
+      "mmr": 817
+    },
+    {
+      "userNum": 280384,
+      "nickname": "햐큐",
+      "rank": 155,
+      "mmr": 817
+    },
+    {
+      "userNum": 1308,
+      "nickname": "Yauro",
+      "rank": 156,
+      "mmr": 816
+    },
+    {
+      "userNum": 527887,
+      "nickname": "럼카",
+      "rank": 157,
+      "mmr": 815
+    },
+    {
+      "userNum": 260314,
+      "nickname": "착하고온순한사람",
+      "rank": 158,
+      "mmr": 814
+    },
+    {
+      "userNum": 790690,
+      "nickname": "오봉동배민라이더",
+      "rank": 159,
+      "mmr": 813
+    },
+    {
+      "userNum": 965952,
+      "nickname": "견바시",
+      "rank": 160,
+      "mmr": 812
+    },
+    {
+      "userNum": 235514,
+      "nickname": "권총맞으면아야",
+      "rank": 161,
+      "mmr": 812
+    },
+    {
+      "userNum": 396093,
+      "nickname": "땅땅이",
+      "rank": 162,
+      "mmr": 810
+    },
+    {
+      "userNum": 78444,
+      "nickname": "괜찮아괜찮아",
+      "rank": 163,
+      "mmr": 809
+    },
+    {
+      "userNum": 703739,
+      "nickname": "코카투칸",
+      "rank": 164,
+      "mmr": 809
+    },
+    {
+      "userNum": 803912,
+      "nickname": "티나양",
+      "rank": 165,
+      "mmr": 809
+    },
+    {
+      "userNum": 509846,
+      "nickname": "심연의꽃",
+      "rank": 166,
+      "mmr": 808
+    },
+    {
+      "userNum": 678214,
+      "nickname": "고냉장치김",
+      "rank": 167,
+      "mmr": 808
+    },
+    {
+      "userNum": 257904,
+      "nickname": "Tans5",
+      "rank": 168,
+      "mmr": 807
+    },
+    {
+      "userNum": 724632,
+      "nickname": "능지레전드",
+      "rank": 169,
+      "mmr": 806
+    },
+    {
+      "userNum": 492469,
+      "nickname": "제발말로하자",
+      "rank": 170,
+      "mmr": 806
+    },
+    {
+      "userNum": 495231,
+      "nickname": "짜누97",
+      "rank": 171,
+      "mmr": 806
+    },
+    {
+      "userNum": 545951,
+      "nickname": "읏따복쓰",
+      "rank": 172,
+      "mmr": 805
+    },
+    {
+      "userNum": 971136,
+      "nickname": "twitch엠붑",
+      "rank": 173,
+      "mmr": 804
+    },
+    {
+      "userNum": 305490,
+      "nickname": "미미진각",
+      "rank": 174,
+      "mmr": 803
+    },
+    {
+      "userNum": 596632,
+      "nickname": "Onereeler",
+      "rank": 175,
+      "mmr": 802
+    },
+    {
+      "userNum": 414234,
+      "nickname": "rnmmrnnnrmnrn",
+      "rank": 176,
+      "mmr": 801
+    },
+    {
+      "userNum": 322426,
+      "nickname": "리븐보다리다이린",
+      "rank": 177,
+      "mmr": 800
+    },
+    {
+      "userNum": 729,
+      "nickname": "RagriaPG",
+      "rank": 178,
+      "mmr": 800
+    },
+    {
+      "userNum": 668499,
+      "nickname": "공민왕",
+      "rank": 179,
+      "mmr": 800
+    },
+    {
+      "userNum": 593550,
+      "nickname": "비발디",
+      "rank": 180,
+      "mmr": 800
+    },
+    {
+      "userNum": 312037,
+      "nickname": "Kohara",
+      "rank": 181,
+      "mmr": 800
+    },
+    {
+      "userNum": 788071,
+      "nickname": "그대라는시",
+      "rank": 182,
+      "mmr": 800
+    },
+    {
+      "userNum": 1174415,
+      "nickname": "빈틈투성이애요",
+      "rank": 183,
+      "mmr": 800
+    },
+    {
+      "userNum": 266708,
+      "nickname": "행복비타민",
+      "rank": 184,
+      "mmr": 800
+    },
+    {
+      "userNum": 620417,
+      "nickname": "제레스",
+      "rank": 185,
+      "mmr": 800
+    },
+    {
+      "userNum": 710324,
+      "nickname": "어지러운사람",
+      "rank": 186,
+      "mmr": 800
+    },
+    {
+      "userNum": 837566,
+      "nickname": "IzniTas",
+      "rank": 187,
+      "mmr": 800
+    },
+    {
+      "userNum": 242323,
+      "nickname": "인간학살자최도흠",
+      "rank": 188,
+      "mmr": 800
+    },
+    {
+      "userNum": 357220,
+      "nickname": "라탱이",
+      "rank": 189,
+      "mmr": 800
+    },
+    {
+      "userNum": 1133067,
+      "nickname": "Leighnicol",
+      "rank": 190,
+      "mmr": 800
+    },
+    {
+      "userNum": 106065,
+      "nickname": "유리칼",
+      "rank": 191,
+      "mmr": 800
+    },
+    {
+      "userNum": 780030,
+      "nickname": "10Hour53min",
+      "rank": 192,
+      "mmr": 800
+    },
+    {
+      "userNum": 826926,
+      "nickname": "지존별",
+      "rank": 193,
+      "mmr": 800
+    },
+    {
+      "userNum": 480527,
+      "nickname": "카레빵카레",
+      "rank": 194,
+      "mmr": 800
+    },
+    {
+      "userNum": 970623,
+      "nickname": "손은눈보다빨라",
+      "rank": 195,
+      "mmr": 800
+    },
+    {
+      "userNum": 552492,
+      "nickname": "돼꿀지꿀",
+      "rank": 196,
+      "mmr": 800
+    },
+    {
+      "userNum": 840770,
+      "nickname": "감자농장",
+      "rank": 197,
+      "mmr": 800
+    },
+    {
+      "userNum": 1199934,
+      "nickname": "의경현우아님",
+      "rank": 198,
+      "mmr": 800
+    },
+    {
+      "userNum": 747452,
+      "nickname": "스톱워치방수",
+      "rank": 199,
+      "mmr": 800
+    },
+    {
+      "userNum": 676066,
+      "nickname": "MagnoliaVI",
+      "rank": 200,
+      "mmr": 799
+    },
+    {
+      "userNum": 644957,
+      "nickname": "파카랑아기만들기",
+      "rank": 201,
+      "mmr": 799
+    },
+    {
+      "userNum": 953557,
+      "nickname": "Tenpo",
+      "rank": 202,
+      "mmr": 799
+    },
+    {
+      "userNum": 305628,
+      "nickname": "성혜민",
+      "rank": 203,
+      "mmr": 799
+    },
+    {
+      "userNum": 995626,
+      "nickname": "전생했더니랄로",
+      "rank": 204,
+      "mmr": 799
+    },
+    {
+      "userNum": 662216,
+      "nickname": "샤측",
+      "rank": 205,
+      "mmr": 799
+    },
+    {
+      "userNum": 167266,
+      "nickname": "피안화",
+      "rank": 206,
+      "mmr": 799
+    },
+    {
+      "userNum": 512364,
+      "nickname": "프뤼나움",
+      "rank": 207,
+      "mmr": 799
+    },
+    {
+      "userNum": 303946,
+      "nickname": "귀여워",
+      "rank": 208,
+      "mmr": 799
+    },
+    {
+      "userNum": 859061,
+      "nickname": "낭만있는인생",
+      "rank": 209,
+      "mmr": 799
+    },
+    {
+      "userNum": 647491,
+      "nickname": "치흠쿤",
+      "rank": 210,
+      "mmr": 799
+    },
+    {
+      "userNum": 873285,
+      "nickname": "패딩입는파카",
+      "rank": 211,
+      "mmr": 799
+    },
+    {
+      "userNum": 1148449,
+      "nickname": "짐승의감각",
+      "rank": 212,
+      "mmr": 799
+    },
+    {
+      "userNum": 277620,
+      "nickname": "서커스",
+      "rank": 213,
+      "mmr": 799
+    },
+    {
+      "userNum": 1128731,
+      "nickname": "flux2game",
+      "rank": 214,
+      "mmr": 799
+    },
+    {
+      "userNum": 427783,
+      "nickname": "쌍고검",
+      "rank": 215,
+      "mmr": 799
+    },
+    {
+      "userNum": 391715,
+      "nickname": "반고",
+      "rank": 216,
+      "mmr": 799
+    },
+    {
+      "userNum": 510665,
+      "nickname": "acuity",
+      "rank": 217,
+      "mmr": 799
+    },
+    {
+      "userNum": 134518,
+      "nickname": "LiDaiIin",
+      "rank": 218,
+      "mmr": 799
+    },
+    {
+      "userNum": 416155,
+      "nickname": "연합",
+      "rank": 219,
+      "mmr": 799
+    },
+    {
+      "userNum": 203696,
+      "nickname": "딸기바",
+      "rank": 220,
+      "mmr": 799
+    },
+    {
+      "userNum": 252448,
+      "nickname": "Ysou",
+      "rank": 221,
+      "mmr": 799
+    },
+    {
+      "userNum": 1159857,
+      "nickname": "Yataze",
+      "rank": 222,
+      "mmr": 799
+    },
+    {
+      "userNum": 547269,
+      "nickname": "Lilow",
+      "rank": 223,
+      "mmr": 799
+    },
+    {
+      "userNum": 233119,
+      "nickname": "Rawberry",
+      "rank": 224,
+      "mmr": 799
+    },
+    {
+      "userNum": 678277,
+      "nickname": "원도라지",
+      "rank": 225,
+      "mmr": 799
+    },
+    {
+      "userNum": 275172,
+      "nickname": "루나나",
+      "rank": 226,
+      "mmr": 799
+    },
+    {
+      "userNum": 351258,
+      "nickname": "MuiTos",
+      "rank": 227,
+      "mmr": 799
+    },
+    {
+      "userNum": 652551,
+      "nickname": "쌈밍",
+      "rank": 228,
+      "mmr": 799
+    },
+    {
+      "userNum": 643794,
+      "nickname": "ihciohs",
+      "rank": 229,
+      "mmr": 799
+    },
+    {
+      "userNum": 662265,
+      "nickname": "Change7",
+      "rank": 230,
+      "mmr": 799
+    },
+    {
+      "userNum": 243234,
+      "nickname": "산성발톱",
+      "rank": 231,
+      "mmr": 799
+    },
+    {
+      "userNum": 432774,
+      "nickname": "교토애니메이션",
+      "rank": 232,
+      "mmr": 799
+    },
+    {
+      "userNum": 441554,
+      "nickname": "9GO9MA",
+      "rank": 233,
+      "mmr": 799
+    },
+    {
+      "userNum": 348327,
+      "nickname": "ohayomynight",
+      "rank": 234,
+      "mmr": 799
+    },
+    {
+      "userNum": 631604,
+      "nickname": "RookieLDH",
+      "rank": 235,
+      "mmr": 799
+    },
+    {
+      "userNum": 704574,
+      "nickname": "mintram",
+      "rank": 236,
+      "mmr": 799
+    },
+    {
+      "userNum": 608990,
+      "nickname": "백세영",
+      "rank": 237,
+      "mmr": 799
+    },
+    {
+      "userNum": 204461,
+      "nickname": "파이빔",
+      "rank": 238,
+      "mmr": 799
+    },
+    {
+      "userNum": 454064,
+      "nickname": "서서담",
+      "rank": 239,
+      "mmr": 799
+    },
+    {
+      "userNum": 762300,
+      "nickname": "휴지조각큐브",
+      "rank": 240,
+      "mmr": 799
+    },
+    {
+      "userNum": 471022,
+      "nickname": "희망임",
+      "rank": 241,
+      "mmr": 799
+    },
+    {
+      "userNum": 118909,
+      "nickname": "Davl",
+      "rank": 242,
+      "mmr": 799
+    },
+    {
+      "userNum": 349124,
+      "nickname": "나물이란괴",
+      "rank": 243,
+      "mmr": 799
+    },
+    {
+      "userNum": 113640,
+      "nickname": "Whyin",
+      "rank": 244,
+      "mmr": 799
+    },
+    {
+      "userNum": 522634,
+      "nickname": "그릇",
+      "rank": 245,
+      "mmr": 799
+    },
+    {
+      "userNum": 24123,
+      "nickname": "神速三段突き",
+      "rank": 246,
+      "mmr": 799
+    },
+    {
+      "userNum": 754277,
+      "nickname": "초휴",
+      "rank": 247,
+      "mmr": 799
+    },
+    {
+      "userNum": 594630,
+      "nickname": "서언우",
+      "rank": 248,
+      "mmr": 799
+    },
+    {
+      "userNum": 565674,
+      "nickname": "진우오",
+      "rank": 249,
+      "mmr": 799
+    },
+    {
+      "userNum": 757413,
+      "nickname": "Lobby",
+      "rank": 250,
+      "mmr": 799
+    },
+    {
+      "userNum": 682620,
+      "nickname": "체사다",
+      "rank": 251,
+      "mmr": 799
+    },
+    {
+      "userNum": 215330,
+      "nickname": "SeeleV",
+      "rank": 252,
+      "mmr": 799
+    },
+    {
+      "userNum": 1158110,
+      "nickname": "벼는고개를숙인다",
+      "rank": 253,
+      "mmr": 799
+    },
+    {
+      "userNum": 101396,
+      "nickname": "Ciraon",
+      "rank": 254,
+      "mmr": 799
+    },
+    {
+      "userNum": 757673,
+      "nickname": "너가그린기린그림",
+      "rank": 255,
+      "mmr": 799
+    },
+    {
+      "userNum": 838123,
+      "nickname": "마후유키리스",
+      "rank": 256,
+      "mmr": 799
+    },
+    {
+      "userNum": 280576,
+      "nickname": "sinamori",
+      "rank": 257,
+      "mmr": 799
+    },
+    {
+      "userNum": 80718,
+      "nickname": "류영찬",
+      "rank": 258,
+      "mmr": 799
+    },
+    {
+      "userNum": 779943,
+      "nickname": "권준호",
+      "rank": 259,
+      "mmr": 799
+    },
+    {
+      "userNum": 91149,
+      "nickname": "Kongs",
+      "rank": 260,
+      "mmr": 799
+    },
+    {
+      "userNum": 355263,
+      "nickname": "푸을",
+      "rank": 261,
+      "mmr": 799
+    },
+    {
+      "userNum": 1011460,
+      "nickname": "화권의에이스",
+      "rank": 262,
+      "mmr": 799
+    },
+    {
+      "userNum": 754523,
+      "nickname": "yord",
+      "rank": 263,
+      "mmr": 799
+    },
+    {
+      "userNum": 281838,
+      "nickname": "우유누",
+      "rank": 264,
+      "mmr": 799
+    },
+    {
+      "userNum": 324016,
+      "nickname": "금강승도",
+      "rank": 265,
+      "mmr": 799
+    },
+    {
+      "userNum": 575731,
+      "nickname": "낑깡욘",
+      "rank": 266,
+      "mmr": 799
+    },
+    {
+      "userNum": 646411,
+      "nickname": "압도적인",
+      "rank": 267,
+      "mmr": 799
+    },
+    {
+      "userNum": 378883,
+      "nickname": "강양보빈",
+      "rank": 268,
+      "mmr": 799
+    },
+    {
+      "userNum": 555028,
+      "nickname": "Adagio",
+      "rank": 269,
+      "mmr": 799
+    },
+    {
+      "userNum": 73493,
+      "nickname": "이게임재밌나요",
+      "rank": 270,
+      "mmr": 799
+    },
+    {
+      "userNum": 553951,
+      "nickname": "PuMex",
+      "rank": 271,
+      "mmr": 799
+    },
+    {
+      "userNum": 250382,
+      "nickname": "Piemaster7",
+      "rank": 272,
+      "mmr": 799
+    },
+    {
+      "userNum": 306811,
+      "nickname": "숨쥐",
+      "rank": 273,
+      "mmr": 799
+    },
+    {
+      "userNum": 131373,
+      "nickname": "ProsteR",
+      "rank": 274,
+      "mmr": 799
+    },
+    {
+      "userNum": 341421,
+      "nickname": "NOTTHISONE",
+      "rank": 275,
+      "mmr": 798
+    },
+    {
+      "userNum": 692792,
+      "nickname": "우리모두행복하장",
+      "rank": 276,
+      "mmr": 798
+    },
+    {
+      "userNum": 332713,
+      "nickname": "이카로스",
+      "rank": 277,
+      "mmr": 797
+    },
+    {
+      "userNum": 780680,
+      "nickname": "김세용",
+      "rank": 278,
+      "mmr": 797
+    },
+    {
+      "userNum": 294522,
+      "nickname": "템값못하는사람",
+      "rank": 279,
+      "mmr": 796
+    },
+    {
+      "userNum": 239730,
+      "nickname": "넵튠6만원간다",
+      "rank": 280,
+      "mmr": 796
+    },
+    {
+      "userNum": 448646,
+      "nickname": "durlan",
+      "rank": 281,
+      "mmr": 796
+    },
+    {
+      "userNum": 112452,
+      "nickname": "나딘보이면죽는다",
+      "rank": 282,
+      "mmr": 796
+    },
+    {
+      "userNum": 385445,
+      "nickname": "노잼56",
+      "rank": 283,
+      "mmr": 796
+    },
+    {
+      "userNum": 287486,
+      "nickname": "애우뜨억겜좋다",
+      "rank": 284,
+      "mmr": 796
+    },
+    {
+      "userNum": 533946,
+      "nickname": "니예에",
+      "rank": 285,
+      "mmr": 795
+    },
+    {
+      "userNum": 702192,
+      "nickname": "장이콩알",
+      "rank": 286,
+      "mmr": 795
+    },
+    {
+      "userNum": 770047,
+      "nickname": "와못재섭",
+      "rank": 287,
+      "mmr": 795
+    },
+    {
+      "userNum": 358256,
+      "nickname": "준범",
+      "rank": 288,
+      "mmr": 795
+    },
+    {
+      "userNum": 445147,
+      "nickname": "나는너를죽일꺼야",
+      "rank": 289,
+      "mmr": 795
+    },
+    {
+      "userNum": 70300,
+      "nickname": "Vipk",
+      "rank": 290,
+      "mmr": 795
+    },
+    {
+      "userNum": 396513,
+      "nickname": "착한호란",
+      "rank": 291,
+      "mmr": 794
+    },
+    {
+      "userNum": 559798,
+      "nickname": "아야야1",
+      "rank": 292,
+      "mmr": 794
+    },
+    {
+      "userNum": 401417,
+      "nickname": "비기",
+      "rank": 293,
+      "mmr": 794
+    },
+    {
+      "userNum": 427,
+      "nickname": "Timen",
+      "rank": 294,
+      "mmr": 793
+    },
+    {
+      "userNum": 818701,
+      "nickname": "SlowTravel",
+      "rank": 295,
+      "mmr": 793
+    },
+    {
+      "userNum": 110168,
+      "nickname": "Tezca",
+      "rank": 296,
+      "mmr": 793
+    },
+    {
+      "userNum": 441820,
+      "nickname": "교수살인마",
+      "rank": 297,
+      "mmr": 793
+    },
+    {
+      "userNum": 413320,
+      "nickname": "들어가세요",
+      "rank": 298,
+      "mmr": 792
+    },
+    {
+      "userNum": 884787,
+      "nickname": "심인",
+      "rank": 299,
+      "mmr": 792
+    },
+    {
+      "userNum": 891003,
+      "nickname": "백소고",
+      "rank": 300,
+      "mmr": 792
+    },
+    {
+      "userNum": 259169,
+      "nickname": "미학",
+      "rank": 301,
+      "mmr": 792
+    },
+    {
+      "userNum": 265306,
+      "nickname": "테르",
+      "rank": 302,
+      "mmr": 791
+    },
+    {
+      "userNum": 462675,
+      "nickname": "SmokingDreams",
+      "rank": 303,
+      "mmr": 791
+    },
+    {
+      "userNum": 73150,
+      "nickname": "응깃",
+      "rank": 304,
+      "mmr": 790
+    },
+    {
+      "userNum": 480330,
+      "nickname": "인류악",
+      "rank": 305,
+      "mmr": 790
+    },
+    {
+      "userNum": 106310,
+      "nickname": "isleynorth",
+      "rank": 306,
+      "mmr": 790
+    },
+    {
+      "userNum": 612124,
+      "nickname": "쿼야",
+      "rank": 307,
+      "mmr": 789
+    },
+    {
+      "userNum": 511564,
+      "nickname": "우누구누",
+      "rank": 308,
+      "mmr": 789
+    },
+    {
+      "userNum": 715494,
+      "nickname": "과노킴",
+      "rank": 309,
+      "mmr": 789
+    },
+    {
+      "userNum": 225846,
+      "nickname": "내가바로박종우",
+      "rank": 310,
+      "mmr": 789
+    },
+    {
+      "userNum": 314541,
+      "nickname": "매그너스강",
+      "rank": 311,
+      "mmr": 789
+    },
+    {
+      "userNum": 939538,
+      "nickname": "원딜부터죽이죠",
+      "rank": 312,
+      "mmr": 789
+    },
+    {
+      "userNum": 299425,
+      "nickname": "유테라스",
+      "rank": 313,
+      "mmr": 788
+    },
+    {
+      "userNum": 455967,
+      "nickname": "건들면쫓아간다",
+      "rank": 314,
+      "mmr": 788
+    },
+    {
+      "userNum": 864307,
+      "nickname": "건전한닉네임864",
+      "rank": 315,
+      "mmr": 788
+    },
+    {
+      "userNum": 429348,
+      "nickname": "Twitch쫑민",
+      "rank": 316,
+      "mmr": 787
+    },
+    {
+      "userNum": 603867,
+      "nickname": "타령총각",
+      "rank": 317,
+      "mmr": 787
+    },
+    {
+      "userNum": 169759,
+      "nickname": "참치킨",
+      "rank": 318,
+      "mmr": 786
+    },
+    {
+      "userNum": 682372,
+      "nickname": "Ka2",
+      "rank": 319,
+      "mmr": 786
+    },
+    {
+      "userNum": 1021505,
+      "nickname": "배방예비훈남",
+      "rank": 320,
+      "mmr": 786
+    },
+    {
+      "userNum": 792492,
+      "nickname": "혀노99",
+      "rank": 321,
+      "mmr": 785
+    },
+    {
+      "userNum": 638003,
+      "nickname": "문춘배",
+      "rank": 322,
+      "mmr": 785
+    },
+    {
+      "userNum": 714162,
+      "nickname": "arles1289",
+      "rank": 323,
+      "mmr": 785
+    },
+    {
+      "userNum": 676325,
+      "nickname": "육더기",
+      "rank": 324,
+      "mmr": 784
+    },
+    {
+      "userNum": 483643,
+      "nickname": "icecreamcake",
+      "rank": 325,
+      "mmr": 784
+    },
+    {
+      "userNum": 753801,
+      "nickname": "RPCS",
+      "rank": 326,
+      "mmr": 784
+    },
+    {
+      "userNum": 425357,
+      "nickname": "나도",
+      "rank": 327,
+      "mmr": 784
+    },
+    {
+      "userNum": 347298,
+      "nickname": "Kim너굴",
+      "rank": 328,
+      "mmr": 784
+    },
+    {
+      "userNum": 250633,
+      "nickname": "미래일기",
+      "rank": 329,
+      "mmr": 783
+    },
+    {
+      "userNum": 720198,
+      "nickname": "기염둥히",
+      "rank": 330,
+      "mmr": 783
+    },
+    {
+      "userNum": 1072397,
+      "nickname": "사태나",
+      "rank": 331,
+      "mmr": 783
+    },
+    {
+      "userNum": 247538,
+      "nickname": "week",
+      "rank": 332,
+      "mmr": 783
+    },
+    {
+      "userNum": 345867,
+      "nickname": "아비",
+      "rank": 333,
+      "mmr": 783
+    },
+    {
+      "userNum": 788796,
+      "nickname": "강AG",
+      "rank": 334,
+      "mmr": 783
+    },
+    {
+      "userNum": 564193,
+      "nickname": "준붕이",
+      "rank": 335,
+      "mmr": 783
+    },
+    {
+      "userNum": 256490,
+      "nickname": "경기화성유영훈",
+      "rank": 336,
+      "mmr": 783
+    },
+    {
+      "userNum": 70859,
+      "nickname": "미련",
+      "rank": 337,
+      "mmr": 782
+    },
+    {
+      "userNum": 612366,
+      "nickname": "검술",
+      "rank": 338,
+      "mmr": 782
+    },
+    {
+      "userNum": 616457,
+      "nickname": "2da",
+      "rank": 339,
+      "mmr": 782
+    },
+    {
+      "userNum": 347862,
+      "nickname": "재백",
+      "rank": 340,
+      "mmr": 781
+    },
+    {
+      "userNum": 556092,
+      "nickname": "0군",
+      "rank": 341,
+      "mmr": 781
+    },
+    {
+      "userNum": 463908,
+      "nickname": "카푸어",
+      "rank": 342,
+      "mmr": 781
+    },
+    {
+      "userNum": 289607,
+      "nickname": "미스터루",
+      "rank": 343,
+      "mmr": 781
+    },
+    {
+      "userNum": 168544,
+      "nickname": "저를살려주세요",
+      "rank": 344,
+      "mmr": 781
+    },
+    {
+      "userNum": 36076,
+      "nickname": "くわん",
+      "rank": 345,
+      "mmr": 781
+    },
+    {
+      "userNum": 652435,
+      "nickname": "애니넌뭐하는애니",
+      "rank": 346,
+      "mmr": 780
+    },
+    {
+      "userNum": 820180,
+      "nickname": "우웩캑캑",
+      "rank": 347,
+      "mmr": 780
+    },
+    {
+      "userNum": 1060844,
+      "nickname": "국영수사과",
+      "rank": 348,
+      "mmr": 780
+    },
+    {
+      "userNum": 799938,
+      "nickname": "구운펭귄",
+      "rank": 349,
+      "mmr": 780
+    },
+    {
+      "userNum": 940594,
+      "nickname": "잘하고싶당",
+      "rank": 350,
+      "mmr": 779
+    },
+    {
+      "userNum": 955276,
+      "nickname": "白月",
+      "rank": 351,
+      "mmr": 779
+    },
+    {
+      "userNum": 276684,
+      "nickname": "귀여운",
+      "rank": 352,
+      "mmr": 779
+    },
+    {
+      "userNum": 1004898,
+      "nickname": "Osomatsu",
+      "rank": 353,
+      "mmr": 779
+    },
+    {
+      "userNum": 732277,
+      "nickname": "달빛넛",
+      "rank": 354,
+      "mmr": 779
+    },
+    {
+      "userNum": 666145,
+      "nickname": "torikago",
+      "rank": 355,
+      "mmr": 779
+    },
+    {
+      "userNum": 422932,
+      "nickname": "NewMetA99",
+      "rank": 356,
+      "mmr": 779
+    },
+    {
+      "userNum": 1137921,
+      "nickname": "ggong777",
+      "rank": 357,
+      "mmr": 778
+    },
+    {
+      "userNum": 420897,
+      "nickname": "백소주",
+      "rank": 358,
+      "mmr": 778
+    },
+    {
+      "userNum": 1073493,
+      "nickname": "기대한내가잘못",
+      "rank": 359,
+      "mmr": 778
+    },
+    {
+      "userNum": 871127,
+      "nickname": "머멜하이",
+      "rank": 360,
+      "mmr": 778
+    },
+    {
+      "userNum": 472549,
+      "nickname": "트월킹머신프라리",
+      "rank": 361,
+      "mmr": 777
+    },
+    {
+      "userNum": 401439,
+      "nickname": "처음보는처음",
+      "rank": 362,
+      "mmr": 777
+    },
+    {
+      "userNum": 431225,
+      "nickname": "NB검정불고기",
+      "rank": 363,
+      "mmr": 777
+    },
+    {
+      "userNum": 782985,
+      "nickname": "주두라유튜브",
+      "rank": 364,
+      "mmr": 777
+    },
+    {
+      "userNum": 587481,
+      "nickname": "굶주린이빨조영빈",
+      "rank": 365,
+      "mmr": 777
+    },
+    {
+      "userNum": 1148710,
+      "nickname": "줮같네",
+      "rank": 366,
+      "mmr": 777
+    },
+    {
+      "userNum": 688106,
+      "nickname": "별종별묵고싶다",
+      "rank": 367,
+      "mmr": 776
+    },
+    {
+      "userNum": 86487,
+      "nickname": "선빵필승",
+      "rank": 368,
+      "mmr": 776
+    },
+    {
+      "userNum": 553849,
+      "nickname": "InfinityDamage",
+      "rank": 369,
+      "mmr": 776
+    },
+    {
+      "userNum": 468753,
+      "nickname": "치즈볼",
+      "rank": 370,
+      "mmr": 776
+    },
+    {
+      "userNum": 471534,
+      "nickname": "nuclearpunch",
+      "rank": 371,
+      "mmr": 776
+    },
+    {
+      "userNum": 482955,
+      "nickname": "맛깔나는닉네임",
+      "rank": 372,
+      "mmr": 776
+    },
+    {
+      "userNum": 860917,
+      "nickname": "롤다이아1인사람",
+      "rank": 373,
+      "mmr": 775
+    },
+    {
+      "userNum": 656665,
+      "nickname": "Twitch리코리스",
+      "rank": 374,
+      "mmr": 775
+    },
+    {
+      "userNum": 263351,
+      "nickname": "흠냐",
+      "rank": 375,
+      "mmr": 775
+    },
+    {
+      "userNum": 63926,
+      "nickname": "あほあほさん",
+      "rank": 376,
+      "mmr": 775
+    },
+    {
+      "userNum": 126783,
+      "nickname": "머묵",
+      "rank": 377,
+      "mmr": 775
+    },
+    {
+      "userNum": 708288,
+      "nickname": "NoA99",
+      "rank": 378,
+      "mmr": 774
+    },
+    {
+      "userNum": 488713,
+      "nickname": "Kerriganlove",
+      "rank": 379,
+      "mmr": 774
+    },
+    {
+      "userNum": 465231,
+      "nickname": "금단의니알리",
+      "rank": 380,
+      "mmr": 774
+    },
+    {
+      "userNum": 435132,
+      "nickname": "도주왕재키",
+      "rank": 381,
+      "mmr": 773
+    },
+    {
+      "userNum": 665013,
+      "nickname": "김라곤",
+      "rank": 382,
+      "mmr": 773
+    },
+    {
+      "userNum": 298290,
+      "nickname": "이웃집생존자",
+      "rank": 383,
+      "mmr": 773
+    },
+    {
+      "userNum": 749678,
+      "nickname": "스누피피",
+      "rank": 384,
+      "mmr": 773
+    },
+    {
+      "userNum": 371216,
+      "nickname": "크렉",
+      "rank": 385,
+      "mmr": 773
+    },
+    {
+      "userNum": 1196320,
+      "nickname": "유린해",
+      "rank": 386,
+      "mmr": 773
+    },
+    {
+      "userNum": 913212,
+      "nickname": "미필강원철",
+      "rank": 387,
+      "mmr": 772
+    },
+    {
+      "userNum": 504881,
+      "nickname": "리플좀보자제발",
+      "rank": 388,
+      "mmr": 772
+    },
+    {
+      "userNum": 1180412,
+      "nickname": "왜덤비냐",
+      "rank": 389,
+      "mmr": 772
+    },
+    {
+      "userNum": 395765,
+      "nickname": "무시랭",
+      "rank": 390,
+      "mmr": 772
+    },
+    {
+      "userNum": 660175,
+      "nickname": "이르2",
+      "rank": 391,
+      "mmr": 772
+    },
+    {
+      "userNum": 525954,
+      "nickname": "그냥지나갈게유",
+      "rank": 392,
+      "mmr": 772
+    },
+    {
+      "userNum": 638419,
+      "nickname": "딱곰",
+      "rank": 393,
+      "mmr": 772
+    },
+    {
+      "userNum": 247992,
+      "nickname": "AliveNMH",
+      "rank": 394,
+      "mmr": 772
+    },
+    {
+      "userNum": 335803,
+      "nickname": "코제",
+      "rank": 395,
+      "mmr": 772
+    },
+    {
+      "userNum": 457883,
+      "nickname": "Velkhana",
+      "rank": 396,
+      "mmr": 772
+    },
+    {
+      "userNum": 748726,
+      "nickname": "아콰터파나",
+      "rank": 397,
+      "mmr": 771
+    },
+    {
+      "userNum": 578842,
+      "nickname": "투애니원",
+      "rank": 398,
+      "mmr": 771
+    },
+    {
+      "userNum": 509042,
+      "nickname": "김진솔",
+      "rank": 399,
+      "mmr": 771
+    },
+    {
+      "userNum": 543249,
+      "nickname": "김대환은전설이다",
+      "rank": 400,
+      "mmr": 771
+    },
+    {
+      "userNum": 452608,
+      "nickname": "신안염전대식이",
+      "rank": 401,
+      "mmr": 771
+    },
+    {
+      "userNum": 615783,
+      "nickname": "포세이든",
+      "rank": 402,
+      "mmr": 771
+    },
+    {
+      "userNum": 120139,
+      "nickname": "놀이강",
+      "rank": 403,
+      "mmr": 770
+    },
+    {
+      "userNum": 465889,
+      "nickname": "ANEMO",
+      "rank": 404,
+      "mmr": 770
+    },
+    {
+      "userNum": 832216,
+      "nickname": "이세계키리토",
+      "rank": 405,
+      "mmr": 770
+    },
+    {
+      "userNum": 60570,
+      "nickname": "정오면체",
+      "rank": 406,
+      "mmr": 770
+    },
+    {
+      "userNum": 388170,
+      "nickname": "레베체",
+      "rank": 407,
+      "mmr": 770
+    },
+    {
+      "userNum": 882042,
+      "nickname": "쌍봉세발낙타",
+      "rank": 408,
+      "mmr": 770
+    },
+    {
+      "userNum": 871850,
+      "nickname": "PAKAAAAA",
+      "rank": 409,
+      "mmr": 770
+    },
+    {
+      "userNum": 713898,
+      "nickname": "Myus",
+      "rank": 410,
+      "mmr": 770
+    },
+    {
+      "userNum": 945165,
+      "nickname": "아마우사안치야짱",
+      "rank": 411,
+      "mmr": 770
+    },
+    {
+      "userNum": 419877,
+      "nickname": "류다솜",
+      "rank": 412,
+      "mmr": 769
+    },
+    {
+      "userNum": 746456,
+      "nickname": "석류까먹는사람",
+      "rank": 413,
+      "mmr": 769
+    },
+    {
+      "userNum": 926429,
+      "nickname": "환상풍미",
+      "rank": 414,
+      "mmr": 769
+    },
+    {
+      "userNum": 563228,
+      "nickname": "34Gark",
+      "rank": 415,
+      "mmr": 769
+    },
+    {
+      "userNum": 431633,
+      "nickname": "크리트",
+      "rank": 416,
+      "mmr": 769
+    },
+    {
+      "userNum": 300092,
+      "nickname": "하연c",
+      "rank": 417,
+      "mmr": 769
+    },
+    {
+      "userNum": 251294,
+      "nickname": "Twitch박점화",
+      "rank": 418,
+      "mmr": 769
+    },
+    {
+      "userNum": 408638,
+      "nickname": "DooDive",
+      "rank": 419,
+      "mmr": 769
+    },
+    {
+      "userNum": 168455,
+      "nickname": "김키위",
+      "rank": 420,
+      "mmr": 769
+    },
+    {
+      "userNum": 497633,
+      "nickname": "뚜비뚜",
+      "rank": 421,
+      "mmr": 769
+    },
+    {
+      "userNum": 560329,
+      "nickname": "K4sha",
+      "rank": 422,
+      "mmr": 768
+    },
+    {
+      "userNum": 480011,
+      "nickname": "조이의별풍약탈자",
+      "rank": 423,
+      "mmr": 768
+    },
+    {
+      "userNum": 93778,
+      "nickname": "희소가치",
+      "rank": 424,
+      "mmr": 768
+    },
+    {
+      "userNum": 886887,
+      "nickname": "승부맨1",
+      "rank": 425,
+      "mmr": 768
+    },
+    {
+      "userNum": 129048,
+      "nickname": "raven12",
+      "rank": 426,
+      "mmr": 768
+    },
+    {
+      "userNum": 106424,
+      "nickname": "꾸뀨꺄꺆",
+      "rank": 427,
+      "mmr": 768
+    },
+    {
+      "userNum": 411831,
+      "nickname": "마데",
+      "rank": 428,
+      "mmr": 767
+    },
+    {
+      "userNum": 127259,
+      "nickname": "밍과수",
+      "rank": 429,
+      "mmr": 767
+    },
+    {
+      "userNum": 314570,
+      "nickname": "펭긴",
+      "rank": 430,
+      "mmr": 767
+    },
+    {
+      "userNum": 1762,
+      "nickname": "yolpurgis",
+      "rank": 431,
+      "mmr": 767
+    },
+    {
+      "userNum": 393151,
+      "nickname": "lahyun7",
+      "rank": 432,
+      "mmr": 767
+    },
+    {
+      "userNum": 674186,
+      "nickname": "닭곰발바닥",
+      "rank": 433,
+      "mmr": 767
+    },
+    {
+      "userNum": 685226,
+      "nickname": "팤센세",
+      "rank": 434,
+      "mmr": 766
+    },
+    {
+      "userNum": 122236,
+      "nickname": "Grotesque",
+      "rank": 435,
+      "mmr": 766
+    },
+    {
+      "userNum": 796978,
+      "nickname": "기철이",
+      "rank": 436,
+      "mmr": 766
+    },
+    {
+      "userNum": 1058725,
+      "nickname": "허니버터",
+      "rank": 437,
+      "mmr": 766
+    },
+    {
+      "userNum": 329,
+      "nickname": "루나",
+      "rank": 438,
+      "mmr": 766
+    },
+    {
+      "userNum": 319118,
+      "nickname": "부릉냐",
+      "rank": 439,
+      "mmr": 765
+    },
+    {
+      "userNum": 90168,
+      "nickname": "LupusPG",
+      "rank": 440,
+      "mmr": 765
+    },
+    {
+      "userNum": 111736,
+      "nickname": "로레니",
+      "rank": 441,
+      "mmr": 765
+    },
+    {
+      "userNum": 524920,
+      "nickname": "キラキラ",
+      "rank": 442,
+      "mmr": 765
+    },
+    {
+      "userNum": 454200,
+      "nickname": "옥기리",
+      "rank": 443,
+      "mmr": 765
+    },
+    {
+      "userNum": 849590,
+      "nickname": "ioveyourseif",
+      "rank": 444,
+      "mmr": 765
+    },
+    {
+      "userNum": 648264,
+      "nickname": "김해소년",
+      "rank": 445,
+      "mmr": 765
+    },
+    {
+      "userNum": 829153,
+      "nickname": "피아노치는개백수",
+      "rank": 446,
+      "mmr": 764
+    },
+    {
+      "userNum": 731021,
+      "nickname": "코인중독자",
+      "rank": 447,
+      "mmr": 764
+    },
+    {
+      "userNum": 544883,
+      "nickname": "다음팟향우회",
+      "rank": 448,
+      "mmr": 764
+    },
+    {
+      "userNum": 516362,
+      "nickname": "리누잼",
+      "rank": 449,
+      "mmr": 764
+    },
+    {
+      "userNum": 452194,
+      "nickname": "데이아",
+      "rank": 450,
+      "mmr": 764
+    },
+    {
+      "userNum": 393947,
+      "nickname": "우너규",
+      "rank": 451,
+      "mmr": 763
+    },
+    {
+      "userNum": 815680,
+      "nickname": "정순이",
+      "rank": 452,
+      "mmr": 763
+    },
+    {
+      "userNum": 890746,
+      "nickname": "사이버주주총회",
+      "rank": 453,
+      "mmr": 763
+    },
+    {
+      "userNum": 381695,
+      "nickname": "Sinsuran",
+      "rank": 454,
+      "mmr": 763
+    },
+    {
+      "userNum": 701580,
+      "nickname": "새우티김",
+      "rank": 455,
+      "mmr": 763
+    },
+    {
+      "userNum": 227879,
+      "nickname": "명품쇼이치",
+      "rank": 456,
+      "mmr": 763
+    },
+    {
+      "userNum": 676791,
+      "nickname": "놀줄아는쓉련",
+      "rank": 457,
+      "mmr": 762
+    },
+    {
+      "userNum": 67169,
+      "nickname": "루나하링",
+      "rank": 458,
+      "mmr": 762
+    },
+    {
+      "userNum": 326013,
+      "nickname": "스쿤",
+      "rank": 459,
+      "mmr": 762
+    },
+    {
+      "userNum": 355899,
+      "nickname": "SoranVB",
+      "rank": 460,
+      "mmr": 762
+    },
+    {
+      "userNum": 562710,
+      "nickname": "파카9g",
+      "rank": 461,
+      "mmr": 762
+    },
+    {
+      "userNum": 646134,
+      "nickname": "야발련",
+      "rank": 462,
+      "mmr": 762
+    },
+    {
+      "userNum": 161569,
+      "nickname": "펌블",
+      "rank": 463,
+      "mmr": 762
+    },
+    {
+      "userNum": 931099,
+      "nickname": "newstone",
+      "rank": 464,
+      "mmr": 761
+    },
+    {
+      "userNum": 741620,
+      "nickname": "Twich박성달",
+      "rank": 465,
+      "mmr": 761
+    },
+    {
+      "userNum": 680821,
+      "nickname": "xisela",
+      "rank": 466,
+      "mmr": 761
+    },
+    {
+      "userNum": 22398,
+      "nickname": "Twitch나태한",
+      "rank": 467,
+      "mmr": 761
+    },
+    {
+      "userNum": 1092882,
+      "nickname": "삿갓이맛있어",
+      "rank": 468,
+      "mmr": 761
+    },
+    {
+      "userNum": 239889,
+      "nickname": "관교중학교",
+      "rank": 469,
+      "mmr": 761
+    },
+    {
+      "userNum": 113112,
+      "nickname": "채나린",
+      "rank": 470,
+      "mmr": 761
+    },
+    {
+      "userNum": 873554,
+      "nickname": "파도를타는서퍼",
+      "rank": 471,
+      "mmr": 761
+    },
+    {
+      "userNum": 75291,
+      "nickname": "감쟈",
+      "rank": 472,
+      "mmr": 761
+    },
+    {
+      "userNum": 298292,
+      "nickname": "ruindear",
+      "rank": 473,
+      "mmr": 760
+    },
+    {
+      "userNum": 986982,
+      "nickname": "쿠로키이쿠미",
+      "rank": 474,
+      "mmr": 760
+    },
+    {
+      "userNum": 545341,
+      "nickname": "잢힚릆",
+      "rank": 475,
+      "mmr": 760
+    },
+    {
+      "userNum": 878778,
+      "nickname": "더행복한사람",
+      "rank": 476,
+      "mmr": 760
+    },
+    {
+      "userNum": 81274,
+      "nickname": "개개개개개개개개",
+      "rank": 477,
+      "mmr": 760
+    },
+    {
+      "userNum": 277040,
+      "nickname": "잔뜩화낳다",
+      "rank": 478,
+      "mmr": 759
+    },
+    {
+      "userNum": 1213361,
+      "nickname": "LDA",
+      "rank": 479,
+      "mmr": 759
+    },
+    {
+      "userNum": 442623,
+      "nickname": "윳끼",
+      "rank": 480,
+      "mmr": 759
+    },
+    {
+      "userNum": 279135,
+      "nickname": "하교",
+      "rank": 481,
+      "mmr": 759
+    },
+    {
+      "userNum": 93518,
+      "nickname": "아르피안",
+      "rank": 482,
+      "mmr": 759
+    },
+    {
+      "userNum": 122258,
+      "nickname": "애긔돋개쨩",
+      "rank": 483,
+      "mmr": 758
+    },
+    {
+      "userNum": 1110271,
+      "nickname": "리건31",
+      "rank": 484,
+      "mmr": 758
+    },
+    {
+      "userNum": 315305,
+      "nickname": "케이아이",
+      "rank": 485,
+      "mmr": 758
+    },
+    {
+      "userNum": 244894,
+      "nickname": "두루미",
+      "rank": 486,
+      "mmr": 758
+    },
+    {
+      "userNum": 466308,
+      "nickname": "17106",
+      "rank": 487,
+      "mmr": 758
+    },
+    {
+      "userNum": 675486,
+      "nickname": "대휘다",
+      "rank": 488,
+      "mmr": 758
+    },
+    {
+      "userNum": 704341,
+      "nickname": "솔랭전사문행배",
+      "rank": 489,
+      "mmr": 758
+    },
+    {
+      "userNum": 662955,
+      "nickname": "카암",
+      "rank": 490,
+      "mmr": 758
+    },
+    {
+      "userNum": 798725,
+      "nickname": "륜페이",
+      "rank": 491,
+      "mmr": 757
+    },
+    {
+      "userNum": 811669,
+      "nickname": "트럼프재선",
+      "rank": 492,
+      "mmr": 757
+    },
+    {
+      "userNum": 812376,
+      "nickname": "최단루트",
+      "rank": 493,
+      "mmr": 757
+    },
+    {
+      "userNum": 273772,
+      "nickname": "사채의힘",
+      "rank": 494,
+      "mmr": 757
+    },
+    {
+      "userNum": 225766,
+      "nickname": "전뉴비에요",
+      "rank": 495,
+      "mmr": 757
+    },
+    {
+      "userNum": 211395,
+      "nickname": "perong",
+      "rank": 496,
+      "mmr": 757
+    },
+    {
+      "userNum": 647463,
+      "nickname": "해변",
+      "rank": 497,
+      "mmr": 757
+    },
+    {
+      "userNum": 678033,
+      "nickname": "마싸우자",
+      "rank": 498,
+      "mmr": 757
+    },
+    {
+      "userNum": 472704,
+      "nickname": "짙은밤",
+      "rank": 499,
+      "mmr": 756
+    },
+    {
+      "userNum": 96945,
+      "nickname": "킹피그",
+      "rank": 500,
+      "mmr": 756
+    },
+    {
+      "userNum": 662162,
+      "nickname": "SHY66",
+      "rank": 501,
+      "mmr": 756
+    },
+    {
+      "userNum": 837858,
+      "nickname": "착한해바라기",
+      "rank": 502,
+      "mmr": 756
+    },
+    {
+      "userNum": 1071965,
+      "nickname": "테브난",
+      "rank": 503,
+      "mmr": 756
+    },
+    {
+      "userNum": 70241,
+      "nickname": "른쿄",
+      "rank": 504,
+      "mmr": 756
+    },
+    {
+      "userNum": 409701,
+      "nickname": "10duck재훈",
+      "rank": 505,
+      "mmr": 756
+    },
+    {
+      "userNum": 281666,
+      "nickname": "ACVA",
+      "rank": 506,
+      "mmr": 756
+    },
+    {
+      "userNum": 218701,
+      "nickname": "Kolan",
+      "rank": 507,
+      "mmr": 756
+    },
+    {
+      "userNum": 276522,
+      "nickname": "유다희2",
+      "rank": 508,
+      "mmr": 755
+    },
+    {
+      "userNum": 487579,
+      "nickname": "부윙",
+      "rank": 509,
+      "mmr": 755
+    },
+    {
+      "userNum": 153209,
+      "nickname": "치킨쿤",
+      "rank": 510,
+      "mmr": 755
+    },
+    {
+      "userNum": 118795,
+      "nickname": "소고기",
+      "rank": 511,
+      "mmr": 755
+    },
+    {
+      "userNum": 600449,
+      "nickname": "천라지망",
+      "rank": 512,
+      "mmr": 755
+    },
+    {
+      "userNum": 344695,
+      "nickname": "외로운양치기",
+      "rank": 513,
+      "mmr": 755
+    },
+    {
+      "userNum": 677949,
+      "nickname": "호룻",
+      "rank": 514,
+      "mmr": 754
+    },
+    {
+      "userNum": 907407,
+      "nickname": "강구승",
+      "rank": 515,
+      "mmr": 754
+    },
+    {
+      "userNum": 658631,
+      "nickname": "늅삐에오",
+      "rank": 516,
+      "mmr": 754
+    },
+    {
+      "userNum": 846880,
+      "nickname": "오늘도행복하세요",
+      "rank": 517,
+      "mmr": 754
+    },
+    {
+      "userNum": 870666,
+      "nickname": "양정만",
+      "rank": 518,
+      "mmr": 754
+    },
+    {
+      "userNum": 253392,
+      "nickname": "엄도랄팍굽쥐",
+      "rank": 519,
+      "mmr": 754
+    },
+    {
+      "userNum": 422893,
+      "nickname": "DefourS",
+      "rank": 520,
+      "mmr": 754
+    },
+    {
+      "userNum": 524252,
+      "nickname": "YooChan",
+      "rank": 521,
+      "mmr": 754
+    },
+    {
+      "userNum": 695339,
+      "nickname": "이게바로나딘재승",
+      "rank": 522,
+      "mmr": 753
+    },
+    {
+      "userNum": 726476,
+      "nickname": "아짓",
+      "rank": 523,
+      "mmr": 753
+    },
+    {
+      "userNum": 195861,
+      "nickname": "디벨러퍼",
+      "rank": 524,
+      "mmr": 753
+    },
+    {
+      "userNum": 618998,
+      "nickname": "브이지",
+      "rank": 525,
+      "mmr": 753
+    },
+    {
+      "userNum": 860055,
+      "nickname": "실험체ARCH",
+      "rank": 526,
+      "mmr": 753
+    },
+    {
+      "userNum": 864029,
+      "nickname": "이승민맹",
+      "rank": 527,
+      "mmr": 753
+    },
+    {
+      "userNum": 796891,
+      "nickname": "쇼이치주땡",
+      "rank": 528,
+      "mmr": 752
+    },
+    {
+      "userNum": 171964,
+      "nickname": "Welcome34",
+      "rank": 529,
+      "mmr": 752
+    },
+    {
+      "userNum": 937315,
+      "nickname": "백으택",
+      "rank": 530,
+      "mmr": 752
+    },
+    {
+      "userNum": 433971,
+      "nickname": "익곰",
+      "rank": 531,
+      "mmr": 752
+    },
+    {
+      "userNum": 650250,
+      "nickname": "twitch윤부",
+      "rank": 532,
+      "mmr": 752
+    },
+    {
+      "userNum": 228625,
+      "nickname": "박청",
+      "rank": 533,
+      "mmr": 752
+    },
+    {
+      "userNum": 802682,
+      "nickname": "캡틴병아리",
+      "rank": 534,
+      "mmr": 752
+    },
+    {
+      "userNum": 852308,
+      "nickname": "千燦靈",
+      "rank": 535,
+      "mmr": 752
+    },
+    {
+      "userNum": 317433,
+      "nickname": "거구귀",
+      "rank": 536,
+      "mmr": 752
+    },
+    {
+      "userNum": 898162,
+      "nickname": "아까그거먹을걸",
+      "rank": 537,
+      "mmr": 752
+    },
+    {
+      "userNum": 624359,
+      "nickname": "페이박사",
+      "rank": 538,
+      "mmr": 752
+    },
+    {
+      "userNum": 257731,
+      "nickname": "파밍전용",
+      "rank": 539,
+      "mmr": 751
+    },
+    {
+      "userNum": 379284,
+      "nickname": "Yeonhwa",
+      "rank": 540,
+      "mmr": 751
+    },
+    {
+      "userNum": 772753,
+      "nickname": "조강옥",
+      "rank": 541,
+      "mmr": 751
+    },
+    {
+      "userNum": 674869,
+      "nickname": "ICCM",
+      "rank": 542,
+      "mmr": 751
+    },
+    {
+      "userNum": 526412,
+      "nickname": "냥냥제제",
+      "rank": 543,
+      "mmr": 751
+    },
+    {
+      "userNum": 256951,
+      "nickname": "Twitch피브린",
+      "rank": 544,
+      "mmr": 751
+    },
+    {
+      "userNum": 781415,
+      "nickname": "욕하지말자",
+      "rank": 545,
+      "mmr": 751
+    },
+    {
+      "userNum": 299641,
+      "nickname": "Yegam",
+      "rank": 546,
+      "mmr": 751
+    },
+    {
+      "userNum": 375803,
+      "nickname": "프로학살자",
+      "rank": 547,
+      "mmr": 750
+    },
+    {
+      "userNum": 490585,
+      "nickname": "왕멀",
+      "rank": 548,
+      "mmr": 750
+    },
+    {
+      "userNum": 70848,
+      "nickname": "두라",
+      "rank": 549,
+      "mmr": 750
+    },
+    {
+      "userNum": 744694,
+      "nickname": "가을잉",
+      "rank": 550,
+      "mmr": 750
+    },
+    {
+      "userNum": 374734,
+      "nickname": "펭귄꽃",
+      "rank": 551,
+      "mmr": 750
+    },
+    {
+      "userNum": 289712,
+      "nickname": "설원저격수",
+      "rank": 552,
+      "mmr": 750
+    },
+    {
+      "userNum": 348543,
+      "nickname": "해달별크",
+      "rank": 553,
+      "mmr": 750
+    },
+    {
+      "userNum": 80960,
+      "nickname": "Londing",
+      "rank": 554,
+      "mmr": 750
+    },
+    {
+      "userNum": 229704,
+      "nickname": "한국바게트",
+      "rank": 555,
+      "mmr": 750
+    },
+    {
+      "userNum": 848579,
+      "nickname": "태훈독학",
+      "rank": 556,
+      "mmr": 750
+    },
+    {
+      "userNum": 98751,
+      "nickname": "고독하고슬프다",
+      "rank": 557,
+      "mmr": 750
+    },
+    {
+      "userNum": 443684,
+      "nickname": "검은범",
+      "rank": 558,
+      "mmr": 749
+    },
+    {
+      "userNum": 361096,
+      "nickname": "종양사냥꾼김민혁",
+      "rank": 559,
+      "mmr": 749
+    },
+    {
+      "userNum": 673782,
+      "nickname": "플라멘베르퍼",
+      "rank": 560,
+      "mmr": 749
+    },
+    {
+      "userNum": 405599,
+      "nickname": "좀살려주라",
+      "rank": 561,
+      "mmr": 749
+    },
+    {
+      "userNum": 93452,
+      "nickname": "아르니스",
+      "rank": 562,
+      "mmr": 749
+    },
+    {
+      "userNum": 526368,
+      "nickname": "서막",
+      "rank": 563,
+      "mmr": 749
+    },
+    {
+      "userNum": 226118,
+      "nickname": "관악산",
+      "rank": 564,
+      "mmr": 749
+    },
+    {
+      "userNum": 439193,
+      "nickname": "내곁에같이있어줘",
+      "rank": 565,
+      "mmr": 749
+    },
+    {
+      "userNum": 434338,
+      "nickname": "홍연정",
+      "rank": 566,
+      "mmr": 749
+    },
+    {
+      "userNum": 530907,
+      "nickname": "Sab0",
+      "rank": 567,
+      "mmr": 749
+    },
+    {
+      "userNum": 610114,
+      "nickname": "피곤졸립취침",
+      "rank": 568,
+      "mmr": 749
+    },
+    {
+      "userNum": 919163,
+      "nickname": "윈도우창",
+      "rank": 569,
+      "mmr": 748
+    },
+    {
+      "userNum": 930197,
+      "nickname": "우리파밍해요",
+      "rank": 570,
+      "mmr": 748
+    },
+    {
+      "userNum": 810612,
+      "nickname": "True갬성",
+      "rank": 571,
+      "mmr": 748
+    },
+    {
+      "userNum": 578121,
+      "nickname": "전설의용사엄현섭",
+      "rank": 572,
+      "mmr": 748
+    },
+    {
+      "userNum": 138996,
+      "nickname": "렐리야",
+      "rank": 573,
+      "mmr": 747
+    },
+    {
+      "userNum": 92450,
+      "nickname": "EastHuman78",
+      "rank": 574,
+      "mmr": 747
+    },
+    {
+      "userNum": 577931,
+      "nickname": "비는차갑다",
+      "rank": 575,
+      "mmr": 747
+    },
+    {
+      "userNum": 257078,
+      "nickname": "주먹이운다징징징",
+      "rank": 576,
+      "mmr": 747
+    },
+    {
+      "userNum": 535607,
+      "nickname": "싯팛",
+      "rank": 577,
+      "mmr": 747
+    },
+    {
+      "userNum": 437409,
+      "nickname": "온다",
+      "rank": 578,
+      "mmr": 747
+    },
+    {
+      "userNum": 591994,
+      "nickname": "칼합당왜놀러",
+      "rank": 579,
+      "mmr": 747
+    },
+    {
+      "userNum": 744064,
+      "nickname": "봄레향",
+      "rank": 580,
+      "mmr": 747
+    },
+    {
+      "userNum": 94086,
+      "nickname": "카오",
+      "rank": 581,
+      "mmr": 747
+    },
+    {
+      "userNum": 298387,
+      "nickname": "살려주세요오오",
+      "rank": 582,
+      "mmr": 746
+    },
+    {
+      "userNum": 944242,
+      "nickname": "음식내놔",
+      "rank": 583,
+      "mmr": 746
+    },
+    {
+      "userNum": 1011612,
+      "nickname": "육성콩",
+      "rank": 584,
+      "mmr": 746
+    },
+    {
+      "userNum": 87215,
+      "nickname": "플마",
+      "rank": 585,
+      "mmr": 746
+    },
+    {
+      "userNum": 511684,
+      "nickname": "Jsx",
+      "rank": 586,
+      "mmr": 746
+    },
+    {
+      "userNum": 628213,
+      "nickname": "DouYu云风月隐",
+      "rank": 587,
+      "mmr": 745
+    },
+    {
+      "userNum": 801818,
+      "nickname": "어떻게나보다못함",
+      "rank": 588,
+      "mmr": 745
+    },
+    {
+      "userNum": 362421,
+      "nickname": "루석",
+      "rank": 589,
+      "mmr": 745
+    },
+    {
+      "userNum": 265,
+      "nickname": "Chuechue",
+      "rank": 590,
+      "mmr": 745
+    },
+    {
+      "userNum": 749692,
+      "nickname": "종밥2",
+      "rank": 591,
+      "mmr": 745
+    },
+    {
+      "userNum": 290892,
+      "nickname": "쇼우특제인육만두",
+      "rank": 592,
+      "mmr": 745
+    },
+    {
+      "userNum": 519770,
+      "nickname": "용건",
+      "rank": 593,
+      "mmr": 745
+    },
+    {
+      "userNum": 476237,
+      "nickname": "엔바시라",
+      "rank": 594,
+      "mmr": 745
+    },
+    {
+      "userNum": 637368,
+      "nickname": "신이니",
+      "rank": 595,
+      "mmr": 745
+    },
+    {
+      "userNum": 248512,
+      "nickname": "Ruvan",
+      "rank": 596,
+      "mmr": 745
+    },
+    {
+      "userNum": 898390,
+      "nickname": "라이브Loli",
+      "rank": 597,
+      "mmr": 744
+    },
+    {
+      "userNum": 146013,
+      "nickname": "松マキサ",
+      "rank": 598,
+      "mmr": 744
+    },
+    {
+      "userNum": 193841,
+      "nickname": "황제전아람",
+      "rank": 599,
+      "mmr": 744
+    },
+    {
+      "userNum": 591945,
+      "nickname": "큐피",
+      "rank": 600,
+      "mmr": 744
+    },
+    {
+      "userNum": 1059574,
+      "nickname": "자객은뒤를노려",
+      "rank": 601,
+      "mmr": 744
+    },
+    {
+      "userNum": 681979,
+      "nickname": "요토",
+      "rank": 602,
+      "mmr": 744
+    },
+    {
+      "userNum": 875092,
+      "nickname": "스시녀",
+      "rank": 603,
+      "mmr": 744
+    },
+    {
+      "userNum": 616909,
+      "nickname": "서클팬더",
+      "rank": 604,
+      "mmr": 744
+    },
+    {
+      "userNum": 175821,
+      "nickname": "고구마맛감자",
+      "rank": 605,
+      "mmr": 744
+    },
+    {
+      "userNum": 923983,
+      "nickname": "Xenoform",
+      "rank": 606,
+      "mmr": 743
+    },
+    {
+      "userNum": 697800,
+      "nickname": "쌍문",
+      "rank": 607,
+      "mmr": 743
+    },
+    {
+      "userNum": 598590,
+      "nickname": "Leuce",
+      "rank": 608,
+      "mmr": 743
+    },
+    {
+      "userNum": 299652,
+      "nickname": "sititing",
+      "rank": 609,
+      "mmr": 743
+    },
+    {
+      "userNum": 1210599,
+      "nickname": "이겜이4",
+      "rank": 610,
+      "mmr": 742
+    },
+    {
+      "userNum": 917422,
+      "nickname": "카콩",
+      "rank": 611,
+      "mmr": 742
+    },
+    {
+      "userNum": 1110037,
+      "nickname": "보통게이가아님",
+      "rank": 612,
+      "mmr": 742
+    },
+    {
+      "userNum": 445544,
+      "nickname": "루다갓",
+      "rank": 613,
+      "mmr": 742
+    },
+    {
+      "userNum": 371549,
+      "nickname": "macpoc",
+      "rank": 614,
+      "mmr": 742
+    },
+    {
+      "userNum": 796497,
+      "nickname": "쑤나",
+      "rank": 615,
+      "mmr": 741
+    },
+    {
+      "userNum": 96841,
+      "nickname": "YOONNONG",
+      "rank": 616,
+      "mmr": 741
+    },
+    {
+      "userNum": 645939,
+      "nickname": "페미전사",
+      "rank": 617,
+      "mmr": 741
+    },
+    {
+      "userNum": 259140,
+      "nickname": "겜신병",
+      "rank": 618,
+      "mmr": 741
+    },
+    {
+      "userNum": 427140,
+      "nickname": "빠기센쵸",
+      "rank": 619,
+      "mmr": 741
+    },
+    {
+      "userNum": 317056,
+      "nickname": "랄근",
+      "rank": 620,
+      "mmr": 741
+    },
+    {
+      "userNum": 70072,
+      "nickname": "최강자",
+      "rank": 621,
+      "mmr": 741
+    },
+    {
+      "userNum": 718855,
+      "nickname": "아약",
+      "rank": 622,
+      "mmr": 741
+    },
+    {
+      "userNum": 564402,
+      "nickname": "순간즉사",
+      "rank": 623,
+      "mmr": 741
+    },
+    {
+      "userNum": 584175,
+      "nickname": "빛구리",
+      "rank": 624,
+      "mmr": 741
+    },
+    {
+      "userNum": 118130,
+      "nickname": "짜오니마쫑즈",
+      "rank": 625,
+      "mmr": 741
+    },
+    {
+      "userNum": 247560,
+      "nickname": "제발한국인이면맨",
+      "rank": 626,
+      "mmr": 741
+    },
+    {
+      "userNum": 619823,
+      "nickname": "꾸짖을갈",
+      "rank": 627,
+      "mmr": 741
+    },
+    {
+      "userNum": 479065,
+      "nickname": "창영리",
+      "rank": 628,
+      "mmr": 740
+    },
+    {
+      "userNum": 1198412,
+      "nickname": "초과",
+      "rank": 629,
+      "mmr": 740
+    },
+    {
+      "userNum": 1126159,
+      "nickname": "萩原雪歩",
+      "rank": 630,
+      "mmr": 740
+    },
+    {
+      "userNum": 327917,
+      "nickname": "펭수가낳은괴물",
+      "rank": 631,
+      "mmr": 740
+    },
+    {
+      "userNum": 341506,
+      "nickname": "네이버스",
+      "rank": 632,
+      "mmr": 740
+    },
+    {
+      "userNum": 521324,
+      "nickname": "루이다TV구독",
+      "rank": 633,
+      "mmr": 740
+    },
+    {
+      "userNum": 551621,
+      "nickname": "이비스fan",
+      "rank": 634,
+      "mmr": 740
+    },
+    {
+      "userNum": 720368,
+      "nickname": "리다이린협회장",
+      "rank": 635,
+      "mmr": 740
+    },
+    {
+      "userNum": 871271,
+      "nickname": "전환식",
+      "rank": 636,
+      "mmr": 740
+    },
+    {
+      "userNum": 755581,
+      "nickname": "헤징님",
+      "rank": 637,
+      "mmr": 740
+    },
+    {
+      "userNum": 374255,
+      "nickname": "TwitchTV또라",
+      "rank": 638,
+      "mmr": 740
+    },
+    {
+      "userNum": 466213,
+      "nickname": "질투하는마루",
+      "rank": 639,
+      "mmr": 740
+    },
+    {
+      "userNum": 673053,
+      "nickname": "토너먼트",
+      "rank": 640,
+      "mmr": 740
+    },
+    {
+      "userNum": 370010,
+      "nickname": "평화로운아기새",
+      "rank": 641,
+      "mmr": 740
+    },
+    {
+      "userNum": 1124390,
+      "nickname": "Fsike",
+      "rank": 642,
+      "mmr": 740
+    },
+    {
+      "userNum": 581375,
+      "nickname": "펑펑펑펑",
+      "rank": 643,
+      "mmr": 739
+    },
+    {
+      "userNum": 849618,
+      "nickname": "쵸쵸이",
+      "rank": 644,
+      "mmr": 739
+    },
+    {
+      "userNum": 659466,
+      "nickname": "Twitch레몬인데",
+      "rank": 645,
+      "mmr": 739
+    },
+    {
+      "userNum": 1113905,
+      "nickname": "타락한망고",
+      "rank": 646,
+      "mmr": 739
+    },
+    {
+      "userNum": 279955,
+      "nickname": "그레배리",
+      "rank": 647,
+      "mmr": 739
+    },
+    {
+      "userNum": 374989,
+      "nickname": "S급가수MC무현",
+      "rank": 648,
+      "mmr": 739
+    },
+    {
+      "userNum": 264267,
+      "nickname": "Ardens",
+      "rank": 649,
+      "mmr": 739
+    },
+    {
+      "userNum": 565798,
+      "nickname": "35718",
+      "rank": 650,
+      "mmr": 739
+    },
+    {
+      "userNum": 907739,
+      "nickname": "개백수의영원회귀",
+      "rank": 651,
+      "mmr": 738
+    },
+    {
+      "userNum": 325895,
+      "nickname": "우용",
+      "rank": 652,
+      "mmr": 738
+    },
+    {
+      "userNum": 125372,
+      "nickname": "깜짝바드",
+      "rank": 653,
+      "mmr": 738
+    },
+    {
+      "userNum": 1104639,
+      "nickname": "아니꼽냐",
+      "rank": 654,
+      "mmr": 738
+    },
+    {
+      "userNum": 392222,
+      "nickname": "Mejun",
+      "rank": 655,
+      "mmr": 738
+    },
+    {
+      "userNum": 1045843,
+      "nickname": "제발인생을살아",
+      "rank": 656,
+      "mmr": 738
+    },
+    {
+      "userNum": 167161,
+      "nickname": "김홍시",
+      "rank": 657,
+      "mmr": 738
+    },
+    {
+      "userNum": 516710,
+      "nickname": "비밀많은소주병",
+      "rank": 658,
+      "mmr": 737
+    },
+    {
+      "userNum": 947438,
+      "nickname": "라벤더향기",
+      "rank": 659,
+      "mmr": 737
+    },
+    {
+      "userNum": 1136178,
+      "nickname": "자드가자1",
+      "rank": 660,
+      "mmr": 737
+    },
+    {
+      "userNum": 627256,
+      "nickname": "첨단도시양평",
+      "rank": 661,
+      "mmr": 737
+    },
+    {
+      "userNum": 739105,
+      "nickname": "탈주왕이또튀",
+      "rank": 662,
+      "mmr": 737
+    },
+    {
+      "userNum": 131637,
+      "nickname": " Bilbil蓝枫酱",
+      "rank": 663,
+      "mmr": 736
+    },
+    {
+      "userNum": 814857,
+      "nickname": "코왈",
+      "rank": 664,
+      "mmr": 736
+    },
+    {
+      "userNum": 542112,
+      "nickname": "bot1883",
+      "rank": 665,
+      "mmr": 736
+    },
+    {
+      "userNum": 1101061,
+      "nickname": "Dendrog",
+      "rank": 666,
+      "mmr": 736
+    },
+    {
+      "userNum": 267947,
+      "nickname": "기적",
+      "rank": 667,
+      "mmr": 736
+    },
+    {
+      "userNum": 778485,
+      "nickname": "애기다람지",
+      "rank": 668,
+      "mmr": 736
+    },
+    {
+      "userNum": 305252,
+      "nickname": "치카푸카",
+      "rank": 669,
+      "mmr": 736
+    },
+    {
+      "userNum": 100885,
+      "nickname": "형섭",
+      "rank": 670,
+      "mmr": 736
+    },
+    {
+      "userNum": 242584,
+      "nickname": "무개념",
+      "rank": 671,
+      "mmr": 736
+    },
+    {
+      "userNum": 478535,
+      "nickname": "나앙만",
+      "rank": 672,
+      "mmr": 736
+    },
+    {
+      "userNum": 767616,
+      "nickname": "하부브",
+      "rank": 673,
+      "mmr": 736
+    },
+    {
+      "userNum": 341357,
+      "nickname": "지수소녀z",
+      "rank": 674,
+      "mmr": 735
+    },
+    {
+      "userNum": 403242,
+      "nickname": "크으리",
+      "rank": 675,
+      "mmr": 735
+    },
+    {
+      "userNum": 1093219,
+      "nickname": "BeCalm",
+      "rank": 676,
+      "mmr": 735
+    },
+    {
+      "userNum": 945071,
+      "nickname": "opopip",
+      "rank": 677,
+      "mmr": 735
+    },
+    {
+      "userNum": 478851,
+      "nickname": "한신우",
+      "rank": 678,
+      "mmr": 735
+    },
+    {
+      "userNum": 1082725,
+      "nickname": "無極の剣聖",
+      "rank": 679,
+      "mmr": 734
+    },
+    {
+      "userNum": 390646,
+      "nickname": "개마스",
+      "rank": 680,
+      "mmr": 734
+    },
+    {
+      "userNum": 275202,
+      "nickname": "정엘",
+      "rank": 681,
+      "mmr": 734
+    },
+    {
+      "userNum": 258003,
+      "nickname": "뮤나나",
+      "rank": 682,
+      "mmr": 734
+    },
+    {
+      "userNum": 263882,
+      "nickname": "LostProperty",
+      "rank": 683,
+      "mmr": 734
+    },
+    {
+      "userNum": 140394,
+      "nickname": "하드",
+      "rank": 684,
+      "mmr": 734
+    },
+    {
+      "userNum": 54996,
+      "nickname": "MadDogJack",
+      "rank": 685,
+      "mmr": 734
+    },
+    {
+      "userNum": 128396,
+      "nickname": "GhostElectricity",
+      "rank": 686,
+      "mmr": 734
+    },
+    {
+      "userNum": 93716,
+      "nickname": "sephirot",
+      "rank": 687,
+      "mmr": 734
+    },
+    {
+      "userNum": 615793,
+      "nickname": "Cinematic",
+      "rank": 688,
+      "mmr": 734
+    },
+    {
+      "userNum": 467230,
+      "nickname": "궁둥이칼빵",
+      "rank": 689,
+      "mmr": 733
+    },
+    {
+      "userNum": 742641,
+      "nickname": "yukiys",
+      "rank": 690,
+      "mmr": 733
+    },
+    {
+      "userNum": 228751,
+      "nickname": "쥬루츄루쮸루",
+      "rank": 691,
+      "mmr": 733
+    },
+    {
+      "userNum": 471882,
+      "nickname": "물켁",
+      "rank": 692,
+      "mmr": 733
+    },
+    {
+      "userNum": 254319,
+      "nickname": "EGarden",
+      "rank": 693,
+      "mmr": 733
+    },
+    {
+      "userNum": 1014190,
+      "nickname": "aqswdefrtg",
+      "rank": 694,
+      "mmr": 733
+    },
+    {
+      "userNum": 464407,
+      "nickname": "삼어로",
+      "rank": 695,
+      "mmr": 733
+    },
+    {
+      "userNum": 699940,
+      "nickname": "XioLyn",
+      "rank": 696,
+      "mmr": 733
+    },
+    {
+      "userNum": 420963,
+      "nickname": "멋진아재",
+      "rank": 697,
+      "mmr": 733
+    },
+    {
+      "userNum": 752484,
+      "nickname": "괴묄쥐",
+      "rank": 698,
+      "mmr": 733
+    },
+    {
+      "userNum": 588643,
+      "nickname": "쌀밥위에스팸",
+      "rank": 699,
+      "mmr": 732
+    },
+    {
+      "userNum": 618384,
+      "nickname": "따효니",
+      "rank": 700,
+      "mmr": 732
+    },
+    {
+      "userNum": 226173,
+      "nickname": "이빨땜장이",
+      "rank": 701,
+      "mmr": 732
+    },
+    {
+      "userNum": 831173,
+      "nickname": "弘益人間",
+      "rank": 702,
+      "mmr": 732
+    },
+    {
+      "userNum": 1020705,
+      "nickname": "써어니",
+      "rank": 703,
+      "mmr": 732
+    },
+    {
+      "userNum": 351040,
+      "nickname": "하믜",
+      "rank": 704,
+      "mmr": 732
+    },
+    {
+      "userNum": 16974,
+      "nickname": "BangL",
+      "rank": 705,
+      "mmr": 732
+    },
+    {
+      "userNum": 69712,
+      "nickname": "강력한우유",
+      "rank": 706,
+      "mmr": 732
+    },
+    {
+      "userNum": 74343,
+      "nickname": "YUKl",
+      "rank": 707,
+      "mmr": 732
+    },
+    {
+      "userNum": 338156,
+      "nickname": "I초조I",
+      "rank": 708,
+      "mmr": 732
+    },
+    {
+      "userNum": 742089,
+      "nickname": "IICSA",
+      "rank": 709,
+      "mmr": 732
+    },
+    {
+      "userNum": 350571,
+      "nickname": "낑딩이",
+      "rank": 710,
+      "mmr": 732
+    },
+    {
+      "userNum": 440049,
+      "nickname": "북한바게트",
+      "rank": 711,
+      "mmr": 732
+    },
+    {
+      "userNum": 504321,
+      "nickname": "닭다리뜯는스님",
+      "rank": 712,
+      "mmr": 732
+    },
+    {
+      "userNum": 85625,
+      "nickname": "쌍칼준",
+      "rank": 713,
+      "mmr": 731
+    },
+    {
+      "userNum": 984954,
+      "nickname": "Silvia원챔",
+      "rank": 714,
+      "mmr": 731
+    },
+    {
+      "userNum": 1058547,
+      "nickname": "건전한닉네임1327",
+      "rank": 715,
+      "mmr": 731
+    },
+    {
+      "userNum": 118818,
+      "nickname": "99년모솔대장",
+      "rank": 716,
+      "mmr": 731
+    },
+    {
+      "userNum": 571808,
+      "nickname": "YuruYuri",
+      "rank": 717,
+      "mmr": 731
+    },
+    {
+      "userNum": 1020598,
+      "nickname": "끝까지쫒아감",
+      "rank": 718,
+      "mmr": 731
+    },
+    {
+      "userNum": 375209,
+      "nickname": "평범한코코",
+      "rank": 719,
+      "mmr": 731
+    },
+    {
+      "userNum": 253055,
+      "nickname": "망각",
+      "rank": 720,
+      "mmr": 731
+    },
+    {
+      "userNum": 281193,
+      "nickname": "초코비빔밥",
+      "rank": 721,
+      "mmr": 731
+    },
+    {
+      "userNum": 1184733,
+      "nickname": "KnigSakako",
+      "rank": 722,
+      "mmr": 731
+    },
+    {
+      "userNum": 91703,
+      "nickname": "음악의살인마",
+      "rank": 723,
+      "mmr": 730
+    },
+    {
+      "userNum": 694491,
+      "nickname": "Sisse1a",
+      "rank": 724,
+      "mmr": 730
+    },
+    {
+      "userNum": 637768,
+      "nickname": "poiuyzz",
+      "rank": 725,
+      "mmr": 730
+    },
+    {
+      "userNum": 401436,
+      "nickname": "라매랮며렿",
+      "rank": 726,
+      "mmr": 730
+    },
+    {
+      "userNum": 278597,
+      "nickname": "KTwiz",
+      "rank": 727,
+      "mmr": 730
+    },
+    {
+      "userNum": 628908,
+      "nickname": "킹오",
+      "rank": 728,
+      "mmr": 730
+    },
+    {
+      "userNum": 314406,
+      "nickname": "TheBlackSkirts",
+      "rank": 729,
+      "mmr": 730
+    },
+    {
+      "userNum": 1052488,
+      "nickname": "subsa",
+      "rank": 730,
+      "mmr": 729
+    },
+    {
+      "userNum": 827869,
+      "nickname": "투투모",
+      "rank": 731,
+      "mmr": 729
+    },
+    {
+      "userNum": 1071980,
+      "nickname": "부억",
+      "rank": 732,
+      "mmr": 729
+    },
+    {
+      "userNum": 640754,
+      "nickname": "Lihen",
+      "rank": 733,
+      "mmr": 729
+    },
+    {
+      "userNum": 789336,
+      "nickname": "아야아야아프당",
+      "rank": 734,
+      "mmr": 729
+    },
+    {
+      "userNum": 118550,
+      "nickname": "Twitch래시온",
+      "rank": 735,
+      "mmr": 729
+    },
+    {
+      "userNum": 556973,
+      "nickname": "후일담",
+      "rank": 736,
+      "mmr": 729
+    },
+    {
+      "userNum": 92424,
+      "nickname": "인도태",
+      "rank": 737,
+      "mmr": 729
+    },
+    {
+      "userNum": 421415,
+      "nickname": "지렁이도똥은싼다",
+      "rank": 738,
+      "mmr": 729
+    },
+    {
+      "userNum": 313389,
+      "nickname": "슈렛",
+      "rank": 739,
+      "mmr": 729
+    },
+    {
+      "userNum": 452868,
+      "nickname": "짱뀨",
+      "rank": 740,
+      "mmr": 729
+    },
+    {
+      "userNum": 478315,
+      "nickname": "태양불꽃방패",
+      "rank": 741,
+      "mmr": 729
+    },
+    {
+      "userNum": 1075993,
+      "nickname": "Beyondusk",
+      "rank": 742,
+      "mmr": 728
+    },
+    {
+      "userNum": 169133,
+      "nickname": "리댜이린",
+      "rank": 743,
+      "mmr": 728
+    },
+    {
+      "userNum": 171826,
+      "nickname": "남캐안함",
+      "rank": 744,
+      "mmr": 728
+    },
+    {
+      "userNum": 28148,
+      "nickname": "Tak1",
+      "rank": 745,
+      "mmr": 728
+    },
+    {
+      "userNum": 467820,
+      "nickname": "구리링",
+      "rank": 746,
+      "mmr": 728
+    },
+    {
+      "userNum": 161744,
+      "nickname": "림규썬더",
+      "rank": 747,
+      "mmr": 728
+    },
+    {
+      "userNum": 91883,
+      "nickname": "러비",
+      "rank": 748,
+      "mmr": 728
+    },
+    {
+      "userNum": 1055881,
+      "nickname": "775577",
+      "rank": 749,
+      "mmr": 728
+    },
+    {
+      "userNum": 442442,
+      "nickname": "식품",
+      "rank": 750,
+      "mmr": 728
+    },
+    {
+      "userNum": 634442,
+      "nickname": "교울",
+      "rank": 751,
+      "mmr": 728
+    },
+    {
+      "userNum": 580059,
+      "nickname": "이도엽22",
+      "rank": 752,
+      "mmr": 728
+    },
+    {
+      "userNum": 385290,
+      "nickname": "슬라보이",
+      "rank": 753,
+      "mmr": 728
+    },
+    {
+      "userNum": 540296,
+      "nickname": "율희",
+      "rank": 754,
+      "mmr": 728
+    },
+    {
+      "userNum": 874214,
+      "nickname": "도파vs랄로",
+      "rank": 755,
+      "mmr": 728
+    },
+    {
+      "userNum": 359172,
+      "nickname": "회전회오리슛",
+      "rank": 756,
+      "mmr": 727
+    },
+    {
+      "userNum": 974456,
+      "nickname": "오이넣어주셈",
+      "rank": 757,
+      "mmr": 727
+    },
+    {
+      "userNum": 694063,
+      "nickname": "쿠루안도세쿠시",
+      "rank": 758,
+      "mmr": 727
+    },
+    {
+      "userNum": 843390,
+      "nickname": "AKFG",
+      "rank": 759,
+      "mmr": 727
+    },
+    {
+      "userNum": 767315,
+      "nickname": "루비오",
+      "rank": 760,
+      "mmr": 727
+    },
+    {
+      "userNum": 282358,
+      "nickname": "조선성웅",
+      "rank": 761,
+      "mmr": 727
+    },
+    {
+      "userNum": 1098998,
+      "nickname": "Yonghoony",
+      "rank": 762,
+      "mmr": 727
+    },
+    {
+      "userNum": 962364,
+      "nickname": "엄영돈점먹방달인",
+      "rank": 763,
+      "mmr": 726
+    },
+    {
+      "userNum": 707505,
+      "nickname": "앙굼터띠",
+      "rank": 764,
+      "mmr": 726
+    },
+    {
+      "userNum": 212504,
+      "nickname": "쌍검난무ジン",
+      "rank": 765,
+      "mmr": 726
+    },
+    {
+      "userNum": 472585,
+      "nickname": "챔연",
+      "rank": 766,
+      "mmr": 726
+    },
+    {
+      "userNum": 834187,
+      "nickname": "실몽",
+      "rank": 767,
+      "mmr": 726
+    },
+    {
+      "userNum": 935832,
+      "nickname": "암흑의다크플레임",
+      "rank": 768,
+      "mmr": 726
+    },
+    {
+      "userNum": 162509,
+      "nickname": "피버",
+      "rank": 769,
+      "mmr": 726
+    },
+    {
+      "userNum": 115026,
+      "nickname": "Allusive",
+      "rank": 770,
+      "mmr": 726
+    },
+    {
+      "userNum": 745067,
+      "nickname": "斗鱼昆玲",
+      "rank": 771,
+      "mmr": 726
+    },
+    {
+      "userNum": 1054784,
+      "nickname": "Chrysoprase",
+      "rank": 772,
+      "mmr": 726
+    },
+    {
+      "userNum": 498171,
+      "nickname": "재료하나만줍쇼",
+      "rank": 773,
+      "mmr": 725
+    },
+    {
+      "userNum": 762401,
+      "nickname": "재후니",
+      "rank": 774,
+      "mmr": 725
+    },
+    {
+      "userNum": 1050056,
+      "nickname": "건전한닉네임1317",
+      "rank": 775,
+      "mmr": 725
+    },
+    {
+      "userNum": 886641,
+      "nickname": "YunSworD",
+      "rank": 776,
+      "mmr": 725
+    },
+    {
+      "userNum": 445815,
+      "nickname": "zi존헌영",
+      "rank": 777,
+      "mmr": 725
+    },
+    {
+      "userNum": 188725,
+      "nickname": "인생망한사람",
+      "rank": 778,
+      "mmr": 725
+    },
+    {
+      "userNum": 272778,
+      "nickname": "에닥",
+      "rank": 779,
+      "mmr": 725
+    },
+    {
+      "userNum": 868350,
+      "nickname": "FA응슷응",
+      "rank": 780,
+      "mmr": 724
+    },
+    {
+      "userNum": 124728,
+      "nickname": "맥도",
+      "rank": 781,
+      "mmr": 724
+    },
+    {
+      "userNum": 167738,
+      "nickname": "谷风长道",
+      "rank": 782,
+      "mmr": 724
+    },
+    {
+      "userNum": 598643,
+      "nickname": "누빔",
+      "rank": 783,
+      "mmr": 724
+    },
+    {
+      "userNum": 453197,
+      "nickname": "참을수없지",
+      "rank": 784,
+      "mmr": 724
+    },
+    {
+      "userNum": 1047253,
+      "nickname": "RedAgain",
+      "rank": 785,
+      "mmr": 724
+    },
+    {
+      "userNum": 716549,
+      "nickname": "스쿨버스",
+      "rank": 786,
+      "mmr": 723
+    },
+    {
+      "userNum": 274396,
+      "nickname": "말을신중히골라라",
+      "rank": 787,
+      "mmr": 723
+    },
+    {
+      "userNum": 125268,
+      "nickname": "달곰",
+      "rank": 788,
+      "mmr": 723
+    },
+    {
+      "userNum": 344721,
+      "nickname": "ざとイチ",
+      "rank": 789,
+      "mmr": 723
+    },
+    {
+      "userNum": 664515,
+      "nickname": "cci",
+      "rank": 790,
+      "mmr": 723
+    },
+    {
+      "userNum": 225771,
+      "nickname": "트레",
+      "rank": 791,
+      "mmr": 723
+    },
+    {
+      "userNum": 640799,
+      "nickname": "대우주",
+      "rank": 792,
+      "mmr": 723
+    },
+    {
+      "userNum": 91293,
+      "nickname": "KKUMAN",
+      "rank": 793,
+      "mmr": 723
+    },
+    {
+      "userNum": 619961,
+      "nickname": "우제하",
+      "rank": 794,
+      "mmr": 723
+    },
+    {
+      "userNum": 873927,
+      "nickname": "장판사",
+      "rank": 795,
+      "mmr": 723
+    },
+    {
+      "userNum": 360882,
+      "nickname": "살벌하게",
+      "rank": 796,
+      "mmr": 723
+    },
+    {
+      "userNum": 318163,
+      "nickname": "노래는보라미유",
+      "rank": 797,
+      "mmr": 723
+    },
+    {
+      "userNum": 733540,
+      "nickname": "BJ로이조",
+      "rank": 798,
+      "mmr": 723
+    },
+    {
+      "userNum": 1054996,
+      "nickname": "게임개노잼이네",
+      "rank": 799,
+      "mmr": 723
+    },
+    {
+      "userNum": 1001206,
+      "nickname": "LuxurK",
+      "rank": 800,
+      "mmr": 723
+    },
+    {
+      "userNum": 680228,
+      "nickname": "섹시여고생",
+      "rank": 801,
+      "mmr": 722
+    },
+    {
+      "userNum": 510535,
+      "nickname": "426567696E6E6572",
+      "rank": 802,
+      "mmr": 722
+    },
+    {
+      "userNum": 435304,
+      "nickname": "SukHyungWangKR",
+      "rank": 803,
+      "mmr": 722
+    },
+    {
+      "userNum": 1135769,
+      "nickname": "매너유저1",
+      "rank": 804,
+      "mmr": 722
+    },
+    {
+      "userNum": 761886,
+      "nickname": "산규",
+      "rank": 805,
+      "mmr": 722
+    },
+    {
+      "userNum": 1018829,
+      "nickname": "leegyubo",
+      "rank": 806,
+      "mmr": 722
+    },
+    {
+      "userNum": 168499,
+      "nickname": "ototoyo",
+      "rank": 807,
+      "mmr": 722
+    },
+    {
+      "userNum": 917986,
+      "nickname": "LAROCO",
+      "rank": 808,
+      "mmr": 722
+    },
+    {
+      "userNum": 493220,
+      "nickname": "원주혁신사랑으로",
+      "rank": 809,
+      "mmr": 722
+    },
+    {
+      "userNum": 505439,
+      "nickname": "FsSlayer",
+      "rank": 810,
+      "mmr": 722
+    },
+    {
+      "userNum": 721108,
+      "nickname": "Xessmove",
+      "rank": 811,
+      "mmr": 722
+    },
+    {
+      "userNum": 393113,
+      "nickname": "돌이오빠",
+      "rank": 812,
+      "mmr": 721
+    },
+    {
+      "userNum": 337799,
+      "nickname": "묘떡",
+      "rank": 813,
+      "mmr": 721
+    },
+    {
+      "userNum": 415059,
+      "nickname": "물주먹",
+      "rank": 814,
+      "mmr": 721
+    },
+    {
+      "userNum": 464379,
+      "nickname": "林间清泠",
+      "rank": 815,
+      "mmr": 721
+    },
+    {
+      "userNum": 764543,
+      "nickname": "캘시퍼",
+      "rank": 816,
+      "mmr": 721
+    },
+    {
+      "userNum": 307373,
+      "nickname": "Biruru",
+      "rank": 817,
+      "mmr": 721
+    },
+    {
+      "userNum": 577281,
+      "nickname": "폭탄병",
+      "rank": 818,
+      "mmr": 721
+    },
+    {
+      "userNum": 525053,
+      "nickname": "Me친리트리버",
+      "rank": 819,
+      "mmr": 721
+    },
+    {
+      "userNum": 171380,
+      "nickname": "캐뮤",
+      "rank": 820,
+      "mmr": 721
+    },
+    {
+      "userNum": 909563,
+      "nickname": "홍지민발닦개",
+      "rank": 821,
+      "mmr": 721
+    },
+    {
+      "userNum": 774,
+      "nickname": "くされ外道",
+      "rank": 822,
+      "mmr": 721
+    },
+    {
+      "userNum": 846935,
+      "nickname": "이륜",
+      "rank": 823,
+      "mmr": 721
+    },
+    {
+      "userNum": 769219,
+      "nickname": "길시언",
+      "rank": 824,
+      "mmr": 720
+    },
+    {
+      "userNum": 696802,
+      "nickname": "Dabis",
+      "rank": 825,
+      "mmr": 720
+    },
+    {
+      "userNum": 163571,
+      "nickname": "bedplay",
+      "rank": 826,
+      "mmr": 720
+    },
+    {
+      "userNum": 317779,
+      "nickname": "리큐",
+      "rank": 827,
+      "mmr": 720
+    },
+    {
+      "userNum": 1000663,
+      "nickname": "랄사쵸이치",
+      "rank": 828,
+      "mmr": 720
+    },
+    {
+      "userNum": 635329,
+      "nickname": "아귀에게한장",
+      "rank": 829,
+      "mmr": 720
+    },
+    {
+      "userNum": 220316,
+      "nickname": "사과링",
+      "rank": 830,
+      "mmr": 720
+    },
+    {
+      "userNum": 162543,
+      "nickname": "멜로정",
+      "rank": 831,
+      "mmr": 720
+    },
+    {
+      "userNum": 387631,
+      "nickname": "메이데리스",
+      "rank": 832,
+      "mmr": 720
+    },
+    {
+      "userNum": 556954,
+      "nickname": "오드아이시셀라",
+      "rank": 833,
+      "mmr": 720
+    },
+    {
+      "userNum": 933268,
+      "nickname": "이빵훈",
+      "rank": 834,
+      "mmr": 720
+    },
+    {
+      "userNum": 438127,
+      "nickname": "hassium",
+      "rank": 835,
+      "mmr": 719
+    },
+    {
+      "userNum": 697409,
+      "nickname": "잭히의신",
+      "rank": 836,
+      "mmr": 719
+    },
+    {
+      "userNum": 521672,
+      "nickname": "쿨가이",
+      "rank": 837,
+      "mmr": 719
+    },
+    {
+      "userNum": 1053815,
+      "nickname": "00HeartAttack00",
+      "rank": 838,
+      "mmr": 719
+    },
+    {
+      "userNum": 344684,
+      "nickname": "스꾸루",
+      "rank": 839,
+      "mmr": 719
+    },
+    {
+      "userNum": 762588,
+      "nickname": "닉네임길수록쎄짐",
+      "rank": 840,
+      "mmr": 719
+    },
+    {
+      "userNum": 82866,
+      "nickname": "참듀",
+      "rank": 841,
+      "mmr": 719
+    },
+    {
+      "userNum": 219007,
+      "nickname": "구리구너",
+      "rank": 842,
+      "mmr": 719
+    },
+    {
+      "userNum": 374964,
+      "nickname": "IIEXIAII",
+      "rank": 843,
+      "mmr": 719
+    },
+    {
+      "userNum": 543149,
+      "nickname": "0hansin0",
+      "rank": 844,
+      "mmr": 719
+    },
+    {
+      "userNum": 468619,
+      "nickname": "Linca",
+      "rank": 845,
+      "mmr": 719
+    },
+    {
+      "userNum": 368610,
+      "nickname": "balleri",
+      "rank": 846,
+      "mmr": 718
+    },
+    {
+      "userNum": 959753,
+      "nickname": "칠흑의학살자",
+      "rank": 847,
+      "mmr": 718
+    },
+    {
+      "userNum": 129719,
+      "nickname": "건전한닉네임45",
+      "rank": 848,
+      "mmr": 718
+    },
+    {
+      "userNum": 1016102,
+      "nickname": "안냥냥이",
+      "rank": 849,
+      "mmr": 718
+    },
+    {
+      "userNum": 255063,
+      "nickname": "예절치료기",
+      "rank": 850,
+      "mmr": 718
+    },
+    {
+      "userNum": 634188,
+      "nickname": "윤슈터",
+      "rank": 851,
+      "mmr": 718
+    },
+    {
+      "userNum": 410714,
+      "nickname": "한소르",
+      "rank": 852,
+      "mmr": 718
+    },
+    {
+      "userNum": 245319,
+      "nickname": "makahiti",
+      "rank": 853,
+      "mmr": 718
+    },
+    {
+      "userNum": 590592,
+      "nickname": "손인욱사랑개",
+      "rank": 854,
+      "mmr": 718
+    },
+    {
+      "userNum": 695215,
+      "nickname": "마법피해",
+      "rank": 855,
+      "mmr": 718
+    },
+    {
+      "userNum": 563374,
+      "nickname": "Ebu에부",
+      "rank": 856,
+      "mmr": 718
+    },
+    {
+      "userNum": 696385,
+      "nickname": "낭만검객김찬호",
+      "rank": 857,
+      "mmr": 718
+    },
+    {
+      "userNum": 945916,
+      "nickname": "Ssoar",
+      "rank": 858,
+      "mmr": 718
+    },
+    {
+      "userNum": 229742,
+      "nickname": "매콤준호",
+      "rank": 859,
+      "mmr": 718
+    },
+    {
+      "userNum": 165714,
+      "nickname": "달래",
+      "rank": 860,
+      "mmr": 718
+    },
+    {
+      "userNum": 257198,
+      "nickname": "흥냥흥냥",
+      "rank": 861,
+      "mmr": 718
+    },
+    {
+      "userNum": 1158628,
+      "nickname": "아니자꾸끊긴다고",
+      "rank": 862,
+      "mmr": 717
+    },
+    {
+      "userNum": 652488,
+      "nickname": "규귤규",
+      "rank": 863,
+      "mmr": 717
+    },
+    {
+      "userNum": 547917,
+      "nickname": "mozzipeach",
+      "rank": 864,
+      "mmr": 717
+    },
+    {
+      "userNum": 557362,
+      "nickname": "새벽에빛나는달",
+      "rank": 865,
+      "mmr": 717
+    },
+    {
+      "userNum": 963707,
+      "nickname": "토리링",
+      "rank": 866,
+      "mmr": 717
+    },
+    {
+      "userNum": 499682,
+      "nickname": "유승원",
+      "rank": 867,
+      "mmr": 717
+    },
+    {
+      "userNum": 1111817,
+      "nickname": "땅코미",
+      "rank": 868,
+      "mmr": 717
+    },
+    {
+      "userNum": 132476,
+      "nickname": "김도균",
+      "rank": 869,
+      "mmr": 717
+    },
+    {
+      "userNum": 907886,
+      "nickname": "초코버터구이",
+      "rank": 870,
+      "mmr": 717
+    },
+    {
+      "userNum": 29198,
+      "nickname": "かとう",
+      "rank": 871,
+      "mmr": 717
+    },
+    {
+      "userNum": 850542,
+      "nickname": "왜이러세용",
+      "rank": 872,
+      "mmr": 716
+    },
+    {
+      "userNum": 452935,
+      "nickname": "트랩솔1위",
+      "rank": 873,
+      "mmr": 716
+    },
+    {
+      "userNum": 608785,
+      "nickname": "이런법이어딨어",
+      "rank": 874,
+      "mmr": 716
+    },
+    {
+      "userNum": 203694,
+      "nickname": "펜트하우스",
+      "rank": 875,
+      "mmr": 716
+    },
+    {
+      "userNum": 540598,
+      "nickname": "유메미리아무",
+      "rank": 876,
+      "mmr": 716
+    },
+    {
+      "userNum": 357050,
+      "nickname": "죽은기사",
+      "rank": 877,
+      "mmr": 716
+    },
+    {
+      "userNum": 1230972,
+      "nickname": "aksps",
+      "rank": 878,
+      "mmr": 716
+    },
+    {
+      "userNum": 465033,
+      "nickname": "어디있니",
+      "rank": 879,
+      "mmr": 716
+    },
+    {
+      "userNum": 13147,
+      "nickname": "karim",
+      "rank": 880,
+      "mmr": 716
+    },
+    {
+      "userNum": 1000346,
+      "nickname": "꿀미소",
+      "rank": 881,
+      "mmr": 716
+    },
+    {
+      "userNum": 566417,
+      "nickname": "송편이",
+      "rank": 882,
+      "mmr": 716
+    },
+    {
+      "userNum": 906076,
+      "nickname": "후풍풍",
+      "rank": 883,
+      "mmr": 716
+    },
+    {
+      "userNum": 1068579,
+      "nickname": "애플망고스무디",
+      "rank": 884,
+      "mmr": 716
+    },
+    {
+      "userNum": 112192,
+      "nickname": "청바지",
+      "rank": 885,
+      "mmr": 716
+    },
+    {
+      "userNum": 96214,
+      "nickname": "뗑컨",
+      "rank": 886,
+      "mmr": 716
+    },
+    {
+      "userNum": 358025,
+      "nickname": "danancho",
+      "rank": 887,
+      "mmr": 716
+    },
+    {
+      "userNum": 516253,
+      "nickname": "이선율은대체뭐야",
+      "rank": 888,
+      "mmr": 716
+    },
+    {
+      "userNum": 432331,
+      "nickname": "성서",
+      "rank": 889,
+      "mmr": 716
+    },
+    {
+      "userNum": 96767,
+      "nickname": "RERO",
+      "rank": 890,
+      "mmr": 716
+    },
+    {
+      "userNum": 164126,
+      "nickname": "건전한닉네임32",
+      "rank": 891,
+      "mmr": 716
+    },
+    {
+      "userNum": 261455,
+      "nickname": "킴만득",
+      "rank": 892,
+      "mmr": 716
+    },
+    {
+      "userNum": 883514,
+      "nickname": "미트볼스파게티",
+      "rank": 893,
+      "mmr": 715
+    },
+    {
+      "userNum": 230661,
+      "nickname": "성간비행",
+      "rank": 894,
+      "mmr": 715
+    },
+    {
+      "userNum": 831002,
+      "nickname": "Heartmusic",
+      "rank": 895,
+      "mmr": 715
+    },
+    {
+      "userNum": 544040,
+      "nickname": "망고마시아",
+      "rank": 896,
+      "mmr": 715
+    },
+    {
+      "userNum": 318694,
+      "nickname": "세빈",
+      "rank": 897,
+      "mmr": 715
+    },
+    {
+      "userNum": 852877,
+      "nickname": "xoduq",
+      "rank": 898,
+      "mmr": 715
+    },
+    {
+      "userNum": 1089975,
+      "nickname": "kakalu",
+      "rank": 899,
+      "mmr": 715
+    },
+    {
+      "userNum": 395696,
+      "nickname": "라딱뚜이",
+      "rank": 900,
+      "mmr": 715
+    },
+    {
+      "userNum": 457908,
+      "nickname": "순수상사",
+      "rank": 901,
+      "mmr": 715
+    },
+    {
+      "userNum": 706273,
+      "nickname": "얼또",
+      "rank": 902,
+      "mmr": 715
+    },
+    {
+      "userNum": 721756,
+      "nickname": "먹구",
+      "rank": 903,
+      "mmr": 715
+    },
+    {
+      "userNum": 1070816,
+      "nickname": "rigaa6",
+      "rank": 904,
+      "mmr": 715
+    },
+    {
+      "userNum": 1023667,
+      "nickname": "하늘2꺼",
+      "rank": 905,
+      "mmr": 715
+    },
+    {
+      "userNum": 301539,
+      "nickname": "신선한감자",
+      "rank": 906,
+      "mmr": 715
+    },
+    {
+      "userNum": 563330,
+      "nickname": "맛종욱스토커",
+      "rank": 907,
+      "mmr": 715
+    },
+    {
+      "userNum": 288914,
+      "nickname": "눈마주치면따라감",
+      "rank": 908,
+      "mmr": 715
+    },
+    {
+      "userNum": 743621,
+      "nickname": "Mely하랑",
+      "rank": 909,
+      "mmr": 714
+    },
+    {
+      "userNum": 521025,
+      "nickname": "흐르는강물처럼",
+      "rank": 910,
+      "mmr": 714
+    },
+    {
+      "userNum": 478145,
+      "nickname": "zger",
+      "rank": 911,
+      "mmr": 714
+    },
+    {
+      "userNum": 687916,
+      "nickname": "IAMGOSU",
+      "rank": 912,
+      "mmr": 714
+    },
+    {
+      "userNum": 67313,
+      "nickname": "진자제밌는개임",
+      "rank": 913,
+      "mmr": 714
+    },
+    {
+      "userNum": 1007910,
+      "nickname": "훼예포폄",
+      "rank": 914,
+      "mmr": 714
+    },
+    {
+      "userNum": 371119,
+      "nickname": "파블로",
+      "rank": 915,
+      "mmr": 714
+    },
+    {
+      "userNum": 440690,
+      "nickname": "강로우",
+      "rank": 916,
+      "mmr": 714
+    },
+    {
+      "userNum": 296478,
+      "nickname": "치명저격아야",
+      "rank": 917,
+      "mmr": 714
+    },
+    {
+      "userNum": 758317,
+      "nickname": "K1ro",
+      "rank": 918,
+      "mmr": 713
+    },
+    {
+      "userNum": 1021276,
+      "nickname": "Kyouya",
+      "rank": 919,
+      "mmr": 713
+    },
+    {
+      "userNum": 426251,
+      "nickname": "저리가오지마",
+      "rank": 920,
+      "mmr": 713
+    },
+    {
+      "userNum": 563518,
+      "nickname": "phs",
+      "rank": 921,
+      "mmr": 713
+    },
+    {
+      "userNum": 99392,
+      "nickname": "DanKa",
+      "rank": 922,
+      "mmr": 713
+    },
+    {
+      "userNum": 882730,
+      "nickname": "후니후니동후니",
+      "rank": 923,
+      "mmr": 713
+    },
+    {
+      "userNum": 134680,
+      "nickname": "민승",
+      "rank": 924,
+      "mmr": 713
+    },
+    {
+      "userNum": 139425,
+      "nickname": "피카츄빽만뽈뜨",
+      "rank": 925,
+      "mmr": 713
+    },
+    {
+      "userNum": 766705,
+      "nickname": "Justyy",
+      "rank": 926,
+      "mmr": 713
+    },
+    {
+      "userNum": 370222,
+      "nickname": "어1딜도1망가",
+      "rank": 927,
+      "mmr": 713
+    },
+    {
+      "userNum": 265081,
+      "nickname": "김수진",
+      "rank": 928,
+      "mmr": 713
+    },
+    {
+      "userNum": 680007,
+      "nickname": "박박종종우우",
+      "rank": 929,
+      "mmr": 713
+    },
+    {
+      "userNum": 801030,
+      "nickname": "나는야강남멋쟁이",
+      "rank": 930,
+      "mmr": 713
+    },
+    {
+      "userNum": 123478,
+      "nickname": "第一劍",
+      "rank": 931,
+      "mmr": 713
+    },
+    {
+      "userNum": 464433,
+      "nickname": "토끼마술",
+      "rank": 932,
+      "mmr": 713
+    },
+    {
+      "userNum": 815530,
+      "nickname": "투리망고",
+      "rank": 933,
+      "mmr": 713
+    },
+    {
+      "userNum": 530328,
+      "nickname": "나한태외그레",
+      "rank": 934,
+      "mmr": 713
+    },
+    {
+      "userNum": 842423,
+      "nickname": "날혀니",
+      "rank": 935,
+      "mmr": 712
+    },
+    {
+      "userNum": 839085,
+      "nickname": "인천대장03박동칠",
+      "rank": 936,
+      "mmr": 712
+    },
+    {
+      "userNum": 609485,
+      "nickname": "슈닌",
+      "rank": 937,
+      "mmr": 712
+    },
+    {
+      "userNum": 724091,
+      "nickname": "정신병원대장",
+      "rank": 938,
+      "mmr": 712
+    },
+    {
+      "userNum": 560948,
+      "nickname": "건들면죽여버린다",
+      "rank": 939,
+      "mmr": 712
+    },
+    {
+      "userNum": 72403,
+      "nickname": "너에게가겠다",
+      "rank": 940,
+      "mmr": 712
+    },
+    {
+      "userNum": 982796,
+      "nickname": "노양심",
+      "rank": 941,
+      "mmr": 712
+    },
+    {
+      "userNum": 1121661,
+      "nickname": "AFTV모찌",
+      "rank": 942,
+      "mmr": 712
+    },
+    {
+      "userNum": 108666,
+      "nickname": "부라더",
+      "rank": 943,
+      "mmr": 712
+    },
+    {
+      "userNum": 714079,
+      "nickname": "캘리포니아사냥개",
+      "rank": 944,
+      "mmr": 712
+    },
+    {
+      "userNum": 131123,
+      "nickname": "자살소년",
+      "rank": 945,
+      "mmr": 712
+    },
+    {
+      "userNum": 923718,
+      "nickname": "3층",
+      "rank": 946,
+      "mmr": 712
+    },
+    {
+      "userNum": 747524,
+      "nickname": "응애나아기완호",
+      "rank": 947,
+      "mmr": 712
+    },
+    {
+      "userNum": 805144,
+      "nickname": "JCJ",
+      "rank": 948,
+      "mmr": 711
+    },
+    {
+      "userNum": 1092150,
+      "nickname": "Infocus",
+      "rank": 949,
+      "mmr": 711
+    },
+    {
+      "userNum": 941426,
+      "nickname": "redmaster",
+      "rank": 950,
+      "mmr": 711
+    },
+    {
+      "userNum": 969690,
+      "nickname": "눈도깜짝안한다",
+      "rank": 951,
+      "mmr": 711
+    },
+    {
+      "userNum": 564969,
+      "nickname": "낭만현우",
+      "rank": 952,
+      "mmr": 711
+    },
+    {
+      "userNum": 754027,
+      "nickname": "zl존예준",
+      "rank": 953,
+      "mmr": 711
+    },
+    {
+      "userNum": 483512,
+      "nickname": "폐인신",
+      "rank": 954,
+      "mmr": 711
+    },
+    {
+      "userNum": 423551,
+      "nickname": "헿이",
+      "rank": 955,
+      "mmr": 711
+    },
+    {
+      "userNum": 648248,
+      "nickname": "쇼우주의보",
+      "rank": 956,
+      "mmr": 711
+    },
+    {
+      "userNum": 488488,
+      "nickname": "투엔티스",
+      "rank": 957,
+      "mmr": 711
+    },
+    {
+      "userNum": 290517,
+      "nickname": "응애템못주웠어",
+      "rank": 958,
+      "mmr": 711
+    },
+    {
+      "userNum": 634477,
+      "nickname": "익병",
+      "rank": 959,
+      "mmr": 710
+    },
+    {
+      "userNum": 978415,
+      "nickname": "너구리왕",
+      "rank": 960,
+      "mmr": 710
+    },
+    {
+      "userNum": 635186,
+      "nickname": "골치",
+      "rank": 961,
+      "mmr": 710
+    },
+    {
+      "userNum": 574105,
+      "nickname": "미라제인",
+      "rank": 962,
+      "mmr": 710
+    },
+    {
+      "userNum": 188957,
+      "nickname": "태틱",
+      "rank": 963,
+      "mmr": 710
+    },
+    {
+      "userNum": 1194530,
+      "nickname": "김깽준",
+      "rank": 964,
+      "mmr": 710
+    },
+    {
+      "userNum": 816480,
+      "nickname": "LLYYJJ",
+      "rank": 965,
+      "mmr": 710
+    },
+    {
+      "userNum": 106756,
+      "nickname": "팡수",
+      "rank": 966,
+      "mmr": 710
+    },
+    {
+      "userNum": 817458,
+      "nickname": "랜디v",
+      "rank": 967,
+      "mmr": 710
+    },
+    {
+      "userNum": 684484,
+      "nickname": "챌견",
+      "rank": 968,
+      "mmr": 710
+    },
+    {
+      "userNum": 533485,
+      "nickname": "IcyIce",
+      "rank": 969,
+      "mmr": 710
+    },
+    {
+      "userNum": 773581,
+      "nickname": "우울현",
+      "rank": 970,
+      "mmr": 710
+    },
+    {
+      "userNum": 531948,
+      "nickname": "캐드",
+      "rank": 971,
+      "mmr": 709
+    },
+    {
+      "userNum": 411947,
+      "nickname": "골텍",
+      "rank": 972,
+      "mmr": 709
+    },
+    {
+      "userNum": 668383,
+      "nickname": "LikeThis",
+      "rank": 973,
+      "mmr": 709
+    },
+    {
+      "userNum": 608037,
+      "nickname": "slime0",
+      "rank": 974,
+      "mmr": 709
+    },
+    {
+      "userNum": 579885,
+      "nickname": "LightChaser",
+      "rank": 975,
+      "mmr": 709
+    },
+    {
+      "userNum": 390140,
+      "nickname": "rninho",
+      "rank": 976,
+      "mmr": 709
+    },
+    {
+      "userNum": 854357,
+      "nickname": "백골",
+      "rank": 977,
+      "mmr": 709
+    },
+    {
+      "userNum": 446158,
+      "nickname": "마자요옹",
+      "rank": 978,
+      "mmr": 709
+    },
+    {
+      "userNum": 232114,
+      "nickname": "꼼수",
+      "rank": 979,
+      "mmr": 709
+    },
+    {
+      "userNum": 1139738,
+      "nickname": "탑골공원장기노인",
+      "rank": 980,
+      "mmr": 709
+    },
+    {
+      "userNum": 367661,
+      "nickname": "대상어",
+      "rank": 981,
+      "mmr": 709
+    },
+    {
+      "userNum": 1022241,
+      "nickname": "내가화니다",
+      "rank": 982,
+      "mmr": 709
+    },
+    {
+      "userNum": 621506,
+      "nickname": "달려라망나니",
+      "rank": 983,
+      "mmr": 709
+    },
+    {
+      "userNum": 1076385,
+      "nickname": "Marvelnemesis",
+      "rank": 984,
+      "mmr": 709
+    },
+    {
+      "userNum": 904767,
+      "nickname": "건들지마세용",
+      "rank": 985,
+      "mmr": 709
+    },
+    {
+      "userNum": 643954,
+      "nickname": "Kcuf666",
+      "rank": 986,
+      "mmr": 709
+    },
+    {
+      "userNum": 1102890,
+      "nickname": "그대네요",
+      "rank": 987,
+      "mmr": 708
+    },
+    {
+      "userNum": 1023367,
+      "nickname": "훈대리",
+      "rank": 988,
+      "mmr": 708
+    },
+    {
+      "userNum": 410985,
+      "nickname": "G시간",
+      "rank": 989,
+      "mmr": 708
+    },
+    {
+      "userNum": 918163,
+      "nickname": "친애",
+      "rank": 990,
+      "mmr": 708
+    },
+    {
+      "userNum": 906339,
+      "nickname": "dltwnamar",
+      "rank": 991,
+      "mmr": 708
+    },
+    {
+      "userNum": 60571,
+      "nickname": "싸이코패스",
+      "rank": 992,
+      "mmr": 708
+    },
+    {
+      "userNum": 843516,
+      "nickname": "핸츠",
+      "rank": 993,
+      "mmr": 708
+    },
+    {
+      "userNum": 571128,
+      "nickname": "AlterEgoT",
+      "rank": 994,
+      "mmr": 708
+    },
+    {
+      "userNum": 465211,
+      "nickname": "마다마다다네",
+      "rank": 995,
+      "mmr": 708
+    },
+    {
+      "userNum": 937081,
+      "nickname": "예이치",
+      "rank": 996,
+      "mmr": 708
+    },
+    {
+      "userNum": 596735,
+      "nickname": "노나님",
+      "rank": 997,
+      "mmr": 708
+    },
+    {
+      "userNum": 744887,
+      "nickname": "Heracle",
+      "rank": 998,
+      "mmr": 707
+    },
+    {
+      "userNum": 845286,
+      "nickname": "LisoXD",
+      "rank": 999,
+      "mmr": 707
+    },
+    {
+      "userNum": 489021,
+      "nickname": "이불좀덮어줘",
+      "rank": 1000,
+      "mmr": 707
+    },
+    {
+      "userNum": 1005319,
+      "nickname": "롤뺏긴게임",
+      "rank": 1001,
+      "mmr": 707
+    }
+  ]
