@@ -9,7 +9,6 @@ class App extends Component {
                 <Route exact path="/" component={Main}/>
                 <Switch>
                     <Route path="/Detail" component={Detail}/>
-                    <Route path="/Detail2" component={Detail2}/>
                     <Route path="/Map" component={Map}/>
                     <Route path="/Route" component={RouteM}/>
                     <Route path="/NewMain" component={NewMain}/>
