@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch, Link  } from 'react-router-dom';
-import { Main, Detail, Map, RouteM, NewMain ,Match, Character, Rank } from 'pages';
+import { Main, Detail, Detail2, Map, RouteM, NewMain ,Match, Character, Rank } from 'pages';
 
 class App extends Component {
     render() {

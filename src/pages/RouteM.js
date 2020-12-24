@@ -208,7 +208,7 @@ class RouteM extends Component {
         }      
         //console.log('_filterType', _filterType);
 
-        const routeList = this.routeListByAll(extSrc, 6, _filterType);
+        let routeList = this.routeListByAll(extSrc, 6, _filterType);
 
         //console.log('routeList1', routeList);
 
@@ -253,25 +253,30 @@ class RouteM extends Component {
     }
 
     selectSrc() {
-        const { select } = this.state;
+        const { select, startWeapon } = this.state;
         const itemSrc = {};
+        const startItem = [
+            { name: startWeapon[select['type']], count: 1 },
+            { name: '물', count: 2 },
+            //{ name: '빵', count: 2 },
+        ]
+        console.log('startWeapon', startWeapon[select['type']]);
         ['무기', '머리', '옷', '팔', '다리', '장식'].forEach(type => {
             itemSrc[type] = [];
-            this.itemSrc(itemSrc[type], select[type], itemSrc, type);
+            this.itemSrc(itemSrc[type], select[type], itemSrc, type, startItem);
         });
         return itemSrc;
     }
 
-    itemSrc(src, itemName, itemSrc, type) {
-        const { select, startWeapon } = this.state;
+    itemSrc(src, itemName, itemSrc, type, startItem) {
+        const { select } = this.state;
 
-        const outList = ['물', '가죽', '돌멩이', '나뭇가지', '미스릴', '운석', 'VF혈액샘플', startWeapon[select['type']]];
+        const outList = ['가죽', '돌멩이', '나뭇가지', '미스릴', '운석', 'VF혈액샘플', ];
 
         let list = [];
-
         item[itemName]['src'].forEach(_srcName => {
             if (item[_srcName]['src']) {
-                const srcList = this.itemSrc(src, _srcName, itemSrc, type);
+                const srcList = this.itemSrc(src, _srcName, itemSrc, type, startItem);
 
                 if (type === '무기') {
                     if (weapon[select['type']][_srcName] !== undefined) {
@@ -295,9 +300,19 @@ class RouteM extends Component {
 
                 list = [...list, ...srcList];
             } else {
-                if (!src.includes(_srcName) && !outList.includes(_srcName)){
-                    src.push(_srcName);
-                    list.push(_srcName);
+                if (!src.includes(_srcName) && !outList.includes(_srcName)) {
+                    let isStart = false;
+                    startItem.forEach(_ => {
+                        if (_['name'] === _srcName && _['count'] !== 0) {
+                            isStart = true;
+                            _['count']--;
+                        }
+                    })
+
+                    if (!isStart) {
+                        src.push(_srcName);
+                        list.push(_srcName);
+                    }
                 }
             }
         })

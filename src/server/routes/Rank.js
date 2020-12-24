@@ -47,27 +47,32 @@ router.get('/', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
     try {
-        await Rank.deleteMany({matchingTeamMode:[1, 2, 3]});
-
-        let count = 0;
-        for (let index = 1; index < 4; index++) {            
-            const _rank = await getRank(1, index);
-            const ranks = _rank.data.topRanks;
+        //await Rank.deleteMany({matchingTeamMode:[1, 2, 3]});
+        const ranks = await Rank.find({});
+        //let count = 0;
+        //for (let index = 1; index < 4; index++) {            
+        //    const _rank = await getRank(1, index);
+        //    const ranks = _rank.data.topRanks;
             
-            await sleep(1000);
+            //await sleep(1000);
             for (let i = 0 ; i < ranks.length ; i++) {
-                const r = ranks[i];
-                r['matchingTeamMode'] = index;
-                new Rank(r).save();
+                //const r = ranks[i];
+                //r['matchingTeamMode'] = index;
+                //new Rank(r).save();
                 
-                const user = await getUserStats(r['userNum'], 1);
+                const user = await getUserStats(ranks[i]['userNum'], 1);
+
+                for (let j = 0 ; j < ranks.length ; j++) {
+
+                }
+
                 console.log(user.data.userStats[0]);
                 new Users(user.data.userStats[0]).save(); 
                 await sleep(1000);
 
                 count++;
             }
-        }    
+        //}
 
         res.send('{"code": 200, "message": "Success", "count": '+count+'}');
     } catch (err) {
