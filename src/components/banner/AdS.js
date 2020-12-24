@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { injectIntl  } from 'react-intl';
 import AdSense from 'react-adsense';
-import ScriptTag from 'react-script-tag';
-import GoogleAdsense from 'react-adsense-google';
-import GoogleAd from './GoogleAd';
 
 
 class AdS extends Component {

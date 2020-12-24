@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { injectIntl  } from 'react-intl';
-import ScriptTag from 'react-script-tag';
 import { Header, SubBanner, AdS, Footer } from 'components/banner'
 //import { Route, Stat } from 'components/route'
 import item from 'data/inGame/item.json'
@@ -260,7 +259,7 @@ class RouteM extends Component {
             { name: '물', count: 2 },
             //{ name: '빵', count: 2 },
         ];
-        
+
         ['무기', '머리', '옷', '팔', '다리', '장식'].forEach(type => {
             itemSrc[type] = [];
             this.itemSrc(itemSrc[type], select[type], itemSrc, type, startItem);
@@ -868,7 +867,6 @@ class RouteM extends Component {
                 </div>
                 <AdS type={'Map'}/>
                 <Footer />
-                <ScriptTag src="//t1.daumcdn.net/kas/static/ba.min.js" async />
             </div>
         );
     };

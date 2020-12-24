@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { injectIntl  } from 'react-intl';
-import ScriptTag from 'react-script-tag';
 import { Header, SubBanner, AdS, Footer } from 'components/banner'
 import { Item, Monster } from 'components/map/dex'
 import map from 'img/map.png';
@@ -156,7 +155,6 @@ class Map extends Component {
                 </div>
                 <AdS type={'Map'}/>
                 <Footer />
-                <ScriptTag src="//t1.daumcdn.net/kas/static/ba.min.js" async />
             </div>
         );
     };

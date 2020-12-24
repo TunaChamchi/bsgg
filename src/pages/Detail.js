@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { injectIntl } from 'react-intl';
 import queryString from 'query-string';
-import ScriptTag from 'react-script-tag';
 import { Header, SubBanner, AdS, Footer } from 'components/banner';
 import { Top, Trend, Skill } from 'components/detail';
 import { Weapons, Armors } from 'components/item';
@@ -150,7 +149,6 @@ class Detail extends Component {
                 </div>
                 <AdS type={'Detail'}/>
                 <Footer />
-                <ScriptTag src="//t1.daumcdn.net/kas/static/ba.min.js" async />
             </div>
             
         );

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { injectIntl  } from 'react-intl';
-import ScriptTag from 'react-script-tag';
 import { Header, SubBanner, Footer } from 'components/banner'
 
 class Match extends Component {
@@ -372,7 +371,6 @@ class Match extends Component {
                     </div>
                 </div>
                 <Footer />
-                <ScriptTag src="//t1.daumcdn.net/kas/static/ba.min.js" async />
             </div>
         );
     };

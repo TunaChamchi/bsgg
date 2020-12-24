@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { injectIntl  } from 'react-intl';
-import ScriptTag from 'react-script-tag';
 import { Header, SubBanner, Footer } from 'components/banner'
 
 class Character extends Component {
@@ -94,7 +93,6 @@ class Character extends Component {
                         </div>
                 </div>
                 <Footer />
-                <ScriptTag src="//t1.daumcdn.net/kas/static/ba.min.js" async />
             </div>
         );
     };

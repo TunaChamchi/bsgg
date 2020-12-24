@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { injectIntl  } from 'react-intl';
-import ScriptTag from 'react-script-tag';
 import { Header, SubBanner, Footer } from 'components/banner'
-import rank from 'server/schemas/rank';
 
 class Rank extends Component {
     constructor(props) {
@@ -255,7 +253,6 @@ class Rank extends Component {
                 <button className="rank_right_button" onClick={(e) => this.indexHandler(e, 100)}><div className="rank_right_button_tri"></div></button>
                 </div>
                 <Footer />
-                <ScriptTag src="//t1.daumcdn.net/kas/static/ba.min.js" async />
             </div>
         );
     };

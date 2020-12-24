@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { injectIntl  } from 'react-intl';
-import ScriptTag from 'react-script-tag';
 import { Header, MainBanner, AdS, Footer } from 'components/banner'
 import { Search, Characters } from 'components/Main/left'
 import { Rank } from 'components/Main/right'
