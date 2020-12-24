@@ -2,21 +2,10 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 const userSchema = new Schema({
-    seasonId: {
-        type: Number,
-        required: true
-    },
-    userNum: {
-        type: Number,
-        required: true
-    },
-    matchingMode: {
-        type: Number,
-        required: true
-    },
-    matchingTeamMode: {
-        type: Number,
-        required: true
+    index: {
+        type: String,
+        required: true,
+        unique: true
     },
     totalGames: {
         type: Number,
@@ -31,7 +20,7 @@ const userSchema = new Schema({
         required: true
     },
     averageRank: {
-        type: String,
+        type: Number,
         required: true
     },
     averageKills: {
@@ -55,9 +44,12 @@ const userSchema = new Schema({
         required: true
     },
     characterStats: {
-        type: Array,
+        type: Object,
         required: true
     },
+}, {
+    versionKey: false,
+    strict: false
 })
 
 module.exports = mongoose.model('users', userSchema);

@@ -259,8 +259,8 @@ class RouteM extends Component {
             { name: startWeapon[select['type']], count: 1 },
             { name: '물', count: 2 },
             //{ name: '빵', count: 2 },
-        ]
-        console.log('startWeapon', startWeapon[select['type']]);
+        ];
+        
         ['무기', '머리', '옷', '팔', '다리', '장식'].forEach(type => {
             itemSrc[type] = [];
             this.itemSrc(itemSrc[type], select[type], itemSrc, type, startItem);

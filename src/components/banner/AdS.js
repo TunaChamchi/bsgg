@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import { injectIntl  } from 'react-intl';
+import AdSense from 'react-adsense';
+import ScriptTag from 'react-script-tag';
+import GoogleAdsense from 'react-adsense-google';
+import GoogleAd from './GoogleAd';
+
 
 class AdS extends Component {
     constructor(props) {
@@ -68,30 +73,30 @@ class AdS extends Component {
         return (
             <div className="Ad">
                 <div className="Ad_box_L" style={ad_style} >
-                    <ins
+                    {/* <ins
                         className="kakao_ad_area"
                         style={{display: 'none'}}
                         data-ad-unit="DAN-bNJte4YPeeTSfDWr"
                         data-ad-width="160"
                         data-ad-height="600"
-                        ></ins>
-                    {/*<AdSense.Google
-                        client='ca-pub-2624497775833940'
-                        slot='7806394673'
-                    />*/}
+                        ></ins> */}
+                    <AdSense.Google
+                        client='ca-pub-7215780243476450'
+                        slot='7685058911'
+                    />
                 </div>
                 <div className="Ad_box_R" style={ad_style}>  
-                    <ins
+                    {/* <ins
                         className="kakao_ad_area"
                         style={{display: 'none'}}
                         data-ad-unit="DAN-UEsPHiGhX2DmCfqY"
                         data-ad-width="160"
                         data-ad-height="600"
-                        ></ins> 
-                    {/*<AdSense.Google
-                        client='ca-pub-2624497775833940'
-                        slot='7806394673'
-                    />*/}
+                        ></ins>  */}
+                    <AdSense.Google  
+                        client='ca-pub-7215780243476450'
+                        slot='8351079805'
+                        />
                 </div>
             </div>
         );
