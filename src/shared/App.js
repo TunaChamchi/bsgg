@@ -13,8 +13,8 @@ class App extends Component {
                     <Route path="/Route" component={RouteM}/>
                     <Route path="/NewMain" component={NewMain}/>
                     <Route path="/Match" component={Match}/>
-                    <Route path="/character" component={Character}/>
-                    <Route path="/rank" component={Rank}/>
+                    <Route path="/Character" component={Character}/>
+                    <Route path="/Rank" component={Rank}/>
                 </Switch>
             </div>
         );

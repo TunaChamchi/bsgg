@@ -8,26 +8,13 @@ const userSchema = new Schema({
     },
     userNum: {
         type: Number,
-        required: true,
-        unique: true
+        required: true
     },
     matchingMode: {
         type: Number,
         required: true
     },
     matchingTeamMode: {
-        type: Number,
-        required: true
-    },
-    mmr: {
-        type: Number,
-        required: true
-    },
-    nickname: {
-        type: String,
-        required: true
-    },
-    rank: {
         type: Number,
         required: true
     },
@@ -39,18 +26,38 @@ const userSchema = new Schema({
         type: Number,
         required: true
     },
-    averageRank: {
+    rankPercent: {
         type: Number,
+        required: true
+    },
+    averageRank: {
+        type: String,
         required: true
     },
     averageKills: {
         type: Number,
         required: true
     },
+    averageAssistants: {
+        type: Number,
+        required: true
+    },
     averageHunts: {
         type: Number,
         required: true
-    }
+    },
+    top1: {
+        type: Number,
+        required: true
+    },
+    top3: {
+        type: Number,
+        required: true
+    },
+    characterStats: {
+        type: Array,
+        required: true
+    },
 })
 
 module.exports = mongoose.model('users', userSchema);

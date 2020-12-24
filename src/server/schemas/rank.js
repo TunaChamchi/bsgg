@@ -1,11 +1,10 @@
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
-const userSchema = new Schema({
+const rankSchema = new Schema({
     userNum: {
         type: Number,
-        required: true,
-        unique: true
+        required: true
     },
     nickname: {
         type: String,
@@ -18,7 +17,11 @@ const userSchema = new Schema({
     mmr: {
         type: Number,
         required: true
+    },
+    matchingTeamMode: {
+        type: Number,
+        required: true
     }
 })
 
-module.exports = mongoose.model('rank', userSchema);
+module.exports = mongoose.model('rank', rankSchema);
