@@ -85,7 +85,7 @@ button:hover{
 }
 .footer{
     width: 1150px;
-    margin-top: 50px;
+    margin-top: 80px;
     border-top: 2px solid rgb(58, 58, 58);
     text-align: left;
     vertical-align: center;
@@ -3195,6 +3195,7 @@ button:hover{
     width: 1152px;
     border-radius: 3px;
     overflow: hidden;
+    margin-bottom: 15px;
 }
 .record_cha0{
     display: inline-block;
@@ -3352,6 +3353,11 @@ button:hover{
     border-radius: 100%;
     float: left;
 }
+.record_cha_rankimg{
+    width: 40px;
+    float: left;
+    margin-top: 8px;
+}
 .record_cha_span1{
     display: inline-block;
     width: 80px;
@@ -3476,7 +3482,7 @@ button:hover{
 /* 5 page */
 .rank_top_1{
     width: 200px;
-    height: 300px;
+    height: 325px;
     float: left;
     position: relative;
     border-radius: 10px;
@@ -3487,7 +3493,7 @@ button:hover{
 }
 .rank_top_2{
     width: 200px;
-    height: 300px;
+    height: 325px;
     float: left;
     position: relative;
     border-radius: 10px;
@@ -3498,7 +3504,7 @@ button:hover{
 }
 .rank_top_3{
     width: 200px;
-    height: 300px;
+    height: 325px;
     float: left;
     position: relative;
     border-radius: 10px;
@@ -3530,7 +3536,7 @@ button:hover{
 .rank_top1_span1{
     font-size: 30pt;
     position: absolute;
-    bottom: 90px;
+    bottom: 115px;
     text-align: center;
     display: inline-block;
     width: 200px;
@@ -3540,7 +3546,7 @@ button:hover{
 .rank_top2_span1{
     font-size: 30pt;
     position: absolute;
-    bottom: 90px;
+    bottom: 115px;
     text-align: center;
     display: inline-block;
     width: 200px;
@@ -3550,7 +3556,7 @@ button:hover{
 .rank_top3_span1{
     font-size: 30pt;
     position: absolute;
-    bottom: 90px;
+    bottom: 115px;
     text-align: center;
     display: inline-block;
     width: 200px;
@@ -3560,7 +3566,7 @@ button:hover{
 .rank_top_span2{
     font-size: 20pt;
     position: absolute;
-    bottom: 60px;
+    bottom: 85px;
     text-align: center;
     display: inline-block;
     width: 200px;
@@ -3568,7 +3574,7 @@ button:hover{
 .rank_top_span3{
     font-size: 11pt;
     position: absolute;
-    bottom: 42px;
+    bottom: 67px;
     text-align: center;
     display: inline-block;
     width: 200px;
@@ -3649,6 +3655,18 @@ button:hover{
     right: -43px;
     font-size: 13pt;
 }
+.rank_top_span8{
+    display: inline-block;
+    width: 100px;
+    height: 28px;
+    position: absolute;
+    z-index: 2;
+    right: -43px;
+    font-size: 11pt;
+    bottom: -2px;
+    left: 50px;
+    text-align: center;
+}
 .record_rank_filter1{
     display: inline-block;
     width: 130px;
@@ -3678,7 +3696,7 @@ button:hover{
 }
 .record_rank_span1{
     display: inline-block;
-    width: 150px;
+    width: 110px;
     float: left;
     margin-top: 15px;
     height: 28px;
@@ -3719,4 +3737,69 @@ button:hover{
     height: 28px;
     border-bottom: 1px solid #3b4147;
     font-size: 14pt;
+}
+.rank_cha_select{
+    width: 1142px;
+    height: 155px;
+    background-color: #262335;
+    overflow: scroll;
+    border-bottom: 1px solid #3b4147;
+}
+.rank_cha_select :hover{
+    cursor: pointer;
+}
+.rank_cha_select_box{
+    width: 65px;
+    height: 65px;
+    text-align: center;
+    float: left;
+    margin: 5px;
+}
+.record_select_img{
+    margin-left: 10px;
+    width: 43px;
+    border: 2px solid #3b4147;
+    border-radius: 100%;
+    float: left;
+}
+.rank_cha_select_box .actived{
+    border: 2px solid rgb(244,216,35);
+}
+.record_select_span{
+    display: inline-block;
+    width: 65px;
+    height: 20px;
+    text-align: center;
+}
+.rank_left_button{
+    width: 50px;
+    height: 50px;
+    border: none;
+    float: left;
+    background-color: #262335;
+    border-bottom:1px solid #3b4147;
+    border-radius: 3px;
+}
+.rank_left_button_tri{
+    width: 0px;
+    height: 0px;
+    border: 15px solid transparent;
+    border-right: 25px solid rgb(209, 209, 209);
+    margin-left: -8px;
+}
+.rank_right_button{
+    width: 50px;
+    height: 50px;
+    border: none;
+    float: right;
+    background-color: #262335;
+    border-bottom: 1px solid #3b4147;
+    border-radius: 3px;
+}
+.rank_right_button_tri{
+    width: 0px;
+    height: 0px;
+    border: 15px solid transparent;
+    border-left: 25px solid rgb(209, 209, 209);
+    margin-left: 5px;
 }
