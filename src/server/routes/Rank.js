@@ -88,91 +88,101 @@ router.get('/', async (req, res, next) => {
 });
 
 router.post('/', async (req, res, next) => {
-    //try {
-        //await Rank.deleteMany({matchingTeamMode:[1, 2, 3]});
-        const ranks = await Rank.find({});
-        //let count = 0;
-        //for (let index = 1; index < 4; index++) {
-        //    const _rank = await getRank(1, index);
-        //    const ranks = _rank.data.topRanks;
-            
-            //await sleep(1000);
-            let data = '';
+    try {
+        await Rank.deleteMany({matchingTeamMode:[1, 2, 3]});
+
+        for (let index = 1; index < 4; index++) {
+            const _rank = await getRank(1, index);
+            const ranks = _rank.data.topRanks;
+
             for (let i = 0 ; i < ranks.length ; i++) {
-                //const r = ranks[i];
-                //r['matchingTeamMode'] = index;
-                //new Rank(r).save();
-                const user1 = await getUserStats(ranks[i]['userNum'], 1);//.userStats;
-                const user0 = await getUserStats(ranks[i]['userNum'], 0);//.userStats;
-
-                if (user1.data.userStats !== undefined) {
-                    for (let j = 0 ; j < user1.data.userStats.length ; j++) {
-                        const userStats = user1.data.userStats[j];
-                        const _userStats = { };
-                        _userStats['index'] = userStats['userNum'] + '_' + userStats['seasonId'] + '_' + userStats['matchingMode'] + '_' + userStats['matchingTeamMode'];
-                        _userStats['userNum'] = userStats['userNum'];
-
-                        const characterStats = { };
-                        userStats['characterStats'].forEach(char => {
-                            const c_number = char['characterCode'];
-                            characterStats[c_number] = {
-                                totalGames: char['characterCode'],
-                                usages: char['usages'],
-                                maxKillings: char['maxKillings'],
-                                top3: char['top3'],
-                                top3Rate: char['top3Rate']
-                            };
-                        });
-                        _userStats['characterStats'] = characterStats;
-                        _userStats['averageAssistants'] = userStats['averageAssistants'];
-                        _userStats['averageHunts'] = userStats['averageHunts'];
-                        _userStats['averageKills'] = userStats['averageKills'];
-                        _userStats['averageRank'] = userStats['averageRank'];
-                        _userStats['totalGames'] = userStats['totalGames'];
-                        _userStats['totalWins'] = userStats['totalWins'];
-                        _userStats['top1'] = userStats['top1'];
-                        _userStats['top3'] = userStats['top3'];
-
-                        await Users.findOneAndUpdate({ index: _userStats['index'] }, _userStats, { upsert:true });
-                    }
-                }
-
-                if (user0.data.userStats !== undefined) {
-                    for (let j = 0 ; j < user0.data.userStats.length ; j++) {
-                        const userStats = user0.data.userStats[j];
-                        const _userStats = { };
-                        _userStats['index'] = userStats['userNum'] + '_' + userStats['seasonId'] + '_' + userStats['matchingMode'] + '_' + userStats['matchingTeamMode'];
-                        _userStats['userNum'] = userStats['userNum'];
-
-                        const characterStats = { };
-                        userStats['characterStats'].forEach(char => {
-                            const c_number = char['characterCode'];
-                            characterStats[c_number] = {
-                                totalGames: char['characterCode'],
-                                usages: char['usages'],
-                                maxKillings: char['maxKillings'],
-                                top3: char['top3'],
-                                top3Rate: char['top3Rate']
-                            };
-                        });
-                        _userStats['characterStats'] = characterStats;
-                        _userStats['averageAssistants'] = userStats['averageAssistants'];
-                        _userStats['averageHunts'] = userStats['averageHunts'];
-                        _userStats['averageKills'] = userStats['averageKills'];
-                        _userStats['averageRank'] = userStats['averageRank'];
-                        _userStats['totalGames'] = userStats['totalGames'];
-                        _userStats['totalWins'] = userStats['totalWins'];
-                        _userStats['top1'] = userStats['top1'];
-                        _userStats['top3'] = userStats['top3'];
-
-                        await Users.findOneAndUpdate({ index: _userStats['index'] }, _userStats, { upsert:true });
-                    }
-                }
-
-                if (i%100 === 0)
-                    console.log(i);
-
+                const r = ranks[i];
+                r['matchingTeamMode'] = index;
+                new Rank(r).save();
             }
+        }
+
+        res.send('{ "code": 200, "message": "Success" }');
+    } catch (err) {
+        res.send('{"code": 500, "message": "'+err+'"}');
+    }
+});
+
+router.post('/users', async (req, res, next) => {
+    //try {
+        const ranks = await Rank.find({});
+
+        for (let i = 0 ; i < ranks.length ; i++) {
+            const user1 = await getUserStats(ranks[i]['userNum'], 1);//.userStats;
+            const user0 = await getUserStats(ranks[i]['userNum'], 0);//.userStats;
+
+            if (user1.data.userStats !== undefined) {
+                for (let j = 0 ; j < user1.data.userStats.length ; j++) {
+                    const userStats = user1.data.userStats[j];
+                    const _userStats = { };
+                    _userStats['index'] = userStats['userNum'] + '_' + userStats['seasonId'] + '_' + userStats['matchingMode'] + '_' + userStats['matchingTeamMode'];
+                    _userStats['userNum'] = userStats['userNum'];
+
+                    const characterStats = { };
+                    userStats['characterStats'].forEach(char => {
+                        const c_number = char['characterCode'];
+                        characterStats[c_number] = {
+                            totalGames: char['characterCode'],
+                            usages: char['usages'],
+                            maxKillings: char['maxKillings'],
+                            top3: char['top3'],
+                            top3Rate: char['top3Rate']
+                        };
+                    });
+                    _userStats['characterStats'] = characterStats;
+                    _userStats['averageAssistants'] = userStats['averageAssistants'];
+                    _userStats['averageHunts'] = userStats['averageHunts'];
+                    _userStats['averageKills'] = userStats['averageKills'];
+                    _userStats['averageRank'] = userStats['averageRank'];
+                    _userStats['totalGames'] = userStats['totalGames'];
+                    _userStats['totalWins'] = userStats['totalWins'];
+                    _userStats['top1'] = userStats['top1'];
+                    _userStats['top3'] = userStats['top3'];
+
+                    await Users.findOneAndUpdate({ index: _userStats['index'] }, _userStats, { upsert:true });
+                }
+            }
+
+            if (user0.data.userStats !== undefined) {
+                for (let j = 0 ; j < user0.data.userStats.length ; j++) {
+                    const userStats = user0.data.userStats[j];
+                    const _userStats = { };
+                    _userStats['index'] = userStats['userNum'] + '_' + userStats['seasonId'] + '_' + userStats['matchingMode'] + '_' + userStats['matchingTeamMode'];
+                    _userStats['userNum'] = userStats['userNum'];
+
+                    const characterStats = { };
+                    userStats['characterStats'].forEach(char => {
+                        const c_number = char['characterCode'];
+                        characterStats[c_number] = {
+                            totalGames: char['characterCode'],
+                            usages: char['usages'],
+                            maxKillings: char['maxKillings'],
+                            top3: char['top3'],
+                            top3Rate: char['top3Rate']
+                        };
+                    });
+                    _userStats['characterStats'] = characterStats;
+                    _userStats['averageAssistants'] = userStats['averageAssistants'];
+                    _userStats['averageHunts'] = userStats['averageHunts'];
+                    _userStats['averageKills'] = userStats['averageKills'];
+                    _userStats['averageRank'] = userStats['averageRank'];
+                    _userStats['totalGames'] = userStats['totalGames'];
+                    _userStats['totalWins'] = userStats['totalWins'];
+                    _userStats['top1'] = userStats['top1'];
+                    _userStats['top3'] = userStats['top3'];
+
+                    await Users.findOneAndUpdate({ index: _userStats['index'] }, _userStats, { upsert:true });
+                }
+            }
+
+            if (i%100 === 0)
+                console.log(i);
+        }
         //}
 
         res.send('{ "code": 200, "message": "Success" }');

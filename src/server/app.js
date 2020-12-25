@@ -2,8 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const port = 3001;
 const connect = require('./schemas');
-const rank = require('./routes/rank');
-const users = require('./routes/users');
+const rank = require('./routes/Rank');
+const users = require('./routes/Users');
 
 const app = express();
 
