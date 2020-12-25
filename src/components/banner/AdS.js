@@ -61,7 +61,7 @@ class AdS extends Component {
         } else {
             const _ad_style = {...ad_style, visibility: 'hidden'};
             this.setState({ad_style: _ad_style});
-        }        
+        }
     }
 
     render() {
@@ -69,32 +69,26 @@ class AdS extends Component {
 
         return (
             <div className="Ad">
-                <div className="Ad_box_L" style={ad_style} >
-                    {/* <ins
-                        className="kakao_ad_area"
-                        style={{display: 'none'}}
-                        data-ad-unit="DAN-bNJte4YPeeTSfDWr"
-                        data-ad-width="160"
-                        data-ad-height="600"
-                        ></ins> */}
-                    <AdSense.Google
-                        client='ca-pub-7215780243476450'
-                        slot='7685058911'
-                    />
-                </div>
-                <div className="Ad_box_R" style={ad_style}>  
-                    {/* <ins
-                        className="kakao_ad_area"
-                        style={{display: 'none'}}
-                        data-ad-unit="DAN-UEsPHiGhX2DmCfqY"
-                        data-ad-width="160"
-                        data-ad-height="600"
-                        ></ins>  */}
-                    <AdSense.Google  
-                        client='ca-pub-7215780243476450'
-                        slot='8351079805'
-                        />
-                </div>
+                {
+                    ad_style.visibility === 'visible' &&
+                        <AdSense.Google
+                            className='Ad_box_L'
+                            client='ca-pub-7215780243476450'
+                            slot='7685058911'
+                            style={{ display: 'block', width:300, ...ad_style }}
+                            responsive='true'
+                            />
+                }
+                {
+                    ad_style.visibility === 'visible' &&
+                        <AdSense.Google
+                            className='Ad_box_R'
+                            client='ca-pub-7215780243476450'
+                            slot='8351079805'
+                            style={{ display: 'block', width:300, ...ad_style }}
+                            responsive='true'
+                            />
+                }
             </div>
         );
     };
