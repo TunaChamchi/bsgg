@@ -9,7 +9,7 @@ class AdS extends Component {
         this.state = {
             start : 480,
             top : 480,
-            vw: 1575,
+            vw: 1900,
             ad_style: {
                 position: 'absolute',
                 visibility: 'visible'
