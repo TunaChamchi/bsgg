@@ -71,28 +71,54 @@ class Thend extends Component {
 
 
         return (
-            <div className="S_Trend">
-                <div className="S_Trend0">
-                    <span className="S_Trend_T">Trend</span>
-                    <div className="S_Trend_tab">
-                        <div className="tabHeaders">
-                            {this.rangeView()}
+            <div>
+                <div className="S_Trend">
+                    <div className="S_Trend0">
+                        <span className="S_Trend_T">Trend</span>
+                        {/*{<div className="S_Trend_tab">
+                            <div className="tabHeaders">
+                                {this.rangeView()}
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="S_Trend1">
-                    <div className="tabHeaders">
-                        {this.typeView()}
+                    <div className="S_Trend1">
+                        <div className="tabHeaders">
+                            {this.typeView()}
+                        </div>}*/}
+                    </div>
+                    <div className="S_Trend2">
+                        {
+                            trend.map((name, idx) =>
+                                this.trendView(name, idx)
+                            )
+                        }
                     </div>
                 </div>
-                <div className="S_Trend2">
-                    {
-                        trend.map((name, idx) =>
-                            this.trendView(name, idx)
-                        )
-                    }
+                <div className="master">
+                    <div className="master0">Master</div>
+                    <div className="master_rank">
+                        <span className="master_rank1">1</span>
+                        <span className="master_rank2">에미디</span>
+                        <span className="master_rank3">150게임</span>
+                    </div>
+                    <div className="master_rank">
+                        <span className="master_rank1">2</span>
+                        <span className="master_rank2">에미디</span>
+                        <span className="master_rank3">150게임</span>
+                    </div>
+                    <div className="master_rank">
+                        <span className="master_rank1">3</span>
+                        <span className="master_rank2">에미디</span>
+                        <span className="master_rank3">150게임</span>
+                    </div>
+                    <div className="master_rank">
+                        <span className="master_rank1">4</span>
+                        <span className="master_rank2">에미디</span>
+                        <span className="master_rank3">150게임</span>
+                    </div>
+                    <button className="master_button">더 보기</button>
                 </div>
-            </div>
+        </div>
         );
     };
 }

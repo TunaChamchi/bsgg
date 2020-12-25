@@ -28,15 +28,15 @@ class Skill extends Component {
 
             return (
                 <div className='S_Skill_tab' key={'type' + idx}>
-                    <div className="S_skill_toolbox">
+                   { /*<div className="S_skill_toolbox">
                         <img className='S_Skill_img' src={img} />
                          <div className="S_skill_tooltip">
                             <span><b>{skilName}</b></span><br />
                             <span>{detail}</span>
                         </div>
-                    </div>
+            
                     <div className="S_SKill_key"><span>{name}</span></div>          
-                </div>
+                </div>*/}</div>
             )
         });
     };
@@ -55,10 +55,23 @@ class Skill extends Component {
         }
         
         return list.map((tree, idx) => 
-            <div className='tabHeaders' key={'treeTab'+idx} >
+            <div className='skill_tabs' key={'treeTab'+idx} >
                 <div className={"skill_tab" + (idx===skillTreeFocus ? ' actived' : '')} 
                     onClick={(e) => tree['name']?this.skillTreeTabHandler(idx):''}>
-                    <span>{tree['name']?intl.formatMessage({ id: 'detail.'+tree['name'] }):''}</span>
+                    <div className="skill_tab_imgbox">
+                        <div className="skill_tab_Q">Q</div>
+                        <div className="skill_tab_W">W</div>
+                        <div className="skill_tab_E">E</div>
+                        <div className="skill_tab_T">T</div>
+                        <span className="skill_tab_mark1">&gt;</span>
+                        <span className="skill_tab_mark2">&gt;</span>
+                        <span className="skill_tab_mark3">&gt;</span>
+                    </div>
+                    <div className='skill_tab_span'>
+                        <span className='skill_tab_span1'>픽률 27.6%</span>
+                        <span className='skill_tab_span2'>승률 34.6%</span>
+                        <span className='skill_tab_span3'>340</span>
+                    </div>
                 </div>
             </div>
         )
@@ -107,13 +120,15 @@ class Skill extends Component {
 
         return (            
             <div className="S_Skill">
-                <span className="S_Skill0">{intl.formatMessage({ id: 'detail.skill_info' })}</span>
+                <div className="S_Skill2">
+                    <span>{intl.formatMessage({ id: 'detail.스킬트리' })}</span>
+                </div>
                     <div className="S_Skill1">
                         {this.skillView()}
                     </div>
-                <div className="S_Skill2">
-                    <span>{intl.formatMessage({ id: 'detail.스킬트리' })}</span>
+                    <div className="skill_tree_tab">
                     {this.skillTreeTabView()}
+                    </div>
                     <div className="skill_centent">
                         <div className="skill_imgbox">
                             {this.skillTreePick()}
@@ -123,8 +138,9 @@ class Skill extends Component {
                         </div>
                         <div className="skill_box0">
                             <div className='skill_td'>
+                                <img className='skill_img2' src="img/weapons/쌍검.jpg" />
                                 {
-                                    ["S", ...Array.from({length: 20}, (v,i) => i+1)].map(i => 
+                                    [...Array.from({length: 20}, (v,i) => i+1)].map(i => 
                                         <div className="skill_level" key={'level'+i}>{i}</div>
                                     )
                                 }
@@ -132,7 +148,6 @@ class Skill extends Component {
                             {this.skillTreeTdView()}
                         </div>
                     </div>
-                </div>
             </div>
         );
     };

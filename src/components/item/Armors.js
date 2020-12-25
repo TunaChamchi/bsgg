@@ -89,13 +89,16 @@ class Armors extends Component {
                     <div className="tabHeaders">
                         {this.typeView()}
                     </div>
-                    <div className="S_item_sort_b">
-                        <span className="S_item_sort_b1">{intl.formatMessage({id:'rank'})}</span>
-                        <span className="S_item_sort_b2">{intl.formatMessage({id:'name'})}</span>
-                        <span className="S_item_sort_b3">{intl.formatMessage({id:'win-rate'})}</span>
+                    <div className="S_item_sort">
+                        <span className="S_item_sort1">{intl.formatMessage({id:'rank'})}</span>
+                        <span className="S_item_sort2">{intl.formatMessage({id:'name'})}</span>
+                        <span className="S_item_sort3">{intl.formatMessage({id:'win-rate'})}</span>
+                        <span className="S_item_sort4">{intl.formatMessage({id:'pick-rate'})}</span>
                     </div>
                 </div>
+                <div className="item_scroll">
                 {this.armorsView()}
+                </div>
             </div>
         );
     };

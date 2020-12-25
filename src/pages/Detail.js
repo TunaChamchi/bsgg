@@ -6,6 +6,7 @@ import { Header, SubBanner, AdS, Footer } from 'components/banner';
 import { Top, Trend, Skill } from 'components/detail';
 import { Weapons, Armors } from 'components/item';
 import { CharacterScore, skillTreeList } from 'lib/data';
+import mapImg from 'img/map2.png';
 
 class Detail extends Component {
     constructor(props) {
@@ -20,6 +21,24 @@ class Detail extends Component {
             ad_style: {},
             skillTree: [],
             skillTree2: [],
+            mapList: {
+                '양궁장': 'Archery',
+                '골목길': 'Alley',
+                '학교': 'School',
+                '호텔': 'Hotel',
+                '모래사장': 'Beach',
+                '숲': 'Forest',
+                '고급주택가': 'Uptown',
+                '고급 주택가': 'Uptown',
+                '연못': 'Pond',
+                '절': 'Temple',
+                '병원': 'Hospital',
+                '성당': 'Chapel',
+                '공장': 'Factory',
+                '항구': 'Dock',
+                '묘지': 'Cemetery',
+                '번화가': 'Avenue'
+            },
         };
     }
     componentWillMount() {
@@ -109,7 +128,7 @@ class Detail extends Component {
 
     render() {
         const { intl } = this.props;
-        const { data, character, weapon, rangeFocus, typeFocus, weaponList, weaponTotal, skillTree, skillTree2 } = this.state;
+        const { data, character, weapon, rangeFocus, typeFocus, weaponList, weaponTotal, skillTree, skillTree2, mapList } = this.state;
         
         const metaData = {
             title: 'BSGG.kr - ' + intl.formatMessage({id: 'characters.'+data['character']}) + ' ' + intl.formatMessage({id: 'weapons.'+data['weapon']}),
@@ -127,26 +146,248 @@ class Detail extends Component {
                         parameter={{character, weapon, rangeFocus, typeFocus}}
                         />
                     <div className="S_left">
-                        <Trend 
-                            data={data}
-                            parameter={{character, weapon, rangeFocus, typeFocus}}
-                            />
+                        <span className="S_left0">Guide</span>
+                        <div className="tabHeaders">
+                            <div className="S_left_tab actived">솔로</div>
+                            <div className="S_left_tab">듀오</div>
+                            <div className="S_left_tab">스쿼드</div>
+                        </div>
                         <Skill
                             data={data}
                             skillTree={skillTree}
                             skillTree2={skillTree2}
                             parameter={{character, weapon, rangeFocus, typeFocus}}
                             />
+                        <div className="item">
+                            <div className="item0"> 
+                                <div className="item0_span">추천 아이템</div>
+                                <div className="tabHeaders">
+                                    <div className="item0_tab">순위</div>
+                                    <div className="item0_tab actived">빌드</div>
+                                </div>
+                            </div>
+                            <div className='item_tabs'>
+                                <div className='item_tab actived'>
+                                    <div className="item_tab_imgbox_all">
+                                        <div className="item_tab_imgbox">
+                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
+                                            <img className="item_tab_img" src="img/item/AK-12.png" />
+                                        </div>
+                                        <div className="item_tab_imgbox">
+                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
+                                            <img className="item_tab_img" src="img/item/AK-12.png" />
+                                        </div>
+                                        <div className="item_tab_imgbox">
+                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
+                                            <img className="item_tab_img" src="img/item/AK-12.png" />
+                                        </div>
+                                        <div className="item_tab_imgbox">
+                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
+                                            <img className="item_tab_img" src="img/item/AK-12.png" />
+                                        </div>
+                                        <div className="item_tab_imgbox">
+                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
+                                            <img className="item_tab_img" src="img/item/AK-12.png" />
+                                        </div>
+                                        <div className="item_tab_imgbox">
+                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
+                                            <img className="item_tab_img" src="img/item/AK-12.png" />
+                                        </div>
+                                    </div>
+                                    <div className='item_tab_span'>
+                                        <span className='item_tab_span1'>픽률 27.6%</span>
+                                        <span className='item_tab_span2'>승률 34.6%</span>
+                                        <span className='item_tab_span3'>340</span>
+                                    </div>
+                                </div>
+                                <div className='item_tab'>
+                                    <div className="item_tab_imgbox_all">
+                                        <div className="item_tab_imgbox">
+                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
+                                            <img className="item_tab_img" src="img/item/AK-12.png" />
+                                        </div>
+                                        <div className="item_tab_imgbox">
+                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
+                                            <img className="item_tab_img" src="img/item/AK-12.png" />
+                                        </div>
+                                        <div className="item_tab_imgbox">
+                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
+                                            <img className="item_tab_img" src="img/item/AK-12.png" />
+                                        </div>
+                                        <div className="item_tab_imgbox">
+                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
+                                            <img className="item_tab_img" src="img/item/AK-12.png" />
+                                        </div>
+                                        <div className="item_tab_imgbox">
+                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
+                                            <img className="item_tab_img" src="img/item/AK-12.png" />
+                                        </div>
+                                        <div className="item_tab_imgbox">
+                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
+                                            <img className="item_tab_img" src="img/item/AK-12.png" />
+                                        </div>
+                                    </div>
+                                    <div className='item_tab_span'>
+                                        <span className='item_tab_span1'>픽률 27.6%</span>
+                                        <span className='item_tab_span2'>승률 34.6%</span>
+                                        <span className='item_tab_span3'>340</span>
+                                    </div>
+                                </div>
+                                <div className='item_tab'>
+                                    <div className="item_tab_imgbox_all">
+                                        <div className="item_tab_imgbox">
+                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
+                                            <img className="item_tab_img" src="img/item/AK-12.png" />
+                                        </div>
+                                        <div className="item_tab_imgbox">
+                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
+                                            <img className="item_tab_img" src="img/item/AK-12.png" />
+                                        </div>
+                                        <div className="item_tab_imgbox">
+                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
+                                            <img className="item_tab_img" src="img/item/AK-12.png" />
+                                        </div>
+                                        <div className="item_tab_imgbox">
+                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
+                                            <img className="item_tab_img" src="img/item/AK-12.png" />
+                                        </div>
+                                        <div className="item_tab_imgbox">
+                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
+                                            <img className="item_tab_img" src="img/item/AK-12.png" />
+                                        </div>
+                                        <div className="item_tab_imgbox">
+                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
+                                            <img className="item_tab_img" src="img/item/AK-12.png" />
+                                        </div>
+                                    </div>
+                                    <div className='item_tab_span'>
+                                        <span className='item_tab_span1'>픽률 27.6%</span>
+                                        <span className='item_tab_span2'>승률 34.6%</span>
+                                        <span className='item_tab_span3'>340</span>
+                                    </div>
+                                </div>
+                                <div className='item_tab'>
+                                    <div className="item_tab_imgbox_all">
+                                        <div className="item_tab_imgbox">
+                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
+                                            <img className="item_tab_img" src="img/item/AK-12.png" />
+                                        </div>
+                                        <div className="item_tab_imgbox">
+                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
+                                            <img className="item_tab_img" src="img/item/AK-12.png" />
+                                        </div>
+                                        <div className="item_tab_imgbox">
+                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
+                                            <img className="item_tab_img" src="img/item/AK-12.png" />
+                                        </div>
+                                        <div className="item_tab_imgbox">
+                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
+                                            <img className="item_tab_img" src="img/item/AK-12.png" />
+                                        </div>
+                                        <div className="item_tab_imgbox">
+                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
+                                            <img className="item_tab_img" src="img/item/AK-12.png" />
+                                        </div>
+                                        <div className="item_tab_imgbox">
+                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
+                                            <img className="item_tab_img" src="img/item/AK-12.png" />
+                                        </div>
+                                    </div>
+                                    <div className='item_tab_span'>
+                                        <span className='item_tab_span1'>픽률 27.6%</span>
+                                        <span className='item_tab_span2'>승률 34.6%</span>
+                                        <span className='item_tab_span3'>340</span>
+                                    </div>
+                                </div>
+                                <div className='item_tab'>
+                                    <div className="item_tab_imgbox_all">
+                                        <div className="item_tab_imgbox">
+                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
+                                            <img className="item_tab_img" src="img/item/AK-12.png" />
+                                        </div>
+                                        <div className="item_tab_imgbox">
+                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
+                                            <img className="item_tab_img" src="img/item/AK-12.png" />
+                                        </div>
+                                        <div className="item_tab_imgbox">
+                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
+                                            <img className="item_tab_img" src="img/item/AK-12.png" />
+                                        </div>
+                                        <div className="item_tab_imgbox">
+                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
+                                            <img className="item_tab_img" src="img/item/AK-12.png" />
+                                        </div>
+                                        <div className="item_tab_imgbox">
+                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
+                                            <img className="item_tab_img" src="img/item/AK-12.png" />
+                                        </div>
+                                        <div className="item_tab_imgbox">
+                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
+                                            <img className="item_tab_img" src="img/item/AK-12.png" />
+                                        </div>
+                                    </div>
+                                    <div className='item_tab_span'>
+                                        <span className='item_tab_span1'>픽률 27.6%</span>
+                                        <span className='item_tab_span2'>승률 34.6%</span>
+                                        <span className='item_tab_span3'>340</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="item_route">
+                                <div className="tabHeaders">
+                                    <div className="item_route_tab actived">루트1</div>
+                                    <div className="item_route_tab">루트2</div>
+                                    <div className="item_route_tab">루트3</div>
+                                    <div className="item_route_tab">루트4</div>
+                                    <div className="item_route_tab">루트5</div>
+                                </div>
+                                <div className="item_route_map">
+                                    <img className="item_route_map2" src={mapImg} /> 
+                                    {
+                                        Object.keys(mapList).map((key, idx) => {
+                                            const en = mapList[key].toLowerCase();
+                                            return <img className={"Route_R_Mapimg_"+en} src={'img/map/'+key+'.png'} key={'Mapimg_'+idx} /> 
+                                            
+                                        })
+                                    }
+                                    <div className="Route_R_Mapspan_box">
+                                        {
+                                            Object.keys(mapList).map((key, idx) => {
+                                                const en = mapList[key].toLowerCase();
+                                                //const index = selectRoute['route'].indexOf(key);
+                                                //const isSelect = selectMap === key ? ' actived' : '';
+                                                //if (index >= 0) {
+                                                    return (
+                                                        <div key={'Mapspan_'+idx}>
+                                                            <span className={"Route_R_Mapspan_"+en+"1"} key={'Mapspan_'+idx} > {idx+1} </span>
+                                                            <span className={"Route_R_Mapspan_"+en}> {intl.formatMessage({id: mapList[key]})} </span>
+                                                        </div>
+                                                    )
+                                                //}
+                                            })
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="item_rank">
+                                    <Weapons 
+                                    character={character}
+                                    weapon={weapon}
+                                    range={rangeFocus}
+                                    type={typeFocus}
+                                    />
+                                    <Armors 
+                                        range={typeFocus}
+                                    />
+                        </div>
                     </div>
-                    <Weapons 
-                        character={character}
-                        weapon={weapon}
-                        range={rangeFocus}
-                        type={typeFocus}
-                    />
-                    <Armors 
-                        range={typeFocus}
-                    />
+                        <Trend 
+                        data={data}
+                        parameter={{character, weapon, rangeFocus, typeFocus}}
+                        />
+                        
+                    
                 </div>
                 <AdS type={'Detail'}/>
                 <Footer />

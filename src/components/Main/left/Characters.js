@@ -76,7 +76,7 @@ class Characters extends Component {
         <div>
             <div className="cha">
                 <div className="cha0">
-                    <span>{intl.formatMessage({id:'character'})}</span>
+                    <span>Character</span>
                 </div>
                 <div className="cha1">
                     <input className="chasearch" onChange={this.searchHandler} placeholder={intl.formatMessage({id:'main.left.characters.placeholder'})} /> 

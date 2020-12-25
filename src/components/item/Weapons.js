@@ -76,13 +76,6 @@ class Weapons extends Component {
             <div className="S_right">
                 <div className="S_item">
                     <div className="S_item0">
-                    <div className="S_item1">
-                        <span>ITEM</span>
-                        <img className="question_logo" src={qusetionlogo} />
-                        <div className="item_span_tooltip">
-                            <span>{intl.formatMessage({id:'question_item'})}</span>
-                        </div>
-                    </div>
                     </div>
                     <div className="S_item_tab_banner">
                         <div className="S_item_tab1"><span className="S_item_tab1">{intl.formatMessage({id:'weapon'})}</span></div>
@@ -93,7 +86,9 @@ class Weapons extends Component {
                             <span className="S_item_sort4">{intl.formatMessage({id:'pick-rate'})}</span>
                         </div>
                     </div>
+                    <div className="item_scroll">
                     {this.weaponView()}
+                    </div>
                 </div>
             </div>
         );

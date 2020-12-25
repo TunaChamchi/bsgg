@@ -33,10 +33,6 @@ class Map extends Component {
                         </Link>
                     </div>
                     
-                    <div className="Data-period">
-                        
-                        <span>{Version}</span>
-                    </div>
                 </div>
             </div>
         );

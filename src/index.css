@@ -338,7 +338,8 @@ button:hover{
     width: 970px;
     height: 250px;
     background-color: white;
-    margin: auto
+    margin: auto;
+    margin-top: 25px;
 }
 /* 1 page */
 .banner {
@@ -352,7 +353,7 @@ button:hover{
 .language {
     width: 150px;
     padding-left: 10px;
-    padding-top: 15px;
+    padding-top: 10px;
     text-align: left;
     float: left;
 }
@@ -385,33 +386,6 @@ button:hover{
     width: 400px;
     padding-top: 15px;
     margin-left: -150px;
-}
-.menubutton{
-    width: 100px;
-    border-color: rgba(0,0,0,0);
-    background-color:  rgba(0,0,0,0);
-    border-radius: 0px;
-    font-size: 15px;
-    font-weight: bold;
-    color: rgb(209, 209, 209);
-    margin-left: -30px;
-}
-.banner-menu{
-    margin: auto;
-    width: 1130px;
-}
-.banner-botton{
-    word-spacing: 20px;
-    width: 565px;
-    float: left;
-    text-align: left;
-}
-.Data-period{
-    width: auto;
-    float: right;
-    text-align: right;
-    margin-top: 5px;
-    margin-right: -10px;
 }
 .newimg{
     height: 12px ;
@@ -449,7 +423,6 @@ button:hover{
     color: rgb(209, 209, 209);
 }
 .cha{
-    margin-top: 7px;
     background-color: rgb(38, 35, 53);
     width: 390px;
     height: auto;
@@ -460,11 +433,12 @@ button:hover{
 .cha0{
     background-color: rgb(35, 27, 47);
     width: 390px;
-    height: 36px;
-    font-size: 17pt;
-    padding-top: 6px;
+    height: 40px;
+    font-size: 23pt;
+    padding-top: 4px;
     border-radius: 3px 3px 0px 0px / 3px 3px 0px 0px ;
     border-bottom: 1px solid#171520;
+    font-family: 'Big Shoulders Stencil Display';
 }
 .cha1{
     margin-top: 6px;
@@ -527,7 +501,7 @@ button:hover{
     width: 750px;
     height: auto;
     padding-bottom: 10px;
-    border-radius: 0px 0px 3px 3px / 0px 0px 3px 3px ;
+    border-radius: 3px;
     background-color: rgb(38, 35, 53);
 }
 .rank0{
@@ -535,6 +509,7 @@ button:hover{
     font-family: 'Big Shoulders Stencil Display';
     background-color: rgb(35, 27, 47);
     border-bottom: 1px solid rgb(23, 21, 32);
+    border-radius: 3px 3px 0px 0px;
 }
 .rank0-1{
     float: right;
@@ -795,14 +770,39 @@ button:hover{
     width: 1152px;
     margin: auto;
 }
+.S_banner-left{
+    float: left;
+    width: 271px;
+}
+.banner-button{
+    clear: both;
+    float: left;
+    text-align: center;
+    margin-top: 18px;
+}
+.banner-button .actived{
+    border-bottom: 1px solid rgb(244,216,35);
+    padding-bottom: 6px;
+}
+.menubutton{
+    text-align: center;
+    background-color: rgba(0,0,0,0);
+    border: none;
+    color: rgb(209, 209, 209);
+    font-size: 11pt;
+    font-weight: 600;
+    float: left;
+    margin-right: 15px;
+    margin-left: 15px;
+}
 .S_mainlogo {
     width: 100px;
     float: left;
+    margin-left: 255px;
 }
 .S_logo {
     width: 80px;
     padding-top: 0px;
-    margin-left: 376px;
 }
 .S_search{
     background-color: rgb(23, 21, 32);
@@ -810,8 +810,29 @@ button:hover{
     margin-top: 45px;
     height: 30px;
     width: 300px;
-    border-radius: 3px;
-    border-bottom: 1px solid #3b4147;
+    border-radius: 50px;
+    border-bottom: 1px solid #241b2f;
+    position: relative;
+}
+.S_search_select{
+    width: 36px;
+    height: 24px;
+    background-color: rgb(209, 209, 209);
+    border-radius: 50px;
+    font-size: 14pt;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+}
+.S_search_selectCircle{
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+    background-color: white;
+    position: absolute;
+    border: none;
+    top: 2px;
+    left: 2px;
 }
 .S_search1{
     border-color: rgba(0,0,0,0);
@@ -819,8 +840,9 @@ button:hover{
     font-size: 11pt;
     margin-top: 5px;
     float: left;
-    width: 300px;
+    width: 240px;
     padding-left: 10px;
+    margin-left: 40px;
     color:gray;
     color: rgb(209, 209, 209);    
 }
@@ -923,7 +945,6 @@ button:hover{
 }
 .S_top-weapon1{
     width: 60px;
-    
 }
 .S_top-weapon2{
     display: inline-block;
@@ -972,27 +993,14 @@ button:hover{
     font-weight: 300;
     font-size: 11pt;
 }
-.S_Data-period{
-    width: 565px;
-    clear: both;
-    float: right;
-    text-align: right;
-}
 .S_left{
-    width: 750px;
+    width: 780px;
     clear: both;
-    padding-top: 10px;
+    margin-top: 30px;
     float: left;
 }
-.S_Trend{
-    height: 450px;
-    background-color: rgb(38, 35, 53);
-    text-align: center;
-    border-radius: 3px;
-    border-bottom: 1px solid #3b4147;
-}
-.S_Trend0{
-    width: 750px;
+.S_left0{
+    width: 780px;
     height: 40px;
     font-family: "Big Shoulders Stencil Display";
     font-size: 23pt;
@@ -1000,23 +1008,579 @@ button:hover{
     float: right;
     background-color: rgb(35, 27, 47);
     border-bottom: 1px solid rgb(23, 21, 32);
+    border-radius: 3px 3px 0px 0px;
+    text-align: center;
 }
-.S_Trend_Text{
-}
-.S_Trend_tab{
-    font-family: "Big Shoulders Stencil Display";
-    float: right;
-    padding-top: 0px;
-    margin-left: -150px;
-    color: gray;
-}
-.tabHeader5{
-    width: 75px;
+.S_left_tab{
+    width: 260px;
     float: left;
-    padding-top: 17px;
+    padding-bottom: 2px;
+    font-size: 16pt;
     color: gray;
+    border-bottom: 1px solid #171520;
+    text-align: center;
+}
+.S_Skill{
+    width: 780px;
+    text-align: center;
+    background-color: rgb(38, 35, 53);
+    border-radius: 3px;
+    height: 351px;
+    border-bottom: 1px solid #3b4147;
+}
+.S_Skill_tab{
+    margin-top: 10px;
+    float: left;
+    margin-left: 30px;
+    font-size: 17pt;
+    
+}
+.S_Skill_img{
+    width: 78px;
+    vertical-align: text-top;
+    clear: both;
+    margin-bottom: -3px;
+    border: 1px solid #3b4147;
+    border-radius: 5px;
+}
+.S_Skill_key{
+    clear: both;
+}
+.S_Skill2{
+    clear: both;
+    font-size: 15pt;
+    padding-top: 2px;
+    height: 32px;
+    background-color: rgb(35, 27, 47);
+    width: 780px;
+    border-bottom: 1px solid rgb(23, 21, 32);
+}
+.skill_title{
+    display: inline-block;
+    float: left;
+    margin-top: 10px;
+    background-color: rgb(35, 27, 47);
+    border-bottom: 1px solid rgb(23, 21, 32);
+}
+.S_Skill1{
+    width: 780px;
+    background-color: #262335;
+}
+.skill_tabs .actived{
+    border-left: 3px solid rgb(244,216,35);
+    color:  rgb(209, 209, 209);
+}
+.skill_tree_tab{
+    float: left;
+    width: 250px;
+    height: 236px;
+    background-color: #251f32;
+    margin-left: -180px;
+    overflow: scroll;
+}
+.skill_tab{
+    width: 246px;
+    float: left;
+    padding-top: 3px;
+    padding-bottom: 6px;
+    height: 49px;
+    font-size: 15pt;
+    color: gray;
+    border-right: 1px solid #3b4147;
+    border-left: 3px solid #3b4147;
+    border-bottom: 1px solid #3b4147;
+}
+.skill_tab_span{
+    float: left;
+}
+.skill_tab_imgbox{
+    margin-left: 10px;
+    position: relative;
+}
+.skill_tab :hover{
+    cursor: pointer;
+}
+.skill_tab_Q{
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    float: left;
+    background-color: #171520;
+    border: 1px solid #3b4147;
+    color: rgb(224, 54, 11);
+    margin-left: 20px;
+}
+.skill_tab_W{
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    float: left;
+    background-color: #171520;
+    border: 1px solid #3b4147;
+    color: rgb(71, 172, 40);
+    margin-left: 20px;
+}
+.skill_tab_E{
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    float: left;
+    background-color: #171520;
+    border: 1px solid #3b4147;
+    color: #007fd3;
+    margin-left: 20px;
+}
+.skill_tab_T{
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    float: left;
+    background-color: #171520;
+    border: 1px solid #3b4147;
+    color: rgb(170, 170, 170);
+    margin-left: 20px;
+}
+.skill_tab_mark1{
+    position: absolute;
+    left: 56px;
+}
+.skill_tab_mark2{
+    position: absolute;
+    left: 108px;
+}
+.skill_tab_mark3{
+    position: absolute;
+    left: 160px;
+}
+.skill_tab_span{
+    margin-top: -2px;
     font-size: 12pt;
-    padding-bottom: 4px;
+    text-align: center;
+}
+.skill_tab_span1{
+    display: inline-block;
+    width: 90px;
+    margin-left: 13px;
+}
+.skill_tab_span2{
+    display: inline-block;
+    width: 90px;
+    margin-left: 0px;
+}
+.skill_tab_span3{
+    display: inline-block;
+    width: 40px;
+    margin-left: 0px;
+}
+.skill_centent{
+    width: 530px;
+    float: right;
+}
+.skill_imgbox{
+    margin-top: -8px;
+    clear: both;
+    text-align: center;
+    position: relative;
+}
+.skill_img {
+    vertical-align: middle;
+    display: inline-block;
+    background-color: rgb(35, 27, 47);
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    font-size: 12pt;
+    margin-top: -5px;
+    margin-left: -1px;
+    font-weight: 400;
+    border: 1px solid#171520;
+}
+.skill_img2 {
+    vertical-align: middle;
+    display: inline-block;
+    background-color: rgb(35, 27, 47);
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    font-size: 12pt;
+    margin-left: 5px;
+    font-weight: 400;
+    border: 1px solid#171520;
+}
+.skill_span{
+    width: 44px;
+    height: 44px;
+    margin-left: 23px;
+    margin-right: 23px;
+    margin-top: 23px;
+    font-size: 21pt;
+    border: solid 1px  rgb(244,216,35);
+    border-radius: 5px;
+}
+.skill_mark1{
+    position: absolute;
+    color:  rgb(244,216,35);
+    top: 23px;
+    left: 165px;
+    font-size: 22pt;
+}
+.skill_mark2{
+    position: absolute;
+    color:  rgb(244,216,35);
+    top: 23px;
+    left: 257px;
+    font-size: 22pt;
+}
+.skill_mark3{
+    position: absolute;
+    color:  rgb(244,216,35);
+    top: 23px;
+    left: 349px;
+    font-size: 22pt;
+}
+.skill_box0{
+    clear: both;
+    margin-top: 5px;
+    text-align: center;
+}
+.skill_td {
+    width: 530px;
+    margin-top: 0px;
+}
+.skill_level{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 4px;
+    background-color: rgb(38, 35, 53);
+    font-size: 11pt;
+    margin-top: 10px;
+    padding-bottom: 5px;
+}
+.skill_tr {
+    display: inline-block;
+    background-color: rgb(35, 27, 47);
+    margin-left: 4px;
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    font-size: 10pt;
+    font-weight: 400;
+    border: 1px solid #171520;
+}
+.skill_T {
+    display: inline-block;
+    background-color: rgb(23, 21, 32);
+    color: rgb(170, 170, 170);
+    border: 1px solid 520;
+}
+.skill_Q{
+    display: inline-block;
+    background-color: rgb(23, 21, 32);
+    color: rgb(224, 54, 11);
+}
+.skill_W{
+    display: inline-block;
+    background-color: rgb(23, 21, 32);
+    color: rgb(71, 172, 40);
+}
+.skill_E{
+    display: inline-block;
+    background-color: rgb(23, 21, 32);
+    color: #007fd3;
+}
+.skill_R{
+    display: inline-block;
+    background-color: rgb(23, 21, 32);
+    color: rgb(244, 178, 35);
+}
+.item{
+    width: 780px;
+    height: 534px;
+    background-color: #262335;
+    margin-top: 10px;
+    border-radius: 3px;
+    text-align: center;
+    border-bottom: 1px solid #3b4147;
+}
+.item0{
+    clear: both;
+    font-size: 15pt;
+    padding-top: 2px;
+    height: 32px;
+    background-color: rgb(35, 27, 47);
+    width: 780px;
+    border-bottom: 1px solid rgb(23, 21, 32);
+    border-radius: 3px 3px 0px 0px;
+}
+.item0_span{
+    width: 380px;
+    float: left;
+    margin-left: 200px;
+    text-align: center;
+}
+.item0_tab{
+    width: 100px;
+    float: right;
+    padding-bottom: 5px;
+    font-size: 14pt;
+    color: gray;
+    text-align: center;
+}
+.item_tabs{
+    float: left;
+    width: 337px;
+    height: 500px;
+    background-color: #251f32;
+    overflow: scroll;
+}
+.item_tabs .actived{
+    border-left: 3px solid rgb(244,216,35);
+    color:  rgb(209, 209, 209);
+}
+.item_tab{
+    width: 333px;
+    float: left;
+    padding-top: 3px;
+    padding-bottom: 6px;
+    height: 90px;
+    font-size: 15pt;
+    color: gray;
+    border-right: 1px solid #3b4147;
+    border-left: 3px solid #3b4147;
+    border-bottom: 1px solid #3b4147;
+}
+.item_tab :hover{
+    cursor: pointer;
+}
+.item_tab_imgbox_all{
+    width: 250px;
+}
+.item_tab_imgbox{
+    position: relative;
+    border-radius: 3px;
+    width: 67px;
+    height: 38px;
+    float: left;
+    margin-top: 5px;
+    margin-right: -5px;
+    margin-left: 8px;
+}
+.item_tab_bg{
+    position: absolute;
+    border-radius: 3px;
+    border: 1px solid #3b4147;
+    top: 0px;
+    left: 0px
+}
+.item_tab_img{
+    position: absolute;
+    border-radius: 3px;
+    top: 0px;
+    left: 0px
+}
+.item_tab_span{
+    font-size: 12pt;
+    text-align: center;
+    margin-top: 3px;
+}
+.item_tab_span1{
+    display: inline-block;
+    width: 90px;
+    margin-top: 2px;
+}
+.item_tab_span2{
+    display: inline-block;
+    width: 90px;
+    margin-top: 2px;
+}
+.item_tab_span3{
+    display: inline-block;
+    width: 40px;
+    margin-top: 2px;
+}
+.item_route{
+    width: 443px;
+    float: left;
+}
+.item_route_tab{
+    width: 88.6px;
+    float: left;
+    padding-bottom: 2px;
+    font-size: 11pt;
+    color: gray;
+    border-bottom: 1px solid  #3b4147;
+    text-align: center;
+}
+.item_route_map{
+    width: 370px;
+    height: 425px;
+    position: relative;
+    margin-left: 40px;
+    margin-top: 50px;
+}
+.item_route_map2{
+    width: 370px;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+}
+.item_rank{
+    width: 780px;
+    background-color: #262335;
+    border-bottom: solid 1px #3b4147;
+    height: 470px;
+}
+.item_scroll{
+    width: 389px;
+    height: 417px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    border-radius: 3px;
+}
+.S_right{
+    width: 390px;
+    float: left;
+    text-align: center;
+    background-color: rgb(38, 35, 53);
+    border-radius: 3px;
+}
+.S_right2{
+    width: 389px;
+    float: left;
+    background-color: rgb(38, 35, 53);
+    text-align: center;
+    border-left: 1px solid #3b4147;
+    border-radius: 3px;
+}
+.S_item_tab1{
+    width: 390px;
+    font-size: 12pt;
+    border-bottom: 1px rgb(244,216,35) solid;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.S_item_tab{
+    width: 77.8px;
+    float: left;
+    font-size: 12pt;
+    border-bottom: 1px solid rgb(23, 21, 32);
+    border-bottom: 1px solid #3b4147;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.S_item_sort{
+    float: left;
+    font-size: 10pt;
+    display: inline-block;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    background-color: rgb(38, 35, 53);
+    border-bottom: 1px solid #3b4147;
+}
+.S_item_sort1{
+    float: left;
+    width: 40px;
+    margin-left: 21px;
+}
+.S_item_sort2{
+    float: left;
+    width: 40px;
+    margin-left: 85px;
+}
+.S_item_sort3{
+    float: left;
+    width: 60px;
+    margin-left: 75px;
+}
+.S_item_sort4{
+    float: left;
+    width: 77px;
+    margin-left: -9px;
+}
+.S_item_rank{
+    width: 390px;
+    clear: both;
+    font-size: 11pt;
+    height: 40px;
+    vertical-align: middle;
+    text-align: left;
+    background-color: rgb(38, 35, 53);
+    display: table;
+    border-bottom: 1px solid #3b4147;
+}
+.S_item_rank1{
+    vertical-align: middle;
+    display: inline-block;
+    width: 30px;
+    font-size: 15pt;
+    margin-left: 25px;
+    text-align: center;
+}
+.S_item_rank2{
+    vertical-align: middle;
+    display: inline-block;
+    width: 63px;
+    text-align: center;
+    border-radius: 2px;
+    border: 1px solid #3b4147;
+    position: absolute;
+    right: 0px;;
+    
+}
+.S_item_rank3{
+    display: table-cell;
+    width: 128px;
+    height: 40px;
+    font-size: 11pt;
+    text-align: center;
+    vertical-align: middle;
+    
+}
+.S_item_rank4{
+    vertical-align: middle;
+    display: inline-block;
+    width: 40px;
+    text-align: center;
+    font-size: 10pt;
+}
+.S_item_rank5{
+    vertical-align: middle;
+    display: inline-block;
+    width: 40px;
+    margin-left: 18px;
+    text-align: center;
+    font-size: 10pt;
+    padding-right: 15px;
+}
+.S_item_rank6{
+    vertical-align: middle;
+    display: inline-block;
+    width: 40px;
+    margin-left: 58px;
+    text-align: center;
+    font-size: 10pt;
+    padding-right: 29px;
+}
+.S_Trend{
+    background-color: rgb(38, 35, 53);
+    text-align: center;
+    border-radius: 3px;
+    border-bottom: 1px solid #3b4147;
+    float: right;
+    padding-bottom: 60px;
+    margin-top: 30px;
+}
+.S_Trend0{
+    width: 360px;
+    height: 40px;
+    font-family: "Big Shoulders Stencil Display";
+    font-size: 23pt;
+    padding-top: 5px;
+    float: right;
+    background-color: rgb(35, 27, 47);
+    border-bottom: 1px solid rgb(23, 21, 32);
+    border-radius: 3px 3px 0px 0px;
 }
 .S_Trend1{
     height: 45px;
@@ -1036,14 +1600,15 @@ button:hover{
     margin-top: 10px;
 }
 .S_Trend_square{
-    margin-top: 20px;
-    margin-left: 23px;
+    padding-top: 1px;
+    margin-top: 65px;
+    margin-bottom: -50px;
+    margin-left: 9px;
     width: 340px;
     height: 140px;
     background-color: rgb(35, 27, 47);
-    float:left;
     border-radius: 5px;
-    border-bottom: 1px solid #3b4147;
+    border: 1px solid #171520;
 }
 .S_Trend_square1{
     text-align: left;
@@ -1105,360 +1670,52 @@ button:hover{
 .S_Trend_avg1{
     clear: both;
 }
-.S_Skill{
-    margin-top: 15px;
-    padding-bottom: 20px;
-    width: 750px;
-    height: auto;
+.master{
+    width: 360px;
+    float: right;
     text-align: center;
-    background-color: rgb(38, 35, 53);
-    border-radius: 3px;
-    border-bottom: 1px solid #3b4147;
-    height: 500px;
-}
-.S_Skill0{
-    width: 750px;
-    height: 40px;
-    font-size: 17pt;
-    display: inline-block;;
-    background-color: rgb(38, 35, 53);
-    padding-top: 5px;
-    border-radius: 3px 3px 0px 0px / 3px 3px 0px 0px ;
-    background-color: rgb(35, 27, 47);
-    border-bottom: 1px solid rgb(23, 21, 32);
-}
-.S_Skill1{
-    margin-left: 30px;
-}
-.S_Skill_tab{
-    margin-top: 10px;
-    float: left;
-    margin-left: 30px;
-    font-size: 17pt;
-    
-}
-.S_Skill_img{
-    width: 78px;
-    vertical-align: text-top;
-    clear: both;
-    margin-bottom: -3px;
-    border: 1px solid #3b4147;
-    border-radius: 5px;
-}
-.S_Skill_key{
-    clear: both;
-}
-.S_Skill2{
-    clear: both;
-    font-size: 15pt;
-    padding-top: 2px;
-    height: 32px;
-    background-color: rgb(35, 27, 47);
-    width: auto;
-    border-bottom: 1px solid rgb(23, 21, 32);
-}
-.skill_title{
-    display: inline-block;
-    width: 250px;
-    float: left;
-    margin-top: 10px;
-    background-color: rgb(35, 27, 47);
-    border-bottom: 1px solid rgb(23, 21, 32);
-}
-.skill_tab{
-    display: block;
-    width: 250px;
-    float: left;
-    padding-top: 3px;
-    padding-bottom: 6px;
-    height: 24px;
-    font-size: 15pt;
-    color: gray;
-    border-bottom: 1px solid #3b4147;
-}
-.skill_imgbox{
-    clear: both;
-    text-align: center;
-    position: relative;
-}
-.skill_img {
-    vertical-align: middle;
-    display: inline-block;
-    background-color: rgb(35, 27, 47);
-    width: 23px;
-    height: 23px;
-    border-radius: 4px;
-    font-size: 12pt;
-    margin-top: -6px;
-    margin-left: -1px;
-    font-weight: 400;
-    border: 1px solid#171520;
-}
-.skill_span{
-    width: 44px;
-    height: 44px;
-    margin-left: 23px;
-    margin-right: 23px;
-    margin-top: 23px;
-    font-size: 21pt;
-    border: solid 1px  rgb(244,216,35);
-    border-radius: 5px;
-}
-.skill_mark1{
-    position: absolute;
-    color:  rgb(244,216,35);
-    top: 23px;
-    left: 275px;
-    font-size: 22pt;
-}
-.skill_mark2{
-    position: absolute;
-    color:  rgb(244,216,35);
-    top: 23px;
-    left: 367px;
-    font-size: 22pt;
-}
-.skill_mark3{
-    position: absolute;
-    color:  rgb(244,216,35);
-    top: 23px;
-    left: 459px;
-    font-size: 22pt;
-}
-.skill_box0{
-    clear: both;
-    margin-top: 5px;
-    text-align: center;
-}
-.skill_td {
-    margin-top: 0px;
-}
-.skill_level{
-    display: inline-block;
-    width: 25px;
-    height: 25px;
-    margin-left: 4px;
-    background-color: rgb(38, 35, 53);
-    font-size: 13pt;
     margin-top: 10px;
 }
-.skill_tr {
-    display: inline-block;
-    background-color: rgb(35, 27, 47);
-    margin-left: 4px;
-    width: 23px;
-    height: 23px;
-    border-radius: 4px;
-    font-size: 12pt;
-    font-weight: 400;
-    border: 1px solid #171520;
-}
-.skill_T {
-    display: inline-block;
-    background-color: rgb(23, 21, 32);
-    color: rgb(170, 170, 170);
-    border: 1px solid 520;
-}
-.skill_Q{
-    display: inline-block;
-    background-color: rgb(23, 21, 32);
-    color: rgb(224, 54, 11);
-}
-.skill_W{
-    display: inline-block;
-    background-color: rgb(23, 21, 32);
-    color: rgb(71, 172, 40);
-}
-.skill_E{
-    display: inline-block;
-    background-color: rgb(23, 21, 32);
-    color: #007fd3;
-}
-.skill_R{
-    display: inline-block;
-    background-color: rgb(23, 21, 32);
-    color: rgb(244, 178, 35);
-}
-.S_right{
-    width: 390px;
-    max-width: 390px;
-    padding-bottom: 20px;
-    float: left;
-    margin-top: 10px;
-    margin-left: 9pt;
-    text-align: center;
-    border-radius: 3px;
-    background-color: rgb(38, 35, 53);
-    border-bottom: 1px solid #3b4147;
-}
-.S_right2{
-    width: 390px;
-    max-width: 390px;
-    padding-bottom: 20px;
-    float: left;
-    margin-top: 5px;
-    margin-left: 9pt;
-    background-color: rgb(38, 35, 53);
-    text-align: center;
-    border-radius: 3px;
-    border-bottom: 1px solid #3b4147;
-}
-.S_item0{
-    overflow: hidden;
-    width: 390px;
-    background-color: rgb(35, 27, 47);
-    border-bottom: 1px solid rgb(23, 21, 32);
-}
-.S_item1{
-    display: inline-block;
-    width: 100px;
-    margin-left: 5px;
-    height: 40px;
-    font-family: "Big Shoulders Stencil Display";
-    font-size: 23pt;
-    padding-top: 5px;
-}
-.S_item_tab_banner{
-    background-color: rgb(38, 35, 53);
-    height: 33px;
-}
-.S_item_tab_banner2{
-    background-color: rgb(35, 27, 47);
+.master0{
+    width: 360px;
     height: 30px;
-    border-radius: 3px 3px 0px 0px / 3px 3px 0px 0px;
-}
-.S_item_tab1{
-    width: 390px;
-    font-size: 14pt;
-    padding-bottom: 3px;
-    border-bottom: 1px rgb(244,216,35) solid;
-}
-.S_item_tab{
-    width: 78px;
-    float: left;
-    font-size: 12pt;
-    margin-top: 3px;
-    padding-bottom: 2px;
-    border-bottom: 1px solid rgb(23, 21, 32);
+    font-family: "Big Shoulders Stencil Display";
+    font-size: 20pt;
     background-color: rgb(35, 27, 47);
+    border-bottom: 1px solid rgb(23, 21, 32);
+    border-radius: 3px 3px 0px 0px;
 }
-.S_item_sort{
-    float: left;
-    font-size: 10pt;
-    display: inline-block;
-    padding-top: 5px;
-    padding-bottom: 4px;
-    background-color: rgb(38, 35, 53);
+.master_rank{
+    width: 360px;
+    height: 30px;
+    background-color: #262335;
+    font-size: 12pt;
     border-bottom: 1px solid #3b4147;
 }
-.S_item_sort1{
-    float: left;
-    width: 40px;
-    margin-left: 21px;
-}
-.S_item_sort2{
-    float: left;
-    width: 40px;
-    margin-left: 85px;
-}
-.S_item_sort3{
-    float: left;
-    width: 60px;
-    margin-left: 75px;
-}
-.S_item_sort4{
-    float: left;
-    width: 77px;
-    margin-left: -8px;
-}
-.S_item_sort_b{
-    float: left;
-    font-size: 10pt;
+.master_rank1{
+    width: 20px;
     display: inline-block;
-    padding-top: 5px;
-    padding-bottom: 4px;
-    margin-bottom: 5px;
-    border-bottom: 1px solid #3b4147;
-}
-.S_item_sort_b1{
-    float: left;
-    width: 40px;
-    margin-left: 20px;
-}
-.S_item_sort_b2{
-    float: left;
-    width: 40px;
-    margin-left: 85px;
-}
-.S_item_sort_b3{
-    float: left;
-    width: 100px;
-    margin-left: 105px;
-}
-.S_item_rank{
-    width: 390px;
-    clear: both;
-    font-size: 11pt;
-    height: 40px;
-    vertical-align: middle;
-    text-align: left;
-    background-color: rgb(38, 35, 53);
-    display: table;
-    border-bottom: 1px solid #3b4147;
-    border-radius: 8px;
-}
-.S_item_rank1{
-    vertical-align: middle;
-    display: inline-block;
-    width: 30px;
+    font-family: "Big Shoulders Stencil Display";
     font-size: 15pt;
-    margin-left: 25px;
-    text-align: center;
+    margin-top: 1px;
 }
-.S_item_rank2{
-    vertical-align: middle;
+.master_rank2{
+    width: 200px;
     display: inline-block;
-    width: 63px;
-    text-align: center;
-    border-radius: 2px;
-    border: 1px solid #3b4147;
-    position: absolute;
-    right: 0px;;
-    
 }
-.S_item_rank3{
-    display: table-cell;
-    width: 128px;
-    height: 40px;
-    font-size: 11pt;
-    text-align: center;
-    vertical-align: middle;
-    
-}
-.S_item_rank4{
-    vertical-align: middle;
+.master_rank3{
+    width: 100px;
     display: inline-block;
-    width: 40px;
-    text-align: center;
-    font-size: 10pt;
 }
-.S_item_rank5{
-    vertical-align: middle;
-    display: inline-block;
-    width: 40px;
-    margin-left: 18px;
-    text-align: center;
-    font-size: 10pt;
-    padding-right: 15px;
-}
-.S_item_rank6{
-    vertical-align: middle;
-    display: inline-block;
-    width: 40px;
-    margin-left: 58px;
-    text-align: center;
-    font-size: 10pt;
-    padding-right: 29px;
+.master_button{
+    width: 360px;
+    height: 28px;
+    background-color: #262335;
+    font-size: 12pt;
+    border:none;
+    border-bottom: 1px solid #3b4147;
+    color: rgb(209, 209, 209);
+    border-radius: 0px 0px 3px 3px;
 }
 /* 3 page */
 .map_main{
@@ -2089,8 +2346,6 @@ button:hover{
     height: 425px;
     margin-bottom: 10px;
     position: relative;
-}
-.Route_R_Mapimg_box .actived{
 }
 .Route_R_Mapimg{
     width: 370px;
@@ -3206,7 +3461,6 @@ button:hover{
     padding-top: 3px;
     border-radius: 3px 3px 0px 0px;
     height: 38px;
-    font-family: 'Big Shoulders Stencil Display';
     border-bottom: 1px solid rgb(23, 21, 32);
 }
 .record_cha0_span{
