@@ -3385,6 +3385,7 @@ button:hover{
 }
 .record_cha_graphW{
     width: 50px;
+    min-width: 10px;
     height: 20px;
     background-color:  rgb(244,216,35);
     border-radius: 10px 0px 0px 10px;
@@ -3395,6 +3396,7 @@ button:hover{
 }
 .record_cha_graphL{
     width: 50px;
+    min-width: 10px;
     height: 20px;
     background-color: gray;
     border-radius: 0px 10px 10px 0px;
@@ -3591,6 +3593,7 @@ button:hover{
 }
 .rank_top_graphW{
     width: 30px;
+    min-width: 7px;
     height: 15px;
     background-color:  rgb(244,216,35);
     border-radius: 10px 0px 0px 10px;
@@ -3601,6 +3604,7 @@ button:hover{
 }
 .rank_top_graphL{
     width: 60px;
+    min-width: 7px;
     height: 15px;
     background-color: gray;
     border-radius: 0px 10px 10px 0px;

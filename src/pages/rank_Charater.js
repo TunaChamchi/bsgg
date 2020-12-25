@@ -4,7 +4,7 @@ import { injectIntl  } from 'react-intl';
 import queryString from 'query-string';
 import { Header, SubBanner, Footer } from 'components/banner'
 
-class Rank extends Component {
+class Rank_Charater extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -28,8 +28,8 @@ class Rank extends Component {
         
         const query = queryString.parse(location.search);
 
-        const page = parseInt(query.page, 1) || 1;
-        const mode = parseInt(query.mode, 0) || 0;
+        const page = parseInt(query.page) || 1;
+        const mode = parseInt(query.mode) || 0;
         const search = query.search || '';
 
         if (search) {                
@@ -47,10 +47,10 @@ class Rank extends Component {
     }
 
     fetchHandler = async (query, prevState) => {
-        let page = parseInt(query.page) || 1;
-        let mode = parseInt(query.mode) || 0;
+        const page = parseInt(query.page) || 1;
+        const mode = parseInt(query.mode) || 0;
         const search = query.search || '';
-        
+
         if (page < 0 || page > 10) {
             page = 1;
         }
@@ -188,14 +188,11 @@ class Rank extends Component {
         });
     }
 
-    gameModeHandler = (e, index) => {
-        this.setState({gameMode: index, index:3, rankTop:[], rank:[]});
-    }
     gameModeTabView = () => {
         const { page, gameMode, gameModeList } = this.state;
         return gameModeList.map((mode, idx) => 
-            <Link to={'/Rank?mode='+idx+'&page='+page} >
-                <div className={'rank_cha_tab1'+(idx===gameMode?' actived':'')} key={'cha_tab_'+idx}>
+            <Link to={'/Rank?mode='+idx+'&page='+page} key={'cha_tab_'+idx}>
+                <div className={'rank_cha_tab1'+(idx===gameMode?' actived':'')}>
                     {mode}
                 </div>
             </Link>
@@ -219,53 +216,126 @@ class Rank extends Component {
                     {this.rankTopView()}
                 </div>
                 <div className="record_main">
-                    <div className="record_cha">
-                        <div className="record_cha0">
-                            <span className="record_cha0_span">RANK</span>
-                            <div className="record_cha0_tabs">
-                                <div className="record_cha0_tab actived">ALL</div>
-                                <Link to={'/RankCharater?mode='+gameMode}>
+                        <div className="record_cha">
+                            <div className="record_cha0">
+                                <span className="record_cha0_span">RANK</span>
+                                <div className="record_cha0_tabs">                                    
+                                    <Link to={'/Rank?mode='+gameMode}>
+                                        <div className="record_cha0_tab actived">ALL</div>
+                                    </Link>
                                     <div className="record_cha0_tab">Character</div>
-                                </Link>
+                                </div>
                             </div>
+                            <div className="rank_cha_tabs">
+                                {this.gameModeTabView()}
+                            </div>
+                            <div className="rank_cha_select">
+                                <div className="rank_cha_select_box">
+                                    <img className="record_select_img actived" src="img/rank/재키.jpg" />
+                                    <span className="record_select_span">재키</span>
+                                </div>
+                                <div className="rank_cha_select_box">
+                                    <img className="record_select_img" src="img/rank/재키.jpg" />
+                                    <span className="record_select_span">재키</span>
+                                </div>
+                                <div className="rank_cha_select_box">
+                                    <img className="record_select_img" src="img/rank/재키.jpg" />
+                                    <span className="record_select_span">재키</span>
+                                </div>
+                                <div className="rank_cha_select_box">
+                                    <img className="record_select_img" src="img/rank/재키.jpg" />
+                                    <span className="record_select_span">재키</span>
+                                </div>
+                                <div className="rank_cha_select_box">
+                                    <img className="record_select_img" src="img/rank/재키.jpg" />
+                                    <span className="record_select_span">재키</span>
+                                </div>
+                                <div className="rank_cha_select_box">
+                                    <img className="record_select_img" src="img/rank/재키.jpg" />
+                                    <span className="record_select_span">재키</span>
+                                </div>
+                                <div className="rank_cha_select_box">
+                                    <img className="record_select_img" src="img/rank/재키.jpg" />
+                                    <span className="record_select_span">재키</span>
+                                </div>
+                                <div className="rank_cha_select_box">
+                                    <img className="record_select_img" src="img/rank/재키.jpg" />
+                                    <span className="record_select_span">재키</span>
+                                </div>
+                                <div className="rank_cha_select_box">
+                                    <img className="record_select_img" src="img/rank/재키.jpg" />
+                                    <span className="record_select_span">재키</span>
+                                </div>
+                                <div className="rank_cha_select_box">
+                                    <img className="record_select_img" src="img/rank/재키.jpg" />
+                                    <span className="record_select_span">재키</span>
+                                </div>
+                                <div className="rank_cha_select_box">
+                                    <img className="record_select_img" src="img/rank/재키.jpg" />
+                                    <span className="record_select_span">재키</span>
+                                </div>
+                                <div className="rank_cha_select_box">
+                                    <img className="record_select_img" src="img/rank/재키.jpg" />
+                                    <span className="record_select_span">재키</span>
+                                </div>
+                                <div className="rank_cha_select_box">
+                                    <img className="record_select_img" src="img/rank/재키.jpg" />
+                                    <span className="record_select_span">재키</span>
+                                </div>
+                                <div className="rank_cha_select_box">
+                                    <img className="record_select_img" src="img/rank/재키.jpg" />
+                                    <span className="record_select_span">재키</span>
+                                </div>
+                                <div className="rank_cha_select_box">
+                                    <img className="record_select_img" src="img/rank/재키.jpg" />
+                                    <span className="record_select_span">재키</span>
+                                </div>
+                                <div className="rank_cha_select_box">
+                                    <img className="record_select_img" src="img/rank/재키.jpg" />
+                                    <span className="record_select_span">재키</span>
+                                </div>
+                                <div className="rank_cha_select_box">
+                                    <img className="record_select_img" src="img/rank/재키.jpg" />
+                                    <span className="record_select_span">재키</span>
+                                </div>
+                                <div className="rank_cha_select_box">
+                                    <img className="record_select_img" src="img/rank/재키.jpg" />
+                                    <span className="record_select_span">재키</span>
+                                </div>
+                            </div>
+                            <div className="record_cha_filter">
+                                <div className="record_cha_filter1">#</div>
+                                <div className="record_cha_filter2">플레이어</div>
+                                <div className="record_rank_filter1">티어</div>
+                                <div className="record_rank_filter2">점수</div>
+                                <div className="record_cha_filter3">게임수</div>
+                                <div className="record_cha_filter4">우승</div>
+                                <div className="record_cha_filter5">승률</div>
+                                <div className="record_rank_filter3">KA/M</div>
+                            </div>
+                            {this.rankTableView()}
                         </div>
-                        <div className="rank_cha_tabs">
-                            {this.gameModeTabView()}
-                        </div>
-                        <div className="record_cha_filter">
-                            <div className="record_cha_filter1">#</div>
-                            <div className="record_cha_filter2">플레이어</div>
-                            <div className="record_rank_filter1">티어</div>
-                            <div className="record_rank_filter2">점수</div>
-                            <div className="record_cha_filter3">게임수</div>
-                            <div className="record_cha_filter4">우승</div>
-                            <div className="record_cha_filter5">승률</div>
-                            <div className="record_rank_filter3">KA/M</div>
-                        </div>
-                        {this.rankTableView()}
-                    </div>
-                    
-                    {
-                        page > 1 &&
-                            <Link to={'/Rank?mode='+gameMode+'&page='+(page-1)} key={'page_left'}>
-                                <button className="rank_left_button" ><div className="rank_left_button_tri"></div></button>
-                            </Link>
-                    }
-                    <div>
                         {
-                            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(idx => 
-                                <Link to={'/Rank?mode='+gameMode+'&page='+idx} key={'page_'+idx}>
-                                    <button className="rank_button" ><div className="rank_button_tri">{idx}</div></button>
+                            page > 1 &&
+                                <Link to={'/Rank?mode='+gameMode+'&page='+(page-1)} key={'page_left'}>
+                                    <button className="rank_left_button" ><div className="rank_left_button_tri"></div></button>
                                 </Link>
-                            )
                         }
-                    </div>
-                    {
-                        page < 10 &&
-                            <Link to={'/Rank?mode='+gameMode+'&page='+(page+1)} key={'page_right'}>
-                                <button className="rank_right_button" ><div className="rank_right_button_tri"></div></button>
-                            </Link>
-                    }
+                        <div>
+                            {
+                                [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(idx => 
+                                    <Link to={'/Rank?mode='+gameMode+'&page='+idx} key={'page_'+idx}>
+                                        <button className="rank_button" ><div className="rank_button_tri">{idx}</div></button>
+                                    </Link>
+                                )
+                            }
+                        </div>
+                        {
+                            page < 10 &&
+                                <Link to={'/Rank?mode='+gameMode+'&page='+(page+1)} key={'page_right'}>
+                                    <button className="rank_right_button" ><div className="rank_right_button_tri"></div></button>
+                                </Link>
+                        }
                 </div>
                 <Footer />
             </div>
@@ -273,4 +343,4 @@ class Rank extends Component {
     };
 }
 
-export default injectIntl(Rank);
+export default injectIntl(Rank_Charater);

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch, Link  } from 'react-router-dom';
-import { Main, Detail, Detail2, Map, RouteM, NewMain ,Match, Character, Rank } from 'pages';
+import { Main, Detail, Detail2, Map, RouteM, NewMain ,Match, Character, Rank, Rank_Charater } from 'pages';
 
 class App extends Component {
     render() {
@@ -15,6 +15,7 @@ class App extends Component {
                     <Route path="/Match" component={Match}/>
                     <Route path="/Character" component={Character}/>
                     <Route path="/Rank" component={Rank}/>
+                    <Route path="/RankCharater" component={Rank_Charater}/>
                 </Switch>
             </div>
         );
