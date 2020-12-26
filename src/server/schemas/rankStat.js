@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
-const userStatSchema = new Schema({
-    userNum: {
-        type: Number,
+const rankStatSchema = new Schema({
+    index: {
+        type: String,
         required: true,
         unique: true
     },
@@ -11,23 +11,27 @@ const userStatSchema = new Schema({
         type: Number,
         required: true
     },
-    totalKills: {
+    totalWins: {
         type: Number,
         required: true
     },
-    maxKill: {
+    rankPercent: {
         type: Number,
         required: true
     },
-    totalAssistants: {
+    averageRank: {
         type: Number,
         required: true
     },
-    totalMonsterKills: {
+    averageKills: {
         type: Number,
         required: true
     },
-    rank: {
+    averageAssistants: {
+        type: Number,
+        required: true
+    },
+    averageHunts: {
         type: Number,
         required: true
     },
@@ -39,12 +43,8 @@ const userStatSchema = new Schema({
         type: Number,
         required: true
     },
-    seasonStats: {
-        type: Object,
-        required: true
-    },
-    characterStats: {
-        type: Object,
+    mostCharacter: {
+        type: Number,
         required: true
     },
 }, {
@@ -52,4 +52,4 @@ const userStatSchema = new Schema({
     strict: false
 })
 
-module.exports = mongoose.model('userStat', userStatSchema);
+module.exports = mongoose.model('rankStat', rankStatSchema);

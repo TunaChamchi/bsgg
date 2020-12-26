@@ -68,6 +68,7 @@ class Rank extends Component {
                 .then(res => res.json())
                 .then(_rank => rank = _rank);
                 
+            console.log(rank);
             this.setState({ gameMode:mode, page:page, rankTop:rank.slice(0, 3), rank:rank.slice(3, 103) });
         } else if (page !== prevState.page) {
             window.scrollTo(0, 0);
@@ -92,7 +93,7 @@ class Rank extends Component {
 
     rankData = (rank, width) => {
         const { gameMode } = this.state;
-        const stat = rank['stat'].filter(s => s['index'].includes('1_3_'+(gameMode+1)))[0];
+        const stat = rank['stat'].filter(s => s['index'].includes('1_'+(gameMode+1)))[0];
 
         if (!stat) return null;
 
@@ -109,13 +110,7 @@ class Rank extends Component {
         const top1Width = top1/total * width;
         const lossWidth = loss/total * width;
 
-        const characterStats = [];
-        for (const key in stat['characterStats']) {
-            characterStats.push({ code:key, ...stat['characterStats'][key] });
-        }
-
-        const character = characterStats.sort((c1, c2) => c2['totalGames']-c1['totalGames'])[0];
-        const charName = getCharacter(character['code'])['name'];
+        const charName = getCharacter(stat['mostCharacter'])['name'];
 
         const _stat = {
             top1: top1,
@@ -204,8 +199,8 @@ class Rank extends Component {
     gameModeTabView = () => {
         const { page, gameMode, gameModeList } = this.state;
         return gameModeList.map((mode, idx) => 
-            <Link to={'/Rank?mode='+idx+'&page='+page} >
-                <div className={'rank_cha_tab1'+(idx===gameMode?' actived':'')} key={'cha_tab_'+idx}>
+            <Link to={'/Rank?mode='+idx+'&page='+page} key={'cha_tab_'+idx}>
+                <div className={'rank_cha_tab1'+(idx===gameMode?' actived':'')}>
                     {mode}
                 </div>
             </Link>
@@ -234,7 +229,7 @@ class Rank extends Component {
                             <span className="record_cha0_span">RANK</span>
                             <div className="record_cha0_tabs">
                                 <div className="record_cha0_tab actived">ALL</div>
-                                <Link to={'/RankCharater?mode='+gameMode}>
+                                <Link to={'/RankCharacter'}>
                                     <div className="record_cha0_tab">Character</div>
                                 </Link>
                             </div>

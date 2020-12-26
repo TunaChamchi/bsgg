@@ -312,6 +312,10 @@ export const getCharacter = (code) => {
     return character[code];
 }
 
+export const getCharacterKeys = () => {
+    return Object.keys(character);
+}
+
 export const skillTreeList = (character, weapon) => {
     return skilTree[character][weapon];
 }
