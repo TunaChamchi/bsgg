@@ -304,6 +304,10 @@ const getUserData = async (userNum) => {
     //if (!isChange)
     //    return null;
 
+    const isUser = await UserStat.findOne({ userNum: userStat['userNum'] });
+    if (!isUser)
+        return null;
+
     //console.log('nickname', nickname);
 
     const userStat = (await getUserStats1(userNum))[0];
@@ -345,7 +349,7 @@ const getUserData = async (userNum) => {
 
                 userStat['nickname'] = _userStats['nickname'];
 
-                userStat['seasonStats'][seasonId][teamMode]['mmr'] = _userStats['mmr'];
+                userStat['seasonStats'][seasonId][teamMode]['mmr'] = _userStats['mmr'] || 0;
             }
         }
     }
