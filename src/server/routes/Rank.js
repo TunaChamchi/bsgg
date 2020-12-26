@@ -304,7 +304,7 @@ const getUserData = async (userNum) => {
     //if (!isChange)
     //    return null;
 
-    const isUser = await UserStat.findOne({ userNum: userStat['userNum'] });
+    const isUser = await UserStat.findOne({ userNum: userNum });
     if (isUser)
         return null;
 
