@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { injectIntl  } from 'react-intl';
 import queryString from 'query-string';
 import { Header, SubBanner, Footer } from 'components/banner'
+import { getCharacter } from 'lib/data'
 
 class Rank extends Component {
     constructor(props) {
@@ -108,6 +109,14 @@ class Rank extends Component {
         const top1Width = top1/total * width;
         const lossWidth = loss/total * width;
 
+        const characterStats = [];
+        for (const key in stat['characterStats']) {
+            characterStats.push({ code:key, ...stat['characterStats'][key] });
+        }
+
+        const character = characterStats.sort((c1, c2) => c2['totalGames']-c1['totalGames'])[0];
+        const charName = getCharacter(character['code'])['name'];
+
         const _stat = {
             top1: top1,
             top3: top3,
@@ -119,6 +128,7 @@ class Rank extends Component {
             lp: lp,
             top1Width: top1Width,
             lossWidth: lossWidth,
+            character: charName
         }
 
         return _stat;
@@ -135,9 +145,9 @@ class Rank extends Component {
 
             return (
                 <div className={"rank_top_"+number} key={"rank_top_"+idx}>
-                    <img className="rank_top_iconimg" src="img/Characters/재키.jpg" />
+                    <img className="rank_top_iconimg" src={"img/Characters/"+stat['character']+".jpg"} />
                     <img className="rank_top_iconborder" src={'img/border/'+tierList[stat['tier']].slice(0, -2)+'.png'} />
-                    <span className="rank_top_lv">{stat['tier']%4+1}</span>
+                    <span className="rank_top_lv">{4-stat['tier']%4}</span>
                     <div className="rank_top_span_box">
                         <div className="rank_top2_span1">{rankTop[number]['rank']}</div>
                         <div className="rank_top_span2">{rankTop[number]['nickname']}</div>
@@ -168,7 +178,7 @@ class Rank extends Component {
             return (
                 <div className="record_cha_box" key={'record_cha_'+idx}>
                     <div className="record_cha_span1">{user['rank']}</div>
-                    <img className="record_cha_img" src="img/Rank/재키.jpg" />
+                    <img className="record_cha_img" src={"img/Rank/"+stat['character']+".jpg"} />
                     <div className="record_cha_span2">{user['nickname']}</div>
                     <img className="record_cha_rankimg" src={'img/rankicon/'+tierList[stat['tier']].slice(0, -2)+'.png'} />
                     <div className="record_rank_span1">{tierList[stat['tier']]}</div>

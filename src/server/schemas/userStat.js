@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
-const userSchema = new Schema({
+const userStatSchema = new Schema({
     index: {
         type: String,
         required: true,
@@ -52,4 +52,4 @@ const userSchema = new Schema({
     strict: false
 })
 
-module.exports = mongoose.model('users', userSchema);
+module.exports = mongoose.model('userStat', userStatSchema);

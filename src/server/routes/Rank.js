@@ -2,7 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const axios = require('axios');
 const Rank = require('../schemas/rank');
-const Users = require('../schemas/users');
+const UserStat = require('../schemas/userStat');
+const User = require('../schemas/user');
+const Match = require('../schemas/match');
 
 const router = express.Router();
 
@@ -28,6 +30,23 @@ const getRank = async (seasonId, matchingTeamMode) => {
         });
     }
 };
+const getRankUser = async (userNum, seasonId, matchingTeamMode) => {
+    try {
+        return await axios.get('https://open-api.bser.io/v1/rank/top/'+userNum+'/'+seasonId+'/'+matchingTeamMode, {
+                headers: {
+                    'x-api-key': 'sWNQXtP4Po3Sd1dWWzHqT5EZSKQfj8478omeZWg0'
+                }
+        });
+    } catch (error) {
+        console.log(error);
+        await sleep(50);
+        return await axios.get('https://open-api.bser.io/v1/rank/top/'+userNum+'/'+seasonId+'/'+matchingTeamMode, {
+                headers: {
+                    'x-api-key': 'sWNQXtP4Po3Sd1dWWzHqT5EZSKQfj8478omeZWg0'
+                }
+        });
+    }
+};
 const getUserStats = async (userNum, seasonId) => {
     try {
         return await axios.get('https://open-api.bser.io/v1/user/stats/'+userNum+'/'+seasonId, {
@@ -47,7 +66,7 @@ const getUserStats = async (userNum, seasonId) => {
 };
 const getUserGame = async (userNum, next) => {
     try {
-        return await axios.get('https://open-api.bser.io/v1/user/game/'+userNum + (next?'?next'+next:''), {
+        return await axios.get('https://open-api.bser.io/v1/user/games/'+userNum + (next?'?next='+next:''), {
                 headers: {
                     'x-api-key': 'sWNQXtP4Po3Sd1dWWzHqT5EZSKQfj8478omeZWg0'
                 }
@@ -55,7 +74,7 @@ const getUserGame = async (userNum, next) => {
     } catch (error) {
         console.log(error);
         await sleep(50);
-        return await axios.get('https://open-api.bser.io/v1/user/game/'+userNum + (next?'?next'+next:''), {
+        return await axios.get('https://open-api.bser.io/v1/user/games/'+userNum + (next?'?next='+next:''), {
                 headers: {
                     'x-api-key': 'sWNQXtP4Po3Sd1dWWzHqT5EZSKQfj8478omeZWg0'
                 }
@@ -69,7 +88,7 @@ router.get('/', async (req, res, next) => {
     const limit = parseInt(req.query.limit);
     console.log(req.query);
     //const ranks = await Rank.find({matchingTeamMode:mode}, null, {sort:{rank:1}});
-    //const users = await Users.find({index:/1+a+/i}, null, {sort:{rank:1}});
+    //const users = await UserStat.find({index:/1+a+/i}, null, {sort:{rank:1}});
     const ranks = await Rank.aggregate([
         { $match: { matchingTeamMode: mode } },
         { $skip:  skip },
@@ -83,6 +102,18 @@ router.get('/', async (req, res, next) => {
             }
         },
     ]);
+    
+    res.json(ranks);
+});
+router.get('/chacter', async (req, res, next) => {
+    const mode =  parseInt(req.query.mode);
+    const character =  parseInt(req.query.character);
+    const skip =  parseInt(req.query.skip);
+    const limit = parseInt(req.query.limit);
+    console.log(req.query);
+    //const ranks = await Rank.find({matchingTeamMode:mode}, null, {sort:{rank:1}});
+    //const users = await UserStat.find({index:/1+a+/i}, null, {sort:{rank:1}});
+    const ranks = await UserStat.file({ index: '*_1_1_'+mode }, null, { sort: { ['characterStats.'+character+'totalGames']:-1 }})
     
     res.json(ranks);
 });
@@ -108,77 +139,21 @@ router.post('/', async (req, res, next) => {
     }
 });
 
-router.post('/users', async (req, res, next) => {
+router.post('/userStat', async (req, res, next) => {
     //try {
-        const ranks = await Rank.find({});
+        const ranks = await Rank.find({}, { _id:0, userNum: 1 });
+        const ranksList = [];
 
         for (let i = 0 ; i < ranks.length ; i++) {
-            const user1 = await getUserStats(ranks[i]['userNum'], 1);//.userStats;
-            const user0 = await getUserStats(ranks[i]['userNum'], 0);//.userStats;
+            const _rank = ranks[i];
 
-            if (user1.data.userStats !== undefined) {
-                for (let j = 0 ; j < user1.data.userStats.length ; j++) {
-                    const userStats = user1.data.userStats[j];
-                    const _userStats = { };
-                    _userStats['index'] = userStats['userNum'] + '_' + userStats['seasonId'] + '_' + userStats['matchingMode'] + '_' + userStats['matchingTeamMode'];
-                    _userStats['userNum'] = userStats['userNum'];
+            if (ranksList.includes(_rank['userNum']))
+                continue;
 
-                    const characterStats = { };
-                    userStats['characterStats'].forEach(char => {
-                        const c_number = char['characterCode'];
-                        characterStats[c_number] = {
-                            totalGames: char['characterCode'],
-                            usages: char['usages'],
-                            maxKillings: char['maxKillings'],
-                            top3: char['top3'],
-                            top3Rate: char['top3Rate']
-                        };
-                    });
-                    _userStats['characterStats'] = characterStats;
-                    _userStats['averageAssistants'] = userStats['averageAssistants'];
-                    _userStats['averageHunts'] = userStats['averageHunts'];
-                    _userStats['averageKills'] = userStats['averageKills'];
-                    _userStats['averageRank'] = userStats['averageRank'];
-                    _userStats['totalGames'] = userStats['totalGames'];
-                    _userStats['totalWins'] = userStats['totalWins'];
-                    _userStats['top1'] = userStats['top1'];
-                    _userStats['top3'] = userStats['top3'];
-
-                    await Users.findOneAndUpdate({ index: _userStats['index'] }, _userStats, { upsert:true });
-                }
-            }
-
-            if (user0.data.userStats !== undefined) {
-                for (let j = 0 ; j < user0.data.userStats.length ; j++) {
-                    const userStats = user0.data.userStats[j];
-                    const _userStats = { };
-                    _userStats['index'] = userStats['userNum'] + '_' + userStats['seasonId'] + '_' + userStats['matchingMode'] + '_' + userStats['matchingTeamMode'];
-                    _userStats['userNum'] = userStats['userNum'];
-
-                    const characterStats = { };
-                    userStats['characterStats'].forEach(char => {
-                        const c_number = char['characterCode'];
-                        characterStats[c_number] = {
-                            totalGames: char['characterCode'],
-                            usages: char['usages'],
-                            maxKillings: char['maxKillings'],
-                            top3: char['top3'],
-                            top3Rate: char['top3Rate']
-                        };
-                    });
-                    _userStats['characterStats'] = characterStats;
-                    _userStats['averageAssistants'] = userStats['averageAssistants'];
-                    _userStats['averageHunts'] = userStats['averageHunts'];
-                    _userStats['averageKills'] = userStats['averageKills'];
-                    _userStats['averageRank'] = userStats['averageRank'];
-                    _userStats['totalGames'] = userStats['totalGames'];
-                    _userStats['totalWins'] = userStats['totalWins'];
-                    _userStats['top1'] = userStats['top1'];
-                    _userStats['top3'] = userStats['top3'];
-
-                    await Users.findOneAndUpdate({ index: _userStats['index'] }, _userStats, { upsert:true });
-                }
-            }
+            ranksList.push(_rank['userNum']);
+            
+            getUserData(ranks[i]['userNum']);
+            await sleep(500);
 
             if (i%100 === 0)
                 console.log(i);
@@ -192,6 +167,99 @@ router.post('/users', async (req, res, next) => {
 });
 
 
+router.get('/userGame', async (req, res, next) => {
+    const userNum = parseInt(req.query.userNum);
+    await getUserData(userNum);
+
+    res.send('{ "code": 200, "message": "Success" }');
+});
+
+const searchSession = [0, 1]
+const  getUserData = async (userNum) => {
+    // nickname으로 아이디 검색하게 변경
+    let nickname = '';
+
+    for (var i = 0 ; i < searchSession.length ; i++) {
+        const sessionId = searchSession[i];
+        const _user = await getUserStats(userNum, sessionId);//.userStats;
+        const user = _user.data.userStats;
+
+        if (user !== undefined) {
+            for (let j = 0 ; j < user.length ; j++) {
+                const userStats = user[j];
+                nickname = userStats['nickname'];
+
+                const _userStats = { };
+                _userStats['index'] = userStats['userNum'] + '_' + userStats['seasonId'] + '_' + userStats['matchingMode'] + '_' + userStats['matchingTeamMode'];
+                _userStats['userNum'] = userStats['userNum'];
+
+                const characterStats = { };
+                userStats['characterStats'].forEach(char => {
+                    const c_number = char['characterCode'];
+                    characterStats[c_number] = {
+                        totalGames: char['totalGames'],
+                        usages: char['usages'],
+                        maxKillings: char['maxKillings'],
+                        top3: char['top3'],
+                        top3Rate: char['top3Rate']
+                    };
+                });
+                _userStats['characterStats'] = characterStats;
+                _userStats['mmr'] = userStats['mmr'];
+                _userStats['averageAssistants'] = userStats['averageAssistants'];
+                _userStats['averageHunts'] = userStats['averageHunts'];
+                _userStats['averageKills'] = userStats['averageKills'];
+                _userStats['averageRank'] = userStats['averageRank'];
+                _userStats['totalGames'] = userStats['totalGames'];
+                _userStats['totalWins'] = userStats['totalWins'];
+                _userStats['top1'] = userStats['top1'];
+                _userStats['top3'] = userStats['top3'];
+
+                await UserStat.findOneAndUpdate({ index: _userStats['index'] }, _userStats, { upsert:true });
+            }
+        }        
+    }
+
+    console.log('nickname', nickname);
+
+    const matchLately = await Match.findOne({ userNum:userNum }, null, { sort: { startDtm:-1 } });
+    let lately;
+
+    if (matchLately !== null)
+        lately = matchLately['startDtm'];
+    else
+        lately = new Date('2020-01-01');
+
+    console.log(lately);
+
+    let next;
+    while(true) {
+        const _matchs = await getUserGame(userNum, next);
+        const matchs = _matchs.data.userGames;
+        next = _matchs.data.next;
+
+        const insertMatchs = matchs.filter(m => new Date(m['startDtm']) > lately);
+
+        if (insertMatchs.length !== 0) {
+            insertMatchs.forEach(m => 
+                new Match(m).save()
+            )
+        } else {
+            break;
+        }
+
+        if (!next)
+            break;
+    }
+
+    // nickname 검색 생기면 위로 이동
+    const user = {
+        userNum: userNum,
+        nickname: nickname,
+        updateDate: Date.now()
+    }
+    await User.findOneAndUpdate({ userNum: user['userNum'] }, user, { upsert:true });
+}
 
 
 

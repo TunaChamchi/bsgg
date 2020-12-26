@@ -23,5 +23,7 @@ module.exports = () => {
     });
 
     require('./rank');
-    require('./users');
+    require('./user');
+    require('./userStat');
+    require('./match');
 };

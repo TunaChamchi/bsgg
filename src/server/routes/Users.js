@@ -1,11 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const Users = require('../schemas/users');
+const UserStat = require('../schemas/userStat');
 
 const router = express.Router();
 
 router.get('/', async (req, res, next) => {
-    const users = await Users.find({});
+    const users = await UserStat.find({});
     res.json(users);
 });
 
