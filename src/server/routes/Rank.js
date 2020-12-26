@@ -228,7 +228,7 @@ router.post('/rankStat', async (req, res, next) => {
 
 router.post('/userStat', async (req, res, next) => {
     //try {
-        const ranks = await Rank.find({}, { _id:0, userNum: 1 });
+        const ranks = await Rank.find({}, { _id:0, userNum: 1 }, { sort : { _id: -1 }});
         const ranksList = [];
 
         for (let i = 0 ; i < ranks.length ; i++) {
@@ -240,7 +240,7 @@ router.post('/userStat', async (req, res, next) => {
             ranksList.push(_rank['userNum']);
             
             getUserData(_rank['userNum']);
-            await sleep(250);
+            await sleep(40);
 
             if (i%100 === 0)
                 console.log(i);
@@ -277,7 +277,7 @@ const getUserData = async (userNum) => {
     else
         lately = new Date('2020-01-01');
 
-    console.log(lately);
+    //console.log(lately);
 
     let isChange = false;
     let next;
@@ -304,8 +304,8 @@ const getUserData = async (userNum) => {
     //if (!isChange)
     //    return null;
 
-    const isUser = await UserStat.findOne({ userNum: userNum });
-    if (isUser)
+    const isUser = await UserStat.find({ userNum: userNum });
+    if (isUser.length !== 0)
         return null;
 
     //console.log('nickname', nickname);
@@ -349,7 +349,13 @@ const getUserData = async (userNum) => {
 
                 userStat['nickname'] = _userStats['nickname'];
 
-                userStat['seasonStats'][seasonId][teamMode]['mmr'] = _userStats['mmr'] || 0;
+                try {
+                    userStat['seasonStats'][seasonId][teamMode]['mmr'] = _userStats['mmr'];
+                } catch (err) {
+                    console.log(err);
+                    console.log(userStat['nickname'], userNum, seasonId, teamMode);
+                    userStat['seasonStats'][seasonId][teamMode]['mmr'] = 0;
+                }
             }
         }
     }
