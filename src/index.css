@@ -302,7 +302,7 @@ button:hover{
 .mainpage_search_select{
     width: 60px;
     height: 40px;
-    background-color: rgb(209, 209, 209);
+    background-color: rgb(139, 139, 139);
     border-radius: 50px;
     font-size: 14pt;
     position: absolute;
@@ -318,14 +318,6 @@ button:hover{
     border: none;
     top: 2px;
     left: 2px;
-}
-.mainpage_search_selectimg{
-    width: 56px;
-    height: 36px;
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    border-radius: 50px;
 }
 .mainpage_search_box{
     background-color: rgba(0,0,0,0);
@@ -817,7 +809,7 @@ button:hover{
 .S_search_select{
     width: 36px;
     height: 24px;
-    background-color: rgb(209, 209, 209);
+    background-color: rgb(139, 139, 139);
     border-radius: 50px;
     font-size: 14pt;
     position: absolute;
@@ -2451,7 +2443,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_alley{
@@ -2462,7 +2454,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_school{
@@ -2473,7 +2465,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_hotel{
@@ -2484,7 +2476,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_beach{
@@ -2495,7 +2487,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_forest{
@@ -2506,7 +2498,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_uptown{
@@ -2517,7 +2509,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_pond{
@@ -2528,7 +2520,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_temple{
@@ -2539,7 +2531,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_hospital{
@@ -2550,7 +2542,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_chapel{
@@ -2561,7 +2553,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_factory{
@@ -2572,7 +2564,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_dock{
@@ -2583,7 +2575,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_cemetery{
@@ -2594,7 +2586,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_research{
@@ -2605,7 +2597,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_avenue{
@@ -2616,7 +2608,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_archery1{
@@ -2627,7 +2619,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2639,7 +2631,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2651,7 +2643,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2663,7 +2655,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2675,7 +2667,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2687,7 +2679,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2699,7 +2691,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2711,7 +2703,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2723,7 +2715,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2735,7 +2727,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2747,7 +2739,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2759,7 +2751,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2771,7 +2763,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2783,7 +2775,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2795,7 +2787,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #171520;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2807,7 +2799,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2910,8 +2902,10 @@ button:hover{
     margin-top: 15px;
 }
 .record_main{
+    clear: both;
     width: 1152px;
     margin: auto;
+    overflow: hidden;
 }
 .record_left{
     width: 350px;
@@ -2943,11 +2937,11 @@ button:hover{
     overflow: hidden;
 }
 .record_rank_icon{
-    width: 100px;
+    width: 80px;
     float: left;
-    margin-top: 5px;
-    margin-left: 25px;
-    margin-right: 25px;
+    margin-top: 18px;
+    margin-left: 35px;
+    margin-right: 35px;
 }
 .record_rank_span1{
     font-size: 18pt;
@@ -3292,6 +3286,7 @@ button:hover{
     margin-top: 5px;
     border-radius: 0px 3px 3px 0px;
     border-bottom: 1px solid #3b4147;
+    position: relative;
 }
 .record_history_win{
     display: inline-block;
@@ -3375,41 +3370,79 @@ button:hover{
     font-size: 15pt;
     margin-top: -5px;
 }
+.record_history3-4{
+    float: left;
+    display: inline-block;
+    width: 300px;
+    margin-top: 5px;
+}
 .record_history3{
     display: inline-block;
-    width: 120px;
+    width: 100px;
     float: left;
-    margin-top: 20px;
     text-align: center;
+    margin-top: 13px;
 }
-.record_history_kill{
+.record_history_lv{
+    font-size: 11pt;
+    display: inline-block;
+    width: 100px;
+    float: left;
+}
+.record_history_mmr{
     display: inline-block;
     width: 60px;
+    clear: both;
     float: left;
-    font-size: 13pt;
-    text-align: center;
+    font-size: 15pt;
+    margin-left: 5px;
 }
-.record_history_assist{
+.record_history_upmark{
     display: inline-block;
-    width: 60px;
-    font-size: 13pt;
+    float: left;
+    width: 12px;
+    margin-top: 8px;
+    margin-left: -5px;
+}
+.record_history_up{
+    display: inline-block;
+    width: 25px;
+    float: left;
+    color: #00b900;
+    font-size: 11pt;
+    margin-top: 3px;
+}
+.record_history_down{
+    display: inline-block;
+    width: 25px;
+    float: left;
+    color: #b90000;
+    font-size: 11pt;
+    margin-top: 3px;
+}
+.record_history4{
+    width: 200px;
+    float: left;
+    height: 90px;
     text-align: center;
 }
 .record_history_kda{
-    font-size: 10pt;
-}
-.record_history4{
-    display: inline-block;
-    width: 110px;
+    width: 200px;
+    font-size: 12pt;
     float: left;
-    margin-top: 20px;
-    margin-left: 30px;
+    margin-top: 25px;
 }
-.record_history_lv{
-    font-size: 13pt;
+.record_history_kda2{
+    color: #007fd3;
 }
-.record_history_monster{
-    font-size: 10pt;
+.record_history_kda3{
+    color: rgb(244,216,35);
+}
+.record_history_badge{
+    width: 25px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
 }
 .record_history_item_box{
     width: 200px;
@@ -3428,11 +3461,220 @@ button:hover{
     border: 1px solid #3b4147;
     position: absolute;
     border-radius: 3px;
+    left: 0px;
 }
 .record_history_item2{
     width: 60px;
     position: absolute;
     border-radius: 3px;
+    left: 1px;
+}
+.record_history_detailbutton{
+    float: left;
+    width: 20px;
+    margin-top: 55px;
+    margin-left: -2px;
+    cursor: pointer;
+}
+.record_history_detail{
+    width: 775px;
+    overflow: hidden;
+    background-color: #262335;
+}
+.record_history_detail0{
+    background-color: #241b2f;
+    text-align: center;
+    font-size: 13pt;
+    height: 27px;
+    border-bottom: 1px solid #171520;
+}
+.record_history_detail_skill{
+    width: 775px;
+    height: 70px;
+    border-bottom: 1px solid #3b4147;
+}
+.record_history_detail_skill_span{
+    width: 200px;
+    display:inline-block;
+    text-align: center;
+    float: left;
+    margin-top: 20px;
+}
+.record_history_detail_skill0{
+    float: left;
+}
+.record_history_detail_skill1{
+    margin-top: 9px;
+}
+.record_history_detail_skill2{
+}
+.record_history_detail_skill1-1{
+    float: left;
+    width: 25px;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid #3b4147;
+    background-color: #241b2f;
+    margin-left: -1px;
+}
+.record_history_detail_skill2-1{
+    float: left;
+    width: 25px;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid #3b4147;
+    border-top: none;
+    margin-left: -1px;
+}
+.record_history_detail_filter{
+    border-bottom: 1px solid #3b4147;
+    height: 25px;
+    padding-top: 3px;
+    text-align: center;
+}
+.record_history_detail_filter1{
+    display: inline-block;
+    float: left;
+    font-size: 10pt;
+    width: 50px;
+}
+.record_history_detail_filter2{
+    display: inline-block;
+    float: left;
+    font-size: 10pt;
+    width: 150px;
+}
+.record_history_detail_filter3{
+    display: inline-block;
+    float: left;
+    font-size: 10pt;
+    width: 160px;
+}
+.record_history_detail_filter4{
+    display: inline-block;
+    float: left;
+    font-size: 10pt;
+    width: 100px;
+    margin-left: -15px;
+}
+.record_history_detail_filter5{
+    display: inline-block;
+    float: left;
+    font-size: 10pt;
+    width: 200px;
+    margin-left: 70px;
+}
+.record_history_detail_box{
+    width: 775px;
+    border-bottom: 1px solid #3b4147;
+    height: 51px;
+}
+.record_history_detail .actived{
+    background-color: #241b2f;
+}
+.record_history_detail_rank{
+    float: left;
+    display: inline-block;
+    width: 50px;
+    font-size: 18pt;
+    margin-top: 5px;
+    text-align: center;
+}
+.record_history_detail_cha{
+    float: left;
+    width: 40px;
+    border-radius: 100%;
+    border: 1px solid #3b4147;
+    margin-top: 4px;
+}
+.record_history_detail_box1{
+    float: left;
+    display: inline-block;
+    width: 130px;
+    margin-left: 10px;
+}
+.record_history_detail_name{
+    width: 130px;
+    font-size: 12pt;
+    margin-top: 4px;
+}
+.record_history_detail_tier{
+    width: 130px;
+    font-size: 9pt;
+}
+.record_history_detail_box2{
+    float: left;
+    display: inline-block;
+    width: 100px;
+    margin-top: 2px;
+}
+.record_history_detail_kill{
+    display: inline-block;
+    width: 100px;
+    font-size: 11pt;
+    float: left;
+    text-align: center;
+}
+.record_history_detail_dmg_graph1{
+    float: left;
+    width: 100px;
+    height: 20px;
+    background-color:  #171520;
+    position: relative;
+    border-radius: 5px;
+    margin-top: 2px;
+}
+.record_history_detail_dmg_graph2{
+    width: 80px;
+    height: 20px;
+    background-color:  #9b2525;
+    position: absolute;
+    border-radius: 5px;
+    top: 0px;
+}
+.record_history_detail_dmg{
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    position: absolute;
+    z-index: 1;
+    font-size: 11pt;
+    margin-top: -1px;
+}
+.record_history_detail_death{
+    display: inline-block;
+    width: 130px;
+    font-size: 12pt;
+    margin-top: 4px;
+    float: left;
+    text-align: center;
+    margin-top: 10px;
+}
+.record_history_detail_itembox{
+    width: 310px;
+    float: left;
+    margin-top: 10px;
+}
+.record_history_detail_item{
+    width: 49px;
+    height: 22.7px;
+    position: relative;
+    margin: 1px;
+    float: left;
+}
+.record_history_detail_item1{
+    width: 47px;
+    border: 1px solid #3b4147;
+    border-radius: 3px;
+    position: absolute;
+    top: 0px
+}
+.record_history_detail_item2{
+    width: 45px;
+    border-radius: 3px;
+    position: absolute;
+    top: 2px;
+    left : 2px;
 }
 .record_history_button{
     width: 775px;
@@ -3442,7 +3684,7 @@ button:hover{
     background-color: #26242e;
     border: none;
     border-bottom: 1px solid #3b4147;
-    margin-top: 10px;
+    margin-top: 5px;
     color: rgb(209, 209, 209);
 }
 .record_cha{
@@ -3456,11 +3698,11 @@ button:hover{
     display: inline-block;
     width: 1152px;
     text-align: center;
+    margin-top: -2px;
     background-color: #241b2f;
     font-size: 23pt;
-    padding-top: 3px;
     border-radius: 3px 3px 0px 0px;
-    height: 38px;
+    height: 43px;
     border-bottom: 1px solid rgb(23, 21, 32);
 }
 .record_cha0_span{
@@ -3469,10 +3711,12 @@ button:hover{
     padding-top: 2px;
     font-size: 23pt;
     margin-left: 200px;
+    font-family: "Big Shoulders Stencil Display";
 }
 .record_cha0_tabs{
     float: right;
-    margin-top: 4px;
+    margin-top: 9px;
+    font-family: "Big Shoulders Stencil Display";
 }
 .record_cha0_tabs .actived{
     color: rgb(209, 209, 209);
@@ -3544,7 +3788,7 @@ button:hover{
 }
 .record_cha_filter4{
     display: inline-block;
-    width: 220px;
+    width: 230px;
     float: left;
     border-bottom: 1px solid #3b4147;
     margin-top: 3px;
@@ -3561,15 +3805,16 @@ button:hover{
 }
 .record_cha_filter6{
     display: inline-block;
-    width: 90px;
+    width: 100px;
     float: left;
     border-bottom: 1px solid #3b4147;
     margin-top: 3px;
     height: 28px;
+    padding-right: 40px;
 }
 .record_cha_filter7{
     display: inline-block;
-    width: 90px;
+    width: 80px;
     float: left;
     border-bottom: 1px solid #3b4147;
     margin-top: 3px;
@@ -3577,7 +3822,7 @@ button:hover{
 }
 .record_cha_filter8{
     display: inline-block;
-    width: 90px;
+    width: 80px;
     float: left;
     border-bottom: 1px solid #3b4147;
     margin-top: 3px;
@@ -3585,12 +3830,12 @@ button:hover{
 }
 .record_cha_filter9{
     display: inline-block;
-    width: 90px;
+    width: 80px;
     float: left;
     border-bottom: 1px solid #3b4147;
     margin-top: 3px;
     height: 28px;
-    padding-right: 39px;
+    padding-right: 9px;
 }
 .record_cha_box{
     clear: both;
@@ -3663,6 +3908,7 @@ button:hover{
     float: left;
     margin-top: 15px;
     height: 28px;
+    margin-right: 10px;
 }
 .record_cha_span4{
     display: inline-block;
@@ -3706,44 +3952,61 @@ button:hover{
 }
 .record_cha_span8{
     display: inline-block;
-    width: 90px;
+    width: 180px;
     float: left;
     margin-top: 15px;
     height: 28px;
-    margin-left: 40px;
 }
 .record_cha_span9{
     display: inline-block;
-    width: 90px;
+    width: 80px;
     float: left;
     margin-top: 15px;
     height: 28px;
 }
 .record_cha_span10{
     display: inline-block;
-    width: 90px;
+    width: 80px;
     float: left;
     margin-top: 15px;
     height: 28px;
 }
 .record_cha_span11{
     display: inline-block;
-    width: 90px;
+    width: 80px;
     float: left;
     margin-top: 15px;
     height: 28px;
 }
 /* 5 page */
-.rank_top_1{
+.rank_top{
+    padding-top: 10px;
+    width: 1152px;
+    margin: auto;
+}
+.rank_top_0{
     width: 200px;
     height: 325px;
     float: left;
     position: relative;
     border-radius: 10px;
     border: 2px solid gold;
+    background-color: #262335 ;
     margin-top: 25px;
     margin-right: 50px;
     margin-left: 50px;
+}
+.rank_top_1{
+    width: 200px;
+    height: 325px;
+    float: left;
+    position: relative;
+    border-radius: 10px;
+    border: 2px solid silver;
+    background-color: #262335 ;
+    margin-top: 65px;
+    margin-bottom: 25px;
+    margin-left: 226px;
 }
 .rank_top_2{
     width: 200px;
@@ -3751,18 +4014,8 @@ button:hover{
     float: left;
     position: relative;
     border-radius: 10px;
-    border: 2px solid silver;
-    margin-top: 65px;
-    margin-bottom: 25px;
-    margin-left: -40px;
-}
-.rank_top_3{
-    width: 200px;
-    height: 325px;
-    float: left;
-    position: relative;
-    border-radius: 10px;
     border: 2px solid brown;
+    background-color: #262335 ;
     margin-top: 65px;
     margin-bottom: 25px;
 }
@@ -3948,7 +4201,7 @@ button:hover{
     margin-top: 3px;
     height: 28px;
 }
-.record_rank_span1{
+.rank_cha_span1{
     display: inline-block;
     width: 110px;
     float: left;
@@ -3956,7 +4209,7 @@ button:hover{
     height: 28px;
     font-size: 16px;
 }
-.record_rank_span2{
+.rank_cha_span2{
     display: inline-block;
     width: 120px;
     float: left;
@@ -3964,7 +4217,15 @@ button:hover{
     height: 28px;
     font-size: 16px;
 }
-.record_rank_span3{
+.rank_cha_span3{
+    display: inline-block;
+    width: 120px;
+    float: left;
+    margin-top: 15px;
+    height: 28px;
+    font-size: 16px;
+}
+.rank_cha_span4{
     display: inline-block;
     width: 140px;
     float: left;
@@ -3993,7 +4254,7 @@ button:hover{
     font-size: 14pt;
 }
 .rank_cha_select{
-    width: 1142px;
+    width: 1152px;
     height: 155px;
     background-color: #262335;
     overflow: scroll;
@@ -4008,6 +4269,8 @@ button:hover{
     text-align: center;
     float: left;
     margin: 5px;
+    margin-left: 9px;
+    margin-right: -7px;
 }
 .record_select_img{
     margin-left: 10px;

@@ -78,40 +78,36 @@
         "스킬" : "Skill Amplification"
     },
     "stat": {
-        "공격력": "Attack Power",
-        "스킬증폭": "Skill Amplification",
-        "공격속도": "Attack Speed",
-        "생명력흡수": "Life Steal",
-        "장탄 수": "Max Ammo",
+        "attackPower": "Attack Power",
+        "increaseSkillDamage": "Skill Amplification",
+        "increaseSkillDamageRatio": "Skill Amplification",
+        "attackSpeedRatio": "Attack Speed",
+        "lifeSteal": "Life Steal",
 
-        "치명타확률": "Critical Chance",
-        "치명타피해량": "Critical Damage",
+        "criticalStrikeChance": "Critical Chance",
+        "criticalStrikeDamage": "Critical Damage",
 
-        "기본공격추가피해": "Extra Attack Dmg",
-        "기본공격시치유감소": "Healing Reduction(Normal)",
-        "스킬적중시치유감소": "Healing Reduction(Skill)",
+        "increaseBasicAttackDamage": "Extra Attack Dmg",
+        "decreaseRecoveryToBasicAttack": "Healing Reduction(Normal)",
+        "decreaseRecoveryToSkill": "Healing Reduction(Skill)",
 
-        "방어력": "Defense",
-        "기본공격피해감소": "Atk Dmg Reduction",
-        "스킬피해감소": "Skill Dmg Reduction",
+        "defense": "Defense",
+        "preventBasicAttackDamaged": "Atk Dmg Reduction",
+        "preventSkillDamagedRatio": "Skill Dmg Reduction",
         
-        "체력": "Max HP",
-        "최대체력": "Max HP",
-        "체력재생": "HP Regen",
-        "체력재생2": "HP Regen(%)",
+        "maxHp": "Max HP",
+        "hpRegen": "HP Regen",
+        "hpRegenRatio":  "HP Regen(%)",
 
-        "최대스태미너": "Max SP",
-        "스태미너재생": "SP Regen",
-        "스태미너재생2": "SP Regen(%)",
-        "스테미너재생": "SP Regen",
-        "스테미너재생2": "SP Regen(%)",
+        "maxSp": "Max SP",
+        "spRegen": "SP Regen",
+        "spRegenRatio": "SP Regen(%)",
 
-        "시야": "Vision Range",
-        "이동속도": "Speed",
-        "쿨다운감소": "Cooldown Reduction",
-        "기본공격사거리": "Attack Range",
-        "비전투중이동속도": "Speed not in combat",
-        "비전투시이동속도": "Speed not in combat"
+        "sightRange": "Vision Range",
+        "moveSpeed": "Speed",
+        "cooldownReduction":"Cooldown Reduction",
+        "attackRange":"Attack Range",
+        "outOfCombatMoveSpeed": "Speed not in combat"
     },
 
     "characters": {

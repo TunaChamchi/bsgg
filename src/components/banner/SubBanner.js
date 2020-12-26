@@ -59,9 +59,9 @@ class SubBanner extends Component {
                             <Link to={'/Route'}>
                                 <button className="menubutton">{intl.formatMessage({id:'main.banner.menu.route'})}</button>
                             </Link>
-                            <a href={'https://playeternalreturn.com/'+defaultLang()+'/ranking/'} target="_blank">
+                            <Link to={'/Rank'}>
                                 <button className="menubutton">{intl.formatMessage({id:'main.banner.menu.rank'})}</button>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                         <div className="S_mainlogo">

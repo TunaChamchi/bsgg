@@ -30,7 +30,7 @@ class Character extends Component {
                 <div className="record_top">
                     <div className="record_top_icon">
                         <img className="record_top_iconimg" src="img/Characters/재키.jpg" />
-                        <img className="record_top_iconborder" src="img/border/이터널.png" />
+                        <img className="record_top_iconborder" src="img/border/Eternity.png" />
                         <span className="record_top_lv">50</span>
                     </div>
                     <div className="record_top_right">
@@ -42,10 +42,10 @@ class Character extends Component {
                         </button>
                         <span className="record_top_updated">최근 업데이트 2시간 전</span>
                     </div>
-                    <img className="record_top_medal" src="img/rankicon/topgod.png" />
-                    <img className="record_top_medal" src="img/rankicon/topgod.png" />
-                    <img className="record_top_medal" src="img/rankicon/topgod.png" />
-                    <img className="record_top_medal" src="img/rankicon/topgod.png" />
+                    <img className="record_top_medal" src="img/medal/탑1.png" />
+                    <img className="record_top_medal" src="img/medal/탑1.png" />
+                    <img className="record_top_medal" src="img/medal/탑1.png" />
+                    <img className="record_top_medal" src="img/medal/탑1.png" />
                 </div>
                 <div className="record_main">
                         <div className="record_cha">
@@ -68,10 +68,10 @@ class Character extends Component {
                                 <div className="record_cha_filter3">게임수</div>
                                 <div className="record_cha_filter4 actived">우승</div>
                                 <div className="record_cha_filter5">승률</div>
-                                <div className="record_cha_filter6">KDA</div>
+                                <div className="record_cha_filter6">KA/M</div>
                                 <div className="record_cha_filter7">최다킬</div>
-                                <div className="record_cha_filter8">평균킬</div>
-                                <div className="record_cha_filter9">CS</div>
+                                <div className="record_cha_filter8">평균순위</div>
+                                <div className="record_cha_filter9">CS/M</div>
                             </div>
                             <div className="record_cha_box">
                                 <div className="record_cha_span1">1</div>
@@ -86,10 +86,14 @@ class Character extends Component {
                                     <div className="record_cha_span6">250</div>
                                 </div>
                                 <div className="record_cha_span7">23%</div>
-                                <div className="record_cha_span8">5 / 5 / 3</div>
+                                        <div className="record_cha_span8">
+                                            <span className="record_history_kda1">2 K</span> <span> / </span>
+                                            <span className="record_history_kda2">2 A</span> <span> / </span>
+                                            <span className="record_history_kda3">4.0</span>
+                                        </div>
                                 <div className="record_cha_span9">7</div>
-                                <div className="record_cha_span10">1.5</div>
-                                <div className="record_cha_span11">24 (4.5)</div>
+                                <div className="record_cha_span10">6.5</div>
+                                <div className="record_cha_span11">24</div>
                             </div>
                         </div>
                 </div>

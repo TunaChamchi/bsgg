@@ -28,9 +28,9 @@ class Rank extends Component {
                 <Header data={metaData}/>
                 <SubBanner />
                 <div className="rank_top">
-                    <div className="rank_top_2">
+                    <div className="rank_top_1">
                         <img className="rank_top_iconimg" src="img/Characters/재키.jpg" />
-                        <img className="rank_top_iconborder" src="img/border/이터널.png" />
+                        <img className="rank_top_iconborder" src="img/border/Eternity.png" />
                         <span className="rank_top_lv">50</span>
                         <div className="rank_top_span_box">
                             <div className="rank_top2_span1">2</div>
@@ -47,9 +47,9 @@ class Rank extends Component {
                                 <div className="rank_top_span8">KDA 5 / 5 / 3</div>
                         </div>
                     </div>
-                    <div className="rank_top_1">
+                    <div className="rank_top_0">
                         <img className="rank_top_iconimg" src="img/Characters/재키.jpg" />
-                        <img className="rank_top_iconborder" src="img/border/이터널.png" />
+                        <img className="rank_top_iconborder" src="img/border/Eternity.png" />
                         <span className="rank_top_lv">50</span>
                         <div className="rank_top_span_box">
                             <div className="rank_top1_span1">1</div>
@@ -66,9 +66,9 @@ class Rank extends Component {
                                 <div className="rank_top_span8">KDA 5 / 5 / 3</div>
                         </div>
                     </div>
-                    <div className="rank_top_3">
+                    <div className="rank_top_2">
                         <img className="rank_top_iconimg" src="img/Characters/재키.jpg" />
-                        <img className="rank_top_iconborder" src="img/border/이터널.png" />
+                        <img className="rank_top_iconborder" src="img/border/Eternity.png" />
                         <span className="rank_top_lv">50</span>
                         <div className="rank_top_span_box">
                             <div className="rank_top3_span1">3</div>
@@ -189,9 +189,9 @@ class Rank extends Component {
                                 <img className="record_cha_img" src="img/rank/재키.jpg" />
                                 <div className="record_cha_span2">아드리아나</div>
                                 <img className="record_cha_rankimg" src="img/rankicon/gold.png" />
-                                <div className="record_rank_span1">Eternal</div>
-                                <div className="record_rank_span2">66 LP</div>
-                                <div className="record_cha_span3">370</div>
+                                <div className="rank_cha_span1">Eternal</div>
+                                <div className="rank_cha_span2">66 LP</div>
+                                <div className="rank_cha_span3">370</div>
                                 <div className="record_cha_graph">
                                     <div className="record_cha_graphW"></div>
                                     <div className="record_cha_graphL"></div>
@@ -200,7 +200,7 @@ class Rank extends Component {
                                     <div className="record_cha_span6">250</div>
                                 </div>
                                 <div className="record_cha_span7">23%</div>
-                                <div className="record_rank_span3">5 / 5 / 3</div>
+                                <div className="rank_cha_span4">5 / 5 / 3</div>
                             </div>
                         </div>
                 <button className="rank_left_button"><div className="rank_left_button_tri"></div></button>
