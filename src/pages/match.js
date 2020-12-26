@@ -51,17 +51,17 @@ class Match extends Component {
                         </button>
                         <span className="record_top_updated">최근 업데이트 2시간 전</span>
                     </div>
-                    <img className="record_top_medal" src="img/rankicon/topgod.png" />
-                    <img className="record_top_medal" src="img/rankicon/topgod.png" />
-                    <img className="record_top_medal" src="img/rankicon/topgod.png" />
-                    <img className="record_top_medal" src="img/rankicon/topgod.png" />
+                    <img className="record_top_medal" src="img/Rankicon/topgod.png" />
+                    <img className="record_top_medal" src="img/Rankicon/topgod.png" />
+                    <img className="record_top_medal" src="img/Rankicon/topgod.png" />
+                    <img className="record_top_medal" src="img/Rankicon/topgod.png" />
                 </div>
                 <div className="record_main">
                     <div className="record_left">
                         <div className="record_rank">
                             <span className="record_rank0">RANK</span>
                             <div className="record_rank_box">
-                                <img className="record_rank_icon" src="img/rankicon/gold.png" />
+                                <img className="record_rank_icon" src="img/Rankicon/gold.png" />
                                 <div className="record_rank_span1">솔로</div>
                                 <div className="record_rank_span2">골드 4 / 10 LP</div>
                                 <div className="record_rank_span3">25전 6승 24.4%</div>
@@ -69,7 +69,7 @@ class Match extends Component {
                                 <div className="record_rank_graph"></div>
                             </div>
                             <div className="record_rank_box">
-                                <img className="record_rank_icon" src="img/rankicon/gold.png" />
+                                <img className="record_rank_icon" src="img/Rankicon/gold.png" />
                                 <div className="record_rank_span1">듀오</div>
                                 <div className="record_rank_span2">골드 4 / 10 LP</div>
                                 <div className="record_rank_span3">25전 6승 24.4%</div>
@@ -77,7 +77,7 @@ class Match extends Component {
                                 <div className="record_rank_graph"></div>
                             </div>
                             <div className="record_rank_box">
-                                <img className="record_rank_icon" src="img/rankicon/gold.png" />
+                                <img className="record_rank_icon" src="img/Rankicon/gold.png" />
                                 <div className="record_rank_span1">스쿼드</div>
                                 <div className="record_rank_span2">골드 4 / 10 LP</div>
                                 <div className="record_rank_span3">25전 6승 24.4%</div>
@@ -98,7 +98,7 @@ class Match extends Component {
                                 <div className="record_most_tab2">스쿼드</div>
                             </div>
                             <div className="record_most_box">
-                                <img className="record_most_img" src="img/rank/재키.jpg" />
+                                <img className="record_most_img" src="img/Rank/재키.jpg" />
                                 <div className="record_most_span">
                                     <div className="record_most_span1">재키</div>
                                     <div className="record_most_span2">승률 24.4%</div>
@@ -107,7 +107,7 @@ class Match extends Component {
                                 </div>
                             </div>
                             <div className="record_most_box">
-                                <img className="record_most_img" src="img/rank/재키.jpg" />
+                                <img className="record_most_img" src="img/Rank/재키.jpg" />
                                 <div className="record_most_span">
                                     <div className="record_most_span1">재키</div>
                                     <div className="record_most_span2">승률 24.4%</div>
@@ -116,7 +116,7 @@ class Match extends Component {
                                 </div>
                             </div>
                             <div className="record_most_box">
-                                <img className="record_most_img" src="img/rank/재키.jpg" />
+                                <img className="record_most_img" src="img/Rank/재키.jpg" />
                                 <div className="record_most_span">
                                     <div className="record_most_span1">재키</div>
                                     <div className="record_most_span2">승률 24.4%</div>
@@ -125,7 +125,7 @@ class Match extends Component {
                                 </div>
                             </div>
                             <div className="record_most_box">
-                                <img className="record_most_img" src="img/rank/재키.jpg" />
+                                <img className="record_most_img" src="img/Rank/재키.jpg" />
                                 <div className="record_most_span">
                                     <div className="record_most_span1">재키</div>
                                     <div className="record_most_span2">승률 24.4%</div>
@@ -134,7 +134,7 @@ class Match extends Component {
                                 </div>
                             </div>
                             <div className="record_most_box">
-                                <img className="record_most_img" src="img/rank/재키.jpg" />
+                                <img className="record_most_img" src="img/Rank/재키.jpg" />
                                 <div className="record_most_span">
                                     <div className="record_most_span1">아드리아나</div>
                                     <div className="record_most_span2">승률 24.4%</div>
@@ -199,21 +199,21 @@ class Match extends Component {
                             </div>
                             <div className="record_trend_most_box">
                                 <div className="record_trend_most">
-                                    <img className="record_trend_most_img" src="img/rank/재키.jpg" />
+                                    <img className="record_trend_most_img" src="img/Rank/재키.jpg" />
                                     <div className="record_trend_most_span">
                                         <div className="record_trend_most_span1">1승 / 34게임 / 24.4%</div>
                                         <div className="record_trend_most_span2">4.1 KDA</div>
                                     </div>
                                 </div>
                                 <div className="record_trend_most">
-                                    <img className="record_trend_most_img" src="img/rank/재키.jpg" />
+                                    <img className="record_trend_most_img" src="img/Rank/재키.jpg" />
                                     <div className="record_trend_most_span">
                                         <div className="record_trend_most_span1">1승 / 34게임 / 24.4%</div>
                                         <div className="record_trend_most_span2">4.1 KDA</div>
                                     </div>
                                 </div>
                                 <div className="record_trend_most">
-                                    <img className="record_trend_most_img" src="img/rank/재키.jpg" />
+                                    <img className="record_trend_most_img" src="img/Rank/재키.jpg" />
                                     <div className="record_trend_most_span">
                                         <div className="record_trend_most_span1">1승 / 34게임 / 24.4%</div>
                                         <div className="record_trend_most_span2">4.1 KDA</div>
@@ -230,8 +230,8 @@ class Match extends Component {
                                     <div className="record_history_date">2일 전</div>
                                 </div>
                                 <div className="record_history2">
-                                    <img className="record_history_img" src="img/rank/재키.jpg" />
-                                    <img className="record_history_weapon" src="img/weapons/단검.jpg" />
+                                    <img className="record_history_img" src="img/Rank/재키.jpg" />
+                                    <img className="record_history_weapon" src="img/Weapons/단검.jpg" />
                                     <div className="record_history_name">아드리아나</div>
                                 </div>
                                 <div className="record_history3">
@@ -245,28 +245,28 @@ class Match extends Component {
                                 </div>
                                 <div className="record_history_item_box">
                                     <div className="record_history_item">
-                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                        <img className="record_history_item1" src="img/Item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/Item/AK-12.png" />
                                     </div>
                                     <div className="record_history_item">
-                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                        <img className="record_history_item1" src="img/Item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/Item/AK-12.png" />
                                     </div>
                                     <div className="record_history_item">
-                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                        <img className="record_history_item1" src="img/Item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/Item/AK-12.png" />
                                     </div>
                                     <div className="record_history_item">
-                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                        <img className="record_history_item1" src="img/Item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/Item/AK-12.png" />
                                     </div>
                                     <div className="record_history_item">
-                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                        <img className="record_history_item1" src="img/Item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/Item/AK-12.png" />
                                     </div>
                                     <div className="record_history_item">
-                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                        <img className="record_history_item1" src="img/Item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/Item/AK-12.png" />
                                     </div>
                                 </div>
                             </div>
@@ -278,8 +278,8 @@ class Match extends Component {
                                     <div className="record_history_date">2일 전</div>
                                 </div>
                                 <div className="record_history2">
-                                    <img className="record_history_img" src="img/rank/재키.jpg" />
-                                    <img className="record_history_weapon" src="img/weapons/단검.jpg" />
+                                    <img className="record_history_img" src="img/Rank/재키.jpg" />
+                                    <img className="record_history_weapon" src="img/Weapons/단검.jpg" />
                                     <div className="record_history_name">아드리아나</div>
                                 </div>
                                 <div className="record_history3">
@@ -293,28 +293,28 @@ class Match extends Component {
                                 </div>
                                 <div className="record_history_item_box">
                                     <div className="record_history_item">
-                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                        <img className="record_history_item1" src="img/Item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/Item/AK-12.png" />
                                     </div>
                                     <div className="record_history_item">
-                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                        <img className="record_history_item1" src="img/Item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/Item/AK-12.png" />
                                     </div>
                                     <div className="record_history_item">
-                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                        <img className="record_history_item1" src="img/Item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/Item/AK-12.png" />
                                     </div>
                                     <div className="record_history_item">
-                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                        <img className="record_history_item1" src="img/Item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/Item/AK-12.png" />
                                     </div>
                                     <div className="record_history_item">
-                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                        <img className="record_history_item1" src="img/Item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/Item/AK-12.png" />
                                     </div>
                                     <div className="record_history_item">
-                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                        <img className="record_history_item1" src="img/Item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/Item/AK-12.png" />
                                     </div>
                                 </div>
                             </div>
@@ -326,8 +326,8 @@ class Match extends Component {
                                     <div className="record_history_date">2일 전</div>
                                 </div>
                                 <div className="record_history2">
-                                    <img className="record_history_img" src="img/rank/재키.jpg" />
-                                    <img className="record_history_weapon" src="img/weapons/단검.jpg" />
+                                    <img className="record_history_img" src="img/Rank/재키.jpg" />
+                                    <img className="record_history_weapon" src="img/Weapons/단검.jpg" />
                                     <div className="record_history_name">아드리아나</div>
                                 </div>
                                 <div className="record_history3">
@@ -341,28 +341,28 @@ class Match extends Component {
                                 </div>
                                 <div className="record_history_item_box">
                                     <div className="record_history_item">
-                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                        <img className="record_history_item1" src="img/Item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/Item/AK-12.png" />
                                     </div>
                                     <div className="record_history_item">
-                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                        <img className="record_history_item1" src="img/Item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/Item/AK-12.png" />
                                     </div>
                                     <div className="record_history_item">
-                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                        <img className="record_history_item1" src="img/Item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/Item/AK-12.png" />
                                     </div>
                                     <div className="record_history_item">
-                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                        <img className="record_history_item1" src="img/Item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/Item/AK-12.png" />
                                     </div>
                                     <div className="record_history_item">
-                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                        <img className="record_history_item1" src="img/Item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/Item/AK-12.png" />
                                     </div>
                                     <div className="record_history_item">
-                                        <img className="record_history_item1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="record_history_item2" src="img/item/AK-12.png" />
+                                        <img className="record_history_item1" src="img/Item/BackGround/영웅.jpg" />
+                                        <img className="record_history_item2" src="img/Item/AK-12.png" />
                                     </div>
                                 </div>
                                 <button className="record_history_button">더 보기</button>

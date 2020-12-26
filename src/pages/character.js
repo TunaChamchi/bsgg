@@ -41,10 +41,10 @@ class Character extends Component {
                         </button>
                         <span className="record_top_updated">최근 업데이트 2시간 전</span>
                     </div>
-                    <img className="record_top_medal" src="img/rankicon/topgod.png" />
-                    <img className="record_top_medal" src="img/rankicon/topgod.png" />
-                    <img className="record_top_medal" src="img/rankicon/topgod.png" />
-                    <img className="record_top_medal" src="img/rankicon/topgod.png" />
+                    <img className="record_top_medal" src="img/Rankicon/topgod.png" />
+                    <img className="record_top_medal" src="img/Rankicon/topgod.png" />
+                    <img className="record_top_medal" src="img/Rankicon/topgod.png" />
+                    <img className="record_top_medal" src="img/Rankicon/topgod.png" />
                 </div>
                 <div className="record_main">
                         <div className="record_cha">
@@ -74,7 +74,7 @@ class Character extends Component {
                             </div>
                             <div className="record_cha_box">
                                 <div className="record_cha_span1">1</div>
-                                <img className="record_cha_img" src="img/rank/재키.jpg" />
+                                <img className="record_cha_img" src="img/Rank/재키.jpg" />
                                 <div className="record_cha_span2">아드리아나</div>
                                 <div className="record_cha_span3">370</div>
                                 <div className="record_cha_graph">
