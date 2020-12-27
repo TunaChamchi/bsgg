@@ -68,6 +68,16 @@ const matchSchema = new Schema({
         required: true
     },
 
+    equipmentOrder: {
+        type: String,
+        required: true
+
+    },
+    skillOrder: {
+        type: String,
+        required: true
+    },
+
     playTime: {
         type: Number,
         required: true

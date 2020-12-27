@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const axios = require('axios');
+const schedule = require('node-schedule');
+
 const Rank = require('../schemas/rank');
 const RankStat = require('../schemas/rankStat');
 const UserStat = require('../schemas/userStat');
@@ -12,9 +14,16 @@ const router = express.Router();
 
 function sleep(ms) {
     return new Promise((resolve) => {
-      setTimeout(resolve, ms);
+        setTimeout(resolve, ms);
     });
 }
+
+// schedule.scheduleJob('0 */1 * * * *', async () => {
+//     console.log(123);
+// })
+
+
+
 const getRank = async (seasonId, matchingTeamMode) => {
     try {
         return await axios.get('https://open-api.bser.io/v1/rank/top/'+seasonId+'/'+matchingTeamMode, {
@@ -231,7 +240,7 @@ router.post('/userStat', async (req, res, next) => {
         const ranks = await Rank.find({}, { _id:0, userNum: 1 }, { sort : { _id: -1 }});
         const ranksList = [];
 
-        for (let i = 2500 ; i < ranks.length ; i++) {
+        for (let i = 0 ; i < ranks.length ; i++) {
             const _rank = ranks[i];
 
             if (ranksList.includes(_rank['userNum']))
@@ -277,7 +286,7 @@ const getUserData = async (userNum) => {
     else
         lately = new Date('2020-01-01');
 
-    //console.log(lately);
+    console.log(lately);
 
     let isChange = false;
     let next;
@@ -301,15 +310,10 @@ const getUserData = async (userNum) => {
             break;
     }
 
-    //if (!isChange)
-    //    return null;
-    //await sleep(5000);
-
-    const isUser = await UserStat.find({ userNum: userNum });
-    if (isUser.length !== 0)
+    if (!isChange) {
+        console.log('not Change');
         return null;
-
-    //console.log('nickname', nickname);
+    }
 
     const userStat = (await getUserStats1(userNum))[0];
     delete userStat['_id'];
@@ -341,21 +345,23 @@ const getUserData = async (userNum) => {
         }
 
         // mmr 값 가져오기
-        const _user = await getUserStats(userNum, seasonId);//.userStats;
-        const user = _user.data.userStats;
-        if (user !== undefined) {
-            for (let j = 0 ; j < user.length ; j++) {
-                const _userStats = user[j];
-                const teamMode = _userStats['matchingTeamMode'];
+        if (seasonId === 1) {
+            const _user = await getUserStats(userNum, seasonId);//.userStats;
+            const user = _user.data.userStats;
+            if (user !== undefined) {
+                for (let j = 0 ; j < user.length ; j++) {
+                    const _userStats = user[j];
+                    const teamMode = _userStats['matchingTeamMode'];
 
-                userStat['nickname'] = _userStats['nickname'];
+                    userStat['nickname'] = _userStats['nickname'];
 
-                try {
-                    userStat['seasonStats'][seasonId][teamMode]['mmr'] = _userStats['mmr'];
-                } catch (err) {
-                    console.log(err);
-                    console.log(userStat['nickname'], userNum, seasonId, teamMode);
-                    userStat['seasonStats'][seasonId][teamMode]['mmr'] = 0;
+                    try {
+                        userStat['seasonStats'][seasonId][teamMode]['mmr'] = _userStats['mmr'];
+                    } catch (err) {
+                        console.log(err);
+                        console.log(userStat['nickname'], userNum, seasonId, teamMode);
+                        userStat['seasonStats'][seasonId][teamMode]['mmr'] = 0;
+                    }
                 }
             }
         }
@@ -562,26 +568,6 @@ router.get('/userStat', async (req, res, next) => {
             }
             
             userStat['seasonStats'][seasonId][teamMode] = teamModeStat;
-        }
-
-        // mmr 값 가져오기
-        const _user = await getUserStats(userNum, seasonId);//.userStats;
-        const user = _user.data.userStats;
-        if (user !== undefined) {
-            for (let j = 0 ; j < user.length ; j++) {
-                const _userStats = user[j];
-                const teamMode = _userStats['matchingTeamMode'];
-
-                userStat['nickname'] = _userStats['nickname'];
-
-                try {
-                    userStat['seasonStats'][seasonId][teamMode]['mmr'] = _userStats['mmr'];
-                } catch (err) {
-                    console.log(err);
-                    console.log(userStat['nickname'], userNum, seasonId, teamMode);
-                    userStat['seasonStats'][seasonId][teamMode]['mmr'] = 0;
-                }
-            }
         }
     }
 
