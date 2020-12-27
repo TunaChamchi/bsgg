@@ -118,10 +118,10 @@ const getUserData = async (userNum) => {
             break;
     }
 
-    if (!isChange) {
-        console.log('not Change');
-        return null;
-    }
+    //if (!isChange) {
+    //    console.log('not Change');
+    //    return null;
+    //}
 
     const userStat = (await getUserStats1(userNum))[0];
     delete userStat['_id'];
@@ -414,3 +414,30 @@ const getGameMatch = async (userNum) => {
             break;
     }
 }
+
+router.post('/userStat', async (req, res, next) => {
+    //try {
+        const ranks = await Rank.find({}, { _id:0, userNum: 1 }, { sort : { _id: -1 }});
+        const ranksList = [];
+
+        for (let i = 0 ; i < ranks.length ; i++) {
+            const _rank = ranks[i];
+
+            if (ranksList.includes(_rank['userNum']))
+                continue;
+
+            ranksList.push(_rank['userNum']);
+            
+            getUserData(_rank['userNum']);
+            await sleep(100);
+
+            if (i%100 === 0)
+                console.log(i);
+        }
+        //}
+
+        res.send('{ "code": 200, "message": "Success" }');
+    /*} catch (err) {
+        res.send('{"code": 500, "message": "'+err+'"}');
+    }*/
+});
