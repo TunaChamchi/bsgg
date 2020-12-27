@@ -127,6 +127,7 @@ const getUserData = async (userNum) => {
     delete userStat['_id'];
     userStat['userNum'] = userNum;
     
+    userStat['seasonStats'] = {};
     for (var i = 0 ; i < searchSeason.length ; i++) {
         const seasonId = searchSeason[i];
         userStat['seasonStats'][seasonId] = {};
