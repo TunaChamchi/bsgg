@@ -629,6 +629,7 @@ router.get('/userStatDB', async (req, res, next) => {
         message:'Success',
         data: userStat
     }
+    console.log(userStat);
     res.send(response);
 })
 
