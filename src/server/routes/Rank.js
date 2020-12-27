@@ -273,7 +273,7 @@ const getUserData = async (userNum) => {
     let lately;
 
     if (matchLately !== null)
-        lately = matchLately['startDtm'];
+        lately = new Date(matchLately['startDtm']);
     else
         lately = new Date('2020-01-01');
 

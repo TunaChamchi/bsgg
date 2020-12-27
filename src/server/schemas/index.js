@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-const MONGO_URL = 'mongodb://localhost:27017/bsgg'
 
 module.exports = () => {
     const connect = () => {
