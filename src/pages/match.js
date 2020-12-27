@@ -52,10 +52,30 @@ class Match extends Component {
                         </button>
                         <span className="record_top_updated">최근 업데이트 2시간 전</span>
                     </div>
-                    <img className="record_top_medal" src="img/medal/승7.png" />
-                    <img className="record_top_medal" src="img/medal/킬5.png" />
-                    <img className="record_top_medal" src="img/medal/탑4.png" />
-                    <img className="record_top_medal" src="img/medal/판6.png" />
+                    <div className="record_top_medal_box">
+                        <img className="record_top_medal" src="img/medal/승7.png" />
+                        <div className="medal_span_tooltip">
+                            <span>ㅇㅇ</span>
+                        </div>
+                    </div>
+                    <div className="record_top_medal_box">
+                        <img className="record_top_medal" src="img/medal/승7.png" />
+                        <div className="medal_span_tooltip">
+                            <span>ㅇㅇ</span>
+                        </div>
+                    </div>
+                    <div className="record_top_medal_box">
+                        <img className="record_top_medal" src="img/medal/승7.png" />
+                        <div className="medal_span_tooltip">
+                            <span>ㅇㅇ</span>
+                        </div>
+                    </div>
+                    <div className="record_top_medal_box">
+                        <img className="record_top_medal" src="img/medal/승7.png" />
+                        <div className="medal_span_tooltip">
+                            <span>ㅇㅇ</span>
+                        </div>
+                    </div>
                 </div>
                 <div className="record_main">
                     <div className="record_left">
@@ -65,7 +85,7 @@ class Match extends Component {
                                 <img className="record_rank_icon" src="img/rankicon/gold.png" />
                                 <div className="record_rank_span1">솔로</div>
                                 <div className="record_rank_span2">골드 4 / 10 LP</div>
-                                <div className="record_rank_span3">25전 6승 24.4%</div>
+                                <div className="record_rank_span3">25전 6승 24.4% / 2.4 K/M</div>
                                 <div className="record_rank_span4">3112위 / 상위 6.8%</div>
                                 <div className="record_rank_graph"></div>
                             </div>
@@ -73,7 +93,7 @@ class Match extends Component {
                                 <img className="record_rank_icon" src="img/rankicon/gold.png" />
                                 <div className="record_rank_span1">듀오</div>
                                 <div className="record_rank_span2">골드 4 / 10 LP</div>
-                                <div className="record_rank_span3">25전 6승 24.4%</div>
+                                <div className="record_rank_span3">25전 6승 24.4% / 2.4 KA/M</div>
                                 <div className="record_rank_span4">3112위 / 상위 6.8%</div>
                                 <div className="record_rank_graph"></div>
                             </div>
@@ -81,7 +101,7 @@ class Match extends Component {
                                 <img className="record_rank_icon" src="img/rankicon/gold.png" />
                                 <div className="record_rank_span1">스쿼드</div>
                                 <div className="record_rank_span2">골드 4 / 10 LP</div>
-                                <div className="record_rank_span3">25전 6승 24.4%</div>
+                                <div className="record_rank_span3">25전 6승 24.4% / 2.4 KA/M</div>
                                 <div className="record_rank_span4">3112위 / 상위 6.8%</div>
                                 <div className="record_rank_graph"></div>
                             </div>
@@ -260,10 +280,25 @@ class Match extends Component {
                                         <span className="record_history_kda1">2 A</span> <span> / </span>
                                         <span className="record_history_kda1">33 CS</span>
                                     </div>
-                                        <div>
-                                            <img className="record_history_badge" src="img/Badge/더헌터.png"/>
-                                            <img className="record_history_badge" src="img/Badge/부쉬그라운드.png"/>
-                                            <img className="record_history_badge" src="img/Badge/루미아트럭.png"/>
+                                        <div className="record_history_badge_box_all">
+                                            <div className="record_history_badge_box">
+                                                <img className="record_history_badge" src="img/Badge/더헌터.png"/>
+                                                <div className="item_span_tooltip">
+                                                    <span>ㅇㅇ</span>
+                                                </div>
+                                            </div>
+                                            <div className="record_history_badge_box">
+                                                <img className="record_history_badge" src="img/Badge/부쉬그라운드.png"/>
+                                                <div className="item_span_tooltip">
+                                                    <span>ㅇㅇ</span>
+                                                </div>
+                                            </div>
+                                            <div className="record_history_badge_box">
+                                                <img className="record_history_badge" src="img/Badge/루미아트럭.png"/>
+                                                <div className="item_span_tooltip">
+                                                    <span>ㅇㅇ</span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

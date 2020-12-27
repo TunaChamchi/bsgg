@@ -151,6 +151,24 @@ button:hover{
     padding: 5px;
     word-spacing: 3px;
     text-align: center;
+    margin-left: -88px;
+}
+.medal_span_tooltip{
+    visibility: hidden;
+    width: 200px;
+    background-color:#262335;
+    position: absolute;
+    z-index: 1;
+    font-size: 10pt;
+    white-space: pre-line;
+    word-break: keep-all;
+    border-radius: 3px;
+    color:white;
+    font-weight: 300;
+    padding: 5px;
+    word-spacing: 3px;
+    text-align: center;
+    margin-left: -70px;
 }
 .S_item_tooltip2{
     visibility: hidden;
@@ -306,6 +324,12 @@ button:hover{
     visibility: visible;
 }
 .skill_img1:hover .S_skill_tooltip1{
+    visibility: visible;
+}
+.record_history_badge_box:hover .item_span_tooltip{
+    visibility: visible;
+}
+.record_top_medal_box:hover .medal_span_tooltip{
     visibility: visible;
 }
 .rank_span{
@@ -3062,6 +3086,12 @@ button:hover{
     font-size: 10pt;
     color: rgb(209, 209, 209);
 }
+.record_top_medal_box{
+    float: right;
+    width: 100px;
+    margin-right: 15px;   
+    margin-top: 15px;
+}
 .record_top_medal{
     float: right;
     width: 100px;
@@ -3604,6 +3634,13 @@ button:hover{
 }
 .record_history_kda3{
     color: rgb(244,216,35);
+}
+.record_history_badge_box_all{
+    width: 150px;
+    margin-left: 48px;
+}
+.record_history_badge_box{
+    float: left;
 }
 .record_history_badge{
     width: 25px;
