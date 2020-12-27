@@ -18,15 +18,15 @@ function sleep(ms) {
 }
 
 // 7시 0분에 전체 유저 전적 검색
-// schedule.scheduleJob('0 0 7 * * *', async () => {
-//     const users = await User.find({}, { _id:0, userNum: 1 }, { sort : { updateDate: 1 }});
+schedule.scheduleJob('0 0 7 * * *', async () => {
+    const users = await User.find({}, { _id:0, userNum: 1 }, { sort : { updateDate: 1 }});
 
-//     for (let i = 0 ; i < users.length ; i++) {        
-//         await getUserData(users['userNum']);
-//     }
+    for (let i = 0 ; i < users.length ; i++) {        
+        await getUserData(users['userNum']);
+    }
 
-//     console.log(Data.now() + ' : GetUserData Complete', users.length);
-// })
+    console.log(Data.now() + ' : GetUserData Complete', users.length);
+})
 
 const getUserStats = async (userNum, seasonId) => {
     try {
@@ -92,7 +92,7 @@ router.post('/userData', async (req, res, next) => {
 
 module.exports = router;
 
-const getUserData = async (userNum) => {
+const getCharacterData = async (userNum) => {
     // nickname으로 아이디 검색하게 변경
     let nickname = '';
 
@@ -124,19 +124,8 @@ const getUserData = async (userNum) => {
                 for (const key in m['equipment']) {
                     equipmentOrder += m['equipment'][key] + '_';
                 }
-
-                if (m['characterLevel'] >= 16) {
-                    const keys = Object.keys(m['skillOrderInfo']);
-
-                    for (var j = 0 ; j < 16 ; ) {
-                        const key = keys[j];
-                        const skillCode = parseInt(m['skillOrderInfo'][key]);
-
-                        if (skillCode / 1000000 !== 3) {
-                            skillOrder += skillCode + '_';
-                            j++;
-                        }
-                    }
+                for (const key in m['skillOrderInfo']) {
+                    skillOrder += m['skillOrderInfo'][key] + '_';
                 }
 
                 m['equipmentOrder'] = equipmentOrder;
@@ -377,13 +366,3 @@ const getCharacterStats = async (userNum) => {
         { $sort: { totalGames: -1 } }
     ]);
 }
-
-router.post('/userStat', async (req, res, next) => {
-    const users = await User.find({}, { _id:0, userNum: 1 }, { sort : { updateDate: 1 }});
-
-    for (let i = 0 ; i < users.length ; i++) {        
-        await getUserData(users[i]['userNum']);
-    }
-
-    console.log(Data.now() + ' : GetUserData Complete', users.length);
-});
