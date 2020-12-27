@@ -231,7 +231,7 @@ router.post('/userStat', async (req, res, next) => {
         const ranks = await Rank.find({}, { _id:0, userNum: 1 }, { sort : { _id: -1 }});
         const ranksList = [];
 
-        for (let i = 0 ; i < ranks.length ; i++) {
+        for (let i = 2500 ; i < ranks.length ; i++) {
             const _rank = ranks[i];
 
             if (ranksList.includes(_rank['userNum']))
@@ -240,7 +240,7 @@ router.post('/userStat', async (req, res, next) => {
             ranksList.push(_rank['userNum']);
             
             getUserData(_rank['userNum']);
-            await sleep(1000);
+            await sleep(100);
 
             if (i%100 === 0)
                 console.log(i);
@@ -303,7 +303,7 @@ const getUserData = async (userNum) => {
 
     //if (!isChange)
     //    return null;
-    await sleep(5000);
+    //await sleep(5000);
 
     const isUser = await UserStat.find({ userNum: userNum });
     if (isUser.length !== 0)
@@ -633,6 +633,74 @@ router.get('/userStatDB', async (req, res, next) => {
     console.log(userStat);
     res.send(response);
 })
+
+
+
+
+
+
+router.post('/gameMatch', async (req, res, next) => {
+    //try {
+        const ranks = await Rank.find({}, { _id:0, userNum: 1 }, { sort : { _id: -1 }});
+        const ranksList = [];
+
+        for (let i = 2500 ; i < ranks.length ; i++) {
+            const _rank = ranks[i];
+
+            if (ranksList.includes(_rank['userNum']))
+                continue;
+
+            ranksList.push(_rank['userNum']);
+            
+            getGameMatch(_rank['userNum']);
+            await sleep(250);
+
+            if (i%100 === 0)
+                console.log(i);
+        }
+        //}
+
+        res.send('{ "code": 200, "message": "Success" }');
+    /*} catch (err) {
+        res.send('{"code": 500, "message": "'+err+'"}');
+    }*/
+});
+
+
+
+const getGameMatch = async (userNum) => {
+    const matchLately = await Match.findOne({ userNum:userNum }, null, { sort: { startDtm:-1 } });
+    let lately;
+
+    if (matchLately !== null)
+        lately = new Date(matchLately['startDtm']);
+    else
+        lately = new Date('2020-01-01');
+
+    //console.log(lately);
+
+    let isChange = false;
+    let next;
+    while(true) {
+        const _matchs = await getUserGame(userNum, next);
+        const matchs = _matchs.data.userGames;
+        next = _matchs.data.next;
+
+        const insertMatchs = matchs.filter(m => new Date(m['startDtm']) > lately);
+
+        if (insertMatchs.length !== 0) {
+            isChange = true;
+            insertMatchs.forEach(m => 
+                new Match(m).save()
+            )
+        } else {
+            break;
+        }
+
+        if (!next)
+            break;
+    }
+}
 
 
 module.exports = router;
