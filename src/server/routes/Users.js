@@ -17,49 +17,45 @@ function sleep(ms) {
     });
 }
 
-// 7시 0분에 전체 유저 전적 검색
-// schedule.scheduleJob('0 0 7 * * *', async () => {
-//     const users = await User.find({}, { _id:0, userNum: 1 }, { sort : { updateDate: 1 }});
+// 6시 0분에 전체 유저 전적 검색
+schedule.scheduleJob('0 0 6 * * *', async () => {
+    const users = await User.find({}, { _id:0, userNum: 1 }, { sort : { updateDate: 1 }});
 
-//     for (let i = 0 ; i < users.length ; i++) {        
-//         await getUserData(users['userNum']);
-//     }
+    for (let i = 0 ; i < users.length ; i++) {        
+        await getUserData(users['userNum']);
+    }
 
-//     console.log(Data.now() + ' : GetUserData Complete', users.length);
-// })
+    console.log(Date.now() + ' : GetUserData Complete', users.length);
+})
 
 const getUserStats = async (userNum, seasonId) => {
-    try {
-        return await axios.get('https://open-api.bser.io/v1/user/stats/'+userNum+'/'+seasonId, {
-                headers: {
-                    'x-api-key': 'sWNQXtP4Po3Sd1dWWzHqT5EZSKQfj8478omeZWg0'
-                }
-        });
-    } catch (error) {
-        console.log(error);
-        await sleep(50);
-        return await axios.get('https://open-api.bser.io/v1/user/stats/'+userNum+'/'+seasonId, {
-                headers: {
-                    'x-api-key': 'sWNQXtP4Po3Sd1dWWzHqT5EZSKQfj8478omeZWg0'
-                }
-        });
+    while (true) {
+        try {
+            return await axios.get('https://open-api.bser.io/v1/user/stats/'+userNum+'/'+seasonId, {
+                    headers: {
+                        'x-api-key': 'sWNQXtP4Po3Sd1dWWzHqT5EZSKQfj8478omeZWg0'
+                    }
+            });
+        } catch (error) {
+            if (error.response.status !== 429) return;
+            
+            await sleep(250);
+        }
     }
 };
 const getUserGame = async (userNum, next) => {
-    try {
-        return await axios.get('https://open-api.bser.io/v1/user/games/'+userNum + (next?'?next='+next:''), {
-                headers: {
-                    'x-api-key': 'sWNQXtP4Po3Sd1dWWzHqT5EZSKQfj8478omeZWg0'
-                }
-        });
-    } catch (error) {
-        console.log(error);
-        await sleep(50);
-        return await axios.get('https://open-api.bser.io/v1/user/games/'+userNum + (next?'?next='+next:''), {
-                headers: {
-                    'x-api-key': 'sWNQXtP4Po3Sd1dWWzHqT5EZSKQfj8478omeZWg0'
-                }
-        });
+    while (true) {
+        try {
+            return await axios.get('https://open-api.bser.io/v1/user/games/'+userNum + (next?'?next='+next:''), {
+                    headers: {
+                        'x-api-key': 'sWNQXtP4Po3Sd1dWWzHqT5EZSKQfj8478omeZWg0'
+                    }
+            });
+        } catch (error) {
+            if (error.response.status !== 429) return;
+            
+            await sleep(250);
+        }
     }
 };
 
@@ -385,5 +381,5 @@ router.post('/userStat', async (req, res, next) => {
         await getUserData(users[i]['userNum']);
     }
 
-    console.log(Data.now() + ' : GetUserData Complete', users.length);
+    console.log(Date.now() + ' : GetUserData Complete', users.length);
 });
