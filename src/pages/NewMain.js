@@ -35,7 +35,6 @@ class Main extends Component {
                 </div>
                 <div className="mainpage_search">
                     <div className="mainpage_search_select">
-                        <img className="mainpage_search_selectimg" src="img/jackie.png" />
                         <button className="mainpage_search_selectCircle"></button>
                     </div>
                     <input className="mainpage_search_box" onChange={this.searchHandler} placeholder={intl.formatMessage({id:'main.left.characters.placeholder'})} /> 

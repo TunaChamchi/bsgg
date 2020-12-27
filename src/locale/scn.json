@@ -76,40 +76,36 @@
         "스킬" : "技能增幅"
     },
     "stat": {
-        "공격력": "攻击力",
-        "스킬증폭": "技能增幅",
-        "공격속도": "攻击速度",
-        "생명력흡수": "体能吸收",
-        "장탄 수": "最大数量",
+        "attackPower": "攻击力",
+        "increaseSkillDamage": "技能增幅",
+        "increaseSkillDamageRatio": "技能增幅(%)",
+        "attackSpeedRatio": "攻击速度",
+        "lifeSteal": "体能吸收",
 
-        "치명타확률": "暴击概率",
-        "치명타피해량": "暴击伤害量",
+        "criticalStrikeChance": "暴击概率",
+        "criticalStrikeDamage": "暴击伤害量",
 
-        "기본공격추가피해": "基本攻击额外伤害",
-        "기본공격시치유감소": "基本攻击肘减少治愈",
-        "스킬적중시치유감소": "技能肘减少治愈",
+        "increaseBasicAttackDamage": "基本攻击额外伤害",
+        "decreaseRecoveryToBasicAttack": "基本攻击肘减少治愈",
+        "decreaseRecoveryToSkill": "技能肘减少治愈",
 
-        "방어력": "防御力",
-        "기본공격피해감소": "基本攻击伤害减少",
-        "스킬피해감소": "技能伤害减少",
+        "defense": "防御力",
+        "preventBasicAttackDamaged": "基本攻击伤害减少",
+        "preventSkillDamagedRatio": "技能伤害减少",
         
-        "체력": "最大体力",
-        "최대체력": "最大体力",
-        "체력재생": "体力再生",
-        "체력재생2": "体力再生(%)",
+        "maxHp": "最大体力",
+        "hpRegen": "体力再生",
+        "hpRegenRatio":  "体力再生(%)",
 
-        "최대스태미너": "最大",
-        "스태미너재생": "耐力再生",
-        "스태미너재생2": "耐力再生(%)",
-        "스테미너재생": "耐力再生",
-        "스테미너재생2": "耐力再生(%)",
+        "maxSp": "最大",
+        "spRegen": "耐力再生",
+        "spRegenRatio": "耐力再生(%)",
 
-        "시야": "视野范围",
-        "이동속도": "移动速度",
-        "쿨다운감소": "冷却减少",
-        "기본공격사거리": "基本攻击射程",
-        "비전투중이동속도": "非战斗 移动速度",
-        "비전투시이동속도": "非战斗 移动速度"
+        "sightRange": "视野范围",
+        "moveSpeed":"移动速度",
+        "cooldownReduction":"冷却减少",
+        "attackRange":"基本攻击射程",
+        "outOfCombatMoveSpeed": "非战斗 移动速度"
     },
 
     "characters": {

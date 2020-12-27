@@ -86,9 +86,6 @@ class Top extends Component {
                         <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.공격속도' })}</span>
                         <span className="S_top-stat3">{getStat(character, '공격속도', 0)}</span>
                     </div>
-                <div className="S_Data-period">
-                    <span>{Version}</span>
-                </div>
             </div>
         );
     };

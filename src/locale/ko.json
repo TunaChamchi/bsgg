@@ -44,7 +44,9 @@
                 "rank": "랭크",
                 "item": "아이템",
                 "map": "맵",
-                "route": "루트"
+                "route": "루트",
+                "tier": "캐릭터 / 티어"
+
             },
             "placeholder": "캐릭터를 검색하세요."
         },
@@ -72,47 +74,43 @@
         "skill_info": "스킬 정보",
         "passive": "패시브",
         "weaponSkill": "무기스킬",
-        "스킬트리" : "스킬트리",
+        "스킬트리" : "추천 스킬트리",
         "평타" : "평타",
         "흡혈" : "흡혈",
         "스킬" : "스킬"
     },
 
     "stat": {
-        "공격력": "공격력",
-        "스킬증폭": "스킬증폭",
-        "공격속도": "공격속도",
-        "생명력흡수": "생명력 흡수",
-        "장탄 수": "장탄수",
+        "attackPower": "공격력",
+        "increaseSkillDamage": "스킬증폭",
+        "increaseSkillDamageRatio": "스킬증폭(%)",
+        "attackSpeedRatio": "공격속도",
+        "lifeSteal": "생명력 흡수",
 
-        "치명타확률": "치명타 확률",
-        "치명타피해량": "치명타 피해량",
+        "criticalStrikeChance": "치명타 확률",
+        "criticalStrikeDamage": "치명타 피해량",
 
-        "기본공격추가피해": "기본공격 추가피해",
-        "기본공격시치유감소": "기본공격시 치유감소",
-        "스킬적중시치유감소": "스킬적중시 치유감소",
+        "increaseBasicAttackDamage": "기본공격 추가피해",
+        "decreaseRecoveryToBasicAttack": "기본공격시 치유감소",
+        "decreaseRecoveryToSkill": "스킬적중시 치유감소",
 
-        "방어력": "방어력",
-        "기본공격피해감소": "기본공격 피해감소",
-        "스킬피해감소": "스킬 피해감소",
+        "defense": "방어력",
+        "preventBasicAttackDamaged": "기본공격 피해감소",
+        "preventSkillDamagedRatio": "스킬 피해감소",
         
-        "체력": "최대 체력",
-        "최대체력": "최대 체력",
-        "체력재생": "체력 재생",
-        "체력재생2": "체력 재생(%)",
+        "maxHp": "최대 체력",
+        "hpRegen": "체력 재생",
+        "hpRegenRatio":  "체력 재생(%)",
 
-        "최대스태미너": "최대 스태미너",
-        "스태미너재생": "스태미너 재생",
-        "스태미너재생2": "스태미너 재생(%)",
-        "스테미너재생": "스태미너 재생",
-        "스테미너재생2": "스태미너 재생(%)",
+        "maxSp": "최대 스태미너",
+        "spRegen": "스태미너 재생",
+        "spRegenRatio": "스태미너 재생(%)",
 
-        "시야": "시야",
-        "이동속도": "이동속도",
-        "쿨다운감소": "쿨다운 감소",
-        "기본공격사거리": "기본공격 사거리",
-        "비전투중이동속도": "비전투시 이동속도",
-        "비전투시이동속도": "비전투시 이동속도"
+        "sightRange": "시야",
+        "moveSpeed": "moveSpeed",
+        "cooldownReduction":"쿨다운 감소",
+        "attackRange":"기본공격 사거리",
+        "outOfCombatMoveSpeed": "비전투시 이동속도"
     },
 
     "characters": {
