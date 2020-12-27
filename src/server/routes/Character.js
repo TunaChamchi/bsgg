@@ -4,9 +4,8 @@ const axios = require('axios');
 const schedule = require('node-schedule');
 
 const UserStat = require('../schemas/userStat');
-const Character = require('../schemas/characterStat');
+const User = require('../schemas/user');
 const Match = require('../schemas/match');
-const character = require('../../data/inGame/character.json');
 
 const router = express.Router();
 
@@ -18,157 +17,349 @@ function sleep(ms) {
     });
 }
 
-// 8시 0분에 캐릭터 데이터 업데이트
-schedule.scheduleJob('0 0 8 * * *', async () => {
-    for (const code in character) {
-        const characterNum = parseInt(code);
-        const chars = await getChacterStat(characterNum);
+// 7시 0분에 전체 유저 전적 검색
+schedule.scheduleJob('0 0 7 * * *', async () => {
+    const users = await User.find({}, { _id:0, userNum: 1 }, { sort : { updateDate: 1 }});
 
-        for (var i = 0 ; i < chars.length ; i++) {
-            const char = chars[i];
-            const bestWeapon = parseInt(char['_id']);
-            delete char['_id'];
-            char['characterNum'] = characterNum;
-            char['bestWeapon'] = bestWeapon;
-
-            const skillOrder = await getChacterStatSkill(characterNum, bestWeapon);
-            const itemOrder = await getChacterStatItem(characterNum, bestWeapon);
-
-            char['skillOrder'] = skillOrder;
-            char['itemOrder'] = itemOrder;
-
-            char['itemStats'] = {};
-            for (var j = 0 ; j < 6 ; j++) {
-                const itemType = await getChacterStatItemType(characterNum, bestWeapon, j);
-                const itemCode = itemType['_id'];
-                delete itemType['_id'];
-                char['itemCode'] = itemCode;
-
-                char['itemStats'][j] = itemType;
-            }
-
-            const _ = await new Character(char).save();
-        }
+    for (let i = 0 ; i < users.length ; i++) {        
+        await getUserData(users['userNum']);
     }
 
-    console.log(Date.now() + ' : GetCharacterData Complete');
+    console.log(Data.now() + ' : GetUserData Complete', users.length);
 })
+
+const getUserStats = async (userNum, seasonId) => {
+    try {
+        return await axios.get('https://open-api.bser.io/v1/user/stats/'+userNum+'/'+seasonId, {
+                headers: {
+                    'x-api-key': 'sWNQXtP4Po3Sd1dWWzHqT5EZSKQfj8478omeZWg0'
+                }
+        });
+    } catch (error) {
+        console.log(error);
+        await sleep(50);
+        return await axios.get('https://open-api.bser.io/v1/user/stats/'+userNum+'/'+seasonId, {
+                headers: {
+                    'x-api-key': 'sWNQXtP4Po3Sd1dWWzHqT5EZSKQfj8478omeZWg0'
+                }
+        });
+    }
+};
+const getUserGame = async (userNum, next) => {
+    try {
+        return await axios.get('https://open-api.bser.io/v1/user/games/'+userNum + (next?'?next='+next:''), {
+                headers: {
+                    'x-api-key': 'sWNQXtP4Po3Sd1dWWzHqT5EZSKQfj8478omeZWg0'
+                }
+        });
+    } catch (error) {
+        console.log(error);
+        await sleep(50);
+        return await axios.get('https://open-api.bser.io/v1/user/games/'+userNum + (next?'?next='+next:''), {
+                headers: {
+                    'x-api-key': 'sWNQXtP4Po3Sd1dWWzHqT5EZSKQfj8478omeZWg0'
+                }
+        });
+    }
+};
 
 // 메인 화면 유저 이름 검색
 router.get('/', async (req, res, next) => {
     console.log(req.query);
     const search = req.query.search;
 
+
     const users = await UserStat.find({});
     res.json(users);
 });
 
-// 캐릭터 검색
-router.get('/:character/:bestWeapon', async (req, res, next) => {
-    console.log(req.params, req.query);
-    const characterNum = parseInt(req.params.character);
-    const bestWeapon = parseInt(req.params.bestWeapon);
+// 유저 검색 DB
+router.get('/:userName', async (req, res, next) => {
+    console.log(req.params);
+    const userName = req.params.userName;
 
-    const char = await Character.findOne({ characterNum: characterNum, bestWeapon:bestWeapon });
-    res.json(char);
+    const users = await UserStat.findOne({ nickname: userName });
+    res.json(users);
+});
+
+// 유저 전적 검색 API
+router.post('/userData', async (req, res, next) => {
+    const userNum = parseInt(req.query.userNum);
+    await getUserData(userNum);
+
+    res.send('{ "code": 200, "message": "Success" }');
 });
 
 module.exports = router;
 
-const getChacterStat = async (characterNum) => {
-    return await Match.aggregate([
-        { $match: { characterNum: characterNum } },
-        { 
-            $group: {
-                _id: '$bestWeapon',
-                totalGames: { $sum: 1 },
-                totalKills:{ $sum: '$playerKill' },
-                totalAssistants:{ $sum: '$playerAssistant' },
-                rank:{ $avg: '$gameRank' },
-                top1: { 
-                    $sum: {
-                        $cond : [
-                            { $eq: [ '$gameRank', 1 ] },
-                            1, 
-                            0
-                        ]
-                    }
-                },
-                top3: { 
-                    $sum: {
-                        $cond : [
-                            { $lte: [ '$gameRank', 3 ] },
-                            1, 
-                            0
-                        ]
+const getCharacterData = async (userNum) => {
+    // nickname으로 아이디 검색하게 변경
+    let nickname = '';
+
+    const matchLately = await Match.findOne({ userNum:userNum }, null, { sort: { startDtm:-1 } });
+    let lately;
+
+    if (matchLately !== null)
+        lately = new Date(matchLately['startDtm']);
+    else
+        lately = new Date('2020-01-01');
+
+    let isChange = false;
+    let next;
+    while(true) {
+        const _matchs = await getUserGame(userNum, next);
+        const matchs = _matchs.data.userGames;
+        next = _matchs.data.next;
+
+        const insertMatchs = matchs.filter(m => new Date(m['startDtm']) > lately);
+
+        if (insertMatchs.length !== 0) {
+            isChange = true;
+
+            for (var i = 0 ; i < insertMatchs.length ; i++) {
+                const m = insertMatchs[i];
+                let equipmentOrder = '_';
+                let skillOrder = '_';
+
+                for (const key in m['equipment']) {
+                    equipmentOrder += m['equipment'][key] + '_';
+                }
+                for (const key in m['skillOrderInfo']) {
+                    skillOrder += m['skillOrderInfo'][key] + '_';
+                }
+
+                m['equipmentOrder'] = equipmentOrder;
+                m['skillOrder'] = skillOrder;
+
+                const _ = await new Match(m).save();
+            }
+        } else {
+            break;
+        }
+
+        if (!next)
+            break;
+    }
+
+    if (!isChange) {
+        return null;
+    }
+
+    const userStat = (await getUserStats1(userNum))[0];
+    try {
+        delete userStat['_id'];
+    } catch (err) {
+        console.log('getUserData : ', userNum, userStat);
+        return;
+    }
+    userStat['userNum'] = userNum;
+    
+    userStat['seasonStats'] = {};
+    for (var i = 0 ; i < searchSeason.length ; i++) {
+        const seasonId = searchSeason[i];
+        userStat['seasonStats'][seasonId] = {};
+
+        const teamModeStats = await getUserStats2(userNum, seasonId);
+        for (var j = 0 ; j < teamModeStats.length ; j++) {
+            const teamModeStat = teamModeStats[j];
+            const teamMode = teamModeStat['_id'];
+            delete teamModeStat['_id'];
+            teamModeStat['characterStats'] = {};
+
+            const characterStats = await getUserStats3(userNum, seasonId, teamMode);
+            teamModeStat['mostCharacter'] = characterStats[0]['_id'];
+            for (var k = 0 ; k < characterStats.length ; k++) {
+                const characterStat = characterStats[k];
+                const characterCode = characterStat['_id'];
+                delete characterStat['_id'];
+
+                teamModeStat['characterStats'][characterCode] = characterStat;
+            }
+            
+            userStat['seasonStats'][seasonId][teamMode] = teamModeStat;
+        }
+
+        // mmr 값 가져오기
+        if (seasonId === 1) {
+            const _user = await getUserStats(userNum, seasonId);//.userStats;
+            const user = _user.data.userStats;
+            if (user !== undefined) {
+                for (let j = 0 ; j < user.length ; j++) {
+                    const _userStats = user[j];
+                    const teamMode = _userStats['matchingTeamMode'];
+
+                    userStat['nickname'] = _userStats['nickname'];
+
+                    try {
+                        userStat['seasonStats'][seasonId][teamMode]['mmr'] = _userStats['mmr'];
+                    } catch (err) {
+                        console.log('getUserData : ', userStat['nickname'], userNum, seasonId, teamMode);
+                        await getUserData(userNum);
+                        return;
                     }
                 }
+            }
+        }
+    }
+    
+    const characterStats = await getCharacterStats(userNum);
+    userStat['mostCharacter'] = characterStats[0]['_id'];
+    userStat['characterStats'] = {};
+    for (var i = 0 ; i < characterStats.length ; i++) {
+        const characterStat = characterStats[i];
+        const characterCode = characterStat['_id'];
+        delete characterStat['_id'];
+
+        userStat['characterStats'][characterCode] = characterStat;
+    }
+
+    await UserStat.findOneAndUpdate({ userNum: userStat['userNum'] }, userStat, { upsert:true });
+
+    // nickname 검색 생기면 위로 이동
+    const user = {
+        userNum: userNum,
+        nickname: userStat['nickname'],
+        updateDate: Date.now()
+    }
+    await User.findOneAndUpdate({ userNum: user['userNum'] }, user, { upsert:true });
+}
+
+const getUserStats1 = async (userNum) => {
+    return await Match.aggregate([
+    { $match: { userNum: userNum } },
+        { 
+            $group: {
+                _id: '$userNum',
+                totalGames: { $sum: 1 },
+                totalKills:{ $sum: '$playerKill' },
+                maxKill: { $max: '$playerKill' },
+                totalAssistants:{ $sum: '$playerAssistant' },
+                totalMonsterKills:{ $sum: '$monsterKill' },
+                rank:{ $avg: '$gameRank' },
+                top1: { 
+                  $sum: {
+                    $cond : [
+                        { $eq: [ '$gameRank', 1 ] },
+                        1, 
+                        0
+                    ]
+                  }
+                },
+                top3: { 
+                  $sum: {
+                    $cond : [
+                        { $lte: [ '$gameRank', 3 ] },
+                        1, 
+                        0
+                    ]
+                  }
+                },
             }
         }
     ]);
 }
 
-const getChacterStatSkill = async (characterNum, bestWeapon) => {
+const getUserStats2 = async (userNum, seasonId) => {
     return await Match.aggregate([
-    { $match: { characterNum: characterNum, bestWeapon: bestWeapon } },
+    { $match: { userNum: userNum, seasonId: seasonId } },
         { 
             $group: {
-                _id: '$skillOrder',
+                _id: '$matchingTeamMode',
                 totalGames: { $sum: 1 },
+                totalKills:{ $sum: '$playerKill' },
+                maxKill: { $max: '$playerKill' },
+                totalAssistants:{ $sum: '$playerAssistant' },
+                totalMonsterKills:{ $sum: '$monsterKill' },
+                rank:{ $avg: '$gameRank' },
                 top1: { 
-                    $sum: {
-                        $cond : [
-                            { $eq: [ '$gameRank', 1 ] },
-                            1, 
-                            0
-                        ]
-                    }
+                  $sum: {
+                    $cond : [
+                        { $eq: [ '$gameRank', 1 ] },
+                        1, 
+                        0
+                    ]
+                  }
+                },
+                top3: { 
+                  $sum: {
+                    $cond : [
+                        { $lte: [ '$gameRank', 3 ] },
+                        1, 
+                        0
+                    ]
+                  }
                 },
             }
         },
-        { $sort: { totalGames: -1 } },
-        { $limit: 10 }
+        { $sort: { _id: -1 } }
     ]);
 }
 
-const getChacterStatItem = async (characterNum, bestWeapon) => {
+const getUserStats3 = async (userNum, seasonId, matchingTeamMode) => {
     return await Match.aggregate([
-        { $match: { characterNum: characterNum, bestWeapon: bestWeapon } },
+    { $match: { userNum: userNum, seasonId: seasonId, matchingTeamMode: matchingTeamMode } },
         { 
             $group: {
-                _id: '$equipmentOrder',
+                _id: '$characterNum',
                 totalGames: { $sum: 1 },
+                totalKills:{ $sum: '$playerKill' },
+                maxKill: { $max: '$playerKill' },
+                totalAssistants:{ $sum: '$playerAssistant' },
+                totalMonsterKills:{ $sum: '$monsterKill' },
+                rank:{ $avg: '$gameRank' },
                 top1: { 
-                    $sum: {
-                        $cond : [
-                            { $eq: [ '$gameRank', 1 ] },
-                            1, 
-                            0
-                        ]
-                    }
+                  $sum: {
+                    $cond : [
+                        { $eq: [ '$gameRank', 1 ] },
+                        1, 
+                        0
+                    ]
+                  }
+                },
+                top3: { 
+                  $sum: {
+                    $cond : [
+                        { $lte: [ '$gameRank', 3 ] },
+                        1, 
+                        0
+                    ]
+                  }
                 },
             }
         },
-        { $sort: { totalGames: -1 } },
-        { $limit: 50 }
+        { $sort: { totalGames: -1 } }
     ]);
 }
 
-const getChacterStatItemType = async (characterNum, bestWeapon, type) => {
+const getCharacterStats = async (userNum) => {
     return await Match.aggregate([
-        { $match: { characterNum: characterNum, bestWeapon: bestWeapon } },
+    { $match: { userNum: userNum, seasonId: 1 } },
         { 
             $group: {
-                _id: '$equipment.'+type,
+                _id: '$characterNum',
                 totalGames: { $sum: 1 },
+                totalKills:{ $sum: '$playerKill' },
+                maxKill: { $max: '$playerKill' },
+                totalAssistants:{ $sum: '$playerAssistant' },
+                totalMonsterKills:{ $sum: '$monsterKill' },
+                rank:{ $avg: '$gameRank' },
                 top1: { 
-                    $sum: {
-                        $cond : [
-                            { $eq: [ '$gameRank', 1 ] },
-                            1, 
-                            0
-                        ]
-                    }
+                  $sum: {
+                    $cond : [
+                        { $eq: [ '$gameRank', 1 ] },
+                        1, 
+                        0
+                    ]
+                  }
+                },
+                top3: { 
+                  $sum: {
+                    $cond : [
+                        { $lte: [ '$gameRank', 3 ] },
+                        1, 
+                        0
+                    ]
+                  }
                 },
             }
         },
