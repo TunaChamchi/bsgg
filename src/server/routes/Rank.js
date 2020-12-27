@@ -240,7 +240,7 @@ router.post('/userStat', async (req, res, next) => {
             ranksList.push(_rank['userNum']);
             
             getUserData(_rank['userNum']);
-            await sleep(40);
+            await sleep(1000);
 
             if (i%100 === 0)
                 console.log(i);
@@ -303,6 +303,7 @@ const getUserData = async (userNum) => {
 
     //if (!isChange)
     //    return null;
+    await sleep(5000);
 
     const isUser = await UserStat.find({ userNum: userNum });
     if (isUser.length !== 0)
