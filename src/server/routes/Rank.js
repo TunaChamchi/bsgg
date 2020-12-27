@@ -618,6 +618,19 @@ router.get('/userStat', async (req, res, next) => {
     // })
 })
 
+router.get('/userStatDB', async (req, res, next) => {
+    console.log(req.query);
+    const userNum = parseInt(req.query.userNum);
+    
+    const userStat = UserStat.findOne({userNum:userNum})
+
+    const response = {
+        code:200,
+        message:'Success',
+        data: userStat
+    }
+    res.send(response);
+})
 
 
 module.exports = router;
