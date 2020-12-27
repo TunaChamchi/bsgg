@@ -316,7 +316,7 @@ const getUserStats3 = async (userNum, seasonId, matchingTeamMode) => {
 
 const getCharacterStats = async (userNum) => {
     return await Match.aggregate([
-    { $match: { userNum: userNum } },
+    { $match: { userNum: userNum, seasonId: 1 } },
         { 
             $group: {
                 _id: '$characterNum',
