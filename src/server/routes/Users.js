@@ -95,8 +95,8 @@ const getUserData = async (userNum) => {
         if (insertMatchs.length !== 0) {
             isChange = true;
             insertMatchs.forEach(m => {
-                let equipmentOrder = '';
-                let skillOrder = '';
+                let equipmentOrder = '_';
+                let skillOrder = '_';
 
                 for (const key in m['equipment']) {
                     equipmentOrder += m['equipment'][key] + '_';
@@ -174,6 +174,8 @@ const getUserData = async (userNum) => {
             }
         }
     }
+
+    console.log(userStat['nickname']);
     
     const characterStats = await getCharacterStats(userNum);
     userStat['mostCharacter'] = characterStats[0]['_id'];
@@ -429,8 +431,8 @@ router.post('/userStat', async (req, res, next) => {
 
             ranksList.push(_rank['userNum']);
             
-            getUserData(_rank['userNum']);
-            await sleep(100);
+            await getUserData(_rank['userNum']);
+            //await sleep(100);
 
             if (i%100 === 0)
                 console.log(i);
