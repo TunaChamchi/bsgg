@@ -94,7 +94,9 @@ const getUserData = async (userNum) => {
 
         if (insertMatchs.length !== 0) {
             isChange = true;
-            insertMatchs.forEach(m => {
+
+            for (var i = 0 ; i < insertMatchs.length ; i++) {
+                const m = insertMatchs[i];
                 let equipmentOrder = '_';
                 let skillOrder = '_';
 
@@ -108,8 +110,8 @@ const getUserData = async (userNum) => {
                 m['equipmentOrder'] = equipmentOrder;
                 m['skillOrder'] = skillOrder;
 
-                new Match(m).save();
-            })
+                const _ = await new Match(m).save();
+            }
         } else {
             break;
         }
@@ -124,7 +126,12 @@ const getUserData = async (userNum) => {
     //}
 
     const userStat = (await getUserStats1(userNum))[0];
-    delete userStat['_id'];
+    try {
+        delete userStat['_id'];
+    } catch (err) {
+        console.log(userNum, userStat);
+        return;
+    }
     userStat['userNum'] = userNum;
     
     userStat['seasonStats'] = {};
