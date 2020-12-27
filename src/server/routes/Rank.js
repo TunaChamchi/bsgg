@@ -562,6 +562,26 @@ router.get('/userStat', async (req, res, next) => {
             
             userStat['seasonStats'][seasonId][teamMode] = teamModeStat;
         }
+
+        // mmr 값 가져오기
+        const _user = await getUserStats(userNum, seasonId);//.userStats;
+        const user = _user.data.userStats;
+        if (user !== undefined) {
+            for (let j = 0 ; j < user.length ; j++) {
+                const _userStats = user[j];
+                const teamMode = _userStats['matchingTeamMode'];
+
+                userStat['nickname'] = _userStats['nickname'];
+
+                try {
+                    userStat['seasonStats'][seasonId][teamMode]['mmr'] = _userStats['mmr'];
+                } catch (err) {
+                    console.log(err);
+                    console.log(userStat['nickname'], userNum, seasonId, teamMode);
+                    userStat['seasonStats'][seasonId][teamMode]['mmr'] = 0;
+                }
+            }
+        }
     }
 
     const characterStats = await getCharacterStats(userNum);
