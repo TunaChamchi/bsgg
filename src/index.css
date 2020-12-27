@@ -129,7 +129,7 @@ button:hover{
     font-size: 10pt;
     white-space: pre-line;
     word-break: keep-all;
-    border-radius: 10px;
+    border-radius: 3px;
     color:white;
     font-weight: 300;
     padding: 5px;
@@ -145,7 +145,7 @@ button:hover{
     font-size: 10pt;
     white-space: pre-line;
     word-break: keep-all;
-    border-radius: 10px;
+    border-radius: 3px;
     color:white;
     font-weight: 300;
     padding: 5px;
@@ -161,7 +161,7 @@ button:hover{
     font-size: 10pt;
     white-space: pre-line;
     word-break: keep-all;
-    border-radius: 10px;
+    border-radius: 3px;
     color:white;
     font-weight: 300;
     padding: 5px;
@@ -177,12 +177,62 @@ button:hover{
     font-size: 10pt;
     white-space: pre-line;
     word-break: keep-all;
-    border-radius: 10px;
+    border-radius: 3px;
     color:white;
     font-weight: 300;
     padding: 5px;
     text-align: center;
     margin-top: 38px;
+}
+.S_item_tooltip4{
+    visibility: hidden;
+    width: 200px;
+    background-color: rgb(23, 21, 32);
+    position: absolute;
+    z-index: 1;
+    font-size: 10pt;
+    white-space: pre-line;
+    word-break: keep-all;
+    border-radius: 3px;
+    color:white;
+    font-weight: 300;
+    padding: 5px;
+    text-align: center;
+    margin-top: 39px;
+}
+.S_item_tooltip5{
+    visibility: hidden;
+    width: 200px;
+    background-color: rgb(23, 21, 32);
+    position: absolute;
+    z-index: 1;
+    font-size: 10pt;
+    white-space: pre-line;
+    word-break: keep-all;
+    border-radius: 3px;
+    color:white;
+    font-weight: 300;
+    padding: 5px;
+    text-align: center;
+    margin-top: 39px;
+    margin-left: -70px;
+}
+.S_item_tooltip6{
+    visibility: hidden;
+    width: 200px;
+    background-color: rgb(23, 21, 32);
+    position: absolute;
+    z-index: 1;
+    font-size: 10pt;
+    white-space: pre-line;
+    word-break: keep-all;
+    border-radius: 3px;
+    color:white;
+    font-weight: 300;
+    padding: 5px;
+    text-align: center;
+    margin-top: 39px;
+    margin-left: -140px;
 }
 .S_skill_tooltip{
     visibility: hidden;
@@ -193,12 +243,28 @@ button:hover{
     font-size: 10pt;
     white-space: pre-line;
     word-break: keep-all;
-    border-radius: 10px;
+    border-radius: 3px;
     color:white;
     font-weight: 300;
     padding: 5px;
     text-align: center;
-    margin-top: 5px;
+    margin-top: 1px;
+}
+.S_skill_tooltip1{
+    visibility: hidden;
+    width: 200px;
+    background-color: rgb(23, 21, 32);
+    position: absolute;
+    z-index: 1;
+    font-size: 10pt;
+    white-space: pre-line;
+    word-break: keep-all;
+    border-radius: 3px;
+    color:white;
+    font-weight: 300;
+    padding: 5px;
+    text-align: center;
+    margin-top: -4px;
 }
 .rank_span:hover .rank_span_tooltip{
     visibility: visible;
@@ -209,10 +275,37 @@ button:hover{
 .S_item_toolbox:hover .S_item_tooltip2{
     visibility: visible;
 }
+.item_tab_imgbox:hover .S_item_tooltip4{
+    visibility: visible;
+}
+.item_tab_imgbox:hover .S_item_tooltip5{
+    visibility: visible;
+}
+.item_tab_imgbox:hover .S_item_tooltip6{
+    visibility: visible;
+}
 .S_item_toolbox1:hover .S_item_tooltip3{
     visibility: visible;
 }
 .S_skill_toolbox:hover .S_skill_tooltip{
+    visibility: visible;
+}
+.skill_Q:hover .S_skill_tooltip{
+    visibility: visible;
+}
+.skill_W:hover .S_skill_tooltip{
+    visibility: visible;
+}
+.skill_E:hover .S_skill_tooltip{
+    visibility: visible;
+}
+.skill_R:hover .S_skill_tooltip{
+    visibility: visible;
+}
+.skill_T:hover .S_skill_tooltip{
+    visibility: visible;
+}
+.skill_img1:hover .S_skill_tooltip1{
     visibility: visible;
 }
 .rank_span{
@@ -1187,6 +1280,18 @@ button:hover{
     font-weight: 400;
     border: 1px solid#171520;
 }
+.skill_img1 {
+    vertical-align: middle;
+    display: inline-block;
+    background-color: rgb(35, 27, 47);
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    font-size: 12pt;
+    margin-left: 3px;
+    font-weight: 400;
+    border: 1px solid#171520;
+}
 .skill_img2 {
     vertical-align: middle;
     display: inline-block;
@@ -1195,7 +1300,8 @@ button:hover{
     height: 18px;
     border-radius: 4px;
     font-size: 12pt;
-    margin-left: 5px;
+    margin-left: 0px;
+    margin-top: -10px;
     font-weight: 400;
     border: 1px solid#171520;
 }
@@ -1291,7 +1397,7 @@ button:hover{
     height: 534px;
     background-color: #262335;
     margin-top: 10px;
-    border-radius: 3px;
+    border-radius: 3px 3px 0px 0px;
     text-align: center;
     border-bottom: 1px solid #3b4147;
 }
@@ -1403,6 +1509,7 @@ button:hover{
     color: gray;
     border-bottom: 1px solid  #3b4147;
     text-align: center;
+    background-color: #251f32;
 }
 .item_route_map{
     width: 370px;
@@ -1417,15 +1524,75 @@ button:hover{
     left: 0px;
     position: absolute;
 }
+.item_route_spawn{
+    width: 780px;
+    height: 340px;
+    background-color: #262335;
+    overflow-y: scroll;
+    border-radius: 0px 0px 3px 3px;
+}
+.item_route_spawnY{
+    float: left;
+    width: 259px;
+    height: 169px;
+    border-right: 1px solid #3b4147;
+    border-bottom: 1px solid #3b4147;
+}
+.item_route_spawnY-R{
+    float: left;
+    width: 260px;
+    height: 169px;
+    border-bottom: 1px solid #3b4147;
+}
+.item_route_spawn_title{
+    text-align: center;
+    background-color: #251f32;
+    border-bottom: 1px solid #3b4147;
+}
+.item_route_spawn_Make{
+    height: 36px;
+    border-bottom: 1px solid #3b4147;
+    padding-left: 7px;
+    overflow-x: scroll;
+}
+.item_route_spawn_Need{
+    height: 106px;
+    padding-left: 7px;
+    overflow-y: scroll;
+    float: left;
+}
+.item_route_spawn_Make_img{
+    width: 55px;
+    height: 30.45px;
+    position: relative;
+    border-radius: 3px;
+    margin: 3px;
+    margin-top: 2px;
+    float: left;
+}
+.item_route_spawn_Make_img1{
+    position: absolute;
+    border-radius: 3px;
+    width: 55px;
+    border:1px solid #3b4147;
+}
+.item_route_spawn_Make_img2{
+    position: absolute;
+    border-radius: 3px;
+    width: 53px;
+    top: 1px;
+    left: 1px;
+}
 .item_rank{
     width: 780px;
     background-color: #262335;
     border-bottom: solid 1px #3b4147;
-    height: 470px;
+    height: 810px;
+    border-radius: 0px 0px 3px 3px;
 }
 .item_scroll{
     width: 389px;
-    height: 417px;
+    height: 757px;
     overflow-x: hidden;
     overflow-y: scroll;
     border-radius: 3px;
@@ -1435,7 +1602,6 @@ button:hover{
     float: left;
     text-align: center;
     background-color: rgb(38, 35, 53);
-    border-radius: 3px;
 }
 .S_right2{
     width: 389px;
@@ -1443,7 +1609,6 @@ button:hover{
     background-color: rgb(38, 35, 53);
     text-align: center;
     border-left: 1px solid #3b4147;
-    border-radius: 3px;
 }
 .S_item_tab1{
     width: 390px;
@@ -1451,6 +1616,7 @@ button:hover{
     border-bottom: 1px rgb(244,216,35) solid;
     padding-top: 2px;
     padding-bottom: 2px;
+    background-color: #251f32;
 }
 .S_item_tab{
     width: 77.8px;
@@ -1460,6 +1626,7 @@ button:hover{
     border-bottom: 1px solid #3b4147;
     padding-top: 2px;
     padding-bottom: 2px;
+    background-color: #251f32;
 }
 .S_item_sort{
     float: left;

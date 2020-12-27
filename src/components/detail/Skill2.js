@@ -96,6 +96,10 @@ class Skill extends Component {
             <div className='skill_td' key={'td'+idx}>
                 <div className={'skill_tr skill_'+name} key={'tr'+idx} >
                     <img className="skill_img" key={'tree'+idx} src={'img/Skill/'+parameter['character']+'/'+parameter['character']+'_'+name+'.jpg'} />
+                    <div className="S_skill_tooltip">
+                            <span><b>{name}</b></span><br />
+                            {/*<span>{detail}</span>*/}
+                    </div>
                 </div>
                 {this.skillTreeTrView(name)}
             </div>
@@ -138,12 +142,20 @@ class Skill extends Component {
                         </div>
                         <div className="skill_box0">
                             <div className='skill_td'>
-                                <img className='skill_img2' src="img/weapons/쌍검.jpg" />
+                                <div className="skill_img1">
+                                    <img className='skill_img2' src="img/weapons/쌍검.jpg" /> 
+                                    <div className="S_skill_tooltip1">
+                                        {/*<span><b>{name}</b></span><br />
+                                        <span>{detail}</span>*/}
+                                        dd
+                                    </div>
+                                </div>
                                 {
                                     [...Array.from({length: 20}, (v,i) => i+1)].map(i => 
                                         <div className="skill_level" key={'level'+i}>{i}</div>
                                     )
                                 }
+                                
                             </div>
                             {this.skillTreeTdView()}
                         </div>

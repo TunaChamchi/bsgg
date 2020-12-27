@@ -116,6 +116,11 @@ class Thend extends Component {
                         <span className="master_rank2">에미디</span>
                         <span className="master_rank3">150게임</span>
                     </div>
+                    <div className="master_rank">
+                        <span className="master_rank1">5</span>
+                        <span className="master_rank2">에미디</span>
+                        <span className="master_rank3">150게임</span>
+                    </div>
                     <button className="master_button">더 보기</button>
                 </div>
         </div>

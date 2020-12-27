@@ -7,4 +7,4 @@ export const RouteM = withSplitting(() => import('./RouteM'));
 export const NewMain = withSplitting(() => import('./NewMain'));
 export const Match = withSplitting(() => import('./Match'));
 export const Character = withSplitting(() => import('./Character'));
-export const Rank = withSplitting(() => import('./Rank'));
+export const Rank = withSplitting(() => import('./Rank2js'));
