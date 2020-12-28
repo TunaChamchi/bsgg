@@ -19,7 +19,7 @@ function sleep(ms) {
 }
 
 // 8시 0분에 캐릭터 데이터 업데이트
-schedule.scheduleJob('40 32 * * * *', async () => {
+schedule.scheduleJob('40 32 1 * * *', async () => {
     for (var matchingTeamMode = 1 ; matchingTeamMode < 4 ; matchingTeamMode++) {
         for (const code in character) {
             const characterNum = parseInt(code);

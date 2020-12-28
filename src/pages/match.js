@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { injectIntl  } from 'react-intl';
 import queryString from 'query-string';
 import { Header, SubBanner, Footer } from 'components/banner'
-import { getCharacter, getItem } from 'lib/data'
+import { getCharacter, getItem, getWeaponType } from 'lib/data'
 
 class Match extends Component {
     constructor(props) {
@@ -52,13 +52,25 @@ class Match extends Component {
                 .then(res => res.json())
                 .then(_matchList => matchList = _matchList);
 
-            // const matchStat = {
+            const matchStat = {
+                total:0,
+                playerKill:0,
+                playerAssistant:0,
+                gameRank:0,
+                top1:0,
+                top3:0,
+            }
 
-            // }
-            // matchList.foreach(m => {
-            //     matchStat['playerKill'] += m['playerKill']
-            // })
+            matchList.foreach(m => {
+                matchStat['playerKill'] += m['playerKill'];
+                matchStat['playerAssistant'] += m['playerKill'];
+                matchStat['gameRank'] += m['gameRank'];
+                matchStat['top1'] += m['gameRank'] === 1 ? 1 : 0;
+                matchStat['top3'] += m['gameRank'] < 4 ? 1 : 0;
+                matchStat['total']++;
+            })
 
+            matchStat['gameRank'] /= matchStat['total'];
 
             this.setState({ userName:userName, user:user, userStat:userStat, matchList:matchList, matchStat:matchStat });
         }
@@ -88,20 +100,20 @@ class Match extends Component {
             )
         })
     }
-
-
     
     matchHistoryView() {
         const { matchList } = this.state;
 
-        let mmrBefore = 0;
+        let mmrAfter = 0;
         return matchList.map((match, id) => {
             console.log('match', match);
 
             const character = getCharacter(match['characterNum'])['name'];
             const weapon = match['bestWeapon'];
-            const mmr = mmrBefore;
-            mmrBefore = match['mmrBefore'];
+            const mmr = mmrAfter;
+            mmrAfter = match['mmrBefore'];
+
+            const imgUpDown = mmrAfter-mmr > 0 ? 'img/UpDown/하락.png' : 'img/UpDown/유지.png';
 
             const seasonId = match['seasonId'] ? '랭크' : '일반';
             const matchingTeamMode = match['matchingTeamMode'] === 1 ? '솔로' : match['matchingTeamMode'] === 2 ? '듀오' : '스쿼드';
@@ -116,15 +128,15 @@ class Match extends Component {
                     </div>
                     <div className="record_history2">
                         <img className="record_history_img" src={"img/rank/"+character+".jpg"} />
-                        <img className="record_history_weapon" src="img/weapons/단검.jpg" />
+                        <img className="record_history_weapon" src={"img/weapons/"+getWeaponType(weapon)+".jpg"} />
                         <div className="record_history_name">{character}</div>
                     </div>
                     <div className="record_history3-4">
                         <div className="record_history3">
                             <div className="record_history_lv">레벨 {match['gameRank']}</div>
                             <div className="record_history_mmr">{mmr}</div>
-                            <img className="record_history_upmark" src="img/UpDown/상승.png"/>
-                            <div className="record_history_up">{mmr-match['mmrBefore']}</div>
+                            <img className="record_history_upmark" src={imgUpDown}/>
+                            <div className="record_history_up">{mmrAfter-mmr}</div>
                         </div>
                         <div className="record_history_kda">
                             <span className="record_history_kda2">{match['playerKill']} K</span> <span> / </span>

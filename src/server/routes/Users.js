@@ -123,68 +123,65 @@ router.post('/userData', async (req, res, next) => {
 module.exports = router;
 
 const getUserData = async (userNum) => {
-    // nickname으로 아이디 검색하게 변경
-    let nickname = '';
+    // const matchLately = await Match.findOne({ userNum:userNum }, null, { sort: { startDtm:-1 } });
+    // let lately;
 
-    const matchLately = await Match.findOne({ userNum:userNum }, null, { sort: { startDtm:-1 } });
-    let lately;
+    // if (matchLately !== null)
+    //     lately = new Date(matchLately['startDtm']);
+    // else
+    //     lately = new Date('2020-01-01');
 
-    if (matchLately !== null)
-        lately = new Date(matchLately['startDtm']);
-    else
-        lately = new Date('2020-01-01');
+    // let isChange = false;
+    // let next;
+    // while(true) {
+    //     const _matchs = await getUserGame(userNum, next);
+    //     const matchs = _matchs.data.userGames;
+    //     next = _matchs.data.next;
 
-    let isChange = false;
-    let next;
-    while(true) {
-        const _matchs = await getUserGame(userNum, next);
-        const matchs = _matchs.data.userGames;
-        next = _matchs.data.next;
+    //     const insertMatchs = matchs.filter(m => new Date(m['startDtm']) > lately);
 
-        const insertMatchs = matchs.filter(m => new Date(m['startDtm']) > lately);
+    //     if (insertMatchs.length !== 0) {
+    //         isChange = true;
 
-        if (insertMatchs.length !== 0) {
-            isChange = true;
+    //         for (var i = 0 ; i < insertMatchs.length ; i++) {
+    //             const m = insertMatchs[i];
+    //             let equipmentOrder = '_';
+    //             let skillOrder = '_';
 
-            for (var i = 0 ; i < insertMatchs.length ; i++) {
-                const m = insertMatchs[i];
-                let equipmentOrder = '_';
-                let skillOrder = '_';
+    //             for (const key in m['equipment']) {
+    //                 equipmentOrder += m['equipment'][key] + '_';
+    //             }
 
-                for (const key in m['equipment']) {
-                    equipmentOrder += m['equipment'][key] + '_';
-                }
+    //             if (m['characterLevel'] >= 16) {
+    //                 const keys = Object.keys(m['skillOrderInfo']);
 
-                if (m['characterLevel'] >= 16) {
-                    const keys = Object.keys(m['skillOrderInfo']);
+    //                 for (var j = 0 ; j < 16 ; ) {
+    //                     const key = keys[j];
+    //                     const skillCode = parseInt(m['skillOrderInfo'][key]);
 
-                    for (var j = 0 ; j < 16 ; ) {
-                        const key = keys[j];
-                        const skillCode = parseInt(m['skillOrderInfo'][key]);
+    //                     if (skillCode / 1000000 !== 3) {
+    //                         skillOrder += skillCode + '_';
+    //                         j++;
+    //                     }
+    //                 }
+    //             }
 
-                        if (skillCode / 1000000 !== 3) {
-                            skillOrder += skillCode + '_';
-                            j++;
-                        }
-                    }
-                }
+    //             m['equipmentOrder'] = equipmentOrder;
+    //             m['skillOrder'] = skillOrder;
 
-                m['equipmentOrder'] = equipmentOrder;
-                m['skillOrder'] = skillOrder;
+    //             const _ = await new Match(m).save();
+    //         }
+    //     } else {
+    //         break;
+    //     }
 
-                const _ = await new Match(m).save();
-            }
-        } else {
-            break;
-        }
+    //     if (!next)
+    //         break;
+    // }
 
-        if (!next)
-            break;
-    }
-
-    if (!isChange) {
-        return null;
-    }
+    // if (!isChange) {
+    //     return null;
+    // }
 
     const userStat = (await getUserStats1(userNum))[0];
     try {
@@ -409,6 +406,8 @@ const getCharacterStats = async (userNum) => {
 }
 
 router.post('/userStat', async (req, res, next) => {
+    console.log(Date.now() + ' : GetUserData Start');
+
     const users = await User.find({}, { _id:0, userNum: 1 }, { sort : { updateDate: 1 }});
 
     for (let i = 0 ; i < users.length ; i++) {        
@@ -416,4 +415,6 @@ router.post('/userStat', async (req, res, next) => {
     }
 
     console.log(Date.now() + ' : GetUserData Complete', users.length);
+
+    res.json("{ 'data': Date.now() }")
 });

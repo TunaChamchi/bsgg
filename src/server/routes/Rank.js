@@ -16,10 +16,13 @@ function sleep(ms) {
     });
 }
 
-schedule.scheduleJob('* * 8 * * *', async () => {
+schedule.scheduleJob('0 */10 * * * *', async () => {
+    console.log(new Date().toString().slice(16,24), ': GetUserData Start');
+
     await Rank.deleteMany({matchingTeamMode:[1, 2, 3]});
 
-    const numList = [];
+    const rankList1 = [];
+    const rankList2 = [];
     for (let index = 1; index < 4; index++) {
         const resRank = await getRank(1, index);
         const ranks = resRank.data.topRanks;
@@ -27,57 +30,64 @@ schedule.scheduleJob('* * 8 * * *', async () => {
         for (let i = 0 ; i < ranks.length ; i++) {
             const rank = ranks[i];
             rank['matchingTeamMode'] = index;
-            let _ = await new Rank(rank).save();
+            new Rank(rank).save();
 
-            if (numList.includes(rank['userNum']))
-                continue;
-            else 
-            numList.push(rank['userNum']);
-
-            sleep(200);
-            const resRankStats = await getRankStats(rank['userNum'], 1);
-            const rankStats = resRankStats.data.rankStat;
-        
-            if (rankStats !== undefined) {
-                for (let j = 0 ; j < rankStats.length ; j++) {
-                    const rankStat = rankStats[j];
-                    nickname = rankStat['nickname'];
-        
-                    const _rankStat = { };
-                    _rankStat['index'] = rankStat['userNum'] + '_' + rankStat['seasonId'] + '_' + rankStat['matchingTeamMode'];
-                    _rankStat['userNum'] = rankStat['userNum'];
-        
-                    const most = rankStat['characterStats'].sort((c1, c2) => c2['totalGames']-c1['totalGames'])[0];
-                    
-                    _rankStat['mostCharacter'] = most['characterCode'];
-                    _rankStat['mmr'] = rankStat['mmr'];
-                    _rankStat['averageAssistants'] = rankStat['averageAssistants'];
-                    _rankStat['averageHunts'] = rankStat['averageHunts'];
-                    _rankStat['averageKills'] = rankStat['averageKills'];
-                    _rankStat['averageRank'] = rankStat['averageRank'];
-                    _rankStat['totalGames'] = rankStat['totalGames'];
-                    _rankStat['totalWins'] = rankStat['totalWins'];
-                    _rankStat['top1'] = rankStat['top1'];
-                    _rankStat['top3'] = rankStat['top3'];
-        
-                    await RankStat.findOneAndUpdate({ index: _rankStat['index'] }, _rankStat, { upsert:true });
-                }
-            }
-            
-            const user = await User.find({ userNum: rank['userNum'] });
-            if (user.length === 0) {
-                const _user = {
-                    userNum: rank['userNum'],
-                    nickname: rank['nickname'],
-                    updateDate: new Date('2020-01-01')
-                }
-                _ = await new User(_user).save();
+            if (!rankList1.includes(rank['userNum'])) {
+                rankList1.push(rank['userNum']);
+                rankList2.push(rank['userNum']);
             }
         }
     }
-
-    console.log(Date.now() + ' : GetUserData Complete', users.length);
+    
+    for (let i = 0 ; i < rankList1.length ; i++) {
+        const user = await User.find({ userNum: rankList1[i] });
+        if (user.length === 0) {
+            const _user = {
+                userNum: rankList1[i],
+                nickname: rankList2[i],
+                updateDate: new Date('2020-01-01')
+            }
+            new User(_user).save();
+        }
+    }
+    
+    for (let i = 0 ; i < rankList1.length ; i++) {
+        setRankStats(rankList1[i]);
+        await sleep(50);
+    }
+    console.log(new Date().slice(16,24), ': GetUserData Complete', users.length);
 })
+
+const setRankStats = async (userNum) => {
+    const resRankStats = await getRankStats(userNum, 1);
+    const rankStats = resRankStats.data.rankStat;
+
+    if (rankStats !== undefined) {
+        for (let j = 0 ; j < rankStats.length ; j++) {
+            const rankStat = rankStats[j];
+            nickname = rankStat['nickname'];
+
+            const _rankStat = { };
+            _rankStat['index'] = rankStat['userNum'] + '_' + rankStat['seasonId'] + '_' + rankStat['matchingTeamMode'];
+            _rankStat['userNum'] = rankStat['userNum'];
+
+            const most = rankStat['characterStats'].sort((c1, c2) => c2['totalGames']-c1['totalGames'])[0];
+            
+            _rankStat['mostCharacter'] = most['characterCode'];
+            _rankStat['mmr'] = rankStat['mmr'];
+            _rankStat['averageAssistants'] = rankStat['averageAssistants'];
+            _rankStat['averageHunts'] = rankStat['averageHunts'];
+            _rankStat['averageKills'] = rankStat['averageKills'];
+            _rankStat['averageRank'] = rankStat['averageRank'];
+            _rankStat['totalGames'] = rankStat['totalGames'];
+            _rankStat['totalWins'] = rankStat['totalWins'];
+            _rankStat['top1'] = rankStat['top1'];
+            _rankStat['top3'] = rankStat['top3'];
+
+            await RankStat.findOneAndUpdate({ index: _rankStat['index'] }, _rankStat, { upsert:true });
+        }
+    }
+}
 
 const getRank = async (seasonId, matchingTeamMode) => {
     while (true) {
@@ -90,7 +100,7 @@ const getRank = async (seasonId, matchingTeamMode) => {
         } catch (error) {
             if (error.response.status !== 429) return;
             
-            await sleep(250);
+            await sleep(1000);
         }
     }
 };
@@ -103,9 +113,9 @@ const getRankStats = async (userNum, seasonId) => {
                     }
             });
         } catch (error) {
-            if (error.response.status !== 429) return;
+            if (error.response.status !== 429) return null;
             
-            await sleep(250);
+            await sleep(Math.random()*50);
         }
     }
 };
