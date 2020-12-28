@@ -4191,8 +4191,9 @@ button:hover{
     border-radius: 10px;
     border: 2px solid gold;
     margin-top: 25px;
-    margin-right: 50px;
-    margin-left: 50px;
+    margin-right: 55px;
+    margin-left: -45px;
+    margin-bottom: 65px;
 }
 .rank_top_1{
     width: 200px;
@@ -4203,7 +4204,7 @@ button:hover{
     border: 2px solid silver;
     margin-top: 65px;
     margin-bottom: 25px;
-    margin-left: -40px;
+    margin-left: -305px;
 }
 .rank_top_2{
     width: 200px;
@@ -4392,14 +4393,14 @@ button:hover{
 .record_rank_filter3{
     display: inline-block;
     width: 70px;
-    padding-right: 66px;
+    padding-right: 56px;
     margin-left: -7px;
     float: left;
     border-bottom: 1px solid #3b4147;
     margin-top: 3px;
     height: 28px;
 }
-.record_rank_span1{
+.record_rank_span11{
     display: inline-block;
     width: 110px;
     float: left;
@@ -4407,7 +4408,7 @@ button:hover{
     height: 28px;
     font-size: 16px;
 }
-.record_rank_span2{
+.record_rank_span22{
     display: inline-block;
     width: 120px;
     float: left;
@@ -4415,7 +4416,7 @@ button:hover{
     height: 28px;
     font-size: 16px;
 }
-.record_rank_span3{
+.record_rank_span33{
     display: inline-block;
     width: 140px;
     float: left;
@@ -4475,36 +4476,18 @@ button:hover{
     width: 65px;
     height: 20px;
     text-align: center;
+    font-size: 10pt;
 }
-.rank_left_button{
+.rank_center_button{
     width: 50px;
     height: 50px;
     border: none;
     float: left;
     background-color: #262335;
-    border-bottom:1px solid #3b4147;
-    border-radius: 3px;
-}
-.rank_left_button_tri{
-    width: 0px;
-    height: 0px;
-    border: 15px solid transparent;
-    border-right: 25px solid rgb(209, 209, 209);
-    margin-left: -8px;
-}
-.rank_right_button{
-    width: 50px;
-    height: 50px;
-    border: none;
-    float: right;
-    background-color: #262335;
     border-bottom: 1px solid #3b4147;
     border-radius: 3px;
-}
-.rank_right_button_tri{
-    width: 0px;
-    height: 0px;
-    border: 15px solid transparent;
-    border-left: 25px solid rgb(209, 209, 209);
-    margin-left: 5px;
+    color: rgb(209, 209, 209);
+    font-size: 15pt;
+    margin-left: 240px;
+    margin-right: -220px;
 }

@@ -52,9 +52,9 @@ class Match extends Component {
                 .then(res => res.json())
                 .then(_matchList => matchList = _matchList);
 
-            // const matchStat = {
+            const matchStat = {
 
-            // }
+            }
             // matchList.foreach(m => {
             //     matchStat['playerKill'] += m['playerKill']
             // })

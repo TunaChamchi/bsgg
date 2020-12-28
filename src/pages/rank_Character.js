@@ -136,8 +136,8 @@ class Rank_Character extends Component {
                     <img className="record_cha_img" src={"img/Rank/"+getCharacter(character)['name']+".jpg"} />
                     <div className="record_cha_span2">{user['nickname']}</div>
                     <img className="record_cha_rankimg" src={'img/Rankicon/'+tierList[stat['tier']].slice(0, -2)+'.png'} />
-                    <div className="record_rank_span1">{tierList[stat['tier']]}</div>
-                    <div className="record_rank_span2">{stat['lp']} LP</div>
+                    <div className="record_rank_span11">{tierList[stat['tier']]}</div>
+                    <div className="record_rank_span22">{stat['lp']} LP</div>
                     <div className="record_cha_span3">{stat['total']}</div>
                     <div className="record_cha_graph">
                         <div className="record_cha_graphW" style={{width: stat['top1Width']}}></div>
@@ -147,7 +147,7 @@ class Rank_Character extends Component {
                         <div className="record_cha_span6">{stat['loss']}</div>
                     </div>
                     <div className="record_cha_span7">{stat['rate']}%</div>
-                    <div className="record_rank_span3">{stat['kam'].toFixed(2)}</div>
+                    <div className="record_rank_span33">{stat['kam'].toFixed(2)}</div>
                 </div>
             );
         });

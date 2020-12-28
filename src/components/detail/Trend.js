@@ -12,7 +12,7 @@ class Thend extends Component {
     }
 
     trendView = (name, idx) => {
-        const { intl, stat, parameter } = this.props;
+        const { intl, stat, data, parameter } = this.props;
 
         console.log('stat', stat);
 
