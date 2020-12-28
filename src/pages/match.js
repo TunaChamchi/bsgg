@@ -28,7 +28,7 @@ class Match extends Component {
         this.setState({ userName:userName });
     }
 
-    componentDidUpdate(prevProps, prevState){
+    componentDidUpdate(prevProps, prevState) {
         const { location } = this.props;
         const query = queryString.parse(location.search);
 
@@ -61,14 +61,26 @@ class Match extends Component {
                 gameRank:0,
                 top1:0,
                 top3:0,
+                charStat:{},
             }
             matchList.forEach(m => {
                 matchStat['playerKill'] += m['playerKill'];
-                matchStat['playerAssistant'] += m['playerKill'];
+                matchStat['playerAssistant'] += m['playerAssistant'];
                 matchStat['gameRank'] += m['gameRank'];
                 matchStat['top1'] += m['gameRank'] === 1 ? 1 : 0;
                 matchStat['top3'] += m['gameRank'] < 4 ? 1 : 0;
                 matchStat['total']++;
+
+                if (matchStat['charStat'][m['characterNum']] === undefined) {
+                    matchStat['charStat'][m['characterNum']] = {
+                        total:0,
+                        ka:0,
+                        top1:0,
+                    }
+                }
+                matchStat['charStat'][m['characterNum']]['ka'] += m['playerKill']+m['playerAssistant'];
+                matchStat['charStat'][m['characterNum']]['top1'] += m['gameRank'] === 1 ? 1 : 0;
+                matchStat['charStat'][m['characterNum']]['total']++;
             })
             matchStat['playerKill'] /= matchStat['total'];
             matchStat['playerAssistant'] /= matchStat['total'];
@@ -78,12 +90,16 @@ class Match extends Component {
                 0: { 1: 0, 2: 0, 3: 0, },
                 1: { 1: 0, 2: 0, 3: 0, },
             }
+            let maxMmr = 0;
             Object.keys(userStat['seasonStats']).forEach(s => 
-                Object.keys(userStat['seasonStats'][s]).forEach(t => 
-                    mmrCurrent[s][t] = userStat['seasonStats'][s][t]['mmr']
-                )
+                Object.keys(userStat['seasonStats'][s]).forEach(t => {
+                    if (s !== 0) {
+                        maxMmr = Math.max(maxMmr, userStat['seasonStats'][s][t]['mmr']);
+                    }
+                    mmrCurrent[s][t] = userStat['seasonStats'][s][t]['mmr'];
+                })
             );
-
+            userStat['maxMmr'] = maxMmr;
             this.setState({ 
                 userName:userName, user:user, 
                 userStat:userStat, matchList:matchList, 
@@ -92,11 +108,66 @@ class Match extends Component {
         }
     }
 
+    topView() {
+        const { intl } = this.props;
+        const { user, userStat, tierList } = this.state;
+
+        console.log('userStat', userStat);
+        const tier = Math.floor(userStat['maxMmr']/100);
+        const win =   userStat['top1']       < 25 ?   ''    : userStat['top1'] < 50 ? '승1' : 
+                      userStat['top1']       < 100 ?  '승2' : userStat['top1'] < 250 ? '승3' : 
+                      userStat['top1']       < 500 ?  '승4' : userStat['top1'] < 1000 ? '승5' : 
+                      userStat['top1']       < 3000 ? '승6' : '승7';
+        const total = userStat['totalGames'] < 200 ?   ''    : userStat['totalGames'] < 400 ? '판1' : 
+                      userStat['totalGames'] < 800 ?  ' 판2' : userStat['totalGames'] < 2000 ? '판3' : 
+                      userStat['totalGames'] < 4000 ?  '판4' : userStat['totalGames'] < 8000 ? '판5' : 
+                      userStat['totalGames'] < 25000 ? '판6' : '판7';
+        const kill =  userStat['totalKills'] < 500 ?   ''    : userStat['totalKills'] < 1000 ? '킬1' : 
+                      userStat['totalKills'] < 2000 ?  '킬2' : userStat['totalKills'] < 5000 ? '킬3' : 
+                      userStat['totalKills'] < 10000 ?  '킬4' : userStat['totalKills'] < 20000 ? '킬5' : 
+                      userStat['totalKills'] < 50000 ? '킬6' : '킬7';
+        const top3 =  userStat['top3']       < 75 ?    ''    : userStat['top3'] < 150 ? '탑1' : 
+                      userStat['top3']       < 300 ?   '탑2' : userStat['top3'] < 750 ? '탑3' : 
+                      userStat['top3']       < 1500 ?  '탑4' : userStat['top3'] < 3000 ? '탑5' : 
+                      userStat['top3']       < 10000 ? '탑6' : '탑7';
+        
+        return (
+            <div className="record_top">
+                <div className="record_top_icon">
+                    <img className="record_top_iconimg" src={"img/Characters/" + getCharacter(userStat['mostCharacter'])['name'] + ".jpg"} />
+                    <img className="record_top_iconborder" src={"img/border/" + tierList[tier].slice(0, -2) + ".png"} />
+                    <span className="record_top_lv">{4-tier%4}</span>
+                </div>
+                <div className="record_top_right">
+                    <div className="record_top_name">{user['nickname']}</div>
+                    <button className="record_top_renew">전적갱신</button>
+                    <span className="record_top_updated">최근 업데이트 {user['updateDate']}</span>
+                </div>
+                <div className="record_top_medal_box">
+                    {win&&<img className="record_top_medal" src={"img/medal/"+win+".png"} />}
+                    {win&&<div className="medal_span_tooltip"><span>{intl.formatMessage({id: 'badge.'+win })}</span></div>}
+                </div>
+                <div className="record_top_medal_box">
+                    {total&&<img className="record_top_medal" src={"img/medal/"+total+".png"} />}
+                    {total&&<div className="medal_span_tooltip"><span>{intl.formatMessage({id: 'badge.'+total })}</span></div>}
+                </div>
+                <div className="record_top_medal_box">
+                    {kill&&<img className="record_top_medal" src={"img/medal/"+kill+".png"} />}
+                    {kill&&<div className="medal_span_tooltip"><span>{intl.formatMessage({id: 'badge.'+kill })}</span></div>}
+                </div>
+                <div className="record_top_medal_box">
+                    {top3&&<img className="record_top_medal" src={"img/medal/"+top3+".png"} />}
+                    {top3&&<div className="medal_span_tooltip"><span>{intl.formatMessage({id: 'badge.'+top3 })}</span></div>}
+                </div>
+            </div>
+        )
+    }
+
     rankView() {
         const { intl } = this.props;
         const { user, userStat, tierList, matchingTeamMode } = this.state;
 
-        return Object.keys(userStat['seasonStats']["1"]).map((keys, id) => {
+        return Object.keys(userStat['seasonStats']["1"]).map((keys, idx) => {
             const rank = userStat['seasonStats']["1"][keys];
 
             const total = rank['totalGames'];
@@ -108,7 +179,7 @@ class Match extends Component {
             const teamMode = intl.formatMessage({id: matchingTeamMode[keys] });
 
             return (
-                <div className="record_rank_box">
+                <div className="record_rank_box" key={"rank_box_"+idx}>
                     <img className="record_rank_icon" src={"img/rankicon/"+tierList[tier].slice(0, -2)+".png"} />
                     <div className="record_rank_span1">{teamMode}</div>
                     <div className="record_rank_span2">{tierList[tier]} / {lp} LP</div>
@@ -120,12 +191,41 @@ class Match extends Component {
         })
     }
 
+    mostCharacterView() {
+        const { intl } = this.props;
+        const { user, userStat, tierList, matchingTeamMode } = this.state;
+
+        const list = [];
+        for (const key in userStat['characterStats']) {
+            list.push({ code: key, ...userStat['characterStats'][key]});
+        }
+
+        return list.slice(0,5).map((char, idx) => {
+            return (
+                <div className="record_most_box" key={"most_box_"+idx}>
+                    <img className="record_most_img" src={"img/rank/"+getCharacter(char['code'])['name']+".jpg"} />
+                    <div className="record_most_span">
+                        <div className="record_most_span1">{getCharacter(char['code'])['name']}</div>
+                        <div className="record_most_span2">승률 {(char['top1']/char['totalGames']*100).toFixed(1)}%</div>
+                        <div className="record_most_span3"> 
+                            <span className="record_history_kda2">{((char['totalKills']+char['totalAssistants'])/char['totalGames']).toFixed(1)} KA/M</span>
+                        </div>
+                        <div className="record_most_span4">{char['totalGames']}게임</div>
+                    </div>
+                </div>
+            )
+        })        
+    }
+
     recentHistory() {
         const { intl } = this.props;
         const { matchStat } = this.state;
 
         const top1Rate = matchStat['top1']/matchStat['total']*100;
         const top3Rate = matchStat['top3']/matchStat['total']*100;
+
+        const kam = matchStat['playerKill']+matchStat['playerAssistant'];
+        const kamSytle = kam >= 4 ? '3' : kam >= 3 ? '2' : '1';
 
         return (
             <div className="record_trend">
@@ -142,7 +242,7 @@ class Match extends Component {
                     </div>
                 <div className="record_trend_kda">
                     <div className="record_trend_kda1">
-                        <span className="record_history_kda2">{(matchStat['playerKill']+matchStat['playerAssistant']).toFixed(1)} KA/M</span>
+                        <span className={"record_history_kda"+kamSytle}>{kam.toFixed(1)} KA/M</span>
                     </div>
                     <div className="record_trend_kda2">{matchStat['playerKill'].toFixed(1)} / {matchStat['playerAssistant'].toFixed(1)} / {matchStat['total']}</div>
                 </div>
@@ -151,7 +251,28 @@ class Match extends Component {
                     <div className="record_trend_winspan">#{matchStat['gameRank'].toFixed(1)}</div>
                 </div>
             </div>
-        )
+        );
+    }
+
+    recentHistoryCharacter() {
+        const { intl } = this.props;
+        const { matchStat } = this.state;
+
+        const list = [];
+        for (const key in matchStat['charStat']) {
+            list.push({ code: key, ...matchStat['charStat'][key]});
+        }
+        return list.map((char, idx) => {
+            return (
+                <div className="record_trend_most" key={"trend__box_"+idx}>
+                    <img className="record_trend_most_img" src={"img/rank/"+getCharacter(char['code'])['name']+".jpg"} />
+                    <div className="record_trend_most_span">
+                        <div className="record_trend_most_span1">{char['top1']}승 / {char['total']}게임 / {(char['top1']/char['total']*100).toFixed(1)}%</div>
+                        <div className="record_trend_most_span2">{(char['ka']/char['total']).toFixed(1)} KA/M</div>
+                    </div>
+                </div>
+            );
+        });
     }
     
     matchHistoryView() {
@@ -159,7 +280,7 @@ class Match extends Component {
         const { userStat, matchList, mmrCurrent, matchingTeamMode } = this.state;
 
         const mmrAfter = JSON.parse(JSON.stringify(mmrCurrent));
-        return matchList.map((match, id) => {
+        return matchList.map((match, idx) => {
             const character = getCharacter(match['characterNum'])['name'];
             const weapon = match['bestWeapon'];
 
@@ -176,10 +297,10 @@ class Match extends Component {
             const c = match['monsterKill'] > 50 ? '3' : match['monsterKill'] > 35 ? '2' : '1';
 
             return (
-                <div className="record_history_box">
+                <div className="record_history_box" key={'history_box'+idx}>
                     <div className={"record_history_"+win}></div>
                     <div className="record_history1">
-                        <div className="record_history_rank_top">{match['gameRank']}</div>
+                        <div className={"record_history_rank_"+win}>{match['gameRank']}</div>
                         <div className="record_history_filter">{seasonId}/{teamMode}</div>
                         <div className="record_history_date">2일 전</div>
                     </div>
@@ -218,6 +339,10 @@ class Match extends Component {
         })
     }
 
+    matchDetail() {
+
+    }
+
     render() {
         const { intl } = this.props;
         const { user, userStat, tierList } = this.state;
@@ -229,55 +354,11 @@ class Match extends Component {
 
         if (!userStat) return '';
 
-        const total = userStat['totalGames'];
-        const top1 = userStat['top1'];
-        const top3 = userStat['top3'] - userStat['top1'];
-        const totalKills  = userStat['totalKills'];
-
         return (
             <div>
                 <Header data={metaData}/>
                 <SubBanner />
-                <div className="record_top">
-                    <div className="record_top_icon">
-                        <img className="record_top_iconimg" src={"img/Characters/" + getCharacter(userStat['mostCharacter'])['name'] + ".jpg"} />
-                        <img className="record_top_iconborder" src={"img/border/" + tierList[0].slice(0, -2) + ".png"} />
-                        <span className="record_top_lv">50</span>
-                    </div>
-                    <div className="record_top_right">
-                        <div className="record_top_name">
-                            {user['nickname']}
-                        </div>
-                        <button className="record_top_renew">
-                            전적갱신
-                        </button>
-                        <span className="record_top_updated">최근 업데이트 {user['updateDate']}</span>
-                    </div>
-                    <div className="record_top_medal_box">
-                        <img className="record_top_medal" src="img/medal/승7.png" />
-                        <div className="medal_span_tooltip">
-                            <span>ㅇㅇ</span>
-                        </div>
-                    </div>
-                    <div className="record_top_medal_box">
-                        <img className="record_top_medal" src="img/medal/승7.png" />
-                        <div className="medal_span_tooltip">
-                            <span>ㅇㅇ</span>
-                        </div>
-                    </div>
-                    <div className="record_top_medal_box">
-                        <img className="record_top_medal" src="img/medal/승7.png" />
-                        <div className="medal_span_tooltip">
-                            <span>ㅇㅇ</span>
-                        </div>
-                    </div>
-                    <div className="record_top_medal_box">
-                        <img className="record_top_medal" src="img/medal/승7.png" />
-                        <div className="medal_span_tooltip">
-                            <span>ㅇㅇ</span>
-                        </div>
-                    </div>
-                </div>
+                {this.topView()}
                 <div className="record_main">
                     <div className="record_left">
                         <div className="record_rank">
@@ -296,79 +377,8 @@ class Match extends Component {
                                 <div className="record_most_tab2">듀오</div>
                                 <div className="record_most_tab2">스쿼드</div>
                             </div>
-                            <div className="record_most_box">
-                                <img className="record_most_img" src="img/rank/재키.jpg" />
-                                <div className="record_most_span">
-                                    <div className="record_most_span1">재키</div>
-                                    <div className="record_most_span2">승률 24.4%</div>
-                                    <div className="record_most_span3"> 
-                                        <span className="record_history_kda2">4.1 KA/M</span>
-                                    </div>
-                                    <div className="record_most_span4">34게임</div>
-                                </div>
-                            </div>
-                            <div className="record_most_box">
-                                <img className="record_most_img" src="img/rank/재키.jpg" />
-                                <div className="record_most_span">
-                                    <div className="record_most_span1">재키</div>
-                                    <div className="record_most_span2">승률 24.4%</div>
-                                    <div className="record_most_span3"> 
-                                        <span className="record_history_kda2">4.1 KA/M</span>
-                                    </div>
-                                    <div className="record_most_span4">34게임</div>
-                                </div>
-                            </div>
-                            <div className="record_most_box">
-                                <img className="record_most_img" src="img/rank/재키.jpg" />
-                                <div className="record_most_span">
-                                    <div className="record_most_span1">재키</div>
-                                    <div className="record_most_span2">승률 24.4%</div>
-                                    <div className="record_most_span3"> 
-                                        <span className="record_history_kda2">4.1 KA/M</span>
-                                    </div>
-                                    <div className="record_most_span4">34게임</div>
-                                </div>
-                            </div>
-                            <div className="record_most_box">
-                                <img className="record_most_img" src="img/rank/재키.jpg" />
-                                <div className="record_most_span">
-                                    <div className="record_most_span1">재키</div>
-                                    <div className="record_most_span2">승률 24.4%</div>
-                                    <div className="record_most_span3"> 
-                                        <span className="record_history_kda2">4.1 KA/M</span>
-                                    </div>
-                                    <div className="record_most_span4">34게임</div>
-                                </div>
-                            </div>
-                            <div className="record_most_box">
-                                <img className="record_most_img" src="img/rank/재키.jpg" />
-                                <div className="record_most_span">
-                                    <div className="record_most_span1">아드리아나</div>
-                                    <div className="record_most_span2">승률 24.4%</div>
-                                    <div className="record_most_span3"> 
-                                        <span className="record_history_kda2">4.1 KA/M</span>
-                                    </div>
-                                    <div className="record_most_span4">34게임</div>
-                                </div>
-                            </div>
+                            {this.mostCharacterView()}
                             <button className="record_most_button">더 보기</button>
-                        </div>
-                        <div className="record_with">
-                            <div className="record_with0">TOGETHER</div>
-                            <div className="record_with_box">
-                                <div className="record_with_span1">팀원</div>
-                                <div className="record_with_span2">게임</div>
-                                <div className="record_with_span2">승</div>
-                                <div className="record_with_span2">탑3</div>
-                                <div className="record_with_span2">승률</div>
-                            </div>
-                            <div className="record_with_box">
-                                <div className="record_with_span1">준돌리스</div>
-                                <div className="record_with_span2">13</div>
-                                <div className="record_with_span2">3</div>
-                                <div className="record_with_span2">5</div>
-                                <div className="record_with_span2">22.5%</div>
-                            </div>
                         </div>
                     </div>
                     <div className="record_rigth">
@@ -388,27 +398,7 @@ class Match extends Component {
                             </div>
                             {this.recentHistory()}
                             <div className="record_trend_most_box">
-                                <div className="record_trend_most">
-                                    <img className="record_trend_most_img" src="img/rank/재키.jpg" />
-                                    <div className="record_trend_most_span">
-                                        <div className="record_trend_most_span1">1승 / 34게임 / 24.4%</div>
-                                        <div className="record_trend_most_span2">4.1 KA/M</div>
-                                    </div>
-                                </div>
-                                <div className="record_trend_most">
-                                    <img className="record_trend_most_img" src="img/rank/재키.jpg" />
-                                    <div className="record_trend_most_span">
-                                        <div className="record_trend_most_span1">1승 / 34게임 / 24.4%</div>
-                                        <div className="record_trend_most_span2">4.1 KA/M</div>
-                                    </div>
-                                </div>
-                                <div className="record_trend_most">
-                                    <img className="record_trend_most_img" src="img/rank/재키.jpg" />
-                                    <div className="record_trend_most_span">
-                                        <div className="record_trend_most_span1">1승 / 34게임 / 24.4%</div>
-                                        <div className="record_trend_most_span2">4.1 KA/M</div>
-                                    </div>
-                                </div>
+                                {this.recentHistoryCharacter()}
                             </div>
                         </div>
                         <div className="record_history">
