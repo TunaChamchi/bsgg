@@ -4,7 +4,7 @@ const port = 3001;
 const connect = require('./schemas');
 const rank = require('./routes/Rank');
 const users = require('./routes/Users');
-const character = require('./routes/character');
+const character = require('./routes/Character');
 
 const app = express();
 
