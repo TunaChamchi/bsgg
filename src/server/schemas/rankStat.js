@@ -47,6 +47,10 @@ const rankStatSchema = new Schema({
         type: Number,
         required: true
     },
+    rankPercent: {
+        type: Number,
+        required: true
+    },
 }, {
     versionKey: false,
     strict: false

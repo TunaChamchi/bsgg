@@ -9,6 +9,7 @@ class Match extends Component {
         super(props);
         this.state = {
             matchList: [],
+            matchingTeamMode: ['none', 'solo', 'duo', 'squad'],
             tierList: ['Iron 4', 'Iron 3', 'Iron 2', 'Iron 1', 'Bronze 4', 'Bronze 3','Bronze 2', 'Bronze 1',
                     'Silver 4', 'Silver 3', 'Silver 2', 'Silver 1', 'Gold 4', 'Gold 3','Gold 2', 'Gold 1',
                     'Platinum 4', 'Platinum 3', 'Platinum 2', 'Platinum 1', 'Diamond 4', 'Diamond 3','Diamond 2', 'Diamond 1',
@@ -22,7 +23,7 @@ class Match extends Component {
         
         const query = queryString.parse(location.search);
 
-        const userName = query.userName || 'hyuni';
+        const userName = query.userName || 'イドヒョン';
               
         this.setState({ userName:userName });
     }
@@ -35,7 +36,7 @@ class Match extends Component {
     }
 
     fetchHandler = async (query, prevState) => {
-        const userName = query.userName || 'hyuni';
+        const userName = query.userName || 'イドヒョン';
         console.log('userName', userName, prevState.userName);
 
         if (userName !== prevState.userName) {
@@ -52,6 +53,7 @@ class Match extends Component {
                 .then(res => res.json())
                 .then(_matchList => matchList = _matchList);
 
+            // 최근 20전
             const matchStat = {
                 total:0,
                 playerKill:0,
@@ -60,8 +62,7 @@ class Match extends Component {
                 top1:0,
                 top3:0,
             }
-
-            matchList.foreach(m => {
+            matchList.forEach(m => {
                 matchStat['playerKill'] += m['playerKill'];
                 matchStat['playerAssistant'] += m['playerKill'];
                 matchStat['gameRank'] += m['gameRank'];
@@ -69,15 +70,31 @@ class Match extends Component {
                 matchStat['top3'] += m['gameRank'] < 4 ? 1 : 0;
                 matchStat['total']++;
             })
-
+            matchStat['playerKill'] /= matchStat['total'];
+            matchStat['playerAssistant'] /= matchStat['total'];
             matchStat['gameRank'] /= matchStat['total'];
 
-            this.setState({ userName:userName, user:user, userStat:userStat, matchList:matchList, matchStat:matchStat });
+            const mmrCurrent = {
+                0: { 1: 0, 2: 0, 3: 0, },
+                1: { 1: 0, 2: 0, 3: 0, },
+            }
+            Object.keys(userStat['seasonStats']).forEach(s => 
+                Object.keys(userStat['seasonStats'][s]).forEach(t => 
+                    mmrCurrent[s][t] = userStat['seasonStats'][s][t]['mmr']
+                )
+            );
+
+            this.setState({ 
+                userName:userName, user:user, 
+                userStat:userStat, matchList:matchList, 
+                matchStat:matchStat, mmrCurrent:mmrCurrent 
+            });
         }
     }
 
     rankView() {
-        const { user, userStat, tierList } = this.state;
+        const { intl } = this.props;
+        const { user, userStat, tierList, matchingTeamMode } = this.state;
 
         return Object.keys(userStat['seasonStats']["1"]).map((keys, id) => {
             const rank = userStat['seasonStats']["1"][keys];
@@ -88,42 +105,82 @@ class Match extends Component {
             const tier = Math.floor(rank['mmr']/100);
             const lp   = rank['mmr']-tier*100;
 
+            const teamMode = intl.formatMessage({id: matchingTeamMode[keys] });
+
             return (
                 <div className="record_rank_box">
                     <img className="record_rank_icon" src={"img/rankicon/"+tierList[tier].slice(0, -2)+".png"} />
-                    <div className="record_rank_span1">솔로</div>
+                    <div className="record_rank_span1">{teamMode}</div>
                     <div className="record_rank_span2">{tierList[tier]} / {lp} LP</div>
                     <div className="record_rank_span3">{total}전 {top1}승 {(top1/total*100).toFixed(1)}% / {kdm.toFixed(1)} K/M</div>
                     <div className="record_rank_span4">3112위 / 상위 6.8%</div>
-                    <div className="record_rank_graph"></div>
+                    <div className="record_rank_graph" style={{width: lp*3.5}}></div>
                 </div>
             )
         })
     }
+
+    recentHistory() {
+        const { intl } = this.props;
+        const { matchStat } = this.state;
+
+        const top1Rate = matchStat['top1']/matchStat['total']*100;
+        const top3Rate = matchStat['top3']/matchStat['total']*100;
+
+        return (
+            <div className="record_trend">
+                <div className="record_trend_winrate"></div>
+                    <div className="record_trend_winrate_graph"
+                            style={{ background: 'conic-gradient(rgb(244,216,35) 0% '+top1Rate+'%, rgb(49, 106, 190) 0% '+top3Rate+'%, gray 0% 100%)' }}>
+                        <div className="record_trend_winrate_graph2"></div>
+                        <div className="record_trend_avg">{top1Rate.toFixed(1)}%</div>
+                    </div>
+                    <div className="record_trend_winrate_span">
+                        <div className="record_trend_winrate_span1">승 {matchStat['top1']}</div>
+                        <div className="record_trend_winrate_span2">탑3 {matchStat['top3']-matchStat['top1']}</div>
+                        <div className="record_trend_winrate_span3">게임 {matchStat['total']}</div>
+                    </div>
+                <div className="record_trend_kda">
+                    <div className="record_trend_kda1">
+                        <span className="record_history_kda2">{(matchStat['playerKill']+matchStat['playerAssistant']).toFixed(1)} KA/M</span>
+                    </div>
+                    <div className="record_trend_kda2">{matchStat['playerKill'].toFixed(1)} / {matchStat['playerAssistant'].toFixed(1)} / {matchStat['total']}</div>
+                </div>
+                <div className="record_trend_win">
+                    <div className="record_trend_winspan">{matchStat['top1']} win</div>
+                    <div className="record_trend_winspan">#{matchStat['gameRank'].toFixed(1)}</div>
+                </div>
+            </div>
+        )
+    }
     
     matchHistoryView() {
-        const { matchList } = this.state;
+        const { intl } = this.props;
+        const { userStat, matchList, mmrCurrent, matchingTeamMode } = this.state;
 
-        let mmrAfter = 0;
+        const mmrAfter = JSON.parse(JSON.stringify(mmrCurrent));
         return matchList.map((match, id) => {
-            console.log('match', match);
-
             const character = getCharacter(match['characterNum'])['name'];
             const weapon = match['bestWeapon'];
-            const mmr = mmrAfter;
-            mmrAfter = match['mmrBefore'];
 
-            const imgUpDown = mmrAfter-mmr > 0 ? 'img/UpDown/하락.png' : 'img/UpDown/유지.png';
+            const mmr = mmrAfter[match['seasonId']][match['matchingTeamMode']];
+            const _mmr = mmrAfter[match['seasonId']][match['matchingTeamMode']] = match['mmrBefore'];
 
-            const seasonId = match['seasonId'] ? '랭크' : '일반';
-            const matchingTeamMode = match['matchingTeamMode'] === 1 ? '솔로' : match['matchingTeamMode'] === 2 ? '듀오' : '스쿼드';
+            const imgUpDown = mmr-_mmr > 0 ? 'img/UpDown/상승.png' : 'img/UpDown/하락.png';
+            const seasonId = intl.formatMessage({id: match['seasonId'] ? '랭크' : '일반' });
+            const teamMode = intl.formatMessage({id: matchingTeamMode[match['matchingTeamMode']] });
+
+            const win = match['gameRank'] === 1 ? 'win' : match['gameRank'] < 4 ? 'top' : 'loss';
+            const k = match['playerKill'] > 4 ? '3' : match['playerKill'] > 2 ? '2' : '1';
+            const a = match['playerAssistant'] > 4 ? '3' : match['playerAssistant'] > 2 ? '2' : '1';
+            const c = match['monsterKill'] > 50 ? '3' : match['monsterKill'] > 35 ? '2' : '1';
 
             return (
                 <div className="record_history_box">
-                    <div className="record_history_top"></div>
+                    <div className={"record_history_"+win}></div>
                     <div className="record_history1">
                         <div className="record_history_rank_top">{match['gameRank']}</div>
-                        <div className="record_history_filter">{seasonId}/{matchingTeamMode}</div>
+                        <div className="record_history_filter">{seasonId}/{teamMode}</div>
                         <div className="record_history_date">2일 전</div>
                     </div>
                     <div className="record_history2">
@@ -136,12 +193,12 @@ class Match extends Component {
                             <div className="record_history_lv">레벨 {match['gameRank']}</div>
                             <div className="record_history_mmr">{mmr}</div>
                             <img className="record_history_upmark" src={imgUpDown}/>
-                            <div className="record_history_up">{mmrAfter-mmr}</div>
+                            <div className={"record_history_"+(mmr-_mmr>0?'up':'down')}>{Math.abs(mmr-_mmr)}</div>
                         </div>
                         <div className="record_history_kda">
-                            <span className="record_history_kda2">{match['playerKill']} K</span> <span> / </span>
-                            <span className="record_history_kda2">{match['playerAssistant']} A</span> <span> / </span>
-                            <span className="record_history_kda2">{match['gameRank']} CS</span>
+                            <span className={"record_history_kda"+k}>{match['playerKill']} K</span> <span> / </span>
+                            <span className={"record_history_kda"+a}>{match['playerAssistant']} A</span> <span> / </span>
+                            <span className={"record_history_kda"+c}>{match['monsterKill']} CS</span>
                         </div>
                     </div>
                     <div className="record_history_item_box">
@@ -164,9 +221,6 @@ class Match extends Component {
     render() {
         const { intl } = this.props;
         const { user, userStat, tierList } = this.state;
-
-        console.log('user', user);
-        console.log('userStat', userStat);
 
         const metaData = {
             title: 'BSGG.kr - ' + intl.formatMessage({id: 'Title.Map'}),
@@ -332,28 +386,7 @@ class Match extends Component {
                                 <div className="record_match_tab2">듀오</div>
                                 <div className="record_match_tab2">스쿼드</div>
                             </div>
-                            <div className="record_trend">
-                                <div className="record_trend_winrate"></div>
-                                    <div className="record_trend_winrate_graph">
-                                        <div className="record_trend_winrate_graph2"></div>
-                                        <div className="record_trend_avg">24.4%</div>
-                                    </div>
-                                    <div className="record_trend_winrate_span">
-                                        <div className="record_trend_winrate_span1">승 2</div>
-                                        <div className="record_trend_winrate_span2">탑3 5</div>
-                                        <div className="record_trend_winrate_span3">게임 20</div>
-                                    </div>
-                                <div className="record_trend_kda">
-                                    <div className="record_trend_kda1">
-                                        <span className="record_history_kda2">2.4 KA/M</span>
-                                    </div>
-                                    <div className="record_trend_kda2">1.2 / 1.7 / 33</div>
-                                </div>
-                                <div className="record_trend_win">
-                                    <div className="record_trend_winspan">15 win</div>
-                                    <div className="record_trend_winspan">#5.5</div>
-                                </div>
-                            </div>
+                            {this.recentHistory()}
                             <div className="record_trend_most_box">
                                 <div className="record_trend_most">
                                     <img className="record_trend_most_img" src="img/rank/재키.jpg" />

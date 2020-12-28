@@ -16,8 +16,8 @@ function sleep(ms) {
     });
 }
 
-schedule.scheduleJob('0 */10 * * * *', async () => {
-    console.log(new Date().toString().slice(16,24), ': GetUserData Start');
+schedule.scheduleJob('0 0 1 * * *', async () => {
+    console.log(new Date().toString().slice(16,24), ': GetRankSync Start');
 
     await Rank.deleteMany({matchingTeamMode:[1, 2, 3]});
 
@@ -55,7 +55,7 @@ schedule.scheduleJob('0 */10 * * * *', async () => {
         setRankStats(rankList1[i]);
         await sleep(50);
     }
-    console.log(new Date().slice(16,24), ': GetUserData Complete', users.length);
+    console.log(new Date().toString().slice(16,24), ': GetRankSync Complete');
 })
 
 const setRankStats = async (userNum) => {
@@ -75,6 +75,7 @@ const setRankStats = async (userNum) => {
             
             _rankStat['mostCharacter'] = most['characterCode'];
             _rankStat['mmr'] = rankStat['mmr'];
+            _rankStat['rankPercent'] = rankStat['rankPercent'];
             _rankStat['averageAssistants'] = rankStat['averageAssistants'];
             _rankStat['averageHunts'] = rankStat['averageHunts'];
             _rankStat['averageKills'] = rankStat['averageKills'];
