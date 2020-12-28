@@ -19,35 +19,38 @@ function sleep(ms) {
 }
 
 // 8시 0분에 캐릭터 데이터 업데이트
-schedule.scheduleJob('0 0 8 * * *', async () => {
-    for (const code in character) {
-        const characterNum = parseInt(code);
-        const chars = await getChacterStat(characterNum);
+schedule.scheduleJob('40 32 * * * *', async () => {
+    for (var matchingTeamMode = 1 ; matchingTeamMode < 4 ; matchingTeamMode++) {
+        for (const code in character) {
+            const characterNum = parseInt(code);
+            const chars = await getChacterStat(characterNum, matchingTeamMode);
+            
+            for (var i = 0 ; i < chars.length ; i++) {
+                const char = chars[i];
+                const bestWeapon = parseInt(char['_id']);
+                delete char['_id'];
+                char['matchingTeamMode'] = matchingTeamMode;
+                char['characterNum'] = characterNum;
+                char['bestWeapon'] = bestWeapon;
 
-        for (var i = 0 ; i < chars.length ; i++) {
-            const char = chars[i];
-            const bestWeapon = parseInt(char['_id']);
-            delete char['_id'];
-            char['characterNum'] = characterNum;
-            char['bestWeapon'] = bestWeapon;
+                const skillOrder = await getChacterStatSkill(characterNum, bestWeapon, matchingTeamMode);
+                const itemOrder = await getChacterStatItem(characterNum, bestWeapon, matchingTeamMode);
 
-            const skillOrder = await getChacterStatSkill(characterNum, bestWeapon);
-            const itemOrder = await getChacterStatItem(characterNum, bestWeapon);
+                char['skillOrder'] = skillOrder;
+                char['itemOrder'] = itemOrder;
 
-            char['skillOrder'] = skillOrder;
-            char['itemOrder'] = itemOrder;
+                char['itemStats'] = {};
+                for (var j = 0 ; j < 6 ; j++) {
+                    const itemType = await getChacterStatItemType(characterNum, bestWeapon, j, matchingTeamMode);
+                    const itemCode = itemType['_id'];
+                    delete itemType['_id'];
+                    char['itemCode'] = itemCode;
 
-            char['itemStats'] = {};
-            for (var j = 0 ; j < 6 ; j++) {
-                const itemType = await getChacterStatItemType(characterNum, bestWeapon, j);
-                const itemCode = itemType['_id'];
-                delete itemType['_id'];
-                char['itemCode'] = itemCode;
+                    char['itemStats'][j] = itemType;
+                }
 
-                char['itemStats'][j] = itemType;
+                const _ = await new Character(char).save();
             }
-
-            const _ = await new Character(char).save();
         }
     }
 
@@ -64,20 +67,19 @@ router.get('/', async (req, res, next) => {
 });
 
 // 캐릭터 검색
-router.get('/:character/:bestWeapon', async (req, res, next) => {
+router.get('/:character', async (req, res, next) => {
     console.log(req.params, req.query);
     const characterNum = parseInt(req.params.character);
-    const bestWeapon = parseInt(req.params.bestWeapon);
 
-    const char = await Character.findOne({ characterNum: characterNum, bestWeapon:bestWeapon });
+    const char = await Character.find({ characterNum: characterNum });
     res.json(char);
 });
 
 module.exports = router;
 
-const getChacterStat = async (characterNum) => {
+const getChacterStat = async (characterNum, matchingTeamMode) => {
     return await Match.aggregate([
-        { $match: { characterNum: characterNum } },
+        { $match: { characterNum: characterNum, seasonId: 1, matchingTeamMode: matchingTeamMode } },
         { 
             $group: {
                 _id: '$bestWeapon',
@@ -108,9 +110,9 @@ const getChacterStat = async (characterNum) => {
     ]);
 }
 
-const getChacterStatSkill = async (characterNum, bestWeapon) => {
+const getChacterStatSkill = async (characterNum, bestWeapon, matchingTeamMode) => {
     return await Match.aggregate([
-    { $match: { characterNum: characterNum, bestWeapon: bestWeapon } },
+    { $match: { characterNum: characterNum, bestWeapon: bestWeapon, seasonId: 1, matchingTeamMode: matchingTeamMode } },
         { 
             $group: {
                 _id: '$skillOrder',
@@ -131,9 +133,9 @@ const getChacterStatSkill = async (characterNum, bestWeapon) => {
     ]);
 }
 
-const getChacterStatItem = async (characterNum, bestWeapon) => {
+const getChacterStatItem = async (characterNum, bestWeapon, matchingTeamMode) => {
     return await Match.aggregate([
-        { $match: { characterNum: characterNum, bestWeapon: bestWeapon } },
+        { $match: { characterNum: characterNum, bestWeapon: bestWeapon, seasonId: 1, matchingTeamMode: matchingTeamMode } },
         { 
             $group: {
                 _id: '$equipmentOrder',
@@ -154,9 +156,9 @@ const getChacterStatItem = async (characterNum, bestWeapon) => {
     ]);
 }
 
-const getChacterStatItemType = async (characterNum, bestWeapon, type) => {
+const getChacterStatItemType = async (characterNum, bestWeapon, type, matchingTeamMode) => {
     return await Match.aggregate([
-        { $match: { characterNum: characterNum, bestWeapon: bestWeapon } },
+        { $match: { characterNum: characterNum, bestWeapon: bestWeapon, seasonId: 1, matchingTeamMode: matchingTeamMode } },
         { 
             $group: {
                 _id: '$equipment.'+type,

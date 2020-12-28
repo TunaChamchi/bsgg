@@ -129,7 +129,7 @@ button:hover{
     font-size: 10pt;
     white-space: pre-line;
     word-break: keep-all;
-    border-radius: 10px;
+    border-radius: 3px;
     color:white;
     font-weight: 300;
     padding: 5px;
@@ -145,12 +145,30 @@ button:hover{
     font-size: 10pt;
     white-space: pre-line;
     word-break: keep-all;
-    border-radius: 10px;
+    border-radius: 3px;
     color:white;
     font-weight: 300;
     padding: 5px;
     word-spacing: 3px;
     text-align: center;
+    margin-left: -88px;
+}
+.medal_span_tooltip{
+    visibility: hidden;
+    width: 200px;
+    background-color:#262335;
+    position: absolute;
+    z-index: 1;
+    font-size: 10pt;
+    white-space: pre-line;
+    word-break: keep-all;
+    border-radius: 3px;
+    color:white;
+    font-weight: 300;
+    padding: 5px;
+    word-spacing: 3px;
+    text-align: center;
+    margin-left: -70px;
 }
 .S_item_tooltip2{
     visibility: hidden;
@@ -161,7 +179,7 @@ button:hover{
     font-size: 10pt;
     white-space: pre-line;
     word-break: keep-all;
-    border-radius: 10px;
+    border-radius: 3px;
     color:white;
     font-weight: 300;
     padding: 5px;
@@ -177,12 +195,62 @@ button:hover{
     font-size: 10pt;
     white-space: pre-line;
     word-break: keep-all;
-    border-radius: 10px;
+    border-radius: 3px;
     color:white;
     font-weight: 300;
     padding: 5px;
     text-align: center;
     margin-top: 38px;
+}
+.S_item_tooltip4{
+    visibility: hidden;
+    width: 200px;
+    background-color: rgb(23, 21, 32);
+    position: absolute;
+    z-index: 1;
+    font-size: 10pt;
+    white-space: pre-line;
+    word-break: keep-all;
+    border-radius: 3px;
+    color:white;
+    font-weight: 300;
+    padding: 5px;
+    text-align: center;
+    margin-top: 39px;
+}
+.S_item_tooltip5{
+    visibility: hidden;
+    width: 200px;
+    background-color: rgb(23, 21, 32);
+    position: absolute;
+    z-index: 1;
+    font-size: 10pt;
+    white-space: pre-line;
+    word-break: keep-all;
+    border-radius: 3px;
+    color:white;
+    font-weight: 300;
+    padding: 5px;
+    text-align: center;
+    margin-top: 39px;
+    margin-left: -70px;
+}
+.S_item_tooltip6{
+    visibility: hidden;
+    width: 200px;
+    background-color: rgb(23, 21, 32);
+    position: absolute;
+    z-index: 1;
+    font-size: 10pt;
+    white-space: pre-line;
+    word-break: keep-all;
+    border-radius: 3px;
+    color:white;
+    font-weight: 300;
+    padding: 5px;
+    text-align: center;
+    margin-top: 39px;
+    margin-left: -140px;
 }
 .S_skill_tooltip{
     visibility: hidden;
@@ -193,12 +261,28 @@ button:hover{
     font-size: 10pt;
     white-space: pre-line;
     word-break: keep-all;
-    border-radius: 10px;
+    border-radius: 3px;
     color:white;
     font-weight: 300;
     padding: 5px;
     text-align: center;
-    margin-top: 5px;
+    margin-top: 1px;
+}
+.S_skill_tooltip1{
+    visibility: hidden;
+    width: 200px;
+    background-color: rgb(23, 21, 32);
+    position: absolute;
+    z-index: 1;
+    font-size: 10pt;
+    white-space: pre-line;
+    word-break: keep-all;
+    border-radius: 3px;
+    color:white;
+    font-weight: 300;
+    padding: 5px;
+    text-align: center;
+    margin-top: -4px;
 }
 .rank_span:hover .rank_span_tooltip{
     visibility: visible;
@@ -209,10 +293,43 @@ button:hover{
 .S_item_toolbox:hover .S_item_tooltip2{
     visibility: visible;
 }
+.item_tab_imgbox:hover .S_item_tooltip4{
+    visibility: visible;
+}
+.item_tab_imgbox:hover .S_item_tooltip5{
+    visibility: visible;
+}
+.item_tab_imgbox:hover .S_item_tooltip6{
+    visibility: visible;
+}
 .S_item_toolbox1:hover .S_item_tooltip3{
     visibility: visible;
 }
 .S_skill_toolbox:hover .S_skill_tooltip{
+    visibility: visible;
+}
+.skill_Q:hover .S_skill_tooltip{
+    visibility: visible;
+}
+.skill_W:hover .S_skill_tooltip{
+    visibility: visible;
+}
+.skill_E:hover .S_skill_tooltip{
+    visibility: visible;
+}
+.skill_R:hover .S_skill_tooltip{
+    visibility: visible;
+}
+.skill_T:hover .S_skill_tooltip{
+    visibility: visible;
+}
+.skill_img1:hover .S_skill_tooltip1{
+    visibility: visible;
+}
+.record_history_badge_box:hover .item_span_tooltip{
+    visibility: visible;
+}
+.record_top_medal_box:hover .medal_span_tooltip{
     visibility: visible;
 }
 .rank_span{
@@ -302,7 +419,7 @@ button:hover{
 .mainpage_search_select{
     width: 60px;
     height: 40px;
-    background-color: rgb(209, 209, 209);
+    background-color: rgb(139, 139, 139);
     border-radius: 50px;
     font-size: 14pt;
     position: absolute;
@@ -319,14 +436,6 @@ button:hover{
     top: 2px;
     left: 2px;
 }
-.mainpage_search_selectimg{
-    width: 56px;
-    height: 36px;
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    border-radius: 50px;
-}
 .mainpage_search_box{
     background-color: rgba(0,0,0,0);
     border:none;
@@ -338,7 +447,8 @@ button:hover{
     width: 970px;
     height: 250px;
     background-color: white;
-    margin: auto
+    margin: auto;
+    margin-top: 25px;
 }
 /* 1 page */
 .banner {
@@ -352,7 +462,7 @@ button:hover{
 .language {
     width: 150px;
     padding-left: 10px;
-    padding-top: 15px;
+    padding-top: 10px;
     text-align: left;
     float: left;
 }
@@ -385,33 +495,6 @@ button:hover{
     width: 400px;
     padding-top: 15px;
     margin-left: -150px;
-}
-.menubutton{
-    width: 100px;
-    border-color: rgba(0,0,0,0);
-    background-color:  rgba(0,0,0,0);
-    border-radius: 0px;
-    font-size: 15px;
-    font-weight: bold;
-    color: rgb(209, 209, 209);
-    margin-left: -30px;
-}
-.banner-menu{
-    margin: auto;
-    width: 1130px;
-}
-.banner-botton{
-    word-spacing: 20px;
-    width: 565px;
-    float: left;
-    text-align: left;
-}
-.Data-period{
-    width: auto;
-    float: right;
-    text-align: right;
-    margin-top: 5px;
-    margin-right: -10px;
 }
 .newimg{
     height: 12px ;
@@ -449,7 +532,6 @@ button:hover{
     color: rgb(209, 209, 209);
 }
 .cha{
-    margin-top: 7px;
     background-color: rgb(38, 35, 53);
     width: 390px;
     height: auto;
@@ -460,11 +542,12 @@ button:hover{
 .cha0{
     background-color: rgb(35, 27, 47);
     width: 390px;
-    height: 36px;
-    font-size: 17pt;
-    padding-top: 6px;
+    height: 40px;
+    font-size: 23pt;
+    padding-top: 4px;
     border-radius: 3px 3px 0px 0px / 3px 3px 0px 0px ;
     border-bottom: 1px solid#171520;
+    font-family: 'Big Shoulders Stencil Display';
 }
 .cha1{
     margin-top: 6px;
@@ -527,7 +610,7 @@ button:hover{
     width: 750px;
     height: auto;
     padding-bottom: 10px;
-    border-radius: 0px 0px 3px 3px / 0px 0px 3px 3px ;
+    border-radius: 3px;
     background-color: rgb(38, 35, 53);
 }
 .rank0{
@@ -535,6 +618,7 @@ button:hover{
     font-family: 'Big Shoulders Stencil Display';
     background-color: rgb(35, 27, 47);
     border-bottom: 1px solid rgb(23, 21, 32);
+    border-radius: 3px 3px 0px 0px;
 }
 .rank0-1{
     float: right;
@@ -795,14 +879,39 @@ button:hover{
     width: 1152px;
     margin: auto;
 }
+.S_banner-left{
+    float: left;
+    width: 271px;
+}
+.banner-button{
+    clear: both;
+    float: left;
+    text-align: center;
+    margin-top: 18px;
+}
+.banner-button .actived{
+    border-bottom: 1px solid rgb(244,216,35);
+    padding-bottom: 6px;
+}
+.menubutton{
+    text-align: center;
+    background-color: rgba(0,0,0,0);
+    border: none;
+    color: rgb(209, 209, 209);
+    font-size: 11pt;
+    font-weight: 600;
+    float: left;
+    margin-right: 15px;
+    margin-left: 15px;
+}
 .S_mainlogo {
     width: 100px;
     float: left;
+    margin-left: 255px;
 }
 .S_logo {
     width: 80px;
     padding-top: 0px;
-    margin-left: 376px;
 }
 .S_search{
     background-color: rgb(23, 21, 32);
@@ -810,8 +919,29 @@ button:hover{
     margin-top: 45px;
     height: 30px;
     width: 300px;
-    border-radius: 3px;
-    border-bottom: 1px solid #3b4147;
+    border-radius: 50px;
+    border-bottom: 1px solid #241b2f;
+    position: relative;
+}
+.S_search_select{
+    width: 36px;
+    height: 24px;
+    background-color: rgb(139, 139, 139);
+    border-radius: 50px;
+    font-size: 14pt;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+}
+.S_search_selectCircle{
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+    background-color: white;
+    position: absolute;
+    border: none;
+    top: 2px;
+    left: 2px;
 }
 .S_search1{
     border-color: rgba(0,0,0,0);
@@ -819,8 +949,9 @@ button:hover{
     font-size: 11pt;
     margin-top: 5px;
     float: left;
-    width: 300px;
+    width: 240px;
     padding-left: 10px;
+    margin-left: 40px;
     color:gray;
     color: rgb(209, 209, 209);    
 }
@@ -923,7 +1054,6 @@ button:hover{
 }
 .S_top-weapon1{
     width: 60px;
-    
 }
 .S_top-weapon2{
     display: inline-block;
@@ -972,27 +1102,14 @@ button:hover{
     font-weight: 300;
     font-size: 11pt;
 }
-.S_Data-period{
-    width: 565px;
-    clear: both;
-    float: right;
-    text-align: right;
-}
 .S_left{
-    width: 750px;
+    width: 780px;
     clear: both;
-    padding-top: 10px;
+    margin-top: 30px;
     float: left;
 }
-.S_Trend{
-    height: 450px;
-    background-color: rgb(38, 35, 53);
-    text-align: center;
-    border-radius: 3px;
-    border-bottom: 1px solid #3b4147;
-}
-.S_Trend0{
-    width: 750px;
+.S_left0{
+    width: 780px;
     height: 40px;
     font-family: "Big Shoulders Stencil Display";
     font-size: 23pt;
@@ -1000,23 +1117,653 @@ button:hover{
     float: right;
     background-color: rgb(35, 27, 47);
     border-bottom: 1px solid rgb(23, 21, 32);
+    border-radius: 3px 3px 0px 0px;
+    text-align: center;
 }
-.S_Trend_Text{
-}
-.S_Trend_tab{
-    font-family: "Big Shoulders Stencil Display";
-    float: right;
-    padding-top: 0px;
-    margin-left: -150px;
-    color: gray;
-}
-.tabHeader5{
-    width: 75px;
+.S_left_tab{
+    width: 260px;
     float: left;
-    padding-top: 17px;
+    padding-bottom: 2px;
+    font-size: 16pt;
     color: gray;
+    border-bottom: 1px solid #171520;
+    text-align: center;
+}
+.S_Skill{
+    width: 780px;
+    text-align: center;
+    background-color: rgb(38, 35, 53);
+    border-radius: 3px;
+    height: 351px;
+    border-bottom: 1px solid #3b4147;
+}
+.S_Skill_tab{
+    margin-top: 10px;
+    float: left;
+    margin-left: 30px;
+    font-size: 17pt;
+    
+}
+.S_Skill_img{
+    width: 78px;
+    vertical-align: text-top;
+    clear: both;
+    margin-bottom: -3px;
+    border: 1px solid #3b4147;
+    border-radius: 5px;
+}
+.S_Skill_key{
+    clear: both;
+}
+.S_Skill2{
+    clear: both;
+    font-size: 15pt;
+    padding-top: 2px;
+    height: 32px;
+    background-color: rgb(35, 27, 47);
+    width: 780px;
+    border-bottom: 1px solid rgb(23, 21, 32);
+}
+.skill_title{
+    display: inline-block;
+    float: left;
+    margin-top: 10px;
+    background-color: rgb(35, 27, 47);
+    border-bottom: 1px solid rgb(23, 21, 32);
+}
+.S_Skill1{
+    width: 780px;
+    background-color: #262335;
+}
+.skill_tabs .actived{
+    border-left: 3px solid rgb(244,216,35);
+    color:  rgb(209, 209, 209);
+}
+.skill_tree_tab{
+    float: left;
+    width: 250px;
+    height: 236px;
+    background-color: #251f32;
+    margin-left: -180px;
+    overflow: scroll;
+}
+.skill_tab{
+    width: 246px;
+    float: left;
+    padding-top: 3px;
+    padding-bottom: 6px;
+    height: 49px;
+    font-size: 15pt;
+    color: gray;
+    border-right: 1px solid #3b4147;
+    border-left: 3px solid #3b4147;
+    border-bottom: 1px solid #3b4147;
+}
+.skill_tab_span{
+    float: left;
+}
+.skill_tab_imgbox{
+    margin-left: 10px;
+    position: relative;
+}
+.skill_tab :hover{
+    cursor: pointer;
+}
+.skill_tab_Q{
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    float: left;
+    background-color: #171520;
+    border: 1px solid #3b4147;
+    color: rgb(224, 54, 11);
+    margin-left: 20px;
+}
+.skill_tab_W{
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    float: left;
+    background-color: #171520;
+    border: 1px solid #3b4147;
+    color: rgb(71, 172, 40);
+    margin-left: 20px;
+}
+.skill_tab_E{
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    float: left;
+    background-color: #171520;
+    border: 1px solid #3b4147;
+    color: #007fd3;
+    margin-left: 20px;
+}
+.skill_tab_T{
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    float: left;
+    background-color: #171520;
+    border: 1px solid #3b4147;
+    color: rgb(170, 170, 170);
+    margin-left: 20px;
+}
+.skill_tab_mark1{
+    position: absolute;
+    left: 56px;
+}
+.skill_tab_mark2{
+    position: absolute;
+    left: 108px;
+}
+.skill_tab_mark3{
+    position: absolute;
+    left: 160px;
+}
+.skill_tab_span{
+    margin-top: -2px;
     font-size: 12pt;
-    padding-bottom: 4px;
+    text-align: center;
+}
+.skill_tab_span1{
+    display: inline-block;
+    width: 90px;
+    margin-left: 13px;
+}
+.skill_tab_span2{
+    display: inline-block;
+    width: 90px;
+    margin-left: 0px;
+}
+.skill_tab_span3{
+    display: inline-block;
+    width: 40px;
+    margin-left: 0px;
+}
+.skill_centent{
+    width: 530px;
+    float: right;
+}
+.skill_imgbox{
+    margin-top: -8px;
+    clear: both;
+    text-align: center;
+    position: relative;
+}
+.skill_img {
+    vertical-align: middle;
+    display: inline-block;
+    background-color: rgb(35, 27, 47);
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    font-size: 12pt;
+    margin-top: -5px;
+    margin-left: -1px;
+    font-weight: 400;
+    border: 1px solid#171520;
+}
+.skill_img1 {
+    vertical-align: middle;
+    display: inline-block;
+    background-color: rgb(35, 27, 47);
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    font-size: 12pt;
+    margin-left: 3px;
+    font-weight: 400;
+    border: 1px solid#171520;
+}
+.skill_img2 {
+    vertical-align: middle;
+    display: inline-block;
+    background-color: rgb(35, 27, 47);
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    font-size: 12pt;
+    margin-left: 0px;
+    margin-top: -10px;
+    font-weight: 400;
+    border: 1px solid#171520;
+}
+.skill_span{
+    width: 44px;
+    height: 44px;
+    margin-left: 23px;
+    margin-right: 23px;
+    margin-top: 23px;
+    font-size: 21pt;
+    border: solid 1px  rgb(244,216,35);
+    border-radius: 5px;
+}
+.skill_mark1{
+    position: absolute;
+    color:  rgb(244,216,35);
+    top: 23px;
+    left: 165px;
+    font-size: 22pt;
+}
+.skill_mark2{
+    position: absolute;
+    color:  rgb(244,216,35);
+    top: 23px;
+    left: 257px;
+    font-size: 22pt;
+}
+.skill_mark3{
+    position: absolute;
+    color:  rgb(244,216,35);
+    top: 23px;
+    left: 349px;
+    font-size: 22pt;
+}
+.skill_box0{
+    clear: both;
+    margin-top: 5px;
+    text-align: center;
+}
+.skill_td {
+    width: 530px;
+    margin-top: 0px;
+}
+.skill_level{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 4px;
+    background-color: rgb(38, 35, 53);
+    font-size: 11pt;
+    margin-top: 10px;
+    padding-bottom: 5px;
+}
+.skill_tr {
+    display: inline-block;
+    background-color: rgb(35, 27, 47);
+    margin-left: 4px;
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    font-size: 10pt;
+    font-weight: 400;
+    border: 1px solid #171520;
+}
+.skill_T {
+    display: inline-block;
+    background-color: rgb(23, 21, 32);
+    color: rgb(170, 170, 170);
+    border: 1px solid 520;
+}
+.skill_Q{
+    display: inline-block;
+    background-color: rgb(23, 21, 32);
+    color: rgb(224, 54, 11);
+}
+.skill_W{
+    display: inline-block;
+    background-color: rgb(23, 21, 32);
+    color: rgb(71, 172, 40);
+}
+.skill_E{
+    display: inline-block;
+    background-color: rgb(23, 21, 32);
+    color: #007fd3;
+}
+.skill_R{
+    display: inline-block;
+    background-color: rgb(23, 21, 32);
+    color: rgb(244, 178, 35);
+}
+.item{
+    width: 780px;
+    height: 534px;
+    background-color: #262335;
+    margin-top: 10px;
+    border-radius: 3px 3px 0px 0px;
+    text-align: center;
+    border-bottom: 1px solid #3b4147;
+}
+.item0{
+    clear: both;
+    font-size: 15pt;
+    padding-top: 2px;
+    height: 32px;
+    background-color: rgb(35, 27, 47);
+    width: 780px;
+    border-bottom: 1px solid rgb(23, 21, 32);
+    border-radius: 3px 3px 0px 0px;
+}
+.item0_span{
+    width: 380px;
+    float: left;
+    margin-left: 200px;
+    text-align: center;
+}
+.item0_tab{
+    width: 100px;
+    float: right;
+    padding-bottom: 5px;
+    font-size: 14pt;
+    color: gray;
+    text-align: center;
+}
+.item_tabs{
+    float: left;
+    width: 337px;
+    height: 500px;
+    background-color: #251f32;
+    overflow: scroll;
+}
+.item_tabs .actived{
+    border-left: 3px solid rgb(244,216,35);
+    color:  rgb(209, 209, 209);
+}
+.item_tab{
+    width: 333px;
+    float: left;
+    padding-top: 3px;
+    padding-bottom: 6px;
+    height: 90px;
+    font-size: 15pt;
+    color: gray;
+    border-right: 1px solid #3b4147;
+    border-left: 3px solid #3b4147;
+    border-bottom: 1px solid #3b4147;
+}
+.item_tab :hover{
+    cursor: pointer;
+}
+.item_tab_imgbox_all{
+    width: 250px;
+}
+.item_tab_imgbox{
+    position: relative;
+    border-radius: 3px;
+    width: 67px;
+    height: 38px;
+    float: left;
+    margin-top: 5px;
+    margin-right: -5px;
+    margin-left: 8px;
+}
+.item_tab_bg{
+    position: absolute;
+    border-radius: 3px;
+    border: 1px solid #3b4147;
+    top: 0px;
+    left: 0px
+}
+.item_tab_img{
+    position: absolute;
+    border-radius: 3px;
+    top: 0px;
+    left: 0px
+}
+.item_tab_span{
+    font-size: 12pt;
+    text-align: center;
+    margin-top: 3px;
+}
+.item_tab_span1{
+    display: inline-block;
+    width: 90px;
+    margin-top: 2px;
+}
+.item_tab_span2{
+    display: inline-block;
+    width: 90px;
+    margin-top: 2px;
+}
+.item_tab_span3{
+    display: inline-block;
+    width: 40px;
+    margin-top: 2px;
+}
+.item_route{
+    width: 443px;
+    float: left;
+}
+.item_route_tab{
+    width: 88.6px;
+    float: left;
+    padding-bottom: 2px;
+    font-size: 11pt;
+    color: gray;
+    border-bottom: 1px solid  #3b4147;
+    text-align: center;
+    background-color: #251f32;
+}
+.item_route_map{
+    width: 370px;
+    height: 425px;
+    position: relative;
+    margin-left: 40px;
+    margin-top: 50px;
+}
+.item_route_map2{
+    width: 370px;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+}
+.item_route_spawn{
+    width: 780px;
+    height: 340px;
+    background-color: #262335;
+    overflow-y: scroll;
+    border-radius: 0px 0px 3px 3px;
+}
+.item_route_spawnY{
+    float: left;
+    width: 259px;
+    height: 169px;
+    border-right: 1px solid #3b4147;
+    border-bottom: 1px solid #3b4147;
+}
+.item_route_spawnY-R{
+    float: left;
+    width: 260px;
+    height: 169px;
+    border-bottom: 1px solid #3b4147;
+}
+.item_route_spawn_title{
+    text-align: center;
+    background-color: #251f32;
+    border-bottom: 1px solid #3b4147;
+}
+.item_route_spawn_Make{
+    height: 36px;
+    border-bottom: 1px solid #3b4147;
+    padding-left: 7px;
+    overflow-x: scroll;
+}
+.item_route_spawn_Need{
+    height: 106px;
+    padding-left: 7px;
+    overflow-y: scroll;
+    float: left;
+}
+.item_route_spawn_Make_img{
+    width: 55px;
+    height: 30.45px;
+    position: relative;
+    border-radius: 3px;
+    margin: 3px;
+    margin-top: 2px;
+    float: left;
+}
+.item_route_spawn_Make_img1{
+    position: absolute;
+    border-radius: 3px;
+    width: 55px;
+    border:1px solid #3b4147;
+}
+.item_route_spawn_Make_img2{
+    position: absolute;
+    border-radius: 3px;
+    width: 53px;
+    top: 1px;
+    left: 1px;
+}
+.item_rank{
+    width: 780px;
+    background-color: #262335;
+    border-bottom: solid 1px #3b4147;
+    height: 810px;
+    border-radius: 0px 0px 3px 3px;
+}
+.item_scroll{
+    width: 389px;
+    height: 757px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    border-radius: 3px;
+}
+.S_right{
+    width: 390px;
+    float: left;
+    text-align: center;
+    background-color: rgb(38, 35, 53);
+}
+.S_right2{
+    width: 389px;
+    float: left;
+    background-color: rgb(38, 35, 53);
+    text-align: center;
+    border-left: 1px solid #3b4147;
+}
+.S_item_tab1{
+    width: 390px;
+    font-size: 12pt;
+    border-bottom: 1px rgb(244,216,35) solid;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    background-color: #251f32;
+}
+.S_item_tab{
+    width: 77.8px;
+    float: left;
+    font-size: 12pt;
+    border-bottom: 1px solid rgb(23, 21, 32);
+    border-bottom: 1px solid #3b4147;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    background-color: #251f32;
+}
+.S_item_sort{
+    float: left;
+    font-size: 10pt;
+    display: inline-block;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    background-color: rgb(38, 35, 53);
+    border-bottom: 1px solid #3b4147;
+}
+.S_item_sort1{
+    float: left;
+    width: 40px;
+    margin-left: 21px;
+}
+.S_item_sort2{
+    float: left;
+    width: 40px;
+    margin-left: 85px;
+}
+.S_item_sort3{
+    float: left;
+    width: 60px;
+    margin-left: 75px;
+}
+.S_item_sort4{
+    float: left;
+    width: 77px;
+    margin-left: -9px;
+}
+.S_item_rank{
+    width: 390px;
+    clear: both;
+    font-size: 11pt;
+    height: 40px;
+    vertical-align: middle;
+    text-align: left;
+    background-color: rgb(38, 35, 53);
+    display: table;
+    border-bottom: 1px solid #3b4147;
+}
+.S_item_rank1{
+    vertical-align: middle;
+    display: inline-block;
+    width: 30px;
+    font-size: 15pt;
+    margin-left: 25px;
+    text-align: center;
+}
+.S_item_rank2{
+    vertical-align: middle;
+    display: inline-block;
+    width: 63px;
+    text-align: center;
+    border-radius: 2px;
+    border: 1px solid #3b4147;
+    position: absolute;
+    right: 0px;;
+    
+}
+.S_item_rank3{
+    display: table-cell;
+    width: 128px;
+    height: 40px;
+    font-size: 11pt;
+    text-align: center;
+    vertical-align: middle;
+    
+}
+.S_item_rank4{
+    vertical-align: middle;
+    display: inline-block;
+    width: 40px;
+    text-align: center;
+    font-size: 10pt;
+}
+.S_item_rank5{
+    vertical-align: middle;
+    display: inline-block;
+    width: 40px;
+    margin-left: 18px;
+    text-align: center;
+    font-size: 10pt;
+    padding-right: 15px;
+}
+.S_item_rank6{
+    vertical-align: middle;
+    display: inline-block;
+    width: 40px;
+    margin-left: 58px;
+    text-align: center;
+    font-size: 10pt;
+    padding-right: 29px;
+}
+.S_Trend{
+    background-color: rgb(38, 35, 53);
+    text-align: center;
+    border-radius: 3px;
+    border-bottom: 1px solid #3b4147;
+    float: right;
+    padding-bottom: 60px;
+    margin-top: 30px;
+}
+.S_Trend0{
+    width: 360px;
+    height: 40px;
+    font-family: "Big Shoulders Stencil Display";
+    font-size: 23pt;
+    padding-top: 5px;
+    float: right;
+    background-color: rgb(35, 27, 47);
+    border-bottom: 1px solid rgb(23, 21, 32);
+    border-radius: 3px 3px 0px 0px;
 }
 .S_Trend1{
     height: 45px;
@@ -1036,14 +1783,15 @@ button:hover{
     margin-top: 10px;
 }
 .S_Trend_square{
-    margin-top: 20px;
-    margin-left: 23px;
+    padding-top: 1px;
+    margin-top: 65px;
+    margin-bottom: -50px;
+    margin-left: 9px;
     width: 340px;
     height: 140px;
     background-color: rgb(35, 27, 47);
-    float:left;
     border-radius: 5px;
-    border-bottom: 1px solid #3b4147;
+    border: 1px solid #171520;
 }
 .S_Trend_square1{
     text-align: left;
@@ -1105,360 +1853,52 @@ button:hover{
 .S_Trend_avg1{
     clear: both;
 }
-.S_Skill{
-    margin-top: 15px;
-    padding-bottom: 20px;
-    width: 750px;
-    height: auto;
+.master{
+    width: 360px;
+    float: right;
     text-align: center;
-    background-color: rgb(38, 35, 53);
-    border-radius: 3px;
-    border-bottom: 1px solid #3b4147;
-    height: 500px;
-}
-.S_Skill0{
-    width: 750px;
-    height: 40px;
-    font-size: 17pt;
-    display: inline-block;;
-    background-color: rgb(38, 35, 53);
-    padding-top: 5px;
-    border-radius: 3px 3px 0px 0px / 3px 3px 0px 0px ;
-    background-color: rgb(35, 27, 47);
-    border-bottom: 1px solid rgb(23, 21, 32);
-}
-.S_Skill1{
-    margin-left: 30px;
-}
-.S_Skill_tab{
-    margin-top: 10px;
-    float: left;
-    margin-left: 30px;
-    font-size: 17pt;
-    
-}
-.S_Skill_img{
-    width: 78px;
-    vertical-align: text-top;
-    clear: both;
-    margin-bottom: -3px;
-    border: 1px solid #3b4147;
-    border-radius: 5px;
-}
-.S_Skill_key{
-    clear: both;
-}
-.S_Skill2{
-    clear: both;
-    font-size: 15pt;
-    padding-top: 2px;
-    height: 32px;
-    background-color: rgb(35, 27, 47);
-    width: auto;
-    border-bottom: 1px solid rgb(23, 21, 32);
-}
-.skill_title{
-    display: inline-block;
-    width: 250px;
-    float: left;
-    margin-top: 10px;
-    background-color: rgb(35, 27, 47);
-    border-bottom: 1px solid rgb(23, 21, 32);
-}
-.skill_tab{
-    display: block;
-    width: 250px;
-    float: left;
-    padding-top: 3px;
-    padding-bottom: 6px;
-    height: 24px;
-    font-size: 15pt;
-    color: gray;
-    border-bottom: 1px solid #3b4147;
-}
-.skill_imgbox{
-    clear: both;
-    text-align: center;
-    position: relative;
-}
-.skill_img {
-    vertical-align: middle;
-    display: inline-block;
-    background-color: rgb(35, 27, 47);
-    width: 23px;
-    height: 23px;
-    border-radius: 4px;
-    font-size: 12pt;
-    margin-top: -6px;
-    margin-left: -1px;
-    font-weight: 400;
-    border: 1px solid#171520;
-}
-.skill_span{
-    width: 44px;
-    height: 44px;
-    margin-left: 23px;
-    margin-right: 23px;
-    margin-top: 23px;
-    font-size: 21pt;
-    border: solid 1px  rgb(244,216,35);
-    border-radius: 5px;
-}
-.skill_mark1{
-    position: absolute;
-    color:  rgb(244,216,35);
-    top: 23px;
-    left: 275px;
-    font-size: 22pt;
-}
-.skill_mark2{
-    position: absolute;
-    color:  rgb(244,216,35);
-    top: 23px;
-    left: 367px;
-    font-size: 22pt;
-}
-.skill_mark3{
-    position: absolute;
-    color:  rgb(244,216,35);
-    top: 23px;
-    left: 459px;
-    font-size: 22pt;
-}
-.skill_box0{
-    clear: both;
-    margin-top: 5px;
-    text-align: center;
-}
-.skill_td {
-    margin-top: 0px;
-}
-.skill_level{
-    display: inline-block;
-    width: 25px;
-    height: 25px;
-    margin-left: 4px;
-    background-color: rgb(38, 35, 53);
-    font-size: 13pt;
     margin-top: 10px;
 }
-.skill_tr {
-    display: inline-block;
-    background-color: rgb(35, 27, 47);
-    margin-left: 4px;
-    width: 23px;
-    height: 23px;
-    border-radius: 4px;
-    font-size: 12pt;
-    font-weight: 400;
-    border: 1px solid #171520;
-}
-.skill_T {
-    display: inline-block;
-    background-color: rgb(23, 21, 32);
-    color: rgb(170, 170, 170);
-    border: 1px solid 520;
-}
-.skill_Q{
-    display: inline-block;
-    background-color: rgb(23, 21, 32);
-    color: rgb(224, 54, 11);
-}
-.skill_W{
-    display: inline-block;
-    background-color: rgb(23, 21, 32);
-    color: rgb(71, 172, 40);
-}
-.skill_E{
-    display: inline-block;
-    background-color: rgb(23, 21, 32);
-    color: #007fd3;
-}
-.skill_R{
-    display: inline-block;
-    background-color: rgb(23, 21, 32);
-    color: rgb(244, 178, 35);
-}
-.S_right{
-    width: 390px;
-    max-width: 390px;
-    padding-bottom: 20px;
-    float: left;
-    margin-top: 10px;
-    margin-left: 9pt;
-    text-align: center;
-    border-radius: 3px;
-    background-color: rgb(38, 35, 53);
-    border-bottom: 1px solid #3b4147;
-}
-.S_right2{
-    width: 390px;
-    max-width: 390px;
-    padding-bottom: 20px;
-    float: left;
-    margin-top: 5px;
-    margin-left: 9pt;
-    background-color: rgb(38, 35, 53);
-    text-align: center;
-    border-radius: 3px;
-    border-bottom: 1px solid #3b4147;
-}
-.S_item0{
-    overflow: hidden;
-    width: 390px;
-    background-color: rgb(35, 27, 47);
-    border-bottom: 1px solid rgb(23, 21, 32);
-}
-.S_item1{
-    display: inline-block;
-    width: 100px;
-    margin-left: 5px;
-    height: 40px;
-    font-family: "Big Shoulders Stencil Display";
-    font-size: 23pt;
-    padding-top: 5px;
-}
-.S_item_tab_banner{
-    background-color: rgb(38, 35, 53);
-    height: 33px;
-}
-.S_item_tab_banner2{
-    background-color: rgb(35, 27, 47);
+.master0{
+    width: 360px;
     height: 30px;
-    border-radius: 3px 3px 0px 0px / 3px 3px 0px 0px;
-}
-.S_item_tab1{
-    width: 390px;
-    font-size: 14pt;
-    padding-bottom: 3px;
-    border-bottom: 1px rgb(244,216,35) solid;
-}
-.S_item_tab{
-    width: 78px;
-    float: left;
-    font-size: 12pt;
-    margin-top: 3px;
-    padding-bottom: 2px;
-    border-bottom: 1px solid rgb(23, 21, 32);
+    font-family: "Big Shoulders Stencil Display";
+    font-size: 20pt;
     background-color: rgb(35, 27, 47);
+    border-bottom: 1px solid rgb(23, 21, 32);
+    border-radius: 3px 3px 0px 0px;
 }
-.S_item_sort{
-    float: left;
-    font-size: 10pt;
-    display: inline-block;
-    padding-top: 5px;
-    padding-bottom: 4px;
-    background-color: rgb(38, 35, 53);
+.master_rank{
+    width: 360px;
+    height: 30px;
+    background-color: #262335;
+    font-size: 12pt;
     border-bottom: 1px solid #3b4147;
 }
-.S_item_sort1{
-    float: left;
-    width: 40px;
-    margin-left: 21px;
-}
-.S_item_sort2{
-    float: left;
-    width: 40px;
-    margin-left: 85px;
-}
-.S_item_sort3{
-    float: left;
-    width: 60px;
-    margin-left: 75px;
-}
-.S_item_sort4{
-    float: left;
-    width: 77px;
-    margin-left: -8px;
-}
-.S_item_sort_b{
-    float: left;
-    font-size: 10pt;
+.master_rank1{
+    width: 20px;
     display: inline-block;
-    padding-top: 5px;
-    padding-bottom: 4px;
-    margin-bottom: 5px;
-    border-bottom: 1px solid #3b4147;
-}
-.S_item_sort_b1{
-    float: left;
-    width: 40px;
-    margin-left: 20px;
-}
-.S_item_sort_b2{
-    float: left;
-    width: 40px;
-    margin-left: 85px;
-}
-.S_item_sort_b3{
-    float: left;
-    width: 100px;
-    margin-left: 105px;
-}
-.S_item_rank{
-    width: 390px;
-    clear: both;
-    font-size: 11pt;
-    height: 40px;
-    vertical-align: middle;
-    text-align: left;
-    background-color: rgb(38, 35, 53);
-    display: table;
-    border-bottom: 1px solid #3b4147;
-    border-radius: 8px;
-}
-.S_item_rank1{
-    vertical-align: middle;
-    display: inline-block;
-    width: 30px;
+    font-family: "Big Shoulders Stencil Display";
     font-size: 15pt;
-    margin-left: 25px;
-    text-align: center;
+    margin-top: 1px;
 }
-.S_item_rank2{
-    vertical-align: middle;
+.master_rank2{
+    width: 200px;
     display: inline-block;
-    width: 63px;
-    text-align: center;
-    border-radius: 2px;
-    border: 1px solid #3b4147;
-    position: absolute;
-    right: 0px;;
-    
 }
-.S_item_rank3{
-    display: table-cell;
-    width: 128px;
-    height: 40px;
-    font-size: 11pt;
-    text-align: center;
-    vertical-align: middle;
-    
-}
-.S_item_rank4{
-    vertical-align: middle;
+.master_rank3{
+    width: 100px;
     display: inline-block;
-    width: 40px;
-    text-align: center;
-    font-size: 10pt;
 }
-.S_item_rank5{
-    vertical-align: middle;
-    display: inline-block;
-    width: 40px;
-    margin-left: 18px;
-    text-align: center;
-    font-size: 10pt;
-    padding-right: 15px;
-}
-.S_item_rank6{
-    vertical-align: middle;
-    display: inline-block;
-    width: 40px;
-    margin-left: 58px;
-    text-align: center;
-    font-size: 10pt;
-    padding-right: 29px;
+.master_button{
+    width: 360px;
+    height: 28px;
+    background-color: #262335;
+    font-size: 12pt;
+    border:none;
+    border-bottom: 1px solid #3b4147;
+    color: rgb(209, 209, 209);
+    border-radius: 0px 0px 3px 3px;
 }
 /* 3 page */
 .map_main{
@@ -2090,8 +2530,6 @@ button:hover{
     margin-bottom: 10px;
     position: relative;
 }
-.Route_R_Mapimg_box .actived{
-}
 .Route_R_Mapimg{
     width: 370px;
     margin-bottom: 10px;
@@ -2196,7 +2634,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_alley{
@@ -2207,7 +2645,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_school{
@@ -2218,7 +2656,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_hotel{
@@ -2229,7 +2667,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_beach{
@@ -2240,7 +2678,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_forest{
@@ -2251,7 +2689,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_uptown{
@@ -2262,7 +2700,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_pond{
@@ -2273,7 +2711,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_temple{
@@ -2284,7 +2722,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_hospital{
@@ -2295,7 +2733,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_chapel{
@@ -2306,7 +2744,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_factory{
@@ -2317,7 +2755,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_dock{
@@ -2328,7 +2766,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_cemetery{
@@ -2339,7 +2777,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_research{
@@ -2350,7 +2788,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_avenue{
@@ -2361,7 +2799,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: 1px solid #3b4147;
 }
 .Route_R_Mapspan_archery1{
@@ -2372,7 +2810,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2384,7 +2822,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2396,7 +2834,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2408,7 +2846,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2420,7 +2858,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2432,7 +2870,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2444,7 +2882,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2456,7 +2894,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2468,7 +2906,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2480,7 +2918,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2492,7 +2930,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2504,7 +2942,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2516,7 +2954,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2528,7 +2966,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2540,7 +2978,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #171520;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2552,7 +2990,7 @@ button:hover{
     text-align: center;
     display: inline-block;
     background-color: #241b2f;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     border: 1px solid #3b4147;
     color: rgb(244,216,35);
 }
@@ -2648,6 +3086,12 @@ button:hover{
     font-size: 10pt;
     color: rgb(209, 209, 209);
 }
+.record_top_medal_box{
+    float: right;
+    width: 100px;
+    margin-right: 15px;   
+    margin-top: 15px;
+}
 .record_top_medal{
     float: right;
     width: 100px;
@@ -2655,8 +3099,10 @@ button:hover{
     margin-top: 15px;
 }
 .record_main{
+    clear: both;
     width: 1152px;
     margin: auto;
+    overflow: hidden;
 }
 .record_left{
     width: 350px;
@@ -2688,11 +3134,11 @@ button:hover{
     overflow: hidden;
 }
 .record_rank_icon{
-    width: 100px;
+    width: 80px;
     float: left;
-    margin-top: 5px;
-    margin-left: 25px;
-    margin-right: 25px;
+    margin-top: 18px;
+    margin-left: 35px;
+    margin-right: 35px;
 }
 .record_rank_span1{
     font-size: 18pt;
@@ -3037,6 +3483,7 @@ button:hover{
     margin-top: 5px;
     border-radius: 0px 3px 3px 0px;
     border-bottom: 1px solid #3b4147;
+    position: relative;
 }
 .record_history_win{
     display: inline-block;
@@ -3120,41 +3567,86 @@ button:hover{
     font-size: 15pt;
     margin-top: -5px;
 }
+.record_history3-4{
+    float: left;
+    display: inline-block;
+    width: 300px;
+    margin-top: 5px;
+}
 .record_history3{
     display: inline-block;
-    width: 120px;
+    width: 100px;
     float: left;
-    margin-top: 20px;
     text-align: center;
+    margin-top: 13px;
 }
-.record_history_kill{
+.record_history_lv{
+    font-size: 11pt;
+    display: inline-block;
+    width: 100px;
+    float: left;
+}
+.record_history_mmr{
     display: inline-block;
     width: 60px;
+    clear: both;
     float: left;
-    font-size: 13pt;
-    text-align: center;
+    font-size: 15pt;
+    margin-left: 5px;
 }
-.record_history_assist{
+.record_history_upmark{
     display: inline-block;
-    width: 60px;
-    font-size: 13pt;
+    float: left;
+    width: 12px;
+    margin-top: 8px;
+    margin-left: -5px;
+}
+.record_history_up{
+    display: inline-block;
+    width: 25px;
+    float: left;
+    color: #00b900;
+    font-size: 11pt;
+    margin-top: 3px;
+}
+.record_history_down{
+    display: inline-block;
+    width: 25px;
+    float: left;
+    color: #b90000;
+    font-size: 11pt;
+    margin-top: 3px;
+}
+.record_history4{
+    width: 200px;
+    float: left;
+    height: 90px;
     text-align: center;
 }
 .record_history_kda{
-    font-size: 10pt;
-}
-.record_history4{
-    display: inline-block;
-    width: 110px;
+    width: 200px;
+    font-size: 12pt;
     float: left;
-    margin-top: 20px;
-    margin-left: 30px;
+    margin-top: 25px;
 }
-.record_history_lv{
-    font-size: 13pt;
+.record_history_kda2{
+    color: #007fd3;
 }
-.record_history_monster{
-    font-size: 10pt;
+.record_history_kda3{
+    color: rgb(244,216,35);
+}
+.record_history_badge_box_all{
+    width: 150px;
+    margin-left: 48px;
+}
+.record_history_badge_box{
+    float: left;
+}
+.record_history_badge{
+    width: 25px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
 }
 .record_history_item_box{
     width: 200px;
@@ -3173,11 +3665,220 @@ button:hover{
     border: 1px solid #3b4147;
     position: absolute;
     border-radius: 3px;
+    left: 0px;
 }
 .record_history_item2{
     width: 60px;
     position: absolute;
     border-radius: 3px;
+    left: 1px;
+}
+.record_history_detailbutton{
+    float: left;
+    width: 20px;
+    margin-top: 55px;
+    margin-left: -2px;
+    cursor: pointer;
+}
+.record_history_detail{
+    width: 775px;
+    overflow: hidden;
+    background-color: #262335;
+}
+.record_history_detail0{
+    background-color: #241b2f;
+    text-align: center;
+    font-size: 13pt;
+    height: 27px;
+    border-bottom: 1px solid #171520;
+}
+.record_history_detail_skill{
+    width: 775px;
+    height: 70px;
+    border-bottom: 1px solid #3b4147;
+}
+.record_history_detail_skill_span{
+    width: 200px;
+    display:inline-block;
+    text-align: center;
+    float: left;
+    margin-top: 20px;
+}
+.record_history_detail_skill0{
+    float: left;
+}
+.record_history_detail_skill1{
+    margin-top: 9px;
+}
+.record_history_detail_skill2{
+}
+.record_history_detail_skill1-1{
+    float: left;
+    width: 25px;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid #3b4147;
+    background-color: #241b2f;
+    margin-left: -1px;
+}
+.record_history_detail_skill2-1{
+    float: left;
+    width: 25px;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid #3b4147;
+    border-top: none;
+    margin-left: -1px;
+}
+.record_history_detail_filter{
+    border-bottom: 1px solid #3b4147;
+    height: 25px;
+    padding-top: 3px;
+    text-align: center;
+}
+.record_history_detail_filter1{
+    display: inline-block;
+    float: left;
+    font-size: 10pt;
+    width: 50px;
+}
+.record_history_detail_filter2{
+    display: inline-block;
+    float: left;
+    font-size: 10pt;
+    width: 150px;
+}
+.record_history_detail_filter3{
+    display: inline-block;
+    float: left;
+    font-size: 10pt;
+    width: 160px;
+}
+.record_history_detail_filter4{
+    display: inline-block;
+    float: left;
+    font-size: 10pt;
+    width: 100px;
+    margin-left: -15px;
+}
+.record_history_detail_filter5{
+    display: inline-block;
+    float: left;
+    font-size: 10pt;
+    width: 200px;
+    margin-left: 70px;
+}
+.record_history_detail_box{
+    width: 775px;
+    border-bottom: 1px solid #3b4147;
+    height: 51px;
+}
+.record_history_detail .actived{
+    background-color: #241b2f;
+}
+.record_history_detail_rank{
+    float: left;
+    display: inline-block;
+    width: 50px;
+    font-size: 18pt;
+    margin-top: 5px;
+    text-align: center;
+}
+.record_history_detail_cha{
+    float: left;
+    width: 40px;
+    border-radius: 100%;
+    border: 1px solid #3b4147;
+    margin-top: 4px;
+}
+.record_history_detail_box1{
+    float: left;
+    display: inline-block;
+    width: 130px;
+    margin-left: 10px;
+}
+.record_history_detail_name{
+    width: 130px;
+    font-size: 12pt;
+    margin-top: 4px;
+}
+.record_history_detail_tier{
+    width: 130px;
+    font-size: 9pt;
+}
+.record_history_detail_box2{
+    float: left;
+    display: inline-block;
+    width: 100px;
+    margin-top: 2px;
+}
+.record_history_detail_kill{
+    display: inline-block;
+    width: 100px;
+    font-size: 11pt;
+    float: left;
+    text-align: center;
+}
+.record_history_detail_dmg_graph1{
+    float: left;
+    width: 100px;
+    height: 20px;
+    background-color:  #171520;
+    position: relative;
+    border-radius: 5px;
+    margin-top: 2px;
+}
+.record_history_detail_dmg_graph2{
+    width: 80px;
+    height: 20px;
+    background-color:  #9b2525;
+    position: absolute;
+    border-radius: 5px;
+    top: 0px;
+}
+.record_history_detail_dmg{
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    position: absolute;
+    z-index: 1;
+    font-size: 11pt;
+    margin-top: -1px;
+}
+.record_history_detail_death{
+    display: inline-block;
+    width: 130px;
+    font-size: 12pt;
+    margin-top: 4px;
+    float: left;
+    text-align: center;
+    margin-top: 10px;
+}
+.record_history_detail_itembox{
+    width: 310px;
+    float: left;
+    margin-top: 10px;
+}
+.record_history_detail_item{
+    width: 49px;
+    height: 22.7px;
+    position: relative;
+    margin: 1px;
+    float: left;
+}
+.record_history_detail_item1{
+    width: 47px;
+    border: 1px solid #3b4147;
+    border-radius: 3px;
+    position: absolute;
+    top: 0px
+}
+.record_history_detail_item2{
+    width: 45px;
+    border-radius: 3px;
+    position: absolute;
+    top: 2px;
+    left : 2px;
 }
 .record_history_button{
     width: 775px;
@@ -3187,7 +3888,7 @@ button:hover{
     background-color: #26242e;
     border: none;
     border-bottom: 1px solid #3b4147;
-    margin-top: 10px;
+    margin-top: 5px;
     color: rgb(209, 209, 209);
 }
 .record_cha{
@@ -3201,12 +3902,11 @@ button:hover{
     display: inline-block;
     width: 1152px;
     text-align: center;
+    margin-top: -2px;
     background-color: #241b2f;
     font-size: 23pt;
-    padding-top: 3px;
     border-radius: 3px 3px 0px 0px;
-    height: 38px;
-    font-family: 'Big Shoulders Stencil Display';
+    height: 43px;
     border-bottom: 1px solid rgb(23, 21, 32);
 }
 .record_cha0_span{
@@ -3215,10 +3915,12 @@ button:hover{
     padding-top: 2px;
     font-size: 23pt;
     margin-left: 200px;
+    font-family: "Big Shoulders Stencil Display";
 }
 .record_cha0_tabs{
     float: right;
-    margin-top: 4px;
+    margin-top: 9px;
+    font-family: "Big Shoulders Stencil Display";
 }
 .record_cha0_tabs .actived{
     color: rgb(209, 209, 209);
@@ -3290,7 +3992,7 @@ button:hover{
 }
 .record_cha_filter4{
     display: inline-block;
-    width: 220px;
+    width: 230px;
     float: left;
     border-bottom: 1px solid #3b4147;
     margin-top: 3px;
@@ -3307,15 +4009,16 @@ button:hover{
 }
 .record_cha_filter6{
     display: inline-block;
-    width: 90px;
+    width: 100px;
     float: left;
     border-bottom: 1px solid #3b4147;
     margin-top: 3px;
     height: 28px;
+    padding-right: 40px;
 }
 .record_cha_filter7{
     display: inline-block;
-    width: 90px;
+    width: 80px;
     float: left;
     border-bottom: 1px solid #3b4147;
     margin-top: 3px;
@@ -3323,7 +4026,7 @@ button:hover{
 }
 .record_cha_filter8{
     display: inline-block;
-    width: 90px;
+    width: 80px;
     float: left;
     border-bottom: 1px solid #3b4147;
     margin-top: 3px;
@@ -3331,12 +4034,12 @@ button:hover{
 }
 .record_cha_filter9{
     display: inline-block;
-    width: 90px;
+    width: 80px;
     float: left;
     border-bottom: 1px solid #3b4147;
     margin-top: 3px;
     height: 28px;
-    padding-right: 39px;
+    padding-right: 9px;
 }
 .record_cha_box{
     clear: both;
@@ -3385,7 +4088,6 @@ button:hover{
 }
 .record_cha_graphW{
     width: 50px;
-    min-width: 10px;
     height: 20px;
     background-color:  rgb(244,216,35);
     border-radius: 10px 0px 0px 10px;
@@ -3396,7 +4098,6 @@ button:hover{
 }
 .record_cha_graphL{
     width: 50px;
-    min-width: 10px;
     height: 20px;
     background-color: gray;
     border-radius: 0px 10px 10px 0px;
@@ -3411,6 +4112,7 @@ button:hover{
     float: left;
     margin-top: 15px;
     height: 28px;
+    margin-right: 10px;
 }
 .record_cha_span4{
     display: inline-block;
@@ -3454,29 +4156,28 @@ button:hover{
 }
 .record_cha_span8{
     display: inline-block;
-    width: 90px;
+    width: 180px;
     float: left;
     margin-top: 15px;
     height: 28px;
-    margin-left: 40px;
 }
 .record_cha_span9{
     display: inline-block;
-    width: 90px;
+    width: 80px;
     float: left;
     margin-top: 15px;
     height: 28px;
 }
 .record_cha_span10{
     display: inline-block;
-    width: 90px;
+    width: 80px;
     float: left;
     margin-top: 15px;
     height: 28px;
 }
 .record_cha_span11{
     display: inline-block;
-    width: 90px;
+    width: 80px;
     float: left;
     margin-top: 15px;
     height: 28px;

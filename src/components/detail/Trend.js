@@ -7,39 +7,14 @@ class Thend extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            range: ['RANKER', 'ALL'],
-            type: ['solo', 'duo', 'squad'],
             trend: ['win-rate', 'pick-rate', 'avg-kill', 'avg-rank'],
         };
     }
-    
-    rangeView = () => {
-        const { parameter } = this.props;
-        const { range } = this.state;
-
-        return range.map((name, idx) =>
-            <Link to={'Detail?range='+name+'&type='+parameter['typeFocus']+'&character='+parameter['character']+'&weapon='+parameter['weapon']} key={'range' + idx}>
-                <div className={'tabHeader5 ' + (name === parameter['rangeFocus'] ? 'actived' : '')}>
-                    {name}
-                </div>
-            </Link>
-        );
-    };
-    typeView = () => {
-        const { intl, parameter } = this.props;
-        const { type } = this.state;
-        
-        return type.map((name, idx) =>
-            <Link to={'Detail?range='+parameter['rangeFocus']+'&type='+name+'&character='+parameter['character']+'&weapon='+parameter['weapon']} key={'type' + idx}>
-                <div className={'tabHeader6 ' + (name === parameter['typeFocus'] ? 'actived' : '')}>
-                    {intl.formatMessage({ id: name })}
-                </div>
-            </Link>
-        );
-    };
 
     trendView = (name, idx) => {
-        const { intl, data, parameter } = this.props
+        const { intl, stat, parameter } = this.props;
+
+        console.log('stat', stat);
 
         const avg = Avg(parameter['rangeFocus'], parameter['typeFocus']);
         const max = Max(parameter['rangeFocus'], parameter['typeFocus']);
@@ -69,21 +44,10 @@ class Thend extends Component {
         const { intl } = this.props;
         const { trend } = this.state;
 
-
         return (
             <div className="S_Trend">
                 <div className="S_Trend0">
                     <span className="S_Trend_T">Trend</span>
-                    <div className="S_Trend_tab">
-                        <div className="tabHeaders">
-                            {this.rangeView()}
-                        </div>
-                    </div>
-                </div>
-                <div className="S_Trend1">
-                    <div className="tabHeaders">
-                        {this.typeView()}
-                    </div>
                 </div>
                 <div className="S_Trend2">
                     {
@@ -91,6 +55,15 @@ class Thend extends Component {
                             this.trendView(name, idx)
                         )
                     }
+                </div>
+                <div className="master">
+                    <div className="master0">Master</div>
+                    <div className="master_rank">
+                        <span className="master_rank1">1</span>
+                        <span className="master_rank2">에미디</span>
+                        <span className="master_rank3">150게임</span>
+                    </div>
+                    <button className="master_button">더 보기</button>
                 </div>
             </div>
         );

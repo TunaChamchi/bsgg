@@ -6,6 +6,7 @@ const schedule = require('node-schedule');
 const UserStat = require('../schemas/userStat');
 const User = require('../schemas/user');
 const Match = require('../schemas/match');
+const { response } = require('express');
 
 const router = express.Router();
 
@@ -74,8 +75,41 @@ router.get('/:userName', async (req, res, next) => {
     console.log(req.params);
     const userName = req.params.userName;
 
-    const users = await UserStat.findOne({ nickname: userName });
-    res.json(users);
+    const user = await User.findOne({ nickname: userName });
+    const userStat = await UserStat.findOne({ nickname: userName });
+    const response = {
+        user:user,
+        userStat:userStat
+    }
+    res.json(response);
+});
+
+// 유저 전적 검색 DB
+router.get('/:userNum/match', async (req, res, next) => {
+    const userNum = req.params.userNum;
+    const seasonId =  parseInt(req.query.seasonId);
+    const matchingMode =  parseInt(req.query.matchingMode);
+    const limit = parseInt(req.query.limit) || 10;
+    const skip =  parseInt(req.query.skip) || 0;
+
+    const query = {
+        userNum: userNum
+    }
+    if (seasonId)
+        query['seasonId'] = seasonId;
+    if (matchingMode)
+        query['matchingMode'] = matchingMode;
+
+    console.log(query);
+    const match = await Match.find(
+        query, 
+        null,
+        {
+            skip: skip,
+            limit: limit,
+            sort: { startDtm: -1 }
+        });
+    res.json(match);
 });
 
 // 유저 전적 검색 API

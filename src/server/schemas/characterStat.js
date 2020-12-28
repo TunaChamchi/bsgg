@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 const characterStatSchema = new Schema({
+    matchingTeamMode : {
+        type: Number,
+        required: true
+    },
     characterNum: {
         type: Number,
         required: true
