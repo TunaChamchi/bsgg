@@ -176,8 +176,8 @@ class Rank extends Component {
                     <img className="record_cha_img" src={"img/Rank/"+stat['character']+".jpg"} />
                     <div className="record_cha_span2">{user['nickname']}</div>
                     <img className="record_cha_rankimg" src={'img/Rankicon/'+tierList[stat['tier']].slice(0, -2)+'.png'} />
-                    <div className="record_rank_span1">{tierList[stat['tier']]}</div>
-                    <div className="record_rank_span2">{stat['lp']} LP</div>
+                    <div className="record_rank_span11">{tierList[stat['tier']]}</div>
+                    <div className="record_rank_span22">{stat['lp']} LP</div>
                     <div className="record_cha_span3">{stat['total']}</div>
                     <div className="record_cha_graph">
                         <div className="record_cha_graphW" style={{width: stat['top1Width']}}></div>
@@ -187,7 +187,7 @@ class Rank extends Component {
                         <div className="record_cha_span6">{stat['loss']}</div>
                     </div>
                     <div className="record_cha_span7">{stat['rate']}%</div>
-                    <div className="record_rank_span3">{stat['kam'].toFixed(2)}</div>
+                    <div className="record_rank_span33">{stat['kam'].toFixed(2)}</div>
                 </div>
             );
         });
@@ -250,27 +250,17 @@ class Rank extends Component {
                         {this.rankTableView()}
                     </div>
                     
-                    {
-                        page > 1 &&
-                            <Link to={'/Rank?mode='+gameMode+'&page='+(page-1)} key={'page_left'}>
-                                <button className="rank_left_button" ><div className="rank_left_button_tri"></div></button>
-                            </Link>
-                    }
+                   
                     <div>
                         {
                             [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(idx => 
                                 <Link to={'/Rank?mode='+gameMode+'&page='+idx} key={'page_'+idx}>
-                                    <button className="rank_button" ><div className="rank_button_tri">{idx}</div></button>
+                                    <button className="rank_center_button" ><div className="rank_button_tri">{idx}</div></button>
                                 </Link>
                             )
                         }
                     </div>
-                    {
-                        page < 10 &&
-                            <Link to={'/Rank?mode='+gameMode+'&page='+(page+1)} key={'page_right'}>
-                                <button className="rank_right_button" ><div className="rank_right_button_tri"></div></button>
-                            </Link>
-                    }
+                    
                 </div>
                 <Footer />
             </div>
