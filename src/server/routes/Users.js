@@ -62,7 +62,7 @@ const getUserGame = async (userNum, next) => {
 
 // 메인 화면 유저 이름 검색
 router.get('/', async (req, res, next) => {
-    console.log(req.query);
+    console.log('/', req.query);
     const search = req.query.search;
 
 
@@ -72,7 +72,7 @@ router.get('/', async (req, res, next) => {
 
 // 유저 검색 DB
 router.get('/:userName', async (req, res, next) => {
-    console.log(req.params);
+    console.log('/:userName', req.params);
     const userName = req.params.userName;
 
     const user = await User.findOne({ nickname: userName });
@@ -86,21 +86,21 @@ router.get('/:userName', async (req, res, next) => {
 
 // 유저 전적 검색 DB
 router.get('/:userNum/match', async (req, res, next) => {
+    console.log('/:userNum/match', req.params, req.query);
     const userNum = req.params.userNum;
-    const seasonId =  parseInt(req.query.seasonId);
-    const matchingMode =  parseInt(req.query.matchingMode);
+    const matchMode =  parseInt(req.query.matchMode) || 0;
+    const teamMode =  parseInt(req.query.teamMode) || 0;
     const limit = parseInt(req.query.limit) || 10;
     const skip =  parseInt(req.query.skip) || 0;
 
     const query = {
         userNum: userNum
     }
-    if (seasonId)
-        query['seasonId'] = seasonId;
-    if (matchingMode)
-        query['matchingMode'] = matchingMode;
+    if (matchMode !== 0)
+        query['seasonId'] = matchMode;
+    if (teamMode !== 0)
+        query['matchingTeamMode'] = teamMode;
 
-    console.log(query);
     const match = await Match.find(
         query, 
         null,

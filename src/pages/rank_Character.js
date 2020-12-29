@@ -9,6 +9,7 @@ class Rank_Character extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            isLode: false,
             character: -1,
             rank: [],
             rankTop: [],
@@ -21,14 +22,8 @@ class Rank_Character extends Component {
 
     componentDidMount() {
         window.scrollTo(0, 0);
-
-        const { location } = this.props;
         
-        const query = queryString.parse(location.search);
-
-        const character = query.character || 1;
-              
-        this.setState({ haracter:character });
+        this.setState({ isLode: true });
     }
 
     componentDidUpdate(prevProps, prevState){
@@ -42,7 +37,7 @@ class Rank_Character extends Component {
         const character = parseInt(query.character) || 1;
         console.log('character', character, prevState.character);
 
-        if (character !== prevState.character) {
+        if (character !== this.state.character) {
             console.log('character', character, prevState.character);
             let rank;
             

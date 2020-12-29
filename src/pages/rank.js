@@ -9,6 +9,7 @@ class Rank extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            isLoad: false,
             page: -1,
             gameMode: -1,
             search: '',
@@ -25,19 +26,7 @@ class Rank extends Component {
     componentDidMount() {
         window.scrollTo(0, 0);
 
-        const { location } = this.props;
-        
-        const query = queryString.parse(location.search);
-
-        const page = parseInt(query.page, 1) || 1;
-        const mode = parseInt(query.mode, 0) || 0;
-        const search = query.search || '';
-
-        if (search) {                
-            this.setState({gameMode:mode, search:search });
-        } else {
-            this.setState({gameMode:mode, page:page});
-        }
+        this.setState({ isLoad: true })
     }
 
     componentDidUpdate(prevProps, prevState){
@@ -60,7 +49,7 @@ class Rank extends Component {
         }
 
         const index = ((page-1)*100) + 3;
-        if (mode !== prevState.gameMode) {
+        if (mode !== this.state.gameMode) {
             console.log('gameMode', mode, prevState.gameMode);
             let rank;
             
@@ -68,9 +57,8 @@ class Rank extends Component {
                 .then(res => res.json())
                 .then(_rank => rank = _rank);
                 
-            console.log(rank);
             this.setState({ gameMode:mode, page:page, rankTop:rank.slice(0, 3), rank:rank.slice(3, 103) });
-        } else if (page !== prevState.page) {
+        } else if (page !== this.state.page) {
             window.scrollTo(0, 0);
             console.log('page', page, prevState.page);
             let rank;

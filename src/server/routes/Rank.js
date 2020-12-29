@@ -134,12 +134,10 @@ router.get('/', async (req, res, next) => {
         if (user) {
             const rank = parseInt(user['rank']);
             const skip =  parseInt(rank/100)*100+3;
-            
-            console.log('rank', rank);
-            console.log('skip', skip);
 
             ranks = await Rank.aggregate([
                 { $match: { matchingTeamMode: mode } },
+                { $sort: { rank: 1 } },
                 { $skip:  skip },
                 { $limit: 100 },
                 { 
@@ -159,6 +157,7 @@ router.get('/', async (req, res, next) => {
 
         ranks = await Rank.aggregate([
             { $match: { matchingTeamMode: mode } },
+            { $sort: { rank: 1 } },
             { $skip:  skip },
             { $limit: limit },
             { 

@@ -18,7 +18,3 @@ app.use('/api/character', character);
 app.listen(port, ()=>{
     console.log(`express is running on ${port}`);
 })
-
-
-
-

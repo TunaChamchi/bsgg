@@ -321,6 +321,19 @@ export const statList = (name) => {
     return item[name]["stat"];
 }
 
+
+export const createJson = (json1, json2) => {
+    for (const key in json2) {
+        json1[key] = json2[key];
+    }
+}
+export const addJson = (json1, json2) => {
+    for (const key in json1) {
+        json1[key] += json2[key];
+    }
+}
+
+
 export const getCharacter = (code) => {
     return character[code];
 }
