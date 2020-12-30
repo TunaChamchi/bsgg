@@ -233,7 +233,7 @@ class Match extends Component {
                     <img className="record_rank_icon" src={"img/rankicon/"+tierList[tier].slice(0, -2)+".png"} />
                     <div className="record_rank_span1">{teamMode}</div>
                     <div className="record_rank_span2">{tierList[tier]} / {lp} LP</div>
-                    <div className="record_rank_span3">{total}전 {top1}승 {(top1/total*100).toFixed(1)}% / {kdm.toFixed(1)} K/M</div>
+                    <div className="record_rank_span3">{total}전 {top1}승 {(top1/total*100).toFixed(1)}% / {kdm.toFixed(1)} KA/M</div>
                     <div className="record_rank_span4">3112위 / 상위 6.8%</div>
                     <div className="record_rank_graph" style={{width: lp*3.5}}></div>
                 </div>
@@ -581,94 +581,124 @@ class Match extends Component {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="record_history_detail_filter">
-                                        <div className="record_history_detail_filter1">순위</div>
-                                        <div className="record_history_detail_filter2">플레이어</div>
-                                        <div className="record_history_detail_filter3">킬어시 / 딜량</div>
-                                        <div className="record_history_detail_filter4">죽인 플레이어</div>
-                                        <div className="record_history_detail_filter5">아이템 빌드</div>
-                                    </div>
-                                    <div className="record_history_detail_box actived" >
-                                        <div className="record_history_detail_rank" >1</div>
-                                        <img className="record_history_detail_cha" src="img/rank/재키.jpg" />
-                                        <div className="record_history_detail_box1">
-                                            <div className="record_history_detail_name" >에미디</div>
-                                            <div className="record_history_detail_tier" >Gold 4 27LP</div>
+                                    <div className="record_history_detail_tabs">
+                                        <div className="record_history_detail_tab actived">종합</div>
+                                        <div className="record_history_detail_tab">아이템빌드</div>
+                                    </div>&nbsp;
+                                    <div className="record_history_detail_filter_all">
+                                        <div className="record_history_detail_filter">
+                                            <div className="record_history_detail_filter1">순위</div>
+                                            <div className="record_history_detail_filter2">플레이어</div>
+                                            <div className="record_history_detail_filter3">킬어시 / 딜량</div>
+                                            <div className="record_history_detail_filter4">죽인 플레이어</div>
                                         </div>
-                                        <div className="record_history_detail_box2">
-                                            <div className="record_history_detail_kill" >1 K / 1 A</div>
-                                            <div className="record_history_detail_dmg_graph1" >
-                                                <div className="record_history_detail_dmg_graph2"></div>
-                                                <div className="record_history_detail_dmg" >35074</div>
-                                            </div>
-                                        </div>
-                                         <div className="record_history_detail_death" >준돌리스</div>
-                                        <div className="record_history_detail_itembox">
-                                            <div className="record_history_detail_item">
-                                                <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
-                                                <img className="record_history_detail_item2" src="img/item/AK-12.png" />
-                                            </div>
-                                            <div className="record_history_detail_item">
-                                                <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
-                                                <img className="record_history_detail_item2" src="img/item/AK-12.png" />
-                                            </div>
-                                            <div className="record_history_detail_item">
-                                                <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
-                                                <img className="record_history_detail_item2" src="img/item/AK-12.png" />
-                                            </div>
-                                            <div className="record_history_detail_item">
-                                                <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
-                                                <img className="record_history_detail_item2" src="img/item/AK-12.png" />
-                                            </div>
-                                            <div className="record_history_detail_item">
-                                                <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
-                                                <img className="record_history_detail_item2" src="img/item/AK-12.png" />
-                                            </div>
-                                            <div className="record_history_detail_item">
-                                                <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
-                                                <img className="record_history_detail_item2" src="img/item/AK-12.png" />
-                                            </div>
+                                        <div className="record_history_detail_filter">
+                                            <div className="record_history_detail_filter1">순위</div>
+                                            <div className="record_history_detail_filter2">플레이어</div>
+                                            <div className="record_history_detail_filter5">아이템 빌드</div>
                                         </div>
                                     </div>
-                                    <div className="record_history_detail_box" >
-                                        <div className="record_history_detail_rank" >1</div>
-                                        <img className="record_history_detail_cha" src="img/rank/재키.jpg" />
-                                        <div className="record_history_detail_box1">
-                                            <div className="record_history_detail_name" >에미디</div>
-                                            <div className="record_history_detail_tier" >Gold 4 27LP</div>
+                                    <div className="record_history_detail_left">
+                                        <div className="record_history_detail_box actived" >
+                                            <div className="record_history_detail_rank" >1</div>
+                                            <img className="record_history_detail_cha" src="img/rank/재키.jpg" />
+                                            <div className="record_history_detail_box1">
+                                                <div className="record_history_detail_name" >에미디</div>
+                                                <div className="record_history_detail_tier" >Gold 4 27LP</div>
+                                            </div>
+                                            <div className="record_history_detail_box2">
+                                                <div className="record_history_detail_kill" >1 K / 1 A</div>
+                                                <div className="record_history_detail_dmg_graph1" >
+                                                    <div className="record_history_detail_dmg_graph2"></div>
+                                                    <div className="record_history_detail_dmg" >35074</div>
+                                                </div>
+                                            </div>
+                                            <div className="record_history_detail_death" >준돌리스</div>
                                         </div>
-                                        <div className="record_history_detail_box2">
-                                            <div className="record_history_detail_kill" >1 K / 1 A</div>
-                                            <div className="record_history_detail_dmg_graph1" >
-                                                <div className="record_history_detail_dmg_graph2"></div>
-                                                <div className="record_history_detail_dmg" >35074</div>
+                                        <div className="record_history_detail_box" >
+                                            <div className="record_history_detail_rank" >1</div>
+                                            <img className="record_history_detail_cha" src="img/rank/재키.jpg" />
+                                            <div className="record_history_detail_box1">
+                                                <div className="record_history_detail_name" >에미디</div>
+                                                <div className="record_history_detail_tier" >Gold 4 27LP</div>
+                                            </div>
+                                            <div className="record_history_detail_itembox">
+                                                <div className="record_history_detail_item">
+                                                    <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
+                                                    <img className="record_history_detail_item2" src="img/item/AK-12.png" />
+                                                </div>
+                                                <div className="record_history_detail_item">
+                                                    <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
+                                                    <img className="record_history_detail_item2" src="img/item/AK-12.png" />
+                                                </div>
+                                                <div className="record_history_detail_item">
+                                                    <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
+                                                    <img className="record_history_detail_item2" src="img/item/AK-12.png" />
+                                                </div>
+                                                <div className="record_history_detail_item">
+                                                    <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
+                                                    <img className="record_history_detail_item2" src="img/item/AK-12.png" />
+                                                </div>
+                                                <div className="record_history_detail_item">
+                                                    <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
+                                                    <img className="record_history_detail_item2" src="img/item/AK-12.png" />
+                                                </div>
+                                                <div className="record_history_detail_item">
+                                                    <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
+                                                    <img className="record_history_detail_item2" src="img/item/AK-12.png" />
+                                                </div>
                                             </div>
                                         </div>
-                                         <div className="record_history_detail_death" >준돌리스</div>
-                                        <div className="record_history_detail_itembox">
-                                            <div className="record_history_detail_item">
-                                                <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
-                                                <img className="record_history_detail_item2" src="img/item/AK-12.png" />
+                                    </div>
+                                    <div className="record_history_detail_right">
+                                        <div className="record_history_detail_box" >
+                                            <div className="record_history_detail_rank" >1</div>
+                                            <img className="record_history_detail_cha" src="img/rank/재키.jpg" />
+                                            <div className="record_history_detail_box1">
+                                                <div className="record_history_detail_name" >에미디디디디디디</div>
+                                                <div className="record_history_detail_tier" >Gold 4 27LP</div>
                                             </div>
-                                            <div className="record_history_detail_item">
-                                                <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
-                                                <img className="record_history_detail_item2" src="img/item/AK-12.png" />
+                                            <div className="record_history_detail_box2">
+                                                <div className="record_history_detail_kill" >1 K / 1 A</div>
+                                                <div className="record_history_detail_dmg_graph1" >
+                                                    <div className="record_history_detail_dmg_graph2"></div>
+                                                    <div className="record_history_detail_dmg" >35074</div>
+                                                </div>
                                             </div>
-                                            <div className="record_history_detail_item">
-                                                <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
-                                                <img className="record_history_detail_item2" src="img/item/AK-12.png" />
+                                            <div className="record_history_detail_death" >준돌리스tmtmtmtm</div>
+                                        </div>
+                                        <div className="record_history_detail_box" >
+                                            <div className="record_history_detail_rank" >1</div>
+                                            <img className="record_history_detail_cha" src="img/rank/재키.jpg" />
+                                            <div className="record_history_detail_box1">
+                                                <div className="record_history_detail_name" >에미디</div>
+                                                <div className="record_history_detail_tier" >Gold 4 27LP</div>
                                             </div>
-                                            <div className="record_history_detail_item">
-                                                <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
-                                                <img className="record_history_detail_item2" src="img/item/AK-12.png" />
-                                            </div>
-                                            <div className="record_history_detail_item">
-                                                <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
-                                                <img className="record_history_detail_item2" src="img/item/AK-12.png" />
-                                            </div>
-                                            <div className="record_history_detail_item">
-                                                <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
-                                                <img className="record_history_detail_item2" src="img/item/AK-12.png" />
+                                            <div className="record_history_detail_itembox">
+                                                <div className="record_history_detail_item">
+                                                    <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
+                                                    <img className="record_history_detail_item2" src="img/item/AK-12.png" />
+                                                </div>
+                                                <div className="record_history_detail_item">
+                                                    <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
+                                                    <img className="record_history_detail_item2" src="img/item/AK-12.png" />
+                                                </div>
+                                                <div className="record_history_detail_item">
+                                                    <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
+                                                    <img className="record_history_detail_item2" src="img/item/AK-12.png" />
+                                                </div>
+                                                <div className="record_history_detail_item">
+                                                    <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
+                                                    <img className="record_history_detail_item2" src="img/item/AK-12.png" />
+                                                </div>
+                                                <div className="record_history_detail_item">
+                                                    <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
+                                                    <img className="record_history_detail_item2" src="img/item/AK-12.png" />
+                                                </div>
+                                                <div className="record_history_detail_item">
+                                                    <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
+                                                    <img className="record_history_detail_item2" src="img/item/AK-12.png" />
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
