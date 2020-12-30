@@ -194,7 +194,8 @@ const getUserData = async (userNum) => {
                     for (var j = 0 ; j < 16 ; ) {
                         const key = keys[j];
                         let skillCode = parseInt(m['skillOrderInfo'][key]);
-                        if (skillCode/100%10 >= 6) {
+                        if (skillCode > 1016500 && skillCode < 1017000) {
+                            console.log(skillCode);
                             m['skillOrderInfo'][key] -= 400;
                             skillCode -= 400;
                         }
@@ -454,7 +455,7 @@ router.post('/userStat', async (req, res, next) => {
     for (let i = 0 ; i < users.length ; i++) {        
         await getUserData(users[i]['userNum']);
 
-        if (i%99)
+        if (i%100===100)
             console.log(i+1);
     }
 

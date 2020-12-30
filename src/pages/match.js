@@ -480,7 +480,7 @@ class Match extends Component {
                         </div>
                         <div className="record_history3-4">
                             <div className="record_history3">
-                                <div className="record_history_lv">레벨 {match['gameRank']}</div>
+                                <div className="record_history_lv">레벨 {match['characterLevel']}</div>
                                 <div className="record_history_mmr">{mmr}</div>
                                 <img className="record_history_upmark" src={imgUpDown}/>
                                 <div className={"record_history_"+(mmr-_mmr>0?'up':'down')}>{Math.abs(mmr-_mmr)}</div>
@@ -521,7 +521,9 @@ class Match extends Component {
 
         const skillList = [];
         for (const key in matchList[idx]['skillOrderInfo']) {
-            skillList.push(matchList[idx]['skillOrderInfo'][key]);
+            if (parseInt(matchList[idx]['skillOrderInfo'][key] / 1000000) !== 3) {
+                skillList.push(matchList[idx]['skillOrderInfo'][key]);
+            }
         }
         console.log(matchList[idx]['characterLevel'], skillList);
         return (
@@ -555,10 +557,9 @@ class Match extends Component {
                         <div className="record_history_detail_skill2">
                             {
                                 skillList.map((code, idx) =>
-                                    getSkill(code) &&
-                                        <div className="record_history_detail_skill2-1" key={'detail_skill2-1'+gameId+'_'+idx}>
-                                            {getSkill(code)['button']}
-                                        </div>
+                                    <div className="record_history_detail_skill2-1" key={'detail_skill2-1'+gameId+'_'+idx}>
+                                        {getSkill(code)['button']}
+                                    </div>
                                 )
                             }
                         </div>
