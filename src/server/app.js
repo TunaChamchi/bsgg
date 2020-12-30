@@ -11,7 +11,7 @@ const app = express();
 
 connect();
 
-app.use(cors);
+app.use(cors());
 app.use(bodyParser.json());
 app.use('/api/rank', rank);
 app.use('/api/user', users);
