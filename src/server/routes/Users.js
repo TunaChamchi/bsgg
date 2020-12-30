@@ -195,7 +195,6 @@ const getUserData = async (userNum) => {
                         const key = keys[j];
                         let skillCode = parseInt(m['skillOrderInfo'][key]);
                         if (skillCode > 1016500 && skillCode < 1017000) {
-                            console.log(skillCode);
                             m['skillOrderInfo'][key] -= 400;
                             skillCode -= 400;
                         }
