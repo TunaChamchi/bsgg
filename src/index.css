@@ -1818,7 +1818,7 @@ button:hover{
     margin-left: 10px;
     width: 320px;
     height: 4px;
-    background-color:rgb(23, 21, 32);
+    background-color: #09080c;;
     float: left;
     border-radius: 3px;
 }
@@ -3342,7 +3342,7 @@ button:hover{
     width: 75px;
     float: left;
     font-size: 12pt;
-    padding-top: 21px;
+    padding-top: 19px;
     padding-bottom: 1px;
     color: gray;
 }
@@ -3599,23 +3599,27 @@ button:hover{
     float: left;
     width: 12px;
     margin-top: 8px;
-    margin-left: -5px;
+    margin-left: -3px;
 }
 .record_history_up{
     display: inline-block;
-    width: 25px;
+    width: 23px;
     float: left;
     color: #00b900;
     font-size: 11pt;
     margin-top: 3px;
+    margin-left: 3px;
+    text-align: left;
 }
 .record_history_down{
     display: inline-block;
-    width: 25px;
+    width: 23px;
     float: left;
     color: #b90000;
     font-size: 11pt;
     margin-top: 3px;
+    margin-left: 3px;
+    text-align: left;
 }
 .record_history4{
     width: 200px;
@@ -3730,11 +3734,27 @@ button:hover{
     border-top: none;
     margin-left: -1px;
 }
+.record_history_detail_tabs .actived{
+    border-bottom: 1px solid rgb(244,216,35);
+}
+.record_history_detail_tab{
+    display: inline-block;
+    float: left;
+    height: 27px;
+    text-align: center;
+    padding-top: 1px;
+    width: 387.5px;
+    border-bottom: 1px solid #3b4147;
+    background-color: #251f32;
+    cursor: pointer;
+}
 .record_history_detail_filter{
     border-bottom: 1px solid #3b4147;
     height: 25px;
-    padding-top: 3px;
     text-align: center;
+    width: 387.5px;
+    float: left;
+    margin-top: -20px;
 }
 .record_history_detail_filter1{
     display: inline-block;
@@ -3752,36 +3772,47 @@ button:hover{
     display: inline-block;
     float: left;
     font-size: 10pt;
-    width: 160px;
+    width: 80px;
 }
 .record_history_detail_filter4{
     display: inline-block;
     float: left;
     font-size: 10pt;
-    width: 100px;
-    margin-left: -15px;
+    width: 105px;
 }
 .record_history_detail_filter5{
     display: inline-block;
     float: left;
     font-size: 10pt;
-    width: 200px;
-    margin-left: 70px;
+    width: 180px;
+}
+.record_history_detail_left{
+    width: 386.5px;
+    border-right: 1px solid #3b4147;
+    float: left;
+}
+.record_history_detail_right{
+    width: 387.5px;
+    float: left;
 }
 .record_history_detail_box{
-    width: 775px;
+    width: 386.5px;
     border-bottom: 1px solid #3b4147;
     height: 51px;
 }
-.record_history_detail .actived{
+.record_history_detail_right .actived{
     background-color: #241b2f;
+}
+.record_history_detail_left .actived{
+    background-color: #241b2f;
+    width: 386.5px;
 }
 .record_history_detail_rank{
     float: left;
     display: inline-block;
     width: 50px;
-    font-size: 18pt;
-    margin-top: 5px;
+    font-size: 15pt;
+    margin-top: 8px;
     text-align: center;
 }
 .record_history_detail_cha{
@@ -3794,43 +3825,46 @@ button:hover{
 .record_history_detail_box1{
     float: left;
     display: inline-block;
-    width: 130px;
+    width: 100px;
     margin-left: 10px;
 }
 .record_history_detail_name{
-    width: 130px;
-    font-size: 12pt;
-    margin-top: 4px;
+    width: 100px;
+    font-size: 11pt;
+    margin-top: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .record_history_detail_tier{
-    width: 130px;
-    font-size: 9pt;
+    width: 100px;
+    font-size: 8pt;
 }
 .record_history_detail_box2{
     float: left;
     display: inline-block;
-    width: 100px;
-    margin-top: 2px;
+    width: 80px;
+    margin-top: 5px;
 }
 .record_history_detail_kill{
     display: inline-block;
-    width: 100px;
-    font-size: 11pt;
+    width: 80px;
+    font-size: 10pt;
     float: left;
     text-align: center;
 }
 .record_history_detail_dmg_graph1{
     float: left;
-    width: 100px;
-    height: 20px;
-    background-color:  #171520;
+    width: 80px;
+    height: 17px;
+    background-color:  #09080c;
     position: relative;
     border-radius: 5px;
     margin-top: 2px;
 }
 .record_history_detail_dmg_graph2{
-    width: 80px;
-    height: 20px;
+    width: 60px;
+    height: 17px;
     background-color:  #9b2525;
     position: absolute;
     border-radius: 5px;
@@ -3838,43 +3872,47 @@ button:hover{
 }
 .record_history_detail_dmg{
     display: inline-block;
-    width: 100px;
+    width: 80px;
     text-align: center;
     position: absolute;
     z-index: 1;
-    font-size: 11pt;
+    font-size: 10pt;
     margin-top: -1px;
 }
 .record_history_detail_death{
     display: inline-block;
-    width: 130px;
-    font-size: 12pt;
+    width: 94px;
+    font-size: 11pt;
     margin-top: 4px;
+    margin-left: 5px;
     float: left;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .record_history_detail_itembox{
-    width: 310px;
+    width: 130px;
     float: left;
-    margin-top: 10px;
+    margin-left: 25px;
 }
 .record_history_detail_item{
-    width: 49px;
-    height: 22.7px;
+    width: 40px;
+    height: 24px;
     position: relative;
     margin: 1px;
     float: left;
 }
 .record_history_detail_item1{
-    width: 47px;
+    width: 40px;
     border: 1px solid #3b4147;
     border-radius: 3px;
     position: absolute;
     top: 0px
 }
 .record_history_detail_item2{
-    width: 45px;
+    width: 38px;
     border-radius: 3px;
     position: absolute;
     top: 2px;
@@ -4192,8 +4230,12 @@ button:hover{
     border: 2px solid gold;
     margin-top: 25px;
     margin-right: 55px;
-    margin-left: -45px;
+    margin-left: -40px;
     margin-bottom: 65px;
+    background-color: #251f32;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .rank_top_1{
     width: 200px;
@@ -4204,7 +4246,11 @@ button:hover{
     border: 2px solid silver;
     margin-top: 65px;
     margin-bottom: 25px;
-    margin-left: -305px;
+    margin-left: -300px;
+    background-color: #251f32;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .rank_top_2{
     width: 200px;
@@ -4215,6 +4261,10 @@ button:hover{
     border: 2px solid brown;
     margin-top: 65px;
     margin-bottom: 25px;
+    background-color: #251f32;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .rank_top_iconimg{
     width: 140px;
@@ -4274,6 +4324,9 @@ button:hover{
     text-align: center;
     display: inline-block;
     width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .rank_top_span3{
     font-size: 11pt;
