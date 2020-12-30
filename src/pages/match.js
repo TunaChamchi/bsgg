@@ -517,7 +517,6 @@ class Match extends Component {
 
     matchDetail(gameId, idx) {
         const { userStat, matchDetail, matchList } = this.state;
-        console.log('matchDetail[gameId]', matchDetail[gameId]);
 
         const skillList = [];
         for (const key in matchList[idx]['skillOrderInfo']) {
@@ -525,7 +524,6 @@ class Match extends Component {
                 skillList.push(matchList[idx]['skillOrderInfo'][key]);
             }
         }
-        console.log(matchList[idx]['characterLevel'], skillList);
         return (
             <div className="record_history_detail" >
                 <div className="record_history_detail0" >매치 정보</div>

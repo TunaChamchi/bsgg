@@ -198,6 +198,10 @@ const getUserData = async (userNum) => {
                             m['skillOrderInfo'][key] -= 400;
                             skillCode -= 400;
                         }
+                        if (skillCode === 1016900) {
+                            m['skillOrderInfo'][key] = 1016900;
+                            skillCode = 1016900;
+                        }
 
                         if (skillCode / 1000000 !== 3) {
                             skillOrder += skillCode + '_';

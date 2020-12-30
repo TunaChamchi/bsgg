@@ -489,6 +489,26 @@
     "type": "character",
     "button": "R"
   },
+  "1016600": {
+    "name": "파워슬라이드",
+    "type": "character",
+    "button": "Q"
+  },
+  "1016700": {
+    "name": "스토피",
+    "type": "character",
+    "button": "W"
+  },
+  "1016800": {
+    "name": "윌리 - 들이박음",
+    "type": "character",
+    "button": "E"
+  },
+  "1016900": {
+    "name": "기동전 (bike -> 인간)",
+    "type": "character",
+    "button": "R"
+  },
   "1017100": {
     "name": "방화광",
     "type": "character",

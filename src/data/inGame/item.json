@@ -66,7 +66,7 @@
     "itemGrade": "영웅",
     "stackable": 1,
     "initialCount": 1,
-    "attackPower": 33,
+    "attackPower": 37,
     "hpRegen": 1.5,
     "cooldownReduction": 0.1,
     "moveSpeed": 0.1,
@@ -366,7 +366,7 @@
     "itemGrade": "영웅",
     "stackable": 1,
     "initialCount": 1,
-    "attackPower": 41,
+    "attackPower": 44,
     "attackSpeedRatio": 0.1,
     "lifeSteal": 0.18,
     "decreaseRecoveryToSkill": 1,
@@ -681,7 +681,7 @@
     "initialCount": 1,
     "attackPower": 115,
     "cooldownReduction": 0.1,
-    "moveSpeed": 0.2,
+    "moveSpeed": 0.15,
     "src": [
       105301,
       205207
@@ -694,7 +694,7 @@
     "itemGrade": "영웅",
     "stackable": 1,
     "initialCount": 1,
-    "attackPower": 115,
+    "attackPower": 105,
     "moveSpeed": 0.1,
     "attackRange": 0.5,
     "increaseSkillDamage": 38,
@@ -862,7 +862,7 @@
     "initialCount": 1,
     "attackPower": 88,
     "moveSpeed": -0.1,
-    "increaseSkillDamage": 37,
+    "increaseSkillDamage": 34,
     "decreaseRecoveryToSkill": 1,
     "src": [
       107303,
@@ -1014,7 +1014,7 @@
     "itemGrade": "영웅",
     "stackable": 1,
     "initialCount": 1,
-    "attackPower": 60,
+    "attackPower": 65,
     "increaseSkillDamage": 25,
     "src": [
       108401,
@@ -1029,6 +1029,7 @@
     "stackable": 1,
     "initialCount": 1,
     "attackPower": 150,
+    "attackRange": 1,
     "src": [
       401403,
       108202
@@ -1311,7 +1312,7 @@
     "itemGrade": "영웅",
     "stackable": 1,
     "initialCount": 1,
-    "attackPower": 42,
+    "attackPower": 46,
     "moveSpeed": -0.05,
     "increaseBasicAttackDamage": 33,
     "src": [
@@ -1483,7 +1484,7 @@
     "itemGrade": "영웅",
     "stackable": 1,
     "initialCount": 1,
-    "attackPower": 45,
+    "attackPower": 50,
     "defense": 20,
     "hpRegenRatio": 1,
     "src": [
@@ -1945,7 +1946,7 @@
     "itemGrade": "영웅",
     "stackable": 1,
     "initialCount": 1,
-    "attackPower": 44,
+    "attackPower": 48,
     "cooldownReduction": 0.15,
     "increaseBasicAttackDamage": 36,
     "src": [
@@ -2240,7 +2241,7 @@
     "itemGrade": "전설",
     "stackable": 1,
     "initialCount": 1,
-    "attackPower": 90,
+    "attackPower": 100,
     "attackSpeedRatio": 0.15,
     "lifeSteal": 0.15,
     "src": [
@@ -3233,7 +3234,7 @@
     "stackable": 1,
     "initialCount": 1,
     "attackPower": 85,
-    "increaseSkillDamageRatio": 0.19,
+    "increaseSkillDamageRatio": 0.21,
     "src": [
       121303,
       401210
@@ -3516,7 +3517,7 @@
     "initialCount": 1,
     "attackPower": 10,
     "maxHp": 300,
-    "sightRange": 2.5,
+    "sightRange": 1.5,
     "src": [
       201302,
       205110
@@ -4613,7 +4614,7 @@
     "stackable": 1,
     "initialCount": 1,
     "spRegenRatio": 0.5,
-    "spRegen": 0.7,
+    "spRegen": 1,
     "moveSpeed": 0.35,
     "increaseSkillDamage": 10,
     "src": [
@@ -5058,7 +5059,7 @@
     "stackable": 1,
     "initialCount": 1,
     "attackPower": 10,
-    "increaseSkillDamageRatio": 0.15,
+    "increaseSkillDamageRatio": 0.18,
     "src": [
       205211,
       401212
