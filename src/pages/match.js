@@ -473,7 +473,7 @@ class Match extends Component {
         })
     }
     matchDetail() {
-
+        
     }
 
 

@@ -30,4 +30,5 @@ module.exports = () => {
     require('./userStat');
     require('./match');
     require('./characterStat');
+    require('./characterTier');
 };

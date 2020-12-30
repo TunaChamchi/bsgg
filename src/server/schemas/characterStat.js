@@ -6,6 +6,15 @@ const characterStatSchema = new Schema({
         type: Number,
         required: true
     },
+    versionMajor: {
+        type: Number,
+        required: true
+    },
+    versionMinor: {
+        type: Number,
+        required: true
+    },
+
     characterNum: {
         type: Number,
         required: true
@@ -14,6 +23,11 @@ const characterStatSchema = new Schema({
         type: Number,
         required: true
     },
+    
+    // tier: {
+    //     type: Number,
+    //     required: true
+    // },
 
     totalGames: {
         type: Number,

@@ -117,7 +117,7 @@ export const CharacterScore = (range, type) => {
     });
 
     // 점수 계산
-    tier.forEach(data => {        
+    tier.forEach(data => {
         data['score'] = {
             'win-rate' : data['data']['win-rate']   /max_win_rate*100,
             'pick-rate': (1-data['rank']['pick-rate']/tier.length)*100,
