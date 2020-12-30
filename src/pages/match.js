@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { injectIntl  } from 'react-intl';
 import queryString from 'query-string';
 import { Header, SubBanner, Footer } from 'components/banner'
-import { getCharacter, getItem, getWeaponType, addJson } from 'lib/data'
+import { getCharacter, getItem, getWeaponType, addJson, getSkill } from 'lib/data'
 
 class Match extends Component {
     constructor(props) {
@@ -12,6 +12,7 @@ class Match extends Component {
             isLoad: false,
             skip:0,
             matchList: [],
+            matchDetail: {},
             matchCond: { matchMode: 0, teamMode: 0, },
             mostCond: { matchMode: 0, teamMode: 0, },
             matchingMode: ['전체', '랭크'],
@@ -148,6 +149,39 @@ class Match extends Component {
                 matchList:matchList, matchStat:matchStat
             });
         }
+    }
+
+    matchDetailHandler = async (gameId, view) => {
+        const { matchDetail } = this.state;
+
+        if (matchDetail[gameId]) {
+            matchDetail[gameId]['view'] = view;
+        } else {
+            let _detail;
+            await fetch('/api/User/Detail/'+gameId)
+                    .then(res => res.json())
+                    .then(res => _detail = res);
+            
+            const detail = [];
+            let max_dam = 0;
+            let index = 0;
+            for (var i = 0 ; i < 18 ; i++) {
+                if (_detail[index] && _detail[index]['gameRank'] === (i+1)) {
+                    detail[i] = _detail[index];
+                    if (max_dam < _detail[index]['damageToPlayer']) max_dam = _detail[index]['damageToPlayer'];                    
+                    index++;
+                } else {
+                    detail[i] = { gameRank: (i+1)};
+                }
+            }
+            matchDetail[gameId] = {
+                view: view,
+                tab: 0,
+                max_dam: max_dam,
+                detail: detail,
+            }
+        }
+        this.setState({matchDetail:matchDetail});
     }
 
     setStateHandle (key, value) {
@@ -411,7 +445,7 @@ class Match extends Component {
 
     matchHistoryView() {
         const { intl } = this.props;
-        const { userStat, matchList, mmrCurrent, matchingTeamMode } = this.state;
+        const { userStat, matchList, mmrCurrent, matchingTeamMode, matchDetail } = this.state;
 
         const mmrAfter = JSON.parse(JSON.stringify(mmrCurrent));
         return matchList.map((match, idx) => {
@@ -431,56 +465,306 @@ class Match extends Component {
             const c = match['monsterKill'] > 50 ? '3' : match['monsterKill'] > 35 ? '2' : '1';
 
             return (
-                <div className="record_history_box" key={'history_box'+idx}>
-                    <div className={"record_history_"+win}></div>
-                    <div className="record_history1">
-                        <div className={"record_history_rank_"+win}>{match['gameRank']}</div>
-                        <div className="record_history_filter">{seasonId}/{teamMode}</div>
-                        <div className="record_history_date">2일 전</div>
-                    </div>
-                    <div className="record_history2">
-                        <img className="record_history_img" src={"img/rank/"+character+".jpg"} />
-                        <img className="record_history_weapon" src={"img/weapons/"+getWeaponType(weapon)+".jpg"} />
-                        <div className="record_history_name">{character}</div>
-                    </div>
-                    <div className="record_history3-4">
-                        <div className="record_history3">
-                            <div className="record_history_lv">레벨 {match['gameRank']}</div>
-                            <div className="record_history_mmr">{mmr}</div>
-                            <img className="record_history_upmark" src={imgUpDown}/>
-                            <div className={"record_history_"+(mmr-_mmr>0?'up':'down')}>{Math.abs(mmr-_mmr)}</div>
+                <div key={'history_box'+idx}>
+                    <div className="record_history_box" key={'history_box'+idx}>
+                        <div className={"record_history_"+win}></div>
+                        <div className="record_history1">
+                            <div className={"record_history_rank_"+win}>{match['gameRank']}</div>
+                            <div className="record_history_filter">{seasonId}/{teamMode}</div>
+                            <div className="record_history_date">2일 전</div>
                         </div>
-                        <div className="record_history_kda">
-                            <span className={"record_history_kda"+k}>{match['playerKill']} K</span> <span> / </span>
-                            <span className={"record_history_kda"+a}>{match['playerAssistant']} A</span> <span> / </span>
-                            <span className={"record_history_kda"+c}>{match['monsterKill']} CS</span>
+                        <div className="record_history2">
+                            <img className="record_history_img" src={"img/rank/"+character+".jpg"} />
+                            <img className="record_history_weapon" src={"img/weapons/"+getWeaponType(weapon)+".jpg"} />
+                            <div className="record_history_name">{character}</div>
                         </div>
-                    </div>
-                    <div className="record_history_item_box">
+                        <div className="record_history3-4">
+                            <div className="record_history3">
+                                <div className="record_history_lv">레벨 {match['gameRank']}</div>
+                                <div className="record_history_mmr">{mmr}</div>
+                                <img className="record_history_upmark" src={imgUpDown}/>
+                                <div className={"record_history_"+(mmr-_mmr>0?'up':'down')}>{Math.abs(mmr-_mmr)}</div>
+                            </div>
+                            <div className="record_history_kda">
+                                <span className={"record_history_kda"+k}>{match['playerKill']} K</span> <span> / </span>
+                                <span className={"record_history_kda"+a}>{match['playerAssistant']} A</span> <span> / </span>
+                                <span className={"record_history_kda"+c}>{match['monsterKill']} CS</span>
+                            </div>
+                        </div>
+                        <div className="record_history_item_box">
+                            {
+                                [0, 1, 2, 3, 4, 5].map(index => 
+                                    match['equipment'][index] && 
+                                        <div className="record_history_item" key={'detail_item_'+idx+"_"+index}>
+                                            <img className="record_history_item1" src={"img/item/BackGround/"+getItem(match['equipment'][index])['itemGrade']+".jpg"} />
+                                            <img className="record_history_item2" src={"img/item/"+getItem(match['equipment'][index])['name']+".png"} />
+                                        </div>
+                                )
+                            }
+                        </div>
                         {
-                            [0, 1, 2, 3, 4, 5].map(index => 
-                                match['equipment'][index] && 
-                                    <div className="record_history_item">
-                                        <img className="record_history_item1" src={"img/item/BackGround/"+getItem(match['equipment'][index])['itemGrade']+".jpg"} />
-                                        <img className="record_history_item2" src={"img/item/"+getItem(match['equipment'][index])['name']+".png"} />
-                                    </div>
-                            )
+                            matchDetail[match['gameId']] && matchDetail[match['gameId']]['view'] ?
+                                <img className="record_history_detailbutton" onClick={(e) => this.matchDetailHandler(match['gameId'], false)} src="img/uplogo.png" />
+                                :                        
+                                <img className="record_history_detailbutton" onClick={(e) => this.matchDetailHandler(match['gameId'], true)} src="img/downlogo.png" />
                         }
                     </div>
-                    <img className="record_history_detailbutton" src="img/downlogo.png" />
+                    { matchDetail[match['gameId']] && matchDetail[match['gameId']]['view'] && this.matchDetail(match['gameId'], idx) }
                 </div>
             )
         })
     }
-    matchDetail() {
-        
+
+    matchDetail(gameId, idx) {
+        const { userStat, matchDetail, matchList } = this.state;
+        console.log('matchDetail[gameId]', matchDetail[gameId]);
+
+        const skillList = [];
+        for (const key in matchList[idx]['skillOrderInfo']) {
+            skillList.push(matchList[idx]['skillOrderInfo'][key]);
+        }
+        console.log(matchList[idx]['characterLevel'], skillList);
+        return (
+            <div className="record_history_detail" >
+                <div className="record_history_detail0" >매치 정보</div>
+                <div className="record_history_detail_skill">
+                    <span className="record_history_detail_skill_span">스킬 빌드</span>
+                    <div className="record_history_detail_skill0">
+                        <div className="record_history_detail_skill1">
+                            <div className="record_history_detail_skill1-1">1</div>
+                            <div className="record_history_detail_skill1-1">2</div>
+                            <div className="record_history_detail_skill1-1">3</div>
+                            <div className="record_history_detail_skill1-1">4</div>
+                            <div className="record_history_detail_skill1-1">5</div>
+                            <div className="record_history_detail_skill1-1">6</div>
+                            <div className="record_history_detail_skill1-1">7</div>
+                            <div className="record_history_detail_skill1-1">8</div>
+                            <div className="record_history_detail_skill1-1">9</div>
+                            <div className="record_history_detail_skill1-1">10</div>
+                            <div className="record_history_detail_skill1-1">11</div>
+                            <div className="record_history_detail_skill1-1">12</div>
+                            <div className="record_history_detail_skill1-1">13</div>
+                            <div className="record_history_detail_skill1-1">14</div>
+                            <div className="record_history_detail_skill1-1">15</div>
+                            <div className="record_history_detail_skill1-1">16</div>
+                            <div className="record_history_detail_skill1-1">17</div>
+                            <div className="record_history_detail_skill1-1">18</div>
+                            <div className="record_history_detail_skill1-1">19</div>
+                            <div className="record_history_detail_skill1-1">20</div>
+                        </div>
+                        <div className="record_history_detail_skill2">
+                            {
+                                skillList.map((code, idx) =>
+                                    getSkill(code) &&
+                                        <div className="record_history_detail_skill2-1" key={'detail_skill2-1'+gameId+'_'+idx}>
+                                            {getSkill(code)['button']}
+                                        </div>
+                                )
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div className="record_history_detail_tabs">
+                    <div className={"record_history_detail_tab"+(matchDetail[gameId]['tab']===0?' actived':'')} 
+                        onClick={(e) => { matchDetail[gameId]['tab']=0; this.setState({matchDetail:matchDetail})}}>종합</div>
+                    <div className={"record_history_detail_tab"+(matchDetail[gameId]['tab']===1?' actived':'')}
+                        onClick={(e) => { matchDetail[gameId]['tab']=1; this.setState({matchDetail:matchDetail})}}>아이템빌드</div>
+                </div>&nbsp;
+                <div className="record_history_detail_filter_all">
+                    {
+                        matchDetail[gameId]['tab'] === 0 ?
+                            <div className="record_history_detail_filter">
+                                <div className="record_history_detail_filter1">순위</div>
+                                <div className="record_history_detail_filter2">플레이어</div>
+                                <div className="record_history_detail_filter3">킬어시 / 딜량</div>
+                                <div className="record_history_detail_filter4">죽인 플레이어</div>
+                            </div>
+                            :
+                            <div className="record_history_detail_filter">
+                                <div className="record_history_detail_filter1">순위</div>
+                                <div className="record_history_detail_filter2">플레이어</div>
+                                <div className="record_history_detail_filter5">아이템 빌드</div>
+                            </div>
+                    }
+                    {
+                        matchDetail[gameId]['tab'] === 0 ?
+                            <div className="record_history_detail_filter">
+                                <div className="record_history_detail_filter1">순위</div>
+                                <div className="record_history_detail_filter2">플레이어</div>
+                                <div className="record_history_detail_filter3">킬어시 / 딜량</div>
+                                <div className="record_history_detail_filter4">죽인 플레이어</div>
+                            </div>
+                            :
+                            <div className="record_history_detail_filter">
+                                <div className="record_history_detail_filter1">순위</div>
+                                <div className="record_history_detail_filter2">플레이어</div>
+                                <div className="record_history_detail_filter5">아이템 빌드</div>
+                            </div>
+                    }
+                </div>
+                <div className="record_history_detail_left">
+                    {
+                        matchDetail[gameId]['tab'] === 0 ?
+                            this.matchDetailLeft1(gameId)
+                            :
+                            this.matchDetailLeft2(gameId)
+                    }
+                </div>
+                <div className="record_history_detail_right">
+                    {
+                        matchDetail[gameId]['tab'] === 0 ?
+                            this.matchDetailRight1(gameId)
+                            :
+                            this.matchDetailRight2(gameId)
+                    }
+                </div>
+            </div>
+        )
     }
 
+    matchDetailLeft1(gameId) {
+        const { user, matchDetail, userNum, tierList } = this.state;
+        
+        return matchDetail[gameId]['detail'].slice(0, 9).map((match, idx) => {
+            if (match['userNum']) {
+                const tier = Math.floor(match['mmrBefore']/100);
+                const lp   = match['mmrBefore']-tier*100;
+                return (
+                    <div className={"record_history_detail_box"+(match['userNum']===user['userNum']?' actived':'')} key={'detail_box_left_'+idx}>
+                        <div className="record_history_detail_rank" >{match['gameRank']}</div>
+                        <img className="record_history_detail_cha" src={"img/rank/"+getCharacter(match['characterNum'])['name']+".jpg"} />
+                        <div className="record_history_detail_box1">
+                            <div className="record_history_detail_name" >{match['user'][0]['nickname']}</div>
+                            <div className="record_history_detail_tier" >{tierList[tier]} / {lp} LP</div>
+                        </div>
+                        <div className="record_history_detail_box2">
+                            <div className="record_history_detail_kill" >{match['playerKill']} K / {match['playerAssistant']} A</div>
+                            <div className="record_history_detail_dmg_graph1" >
+                                <div className="record_history_detail_dmg_graph2" style={{width:(match['damageToPlayer']/matchDetail[gameId]['max_dam']*80)}}></div>
+                                <div className="record_history_detail_dmg" >{match['damageToPlayer']}</div>
+                            </div>
+                        </div>
+                        <div className="record_history_detail_death" >{match['killDetail']}</div>
+                    </div>
+                )
+            } else {
+                return (
+                    <div className={"record_history_detail_box"} key={'detail_box_left_'+idx}>
+                    </div>
+                )
+            }
+        })
+    }
+    matchDetailRight1(gameId) {
+        const { user, matchDetail, userNum, tierList } = this.state;
+        
+        return matchDetail[gameId]['detail'].slice(9, 18).map((match, idx) => {
+            if (match['userNum']) {
+                const tier = Math.floor(match['mmrBefore']/100);
+                const lp   = match['mmrBefore']-tier*100;
+                return (
+                    <div className={"record_history_detail_box"+(match['userNum']===user['userNum']?' actived':'')} key={'detail_box_right_'+idx}>
+                        <div className="record_history_detail_rank" >{match['gameRank']}</div>
+                        <img className="record_history_detail_cha" src={"img/rank/"+getCharacter(match['characterNum'])['name']+".jpg"} />
+                        <div className="record_history_detail_box1">
+                            <div className="record_history_detail_name" >{match['user'][0]['nickname']}</div>
+                            <div className="record_history_detail_tier" >{tierList[tier]} / {lp} LP</div>
+                        </div>
+                        <div className="record_history_detail_box2">
+                            <div className="record_history_detail_kill" >{match['playerKill']} K / {match['playerAssistant']} A</div>
+                            <div className="record_history_detail_dmg_graph1" >
+                                <div className="record_history_detail_dmg_graph2" style={{width:(match['damageToPlayer']/matchDetail[gameId]['max_dam']*80)}}></div>
+                                <div className="record_history_detail_dmg" >{match['damageToPlayer']}</div>
+                            </div>
+                        </div>
+                        <div className="record_history_detail_death" >{match['killDetail']}</div>
+                    </div>
+                )
+            } else {
+                return (
+                    <div className={"record_history_detail_box"} key={'detail_box_right_'+idx}>
+                    </div>
+                )
+            }
+        })
+    }
 
+    matchDetailLeft2(gameId) {
+        const { user, matchDetail, userNum, tierList } = this.state;
+        
+        return matchDetail[gameId]['detail'].slice(0, 9).map((match, idx) => {
+            if (match['userNum']) {
+                const tier = Math.floor(match['mmrBefore']/100);
+                const lp   = match['mmrBefore']-tier*100;
+                return (
+                    <div className={"record_history_detail_box"+(match['userNum']===user['userNum']?' actived':'')} key={'detail_box_left_'+idx}>
+                        <div className="record_history_detail_rank" >{match['gameRank']}</div>
+                        <img className="record_history_detail_cha" src={"img/rank/"+getCharacter(match['characterNum'])['name']+".jpg"} />
+                        <div className="record_history_detail_box1">
+                            <div className="record_history_detail_name" >{match['user'][0]['nickname']}</div>
+                            <div className="record_history_detail_tier" >{tierList[tier]} / {lp} LP</div>
+                        </div>
+                        <div className="record_history_detail_itembox">
+                            {
+                                [0, 1, 2, 3, 4, 5].map(index => 
+                                    match['equipment'][index] && 
+                                        <div className="record_history_detail_item" key={'detail_item_'+index}>
+                                            <img className="record_history_detail_item1" src={"img/item/BackGround/"+getItem(match['equipment'][index])['itemGrade']+".jpg"} />
+                                            <img className="record_history_detail_item2" src={"img/item/"+getItem(match['equipment'][index])['name']+".png"} />
+                                        </div>
+                                )
+                            }
+                        </div>
+                    </div>
+                )
+            } else {
+                return (
+                    <div className={"record_history_detail_box"} key={'detail_box_left_'+idx}>
+                    </div>
+                )
+            }
+        })
+    }
+    matchDetailRight2(gameId) {
+        const { user, matchDetail, userNum, tierList } = this.state;
+        
+        return matchDetail[gameId]['detail'].slice(9, 18).map((match, idx) => {
+            if (match['userNum']) {
+                const tier = Math.floor(match['mmrBefore']/100);
+                const lp   = match['mmrBefore']-tier*100;
+                return (
+                    <div className={"record_history_detail_box"+(match['userNum']===user['userNum']?' actived':'')} key={'detail_box_right_'+idx}>
+                        <div className="record_history_detail_rank" >{match['gameRank']}</div>
+                        <img className="record_history_detail_cha" src={"img/rank/"+getCharacter(match['characterNum'])['name']+".jpg"} />
+                        <div className="record_history_detail_box1">
+                            <div className="record_history_detail_name" >{match['user'][0]['nickname']}</div>
+                            <div className="record_history_detail_tier" >{tierList[tier]} / {lp} LP</div>
+                        </div>
+                        <div className="record_history_detail_itembox">
+                            {
+                                [0, 1, 2, 3, 4, 5].map(index => 
+                                    match['equipment'][index] && 
+                                        <div className="record_history_detail_item" key={'detail_item_'+index}>
+                                            <img className="record_history_detail_item1" src={"img/item/BackGround/"+getItem(match['equipment'][index])['itemGrade']+".jpg"} />
+                                            <img className="record_history_detail_item2" src={"img/item/"+getItem(match['equipment'][index])['name']+".png"} />
+                                        </div>
+                                )
+                            }
+                        </div>
+                    </div>
+                )
+            } else {
+                return (
+                    <div className={"record_history_detail_box"} key={'detail_box_right_'+idx}>
+                    </div>
+                )
+            }
+        })
+    }
 
     render() {
         const { intl } = this.props;
-        const { user, userStat, tierList, matchCond, mostCond } = this.state;
+        const { userStat, matchList, skip } = this.state;
 
         const metaData = {
             title: 'BSGG.kr - ' + intl.formatMessage({id: 'Title.Map'}),
@@ -530,180 +814,10 @@ class Match extends Component {
                         </div>
                         <div className="record_history">
                             {this.matchHistoryView()}
-                            <div className="record_history_detail" >
-                                    <div className="record_history_detail0" >매치 정보</div>
-                                    <div className="record_history_detail_skill">
-                                        <span className="record_history_detail_skill_span">스킬 빌드</span>
-                                        <div className="record_history_detail_skill0">
-                                            <div className="record_history_detail_skill1">
-                                                <div className="record_history_detail_skill1-1">1</div>
-                                                <div className="record_history_detail_skill1-1">2</div>
-                                                <div className="record_history_detail_skill1-1">3</div>
-                                                <div className="record_history_detail_skill1-1">4</div>
-                                                <div className="record_history_detail_skill1-1">5</div>
-                                                <div className="record_history_detail_skill1-1">6</div>
-                                                <div className="record_history_detail_skill1-1">7</div>
-                                                <div className="record_history_detail_skill1-1">8</div>
-                                                <div className="record_history_detail_skill1-1">9</div>
-                                                <div className="record_history_detail_skill1-1">10</div>
-                                                <div className="record_history_detail_skill1-1">11</div>
-                                                <div className="record_history_detail_skill1-1">12</div>
-                                                <div className="record_history_detail_skill1-1">13</div>
-                                                <div className="record_history_detail_skill1-1">14</div>
-                                                <div className="record_history_detail_skill1-1">15</div>
-                                                <div className="record_history_detail_skill1-1">16</div>
-                                                <div className="record_history_detail_skill1-1">17</div>
-                                                <div className="record_history_detail_skill1-1">18</div>
-                                                <div className="record_history_detail_skill1-1">19</div>
-                                                <div className="record_history_detail_skill1-1">10</div>
-                                            </div>
-                                            <div className="record_history_detail_skill2">
-                                                <div className="record_history_detail_skill2-1">Q</div>
-                                                <div className="record_history_detail_skill2-1">Q</div>
-                                                <div className="record_history_detail_skill2-1">Q</div>
-                                                <div className="record_history_detail_skill2-1">Q</div>
-                                                <div className="record_history_detail_skill2-1">Q</div>
-                                                <div className="record_history_detail_skill2-1">Q</div>
-                                                <div className="record_history_detail_skill2-1">Q</div>
-                                                <div className="record_history_detail_skill2-1">Q</div>
-                                                <div className="record_history_detail_skill2-1">Q</div>
-                                                <div className="record_history_detail_skill2-1">Q</div>
-                                                <div className="record_history_detail_skill2-1">Q</div>
-                                                <div className="record_history_detail_skill2-1">Q</div>
-                                                <div className="record_history_detail_skill2-1">Q</div>
-                                                <div className="record_history_detail_skill2-1">Q</div>
-                                                <div className="record_history_detail_skill2-1">Q</div>
-                                                <div className="record_history_detail_skill2-1">Q</div>
-                                                <div className="record_history_detail_skill2-1">Q</div>
-                                                <div className="record_history_detail_skill2-1">Q</div>
-                                                <div className="record_history_detail_skill2-1">Q</div>
-                                                <div className="record_history_detail_skill2-1">Q</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="record_history_detail_tabs">
-                                        <div className="record_history_detail_tab actived">종합</div>
-                                        <div className="record_history_detail_tab">아이템빌드</div>
-                                    </div>&nbsp;
-                                    <div className="record_history_detail_filter_all">
-                                        <div className="record_history_detail_filter">
-                                            <div className="record_history_detail_filter1">순위</div>
-                                            <div className="record_history_detail_filter2">플레이어</div>
-                                            <div className="record_history_detail_filter3">킬어시 / 딜량</div>
-                                            <div className="record_history_detail_filter4">죽인 플레이어</div>
-                                        </div>
-                                        <div className="record_history_detail_filter">
-                                            <div className="record_history_detail_filter1">순위</div>
-                                            <div className="record_history_detail_filter2">플레이어</div>
-                                            <div className="record_history_detail_filter5">아이템 빌드</div>
-                                        </div>
-                                    </div>
-                                    <div className="record_history_detail_left">
-                                        <div className="record_history_detail_box actived" >
-                                            <div className="record_history_detail_rank" >1</div>
-                                            <img className="record_history_detail_cha" src="img/rank/재키.jpg" />
-                                            <div className="record_history_detail_box1">
-                                                <div className="record_history_detail_name" >에미디</div>
-                                                <div className="record_history_detail_tier" >Gold 4 27LP</div>
-                                            </div>
-                                            <div className="record_history_detail_box2">
-                                                <div className="record_history_detail_kill" >1 K / 1 A</div>
-                                                <div className="record_history_detail_dmg_graph1" >
-                                                    <div className="record_history_detail_dmg_graph2"></div>
-                                                    <div className="record_history_detail_dmg" >35074</div>
-                                                </div>
-                                            </div>
-                                            <div className="record_history_detail_death" >준돌리스</div>
-                                        </div>
-                                        <div className="record_history_detail_box" >
-                                            <div className="record_history_detail_rank" >1</div>
-                                            <img className="record_history_detail_cha" src="img/rank/재키.jpg" />
-                                            <div className="record_history_detail_box1">
-                                                <div className="record_history_detail_name" >에미디</div>
-                                                <div className="record_history_detail_tier" >Gold 4 27LP</div>
-                                            </div>
-                                            <div className="record_history_detail_itembox">
-                                                <div className="record_history_detail_item">
-                                                    <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
-                                                    <img className="record_history_detail_item2" src="img/item/AK-12.png" />
-                                                </div>
-                                                <div className="record_history_detail_item">
-                                                    <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
-                                                    <img className="record_history_detail_item2" src="img/item/AK-12.png" />
-                                                </div>
-                                                <div className="record_history_detail_item">
-                                                    <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
-                                                    <img className="record_history_detail_item2" src="img/item/AK-12.png" />
-                                                </div>
-                                                <div className="record_history_detail_item">
-                                                    <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
-                                                    <img className="record_history_detail_item2" src="img/item/AK-12.png" />
-                                                </div>
-                                                <div className="record_history_detail_item">
-                                                    <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
-                                                    <img className="record_history_detail_item2" src="img/item/AK-12.png" />
-                                                </div>
-                                                <div className="record_history_detail_item">
-                                                    <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
-                                                    <img className="record_history_detail_item2" src="img/item/AK-12.png" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="record_history_detail_right">
-                                        <div className="record_history_detail_box" >
-                                            <div className="record_history_detail_rank" >1</div>
-                                            <img className="record_history_detail_cha" src="img/rank/재키.jpg" />
-                                            <div className="record_history_detail_box1">
-                                                <div className="record_history_detail_name" >에미디디디디디디</div>
-                                                <div className="record_history_detail_tier" >Gold 4 27LP</div>
-                                            </div>
-                                            <div className="record_history_detail_box2">
-                                                <div className="record_history_detail_kill" >1 K / 1 A</div>
-                                                <div className="record_history_detail_dmg_graph1" >
-                                                    <div className="record_history_detail_dmg_graph2"></div>
-                                                    <div className="record_history_detail_dmg" >35074</div>
-                                                </div>
-                                            </div>
-                                            <div className="record_history_detail_death" >준돌리스tmtmtmtm</div>
-                                        </div>
-                                        <div className="record_history_detail_box" >
-                                            <div className="record_history_detail_rank" >1</div>
-                                            <img className="record_history_detail_cha" src="img/rank/재키.jpg" />
-                                            <div className="record_history_detail_box1">
-                                                <div className="record_history_detail_name" >에미디</div>
-                                                <div className="record_history_detail_tier" >Gold 4 27LP</div>
-                                            </div>
-                                            <div className="record_history_detail_itembox">
-                                                <div className="record_history_detail_item">
-                                                    <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
-                                                    <img className="record_history_detail_item2" src="img/item/AK-12.png" />
-                                                </div>
-                                                <div className="record_history_detail_item">
-                                                    <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
-                                                    <img className="record_history_detail_item2" src="img/item/AK-12.png" />
-                                                </div>
-                                                <div className="record_history_detail_item">
-                                                    <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
-                                                    <img className="record_history_detail_item2" src="img/item/AK-12.png" />
-                                                </div>
-                                                <div className="record_history_detail_item">
-                                                    <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
-                                                    <img className="record_history_detail_item2" src="img/item/AK-12.png" />
-                                                </div>
-                                                <div className="record_history_detail_item">
-                                                    <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
-                                                    <img className="record_history_detail_item2" src="img/item/AK-12.png" />
-                                                </div>
-                                                <div className="record_history_detail_item">
-                                                    <img className="record_history_detail_item1" src="img/item/BackGround/영웅.jpg" />
-                                                    <img className="record_history_detail_item2" src="img/item/AK-12.png" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            <button className="record_history_button">더 보기</button>
+                            {
+                                matchList.length!==0 && matchList.length%20===0 &&
+                                    <button className="record_history_button" onClick={(e) => this.setState({skip:skip+20})}>더 보기</button>
+                            }
                         </div>
                     </div>
                 </div>

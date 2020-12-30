@@ -114,6 +114,40 @@ router.get('/:userNum/match', async (req, res, next) => {
     res.json(match);
 });
 
+// 상제 전적
+router.get('/Detail/:gameId', async (req, res, next) => {
+    console.log('/Detail/:gameId', req.params);
+    const gameId = parseInt(req.params.gameId);
+
+    //const match = await Match.find({ gameId: gameId }, null, { sort: { gameRank: 1 } });
+    const match = await Match.aggregate([
+        { $match: { gameId: gameId } }, 
+        { 
+            $project: {
+                _id:0,
+                gameRank:1,
+                userNum:1,
+                characterNum:1,
+                equipment:1,
+                killDetail:1,
+                damageToPlayer:1,
+                mmrBefore:1,
+                playerKill:1,
+                playerAssistant:1,
+            }
+        }, 
+        { 
+            $lookup: {
+                from: 'users',
+                localField: 'userNum',
+                foreignField: 'userNum',
+                as: 'user'
+            }
+        }
+    ]);
+    res.json(match);
+});
+
 // 유저 전적 검색 API
 router.post('/userData', async (req, res, next) => {
     const userNum = parseInt(req.query.userNum);
@@ -159,7 +193,11 @@ const getUserData = async (userNum) => {
 
                     for (var j = 0 ; j < 16 ; ) {
                         const key = keys[j];
-                        const skillCode = parseInt(m['skillOrderInfo'][key]);
+                        let skillCode = parseInt(m['skillOrderInfo'][key]);
+                        if (skillCode/100%10 >= 6) {
+                            m['skillOrderInfo'][key] -= 400;
+                            skillCode -= 400;
+                        }
 
                         if (skillCode / 1000000 !== 3) {
                             skillOrder += skillCode + '_';
@@ -267,7 +305,7 @@ const getUserData = async (userNum) => {
 
 const getUserStats1 = async (userNum) => {
     return await Match.aggregate([
-    { $match: { userNum: userNum } },
+        { $match: { userNum: userNum } },
         { 
             $group: {
                 _id: '$userNum',
@@ -302,7 +340,7 @@ const getUserStats1 = async (userNum) => {
 
 const getUserStats2 = async (userNum, seasonId) => {
     return await Match.aggregate([
-    { $match: { userNum: userNum, seasonId: seasonId } },
+        { $match: { userNum: userNum, seasonId: seasonId } },
         { 
             $group: {
                 _id: '$matchingTeamMode',
@@ -415,6 +453,9 @@ router.post('/userStat', async (req, res, next) => {
 
     for (let i = 0 ; i < users.length ; i++) {        
         await getUserData(users[i]['userNum']);
+
+        if (i%99)
+            console.log(i+1);
     }
 
     console.log(new Date().toString().slice(16,24), ': GetUserStat Complete', users.length);

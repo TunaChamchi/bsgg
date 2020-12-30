@@ -9,6 +9,7 @@ import dmg_plus from 'data/dmg_plus.json'
 import character from 'data/inGame/character.json'
 import weaponType from 'data/inGame/weaponType.json'
 import item from 'data/inGame/item.json'
+import skill from 'data/inGame/skill.json'
 import armor from 'data/inGame/armor.json'
 import weapon from 'data/inGame/weapon.json'
 
@@ -349,3 +350,9 @@ export const getItem = (code) => {
 export const getWeaponType = (code) => {
     return weaponType[code];
 }
+
+export const getSkill = (code) => {
+    return skill[code];
+}
+
+

@@ -16,7 +16,7 @@ function sleep(ms) {
     });
 }
 
-schedule.scheduleJob('0 0 1 * * *', async () => {
+schedule.scheduleJob('0 0 0 1 * *', async () => {
     console.log(new Date().toString().slice(16,24), ': GetRankSync Start');
 
     await Rank.deleteMany({matchingTeamMode:[1, 2, 3]});
