@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { injectIntl  } from 'react-intl';
-import { Header, MainBanner, AdS, Footer } from 'components/banner'
+import { Header, SubBanner, AdS, Footer } from 'components/banner'
 import { Search, Characters } from 'components/Main/left'
 import { Rank } from 'components/Main/right'
 
@@ -16,7 +16,7 @@ class Main extends Component {
         return (
             <div>
                 <Header data={metaData}/>
-                <MainBanner />
+                <SubBanner />
                 <div className='main'>
                     <div className='main-left'>
                         <Search />
