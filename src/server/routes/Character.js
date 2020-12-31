@@ -22,7 +22,7 @@ function sleep(ms) {
 }
 
 // 8시 0분에 캐릭터 데이터 업데이트
-//schedule.scheduleJob('40 32 1 * * *', async () => {
+//schedule.scheduleJob('0 0 1 * * *', async () => {
 const test = async () => {
     console.log(new Date().toString().slice(16,24), ': SetCharacterStats Start');
     const version = await getCurrentVersion();

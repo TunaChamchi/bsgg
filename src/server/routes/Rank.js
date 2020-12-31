@@ -16,7 +16,7 @@ function sleep(ms) {
     });
 }
 
-schedule.scheduleJob('0 0 0 1 * *', async () => {
+schedule.scheduleJob('0 0 */10 2-20 * *', async () => {
     console.log(new Date().toString().slice(16,24), ': GetRankSync Start');
 
     await Rank.deleteMany({matchingTeamMode:[1, 2, 3]});
@@ -99,7 +99,10 @@ const getRank = async (seasonId, matchingTeamMode) => {
                 }
             });
         } catch (error) {
-            if (error.response.status !== 429) return;
+            if (error.response.status !== 429) {
+                console.log(new Date().toString().slice(16,24), ': getRank() Error', error.response.status, '{ seasonId, matchingTeamMode }', { seasonId, matchingTeamMode });
+                return;
+            }
             
             await sleep(1000);
         }
@@ -114,7 +117,10 @@ const getRankStats = async (userNum, seasonId) => {
                     }
             });
         } catch (error) {
-            if (error.response.status !== 429) return null;
+            if (error.response.status !== 429) {
+                console.log(new Date().toString().slice(16,24), ': getRankStats() Error', error.response.status, '{ userNum, seasonId }', { userNum, seasonId });
+                return;
+            }
             
             await sleep(Math.random()*50);
         }

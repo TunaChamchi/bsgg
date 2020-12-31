@@ -19,14 +19,15 @@ function sleep(ms) {
 }
 
 // 6시 0분에 전체 유저 전적 검색
-schedule.scheduleJob('0 0 6 * * *', async () => {
+schedule.scheduleJob('0 10 20 * * *', async () => {
+    console.log(new Date().toString().slice(16,24), ': GetUserStat Start');
     const users = await User.find({}, { _id:0, userNum: 1 }, { sort : { updateDate: 1 }});
 
     for (let i = 0 ; i < users.length ; i++) {        
         await getUserData(users['userNum']);
     }
 
-    console.log(Date.now() + ' : GetUserData Complete', users.length);
+    console.log(new Date().toString().slice(16,24), ': GetUserStat Complete');
 })
 
 const getUserStats = async (userNum, seasonId) => {
@@ -38,7 +39,10 @@ const getUserStats = async (userNum, seasonId) => {
                     }
             });
         } catch (error) {
-            if (error.response.status !== 429) return;
+            if (error.response.status !== 429) {
+                console.log(new Date().toString().slice(16,24), ': getUserStats() Error', error.response.status, '{ userNum, seasonId }', { userNum, seasonId });
+                return;
+            }
             
             await sleep(250);
         }
@@ -53,7 +57,10 @@ const getUserGame = async (userNum, next) => {
                     }
             });
         } catch (error) {
-            if (error.response.status !== 429) return;
+            if (error.response.status !== 429) {
+                console.log(new Date().toString().slice(16,24), ': getUserGame() Error', error.response.status, '{ userNum, next }', { userNum, next });
+                return;
+            }
             
             await sleep(250);
         }
