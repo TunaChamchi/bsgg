@@ -31,11 +31,6 @@ class MainBanner extends Component {
                             <button className="menubutton">{intl.formatMessage({id:'main.banner.menu.route'})}</button>
                         </Link>
                     </div>
-                    
-                    <div className="Data-period">
-                        
-                        <span>{Version}</span>
-                    </div>
                 </div>
             </div>
         );

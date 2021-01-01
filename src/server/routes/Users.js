@@ -141,6 +141,7 @@ router.get('/Detail/:gameId', async (req, res, next) => {
                 mmrBefore:1,
                 playerKill:1,
                 playerAssistant:1,
+                matchingTeamMode:1,
             }
         }, 
         { 

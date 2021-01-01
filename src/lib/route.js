@@ -1,38 +1,43 @@
-import item from 'data/inGame/item.json'
-import weapon from 'data/inGame/weapon.json'
-import armor from 'data/inGame/armor.json'
+import { getItem } from "lib/data";
+import map from 'data/inGame/map.json'
 
 
 let select = { type:'단검', start: '단검' };
-let filterType = { };
+let filterType = { 1: "무기", 2: "다리" };
 let filterMap = { };
-const defultOutList = ['물', '가죽', '돌멩이', '나뭇가지', '미스릴', '운석', 'VF혈액샘플'];
+
+// 생명의 나무 : 1일 밤 호텔, 2일 낮 숲, 2일 밤 묘지
+//                      가죽   돌멩이  나뭇가지 미스릴   운석   VF혈액샘플
+const defultOutList = [401103, 112101, 108101, 401304, 401209, 401401, ];
+const startWeapon = {'단검':101101,'양손검':102101,'도끼':105102,'권총':116101,'돌격소총':117101,'저격총':118101,'레이피어':120101,'창':107101,'망치':104101,'배트':108102,'투척':112105,'암기':113101,'활':114101,'석궁':115101,'글러브':110102,'톤파':108103,'기타':121101,'쌍절곤':119101}
+            
 const typeList = ['무기', '머리', '옷', '팔', '다리', '장식'];
 const type = ["단검","양손검","도끼","쌍검","권총","돌격소총","저격총","레이피어","창","망치","배트","투척","암기","활","석궁","글러브","톤파","기타","쌍절곤"];
 const start = ["단검","양손검","도끼","권총","돌격소총","저격총","레이피어","창","망치","배트","투척","암기","활","석궁","글러브","톤파","기타","쌍절곤"];
 const mapMove = {
-    '골목길': ['절', '번화가', '연못', '병원', '양궁장', '학교', '묘지', '공장', '호텔', '숲', '성당', '모래사장', '고급 주택가', '항구'],
-    '절': ['골목길', '번화가', '연못', '병원', '양궁장', '학교', '묘지', '공장', '호텔', '숲', '성당', '모래사장', '고급 주택가', '항구'],
-    '번화가': ['골목길', '절', '연못', '병원', '양궁장', '학교', '묘지', '공장', '호텔', '숲', '성당', '모래사장', '고급 주택가', '항구'],
+    '골목길': ['절', '번화가', '연못', '병원', '양궁장', '학교', '묘지', '공장', '호텔', '숲', '성당', '모래사장', '고급주택가', '항구'],
+    '절': ['골목길', '번화가', '연못', '병원', '양궁장', '학교', '묘지', '공장', '호텔', '숲', '성당', '모래사장', '고급주택가', '항구'],
+    '번화가': ['골목길', '절', '연못', '병원', '양궁장', '학교', '묘지', '공장', '호텔', '숲', '성당', '모래사장', '고급주택가', '항구'],
     '연못': ['번화가', '절', '병원', '묘지'], 
-    '병원': ['골목길', '절', '번화가', '연못', '양궁장', '학교', '묘지', '공장', '호텔', '숲', '성당', '모래사장', '고급 주택가', '항구'],
-    '양궁장': ['골목길', '절', '번화가', '연못', '병원', '학교', '묘지', '공장', '호텔', '숲', '성당', '모래사장', '고급 주택가', '항구'],
+    '병원': ['골목길', '절', '번화가', '연못', '양궁장', '학교', '묘지', '공장', '호텔', '숲', '성당', '모래사장', '고급주택가', '항구'],
+    '양궁장': ['골목길', '절', '번화가', '연못', '병원', '학교', '묘지', '공장', '호텔', '숲', '성당', '모래사장', '고급주택가', '항구'],
     '학교': ['양궁장', '골목길', '숲', '호텔', '번화가'],
     '묘지': ['성당', '공장', '병원', '연못'],
     '공장': ['항구', '성당', '묘지', '병원'],
-    '호텔': ['골목길', '절', '번화가', '연못', '병원', '양궁장', '학교', '묘지', '공장', '숲', '성당', '모래사장', '고급 주택가', '항구'],
-    '숲': ['학교', '호텔', '모래사장', '고급 주택가', '번화가', '성당'],
-    '성당': ['골목길', '절', '번화가', '연못', '병원', '양궁장', '학교', '묘지', '공장', '호텔', '숲', '모래사장', '고급 주택가', '항구'],
-    '모래사장': ['골목길', '절', '번화가', '연못', '병원', '양궁장', '학교', '묘지', '공장', '호텔', '숲', '성당', '고급 주택가', '항구'],
-    '고급 주택가': ['골목길', '절', '번화가', '연못', '병원', '양궁장', '학교', '묘지', '공장', '호텔', '숲', '성당', '모래사장', '항구'],
-    '항구': ['고급 주택가', '성당', '공장'],
+    '호텔': ['골목길', '절', '번화가', '연못', '병원', '양궁장', '학교', '묘지', '공장', '숲', '성당', '모래사장', '고급주택가', '항구'],
+    '숲': ['학교', '호텔', '모래사장', '고급주택가', '번화가', '성당'],
+    '성당': ['골목길', '절', '번화가', '연못', '병원', '양궁장', '학교', '묘지', '공장', '호텔', '숲', '모래사장', '고급주택가', '항구'],
+    '모래사장': ['골목길', '절', '번화가', '연못', '병원', '양궁장', '학교', '묘지', '공장', '호텔', '숲', '성당', '고급주택가', '항구'],
+    '고급주택가': ['골목길', '절', '번화가', '연못', '병원', '양궁장', '학교', '묘지', '공장', '호텔', '숲', '성당', '모래사장', '항구'],
+    '항구': ['고급주택가', '성당', '공장'],
 }
 
 const mapSrc = {}
 for (const mapName in map) {
     const _map = map[mapName]['quest'];
-    mapSrc[mapName] = _map;
-}
+    const _name = map[mapName]['name'];
+    mapSrc[_name] = _map;
+} 
 
 
 let allSrc = [];
@@ -44,9 +49,11 @@ export const routeCalc = (ref_select, ref_filterType, ref_filterMap) => {
     filterMap = { ...ref_filterMap };
 
     if (Object.keys(select).length !== 8) return;
+
     //console.log('select', select); 
 
-    this.selectSrc();
+    getSelectSrc();
+    //console.log('selectSrc', selectSrc);
     
     allSrc = [];
     
@@ -55,22 +62,25 @@ export const routeCalc = (ref_select, ref_filterType, ref_filterMap) => {
             if (!allSrc.includes(src)) allSrc.push(src);
         });
     });
+    //console.log('allSrc', allSrc);
     
     extSrc = {
-        ALL: this.extMapByAll(),
+        ALL: extMapByAll(),
     };
     typeList.forEach(type => {
-        extSrc[type] = this.extMapByType(type);
+        extSrc[type] = extMapByType(type);
 
         // TBD : 하위 아이템 먼저 제작 할 경우 추가 점수
         // if (selectSrc['_'+type] !== undefined) {
         //     extSrc['_'+type] = [];
         //     selectSrc['_'+type].forEach(sub => {
-        //         extSrc['_'+type].push(this.extMapByType(mapSrc, type, selectSrc));
+        //         extSrc['_'+type].push(extMapByType(mapSrc, type, selectSrc));
         //     })
         // }
     });
+    //console.log('extSrc', extSrc);
 
+    //console.log('filterType', filterType);
     const filterTypeList = [];
     const _filterType = {};
 
@@ -100,15 +110,20 @@ export const routeCalc = (ref_select, ref_filterType, ref_filterMap) => {
             _filterType['2'] = '다리';
         }
     }      
+    //console.log('_filterType', _filterType);
 
     filterType = _filterType;
+    let routeList = routeListByAll(6);
 
-    let routeList = this.routeListByAll(6);
+    //console.log('routeList1', [...routeList]);
 
     if (routeList.length < 20)
-        routeList = this.routeListByAll(7);
+        routeList = routeListByAll(7);
+
+    //console.log('routeList2', [...routeList]);
 
     const extTypeList = typeList.filter(type => !filterTypeList.includes(type));
+    //console.log('extTypeList', extTypeList);
 
     routeList.forEach(route => {
         const score = {
@@ -133,36 +148,43 @@ export const routeCalc = (ref_select, ref_filterType, ref_filterMap) => {
 
         route['score'] = score['1'] + score['2'] + score['3'] + score['4'] + score['5'] + score['6'] - route['route'].length*3;
     });
-    const topList = this.routeSortTop(routeList, 20);
-    console.log('topList', topList);
+    const topList = routeSortTop(routeList, 20);
+    //console.log('topList', topList);
 
-    this.setRouteListForItem(mapSrc, selectSrc, topList);
-    console.log('topList', topList);
+    setRouteListForItem(topList);
+    //console.log('topList2', topList);
 
-    return routeList;
-    //this.setState({routeList: topList, selectRoute:{route:[]}, selectMap:'', selectMapSrc: []});
+    return topList;
+    //setState({routeList: topList, selectRoute:{route:[]}, selectMap:'', selectMapSrc: []});
 };
 
-selectSrc = () => {
+export const getSelectSrc = () => {
     selectSrc = {};
-    ['무기', '머리', '옷', '팔', '다리', '장식'].forEach(type => {
+    const startItem = [
+        { name: startWeapon[select['type']], count: 1 },
+        { name: 301102, count: 2 },
+        //{ name: 302110, count: 2 },
+    ];
+
+    typeList.forEach(type => {
         selectSrc[type] = [];
-        this.itemSrc(selectSrc[type], select[type], type);
+        itemSrc(selectSrc[type], select[type], type, startItem);
     });
 };
 
-itemSrc = (src, itemName, type) =>  {
-    const outList = [...defultOutList, startWeapon[select['type']]];
+export const itemSrc = (src, itemCode, type, startItem) =>  {
+    const outList = [...defultOutList];
 
     let list = [];
 
-    item[itemName]['src'].forEach(_srcName => {
-        if (item[_srcName]['src']) {
-            const srcList = this.itemSrc(src, _srcName, type);
+    getItem(itemCode)['src'].forEach(_srcName => {
+        if (getItem(_srcName)['src'].length) {
+            const srcList = itemSrc(src, _srcName, type, startItem);
 
             if (type === '무기') {
-                if (weapon[select['type']][_srcName] !== undefined) {
-                    const _src = { name: _srcName, grade: item[_srcName]['grade'], src: [...srcList] };
+
+                if (getItem(_srcName)['weaponType'] === select['type']) {
+                    const _src = { name: _srcName, grade: getItem(_srcName)['itemGrade'], src: [...srcList] };
                     if (selectSrc['_무기'] !== undefined) {
                         selectSrc['_무기'].push(_src);
                     } else {
@@ -170,8 +192,8 @@ itemSrc = (src, itemName, type) =>  {
                     }
                 }
             } else {
-                if (armor[type][_srcName] !== undefined) {
-                    const _src = { name: _srcName, grade: item[_srcName]['grade'], src: [...srcList] };
+                if (getItem(_srcName)['armorType'] === type) {
+                    const _src = { name: _srcName, grade: getItem(_srcName)['itemGrade'], src: [...srcList] };
                     if (selectSrc['_'+type] !== undefined) {
                         selectSrc['_'+type].push(_src);
                     } else {
@@ -182,9 +204,19 @@ itemSrc = (src, itemName, type) =>  {
 
             list = [...list, ...srcList];
         } else {
-            if (!src.includes(_srcName) && !outList.includes(_srcName)){
-                src.push(_srcName);
-                list.push(_srcName);
+            if (!src.includes(_srcName) && !outList.includes(_srcName)) {
+                let isStart = false;
+                startItem.forEach(_ => {
+                    if (_['name'] === _srcName && _['count'] !== 0) {
+                        isStart = true;
+                        _['count']--;
+                    }
+                })
+
+                if (!isStart) {
+                    src.push(_srcName);
+                    list.push(_srcName);
+                }
             }
         }
     })
@@ -192,7 +224,7 @@ itemSrc = (src, itemName, type) =>  {
     return list;
 }
 
-extMapByAll = () => {
+export const extMapByAll = () => {
     const extMapSrc = {}
     for (const mapName in mapSrc) {
         extMapSrc[mapName] = allSrc.filter(src => !mapSrc[mapName].includes(src));
@@ -200,7 +232,7 @@ extMapByAll = () => {
     return extMapSrc;
 }
 
-extMapByType = (type) => {
+export const extMapByType = (type) => {
     const extMapSrc = {}
     for (const mapName in mapSrc) {
         extMapSrc[mapName] = selectSrc[type].filter(src => !mapSrc[mapName].includes(src));
@@ -208,7 +240,7 @@ extMapByType = (type) => {
     return extMapSrc;
 }
 
-routeListByAll = (MapIdx) => {
+export const routeListByAll = (MapIdx) => {
     const list = [];
 
     for (const mapName in mapMove) {
@@ -216,28 +248,20 @@ routeListByAll = (MapIdx) => {
             route: []
         };
 
-        this.routeListByAll2(list, route, extSrc['ALL'][mapName], mapName, 1, MapIdx);
+        routeListByAll2(list, route, extSrc['ALL'][mapName], mapName, 1, MapIdx);
     }
 
     return list;
 }
 
-routeListByAll2 = (list, route, _extSrc, mapName, idx, MapIdx) => {
+export const routeListByAll2 = (list, route, _extSrc, mapName, idx, MapIdx) => {
     if (filterMap[idx] !== undefined && mapName !== filterMap[idx]) {
         return;
     }
     if (route['route'].length > MapIdx || idx > MapIdx) {
         return;
     }
-    
-    // if (list.length < 20) {
-    //     if ((route[filterType['1']] === undefined && idx > 4) || route[filterType['1']] > 3) {
-    //         return
-    //     }
-    //     if ((route[filterType['2']] === undefined && idx > 5) || route[filterType['2']] > 4) {
-    //         return;
-    //     }
-    // }
+
     if (MapIdx === 7 && idx === MapIdx-1) {
         let count = 0;
         ['무기', '다리', '머리', '옷', '팔', '장식'].forEach(type => {
@@ -281,12 +305,12 @@ routeListByAll2 = (list, route, _extSrc, mapName, idx, MapIdx) => {
         mapMove[mapName].forEach(nextMap => {
             if (_route['route'].includes(nextMap)) return;
 
-            this.routeListByAll2(list, _route, _extSrc, nextMap, idx+1), MapIdx;
+            routeListByAll2(list, _route, _extSrc, nextMap, idx+1, MapIdx);
         });
     }
-}
+};
 
-routeSortTop = (routeList, topCount) => {
+export const routeSortTop = (routeList, topCount) => {
     const list = routeList;//.filter(route => route['score'] > 0);
     list.sort((r1, r2) => r2['score']-r1['score']);
 
@@ -297,4 +321,110 @@ routeSortTop = (routeList, topCount) => {
     } catch(error) {
         return list;
     }
+};
+
+export const setRouteListForItem = (routeList) => {   
+    let getSrcList = [];
+    const srcList = getSelectSrcNonOut();
+    ['무기', '머리', '옷', '팔', '다리', '장식'].forEach(type => {
+        srcList[type].forEach(src => { 
+            if (!getSrcList.includes(src)) getSrcList.push(src);
+        });
+    });
+
+    routeList.forEach(route => {
+        let _mapSrc = [];
+        route['view'] = [];
+
+        const itemList = [];
+        ['무기', '머리', '옷', '팔', '다리', '장식'].forEach(type => {
+            const _type = selectSrc['_'+type];
+            let rank = 0;
+            if (_type !== undefined) {
+                rank = _type.length;
+                _type.forEach((sub, idx) => {
+                    itemList.push({ name: sub['name'], type: type, rank: idx, src: sub['src'] });
+                })
+            }
+            itemList.push({ name: select[type], type: type, rank: rank, src: selectSrc[type] });
+        });
+        itemList.sort((i1, i2) => i2['rank']-i1['rank']);
+
+        route['route'].forEach(mapName => {
+            const view = {
+                name: mapName,
+                item: []
+            }
+
+            _mapSrc = [..._mapSrc, ...mapSrc[mapName].filter(src => !_mapSrc.includes(src))];
+
+            const rmList = [];
+            itemList.forEach(item => {
+                const typeSrc = item['src'].filter(src => !_mapSrc.includes(src));                    
+                if (typeSrc.length === 0) {
+                    const filter = view['item'].filter(_item => _item['type'] === item['type']);
+
+                    if (filter.length === 0 || filter[0]['rank'] < item['rank']) {
+                        view['item'].push(item);
+                    }
+                    rmList.push(item);
+                };
+            });
+
+            if (rmList.length !== 0) {
+                rmList.forEach(item => {
+                    const rm_idx = itemList.findIndex(function(_item) { return _item['name'] === item['name'] });
+                    if (rm_idx > -1) itemList.splice(rm_idx, 1)
+                })
+            }
+
+            let getSrc = mapSrc[mapName].filter(src => getSrcList.includes(src))
+                    
+            getSrc = getSrc.concat(defultOutList.filter(src => getSrcList.includes(src)));
+
+            view['getScr'] = getSrc;
+
+            route['view'].push(view);
+        });
+    });
+}
+
+export const getSelectSrcNonOut = () => {
+    const itemSrc = {};
+    const startItem = [
+        { name: startWeapon[select['type']], count: 1 },
+        { name: 301102, count: 2 },
+        //{ name: 302110, count: 2 },
+    ];
+
+    typeList.forEach(type => {
+        itemSrc[type] = [];
+        itemSrcNonOut(itemSrc[type], select[type], type, startItem);
+    });
+    return itemSrc;
+};
+
+
+export const itemSrcNonOut = (src, itemCode, type, startItem) =>  {
+    let list = [];
+
+    getItem(itemCode)['src'].forEach(_srcName => {
+        if (getItem(_srcName)['src'].length) {
+            const srcList = itemSrcNonOut(src, _srcName, type, startItem);
+        } else {
+            if (!src.includes(_srcName)) {
+                let isStart = false;
+                startItem.forEach(_ => {
+                    if (_['name'] === _srcName && _['count'] !== 0) {
+                        isStart = true;
+                        _['count']--;
+                    }
+                })
+
+                if (!isStart) {
+                    src.push(_srcName);
+                }
+            }
+        }
+    })
 }

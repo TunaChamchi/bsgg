@@ -127,10 +127,10 @@ class Map extends Component {
                                     <div className="map_Forest"  onClick={(e) => this.onClick(e, '숲')}>{intl.formatMessage({id: 'Forest'})}</div>
                             }
                             {
-                                selectMap === '고급 주택가' ? 
-                                    <div className="map_Uptown actived"  onClick={(e) => this.onClick(e, '고급 주택가')}>{intl.formatMessage({id: 'Uptown'})}</div>
+                                selectMap === '고급주택가' ? 
+                                    <div className="map_Uptown actived"  onClick={(e) => this.onClick(e, '고급주택가')}>{intl.formatMessage({id: 'Uptown'})}</div>
                                     :
-                                    <div className="map_Uptown"  onClick={(e) => this.onClick(e, '고급 주택가')}>{intl.formatMessage({id: 'Uptown'})}</div>
+                                    <div className="map_Uptown"  onClick={(e) => this.onClick(e, '고급주택가')}>{intl.formatMessage({id: 'Uptown'})}</div>
                             }
                             {
                                 selectMap === '항구' ? 

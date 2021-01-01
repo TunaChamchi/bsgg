@@ -169,15 +169,14 @@ class Match extends Component {
             const detail = [];
             const escapeUser = _detail.filter(d => d['gameRank'] === -1)
 
-            _detail = _detail.slice(escapeUser.length, 18);
+            _detail = _detail.sort((a, b) => a['gameRank']-b['gameRank']).slice(escapeUser.length, 18);
 
             let max_dam = 0;
             let index = 0;
             let rank = 0;
-            console.log('_detail', _detail);
-            console.log('escapeUser', escapeUser);
-            for (var i = 0 ; i < 18-escapeUser.length ; i++) {
-                if (_detail[index] && _detail[index]['gameRank'] === Math.ceil((i+1)/matchCond.teamMode)) {
+            
+            for (var i = 0 ; i < 18 ; i++) {
+                if (_detail[index] && _detail[index]['gameRank'] === Math.ceil((i+1)/_detail[0]['matchingTeamMode'])) {
                     detail[i] = _detail[index];
                     if (max_dam < _detail[index]['damageToPlayer']) max_dam = _detail[index]['damageToPlayer'];  
                     if (user['userNum'] === _detail[index]['userNum']) rank = _detail[index]['gameRank'];
@@ -192,7 +191,7 @@ class Match extends Component {
             )
 
             matchDetail[gameId] = {
-                view: view,
+                view: true,
                 tab: 0,
                 rank: rank,
                 max_dam: max_dam,

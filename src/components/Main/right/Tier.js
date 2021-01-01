@@ -90,7 +90,7 @@ class Tier extends Component {
             if (preRank) {
                 return (
                     <div className="rank-1" key={'tier' + idx}>        
-                        <Link to={'Detail?gameMode='+type+'&character='+data['characterNum']+'&bestWeapon='+ data['bestWeapon']}>        
+                        <Link to={'Detail?gameMode='+(type+1)+'&character='+data['characterNum']+'&bestWeapon='+ data['bestWeapon']}>        
                             <span className="rank3rank1">{idx+1}</span>&nbsp;
                             <img className="rank3Updown"   src={(rankDiff>0?'img/UpDown/상승.png':rankDiff<0?'img/UpDown/하락.png':'img/UpDown/유지.png')} />&nbsp;
                             <span className="rank3Updown1">{Math.abs(rankDiff)}</span>&nbsp;
@@ -108,7 +108,7 @@ class Tier extends Component {
             } else {
                 return (
                     <div className="rank-1" key={'tier' + idx}>    
-                        <Link to={'Detail?gameMode='+type+'&character='+data['characterNum']+'&bestWeapon='+ data['bestWeapon']}>              
+                        <Link to={'Detail?gameMode='+(type+1)+'&character='+data['characterNum']+'&bestWeapon='+ data['bestWeapon']}>              
                             <span className="rank3rank1">{idx+1}</span>&nbsp;
                             <img className="rank3new"   src={'img/UpDown/new.png'} />&nbsp;
                             <img className="rank3cha1" src={'img/Rank/'+characterName+(data['tier']>0?'':'_오피')+'.jpg'} />&nbsp;

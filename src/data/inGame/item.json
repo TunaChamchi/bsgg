@@ -4119,7 +4119,7 @@
   "203101": {
     "name": "손목시계",
     "itemType": "Armor",
-    "armorType": "다리",
+    "armorType": "팔",
     "itemGrade": "일반",
     "stackable": 1,
     "initialCount": 1,
@@ -4129,7 +4129,7 @@
   "203102": {
     "name": "붕대",
     "itemType": "Armor",
-    "armorType": "다리",
+    "armorType": "팔",
     "itemGrade": "일반",
     "stackable": 1,
     "initialCount": 1,
@@ -4139,7 +4139,7 @@
   "203104": {
     "name": "팔찌",
     "itemType": "Armor",
-    "armorType": "다리",
+    "armorType": "팔",
     "itemGrade": "일반",
     "stackable": 1,
     "initialCount": 1,
@@ -4149,7 +4149,7 @@
   "203201": {
     "name": "가죽방패",
     "itemType": "Armor",
-    "armorType": "다리",
+    "armorType": "팔",
     "itemGrade": "고급",
     "stackable": 1,
     "initialCount": 1,
@@ -4163,7 +4163,7 @@
   "203202": {
     "name": "분대장완장",
     "itemType": "Armor",
-    "armorType": "다리",
+    "armorType": "팔",
     "itemGrade": "고급",
     "stackable": 1,
     "initialCount": 1,
@@ -4177,7 +4177,7 @@
   "203203": {
     "name": "브레이서",
     "itemType": "Armor",
-    "armorType": "다리",
+    "armorType": "팔",
     "itemGrade": "고급",
     "stackable": 1,
     "initialCount": 1,
@@ -4191,7 +4191,7 @@
   "203301": {
     "name": "검집",
     "itemType": "Armor",
-    "armorType": "다리",
+    "armorType": "팔",
     "itemGrade": "희귀",
     "stackable": 1,
     "initialCount": 1,
@@ -4205,7 +4205,7 @@
   "203302": {
     "name": "금팔찌",
     "itemType": "Armor",
-    "armorType": "다리",
+    "armorType": "팔",
     "itemGrade": "희귀",
     "stackable": 1,
     "initialCount": 1,
@@ -4219,7 +4219,7 @@
   "203303": {
     "name": "바주반드",
     "itemType": "Armor",
-    "armorType": "다리",
+    "armorType": "팔",
     "itemGrade": "희귀",
     "stackable": 1,
     "initialCount": 1,
@@ -4233,7 +4233,7 @@
   "203304": {
     "name": "진홍팔찌",
     "itemType": "Armor",
-    "armorType": "다리",
+    "armorType": "팔",
     "itemGrade": "희귀",
     "stackable": 1,
     "initialCount": 1,
@@ -4247,7 +4247,7 @@
   "203401": {
     "name": "강철방패",
     "itemType": "Armor",
-    "armorType": "다리",
+    "armorType": "팔",
     "itemGrade": "희귀",
     "stackable": 1,
     "initialCount": 1,
@@ -4262,7 +4262,7 @@
   "203402": {
     "name": "소드스토퍼",
     "itemType": "Armor",
-    "armorType": "다리",
+    "armorType": "팔",
     "itemGrade": "영웅",
     "stackable": 1,
     "initialCount": 1,
@@ -4277,7 +4277,7 @@
   "203403": {
     "name": "드라우프니르",
     "itemType": "Armor",
-    "armorType": "다리",
+    "armorType": "팔",
     "itemGrade": "영웅",
     "stackable": 1,
     "initialCount": 1,
@@ -4293,7 +4293,7 @@
   "203404": {
     "name": "미스릴방패",
     "itemType": "Armor",
-    "armorType": "다리",
+    "armorType": "팔",
     "itemGrade": "영웅",
     "stackable": 1,
     "initialCount": 1,
@@ -4309,7 +4309,7 @@
   "203405": {
     "name": "바이탈센서",
     "itemType": "Armor",
-    "armorType": "다리",
+    "armorType": "팔",
     "itemGrade": "영웅",
     "stackable": 1,
     "initialCount": 1,
@@ -4323,7 +4323,7 @@
   "203406": {
     "name": "기사의신조",
     "itemType": "Armor",
-    "armorType": "다리",
+    "armorType": "팔",
     "itemGrade": "영웅",
     "stackable": 1,
     "initialCount": 1,
@@ -4340,7 +4340,7 @@
   "203407": {
     "name": "샤자한의검집",
     "itemType": "Armor",
-    "armorType": "다리",
+    "armorType": "팔",
     "itemGrade": "영웅",
     "stackable": 1,
     "initialCount": 1,
@@ -4355,7 +4355,7 @@
   "203408": {
     "name": "큐브워치",
     "itemType": "Armor",
-    "armorType": "다리",
+    "armorType": "팔",
     "itemGrade": "희귀",
     "stackable": 1,
     "initialCount": 1,
@@ -4369,7 +4369,7 @@
   "203501": {
     "name": "스카디의팔찌",
     "itemType": "Armor",
-    "armorType": "다리",
+    "armorType": "팔",
     "itemGrade": "전설",
     "stackable": 1,
     "initialCount": 1,
@@ -4386,7 +4386,7 @@
   "203502": {
     "name": "레이더",
     "itemType": "Armor",
-    "armorType": "다리",
+    "armorType": "팔",
     "itemGrade": "전설",
     "stackable": 1,
     "initialCount": 1,
@@ -4401,7 +4401,7 @@
   "203503": {
     "name": "오토암즈",
     "itemType": "Armor",
-    "armorType": "다리",
+    "armorType": "팔",
     "itemGrade": "전설",
     "stackable": 1,
     "initialCount": 1,
@@ -4416,7 +4416,7 @@
   "204101": {
     "name": "슬리퍼",
     "itemType": "Armor",
-    "armorType": "팔",
+    "armorType": "다리",
     "itemGrade": "일반",
     "stackable": 1,
     "initialCount": 1,
@@ -4427,7 +4427,7 @@
   "204102": {
     "name": "운동화",
     "itemType": "Armor",
-    "armorType": "팔",
+    "armorType": "다리",
     "itemGrade": "일반",
     "stackable": 1,
     "initialCount": 1,
@@ -4437,7 +4437,7 @@
   "204103": {
     "name": "타이즈",
     "itemType": "Armor",
-    "armorType": "팔",
+    "armorType": "다리",
     "itemGrade": "일반",
     "stackable": 1,
     "initialCount": 1,
@@ -4448,7 +4448,7 @@
   "204201": {
     "name": "무릎보호대",
     "itemType": "Armor",
-    "armorType": "팔",
+    "armorType": "다리",
     "itemGrade": "고급",
     "stackable": 1,
     "initialCount": 1,
@@ -4462,7 +4462,7 @@
   "204202": {
     "name": "체인레깅스",
     "itemType": "Armor",
-    "armorType": "팔",
+    "armorType": "다리",
     "itemGrade": "고급",
     "stackable": 1,
     "initialCount": 1,
@@ -4476,7 +4476,7 @@
   "204203": {
     "name": "하이힐",
     "itemType": "Armor",
-    "armorType": "팔",
+    "armorType": "다리",
     "itemGrade": "고급",
     "stackable": 1,
     "initialCount": 1,
@@ -4490,7 +4490,7 @@
   "204204": {
     "name": "힐리스",
     "itemType": "Armor",
-    "armorType": "팔",
+    "armorType": "다리",
     "itemGrade": "고급",
     "stackable": 1,
     "initialCount": 1,
@@ -4504,7 +4504,7 @@
   "204301": {
     "name": "덧댄슬리퍼",
     "itemType": "Armor",
-    "armorType": "팔",
+    "armorType": "다리",
     "itemGrade": "고급",
     "stackable": 1,
     "initialCount": 1,
@@ -4519,7 +4519,7 @@
   "204302": {
     "name": "부츠",
     "itemType": "Armor",
-    "armorType": "팔",
+    "armorType": "다리",
     "itemGrade": "희귀",
     "stackable": 1,
     "initialCount": 1,
@@ -4534,7 +4534,7 @@
   "204401": {
     "name": "강철무릎보호대",
     "itemType": "Armor",
-    "armorType": "팔",
+    "armorType": "다리",
     "itemGrade": "희귀",
     "stackable": 1,
     "initialCount": 1,
@@ -4548,7 +4548,7 @@
   "204402": {
     "name": "경량화부츠",
     "itemType": "Armor",
-    "armorType": "팔",
+    "armorType": "다리",
     "itemGrade": "영웅",
     "stackable": 1,
     "initialCount": 1,
@@ -4563,7 +4563,7 @@
   "204403": {
     "name": "매버릭러너",
     "itemType": "Armor",
-    "armorType": "팔",
+    "armorType": "다리",
     "itemGrade": "희귀",
     "stackable": 1,
     "initialCount": 1,
@@ -4578,7 +4578,7 @@
   "204404": {
     "name": "전투화",
     "itemType": "Armor",
-    "armorType": "팔",
+    "armorType": "다리",
     "itemGrade": "희귀",
     "stackable": 1,
     "initialCount": 1,
@@ -4593,7 +4593,7 @@
   "204405": {
     "name": "킬힐",
     "itemType": "Armor",
-    "armorType": "팔",
+    "armorType": "다리",
     "itemGrade": "희귀",
     "stackable": 1,
     "initialCount": 1,
@@ -4609,7 +4609,7 @@
   "204406": {
     "name": "풍화륜",
     "itemType": "Armor",
-    "armorType": "팔",
+    "armorType": "다리",
     "itemGrade": "희귀",
     "stackable": 1,
     "initialCount": 1,
@@ -4625,7 +4625,7 @@
   "204407": {
     "name": "미스릴부츠",
     "itemType": "Armor",
-    "armorType": "팔",
+    "armorType": "다리",
     "itemGrade": "영웅",
     "stackable": 1,
     "initialCount": 1,
@@ -4640,7 +4640,7 @@
   "204408": {
     "name": "부케팔로스",
     "itemType": "Armor",
-    "armorType": "팔",
+    "armorType": "다리",
     "itemGrade": "영웅",
     "stackable": 1,
     "initialCount": 1,
@@ -4657,7 +4657,7 @@
   "204409": {
     "name": "EOD부츠",
     "itemType": "Armor",
-    "armorType": "팔",
+    "armorType": "다리",
     "itemGrade": "전설",
     "stackable": 1,
     "initialCount": 1,
@@ -4672,7 +4672,7 @@
   "204411": {
     "name": "클링온부츠",
     "itemType": "Armor",
-    "armorType": "팔",
+    "armorType": "다리",
     "itemGrade": "영웅",
     "stackable": 1,
     "initialCount": 1,
@@ -4688,7 +4688,7 @@
   "204410": {
     "name": "글레이셜슈즈",
     "itemType": "Armor",
-    "armorType": "팔",
+    "armorType": "다리",
     "itemGrade": "전설",
     "stackable": 1,
     "initialCount": 1,
@@ -4706,7 +4706,7 @@
   "204501": {
     "name": "헤르메스의부츠",
     "itemType": "Armor",
-    "armorType": "팔",
+    "armorType": "다리",
     "itemGrade": "전설",
     "stackable": 1,
     "initialCount": 1,
@@ -4721,7 +4721,7 @@
   "204502": {
     "name": "분홍신",
     "itemType": "Armor",
-    "armorType": "팔",
+    "armorType": "다리",
     "itemGrade": "전설",
     "stackable": 1,
     "initialCount": 1,

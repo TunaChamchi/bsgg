@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { injectIntl } from 'react-intl';
 import queryString from 'query-string';
 import { Header, SubBanner, AdS, Footer } from 'components/banner';
@@ -12,15 +13,13 @@ class Detail extends Component {
         this.state = {
             isLoad: false,
             stats: [],
-            data: {},
             character: -1,
             gameMode: 1,
             bestWeapon: -1,
             weaponList: [],
             weaponTotal:0,
-            ad_style: {},
             skillTree: [],
-            skillTree2: [],
+            itemTabFocus: 0,
             mapList: {
                 '양궁장': 'Archery',
                 '골목길': 'Alley',
@@ -29,7 +28,7 @@ class Detail extends Component {
                 '모래사장': 'Beach',
                 '숲': 'Forest',
                 '고급주택가': 'Uptown',
-                '고급 주택가': 'Uptown',
+                '고급주택가': 'Uptown',
                 '연못': 'Pond',
                 '절': 'Temple',
                 '병원': 'Hospital',
@@ -177,6 +176,7 @@ class Detail extends Component {
                     if (item['itemGrade'] === '일반') isCommon = true;
 
                     const _item = {
+                        code: i,
                         name: item['name'],
                         itemGrade: item['itemGrade']
                     }
@@ -202,16 +202,25 @@ class Detail extends Component {
         });
     }
 
+    gameModeTabView = () => {
+        const { character, bestWeapon, gameMode } = this.state;
+        return ['solo', 'duo', 'squad'].map((type, idx) => 
+            <Link to={'Detail?gameMode='+(idx+1)+'&character='+character+'&bestWeapon='+bestWeapon} key={'S_left_tab_'+idx}>
+                <div className={"S_left_tab"+(idx===(gameMode-1)?' actived':'')}>{type}</div>
+            </Link>
+        )
+    }
+
     render() {
         const { intl } = this.props;
-        const { stat, tier, character, bestWeapon, gameMode, weaponList, weaponTotal, skillTree, itemOrder } = this.state;
+        const { stat, tier, character, bestWeapon, gameMode, weaponList, weaponTotal, skillTree, itemOrder, itemTabFocus } = this.state;
         
+        if (!stat || !tier) return(<div></div>);
+
         const metaData = {
-            title: 'BSGG.kr - ' + character, //+ intl.formatMessage({id: 'characters.'+data['character']}) + ' ' + intl.formatMessage({id: 'weapons.'+data['weapon']}),
+            title: 'BSGG.kr - ' + intl.formatMessage({id: 'characters.'+getCharacter(stat['characterNum'])['name']}) + ' ' + intl.formatMessage({id: 'weapons.'+getWeaponType(stat['bestWeapon'])}),
             description: '영원회귀 : 블랙 서바이벌 통계, 캐릭터 티어, 아이템 트렌드, BS:ER Stats, Character Tier, Item Trend'
         }
-
-        if (!stat || !tier) return(<div></div>);
 
         return (
             <div>
@@ -227,9 +236,7 @@ class Detail extends Component {
                     <div className="S_left">
                         <span className="S_left0">Guide</span>
                         <div className="tabHeaders">
-                            <div className="S_left_tab actived">솔로</div>
-                            <div className="S_left_tab">듀오</div>
-                            <div className="S_left_tab">스쿼드</div>
+                            {this.gameModeTabView()}
                         </div>
                         <Skill
                             stat={stat}
@@ -240,22 +247,32 @@ class Detail extends Component {
                             <div className="item0"> 
                                 <div className="item0_span">추천 아이템</div>
                                 <div className="tabHeaders">
-                                    <div className="item0_tab">순위</div>
-                                    <div className="item0_tab actived">빌드</div>
+                                    <div className={"item0_tab"+(itemTabFocus===1?' actived':'')}
+                                        onClick={(e) => this.setState({ itemTabFocus:1 })}>
+                                        순위
+                                    </div>
+                                    <div className={"item0_tab"+(itemTabFocus===0?' actived':'')}
+                                        onClick={(e) => this.setState({ itemTabFocus:0 })}>
+                                        빌드
+                                    </div>
                                 </div>
                             </div>
-                            <ItemOrder 
-                                itemOrder={itemOrder}
-                                startWeapon={bestWeapon}
-                                />
-                            <div className="item_rank">
-                                <Weapons 
-                                    stat ={stat}
-                                    />
-                                <Armors 
-                                    stat={stat}
-                                    />
-                            </div>
+                            {
+                                itemTabFocus === 0 ?
+                                    <ItemOrder 
+                                        itemOrder={itemOrder}
+                                        bestWeapon={bestWeapon}
+                                        />
+                                    :
+                                    <div className="item_rank">
+                                        <Weapons 
+                                            stat ={stat}
+                                            />
+                                        <Armors 
+                                            stat={stat}
+                                            />
+                                    </div>
+                            }
                         </div>
                     </div>
                     <Trend 
