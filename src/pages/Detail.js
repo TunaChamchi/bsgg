@@ -227,9 +227,9 @@ class Detail extends Component {
                     <div className="S_left">
                         <span className="S_left0">Guide</span>
                         <div className="tabHeaders">
-                            <div className="S_left_tab actived">솔로</div>
-                            <div className="S_left_tab">듀오</div>
-                            <div className="S_left_tab">스쿼드</div>
+                            <div className="S_left_tab actived">{intl.formatMessage({id: 'solo'})}</div>
+                            <div className="S_left_tab">{intl.formatMessage({id: 'duo'})}</div>
+                            <div className="S_left_tab">{intl.formatMessage({id: 'squad'})}</div>
                         </div>
                         <Skill
                             stat={stat}
@@ -238,10 +238,10 @@ class Detail extends Component {
                             />
                         <div className="item">
                             <div className="item0"> 
-                                <div className="item0_span">추천 아이템</div>
+                                <div className="item0_span">{intl.formatMessage({id: '추천아이템'})}</div>
                                 <div className="tabHeaders">
-                                    <div className="item0_tab">순위</div>
-                                    <div className="item0_tab actived">빌드</div>
+                                    <div className="item0_tab">{intl.formatMessage({id: 'rank'})}</div>
+                                    <div className="item0_tab actived">{intl.formatMessage({id: '빌드'})}</div>
                                 </div>
                             </div>
                             <ItemOrder 

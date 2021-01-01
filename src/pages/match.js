@@ -238,8 +238,8 @@ class Match extends Component {
                 </div>
                 <div className="record_top_right">
                     <div className="record_top_name">{user['nickname']}</div>
-                    <button className="record_top_renew">전적갱신</button>
-                    <span className="record_top_updated">최근 업데이트 {user['updateDate']}</span>
+                    <button className="record_top_renew">{intl.formatMessage({id: "전적갱신" })}</button>
+                    <span className="record_top_updated">{intl.formatMessage({id: "최근 업데이트" })} {user['updateDate']}</span>
                 </div>
                 {top3&&
                     <div className="record_top_medal_box">
@@ -285,8 +285,8 @@ class Match extends Component {
                     <img className="record_rank_icon" src={"img/rankicon/"+tierList[tier].slice(0, -2)+".png"} />
                     <div className="record_rank_span1">{teamMode}</div>
                     <div className="record_rank_span2">{tierList[tier]} / {lp} LP</div>
-                    <div className="record_rank_span3">{total}전 {top1}승 {(top1/total*100).toFixed(1)}% / {kdm.toFixed(1)} KA/M</div>
-                    <div className="record_rank_span4">3112위 / 상위 6.8%</div>
+                    <div className="record_rank_span3">{total}{intl.formatMessage({id: "전" })} {top1}{intl.formatMessage({id: "승" })} {(top1/total*100).toFixed(1)}% / {kdm.toFixed(1)} KA/M</div>
+                    <div className="record_rank_span4">3112{intl.formatMessage({id: "위" })} / {intl.formatMessage({id: "상위" })} 6.8%</div>
                     <div className="record_rank_graph" style={{width: lp*3.5}}></div>
                 </div>
             )
@@ -375,11 +375,11 @@ class Match extends Component {
                     <img className="record_most_img" src={"img/Rank/"+getCharacter(char['code'])['name']+".jpg"} />
                     <div className="record_most_span">
                         <div className="record_most_span1">{getCharacter(char['code'])['name']}</div>
-                        <div className="record_most_span2">승률 {(char['top1']/char['totalGames']*100).toFixed(1)}%</div>
+                        <div className="record_most_span2">{intl.formatMessage({id: "winRate" })} {(char['top1']/char['totalGames']*100).toFixed(1)}%</div>
                         <div className="record_most_span3"> 
                             <span className={"record_history_kda"+kamSytle}>{kam.toFixed(1)} KA/M</span>
                         </div>
-                        <div className="record_most_span4">{char['totalGames']}게임</div>
+                        <div className="record_most_span4">{char['totalGames']}{intl.formatMessage({id: "게임" })}</div>
                     </div>
                 </div>
             )
@@ -423,9 +423,9 @@ class Match extends Component {
                         <div className="record_trend_avg">{top1Rate.toFixed(1)}%</div>
                     </div>
                     <div className="record_trend_winrate_span">
-                        <div className="record_trend_winrate_span1">승 {matchStat['top1']}</div>
-                        <div className="record_trend_winrate_span2">탑3 {matchStat['top3']-matchStat['top1']}</div>
-                        <div className="record_trend_winrate_span3">게임 {matchStat['total']}</div>
+                        <div className="record_trend_winrate_span1">{intl.formatMessage({id: "승" })} {matchStat['top1']}</div>
+                        <div className="record_trend_winrate_span2">{intl.formatMessage({id: "탑3" })} {matchStat['top3']-matchStat['top1']}</div>
+                        <div className="record_trend_winrate_span3">{intl.formatMessage({id: "게임" })} {matchStat['total']}</div>
                     </div>
                 <div className="record_trend_kda">
                     <div className="record_trend_kda1">
@@ -453,7 +453,7 @@ class Match extends Component {
                 <div className="record_trend_most" key={"trend_box_"+idx}>
                     <img className="record_trend_most_img" src={"img/rank/"+getCharacter(char['code'])['name']+".jpg"} />
                     <div className="record_trend_most_span">
-                        <div className="record_trend_most_span1">{char['top1']}승 / {char['total']}게임 / {(char['top1']/char['total']*100).toFixed(1)}%</div>
+                        <div className="record_trend_most_span1">{char['top1']}{intl.formatMessage({id: "승" })} / {char['total']}{intl.formatMessage({id: "게임" })} / {(char['top1']/char['total']*100).toFixed(1)}%</div>
                         <div className="record_trend_most_span2">{(char['ka']/char['total']).toFixed(1)} KA/M</div>
                     </div>
                 </div>
@@ -498,7 +498,7 @@ class Match extends Component {
                         </div>
                         <div className="record_history3-4">
                             <div className="record_history3">
-                                <div className="record_history_lv">레벨 {match['characterLevel']}</div>
+                                <div className="record_history_lv">{intl.formatMessage({id: "레벨" })} {match['characterLevel']}</div>
                                 <div className="record_history_mmr">{mmr}</div>
                                 <img className="record_history_upmark" src={imgUpDown}/>
                                 <div className={"record_history_"+(mmr-_mmr>0?'up':'down')}>{Math.abs(mmr-_mmr)}</div>
@@ -535,6 +535,7 @@ class Match extends Component {
 
     matchDetail(gameId, idx) {
         const { userStat, matchDetail, matchList } = this.state;
+        const { intl } = this.props;
 
         const skillList = [];
         for (const key in matchList[idx]['skillOrderInfo']) {
@@ -544,9 +545,9 @@ class Match extends Component {
         }
         return (
             <div className="record_history_detail" >
-                <div className="record_history_detail0" >매치 정보</div>
+                <div className="record_history_detail0" >{intl.formatMessage({id: "매치정보" })}</div>
                 <div className="record_history_detail_skill">
-                    <span className="record_history_detail_skill_span">스킬 빌드</span>
+                    <span className="record_history_detail_skill_span">{intl.formatMessage({id: "스킬빌드" })}</span>
                     <div className="record_history_detail_skill0">
                         <div className="record_history_detail_skill1">
                             <div className="record_history_detail_skill1-1">1</div>
@@ -583,39 +584,39 @@ class Match extends Component {
                 </div>
                 <div className="record_history_detail_tabs">
                     <div className={"record_history_detail_tab"+(matchDetail[gameId]['tab']===0?' actived':'')} 
-                        onClick={(e) => { matchDetail[gameId]['tab']=0; this.setState({matchDetail:matchDetail})}}>종합</div>
+                        onClick={(e) => { matchDetail[gameId]['tab']=0; this.setState({matchDetail:matchDetail})}}>{intl.formatMessage({id: "종합" })}</div>
                     <div className={"record_history_detail_tab"+(matchDetail[gameId]['tab']===1?' actived':'')}
-                        onClick={(e) => { matchDetail[gameId]['tab']=1; this.setState({matchDetail:matchDetail})}}>아이템빌드</div>
+                        onClick={(e) => { matchDetail[gameId]['tab']=1; this.setState({matchDetail:matchDetail})}}>{intl.formatMessage({id: "아이템빌드" })}</div>
                 </div>&nbsp;
                 <div className="record_history_detail_filter_all">
                     {
                         matchDetail[gameId]['tab'] === 0 ?
                             <div className="record_history_detail_filter">
-                                <div className="record_history_detail_filter1">순위</div>
-                                <div className="record_history_detail_filter2">플레이어</div>
-                                <div className="record_history_detail_filter3">킬어시 / 딜량</div>
-                                <div className="record_history_detail_filter4">죽인 플레이어</div>
+                                <div className="record_history_detail_filter1">{intl.formatMessage({id: "rank" })}</div>
+                                <div className="record_history_detail_filter2">{intl.formatMessage({id: "플레이어" })}</div>
+                                <div className="record_history_detail_filter3">{intl.formatMessage({id: "킬어시 / 딜량" })}</div>
+                                <div className="record_history_detail_filter4">{intl.formatMessage({id: "죽인플레이어" })}</div>
                             </div>
                             :
                             <div className="record_history_detail_filter">
-                                <div className="record_history_detail_filter1">순위</div>
-                                <div className="record_history_detail_filter2">플레이어</div>
-                                <div className="record_history_detail_filter5">아이템 빌드</div>
+                                <div className="record_history_detail_filter1">{intl.formatMessage({id: "rank" })}</div>
+                                <div className="record_history_detail_filter2">{intl.formatMessage({id: "플레이어" })}</div>
+                                <div className="record_history_detail_filter5">{intl.formatMessage({id: "아이템빌드" })}</div>
                             </div>
                     }
                     {
                         matchDetail[gameId]['tab'] === 0 ?
                             <div className="record_history_detail_filter">
-                                <div className="record_history_detail_filter1">순위</div>
-                                <div className="record_history_detail_filter2">플레이어</div>
-                                <div className="record_history_detail_filter3">킬어시 / 딜량</div>
-                                <div className="record_history_detail_filter4">죽인 플레이어</div>
+                                <div className="record_history_detail_filter1">{intl.formatMessage({id: "rank" })}</div>
+                                <div className="record_history_detail_filter2">{intl.formatMessage({id: "플레이어" })}</div>
+                                <div className="record_history_detail_filter3">{intl.formatMessage({id: "킬어시 / 딜량" })}</div>
+                                <div className="record_history_detail_filter4">{intl.formatMessage({id: "죽인플레이어" })}</div>
                             </div>
                             :
                             <div className="record_history_detail_filter">
-                                <div className="record_history_detail_filter1">순위</div>
-                                <div className="record_history_detail_filter2">플레이어</div>
-                                <div className="record_history_detail_filter5">아이템 빌드</div>
+                                <div className="record_history_detail_filter1">{intl.formatMessage({id: "rank" })}</div>
+                                <div className="record_history_detail_filter2">{intl.formatMessage({id: "플레이어" })}</div>
+                                <div className="record_history_detail_filter5">{intl.formatMessage({id: "아이템빌드" })}</div>
                             </div>
                     }
                 </div>
@@ -810,7 +811,7 @@ class Match extends Component {
                                 {this.mostTeamModeTab()}
                             </div>
                             {this.mostCharacterView()}
-                            <button className="record_most_button">더 보기</button>
+                            <button className="record_most_button">{intl.formatMessage({id: "더 보기" })}</button>
                         </div>
                     </div>
                     <div className="record_rigth">
@@ -833,7 +834,7 @@ class Match extends Component {
                             {this.matchHistoryView()}
                             {
                                 matchList.length!==0 && matchList.length%20===0 &&
-                                    <button className="record_history_button" onClick={(e) => this.setState({skip:skip+20})}>더 보기</button>
+                                    <button className="record_history_button" onClick={(e) => this.setState({skip:skip+20})}>{intl.formatMessage({id: "더 보기" })}</button>
                             }
                         </div>
                     </div>

@@ -39,8 +39,8 @@ class ItemOrder extends Component {
                     }
                 </div>
                 <div className='item_tab_span'>
-                    <span className='item_tab_span1'>픽률 {(order['pick']*100).toFixed(1)}%</span>
-                    <span className='item_tab_span2'>승률 {(order['win']/order['total']*100).toFixed(1)}%</span>
+                    <span className='item_tab_span1'>{intl.formatMessage({id: 'pickRate'})} {(order['pick']*100).toFixed(1)}%</span>
+                    <span className='item_tab_span2'>{intl.formatMessage({id: 'winRate'})} {(order['win']/order['total']*100).toFixed(1)}%</span>
                     <span className='item_tab_span3'>{order['total']}</span>
                 </div>
             </div>
@@ -96,11 +96,11 @@ class ItemOrder extends Component {
                 </div>
                 <div className="item_route">
                     <div className="tabHeaders">
-                        <div className="item_route_tab actived">루트1</div>
-                        <div className="item_route_tab">루트2</div>
-                        <div className="item_route_tab">루트3</div>
-                        <div className="item_route_tab">루트4</div>
-                        <div className="item_route_tab">루트5</div>
+                        <div className="item_route_tab actived">{intl.formatMessage({id: "main.banner.menu.route" })} 1</div>
+                        <div className="item_route_tab">{intl.formatMessage({id: "main.banner.menu.route" })} 2</div>
+                        <div className="item_route_tab">{intl.formatMessage({id: "main.banner.menu.route" })} 3</div>
+                        <div className="item_route_tab">{intl.formatMessage({id: "main.banner.menu.route" })} 4</div>
+                        <div className="item_route_tab">{intl.formatMessage({id: "main.banner.menu.route" })} 5</div>
                     </div>
                     <div className="item_route_map">
                         <img className="item_route_map2" src={mapImg} /> 
