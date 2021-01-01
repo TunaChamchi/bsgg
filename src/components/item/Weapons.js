@@ -26,7 +26,7 @@ class Weapons extends Component {
                 key={'weapon' + idx}>
                 <span className="S_item_rank1">{idx+1}</span>&nbsp;
                 <div className="S_item_toolbox">
-                    <img className="S_item_rank2" src={"img/item/BackGround/"+getItem(item['_id'])['itemGrade']+".jpg"}/>
+                    <img className="S_item_rank2" src={"img/Item/BackGround/"+getItem(item['_id'])['itemGrade']+".jpg"}/>
                     <img className="S_item_rank2" src={'img/Item/'+getItem(item['_id'])['name']+'.png'} />&nbsp;
                     <div className="S_item_tooltip2">
                         {/* <span>{this.statView(getItem(item['_id'])['name'])}</span> */}

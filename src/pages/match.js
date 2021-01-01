@@ -281,7 +281,7 @@ class Match extends Component {
 
             return (
                 <div className="record_rank_box" key={"rank_box_"+idx}>
-                    <img className="record_rank_icon" src={"img/rankicon/"+tierList[tier].slice(0, -2)+".png"} />
+                    <img className="record_rank_icon" src={"img/Rankicon/"+tierList[tier].slice(0, -2)+".png"} />
                     <div className="record_rank_span1">{teamMode}</div>
                     <div className="record_rank_span2">{tierList[tier]} / {lp} LP</div>
                     <div className="record_rank_span3">{total}{intl.formatMessage({id: "전" })} {top1}{intl.formatMessage({id: "승" })} {(top1/total*100).toFixed(1)}% / {kdm.toFixed(1)} KA/M</div>
@@ -450,7 +450,7 @@ class Match extends Component {
         return list.slice(0,3).map((char, idx) => {
             return (
                 <div className="record_trend_most" key={"trend_box_"+idx}>
-                    <img className="record_trend_most_img" src={"img/rank/"+getCharacter(char['code'])['name']+".jpg"} />
+                    <img className="record_trend_most_img" src={"img/Rank/"+getCharacter(char['code'])['name']+".jpg"} />
                     <div className="record_trend_most_span">
                         <div className="record_trend_most_span1">{char['top1']}{intl.formatMessage({id: "승" })} / {char['total']}{intl.formatMessage({id: "게임" })} / {(char['top1']/char['total']*100).toFixed(1)}%</div>
                         <div className="record_trend_most_span2">{(char['ka']/char['total']).toFixed(1)} KA/M</div>
@@ -491,8 +491,8 @@ class Match extends Component {
                             <div className="record_history_date">2일 전</div>
                         </div>
                         <div className="record_history2">
-                            <img className="record_history_img" src={"img/rank/"+character+".jpg"} />
-                            <img className="record_history_weapon" src={"img/weapons/"+getWeaponType(weapon)+".jpg"} />
+                            <img className="record_history_img" src={"img/Rank/"+character+".jpg"} />
+                            <img className="record_history_weapon" src={"img/Weapons/"+getWeaponType(weapon)+".jpg"} />
                             <div className="record_history_name">{character}</div>
                         </div>
                         <div className="record_history3-4">
@@ -513,8 +513,8 @@ class Match extends Component {
                                 [0, 1, 2, 3, 4, 5].map(index => 
                                     match['equipment'][index] && 
                                         <div className="record_history_item" key={'detail_item_'+idx+"_"+index}>
-                                            <img className="record_history_item1" src={"img/item/BackGround/"+getItem(match['equipment'][index])['itemGrade']+".jpg"} />
-                                            <img className="record_history_item2" src={"img/item/"+getItem(match['equipment'][index])['name']+".png"} />
+                                            <img className="record_history_item1" src={"img/Item/BackGround/"+getItem(match['equipment'][index])['itemGrade']+".jpg"} />
+                                            <img className="record_history_item2" src={"img/Item/"+getItem(match['equipment'][index])['name']+".png"} />
                                         </div>
                                 )
                             }
@@ -649,7 +649,7 @@ class Match extends Component {
                 return (
                     <div className={"record_history_detail_box"+(match['gameRank']===matchDetail[gameId]['rank']?' actived':'')} key={'detail_box_left_'+idx}>
                         <div className="record_history_detail_rank" >{match['gameRank']}</div>
-                        <img className="record_history_detail_cha" src={"img/rank/"+getCharacter(match['characterNum'])['name']+".jpg"} />
+                        <img className="record_history_detail_cha" src={"img/Rank/"+getCharacter(match['characterNum'])['name']+".jpg"} />
                         <div className="record_history_detail_box1">
                             <div className="record_history_detail_name" >{match['user'][0]['nickname']}</div>
                             <div className="record_history_detail_tier" >{tierList[tier]} / {lp} LP</div>
@@ -682,7 +682,7 @@ class Match extends Component {
                 return (
                     <div className={"record_history_detail_box"+(match['gameRank']===matchDetail[gameId]['rank']?' actived':'')} key={'detail_box_right_'+idx}>
                         <div className="record_history_detail_rank" >{match['gameRank']}</div>
-                        <img className="record_history_detail_cha" src={"img/rank/"+getCharacter(match['characterNum'])['name']+".jpg"} />
+                        <img className="record_history_detail_cha" src={"img/Rank/"+getCharacter(match['characterNum'])['name']+".jpg"} />
                         <div className="record_history_detail_box1">
                             <div className="record_history_detail_name" >{match['user'][0]['nickname']}</div>
                             <div className="record_history_detail_tier" >{tierList[tier]} / {lp} LP</div>
@@ -716,7 +716,7 @@ class Match extends Component {
                 return (
                     <div className={"record_history_detail_box"+(match['userNum']===user['userNum']?' actived':'')} key={'detail_box_left_'+idx}>
                         <div className="record_history_detail_rank" >{match['gameRank']}</div>
-                        <img className="record_history_detail_cha" src={"img/rank/"+getCharacter(match['characterNum'])['name']+".jpg"} />
+                        <img className="record_history_detail_cha" src={"img/Rank/"+getCharacter(match['characterNum'])['name']+".jpg"} />
                         <div className="record_history_detail_box1">
                             <div className="record_history_detail_name" >{match['user'][0]['nickname']}</div>
                             <div className="record_history_detail_tier" >{tierList[tier]} / {lp} LP</div>
@@ -726,8 +726,8 @@ class Match extends Component {
                                 [0, 1, 2, 3, 4, 5].map(index => 
                                     match['equipment'][index] && 
                                         <div className="record_history_detail_item" key={'detail_item_'+index}>
-                                            <img className="record_history_detail_item1" src={"img/item/BackGround/"+getItem(match['equipment'][index])['itemGrade']+".jpg"} />
-                                            <img className="record_history_detail_item2" src={"img/item/"+getItem(match['equipment'][index])['name']+".png"} />
+                                            <img className="record_history_detail_item1" src={"img/Item/BackGround/"+getItem(match['equipment'][index])['itemGrade']+".jpg"} />
+                                            <img className="record_history_detail_item2" src={"img/Item/"+getItem(match['equipment'][index])['name']+".png"} />
                                         </div>
                                 )
                             }
@@ -752,7 +752,7 @@ class Match extends Component {
                 return (
                     <div className={"record_history_detail_box"+(match['userNum']===user['userNum']?' actived':'')} key={'detail_box_right_'+idx}>
                         <div className="record_history_detail_rank" >{match['gameRank']}</div>
-                        <img className="record_history_detail_cha" src={"img/rank/"+getCharacter(match['characterNum'])['name']+".jpg"} />
+                        <img className="record_history_detail_cha" src={"img/Rank/"+getCharacter(match['characterNum'])['name']+".jpg"} />
                         <div className="record_history_detail_box1">
                             <div className="record_history_detail_name" >{match['user'][0]['nickname']}</div>
                             <div className="record_history_detail_tier" >{tierList[tier]} / {lp} LP</div>
@@ -762,8 +762,8 @@ class Match extends Component {
                                 [0, 1, 2, 3, 4, 5].map(index => 
                                     match['equipment'][index] && 
                                         <div className="record_history_detail_item" key={'detail_item_'+index}>
-                                            <img className="record_history_detail_item1" src={"img/item/BackGround/"+getItem(match['equipment'][index])['itemGrade']+".jpg"} />
-                                            <img className="record_history_detail_item2" src={"img/item/"+getItem(match['equipment'][index])['name']+".png"} />
+                                            <img className="record_history_detail_item1" src={"img/Item/BackGround/"+getItem(match['equipment'][index])['itemGrade']+".jpg"} />
+                                            <img className="record_history_detail_item2" src={"img/Item/"+getItem(match['equipment'][index])['name']+".png"} />
                                         </div>
                                 )
                             }

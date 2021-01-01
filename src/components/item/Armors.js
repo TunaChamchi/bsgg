@@ -43,7 +43,7 @@ class Armors extends Component {
                 key={'item' + idx}>
                 <span className="S_item_rank1">{idx+1}</span>
                 <div className="S_item_toolbox1">
-                    <img className="S_item_rank2" src={"img/item/BackGround/"+getItem(item['_id'])['itemGrade']+".jpg"}/>
+                    <img className="S_item_rank2" src={"img/Item/BackGround/"+getItem(item['_id'])['itemGrade']+".jpg"}/>
                     <img className="S_item_rank2" src={'img/Item/'+getItem(item['_id'])['name']+'.png'} />
                     <div className="S_item_tooltip3">
                         {/* <span>{this.statView(getItem(item['_id'])['name'])}</span> */}

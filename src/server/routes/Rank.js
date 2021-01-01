@@ -94,7 +94,7 @@ const setRankStats = async (userNum) => {
 const getRank = async (seasonId, matchingTeamMode) => {
     while (true) {
         try {
-            return await axios.get('https://open-api.bser.io/v1/rank/top/'+seasonId+'/'+matchingTeamMode, {
+            return await axios.get('https://open-api.bser.io/v1/Rank/top/'+seasonId+'/'+matchingTeamMode, {
                 headers: {
                     'x-api-key': 'sWNQXtP4Po3Sd1dWWzHqT5EZSKQfj8478omeZWg0'
                 }

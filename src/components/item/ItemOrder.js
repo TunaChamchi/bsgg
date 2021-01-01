@@ -69,8 +69,8 @@ class ItemOrder extends Component {
                     {
                         order['itemList'].map((item, idx) =>
                             <div className="item_tab_imgbox" key={"tab_imgbox_"+idx}>
-                                <img className="item_tab_bg" src={"img/item/BackGround/"+item['itemGrade']+".jpg"} />
-                                <img className="item_tab_img" src={"img/item/"+item['name']+".png"} />
+                                <img className="item_tab_bg" src={"img/Item/BackGround/"+item['itemGrade']+".jpg"} />
+                                <img className="item_tab_img" src={"img/Item/"+item['name']+".png"} />
                                 <div className="S_item_tooltip4">
                                     <span>ㅇㅇ</span>
                                 </div>
@@ -165,8 +165,8 @@ class ItemOrder extends Component {
                         {
                             view['item'].map((item, idx) =>
                                 <div className="item_route_spawn_Make_img" key={"Make_img_"+idx}>
-                                    <img className="item_route_spawn_Make_img1" src={"img/item/BackGround/"+getItem(item['name'])['itemGrade']+".jpg"} />
-                                    <img className="item_route_spawn_Make_img2" src={"img/item/"+getItem(item['name'])['name']+".png"} />
+                                    <img className="item_route_spawn_Make_img1" src={"img/Item/BackGround/"+getItem(item['name'])['itemGrade']+".jpg"} />
+                                    <img className="item_route_spawn_Make_img2" src={"img/Item/"+getItem(item['name'])['name']+".png"} />
                                 </div>
                             )
                         }
@@ -175,8 +175,8 @@ class ItemOrder extends Component {
                         {
                             view['getScr'].map((item, idx) =>
                                 <div className="item_route_spawn_Make_img" key={"Make_img_"+idx}>
-                                    <img className="item_route_spawn_Make_img1" src={"img/item/BackGround/"+getItem(item)['itemGrade']+".jpg"} />
-                                    <img className="item_route_spawn_Make_img2" src={"img/item/"+getItem(item)['name']+".png"} />
+                                    <img className="item_route_spawn_Make_img1" src={"img/Item/BackGround/"+getItem(item)['itemGrade']+".jpg"} />
+                                    <img className="item_route_spawn_Make_img2" src={"img/Item/"+getItem(item)['name']+".png"} />
                                 </div>
                             )
                         }

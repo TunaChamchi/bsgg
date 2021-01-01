@@ -115,7 +115,7 @@ class Skill extends Component {
                     <div className="skill_box0">
                         <div className='skill_td'>
                             <div className="skill_img1">
-                                <img className='skill_img2' src={"img/weapons/"+bestWeapon+".jpg"} /> 
+                                <img className='skill_img2' src={"img/Weapons/"+bestWeapon+".jpg"} /> 
                                 <div className="S_skill_tooltip1">
                                     <span><b>{intl.formatMessage({id: 'skill.'+bestWeapon+".name"})}</b></span><br />
                                     <span>{intl.formatMessage({id: 'skill.'+bestWeapon+".Detail"})}</span>
