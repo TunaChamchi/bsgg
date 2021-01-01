@@ -37,7 +37,7 @@ class Character extends Component {
                             에미디
                         </div>
                         <button className="record_top_renew">
-                            전적갱신
+                        <div id="loading"></div>
                         </button>
                         <span className="record_top_updated">최근 업데이트 2시간 전</span>
                     </div>
