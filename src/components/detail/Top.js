@@ -41,7 +41,7 @@ class Top extends Component {
 
         const _tier = tier[(parameter['gameMode']-1)]['tier'][stat['characterNum']][parameter['bestWeapon']]['tier']
         const img_char = 'img/Characters/' + name + '.jpg';
-        const img_tier = _tier===0 ? 'img/Tier/1티어.png' : 'img/Tier/'+_tier+'티어.png'
+        const img_tier = 'img/Tier/'+_tier+'티어2.png'
 
         return (
             <div className="S_top">

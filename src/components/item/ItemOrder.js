@@ -33,10 +33,10 @@ class ItemOrder extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        const { itemOrder, bestWeapon } = this.props;
+        const { itemOrder, bestWeapon, gameMode } = this.props;
         const { itemOrderFocus } = this.state;
 
-        if (itemOrderFocus !== prevState.itemOrderFocus) {
+        if (itemOrderFocus !== -1 && itemOrderFocus !== prevState.itemOrderFocus) {
             const select = {
                 type: getWeaponType(bestWeapon), 
                 start: getWeaponType(bestWeapon),
@@ -49,6 +49,8 @@ class ItemOrder extends Component {
             }
 
             this.setState({ routeList:routeCalc(select), routeFocus:0 });
+        } else if (bestWeapon !== prevProps.bestWeapon || gameMode !== prevProps.gameMode) {
+            this.setState({ routeList:[], itemOrderFocus:-1, routeFocus:0 });
         }
     }
     
@@ -77,8 +79,8 @@ class ItemOrder extends Component {
                     }
                 </div>
                 <div className='item_tab_span'>
-                    <span className='item_tab_span1'>픽률 {(order['pick']*100).toFixed(1)}%</span>
-                    <span className='item_tab_span2'>승률 {(order['win']/order['total']*100).toFixed(1)}%</span>
+                    <span className='item_tab_span1'>{intl.formatMessage({id: 'pickRate'})} {(order['pick']*100).toFixed(1)}%</span>
+                    <span className='item_tab_span2'>{intl.formatMessage({id: 'winRate'})} {(order['win']/order['total']*100).toFixed(1)}%</span>
                     <span className='item_tab_span3'>{order['total']}</span>
                 </div>
             </div>
@@ -86,11 +88,12 @@ class ItemOrder extends Component {
     }
 
     itemRouteTabView = () => {
+        const { intl } = this.props;
         const { routeFocus } = this.state;
         return [0, 1, 2, 3, 4].map(i => 
             <div className={"item_route_tab"+(i===routeFocus?' actived':'')}
                 onClick={(e) => this.setState({routeFocus: i})}>
-                루트{i+1}
+                {intl.formatMessage({id: "main.banner.menu.route" })}{i+1}
             </div>
         )
     }

@@ -13,6 +13,7 @@ class Detail extends Component {
         this.state = {
             isLoad: false,
             stats: [],
+            mostUser: [],
             character: -1,
             gameMode: 1,
             bestWeapon: -1,
@@ -54,7 +55,7 @@ class Detail extends Component {
     }
 
     fetchHandler = async (query, prevState) => {
-        const { stats, tier } = this.state
+        const { stats, tier, mostUser } = this.state
         const character = parseInt(query.character) || 1;
         const bestWeapon = parseInt(query.bestWeapon) || 0;
         const gameMode = parseInt(query.gameMode) || 1;
@@ -62,18 +63,23 @@ class Detail extends Component {
         if (character !== prevState.character) {
             let _stats;
             let _tier;
+            let _most;
             
             await fetch('/api/character/'+character)
                 .then(res => res.json())
                 .then(res => { _stats = res['stats']; _tier = res['tier']; });
+
+            await fetch('/api/Rank/character?characterCode='+character)
+                .then(res => res.json())
+                .then(res => _most = res );
             
-            this.init(query, _stats, _tier);
+            this.init(query, _stats, _tier, _most);
         } else if (bestWeapon !== prevState.bestWeapon || gameMode !== prevState.gameMode) {
-            this.init(query, stats, tier);
+            this.init(query, stats, tier, mostUser);
         }
     }
 
-    init(query, stats, tier) {
+    init(query, stats, tier, mostUser) {
         const character = parseInt(query.character) || 1;
         const bestWeapon = parseInt(query.bestWeapon) || 0;
         const gameMode = parseInt(query.gameMode) || 1;
@@ -198,16 +204,30 @@ class Detail extends Component {
             character:character, bestWeapon:_bestWeapon, 
             gameMode:gameMode, stats:stats, stat:stat, tier:tier,
             skillTree:skillTree, itemOrder:itemOrder,
-            weaponList:weaponList, weaponTotal:weaponTotal 
+            weaponList:weaponList, weaponTotal:weaponTotal,
+            mostUser:mostUser
         });
     }
 
     gameModeTabView = () => {
+        const { intl } = this.props;
         const { character, bestWeapon, gameMode } = this.state;
         return ['solo', 'duo', 'squad'].map((type, idx) => 
             <Link to={'Detail?gameMode='+(idx+1)+'&character='+character+'&bestWeapon='+bestWeapon} key={'S_left_tab_'+idx}>
-                <div className={"S_left_tab"+(idx===(gameMode-1)?' actived':'')}>{type}</div>
+                <div className={"S_left_tab"+(idx===(gameMode-1)?' actived':'')}>{intl.formatMessage({id: type})}</div>
             </Link>
+        )
+    }
+
+    mostUserView = () => {
+        const { character, mostUser } = this.state
+
+        return mostUser.slice(0, 5).map((user, idx) => 
+            <div className="master_rank" key={"master_rank"+idx}>
+                <span className="master_rank1">{idx+1}</span>
+                <span className="master_rank2">{user['nickname']}</span>
+                <span className="master_rank3">{user['characterStats'][character]['totalGames']}게임</span>
+            </div>
         )
     }
 
@@ -245,15 +265,15 @@ class Detail extends Component {
                             />
                         <div className="item">
                             <div className="item0"> 
-                                <div className="item0_span">추천 아이템</div>
+                                <div className="item0_span">{intl.formatMessage({id: '추천아이템'})}</div>
                                 <div className="tabHeaders">
                                     <div className={"item0_tab"+(itemTabFocus===1?' actived':'')}
                                         onClick={(e) => this.setState({ itemTabFocus:1 })}>
-                                        순위
+                                        {intl.formatMessage({id: 'rank'})}
                                     </div>
                                     <div className={"item0_tab"+(itemTabFocus===0?' actived':'')}
                                         onClick={(e) => this.setState({ itemTabFocus:0 })}>
-                                        빌드
+                                        {intl.formatMessage({id: '빌드'})}
                                     </div>
                                 </div>
                             </div>
@@ -262,6 +282,7 @@ class Detail extends Component {
                                     <ItemOrder 
                                         itemOrder={itemOrder}
                                         bestWeapon={bestWeapon}
+                                        gameMode={gameMode}
                                         />
                                     :
                                     <div className="item_rank">
@@ -280,6 +301,11 @@ class Detail extends Component {
                         tier={tier}
                         parameter={{character, bestWeapon, gameMode}}
                         />
+                    <div className="master">
+                        <div className="master0">Master</div>
+                        {this.mostUserView()}
+                        <button className="master_button">더 보기</button>
+                    </div>
                 </div>
                 <AdS type={'Detail'}/>
                 <Footer />

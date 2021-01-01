@@ -44,8 +44,8 @@ class Skill extends Component {
                         <span className="skill_tab_mark3">&gt;</span>
                     </div>
                     <div className='skill_tab_span'>
-                        <span className='skill_tab_span1'>픽률 {(tree['pick']*100).toFixed(1)}%</span>
-                        <span className='skill_tab_span2'>승률 {(tree['win']/tree['total']*100).toFixed(1)}%</span>
+                        <span className='skill_tab_span1'>{intl.formatMessage({id: 'pickRate'})} {(tree['pick']*100).toFixed(1)}%</span>
+                        <span className='skill_tab_span2'>{intl.formatMessage({id: 'winRate'})} {(tree['win']/tree['total']*100).toFixed(1)}%</span>
                         <span className='skill_tab_span3'>{tree['total']}</span>
                     </div>
                 </div>
