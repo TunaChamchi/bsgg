@@ -55,6 +55,7 @@ schedule.scheduleJob('0 0 */10 2-20 * *', async () => {
         setRankStats(rankList1[i]);
         await sleep(50);
     }
+    
     console.log(new Date().toString().slice(16,24), ': GetRankSync Complete');
 })
 

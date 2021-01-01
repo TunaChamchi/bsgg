@@ -150,7 +150,8 @@ router.get('/Detail/:gameId', async (req, res, next) => {
                 foreignField: 'userNum',
                 as: 'user'
             }
-        }
+        },
+        { $sort: { gameRank: 1 } }
     ]);
     res.json(match);
 });
@@ -195,10 +196,9 @@ const getUserData = async (userNum) => {
                     equipmentOrder += m['equipment'][key] + '_';
                 }
 
-                if (m['characterLevel'] >= 16) {
-                    const keys = Object.keys(m['skillOrderInfo']);
-
-                    for (var j = 0 ; j < 16 ; ) {
+                const keys = Object.keys(m['skillOrderInfo']).filter(code => parseInt(m['skillOrderInfo'][code]/1000000)!==3);
+                if (keys.length >= 16) {
+                    for (var j = 0 ; j < 16 ; j++) {
                         const key = keys[j];
                         let skillCode = parseInt(m['skillOrderInfo'][key]);
                         if (skillCode > 1016500 && skillCode < 1017000) {
@@ -209,11 +209,7 @@ const getUserData = async (userNum) => {
                             m['skillOrderInfo'][key] = 1016900;
                             skillCode = 1016900;
                         }
-
-                        if (skillCode / 1000000 !== 3) {
-                            skillOrder += skillCode + '_';
-                            j++;
-                        }
+                        skillOrder += skillCode + '_';
                     }
                 }
 

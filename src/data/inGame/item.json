@@ -2,7 +2,7 @@
   "101101": {
     "name": "가위",
     "itemType": "Weapon",
-    "weaponType": "한손검",
+    "weaponType": "단검",
     "itemGrade": "일반",
     "stackable": 1,
     "initialCount": 1,
@@ -12,7 +12,7 @@
   "101102": {
     "name": "만년필",
     "itemType": "Weapon",
-    "weaponType": "한손검",
+    "weaponType": "단검",
     "itemGrade": "일반",
     "stackable": 1,
     "initialCount": 1,
@@ -22,7 +22,7 @@
   "101104": {
     "name": "식칼",
     "itemType": "Weapon",
-    "weaponType": "한손검",
+    "weaponType": "단검",
     "itemGrade": "일반",
     "stackable": 1,
     "initialCount": 1,
@@ -33,7 +33,7 @@
   "101201": {
     "name": "군용나이프",
     "itemType": "Weapon",
-    "weaponType": "한손검",
+    "weaponType": "단검",
     "itemGrade": "고급",
     "stackable": 1,
     "initialCount": 1,
@@ -47,7 +47,7 @@
   "101301": {
     "name": "장미칼",
     "itemType": "Weapon",
-    "weaponType": "한손검",
+    "weaponType": "단검",
     "itemGrade": "희귀",
     "stackable": 1,
     "initialCount": 1,
@@ -62,7 +62,7 @@
   "101401": {
     "name": "카른웬난",
     "itemType": "Weapon",
-    "weaponType": "한손검",
+    "weaponType": "단검",
     "itemGrade": "영웅",
     "stackable": 1,
     "initialCount": 1,
@@ -79,7 +79,7 @@
   "101402": {
     "name": "파산검",
     "itemType": "Weapon",
-    "weaponType": "한손검",
+    "weaponType": "단검",
     "itemGrade": "영웅",
     "stackable": 1,
     "initialCount": 1,
@@ -95,7 +95,7 @@
   "101404": {
     "name": "초진동나이프",
     "itemType": "Weapon",
-    "weaponType": "한손검",
+    "weaponType": "단검",
     "itemGrade": "영웅",
     "stackable": 1,
     "initialCount": 1,
@@ -110,7 +110,7 @@
   "101405": {
     "name": "프라가라흐",
     "itemType": "Weapon",
-    "weaponType": "한손검",
+    "weaponType": "단검",
     "itemGrade": "전설",
     "stackable": 1,
     "initialCount": 1,

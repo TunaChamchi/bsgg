@@ -64,55 +64,55 @@ export const CharacterScore = (range, type) => {
             const value = {character:key1, weapon:key2, data:data};
 
             tier.push(value);
-            if (data['win-rate']  > max_win_rate)   max_win_rate  = data['win-rate'];
-            if (data['pick-rate'] > max_pick_rate)  max_pick_rate = data['pick-rate'];
-            if (data['avg-kill']  > max_avg_kill)   max_avg_kill  = data['avg-kill'];
-            if (data['avg-rank']  < max_avg_rank)   max_avg_rank  = data['avg-rank'];
+            if (data['winRate']  > max_win_rate)   max_win_rate  = data['winRate'];
+            if (data['pickRate'] > max_pick_rate)  max_pick_rate = data['pickRate'];
+            if (data['avgKAM']  > max_avg_kill)   max_avg_kill  = data['avgKAM'];
+            if (data['avgRank']  < max_avg_rank)   max_avg_rank  = data['avgRank'];
             
-            if (data['win-rate']  < min_win_rate)   min_win_rate  = data['win-rate'];
-            if (data['pick-rate'] < min_pick_rate)  min_pick_rate = data['pick-rate'];
-            if (data['avg-kill']  < min_avg_kill)   min_avg_kill  = data['avg-kill'];
-            if (data['avg-rank']  > min_avg_rank)   min_avg_rank  = data['avg-rank'];
+            if (data['winRate']  < min_win_rate)   min_win_rate  = data['winRate'];
+            if (data['pickRate'] < min_pick_rate)  min_pick_rate = data['pickRate'];
+            if (data['avgKAM']  < min_avg_kill)   min_avg_kill  = data['avgKAM'];
+            if (data['avgRank']  > min_avg_rank)   min_avg_rank  = data['avgRank'];
         }
     }
 
     // max, min 값 지정
     max[range] = {}
     max[range][type] = {
-        'win-rate' : max_win_rate,
-        'pick-rate': max_pick_rate,
-        'avg-kill' : max_avg_kill,
-        'avg-rank' : max_avg_rank 
+        'winRate' : max_win_rate,
+        'pickRate': max_pick_rate,
+        'avgKAM' : max_avg_kill,
+        'avgRank' : max_avg_rank 
     }
     min[range] = {}
     min[range][type] = {
-        'win-rate' : min_win_rate,
-        'pick-rate': min_pick_rate,
-        'avg-kill' : min_avg_kill,
-        'avg-rank' : min_avg_rank 
+        'winRate' : min_win_rate,
+        'pickRate': min_pick_rate,
+        'avgKAM' : min_avg_kill,
+        'avgRank' : min_avg_rank 
     }
 
     // 순위 계산
     tier.forEach(data1 => {
         data1['rank'] = {
-            'win-rate' : 1,
-            'pick-rate': 1,
-            'avg-kill' : 1,
-            'avg-rank' : 1
+            'winRate' : 1,
+            'pickRate': 1,
+            'avgKAM' : 1,
+            'avgRank' : 1
         }
 
         tier.forEach(data2 => {
-            if (data1['data']['win-rate'] < data2['data']['win-rate']) {
-                data1['rank']['win-rate']++;
+            if (data1['data']['winRate'] < data2['data']['winRate']) {
+                data1['rank']['winRate']++;
             }
-            if (data1['data']['pick-rate'] < data2['data']['pick-rate']) {
-                data1['rank']['pick-rate']++;
+            if (data1['data']['pickRate'] < data2['data']['pickRate']) {
+                data1['rank']['pickRate']++;
             }
-            if (data1['data']['avg-kill'] < data2['data']['avg-kill']) {
-                data1['rank']['avg-kill']++;
+            if (data1['data']['avgKAM'] < data2['data']['avgKAM']) {
+                data1['rank']['avgKAM']++;
             }
-            if (data1['data']['avg-rank'] > data2['data']['avg-rank']) {
-                data1['rank']['avg-rank']++;
+            if (data1['data']['avgRank'] > data2['data']['avgRank']) {
+                data1['rank']['avgRank']++;
             }
         });
     });
@@ -120,18 +120,18 @@ export const CharacterScore = (range, type) => {
     // 점수 계산
     tier.forEach(data => {
         data['score'] = {
-            'win-rate' : data['data']['win-rate']   /max_win_rate*100,
-            'pick-rate': (1-data['rank']['pick-rate']/tier.length)*100,
-            'avg-kill' : data['data']['avg-kill']   /max_avg_kill*100,
-            'avg-rank' : (1-data['rank']['avg-rank']/tier.length)*100
+            'winRate' : data['data']['winRate']   /max_win_rate*100,
+            'pickRate': (1-data['rank']['pickRate']/tier.length)*100,
+            'avgKAM' : data['data']['avgKAM']   /max_avg_kill*100,
+            'avgRank' : (1-data['rank']['avgRank']/tier.length)*100
         }
 
         if (type === "solo")
-            data['score']['total'] = (data['score']['win-rate']*1.3   + data['score']['pick-rate']*0.8 + data['score']['avg-kill']*1.2    + data['score']['avg-rank']*0.7  )/4;
+            data['score']['total'] = (data['score']['winRate']*1.3   + data['score']['pickRate']*0.8 + data['score']['avgKAM']*1.2    + data['score']['avgRank']*0.7  )/4;
         else if (type === "duo")
-            data['score']['total'] = (data['score']['win-rate']*1.3   + data['score']['pick-rate']*1.1 + data['score']['avg-kill']*0.9    + data['score']['avg-rank']*0.5)/3.8;
+            data['score']['total'] = (data['score']['winRate']*1.3   + data['score']['pickRate']*1.1 + data['score']['avgKAM']*0.9    + data['score']['avgRank']*0.5)/3.8;
         else if (type === "squad")
-            data['score']['total'] = (data['score']['win-rate']*1.3   + data['score']['pick-rate']*1.3 + data['score']['avg-kill']*0.7    + data['score']['avg-rank']*0.3)/3.6;
+            data['score']['total'] = (data['score']['winRate']*1.3   + data['score']['pickRate']*1.3 + data['score']['avgKAM']*0.7    + data['score']['avgRank']*0.3)/3.6;
         
         if (data['score']['total'] > max_score) max_score = data['score']['total'];
     });
@@ -187,34 +187,34 @@ export const CharacterPreRank = (range, type) => {
             const value = {character:key1, weapon:key2, data:data};
 
             tier.push(value);
-            if (data['win-rate']  > max_win_rate)   max_win_rate  = data['win-rate'];
-            if (data['pick-rate'] > max_pick_rate)  max_pick_rate = data['pick-rate'];
-            if (data['avg-kill']  > max_avg_kill)   max_avg_kill  = data['avg-kill'];
-            if (data['avg-rank']  < max_avg_rank)   max_avg_rank  = data['avg-rank'];
+            if (data['winRate']  > max_win_rate)   max_win_rate  = data['winRate'];
+            if (data['pickRate'] > max_pick_rate)  max_pick_rate = data['pickRate'];
+            if (data['avgKAM']  > max_avg_kill)   max_avg_kill  = data['avgKAM'];
+            if (data['avgRank']  < max_avg_rank)   max_avg_rank  = data['avgRank'];
         }
     }
 
     // 순위 계산
     tier.forEach(data1 => {
         data1['rank'] = {
-            'win-rate' : 1,
-            'pick-rate': 1,
-            'avg-kill' : 1,
-            'avg-rank' : 1
+            'winRate' : 1,
+            'pickRate': 1,
+            'avgKAM' : 1,
+            'avgRank' : 1
         }
 
         tier.forEach(data2 => {
-            if (data1['data']['win-rate'] < data2['data']['win-rate']) {
-                data1['rank']['win-rate']++;
+            if (data1['data']['winRate'] < data2['data']['winRate']) {
+                data1['rank']['winRate']++;
             }
-            if (data1['data']['pick-rate'] < data2['data']['pick-rate']) {
-                data1['rank']['pick-rate']++;
+            if (data1['data']['pickRate'] < data2['data']['pickRate']) {
+                data1['rank']['pickRate']++;
             }
-            if (data1['data']['avg-kill'] < data2['data']['avg-kill']) {
-                data1['rank']['avg-kill']++;
+            if (data1['data']['avgKAM'] < data2['data']['avgKAM']) {
+                data1['rank']['avgKAM']++;
             }
-            if (data1['data']['avg-rank'] > data2['data']['avg-rank']) {
-                data1['rank']['avg-rank']++;
+            if (data1['data']['avgRank'] > data2['data']['avgRank']) {
+                data1['rank']['avgRank']++;
             }
         });
     });
@@ -222,18 +222,18 @@ export const CharacterPreRank = (range, type) => {
     // 점수 계산
     tier.forEach(data => {        
         data['score'] = {
-            'win-rate' : data['data']['win-rate']   /max_win_rate*100,
-            'pick-rate': data['data']['pick-rate']  /max_pick_rate*100,
-            'avg-kill' : data['data']['avg-kill']   /max_avg_kill*100,
-            'avg-rank' : (1-data['rank']['avg-rank']/tier.length)*100
+            'winRate' : data['data']['winRate']   /max_win_rate*100,
+            'pickRate': data['data']['pickRate']  /max_pick_rate*100,
+            'avgKAM' : data['data']['avgKAM']   /max_avg_kill*100,
+            'avgRank' : (1-data['rank']['avgRank']/tier.length)*100
         }
 
         if (type === "solo")
-            data['score']['total'] = data['score']['win-rate']*1.5   + data['score']['pick-rate'] + data['score']['avg-kill']    + data['score']['avg-rank'];
+            data['score']['total'] = data['score']['winRate']*1.5   + data['score']['pickRate'] + data['score']['avgKAM']    + data['score']['avgRank'];
         else if (type === "duo")
-            data['score']['total'] = data['score']['win-rate']*1.5   + data['score']['pick-rate'] + data['score']['avg-kill']/2  + data['score']['avg-rank']/2;
+            data['score']['total'] = data['score']['winRate']*1.5   + data['score']['pickRate'] + data['score']['avgKAM']/2  + data['score']['avgRank']/2;
         else if (type === "squad")
-            data['score']['total'] = data['score']['win-rate']*1.5   + data['score']['pick-rate'] + data['score']['avg-kill']/3  + data['score']['avg-rank']/3;
+            data['score']['total'] = data['score']['winRate']*1.5   + data['score']['pickRate'] + data['score']['avgKAM']/3  + data['score']['avgRank']/3;
         
         if (data['score']['total'] > max_score) max_score = data['score']['total'];
     });
@@ -254,10 +254,10 @@ export const CharacterPreRank = (range, type) => {
         const weapon    = data['weapon'];
         const char = {
             'total'    : data['rank']['total'],
-            'win-rate' : data['rank']['pick-rate'],
-            'pick-rate': data['rank']['win-rate'],
-            'avg-kill' : data['rank']['avg-kill'],
-            'avg-rank' : data['rank']['avg-rank']
+            'winRate' : data['rank']['pickRate'],
+            'pickRate': data['rank']['winRate'],
+            'avgKAM' : data['rank']['avgKAM'],
+            'avgRank' : data['rank']['avgRank']
         }
 
         rank[character+'-'+weapon] = char;
@@ -290,7 +290,7 @@ export const Armor = (range, type) => {
         try {
             const data = {
                 name: key,
-                'win-rate': armorist[key][range]
+                'winRate': armorist[key][range]
             };
 
             list.push(data);

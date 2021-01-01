@@ -37,8 +37,8 @@ class Match extends Component {
     }
 
     fetchHandler = async (query, prevState) => {
-        const { skip, user, matchStat, matchList, matchCond } = this.state;
-        const userName  = query.userName || 'イドヒョン';
+        const { skip, user, matchStat, matchList, matchCond, matchDetail } = this.state;
+        const userName  = query.userName || '영도99';
         const matchMode = parseInt(query.matchMode) || 0;
         const teamMode  = parseInt(query.teamMode) || 0;
         //console.log('fetchHandler', query, prevState.userName, prevState.matchCond);
@@ -107,11 +107,15 @@ class Match extends Component {
                 })
             );
             _userStat['maxMmr'] = maxMmr;
+
+            for (const key in matchDetail) {
+                matchDetail[key]['view'] = false;
+            }
             this.setState({ 
-                user:_user, userName:userName,
+                user: _user, userName: userName,
                 matchCond: { matchMode:matchMode, teamMode: teamMode },
-                userStat:_userStat, matchList:_matchList, 
-                matchStat:_matchStat, mmrCurrent:mmrCurrent 
+                userStat: _userStat, matchList: _matchList, matchDetail: matchDetail,
+                matchStat: _matchStat, mmrCurrent: mmrCurrent 
             });
         } else if (skip !== prevState.skip) { // 더보기 클릭시
             let _matchList;
@@ -152,7 +156,7 @@ class Match extends Component {
     }
 
     matchDetailHandler = async (gameId, view) => {
-        const { matchDetail } = this.state;
+        const { user, matchDetail, matchCond } = this.state;
 
         if (matchDetail[gameId]) {
             matchDetail[gameId]['view'] = view;
@@ -163,20 +167,34 @@ class Match extends Component {
                     .then(res => _detail = res);
             
             const detail = [];
+            const escapeUser = _detail.filter(d => d['gameRank'] === -1)
+
+            _detail = _detail.slice(escapeUser.length, 18);
+
             let max_dam = 0;
             let index = 0;
-            for (var i = 0 ; i < 18 ; i++) {
-                if (_detail[index] && _detail[index]['gameRank'] === (i+1)) {
+            let rank = 0;
+            console.log('_detail', _detail);
+            console.log('escapeUser', escapeUser);
+            for (var i = 0 ; i < 18-escapeUser.length ; i++) {
+                if (_detail[index] && _detail[index]['gameRank'] === Math.ceil((i+1)/matchCond.teamMode)) {
                     detail[i] = _detail[index];
-                    if (max_dam < _detail[index]['damageToPlayer']) max_dam = _detail[index]['damageToPlayer'];                    
+                    if (max_dam < _detail[index]['damageToPlayer']) max_dam = _detail[index]['damageToPlayer'];  
+                    if (user['userNum'] === _detail[index]['userNum']) rank = _detail[index]['gameRank'];
                     index++;
                 } else {
-                    detail[i] = { gameRank: (i+1)};
+                    detail[i] = { gameRank: (i+1) };
                 }
             }
+
+            escapeUser.forEach(e =>
+                _detail.push(e)
+            )
+
             matchDetail[gameId] = {
                 view: view,
                 tab: 0,
+                rank: rank,
                 max_dam: max_dam,
                 detail: detail,
             }
@@ -194,20 +212,20 @@ class Match extends Component {
         const { user, userStat, tierList } = this.state;
 
         const tier = Math.floor(userStat['maxMmr']/100);
-        const win =   userStat['top1']       < 25 ?   ''    : userStat['top1'] < 50 ? '승1' : 
-                      userStat['top1']       < 100 ?  '승2' : userStat['top1'] < 250 ? '승3' : 
-                      userStat['top1']       < 500 ?  '승4' : userStat['top1'] < 1000 ? '승5' : 
-                      userStat['top1']       < 3000 ? '승6' : '승7';
-        const total = userStat['totalGames'] < 200 ?   ''    : userStat['totalGames'] < 400 ? '판1' : 
-                      userStat['totalGames'] < 800 ?  ' 판2' : userStat['totalGames'] < 2000 ? '판3' : 
+        const win =   userStat['top1']       < 25 ?   ''     : userStat['top1'] < 50   ? '승1' : 
+                      userStat['top1']       < 100 ?  '승2'  : userStat['top1'] < 250  ? '승3' : 
+                      userStat['top1']       < 500 ?  '승4'  : userStat['top1'] < 1000 ? '승5' : 
+                      userStat['top1']       < 3000 ? '승6'  : '승7';
+        const total = userStat['totalGames'] < 200 ?   ''    : userStat['totalGames'] < 400  ? '판1' : 
+                      userStat['totalGames'] < 800 ?   '판2' : userStat['totalGames'] < 2000 ? '판3' : 
                       userStat['totalGames'] < 4000 ?  '판4' : userStat['totalGames'] < 8000 ? '판5' : 
                       userStat['totalGames'] < 25000 ? '판6' : '판7';
-        const kill =  userStat['totalKills'] < 500 ?   ''    : userStat['totalKills'] < 1000 ? '킬1' : 
-                      userStat['totalKills'] < 2000 ?  '킬2' : userStat['totalKills'] < 5000 ? '킬3' : 
-                      userStat['totalKills'] < 10000 ?  '킬4' : userStat['totalKills'] < 20000 ? '킬5' : 
+        const kill =  userStat['totalKills'] < 500 ?   ''    : userStat['totalKills'] < 1000  ? '킬1' : 
+                      userStat['totalKills'] < 2000 ?  '킬2' : userStat['totalKills'] < 5000  ? '킬3' : 
+                      userStat['totalKills'] < 10000 ? '킬4' : userStat['totalKills'] < 20000 ? '킬5' : 
                       userStat['totalKills'] < 50000 ? '킬6' : '킬7';
-        const top3 =  userStat['top3']       < 75 ?    ''    : userStat['top3'] < 150 ? '탑1' : 
-                      userStat['top3']       < 300 ?   '탑2' : userStat['top3'] < 750 ? '탑3' : 
+        const top3 =  userStat['top3']       < 75 ?    ''    : userStat['top3'] < 150  ? '탑1' : 
+                      userStat['top3']       < 300 ?   '탑2' : userStat['top3'] < 750  ? '탑3' : 
                       userStat['top3']       < 1500 ?  '탑4' : userStat['top3'] < 3000 ? '탑5' : 
                       userStat['top3']       < 10000 ? '탑6' : '탑7';
         
@@ -430,7 +448,7 @@ class Match extends Component {
         for (const key in matchStat['charStat']) {
             list.push({ code: key, ...matchStat['charStat'][key]});
         }
-        return list.map((char, idx) => {
+        return list.slice(0,3).map((char, idx) => {
             return (
                 <div className="record_trend_most" key={"trend_box_"+idx}>
                     <img className="record_trend_most_img" src={"img/rank/"+getCharacter(char['code'])['name']+".jpg"} />
@@ -629,7 +647,7 @@ class Match extends Component {
                 const tier = Math.floor(match['mmrBefore']/100);
                 const lp   = match['mmrBefore']-tier*100;
                 return (
-                    <div className={"record_history_detail_box"+(match['userNum']===user['userNum']?' actived':'')} key={'detail_box_left_'+idx}>
+                    <div className={"record_history_detail_box"+(match['gameRank']===matchDetail[gameId]['rank']?' actived':'')} key={'detail_box_left_'+idx}>
                         <div className="record_history_detail_rank" >{match['gameRank']}</div>
                         <img className="record_history_detail_cha" src={"img/rank/"+getCharacter(match['characterNum'])['name']+".jpg"} />
                         <div className="record_history_detail_box1">
@@ -662,7 +680,7 @@ class Match extends Component {
                 const tier = Math.floor(match['mmrBefore']/100);
                 const lp   = match['mmrBefore']-tier*100;
                 return (
-                    <div className={"record_history_detail_box"+(match['userNum']===user['userNum']?' actived':'')} key={'detail_box_right_'+idx}>
+                    <div className={"record_history_detail_box"+(match['gameRank']===matchDetail[gameId]['rank']?' actived':'')} key={'detail_box_right_'+idx}>
                         <div className="record_history_detail_rank" >{match['gameRank']}</div>
                         <img className="record_history_detail_cha" src={"img/rank/"+getCharacter(match['characterNum'])['name']+".jpg"} />
                         <div className="record_history_detail_box1">

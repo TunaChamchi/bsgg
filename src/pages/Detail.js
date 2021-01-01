@@ -3,14 +3,14 @@ import { injectIntl } from 'react-intl';
 import queryString from 'query-string';
 import { Header, SubBanner, AdS, Footer } from 'components/banner';
 import { Top, Trend, Skill } from 'components/detail';
-import { Weapons, Armors } from 'components/item';
-import { CharacterScore, skillTreeList } from 'lib/data';
-import mapImg from 'img/map2.png';
+import { Weapons, Armors, ItemOrder } from 'components/item';
+import { getCharacter, getWeaponType, getSkill, getItem } from 'lib/data';
 
 class Detail extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            isLoad: false,
             stats: [],
             data: {},
             character: -1,
@@ -41,49 +41,43 @@ class Detail extends Component {
             },
         };
     }
+    
     componentDidMount() {
-        console.log('componentDidMount()');
         window.scrollTo(0, 0);
+        this.setState({ isLoad: true })
+    }
+
+    componentDidUpdate(prevProps, prevState) {
         const { location } = this.props;
         const query = queryString.parse(location.search);
 
-        const character = parseInt(query.character) || 1;
-        const gameMode = parseInt(query.type) || 1;
-        
-        this.setState({ character:character, gameMode:gameMode });
-    };
-    componentDidUpdate(prevProps, prevState){
-        console.log('componentDidUpdate()');
-        const { location } = this.props;
-        const query = queryString.parse(location.search);
-
-        this.fetchHandler(query, prevState);
-    };
+        this.fetchHandler(query, prevState)
+    }
 
     fetchHandler = async (query, prevState) => {
+        const { stats, tier } = this.state
         const character = parseInt(query.character) || 1;
+        const bestWeapon = parseInt(query.bestWeapon) || 0;
         const gameMode = parseInt(query.gameMode) || 1;
 
         if (character !== prevState.character) {
-            console.log('character', character, prevState.character);
             let _stats;
+            let _tier;
             
             await fetch('/api/character/'+character)
                 .then(res => res.json())
-                .then(stats => _stats = stats);
+                .then(res => { _stats = res['stats']; _tier = res['tier']; });
             
-            this.setState({ character:character, stats:_stats });
-            this.init();
-        } else if (gameMode !== prevState.gameMode) {
-            console.log('gameMode', gameMode, prevState.gameMode);
-            this.init();
+            this.init(query, _stats, _tier);
+        } else if (bestWeapon !== prevState.bestWeapon || gameMode !== prevState.gameMode) {
+            this.init(query, stats, tier);
         }
     }
 
-    init() {
-        const { stats, gameMode, bestWeapon } = this.state;
-
-        if (stats.length === 0) return;
+    init(query, stats, tier) {
+        const character = parseInt(query.character) || 1;
+        const bestWeapon = parseInt(query.bestWeapon) || 0;
+        const gameMode = parseInt(query.gameMode) || 1;
 
         let stat = stats.filter(s => s['matchingTeamMode'] === gameMode && s['bestWeapon'] === bestWeapon);
         if (stat.length === 0) {
@@ -92,10 +86,8 @@ class Detail extends Component {
             stat = stat[0];
         }
 
-        console.log(stat);
         let _bestWeapon = stat['bestWeapon'];
         
-
         const weaponList = [];
         let weaponTotal = 0
         stats.filter(s => s['matchingTeamMode'] === gameMode)
@@ -108,19 +100,118 @@ class Detail extends Component {
                 });
             });
         
-        this.setState({ stat:stat, bestWeapon:_bestWeapon, weaponList:weaponList, weaponTotal:weaponTotal });
+        const skillTree = [];
+        stat['skillOrder'].forEach(skillOrder => {
+            const tree = [];
+            const count = { Q: 0, W: 0, E: 0, T: 0 };
+
+            const _skillOrder = skillOrder['_id'].split('_').slice(1, 17);
+            const order = [];
+
+            _skillOrder.forEach(skill => {
+                const button = getSkill(skill)['button'];
+                count[button]++
+                if ((button === 'T' && count[button] === 2) || count[button] === 5) {
+                    tree.push(button);
+                }
+                order.push(button);
+            });
+
+            if (tree.length === 2) {
+                if (count['Q'] < 5) { 
+                    tree.push('Q');
+                    order.push('Q');
+                    order.push('Q');
+                } else if (count['W'] < 5) { 
+                    tree.push('W');
+                    order.push('W');
+                    order.push('W');
+                } else if (count['E'] < 5) { 
+                    tree.push('E');
+                    order.push('E');
+                    order.push('E');
+                }
+                tree.push('T');
+                order.push('T');
+                order.push('T');
+            } else {
+                if (count['Q'] < 5) { 
+                    tree.push('Q');
+                    order.push('Q');
+                    order.push('Q');
+                    order.push('Q');
+                    order.push('Q');
+                } else if (count['W'] < 5) { 
+                    tree.push('W');
+                    order.push('W');
+                    order.push('W');
+                    order.push('W');
+                    order.push('W');
+                } else if (count['E'] < 5) { 
+                    tree.push('E');
+                    order.push('E');
+                    order.push('E');
+                    order.push('E');
+                    order.push('E');
+                }
+            }
+
+            skillTree.push({
+                tree: tree,
+                order: order,
+                win: skillOrder['top1'],
+                pick: skillOrder['totalGames']/stat['totalGames'],
+                total: skillOrder['totalGames'],
+            });
+        })
+
+        const itemOrder = [];
+        stat['itemOrder'].forEach(order => {
+            if (order['_id'].split('_').slice(1, 8).length === 7) {
+                const _order = order['_id'].split('_').slice(1, 7);
+                const itemList = [];
+                
+                let isCommon = false;
+                _order.forEach(i => {
+                    const item = getItem(i);
+                    if (item['itemGrade'] === '일반') isCommon = true;
+
+                    const _item = {
+                        name: item['name'],
+                        itemGrade: item['itemGrade']
+                    }
+                    itemList.push(_item);
+                })
+
+                if (!isCommon) {
+                    itemOrder.push({
+                        itemList: itemList,
+                        win: order['top1'],
+                        pick: order['totalGames']/stat['totalGames'],
+                        total: order['totalGames'],
+                    })
+                }
+            }
+        })
+
+        this.setState({ 
+            character:character, bestWeapon:_bestWeapon, 
+            gameMode:gameMode, stats:stats, stat:stat, tier:tier,
+            skillTree:skillTree, itemOrder:itemOrder,
+            weaponList:weaponList, weaponTotal:weaponTotal 
+        });
     }
 
     render() {
         const { intl } = this.props;
-        const { stat, character, bestWeapon, gameMode, weaponList, weaponTotal, mapList } = this.state;
+        const { stat, tier, character, bestWeapon, gameMode, weaponList, weaponTotal, skillTree, itemOrder } = this.state;
         
         const metaData = {
             title: 'BSGG.kr - ' + character, //+ intl.formatMessage({id: 'characters.'+data['character']}) + ' ' + intl.formatMessage({id: 'weapons.'+data['weapon']}),
             description: '영원회귀 : 블랙 서바이벌 통계, 캐릭터 티어, 아이템 트렌드, BS:ER Stats, Character Tier, Item Trend'
         }
 
-        if (!stat) return(<div></div>);
+        if (!stat || !tier) return(<div></div>);
 
         return (
             <div>
@@ -129,6 +220,7 @@ class Detail extends Component {
                 <div className="S_main">
                     <Top 
                         stat={stat}
+                        tier={tier}
                         weaponData={{weaponList, weaponTotal}}
                         parameter={{character, bestWeapon, gameMode}}
                         />
@@ -139,12 +231,11 @@ class Detail extends Component {
                             <div className="S_left_tab">듀오</div>
                             <div className="S_left_tab">스쿼드</div>
                         </div>
-                        {/* <Skill
-                            data={data}
+                        <Skill
+                            stat={stat}
                             skillTree={skillTree}
-                            skillTree2={skillTree2}
-                            parameter={{character, weapon, rangeFocus, gameMode}}
-                            /> */}
+                            parameter={{character, bestWeapon, gameMode}}
+                            />
                         <div className="item">
                             <div className="item0"> 
                                 <div className="item0_span">추천 아이템</div>
@@ -153,502 +244,24 @@ class Detail extends Component {
                                     <div className="item0_tab actived">빌드</div>
                                 </div>
                             </div>
-                            <div className='item_tabs'>
-                                <div className='item_tab actived'>
-                                    <div className="item_tab_imgbox_all">
-                                        <div className="item_tab_imgbox">
-                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
-                                            <img className="item_tab_img" src="img/item/AK-12.png" />
-                                            <div className="S_item_tooltip4">
-                                                <span>ㅇㅇ</span>
-                                            </div>
-                                        </div>
-                                        <div className="item_tab_imgbox">
-                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
-                                            <img className="item_tab_img" src="img/item/AK-12.png" />
-                                            <div className="S_item_tooltip5">
-                                                <span>ㅇㅇ</span>
-                                            </div>
-                                        </div>
-                                        <div className="item_tab_imgbox">
-                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
-                                            <img className="item_tab_img" src="img/item/AK-12.png" />
-                                            <div className="S_item_tooltip6">
-                                                <span>ㅇㅇ</span>
-                                            </div>
-                                        </div>
-                                        <div className="item_tab_imgbox">
-                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
-                                            <img className="item_tab_img" src="img/item/AK-12.png" />
-                                            <div className="S_item_tooltip4">
-                                                <span>ㅇㅇ</span>
-                                            </div>
-                                        </div>
-                                        <div className="item_tab_imgbox">
-                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
-                                            <img className="item_tab_img" src="img/item/AK-12.png" />
-                                            <div className="S_item_tooltip5">
-                                                <span>ㅇㅇ</span>
-                                            </div>
-                                        </div>
-                                        <div className="item_tab_imgbox">
-                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
-                                            <img className="item_tab_img" src="img/item/AK-12.png" />
-                                            <div className="S_item_tooltip6">
-                                                <span>ㅇㅇ</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className='item_tab_span'>
-                                        <span className='item_tab_span1'>픽률 27.6%</span>
-                                        <span className='item_tab_span2'>승률 34.6%</span>
-                                        <span className='item_tab_span3'>340</span>
-                                    </div>
-                                </div>
-                                <div className='item_tab'>
-                                    <div className="item_tab_imgbox_all">
-                                        <div className="item_tab_imgbox">
-                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
-                                            <img className="item_tab_img" src="img/item/AK-12.png" />
-                                        </div>
-                                        <div className="item_tab_imgbox">
-                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
-                                            <img className="item_tab_img" src="img/item/AK-12.png" />
-                                        </div>
-                                        <div className="item_tab_imgbox">
-                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
-                                            <img className="item_tab_img" src="img/item/AK-12.png" />
-                                        </div>
-                                        <div className="item_tab_imgbox">
-                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
-                                            <img className="item_tab_img" src="img/item/AK-12.png" />
-                                        </div>
-                                        <div className="item_tab_imgbox">
-                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
-                                            <img className="item_tab_img" src="img/item/AK-12.png" />
-                                        </div>
-                                        <div className="item_tab_imgbox">
-                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
-                                            <img className="item_tab_img" src="img/item/AK-12.png" />
-                                        </div>
-                                    </div>
-                                    <div className='item_tab_span'>
-                                        <span className='item_tab_span1'>픽률 27.6%</span>
-                                        <span className='item_tab_span2'>승률 34.6%</span>
-                                        <span className='item_tab_span3'>340</span>
-                                    </div>
-                                </div>
-                                <div className='item_tab'>
-                                    <div className="item_tab_imgbox_all">
-                                        <div className="item_tab_imgbox">
-                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
-                                            <img className="item_tab_img" src="img/item/AK-12.png" />
-                                        </div>
-                                        <div className="item_tab_imgbox">
-                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
-                                            <img className="item_tab_img" src="img/item/AK-12.png" />
-                                        </div>
-                                        <div className="item_tab_imgbox">
-                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
-                                            <img className="item_tab_img" src="img/item/AK-12.png" />
-                                        </div>
-                                        <div className="item_tab_imgbox">
-                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
-                                            <img className="item_tab_img" src="img/item/AK-12.png" />
-                                        </div>
-                                        <div className="item_tab_imgbox">
-                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
-                                            <img className="item_tab_img" src="img/item/AK-12.png" />
-                                        </div>
-                                        <div className="item_tab_imgbox">
-                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
-                                            <img className="item_tab_img" src="img/item/AK-12.png" />
-                                        </div>
-                                    </div>
-                                    <div className='item_tab_span'>
-                                        <span className='item_tab_span1'>픽률 27.6%</span>
-                                        <span className='item_tab_span2'>승률 34.6%</span>
-                                        <span className='item_tab_span3'>340</span>
-                                    </div>
-                                </div>
-                                <div className='item_tab'>
-                                    <div className="item_tab_imgbox_all">
-                                        <div className="item_tab_imgbox">
-                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
-                                            <img className="item_tab_img" src="img/item/AK-12.png" />
-                                        </div>
-                                        <div className="item_tab_imgbox">
-                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
-                                            <img className="item_tab_img" src="img/item/AK-12.png" />
-                                        </div>
-                                        <div className="item_tab_imgbox">
-                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
-                                            <img className="item_tab_img" src="img/item/AK-12.png" />
-                                        </div>
-                                        <div className="item_tab_imgbox">
-                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
-                                            <img className="item_tab_img" src="img/item/AK-12.png" />
-                                        </div>
-                                        <div className="item_tab_imgbox">
-                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
-                                            <img className="item_tab_img" src="img/item/AK-12.png" />
-                                        </div>
-                                        <div className="item_tab_imgbox">
-                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
-                                            <img className="item_tab_img" src="img/item/AK-12.png" />
-                                        </div>
-                                    </div>
-                                    <div className='item_tab_span'>
-                                        <span className='item_tab_span1'>픽률 27.6%</span>
-                                        <span className='item_tab_span2'>승률 34.6%</span>
-                                        <span className='item_tab_span3'>340</span>
-                                    </div>
-                                </div>
-                                <div className='item_tab'>
-                                    <div className="item_tab_imgbox_all">
-                                        <div className="item_tab_imgbox">
-                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
-                                            <img className="item_tab_img" src="img/item/AK-12.png" />
-                                        </div>
-                                        <div className="item_tab_imgbox">
-                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
-                                            <img className="item_tab_img" src="img/item/AK-12.png" />
-                                        </div>
-                                        <div className="item_tab_imgbox">
-                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
-                                            <img className="item_tab_img" src="img/item/AK-12.png" />
-                                        </div>
-                                        <div className="item_tab_imgbox">
-                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
-                                            <img className="item_tab_img" src="img/item/AK-12.png" />
-                                        </div>
-                                        <div className="item_tab_imgbox">
-                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
-                                            <img className="item_tab_img" src="img/item/AK-12.png" />
-                                        </div>
-                                        <div className="item_tab_imgbox">
-                                            <img className="item_tab_bg" src="img/item/BackGround/영웅.jpg" />
-                                            <img className="item_tab_img" src="img/item/AK-12.png" />
-                                        </div>
-                                    </div>
-                                    <div className='item_tab_span'>
-                                        <span className='item_tab_span1'>픽률 27.6%</span>
-                                        <span className='item_tab_span2'>승률 34.6%</span>
-                                        <span className='item_tab_span3'>340</span>
-                                    </div>
-                                </div>
+                            <ItemOrder 
+                                itemOrder={itemOrder}
+                                startWeapon={bestWeapon}
+                                />
+                            <div className="item_rank">
+                                <Weapons 
+                                    stat ={stat}
+                                    />
+                                <Armors 
+                                    stat={stat}
+                                    />
                             </div>
-                            <div className="item_route">
-                                <div className="tabHeaders">
-                                    <div className="item_route_tab actived">루트1</div>
-                                    <div className="item_route_tab">루트2</div>
-                                    <div className="item_route_tab">루트3</div>
-                                    <div className="item_route_tab">루트4</div>
-                                    <div className="item_route_tab">루트5</div>
-                                </div>
-                                <div className="item_route_map">
-                                    <img className="item_route_map2" src={mapImg} /> 
-                                    {
-                                        // Object.keys(mapList).map((key, idx) => {
-                                        //     const en = mapList[key].toLowerCase();
-                                        //     return <img className={"Route_R_Mapimg_"+en} src={'img/map/'+key+'.png'} key={'Mapimg_'+idx} /> 
-                                            
-                                        // })
-                                    }
-                                    <div className="Route_R_Mapspan_box">
-                                        {
-                                            // Object.keys(mapList).map((key, idx) => {
-                                            //     const en = mapList[key].toLowerCase();
-                                            //     //const index = selectRoute['route'].indexOf(key);
-                                            //     //const isSelect = selectMap === key ? ' actived' : '';
-                                            //     //if (index >= 0) {
-                                            //         return (
-                                            //             <div key={'Mapspan_'+idx}>
-                                            //                 <span className={"Route_R_Mapspan_"+en+"1"} key={'Mapspan_'+idx} > {idx+1} </span>
-                                            //                 <span className={"Route_R_Mapspan_"+en}> {intl.formatMessage({id: mapList[key]})} </span>
-                                            //             </div>
-                                            //         )
-                                            //     //}
-                                            // })
-                                        }
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="item_route_spawn">
-                            <div className="item_route_spawnY">
-                                <div className="item_route_spawn_title">1 골목길</div>
-                                <div className="item_route_spawn_Make">
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                </div>
-                                <div className="item_route_spawn_Need">
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="item_route_spawnY">
-                                <div className="item_route_spawn_title">2 골목길</div>
-                                <div className="item_route_spawn_Make">
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                </div>
-                                <div className="item_route_spawn_Need">
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="item_route_spawnY-R">
-                                <div className="item_route_spawn_title">3 골목길</div>
-                                <div className="item_route_spawn_Make">
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                </div>
-                                <div className="item_route_spawn_Need">
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="item_route_spawnY">
-                                <div className="item_route_spawn_title">4 골목길</div>
-                                <div className="item_route_spawn_Make">
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                </div>
-                                <div className="item_route_spawn_Need">
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="item_route_spawnY">
-                                <div className="item_route_spawn_title">5 골목길</div>
-                                <div className="item_route_spawn_Make">
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                </div>
-                                <div className="item_route_spawn_Need">
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="item_route_spawnY-R">
-                                <div className="item_route_spawn_title">6 골목길</div>
-                                <div className="item_route_spawn_Make">
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                </div>
-                                <div className="item_route_spawn_Need">
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                    <div className="item_route_spawn_Make_img">
-                                        <img className="item_route_spawn_Make_img1" src="img/item/BackGround/영웅.jpg" />
-                                        <img className="item_route_spawn_Make_img2" src="img/item/AK-12.png" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="item_rank">
-                            {/* <Weapons 
-                                character={character}
-                                weapon={weapon}
-                                range={rangeFocus}
-                                type={gameMode}
-                            />
-                            <Armors 
-                                range={gameMode}
-                            /> */}
                         </div>
                     </div>
                     <Trend 
                         stat={stat}
+                        tier={tier}
+                        parameter={{character, bestWeapon, gameMode}}
                         />
                 </div>
                 <AdS type={'Detail'}/>
