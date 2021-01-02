@@ -16,7 +16,7 @@ function sleep(ms) {
     });
 }
 
-schedule.scheduleJob('0 0 */10 2-20 * *', async () => {
+schedule.scheduleJob('10 51 2-20 * * *', async () => {
     console.log(new Date().toString().slice(16,24), ': GetRankSync Start');
 
     await Rank.deleteMany({matchingTeamMode:[1, 2, 3]});
@@ -61,12 +61,12 @@ schedule.scheduleJob('0 0 */10 2-20 * *', async () => {
 
 const setRankStats = async (userNum) => {
     const resRankStats = await getRankStats(userNum, 1);
-    const rankStats = resRankStats.data.rankStat;
+    const rankStats = resRankStats.data.userStats;
 
     if (rankStats !== undefined) {
         for (let j = 0 ; j < rankStats.length ; j++) {
             const rankStat = rankStats[j];
-            nickname = rankStat['nickname'];
+            //nickname = rankStat['nickname'];
 
             const _rankStat = { };
             _rankStat['index'] = rankStat['userNum'] + '_' + rankStat['seasonId'] + '_' + rankStat['matchingTeamMode'];
@@ -94,7 +94,7 @@ const setRankStats = async (userNum) => {
 const getRank = async (seasonId, matchingTeamMode) => {
     while (true) {
         try {
-            return await axios.get('https://open-api.bser.io/v1/Rank/top/'+seasonId+'/'+matchingTeamMode, {
+            return await axios.get('https://open-api.bser.io/v1/rank/top/'+seasonId+'/'+matchingTeamMode, {
                 headers: {
                     'x-api-key': 'sWNQXtP4Po3Sd1dWWzHqT5EZSKQfj8478omeZWg0'
                 }
