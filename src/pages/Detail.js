@@ -225,7 +225,9 @@ class Detail extends Component {
         return mostUser.slice(0, 5).map((user, idx) => 
             <div className="master_rank" key={"master_rank"+idx}>
                 <span className="master_rank1">{idx+1}</span>
-                <span className="master_rank2">{user['nickname']}</span>
+                <Link to={'/Match?userName=' + user['nickname']}>
+                    <span className="master_rank2">{user['nickname']}</span>
+                </Link>
                 <span className="master_rank3">{user['characterStats'][character]['totalGames']}게임</span>
             </div>
         )
@@ -304,7 +306,9 @@ class Detail extends Component {
                     <div className="master">
                         <div className="master0">Master</div>
                         {this.mostUserView()}
-                        <button className="master_button">더 보기</button>
+                        <Link to={'/RankCharacter?character=' +character}>
+                            <button className="master_button">더 보기</button>
+                        </Link>
                     </div>
                 </div>
                 <AdS type={'Detail'}/>

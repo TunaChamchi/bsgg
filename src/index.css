@@ -1272,12 +1272,12 @@ button:hover{
 }
 .skill_tab_span1{
     display: inline-block;
-    width: 90px;
-    margin-left: 13px;
+    width: 95px;
+    margin-left: 3px;
 }
 .skill_tab_span2{
     display: inline-block;
-    width: 90px;
+    width: 95px;
     margin-left: 0px;
 }
 .skill_tab_span3{
@@ -4260,12 +4260,12 @@ button:hover{
     float: left;
     position: relative;
     border-radius: 10px;
-    border: 2px solid gold;
+    border: 2px solid rgb(189, 160, 0);
     margin-top: 25px;
     margin-right: 55px;
-    margin-left: -40px;
+    margin-left: -155px;
     margin-bottom: 65px;
-    background-color: #251f32;
+    background: linear-gradient(gold 0% , #0f0d14 100%);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -4279,8 +4279,8 @@ button:hover{
     border: 2px solid silver;
     margin-top: 65px;
     margin-bottom: 25px;
-    margin-left: -300px;
-    background-color: #251f32;
+    margin-left: -415px;
+    background: linear-gradient(rgb(255, 255, 255) 0% , #0f0d14 100%);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -4291,10 +4291,10 @@ button:hover{
     float: left;
     position: relative;
     border-radius: 10px;
-    border: 2px solid brown;
+    border: 2px solid rgb(119, 30, 30);
     margin-top: 65px;
     margin-bottom: 25px;
-    background-color: #251f32;
+    background: linear-gradient(rgb(180, 47, 47) 0% , #0f0d14 100%);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
