@@ -4595,7 +4595,7 @@ button:hover{
     border-top-color: #fff;
     animation: spin 1s ease-in-out infinite;
     -webkit-animation: spin 1s ease-in-out infinite;
-    margin-left: 30px;
+    margin-left: -78px;
     margin-bottom: 50px;
     margin-top: 300px;
   }
