@@ -129,31 +129,48 @@ router.get('/:userName', async (req, res, next) => {
 // 유저 전적 검색 DB
 router.get('/:userNum/match', async (req, res, next) => {
     console.log('/:userNum/match', req.params, req.query);
-    const userNum = req.params.userNum;
+    const userNum = parseInt(req.params.userNum) || -1;
     const matchMode =  parseInt(req.query.matchMode) || 0;
     const teamMode =  parseInt(req.query.teamMode) || 0;
     const limit = parseInt(req.query.limit) || 10;
     const skip =  parseInt(req.query.skip) || 0;
 
-    const query = {
-        userNum: userNum
-    }
-    if (matchMode !== 0)
-        query['seasonId'] = matchMode;
-    if (teamMode !== 0)
-        query['matchingTeamMode'] = teamMode;
-
-    const match = await Match.find(
-        query, 
-        null,
-        {
-            skip: skip,
-            limit: limit,
-            sort: { startDtm: -1 }
+    if (userNum === -1) {
+        res.json(null);
+    } else {
+        const query = {
+            userNum: userNum
         }
-    );
-    
-    res.json(match);
+        if (matchMode !== 0)
+            query['seasonId'] = matchMode;
+        if (teamMode !== 0)
+            query['matchingTeamMode'] = teamMode;
+
+        const match = await Match.find(
+            query, 
+            null,
+            {
+                skip: skip,
+                limit: limit,
+                sort: { startDtm: -1 }
+            }
+        );
+        
+        res.json(match);
+    }
+});
+
+// 유저 전적 갱신
+router.get('/:userNum/renew', async (req, res, next) => {
+    console.log('/:userNum/renew', req.params);
+    const userNum = req.params.userNum;
+    try {    
+        await getUserData(userNum);
+        
+        res.json('{ "code": 200, "message": "Success" }');
+    } catch (error) {
+        res.json('{ "code": 500, "message": "Fail" }');
+    }
 });
 
 // 상제 전적
@@ -197,7 +214,11 @@ router.post('/userData', async (req, res, next) => {
     const userNum = parseInt(req.query.userNum);
     await getUserData(userNum);
 
-    res.send('{ "code": 200, "message": "Success" }');
+    const response = { 
+        code: 200, 
+        message: 'Success'
+    }
+    res.json(response);
 });
 
 module.exports = router;
@@ -263,6 +284,7 @@ const getUserData = async (userNum) => {
     }
 
     if (!isChange) {
+        console.log('isChange : ', isChange);
         return null;
     }
 
@@ -316,8 +338,8 @@ const getUserData = async (userNum) => {
                         userStat['seasonStats'][seasonId][teamMode]['rankPercent'] = _userStats['rankPercent'];
                     } catch (err) {
                         console.log('getUserData : ', userStat['nickname'], userNum, seasonId, teamMode);
-                        await getUserData(userNum);
-                        return;
+                        //await getUserData(userNum);
+                        return null;
                     }
                 }
             }
@@ -344,6 +366,8 @@ const getUserData = async (userNum) => {
         updateDate: Date.now()
     }
     await User.findOneAndUpdate({ userNum: user['userNum'] }, user, { upsert:true });
+    
+    return 'Success'
 }
 
 const getUserStats1 = async (userNum) => {

@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import { injectIntl  } from 'react-intl';
 import { Langauge  } from 'components/banner';
 import logo from 'img/sub_logo.svg';
-import { charList } from 'lib/utility';
-import { defaultLang } from 'lib/utility'
+import { getCharacterKeys, getCharacter } from 'lib/data'
 
 class SubBanner extends Component {
 	constructor(props) {
@@ -19,6 +18,7 @@ class SubBanner extends Component {
         this.setState({search:'', searchList: []});
     }
     searchHandler = (event) => {
+        const { intl } = this.props;
         const value = event.target.value.toLowerCase();
 
         if (!value) {
@@ -26,18 +26,19 @@ class SubBanner extends Component {
             return;
         }
 
-        const list = charList().filter(data => data['name'].replace(' ', '').toLowerCase().indexOf(value) !== -1);
+        const list = getCharacterKeys().filter(code => (intl.formatMessage({id: 'characters.'+getCharacter(code)['name'] })).replace(' ', '').toLowerCase().indexOf(value) !== -1);
 
         this.setState({search:value, searchList: list});
     }
     searchView = () => {
+        const { intl } = this.props;
         const { searchList } = this.state;
 
         return searchList.map((data, idx) => 
-            <Link to={'Detail?character='+data['key']} key={idx} onClick={(e)=> this.selectHandler(e)}>
+            <Link to={'Detail?character='+data} key={idx} onClick={(e)=> this.selectHandler(e)}>
                 <div className="S_search4" >
-                    <img className="searchimg" src={'img/Rank/'+data['key']+'.jpg'} />
-                    <div className="searchfont"> {data['name']} </div>
+                    <img className="searchimg" src={'img/Rank/'+getCharacter(data)['name']+'.jpg'} />
+                    <div className="searchfont"> {intl.formatMessage({id: 'characters.'+getCharacter(data)['name']})} </div>
                 </div>
             </Link>
         );

@@ -10,6 +10,7 @@ class Match extends Component {
         super(props);
         this.state = {
             isLoad: false,
+            isReNew: false,
             skip:0,
             matchList: [],
             matchDetail: {},
@@ -37,7 +38,7 @@ class Match extends Component {
     }
 
     fetchHandler = async (query, prevState) => {
-        const { skip, user, matchStat, matchList, matchCond, matchDetail } = this.state;
+        const { skip, user, matchStat, matchList, matchCond, matchDetail, isReNew } = this.state;
         const userName  = query.userName || '영도99';
         const matchMode = parseInt(query.matchMode) || 0;
         const teamMode  = parseInt(query.teamMode) || 0;
@@ -45,8 +46,9 @@ class Match extends Component {
 
         if (userName !== this.state.userName
             || matchMode !== matchCond.matchMode 
-            || teamMode !== matchCond.teamMode) { // 유저 검색, 첫 로딩
-            console.log(query, prevState.matchCond, this.state.matchCond);
+            || teamMode !== matchCond.teamMode
+            || (isReNew !== prevState.isReNew && isReNew === false)) { // 유저 검색, 첫 로딩, 재 갱신
+            //console.log(query, prevState.matchCond, this.state.matchCond);
             let _user;
             let _userStat;
             let _matchList;
@@ -152,11 +154,15 @@ class Match extends Component {
             this.setState({ 
                 matchList:matchList, matchStat:matchStat
             });
+        } else if (isReNew !== prevState.isReNew && isReNew === true) {
+            await fetch('/api/User/'+user['userNum']+'/renew')
+                .then(res => res.json())
+                .then(res => this.setState({ isReNew: false }) );
         }
     }
 
     matchDetailHandler = async (gameId, view) => {
-        const { user, matchDetail, matchCond } = this.state;
+        const { user, matchDetail } = this.state;
 
         if (matchDetail[gameId]) {
             matchDetail[gameId]['view'] = view;
@@ -208,7 +214,7 @@ class Match extends Component {
 
     topView() {
         const { intl } = this.props;
-        const { user, userStat, tierList } = this.state;
+        const { user, userStat, tierList, isReNew } = this.state;
 
         const tier = Math.floor(userStat['maxMmr']/100);
         const win =   userStat['top1']       < 25 ?   ''     : userStat['top1'] < 50   ? '승1' : 
@@ -237,7 +243,17 @@ class Match extends Component {
                 </div>
                 <div className="record_top_right">
                     <div className="record_top_name">{user['nickname']}</div>
-                    <button className="record_top_renew">{intl.formatMessage({id: "전적갱신" })}</button>
+                    {
+                        isReNew ?
+                            <button className="record_top_renew">
+                                <div id="loading"></div>
+                            </button>
+                            :
+                            <button className="record_top_renew"
+                                onClick={(e) => this.setState({ isReNew: true })}>
+                                {intl.formatMessage({id: "전적갱신" })}
+                            </button> 
+                    }
                     <span className="record_top_updated">{intl.formatMessage({id: "최근 업데이트" })} {user['updateDate']}</span>
                 </div>
                 {top3&&
@@ -510,7 +526,7 @@ class Match extends Component {
                         </div>
                         <div className="record_history_item_box">
                             {
-                                [0, 1, 2, 3, 4, 5].map(index => 
+                                match['equipment'] && [0, 1, 2, 3, 4, 5].map(index => 
                                     match['equipment'][index] && 
                                         <div className="record_history_item" key={'detail_item_'+idx+"_"+index}>
                                             <img className="record_history_item1" src={"img/Item/BackGround/"+getItem(match['equipment'][index])['itemGrade']+".jpg"} />

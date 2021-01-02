@@ -17,9 +17,10 @@ class Characters extends Component {
     };
 
     searchHandler = (event) => {
+        const { intl } = this.props;
         const value = event.target.value.toLowerCase();
 
-        const list = getCharacterKeys().filter(data => data['name'].replace(' ', '').toLowerCase().indexOf(value) !== -1);
+        const list = getCharacterKeys().filter(code => (intl.formatMessage({id: 'characters.'+getCharacter(code)['name'] })).replace(' ', '').toLowerCase().indexOf(value) !== -1);
 
         this.setState({searchList: list});
     }

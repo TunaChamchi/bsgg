@@ -80,13 +80,17 @@ class Detail extends Component {
     }
 
     init(query, stats, tier, mostUser) {
+        const { location } = this.props;
         const character = parseInt(query.character) || 1;
         const bestWeapon = parseInt(query.bestWeapon) || 0;
         const gameMode = parseInt(query.gameMode) || 1;
 
         let stat = stats.filter(s => s['matchingTeamMode'] === gameMode && s['bestWeapon'] === bestWeapon);
         if (stat.length === 0) {
+            console.log('1');
             stat = stats.filter(s => s['matchingTeamMode'] === gameMode)[0];
+            window.location.href = 'http://localhost:3000/Detail?gameMode='+gameMode+'&character='+character+'&bestWeapon='+stat['bestWeapon'];
+            return;
         } else {
             stat = stat[0];
         }
