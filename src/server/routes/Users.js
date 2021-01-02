@@ -24,12 +24,30 @@ schedule.scheduleJob('0 10 20 * * *', async () => {
     const users = await User.find({}, { _id:0, userNum: 1 }, { sort : { updateDate: 1 }});
 
     for (let i = 0 ; i < users.length ; i++) {        
-        await getUserData(users['userNum']);
+        await getUserData(users[i]['userNum']);
     }
 
     console.log(new Date().toString().slice(16,24), ': GetUserStat Complete');
 })
 
+const getUserSreach = async (userName) => {
+    while (true) {
+        try {
+            return await axios.get('https://open-api.bser.io/v1/user/nickname?query='+encodeURI(userName), {
+                    headers: {
+                        'x-api-key': 'sWNQXtP4Po3Sd1dWWzHqT5EZSKQfj8478omeZWg0'
+                    }
+            });
+        } catch (error) {
+            if (error.response.status !== 429) {
+                console.log(new Date().toString().slice(16,24), ': getUserStats() Error', error.response.status, '{ userName }', { userName });
+                return;
+            }
+            
+            await sleep(250);
+        }
+    }
+};
 const getUserStats = async (userNum, seasonId) => {
     while (true) {
         try {
@@ -82,13 +100,30 @@ router.get('/:userName', async (req, res, next) => {
     console.log('/:userName', req.params);
     const userName = req.params.userName;
 
-    const user = await User.findOne({ nickname: userName });
-    const userStat = await UserStat.findOne({ nickname: userName });
-    const response = {
-        user:user,
-        userStat:userStat
+    let user = await User.findOne({ nickname: userName });
+    if (user) {
+        const userStat = await UserStat.findOne({ nickname: userName });
+        const response = {
+            user:user,
+            userStat:userStat
+        }
+        res.json(response);
+    } else {
+        const _user = (await getUserSreach(userName)).data.user;
+        if (!_user.userNum)
+            res.json(null);
+
+        const userNum = _user.userNum;
+        
+        await getUserData(userNum);
+        const user = await User.findOne({ nickname: userName });
+        const userStat = await UserStat.findOne({ nickname: userName });
+        const response = {
+            user:user,
+            userStat:userStat
+        }
+        res.json(response);
     }
-    res.json(response);
 });
 
 // 유저 전적 검색 DB
@@ -462,7 +497,7 @@ router.post('/userStat', async (req, res, next) => {
     for (let i = 0 ; i < users.length ; i++) {        
         await getUserData(users[i]['userNum']);
 
-        if (i%100===100)
+        if (i%100===99)
             console.log(i+1);
     }
 

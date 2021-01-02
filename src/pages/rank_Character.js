@@ -66,6 +66,7 @@ class Rank_Character extends Component {
         const lp    = rank['mmr']-tier*100 || 0;
 
         const top1Width = top1/total * width;
+        const top3Width = top3/total * 100;
         const lossWidth = loss/total * width;
 
         const _stat = {
@@ -78,6 +79,7 @@ class Rank_Character extends Component {
             tier: tier,
             lp: lp,
             top1Width: top1Width,
+            top3Width: top1Width+top3Width,
             lossWidth: lossWidth,
         }
 
@@ -102,9 +104,7 @@ class Rank_Character extends Component {
                         <div className="rank_top2_span1">{number+1}</div>
                         <div className="rank_top_span2">{rank[number]['nickname']}</div>
                         <div className="rank_top_span3">{tierList[stat['tier']]} {stat['lp']} LP</div>
-                        <div className="rank_top_graph">
-                            <div className="rank_top_graphW" style={{width: stat['top1Width']}}></div>
-                            <div className="rank_top_graphL" style={{width: stat['lossWidth']}}></div>
+                        <div className="record_cha_graph" style={{background: 'linear-gradient(to right, rgb(244,216,35) 0% '+stat['top1Width']+'%, rgb(49, 106, 190) '+stat['top1Width']+'% '+stat['top3Width']+'%, gray '+stat['top3Width']+'% 100%)'}}>
                             <div className="rank_top_span4" >{stat['top1']}</div>
                             <div className="rank_top_span5" >{stat['top3']}</div>
                             <div className="rank_top_span6" >{stat['loss']}</div>
@@ -134,9 +134,7 @@ class Rank_Character extends Component {
                     <div className="record_rank_span11">{tierList[stat['tier']]}</div>
                     <div className="record_rank_span22">{stat['lp']} LP</div>
                     <div className="record_cha_span3">{stat['total']}</div>
-                    <div className="record_cha_graph">
-                        <div className="record_cha_graphW" style={{width: stat['top1Width']}}></div>
-                        <div className="record_cha_graphL" style={{width: stat['lossWidth']}}></div>
+                    <div className="record_cha_graph" style={{background: 'linear-gradient(to right, rgb(244,216,35) 0% '+stat['top1Width']+'%, rgb(49, 106, 190) '+stat['top1Width']+'% '+stat['top3Width']+'%, gray '+stat['top3Width']+'% 100%)'}}>
                         <div className="record_cha_span4">{stat['top1']}</div>
                         <div className="record_cha_span5">{stat['top3']}</div>
                         <div className="record_cha_span6">{stat['loss']}</div>

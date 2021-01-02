@@ -140,7 +140,6 @@ const getChacterStatSkill = async (versionMajor, versionMinor, characterNum, bes
             }
         },
         { $sort: { totalGames: -1 } },
-        { $limit: 10 }
     ]);
 }
 
@@ -347,7 +346,7 @@ const setCharacterTier = async (versionMajor, versionMinor, matchingTeamMode, ch
             'avgRank' : (1-data['rank']['avgRank']/tier.length)*100
         }
 
-        data['score']['total'] = (data['score']['winRate']*1   + data['score']['pickRate']*0.8 + data['score']['avgKAM']*1    + data['score']['avgRank']*0.5)/3.5;
+        data['score']['total'] = (data['score']['winRate']*1   + data['score']['pickRate']*0.5 + data['score']['avgKAM']*1    + data['score']['avgRank']*0.5)/3;
         
         if (data['score']['total'] > max_score) max_score = data['score']['total'];
     });

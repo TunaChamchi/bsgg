@@ -95,8 +95,9 @@ class Rank extends Component {
         const tier = Math.floor(rank['mmr']/100);
         const lp   = rank['mmr']-tier*100;
 
-        const top1Width = top1/total * width;
-        const lossWidth = loss/total * width;
+        const top1Width = top1/total * 100;
+        const top3Width = top3/total * 100;
+        const lossWidth = loss/total * 100;
 
         const charName = getCharacter(stat['mostCharacter'])['name'];
 
@@ -110,6 +111,7 @@ class Rank extends Component {
             tier: tier,
             lp: lp,
             top1Width: top1Width,
+            top3Width: top1Width+top3Width,
             lossWidth: lossWidth,
             character: charName
         }
@@ -121,10 +123,13 @@ class Rank extends Component {
         const { rankTop, tierList, gameMode } = this.state;
         if (rankTop.length === 0) return;
 
+        console.log('rankTop', rankTop);
         return [1, 0, 2].map((number, idx) => {
             const stat = this.rankData(rankTop[number], 130);
 
             if (!stat) return;
+
+            console.log(stat['top1Width'], stat['top3Width']);
 
             return (
                 <div className={"rank_top_"+number} key={"rank_top_"+idx}>
@@ -135,9 +140,7 @@ class Rank extends Component {
                         <div className="rank_top2_span1">{rankTop[number]['rank']}</div>
                         <div className="rank_top_span2">{rankTop[number]['nickname']}</div>
                         <div className="rank_top_span3">{tierList[stat['tier']]} {stat['lp']} LP</div>
-                            <div className="rank_top_graph">
-                                <div className="rank_top_graphW" style={{width: stat['top1Width']}}></div>
-                                <div className="rank_top_graphL" style={{width: stat['lossWidth']}}></div>
+                            <div className="rank_top_graph" style={{background: 'linear-gradient(to right, rgb(244,216,35) 0% '+stat['top1Width']+'%, rgb(49, 106, 190) '+stat['top1Width']+'% '+stat['top3Width']+'%, gray '+stat['top3Width']+'% 100%)'}}>
                                 <div className="rank_top_span4" >{stat['top1']}</div>
                                 <div className="rank_top_span5" >{stat['top3']}</div>
                                 <div className="rank_top_span6" >{stat['loss']}</div>
@@ -167,9 +170,7 @@ class Rank extends Component {
                     <div className="record_rank_span11">{tierList[stat['tier']]}</div>
                     <div className="record_rank_span22">{stat['lp']} LP</div>
                     <div className="record_cha_span3">{stat['total']}</div>
-                    <div className="record_cha_graph">
-                        <div className="record_cha_graphW" style={{width: stat['top1Width']}}></div>
-                        <div className="record_cha_graphL" style={{width: stat['lossWidth']}}></div>
+                    <div className="record_cha_graph" style={{background: 'linear-gradient(to right, rgb(244,216,35) 0% '+stat['top1Width']+'%, rgb(49, 106, 190) '+stat['top1Width']+'% '+stat['top3Width']+'%, gray '+stat['top3Width']+'% 100%)'}}>
                         <div className="record_cha_span4">{stat['top1']}</div>
                         <div className="record_cha_span5">{stat['top3']}</div>
                         <div className="record_cha_span6">{stat['loss']}</div>
