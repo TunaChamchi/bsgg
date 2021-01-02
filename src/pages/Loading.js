@@ -19,7 +19,7 @@ class Main extends Component {
                 <SubBanner />
                 <div className="Loading_main">
                     <div id="loading_animation"></div>
-                    <div className="Loading_main_span">전적을 검색 중 입니다. 잠시만 기다려 주세요</div>
+                    <div className="Loading_main_span">{intl.formatMessage({id: '로딩'})}</div>
                 </div>
 
             </div>

@@ -106,8 +106,8 @@ button:hover{
     font-size: 13pt;
     font-weight: bold;
     float: right;
-    margin-top: 10px;
-    margin-right: 5px;
+    margin-top: 15px;
+    margin-right: 10px;
 }
 .footer_span{
     float: left;
@@ -156,13 +156,13 @@ button:hover{
 .medal_span_tooltip{
     visibility: hidden;
     width: 200px;
-    background-color:#262335;
+    background-color:#37334d;
     position: absolute;
     z-index: 1;
     font-size: 10pt;
     white-space: pre-line;
     word-break: keep-all;
-    border-radius: 3px;
+    border-radius: 25px;
     color:white;
     font-weight: 300;
     padding: 5px;
@@ -393,9 +393,10 @@ button:hover{
 }
 .mainpage_buttons :hover{
     border-bottom: 1px solid rgb(244,216,35);
-    padding-bottom: 12px;
 }
 .mainpage_button{
+    display: inline-block;
+    height: 38px;
     margin-left: 20px;
     margin-right: 10px;
     text-align: center;
@@ -405,6 +406,8 @@ button:hover{
     font-size: 13pt;
     font-weight: 600;
     float: right;
+    border-bottom: 1px solid #241b2f;
+    padding-bottom: 15px;
 }
 .mainpage_search{
     width: 600px;
@@ -412,7 +415,7 @@ button:hover{
     background-color: #262335;
     border-radius: 50px;
     margin: auto;
-    margin-bottom: 50px;
+    margin-bottom: 450px;
     border-bottom: 1px solid #241b2f;
     position: relative;
 }
@@ -442,6 +445,7 @@ button:hover{
     font-size: 16pt;
     margin-left: 80px;
     margin-top: 13px;
+    color: rgb(209, 209, 209) ;
 }
 .mainpage_ad{
     width: 970px;
@@ -961,7 +965,7 @@ button:hover{
     color: rgb(209, 209, 209);    
 }
 .S_search3{
-    background-color: rgb(38, 35, 53);
+    background-color: rgb(240, 240, 240) ;
     position: absolute;
     margin-top: 77px;
     margin-left: 852px;
@@ -974,21 +978,25 @@ button:hover{
     z-index: 1;
     max-height: 260px;
     overflow: scroll;
+    color: #171520;    
 }
 .S_search4{
     width: 300px;
     height: 45px;
-    background-color: rgb(38, 35, 53);
+    background-color: rgb(240, 240, 240) ;
     margin-top: 2px;
-    border-bottom: 1px solid #3b4147;
+    color:#171520;    
+}
+.S_search3 :hover{
+    background-color: rgb(212, 212, 212);
 }
 .searchimg{
     height: 40px;
-    border-radius: 100%;
+    margin-top: 2px;
+    border-radius: 10%;
     margin-left: 30px;
     margin-right: 20px;
     float: left;
-    border: 1px solid #3b4147;
 }
 .searchfont{
     display: inline-block;
@@ -1272,12 +1280,12 @@ button:hover{
 }
 .skill_tab_span1{
     display: inline-block;
-    width: 90px;
-    margin-left: 13px;
+    width: 95px;
+    margin-left: 3px;
 }
 .skill_tab_span2{
     display: inline-block;
-    width: 90px;
+    width: 95px;
     margin-left: 0px;
 }
 .skill_tab_span3{
@@ -4260,12 +4268,12 @@ button:hover{
     float: left;
     position: relative;
     border-radius: 10px;
-    border: 2px solid gold;
+    border: 2px solid rgb(189, 160, 0);
     margin-top: 25px;
     margin-right: 55px;
-    margin-left: -40px;
+    margin-left: -155px;
     margin-bottom: 65px;
-    background-color: #251f32;
+    background: linear-gradient(gold 0% , #0f0d14 100%);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -4279,8 +4287,8 @@ button:hover{
     border: 2px solid silver;
     margin-top: 65px;
     margin-bottom: 25px;
-    margin-left: -300px;
-    background-color: #251f32;
+    margin-left: -415px;
+    background: linear-gradient(rgb(255, 255, 255) 0% , #0f0d14 100%);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -4291,10 +4299,10 @@ button:hover{
     float: left;
     position: relative;
     border-radius: 10px;
-    border: 2px solid brown;
+    border: 2px solid rgb(119, 30, 30);
     margin-top: 65px;
     margin-bottom: 25px;
-    background-color: #251f32;
+    background: linear-gradient(rgb(180, 47, 47) 0% , #0f0d14 100%);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
