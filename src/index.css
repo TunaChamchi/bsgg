@@ -423,25 +423,41 @@ button:hover{
     border-bottom: 1px solid #241b2f;
     position: relative;
 }
-.mainpage_search_select{
-    width: 60px;
-    height: 40px;
-    background-color: rgb(139, 139, 139);
-    border-radius: 50px;
-    font-size: 14pt;
+.mainpage_search input[type=checkbox]{
+	height: 0;
+	width: 0;
+	visibility: hidden;
+}
+.mainpage_search label {
+	cursor: pointer;
+	text-indent: -9999px;
+	width: 60px;
+	height: 40px;
+    background-color: rgb(218, 191, 19);
+	display: block;
+	border-radius: 100px;
     position: absolute;
-    top: 5px;
+    margin-top: -5px;
+    top: 10px;
     left: 5px;
 }
-.mainpage_search_selectCircle{
-    width: 36px;
-    height: 36px;
-    border-radius: 50px;
-    background-color: white;
-    position: absolute;
-    border: none;
-    top: 2px;
-    left: 2px;
+.mainpage_search label:after {
+	content: '';
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 34px;
+	height: 34px;
+	background: #fff;
+	border-radius: 90px;
+	transition: 0.3s;
+}
+.mainpage_search input:checked + label {
+	background:rgb(139, 139, 139) ;
+}
+.mainpage_search input:checked + label:after {
+	left: calc(100% - 3px);
+	transform: translateX(-100%);
 }
 .Main_search_box{
     background-color: rgb(240, 240, 240) ;
@@ -980,25 +996,41 @@ button:hover{
     border-bottom: 1px solid #241b2f;
     position: relative;
 }
-.S_search_select{
-    width: 36px;
-    height: 24px;
-    background-color: rgb(139, 139, 139);
-    border-radius: 50px;
-    font-size: 14pt;
+.S_search input[type=checkbox]{
+	height: 0;
+	width: 0;
+	visibility: hidden;
+}
+.S_search label {
+	cursor: pointer;
+	text-indent: -9999px;
+	width: 36px;
+	height: 24px;
+    background-color: rgb(218, 191, 19);
+	display: block;
+	border-radius: 100px;
     position: absolute;
-    top: 3px;
+    margin-top: -5px;
+    top: 8px;
     left: 3px;
 }
-.S_search_selectCircle{
-    width: 20px;
-    height: 20px;
-    border-radius: 50px;
-    background-color: white;
-    position: absolute;
-    border: none;
+.S_search label:after {
+	content: '';
+	position: absolute;
     top: 2px;
     left: 2px;
+	width: 20px;
+	height: 20px;
+	background: #fff;
+	border-radius: 90px;
+	transition: 0.3s;
+}
+.S_search input:checked + label {
+	background:rgb(139, 139, 139) ;
+}
+.S_search input:checked + label:after {
+	left: calc(100% - 2px);
+	transform: translateX(-100%);
 }
 .S_search1{
     border-color: rgba(0,0,0,0);
@@ -1006,7 +1038,7 @@ button:hover{
     font-size: 11pt;
     margin-top: 5px;
     float: left;
-    width: 240px;
+    width: 230px;
     padding-left: 10px;
     margin-left: 40px;
     color:gray;

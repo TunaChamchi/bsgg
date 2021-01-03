@@ -82,9 +82,7 @@ class Main extends Component {
                     </div>
                 </div>
                 <div className="mainpage_search">
-                    <div className="mainpage_search_select">
-                        <button className="mainpage_search_selectCircle"></button>
-                    </div>
+                    <input type="checkbox" id="switch" /><label className="mainpage_switch1" for="switch">Toggle</label>
                     <input className="mainpage_search_box" value={search} onChange={this.searchHandler} placeholder={intl.formatMessage({id:'main.left.characters.placeholder'})} /> 
                     {
                     searchList.length !== 0 &&
