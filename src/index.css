@@ -4328,7 +4328,7 @@ button:hover{
     float: left;
     position: relative;
     border-radius: 10px;
-    border: 2px solid rgb(189, 160, 0);
+    border: 2px solid gold;
     margin-top: 25px;
     margin-right: 55px;
     margin-left: -155px;
@@ -4359,7 +4359,7 @@ button:hover{
     float: left;
     position: relative;
     border-radius: 10px;
-    border: 2px solid rgb(119, 30, 30);
+    border: 2px solid brown;
     margin-top: 65px;
     margin-bottom: 25px;
     background: linear-gradient(#251f32 0% , #0f0d14 100%);
