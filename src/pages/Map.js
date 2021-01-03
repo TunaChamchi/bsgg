@@ -23,7 +23,6 @@ class Map extends Component {
 
         const metaData = {
             title: 'BSGG.kr - ' + intl.formatMessage({id: 'Title.Map'}),
-            description: '영원회귀 : 블랙 서바이벌 통계, 캐릭터 티어, 아이템 트렌드, BS:ER Stats, Character Tier, Item Trend'
         }
 
         return (

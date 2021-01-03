@@ -71,9 +71,7 @@ class SubBanner extends Component {
                             </Link>
                         </div>
                         <div className="S_search">
-                            <div className="S_search_select">
-                                <button className="S_search_selectCircle"></button>
-                            </div>
+                            <input type="checkbox" id="switch" /><label className="mainpage_switch1" for="switch">Toggle</label>
                             <input className="S_search1" value={search} onChange={this.searchHandler} placeholder={intl.formatMessage({id:'main.banner.placeholder'})} /> 
                         </div>
                         {

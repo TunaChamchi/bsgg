@@ -853,8 +853,7 @@ class Match extends Component {
         const { isUserLoad, userName, user, userStat, matchList, skip } = this.state;
 
         const metaData = {
-            title: 'BSGG.kr - ' + intl.formatMessage({id: 'Title.Map'}),
-            description: '영원회귀 : 블랙 서바이벌 통계, 캐릭터 티어, 아이템 트렌드, BS:ER Stats, Character Tier, Item Trend'
+            title: 'BSGG.kr - ' + userName + " - " + intl.formatMessage({id: 'Title.Match'}),
         }
 
         return (
@@ -870,7 +869,7 @@ class Match extends Component {
                         :
                         !user ? 
                             <div className="Loading_main">
-                                <div className="Loading_main_span">{intl.formatMessage({id: '없음'})}</div>
+                                <div className="Loading_main_span_x">{intl.formatMessage({id: '없음'})}</div>
                             </div>
                             :
                             !userStat ?

@@ -171,8 +171,7 @@ class Rank_Character extends Component {
         const { intl } = this.props;
 
         const metaData = {
-            title: 'BSGG.kr - ' + intl.formatMessage({id: 'Title.Map'}),
-            description: '영원회귀 : 블랙 서바이벌 통계, 캐릭터 티어, 아이템 트렌드, BS:ER Stats, Character Tier, Item Trend'
+            title: 'BSGG.kr - ' + intl.formatMessage({id: 'Title.Rank2'}),
         }
         
         return (
@@ -198,12 +197,12 @@ class Rank_Character extends Component {
                         </div>
                         <div className="record_cha_filter">
                             <div className="record_cha_filter1">#</div>
-                            <div className="record_cha_filter2">플레이어</div>
-                            <div className="record_rank_filter1">티어</div>
-                            <div className="record_rank_filter2">점수</div>
-                            <div className="record_cha_filter3">게임수</div>
-                            <div className="record_cha_filter4">우승</div>
-                            <div className="record_cha_filter5">승률</div>
+                            <div className="record_cha_filter2">{intl.formatMessage({id: '플레이어'})}</div>
+                            <div className="record_rank_filter1">{intl.formatMessage({id: '티어'})}</div>
+                            <div className="record_rank_filter2">{intl.formatMessage({id: '점수'})}</div>
+                            <div className="record_cha_filter3">{intl.formatMessage({id: '게임수'})}</div>
+                            <div className="record_cha_filter4">{intl.formatMessage({id: '우승'})}</div>
+                            <div className="record_cha_filter5">{intl.formatMessage({id: 'winRate'})}</div>
                             <div className="record_rank_filter3">KA/M</div>
                         </div>
                         {this.rankTableView()}

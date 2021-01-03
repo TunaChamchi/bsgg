@@ -9,8 +9,7 @@ class Main extends Component {
         const { intl } = this.props;
         
         const metaData = {
-            title: 'BSGG.kr - ' + intl.formatMessage({id: 'Title.Main'}),
-            description: '영원회귀 : 블랙 서바이벌 통계, 캐릭터 티어, 아이템 트렌드, BS:ER Stats, Character Tier, Item Trend'
+            title: 'BSGG.kr - ' + intl.formatMessage({id: 'Title.newMain'}),
         }
 
         return (

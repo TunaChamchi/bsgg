@@ -83,6 +83,10 @@ button:hover{
     cursor: pointer;
     background-color:  rgba(0,0,0,0);
 }
+.Main_search_box :hover{
+    cursor: pointer;
+    background-color:  rgba(0,0,0,0);
+}
 .footer{
     width: 1150px;
     margin-top: 80px;
@@ -415,32 +419,92 @@ button:hover{
     background-color: #262335;
     border-radius: 50px;
     margin: auto;
-    margin-bottom: 450px;
+    margin-bottom: 280px;
     border-bottom: 1px solid #241b2f;
     position: relative;
 }
-.mainpage_search_select{
-    width: 60px;
-    height: 40px;
-    background-color: rgb(139, 139, 139);
-    border-radius: 50px;
-    font-size: 14pt;
+.mainpage_search input[type=checkbox]{
+	height: 0;
+	width: 0;
+	visibility: hidden;
+}
+.mainpage_search label {
+	cursor: pointer;
+	text-indent: -9999px;
+	width: 60px;
+	height: 40px;
+    background-color: rgb(218, 191, 19);
+	display: block;
+	border-radius: 100px;
     position: absolute;
-    top: 5px;
+    margin-top: -5px;
+    top: 10px;
     left: 5px;
 }
-.mainpage_search_selectCircle{
-    width: 36px;
-    height: 36px;
-    border-radius: 50px;
-    background-color: white;
+.mainpage_search label:after {
+	content: '';
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 34px;
+	height: 34px;
+	background: #fff;
+	border-radius: 90px;
+	transition: 0.3s;
+}
+.mainpage_search input:checked + label {
+	background:rgb(139, 139, 139) ;
+}
+.mainpage_search input:checked + label:after {
+	left: calc(100% - 3px);
+	transform: translateX(-100%);
+}
+.Main_search_box{
+    background-color: rgb(240, 240, 240) ;
     position: absolute;
-    border: none;
-    top: 2px;
-    left: 2px;
+    width: 600px;
+    font-size: 13pt;
+    padding-top: 1px;
+    padding-bottom: 3px;
+    text-align: left;
+    border-radius: 3px;
+    z-index: 1;
+    max-height: 260px;
+    overflow: scroll;
+    color: #171520;
+    margin-top: 15px;
+    z-index: 0;
+}
+.Main_search_box1{
+    width: 600px;
+    height: 45px;
+    background-color: rgb(240, 240, 240) ;
+    margin-top: 2px;
+    color:#171520;    
+}
+.Main_search_box :hover{
+    background-color: rgb(212, 212, 212);
+}
+.Main_search_img{
+    height: 40px;
+    margin-top: 2px;
+    border-radius: 10%;
+    margin-left: 30px;
+    margin-right: 20px;
+    float: left;
+    position: absolute;
+}
+.Main_search_font{
+    display: inline-block;
+    width: 600px;
+    padding-top: 8px;
+    float: left;
+    font-weight: 400;
+    text-align: center;
 }
 .mainpage_search_box{
     background-color: rgba(0,0,0,0);
+    width: 500px;
     border:none;
     font-size: 16pt;
     margin-left: 80px;
@@ -932,25 +996,41 @@ button:hover{
     border-bottom: 1px solid #241b2f;
     position: relative;
 }
-.S_search_select{
-    width: 36px;
-    height: 24px;
-    background-color: rgb(139, 139, 139);
-    border-radius: 50px;
-    font-size: 14pt;
+.S_search input[type=checkbox]{
+	height: 0;
+	width: 0;
+	visibility: hidden;
+}
+.S_search label {
+	cursor: pointer;
+	text-indent: -9999px;
+	width: 36px;
+	height: 24px;
+    background-color: rgb(218, 191, 19);
+	display: block;
+	border-radius: 100px;
     position: absolute;
-    top: 3px;
+    margin-top: -5px;
+    top: 8px;
     left: 3px;
 }
-.S_search_selectCircle{
-    width: 20px;
-    height: 20px;
-    border-radius: 50px;
-    background-color: white;
-    position: absolute;
-    border: none;
+.S_search label:after {
+	content: '';
+	position: absolute;
     top: 2px;
     left: 2px;
+	width: 20px;
+	height: 20px;
+	background: #fff;
+	border-radius: 90px;
+	transition: 0.3s;
+}
+.S_search input:checked + label {
+	background:rgb(139, 139, 139) ;
+}
+.S_search input:checked + label:after {
+	left: calc(100% - 2px);
+	transform: translateX(-100%);
 }
 .S_search1{
     border-color: rgba(0,0,0,0);
@@ -958,7 +1038,7 @@ button:hover{
     font-size: 11pt;
     margin-top: 5px;
     float: left;
-    width: 240px;
+    width: 230px;
     padding-left: 10px;
     margin-left: 40px;
     color:gray;
@@ -997,10 +1077,11 @@ button:hover{
     margin-left: 30px;
     margin-right: 20px;
     float: left;
+    position: absolute;
 }
 .searchfont{
     display: inline-block;
-    width: 125px;
+    width: 300px;
     padding-top: 8px;
     float: left;
     font-weight: 400;
@@ -1522,12 +1603,12 @@ button:hover{
 }
 .item_tab_span1{
     display: inline-block;
-    width: 90px;
+    width: 100px;
     margin-top: 7px;
 }
 .item_tab_span2{
     display: inline-block;
-    width: 90px;
+    width: 100px;
     margin-top: 7px;
 }
 .item_tab_span3{
@@ -3065,9 +3146,11 @@ button:hover{
     display: inline-block;
     width: 30px;
     position: absolute;
-    top: 126px;
+    top: 127px;
     left: 60px;
     text-align: center;
+    font-size: 14pt;
+    font-family: 'Big Shoulders Stencil Display';
 }
 .record_top_iconborder{
     width: 150px;
@@ -3625,7 +3708,7 @@ button:hover{
     font-size: 11pt;
     display: inline-block;
     width: 100px;
-    float: left;
+    float: left
 }
 .record_history_mmr{
     display: inline-block;
@@ -4162,28 +4245,10 @@ button:hover{
     background-color:  #007fd3;
     float: left;
     border-radius: 10px;
+    border: 1px solid #3b4147;
     position: relative;
     margin-top: 8px;
-}
-.record_cha_graphW{
-    width: 50px;
-    height: 20px;
-    background-color:  rgb(244,216,35);
-    border-radius: 10px 0px 0px 10px;
-    position: absolute;
-    left:0px;
-    z-index: 1;
-    top: 0px;
-}
-.record_cha_graphL{
-    width: 50px;
-    height: 20px;
-    background-color: gray;
-    border-radius: 0px 10px 10px 0px;
-    position: absolute;
-    right:0px;
-    z-index: 1;
-    top: 0px;
+    margin-left: -2px;
 }
 .record_cha_span3{
     display: inline-block;
@@ -4273,7 +4338,7 @@ button:hover{
     margin-right: 55px;
     margin-left: -155px;
     margin-bottom: 65px;
-    background: linear-gradient(gold 0% , #0f0d14 100%);
+    background: linear-gradient(#251f32 0% , #0f0d14 100%);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -4288,7 +4353,7 @@ button:hover{
     margin-top: 65px;
     margin-bottom: 25px;
     margin-left: -415px;
-    background: linear-gradient(rgb(255, 255, 255) 0% , #0f0d14 100%);
+    background: linear-gradient(#251f32 0% , #0f0d14 100%);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -4302,7 +4367,7 @@ button:hover{
     border: 2px solid rgb(119, 30, 30);
     margin-top: 65px;
     margin-bottom: 25px;
-    background: linear-gradient(rgb(180, 47, 47) 0% , #0f0d14 100%);
+    background: linear-gradient(#251f32 0% , #0f0d14 100%);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -4318,9 +4383,11 @@ button:hover{
     display: inline-block;
     width: 30px;
     position: absolute;
-    top: 136px;
+    top: 137px;
     left: 85px;
     text-align: center;
+    font-size: 14pt;
+    font-family: 'Big Shoulders Stencil Display';
 }
 .rank_top_iconborder{
     width: 150px;
@@ -4386,28 +4453,7 @@ button:hover{
     position: relative;
     margin-top: 260px;
     margin-left: 10px;
-}
-.rank_top_graphW{
-    width: 30px;
-    min-width: 7px;
-    height: 15px;
-    background-color:  rgb(244,216,35);
-    border-radius: 10px 0px 0px 10px;
-    position: absolute;
-    left:0px;
-    z-index: 1;
-    top: 0px;
-}
-.rank_top_graphL{
-    width: 60px;
-    min-width: 7px;
-    height: 15px;
-    background-color: gray;
-    border-radius: 0px 10px 10px 0px;
-    position: absolute;
-    right:0px;
-    z-index: 1;
-    top: 0px;
+    border: 1px solid #3b4147;
 }
 .rank_top_span4{
     display: inline-block;
@@ -4593,6 +4639,17 @@ button:hover{
 .Loading_main_span{
     text-align: center;
     font-size: 20pt;
+    margin-bottom: 400px;
+}
+.Loading_main_span_x{
+    text-align: center;
+    font-size: 20pt;
+    width: 1152px;
+    margin: 0;
+    display: inline-block;
+    clear: both;
+    margin-top: 365px;
+    margin-bottom: 365px;
 }
 #loading_animation{
     display: inline-block;
