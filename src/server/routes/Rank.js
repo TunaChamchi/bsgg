@@ -187,7 +187,7 @@ router.get('/character', async (req, res, next) => {
     const code =  parseInt(req.query.characterCode);
     const characterRank = await UserStat.find(
         { ['characterStats.'+code]: {$exists:true} }, 
-        { _id: 0, userNum: 1, ['characterStats.'+code]: 1, nickname: 1 }, 
+        { _id: 0, userNum: 1, ['characterStats.'+code]: 1, nickname: 1, 'seasonStats.1':1 }, 
         { 
             limit: 50,
             sort: { ['characterStats.'+code+'.totalGames']: -1 }

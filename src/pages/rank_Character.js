@@ -49,9 +49,10 @@ class Rank_Character extends Component {
         }
     }
 
-    rankData = (rank, width) => {
+    rankData = (rank) => {
         const { character } = this.state;
         const stat = rank['characterStats'][character];
+        const userStat = rank['seasonStats'][1];
 
         if (!stat) return null;
 
@@ -59,15 +60,20 @@ class Rank_Character extends Component {
         const top1  = stat['top1'];
         const top3  = stat['top3'] - stat['top1'];
         const loss  = total - stat['top3'];
-        const rate  =  Math.round(stat['top1']/total*100);
+        const rate  = Math.round(stat['top1']/total*100);
 
         const kam   = (stat['totalKills'] + stat['totalAssistants']) / total;
-        const tier  = Math.floor(rank['mmr']/100) || 1;
-        const lp    = rank['mmr']-tier*100 || 0;
 
-        const top1Width = top1/total * width;
-        const top3Width = top3/total * 100;
-        const lossWidth = loss/total * width;
+        const top1Width = top1/total *100;
+        const top3Width = top3/total *100;
+        const lossWidth = loss/total *100;
+
+        let maxMmr = 0;
+        Object.keys(userStat).forEach(t => 
+            maxMmr = Math.max(maxMmr, userStat[t]['mmr'])
+        )
+        const tier  = Math.floor(maxMmr/100) || 1;
+        const lp    = maxMmr-tier*100 || 0;
 
         const _stat = {
             top1: top1,
@@ -91,7 +97,7 @@ class Rank_Character extends Component {
         if (rank.length === 0) return;
 
         return [1, 0, 2].map((number, idx) => {
-            const stat = this.rankData(rank[number], 130);
+            const stat = this.rankData(rank[number]);
 
             if (!stat) return;
 
@@ -123,7 +129,7 @@ class Rank_Character extends Component {
         if (rank.length === 0) return;
         
         return rank.slice(3, 50).map((user, idx) => {
-            const stat = this.rankData(user, 200);
+            const stat = this.rankData(user);
 
             if (!stat) return;
             
