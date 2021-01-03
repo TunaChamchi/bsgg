@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { injectIntl  } from 'react-intl';
-import { Footer, Langauge  } from 'components/banner';
+import { Footer, Langauge, Header  } from 'components/banner';
 import { getCharacterKeys, getCharacter } from 'lib/data'
 import logo from 'img/main_logo.svg';
 
@@ -37,9 +37,9 @@ class Main extends Component {
 
         return searchList.map((data, idx) => 
             <Link to={'Detail?character='+data} key={idx} onClick={(e)=> this.selectHandler(e)}>
-                <div className="S_search4" >
-                    <img className="searchimg" src={'img/Rank/'+getCharacter(data)['name']+'.jpg'} />
-                    <div className="searchfont"> {intl.formatMessage({id: 'characters.'+getCharacter(data)['name']})} </div>
+                <div className="Main_search_box1" >
+                    <img className="Main_search_img" src={'img/Rank/'+getCharacter(data)['name']+'.jpg'} />
+                    <div className="Main_search_font"> {intl.formatMessage({id: 'characters.'+getCharacter(data)['name']})} </div>
                 </div>
             </Link>
         );
@@ -50,12 +50,12 @@ class Main extends Component {
         const { search, searchList } = this.state;
         
         const metaData = {
-            title: 'BSGG.kr - ' + intl.formatMessage({id: 'Title.Main'}),
-            description: '영원회귀 : 블랙 서바이벌 통계, 캐릭터 티어, 아이템 트렌드, BS:ER Stats, Character Tier, Item Trend'
+            title: 'BSGG.kr - ' + intl.formatMessage({id: 'Title.newMain'}),
         }
 
         return (
             <div>
+            <Header data={metaData}/>
                 <div className="mainpage_banner">
                     <img className="mainpage_logo" src={logo} />
                     <div className="mainpage_banner_option">
@@ -86,13 +86,14 @@ class Main extends Component {
                         <button className="mainpage_search_selectCircle"></button>
                     </div>
                     <input className="mainpage_search_box" value={search} onChange={this.searchHandler} placeholder={intl.formatMessage({id:'main.left.characters.placeholder'})} /> 
-                </div>
-                {
+                    {
                     searchList.length !== 0 &&
-                        <div multiple className="S_search3">
+                        <div multiple className="Main_search_box">
                             {this.searchView()}
                         </div>
                 }
+                </div>
+                
                 {/*<div className="mainpage_ad">
                     d
                 </div>*/}

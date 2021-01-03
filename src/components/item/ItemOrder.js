@@ -160,7 +160,7 @@ class ItemOrder extends Component {
         return viewList.map((view, idx) => {
             return (
                 <div className={"item_route_spawnY"+((idx+1)%3===0?'-R':'')} key={"route_spawnY"+idx}>
-                    <div className="item_route_spawn_title">{idx+1} {view['name']}</div>
+                    <div className="item_route_spawn_title">{idx+1} {intl.formatMessage({id: view['name']})}</div>
                     <div className="item_route_spawn_Make">
                         {
                             view['item'].map((item, idx) =>
