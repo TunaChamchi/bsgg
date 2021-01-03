@@ -202,6 +202,7 @@ class ItemOrder extends Component {
                 {
                     routeList.length !== 0 && 
                         <div className="item_route">
+                            <img className="item_route_startimg" src="/img/Weapons/단검.jpg" />
                             <div className="tabHeaders">
                                 {this.itemRouteTabView()}
                             </div>
