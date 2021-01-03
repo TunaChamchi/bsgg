@@ -432,7 +432,7 @@ class Match extends Component {
                         <img className="record_most_img" src={"img/Rank/"+getCharacter(char['code'])['name']+".jpg"} />
                     </Link>
                     <div className="record_most_span">
-                        <div className="record_most_span1">{getCharacter(char['code'])['name']}</div>
+                        <div className="record_most_span1">{intl.formatMessage({id:"characters."+getCharacter(char['code'])['name']})}</div>
                         <div className="record_most_span2">{intl.formatMessage({id: "winRate" })} {(char['top1']/char['totalGames']*100).toFixed(1)}%</div>
                         <div className="record_most_span3"> 
                             <span className={"record_history_kda"+kamSytle}>{kam.toFixed(1)} KA/M</span>
@@ -554,7 +554,7 @@ class Match extends Component {
                                 <img className="record_history_img" src={"img/Rank/"+character+".jpg"} />
                             </Link>
                             <img className="record_history_weapon" src={"img/Weapons/"+getWeaponType(weapon)+".jpg"} />
-                            <div className="record_history_name">{character}</div>
+                            <div className="record_history_name">{intl.formatMessage({id:"characters."+character})}</div>
                         </div>
                         <div className="record_history3-4">
                             <div className="record_history3">

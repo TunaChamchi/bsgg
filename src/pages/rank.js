@@ -190,11 +190,12 @@ class Rank extends Component {
         this.setState({gameMode: index, index:3, rankTop:[], rank:[]});
     }
     gameModeTabView = () => {
+        const { intl } = this.props;
         const { page, gameMode, gameModeList } = this.state;
         return gameModeList.map((mode, idx) => 
             <Link to={'/Rank?mode='+idx+'&page='+page} key={'cha_tab_'+idx}>
                 <div className={'rank_cha_tab1'+(idx===gameMode?' actived':'')}>
-                    {mode}
+                    {intl.formatMessage({id: mode})}
                 </div>
             </Link>
         )
@@ -220,9 +221,9 @@ class Rank extends Component {
                         <div className="record_cha0">
                             <span className="record_cha0_span">RANK</span>
                             <div className="record_cha0_tabs">
-                                <div className="record_cha0_tab actived">ALL</div>
+                                <div className="record_cha0_tab actived">{intl.formatMessage({id: '전체'})}</div>
                                 <Link to={'/RankCharacter'}>
-                                    <div className="record_cha0_tab">Character</div>
+                                    <div className="record_cha0_tab">{intl.formatMessage({id: '장인'})}</div>
                                 </Link>
                             </div>
                         </div>

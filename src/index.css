@@ -205,6 +205,7 @@ button:hover{
     padding: 5px;
     text-align: center;
     margin-top: 38px;
+    margin-left: -5px;
 }
 .S_item_tooltip4{
     visibility: hidden;
@@ -4081,8 +4082,7 @@ button:hover{
 }
 .record_cha0_tabs{
     float: right;
-    margin-top: 9px;
-    font-family: "Big Shoulders Stencil Display";
+    margin-top: 1px;
 }
 .record_cha0_tabs .actived{
     color: rgb(209, 209, 209);
@@ -4180,15 +4180,7 @@ button:hover{
 }
 .record_cha_filter7{
     display: inline-block;
-    width: 80px;
-    float: left;
-    border-bottom: 1px solid #3b4147;
-    margin-top: 3px;
-    height: 28px;
-}
-.record_cha_filter8{
-    display: inline-block;
-    width: 80px;
+    width: 120px;
     float: left;
     border-bottom: 1px solid #3b4147;
     margin-top: 3px;
@@ -4196,7 +4188,7 @@ button:hover{
 }
 .record_cha_filter9{
     display: inline-block;
-    width: 80px;
+    width: 120px;
     float: left;
     border-bottom: 1px solid #3b4147;
     margin-top: 3px;
@@ -4307,21 +4299,14 @@ button:hover{
 }
 .record_cha_span9{
     display: inline-block;
-    width: 80px;
-    float: left;
-    margin-top: 15px;
-    height: 28px;
-}
-.record_cha_span10{
-    display: inline-block;
-    width: 80px;
+    width: 120px;
     float: left;
     margin-top: 15px;
     height: 28px;
 }
 .record_cha_span11{
     display: inline-block;
-    width: 80px;
+    width: 120px;
     float: left;
     margin-top: 15px;
     height: 28px;
@@ -4617,6 +4602,9 @@ button:hover{
     height: 20px;
     text-align: center;
     font-size: 10pt;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .rank_center_button{
     width: 50px;

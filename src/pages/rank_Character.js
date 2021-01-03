@@ -157,11 +157,12 @@ class Rank_Character extends Component {
     }
 
     characterTabView = () => {
+        const { intl } = this.props;
         return getCharacterKeys().map((code, idx) => 
             <Link to={'/RankCharacter?character='+code} key={'select_box_'+idx}>
                 <div className="rank_cha_select_box">
                     <img className="record_select_img actived" src={"img/Rank/"+getCharacter(code)['name']+".jpg"} />
-                    <span className="record_select_span">{getCharacter(code)['name']}</span>
+                    <span className="record_select_span">{intl.formatMessage({id:"characters."+getCharacter(code)['name']})}</span>
                 </div>
             </Link>
         )
@@ -187,9 +188,9 @@ class Rank_Character extends Component {
                             <span className="record_cha0_span">RANK</span>
                             <div className="record_cha0_tabs">
                                 <Link to={'/Rank'}>
-                                    <div className="record_cha0_tab">ALL</div>
+                                    <div className="record_cha0_tab">{intl.formatMessage({id: '전체'})}</div>
                                 </Link>
-                                <div className="record_cha0_tab actived">Character</div>
+                                <div className="record_cha0_tab actived">{intl.formatMessage({id: '장인'})}</div>
                             </div>
                         </div>
                         <div className="rank_cha_select">

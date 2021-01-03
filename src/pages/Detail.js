@@ -311,7 +311,7 @@ class Detail extends Component {
                         <div className="master0">Master</div>
                         {this.mostUserView()}
                         <Link to={'/RankCharacter?character=' +character}>
-                            <button className="master_button">더 보기</button>
+                            <button className="master_button">{intl.formatMessage({id: '더 보기'})}</button>
                         </Link>
                     </div>
                 </div>
