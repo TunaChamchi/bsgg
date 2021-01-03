@@ -29,7 +29,7 @@ class Tier extends Component {
     componentDidUpdate(prevProps, prevState){
         const { isStartLoad, tier, preTier } = this.props;
         if (isStartLoad !== prevProps.isStartLoad) {
-            console.log('Tier Test');
+            //console.log('Tier Test');
 
             const tierList = {};
             tier.forEach((t, idx) => {

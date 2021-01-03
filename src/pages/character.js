@@ -233,6 +233,7 @@ class Character extends Component {
     }
 
     characterTableView = () => {
+        const { intl } = this.props;
         const { userStat, matchMode, teamMode } = this.state;
 
         const list = [];
@@ -296,7 +297,7 @@ class Character extends Component {
                 <div className="record_cha_box" key={"record_cha_box_"+idx}>
                     <div className="record_cha_span1">{idx+1}</div>
                     <img className="record_cha_img" src={"img/Rank/"+getCharacter(char['code'])['name']+".jpg"} />
-                    <div className="record_cha_span2">{getCharacter(char['code'])['name']}</div>
+                    <div className="record_cha_span2">{intl.formatMessage({id:"characters."+getCharacter(char['code'])['name']})}</div>
                     <div className="record_cha_span3">{char['totalGames']}</div>
                     <div className="record_cha_graph" 
                         style={{background: 'linear-gradient(to right, rgb(244,216,35) 0% '+top1Width+'%, rgb(49, 106, 190) '+top1Width+'% '+top3Width+'%, gray '+top3Width+'% 100%)'}}>
@@ -360,12 +361,12 @@ class Character extends Component {
                                             </div>
                                             <div className="record_cha_filter">
                                                 <div className="record_cha_filter1">#</div>
-                                                <div className="record_cha_filter2">캐릭터</div>
-                                                <div className="record_cha_filter3">게임수</div>
-                                                <div className="record_cha_filter4 actived">우승</div>
-                                                <div className="record_cha_filter5">승률</div>
+                                                <div className="record_cha_filter2">{intl.formatMessage({id: "캐릭터" })}</div>
+                                                <div className="record_cha_filter3">{intl.formatMessage({id: "게임수" })}</div>
+                                                <div className="record_cha_filter4">{intl.formatMessage({id: "우승" })}</div>
+                                                <div className="record_cha_filter5">{intl.formatMessage({id: "winRate" })}</div>
                                                 <div className="record_cha_filter6">KDA</div>
-                                                <div className="record_cha_filter7">최다킬</div>
+                                                <div className="record_cha_filter7">{intl.formatMessage({id: "최다킬" })}</div>
                                                 <div className="record_cha_filter9">CS</div>
                                             </div>
                                             {this.characterTableView()}
