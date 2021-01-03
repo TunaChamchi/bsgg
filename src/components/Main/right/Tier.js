@@ -7,7 +7,7 @@ class Tier extends Component {
 	constructor(props) {
         super(props);
         this.state = {
-            isLoad: false,
+            isStartLoad: false,
             tierList: [],
             preRankList: {},
             type: ['total', 'winRate', 'pickRate', 'avgKAM', 'avgRank'],
@@ -27,9 +27,10 @@ class Tier extends Component {
     // };
 
     componentDidUpdate(prevProps, prevState){
-        const { isLoad, tier, preTier } = this.props;
-        const _isLoad = this.state.isLoad;
-        if (isLoad && !_isLoad) {
+        const { isStartLoad, tier, preTier } = this.props;
+        if (isStartLoad !== prevProps.isStartLoad) {
+            console.log('Tier Test');
+
             const tierList = {};
             tier.forEach((t, idx) => {
                 tierList[idx] = [];
@@ -57,7 +58,7 @@ class Tier extends Component {
                 }
             });
     
-            this.setState({ isLoad: true, tierList: tierList, preTier:preTierList });
+            this.setState({ isStartLoad: true, tierList: tierList, preTier:preTierList });
         }
     };
 

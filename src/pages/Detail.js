@@ -11,7 +11,7 @@ class Detail extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLoad: false,
+            isStartLoad: false,
             stats: [],
             mostUser: [],
             character: -1,
@@ -44,7 +44,7 @@ class Detail extends Component {
     
     componentDidMount() {
         window.scrollTo(0, 0);
-        this.setState({ isLoad: true })
+        this.setState({ isStartLoad: true })
     }
 
     componentDidUpdate(prevProps, prevState) {

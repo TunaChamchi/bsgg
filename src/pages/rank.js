@@ -9,7 +9,7 @@ class Rank extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLoad: false,
+            isStartLoad: false,
             page: -1,
             gameMode: -1,
             search: '',
@@ -26,7 +26,7 @@ class Rank extends Component {
     componentDidMount() {
         window.scrollTo(0, 0);
 
-        this.setState({ isLoad: true })
+        this.setState({ isStartLoad: true })
     }
 
     componentDidUpdate(prevProps, prevState){
@@ -79,7 +79,7 @@ class Rank extends Component {
         }
     }
 
-    rankData = (rank, width) => {
+    rankData = (rank) => {
         const { gameMode } = this.state;
         const stat = rank['stat'].filter(s => s['index'].includes('1_'+(gameMode+1)))[0];
 
@@ -125,7 +125,7 @@ class Rank extends Component {
 
         console.log('rankTop', rankTop);
         return [1, 0, 2].map((number, idx) => {
-            const stat = this.rankData(rankTop[number], 130);
+            const stat = this.rankData(rankTop[number]);
 
             if (!stat) return;
 
@@ -159,7 +159,7 @@ class Rank extends Component {
         if (rank.length === 0) return;
         
         return rank.map((user, idx) => {
-            const stat = this.rankData(user, 200);
+            const stat = this.rankData(user);
 
             if (!stat) return;
             

@@ -9,7 +9,8 @@ class Match extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLoad: false,
+            isStartLoad: false,
+            isUserLoad: true,
             isReNew: false,
             skip:0,
             matchList: [],
@@ -27,7 +28,7 @@ class Match extends Component {
 
     componentDidMount() {
         window.scrollTo(0, 0);
-        this.setState({ isLoad: true })
+        this.setState({ isStartLoad: true })
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -39,7 +40,7 @@ class Match extends Component {
 
     fetchHandler = async (query, prevState) => {
         const { skip, user, matchStat, matchList, matchCond, matchDetail, isReNew } = this.state;
-        const userName  = query.userName || '영도99';
+        const userName  = query.userName || '';
         const matchMode = parseInt(query.matchMode) || 0;
         const teamMode  = parseInt(query.teamMode) || 0;
         //console.log('fetchHandler', query, prevState.userName, prevState.matchCond);
@@ -56,7 +57,17 @@ class Match extends Component {
             await fetch('/api/User/'+userName)
                 .then(res => res.json())
                 .then(res => { _user = res['user']; _userStat = res['userStat']; });
-            
+
+            if (!_user && !_userStat) {
+                console.log('!_user && !_userStat');
+                this.setState({ userName: userName, user: null, userStat: null, isUserLoad: false });
+                return;
+            } else if (!_userStat) {
+                console.log('!_userStat');
+                this.setState({ userName: userName, user: _user, userStat: null, isUserLoad: false });
+                return;
+            }
+
             await fetch('/api/User/'+_user['userNum']+'/match?limit=20&'+
                     'matchMode='+matchMode+'&teamMode='+teamMode)
                 .then(res => res.json())
@@ -117,7 +128,7 @@ class Match extends Component {
                 user: _user, userName: userName,
                 matchCond: { matchMode:matchMode, teamMode: teamMode },
                 userStat: _userStat, matchList: _matchList, matchDetail: matchDetail,
-                matchStat: _matchStat, mmrCurrent: mmrCurrent 
+                matchStat: _matchStat, mmrCurrent: mmrCurrent, isUserLoad: false
             });
         } else if (skip !== prevState.skip) { // 더보기 클릭시
             let _matchList;
@@ -155,7 +166,7 @@ class Match extends Component {
                 matchList:matchList, matchStat:matchStat
             });
         } else if (isReNew !== prevState.isReNew && isReNew === true) {
-            await fetch('/api/User/'+user['userNum']+'/renew')
+            await fetch('/api/User/'+user['nickname']+'/renew')
                 .then(res => res.json())
                 .then(res => this.setState({ isReNew: false }) );
         }
@@ -276,6 +287,36 @@ class Match extends Component {
                         <img className="record_top_medal" src={"img/medal/"+win+".png"} />
                         <div className="medal_span_tooltip"><span>{intl.formatMessage({id: 'badge.'+win })}</span></div>
                     </div>}
+            </div>
+        )
+    }
+    
+    topView2() {
+        const { intl } = this.props;
+        const { user, tierList, isReNew } = this.state;
+
+        return (
+            <div className="record_top">
+                <div className="record_top_icon">
+                    <img className="record_top_iconimg" src={''} />
+                    <img className="record_top_iconborder" src={''} />
+                    <span className="record_top_lv"></span>
+                </div>
+                <div className="record_top_right">
+                    <div className="record_top_name">{user['nickname']}</div>
+                    {
+                        isReNew ?
+                            <button className="record_top_renew">
+                                <div id="loading"></div>
+                            </button>
+                            :
+                            <button className="record_top_renew"
+                                onClick={(e) => this.setState({ isReNew: true })}>
+                                {intl.formatMessage({id: "전적갱신" })}
+                            </button> 
+                    }
+                    <span className="record_top_updated">{intl.formatMessage({id: "최근 업데이트" })} {user['updateDate']}</span>
+                </div>
             </div>
         )
     }
@@ -809,65 +850,86 @@ class Match extends Component {
 
     render() {
         const { intl } = this.props;
-        const { userStat, matchList, skip } = this.state;
+        const { isUserLoad, user, userStat, matchList, skip } = this.state;
 
         const metaData = {
             title: 'BSGG.kr - ' + intl.formatMessage({id: 'Title.Map'}),
             description: '영원회귀 : 블랙 서바이벌 통계, 캐릭터 티어, 아이템 트렌드, BS:ER Stats, Character Tier, Item Trend'
         }
 
-        if (!userStat) return '';
-
         return (
             <div>
                 <Header data={metaData}/>
                 <SubBanner />
-                {this.topView()}
-                <div className="record_main">
-                    <div className="record_left">
-                        <div className="record_rank">
-                            <span className="record_rank0">RANK</span>
-                            {this.rankView()}
+                {
+                    isUserLoad ? 
+                        <div className="Loading_main">
+                            <div id="loading_animation"></div>
+                            <div className="Loading_main_span">{intl.formatMessage({id: '로딩'})}</div>
                         </div>
-                        <div className="record_most">
-                            <span className="record_most0">MOST 5</span>
-                            <div className="record_most_tabs">
-                                {this.mostSeasonTab()}
+                        :
+                        !user ? 
+                            <div className="Loading_main">
+                                <div className="Loading_main_span">{intl.formatMessage({id: '없음'})}</div>
                             </div>
-                            <div className="record_most_tabs">
-                                {this.mostTeamModeTab()}
-                            </div>
-                            {this.mostCharacterView()}
-                            <Link to={'/Character?userName='}>
-                                <button className="record_most_button">{intl.formatMessage({id: "더 보기" })}</button>
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="record_rigth">
-                        <div className="record_match">
-                            <div className="record_match0">
-                                <span className="record_match0_span">Match History</span>
-                                <div className="record_match0_tabs">
-                                    {this.matchModeSeasonTab()}
+                            :
+                            !userStat ?
+                                <div>
+                                    {this.topView2()}                                
+                                    <div className="Loading_main">
+                                        <div className="Loading_main_span">{intl.formatMessage({id: '전적없음'})}</div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="record_most_tabs">
-                                {this.matchModeTeamModeTab()}
-                            </div>
-                            {this.recentHistory()}
-                            <div className="record_trend_most_box">
-                                {this.recentHistoryCharacter()}
-                            </div>
-                        </div>
-                        <div className="record_history">
-                            {this.matchHistoryView()}
-                            {
-                                matchList.length!==0 && matchList.length%20===0 &&
-                                    <button className="record_history_button" onClick={(e) => this.setState({skip:skip+20})}>{intl.formatMessage({id: "더 보기" })}</button>
-                            }
-                        </div>
-                    </div>
-                </div>
+                                :
+                                <div>
+                                    {this.topView()}
+                                    <div className="record_main">
+                                        <div className="record_left">
+                                            <div className="record_rank">
+                                                <span className="record_rank0">RANK</span>
+                                                {this.rankView()}
+                                            </div>
+                                            <div className="record_most">
+                                                <span className="record_most0">MOST 5</span>
+                                                <div className="record_most_tabs">
+                                                    {this.mostSeasonTab()}
+                                                </div>
+                                                <div className="record_most_tabs">
+                                                    {this.mostTeamModeTab()}
+                                                </div>
+                                                {this.mostCharacterView()}
+                                                <Link to={'/Character?userName='}>
+                                                    <button className="record_most_button">{intl.formatMessage({id: "더 보기" })}</button>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                        <div className="record_rigth">
+                                            <div className="record_match">
+                                                <div className="record_match0">
+                                                    <span className="record_match0_span">Match History</span>
+                                                    <div className="record_match0_tabs">
+                                                        {this.matchModeSeasonTab()}
+                                                    </div>
+                                                </div>
+                                                <div className="record_most_tabs">
+                                                    {this.matchModeTeamModeTab()}
+                                                </div>
+                                                {this.recentHistory()}
+                                                <div className="record_trend_most_box">
+                                                    {this.recentHistoryCharacter()}
+                                                </div>
+                                            </div>
+                                            <div className="record_history">
+                                                {this.matchHistoryView()}
+                                                {
+                                                    matchList.length!==0 && matchList.length%20===0 &&
+                                                        <button className="record_history_button" onClick={(e) => this.setState({skip:skip+20})}>{intl.formatMessage({id: "더 보기" })}</button>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                }
                 <Footer />
             </div>
         );

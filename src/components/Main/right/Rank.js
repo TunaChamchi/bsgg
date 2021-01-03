@@ -7,7 +7,7 @@ class Rank extends Component {
 	constructor(props) {
         super(props);
         this.state = {
-            isLoad: false,
+            isStartLoad: false,
             type: ['solo', 'duo', 'squad'],
             typeFocus: 0,
         };
@@ -23,9 +23,9 @@ class Rank extends Component {
         let tier;
         await fetch('/api/Character/Tier')
             .then(res => res.json())
-            .then(res => this.setState({ tier:res['tier'], preTier:res['preTier'], isLoad: true }));
+            .then(res => this.setState({ tier:res['tier'], preTier:res['preTier'], isStartLoad: true }));
             
-        this.setState({ tier:tier, isLoad: true });
+        this.setState({ tier:tier, isStartLoad: true });
     }
     
     typeHandler = (idx) => {
@@ -46,7 +46,7 @@ class Rank extends Component {
 
     render() {
         const { intl } = this.props;
-        const { isLoad, tier, preTier, typeFocus } = this.state;
+        const { isStartLoad, tier, preTier, typeFocus } = this.state;
 
         return (
             <div>
@@ -70,7 +70,7 @@ class Rank extends Component {
                 <Tier 
                     tier={tier}
                     preTier={preTier}
-                    isLoad={isLoad}
+                    isStartLoad={isStartLoad}
                     type={typeFocus}/>
             </div>
         );
