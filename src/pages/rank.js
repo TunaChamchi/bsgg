@@ -50,7 +50,7 @@ class Rank extends Component {
 
         const index = ((page-1)*100) + 3;
         if (mode !== this.state.gameMode) {
-            console.log('gameMode', mode, prevState.gameMode);
+            //console.log('gameMode', mode, prevState.gameMode);
             let rank;
             
             await fetch('/api/Rank?mode='+(mode+1)+'&skip=0&limit=103')
@@ -60,7 +60,7 @@ class Rank extends Component {
             this.setState({ gameMode:mode, page:page, rankTop:rank.slice(0, 3), rank:rank.slice(3, 103) });
         } else if (page !== this.state.page) {
             window.scrollTo(0, 0);
-            console.log('page', page, prevState.page);
+            //console.log('page', page, prevState.page);
             let rank;
 
             await fetch('/api/Rank?mode='+(mode+1)+'&skip='+index+'&limit=100')
@@ -69,7 +69,7 @@ class Rank extends Component {
 
             this.setState({ page:page, rank:rank });
         } else if (search !== prevState.search) {
-            console.log('search');
+            //console.log('search');
 
             fetch('/api/Rank?mode='+(mode+1)+'&search='+search)
                 .then(res => res.json())
@@ -123,13 +123,13 @@ class Rank extends Component {
         const { rankTop, tierList, gameMode } = this.state;
         if (rankTop.length === 0) return;
 
-        console.log('rankTop', rankTop);
+        //console.log('rankTop', rankTop);
         return [1, 0, 2].map((number, idx) => {
             const stat = this.rankData(rankTop[number]);
 
             if (!stat) return;
 
-            console.log(stat['top1Width'], stat['top3Width']);
+            //console.log(stat['top1Width'], stat['top3Width']);
 
             return (
                 <div className={"rank_top_"+number} key={"rank_top_"+idx}>
@@ -212,7 +212,7 @@ class Rank extends Component {
         return (
             <div>
                 <Header data={metaData}/>
-                <SubBanner />
+                <SubBanner actived={'Rank'} />
                 <div className="rank_top">
                     {this.rankTopView()}
                 </div>

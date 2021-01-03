@@ -471,7 +471,8 @@ button:hover{
     border-radius: 3px;
     z-index: 1;
     max-height: 260px;
-    overflow: scroll;
+    overflow-y: auto;
+    overflow-x: none;
     color: #171520;
     margin-top: 15px;
     z-index: 0;
@@ -1058,7 +1059,8 @@ button:hover{
     border-radius: 3px;
     z-index: 1;
     max-height: 260px;
-    overflow: scroll;
+    overflow-y: auto;
+    overflow-x: none;
     color: #171520;    
 }
 .S_search4{
@@ -1279,7 +1281,6 @@ button:hover{
     width: 250px;
     height: 236px;
     background-color: #251f32;
-    overflow: scroll;
 }
 .skill_tab{
     width: 246px;
@@ -1658,7 +1659,7 @@ button:hover{
     width: 780px;
     height: 340px;
     background-color: #262335;
-    overflow-y: scroll;
+    overflow-y: hidden;
     border-radius: 0px 0px 3px 3px;
 }
 .item_route_spawnY{
@@ -1683,12 +1684,10 @@ button:hover{
     height: 36px;
     border-bottom: 1px solid #3b4147;
     padding-left: 7px;
-    overflow-x: scroll;
 }
 .item_route_spawn_Need{
     height: 106px;
     padding-left: 7px;
-    overflow-y: scroll;
     float: left;
 }
 .item_route_spawn_Make_img{
@@ -1723,7 +1722,7 @@ button:hover{
     width: 389px;
     height: 757px;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
     border-radius: 3px;
 }
 .S_right{
@@ -2605,7 +2604,8 @@ button:hover{
     border-radius: 5px;
     background-color:  #241b2f;
     border-bottom: 1px solid #171520;
-    overflow: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .Route_R_stat_title{
     width: 372px;
@@ -4583,7 +4583,8 @@ button:hover{
     width: 1142px;
     height: 155px;
     background-color: #262335;
-    overflow: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
     border-bottom: 1px solid #3b4147;
 }
 .rank_cha_select :hover{

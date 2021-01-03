@@ -51,11 +51,11 @@ class Character extends Component {
                 .then(res => { _user = res['user']; _userStat = res['userStat']; });
 
             if (!_user && !_userStat) {
-                console.log('!_user && !_userStat');
+                //console.log('!_user && !_userStat');
                 this.setState({ userName: userName, user: null, userStat: null, isUserLoad: false });
                 return;
             } else if (!_userStat) {
-                console.log('!_userStat');
+                //console.log('!_userStat');
                 this.setState({ userName: userName, user: _user, userStat: null, isUserLoad: false });
                 return;
             }

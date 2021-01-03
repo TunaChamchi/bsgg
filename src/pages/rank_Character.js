@@ -35,10 +35,10 @@ class Rank_Character extends Component {
 
     fetchHandler = async (query, prevState) => {
         const character = parseInt(query.character) || 1;
-        console.log('character', character, prevState.character);
+        //console.log('character', character, prevState.character);
 
         if (character !== this.state.character) {
-            console.log('character', character, prevState.character);
+            //console.log('character', character, prevState.character);
             let rank;
             
             await fetch('/api/Rank/character?characterCode='+character)
@@ -178,7 +178,7 @@ class Rank_Character extends Component {
         return (
             <div>
                 <Header data={metaData}/>
-                <SubBanner />
+                <SubBanner actived={'Rank'} />
                 <div className="rank_top">
                     {this.rankTopView()}
                 </div>

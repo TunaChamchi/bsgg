@@ -61,11 +61,11 @@ class Match extends Component {
                 .then(res => { _user = res['user']; _userStat = res['userStat']; _ranking = res['ranking'] });
 
             if (!_user && !_userStat) {
-                console.log('!_user && !_userStat');
+                //console.log('!_user && !_userStat');
                 this.setState({ userName: userName, user: null, userStat: null, isUserLoad: false });
                 return;
             } else if (!_userStat) {
-                console.log('!_userStat');
+                //console.log('!_userStat');
                 this.setState({ userName: userName, user: _user, userStat: null, isUserLoad: false });
                 return;
             }
@@ -221,7 +221,7 @@ class Match extends Component {
     }
 
     setStateHandle (key, value) {
-        console.log(key, value);
+        //console.log(key, value);
         this.setState({ [key]: value });
     }
 
@@ -590,7 +590,7 @@ class Match extends Component {
             const seasonId = intl.formatMessage({id: match['seasonId'] ? '랭크' : '일반' });
             const teamMode = intl.formatMessage({id: matchingTeamMode[match['matchingTeamMode']] });
 
-            const win = match['gameRank'] === 1 ? 'win' : match['gameRank'] < 4 ? 'top' : 'loss';
+            const win = match['gameRank'] === 1 ? 'win' : (match['gameRank'] < 4 && match['gameRank'] > 1) ? 'top' : 'loss';
             const k = match['playerKill'] > 4 ? '3' : match['playerKill'] > 2 ? '2' : '1';
             const a = match['playerAssistant'] > 4 ? '3' : match['playerAssistant'] > 2 ? '2' : '1';
             const c = match['monsterKill'] > 50 ? '3' : match['monsterKill'] > 35 ? '2' : '1';
@@ -600,7 +600,7 @@ class Match extends Component {
                     <div className="record_history_box" key={'history_box'+idx}>
                         <div className={"record_history_"+win}></div>
                         <div className="record_history1">
-                            <div className={"record_history_rank_"+win}>{match['gameRank']}</div>
+                            <div className={"record_history_rank_"+win}>{match['gameRank']<0?'AFK':match['gameRank']}</div>
                             <div className="record_history_filter">{seasonId}/{teamMode}</div>
                             <div className="record_history_date">{strDay}</div>
                         </div>
@@ -785,6 +785,12 @@ class Match extends Component {
             } else {
                 return (
                     <div className={"record_history_detail_box"} key={'detail_box_left_'+idx}>
+                        <div className="record_history_detail_rank" >{match['gameRank']}</div>
+                        <img className="record_history_detail_cha" style={{border:'0px'}} src={''} />
+                        <div className="record_history_detail_box1">
+                            <div className="record_history_detail_name" >Unknow</div>
+                            <div className="record_history_detail_tier" ></div>
+                        </div>
                     </div>
                 )
             }
@@ -820,6 +826,12 @@ class Match extends Component {
             } else {
                 return (
                     <div className={"record_history_detail_box"} key={'detail_box_right_'+idx}>
+                        <div className="record_history_detail_rank" >{match['gameRank']}</div>
+                        <img className="record_history_detail_cha" style={{border:'0px'}} src={''} />
+                        <div className="record_history_detail_box1">
+                            <div className="record_history_detail_name" >Unknow</div>
+                            <div className="record_history_detail_tier" ></div>
+                        </div>
                     </div>
                 )
             }
@@ -859,6 +871,12 @@ class Match extends Component {
             } else {
                 return (
                     <div className={"record_history_detail_box"} key={'detail_box_left_'+idx}>
+                        <div className="record_history_detail_rank" >{match['gameRank']}</div>
+                        <img className="record_history_detail_cha" style={{border:'0px'}} src={''} />
+                        <div className="record_history_detail_box1">
+                            <div className="record_history_detail_name" >Unknow</div>
+                            <div className="record_history_detail_tier" ></div>
+                        </div>
                     </div>
                 )
             }
@@ -897,6 +915,12 @@ class Match extends Component {
             } else {
                 return (
                     <div className={"record_history_detail_box"} key={'detail_box_right_'+idx}>
+                        <div className="record_history_detail_rank" >{match['gameRank']}</div>
+                        <img className="record_history_detail_cha" style={{border:'0px'}} src={''} />
+                        <div className="record_history_detail_box1">
+                            <div className="record_history_detail_name" >Unknow</div>
+                            <div className="record_history_detail_tier" ></div>
+                        </div>
                     </div>
                 )
             }

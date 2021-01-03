@@ -85,7 +85,7 @@ class Route extends Component {
         
         const allSrc = [];        
         
-        ['무기', '머리', '옷', '팔', '다리', '장식'].forEach(type => {
+        ['무기', '옷', '머리', '팔', '다리', '장식'].forEach(type => {
             selectSrc[type].forEach(src => { 
                 if (!allSrc.includes(src)) allSrc.push(src);
             });
@@ -95,7 +95,7 @@ class Route extends Component {
         const extSrc = {
             ALL: this.extMapByAll(mapSrc, allSrc),
         };
-        ['무기', '머리', '옷', '팔', '다리', '장식'].forEach(type => {
+        ['무기', '옷', '머리', '팔', '다리', '장식'].forEach(type => {
             extSrc[type] = this.extMapByType(mapSrc, type, selectSrc);
 
             // TBD : 하위 아이템 먼저 제작 할 경우 추가 점수
@@ -124,7 +124,7 @@ class Route extends Component {
         //console.log('topList', topList);
 
         this.setRouteListForItem(mapSrc, selectSrc, topList);
-        console.log('topList2', topList);
+        //console.log('topList2', topList);
 
         this.setState({routeList: topList});
     }
@@ -132,7 +132,7 @@ class Route extends Component {
     selectSrc() {
         const { select } = this.props;
         const itemSrc = {};
-        ['무기', '머리', '옷', '팔', '다리', '장식'].forEach(type => {
+        ['무기', '옷', '머리', '팔', '다리', '장식'].forEach(type => {
             itemSrc[type] = [];
             this.itemSrc(itemSrc[type], select[type], itemSrc, type);
         });
@@ -248,7 +248,7 @@ class Route extends Component {
             route: [...route['route'], mapName]
         };
 
-        ['무기', '머리', '옷', '팔', '다리', '장식'].forEach(type => {
+        ['무기', '옷', '머리', '팔', '다리', '장식'].forEach(type => {
             if (_route[type] !== undefined) return;
 
             const _extSrcType = _extSrc.filter(src => extSrc[type][mapName].includes(src));
@@ -290,7 +290,7 @@ class Route extends Component {
             route['view'] = [];
 
             const itemList = [];
-            ['무기', '머리', '옷', '팔', '다리', '장식'].forEach(type => {
+            ['무기', '옷', '머리', '팔', '다리', '장식'].forEach(type => {
                 const _type = selectSrc['_'+type];
                 let rank = 0;
                 if (_type !== undefined) {
