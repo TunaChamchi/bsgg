@@ -71,7 +71,7 @@ class ItemOrder extends Component {
                                 top={"item_tab_imgbox"}
                                 grade={"item_tab_bg"} 
                                 item={"item_tab_img"}
-                                tooltip={"S_item_tooltip4"}
+                                tooltip={"S_item_tooltip"+(idx%3+4)}
                                 code={item['code']}
                                 />
                         )

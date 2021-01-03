@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { injectIntl  } from 'react-intl';
 import queryString from 'query-string';
+import moment from 'moment';
 import { Header, SubBanner, Footer } from 'components/banner'
 import { getCharacter, getItem, getWeaponType, addJson, getSkill } from 'lib/data'
 
@@ -79,7 +80,25 @@ class Character extends Component {
     
     topView = () => {
         const { intl } = this.props;
-        const { user, userStat, tierList, isReNew } = this.state;
+        const { user, userStat, tierList, isReNew } = this.state;        
+
+        const updateDate = moment(user['updateDate']);
+        const currentDate = moment.utc(new Date());
+
+        const diffDays = currentDate.diff(updateDate, 'days');
+        const diffHours = currentDate.diff(updateDate, 'hours');
+        const diffMinutes = currentDate.diff(updateDate, 'minutes');
+
+        let strDay = '';
+        if (diffDays !== 0) {
+            strDay = diffDays + intl.formatMessage({id: '일 전'});
+        } else if (diffHours !== 0) {
+            strDay = diffHours + intl.formatMessage({id: '시간 전'});
+        } else if (diffMinutes !== 0) {
+            strDay = diffMinutes + intl.formatMessage({id: '분 전'});
+        } else {
+            strDay = intl.formatMessage({id: '몇초 전'});
+        } 
 
         const tier = Math.floor(userStat['maxMmr']/100);
         const win =   userStat['top1']       < 25 ?   ''     : userStat['top1'] < 50   ? '승1' : 
@@ -119,7 +138,7 @@ class Character extends Component {
                                 {intl.formatMessage({id: "전적갱신" })}
                             </button> 
                     }
-                    <span className="record_top_updated">{intl.formatMessage({id: "최근 업데이트" })} {user['updateDate']}</span>
+                    <span className="record_top_updated">{intl.formatMessage({id: "최근 업데이트" })} : {strDay}</span>
                 </div>
                 {top3&&
                     <div className="record_top_medal_box">
@@ -148,6 +167,24 @@ class Character extends Component {
         const { intl } = this.props;
         const { user, tierList, isReNew } = this.state;
 
+        const updateDate = moment(user['updateDate']);
+        const currentDate = moment.utc(new Date());
+
+        const diffDays = currentDate.diff(updateDate, 'days');
+        const diffHours = currentDate.diff(updateDate, 'hours');
+        const diffMinutes = currentDate.diff(updateDate, 'minutes');
+
+        let strDay = '';
+        if (diffDays !== 0) {
+            strDay = diffDays + intl.formatMessage({id: '일 전'});
+        } else if (diffHours !== 0) {
+            strDay = diffHours + intl.formatMessage({id: '시간 전'});
+        } else if (diffMinutes !== 0) {
+            strDay = diffMinutes + intl.formatMessage({id: '분 전'});
+        } else {
+            strDay = intl.formatMessage({id: '몇초 전'});
+        } 
+
         return (
             <div className="record_top">
                 <div className="record_top_icon">
@@ -168,7 +205,7 @@ class Character extends Component {
                                 {intl.formatMessage({id: "전적갱신" })}
                             </button> 
                     }
-                    <span className="record_top_updated">{intl.formatMessage({id: "최근 업데이트" })} {user['updateDate']}</span>
+                    <span className="record_top_updated">{intl.formatMessage({id: "최근 업데이트" })} : {strDay}</span>
                 </div>
             </div>
         )

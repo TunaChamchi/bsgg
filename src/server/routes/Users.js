@@ -90,8 +90,8 @@ router.get('/', async (req, res, next) => {
     console.log('/', req.query);
     const search = req.query.search;
 
-    const users = await UserStat.find({});
-    res.json(users);
+    const users = await UserStat.find({ nickname: { $regex: '^'+search } });
+    res.json(users.slice(0, 5));
 });
 
 // 유저 검색 DB
@@ -107,9 +107,11 @@ router.get('/:userName', async (req, res, next) => {
     const userStat = await UserStat.findOne({ nickname: userName });
     
     const ranking = {};
-    for (const key in userStat['seasonStats'][1]) {
-        ranking[key] = await UserStat.find({ ["seasonStats.1."+key+".mmr"]: { $gt: userStat['seasonStats'][1][key]['mmr'] } }).count();
-        ++ranking[key];
+    if (userStat && userStat['seasonStats'] && userStat['seasonStats'][1]) {
+        for (const key in userStat['seasonStats'][1]) {
+            ranking[key] = await UserStat.find({ ["seasonStats.1."+key+".mmr"]: { $gt: userStat['seasonStats'][1][key]['mmr'] } }).count();
+            ++ranking[key];
+        }
     }
 
     const response = {
