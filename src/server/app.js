@@ -18,5 +18,5 @@ app.use('/api/user', users);
 app.use('/api/character', character);
 
 app.listen(port, ()=>{
-    console.log(`express is running on ${port}`);
+    //console.log(`express is running on ${port}`);
 })

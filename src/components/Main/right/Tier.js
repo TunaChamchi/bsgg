@@ -14,17 +14,6 @@ class Tier extends Component {
             typeFocus: 0,
         };
     }
-    
-    componentDidMount() {
-        const { tier, preTier } = this.props;
-
-    };
-
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     const { range, type } = this.props;
-
-    //     return this.state !== nextState || range !== nextProps.range || type !== nextProps.type;
-    // };
 
     componentDidUpdate(prevProps, prevState){
         const { isStartLoad, tier, preTier } = this.props;
@@ -144,7 +133,7 @@ class Tier extends Component {
     };
 
     render() {
-        const { intl } = this.props;
+        const { intl, tier } = this.props;
 
         return (
             <div>

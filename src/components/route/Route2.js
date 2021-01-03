@@ -73,7 +73,7 @@ class Route2 extends Component {
         this.routeListByType(extSrcByLeg, '다리', routeList, 5);
         routeList = routeList.filter(route => route['score_다리'] > 0);
         //routeList = this.routeSortTop(routeList, 1000, '다리');
-        console.log('다리 routeList', routeList);
+        //console.log('다리 routeList', routeList);
         
         const extSrc = [];
         
@@ -82,18 +82,18 @@ class Route2 extends Component {
         selectSrc['머리'].forEach(src => { if (!extSrc.includes(src)) extSrc.push(src) });
         selectSrc['장식'].forEach(src => { if (!extSrc.includes(src)) extSrc.push(src) });
 
-        console.log('extSrc', extSrc);
+        //console.log('extSrc', extSrc);
 
         this.routeListByType(extSrcByLeg, '나머지', routeList, 7);
         routeList = routeList.filter(route => route['score_나머지'] > 0);
         routeList = this.routeSortTop(routeList, 20, '나머지');
-        console.log('나머지 routeList', routeList);
+        //console.log('나머지 routeList', routeList);
     }
 
     selectSrc(select) {
         const itemSrc = {};
 
-        ['무기', '머리', '옷', '팔', '다리', '장식'].forEach(type => {
+        ['무기', '옷', '머리', '팔', '다리', '장식'].forEach(type => {
             //console.log('-----------------------------------');
             //console.log('type', type, select[type]);
             itemSrc[type] = [];

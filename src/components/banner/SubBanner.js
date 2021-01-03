@@ -111,7 +111,7 @@ class SubBanner extends Component {
     }
 
     render() {
-        const { intl } = this.props
+        const { intl, actived } = this.props
         const { searchType, search, searchList } = this.state;
 
         return (
@@ -121,13 +121,13 @@ class SubBanner extends Component {
                         <Langauge />
                         <div className="banner-button">
                             <Link to={'/Tier'}>
-                                <button className="menubutton actived">{intl.formatMessage({id:'main.banner.menu.tier'})}</button>
+                                <button className={"menubutton"+(actived==='Tier'?' actived':'')}>{intl.formatMessage({id:'main.banner.menu.tier'})}</button>
                             </Link>
                             <Link to={'/Route'}>
-                                <button className="menubutton">{intl.formatMessage({id:'main.banner.menu.route'})}</button>
+                                <button className={"menubutton"+(actived==='Route'?' actived':'')}>{intl.formatMessage({id:'main.banner.menu.route'})}</button>
                             </Link>
                             <Link to={'/Rank'}>
-                                <button className="menubutton">{intl.formatMessage({id:'main.banner.menu.rank'})}</button>
+                                <button className={"menubutton"+(actived==='Rank'?' actived':'')}>{intl.formatMessage({id:'main.banner.menu.rank'})}</button>
                             </Link>
                         </div>
                     </div>

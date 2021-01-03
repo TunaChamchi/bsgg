@@ -87,7 +87,7 @@ class Detail extends Component {
 
         let stat = stats.filter(s => s['matchingTeamMode'] === gameMode && s['bestWeapon'] === bestWeapon);
         if (stat.length === 0) {
-            console.log('1');
+            //console.log('1');
             stat = stats.filter(s => s['matchingTeamMode'] === gameMode)[0];
             window.location.href = 'http://localhost:3000/Detail?gameMode='+gameMode+'&character='+character+'&bestWeapon='+stat['bestWeapon'];
             return;

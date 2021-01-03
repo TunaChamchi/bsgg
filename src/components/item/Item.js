@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { injectIntl } from 'react-intl';
-import { Armor, itemBgI, statList, getItem, getWeaponType } from 'lib/data';
-import armorData from 'data/inGame/armor.json';
+import { getItem } from 'lib/data';
 
 class Item extends Component {
     constructor(props) {
