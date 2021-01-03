@@ -100,23 +100,24 @@ router.get('/:userName', async (req, res, next) => {
     const userName = req.params.userName;
 
     let user = await User.findOne({ nickname: userName });
-    if (user) {
-        const userStat = await UserStat.findOne({ nickname: userName });
-        const response = {
-            user:user,
-            userStat:userStat
-        }
-        res.json(response);
-    } else {
+    if (!user) {
         await getUserData(userName);
-        const user = await User.findOne({ nickname: userName });
-        const userStat = await UserStat.findOne({ nickname: userName });
-        const response = {
-            user:user,
-            userStat:userStat
-        }
-        res.json(response);
+        user = await User.findOne({ nickname: userName });
     }
+    const userStat = await UserStat.findOne({ nickname: userName });
+    
+    const ranking = {};
+    for (const key in userStat['seasonStats'][1]) {
+        ranking[key] = await UserStat.find({ ["seasonStats.1."+key+".mmr"]: { $gt: userStat['seasonStats'][1][key]['mmr'] } }).count();
+        ++ranking[key];
+    }
+
+    const response = {
+        user:user,
+        userStat:userStat,
+        ranking:ranking
+    }
+    res.json(response);
 });
 
 // 유저 전적 검색 DB

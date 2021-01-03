@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { injectIntl } from 'react-intl';
 import { Armor, itemBgI, statList, getItem, getWeaponType } from 'lib/data';
+import { Item } from 'components/item';
 import armorData from 'data/inGame/armor.json';
 
 class Armors extends Component {
@@ -42,13 +43,13 @@ class Armors extends Component {
             <div className="S_item_rank"
                 key={'item' + idx}>
                 <span className="S_item_rank1">{idx+1}</span>
-                <div className="S_item_toolbox1">
-                    <img className="S_item_rank2" src={"img/Item/BackGround/"+getItem(item['_id'])['itemGrade']+".jpg"}/>
-                    <img className="S_item_rank2" src={'img/Item/'+getItem(item['_id'])['name']+'.png'} />
-                    <div className="S_item_tooltip3">
-                        {/* <span>{this.statView(getItem(item['_id'])['name'])}</span> */}
-                    </div>
-                </div>
+                <Item
+                    top={"S_item_toolbox1"}
+                    grade={"S_item_rank2"} 
+                    item={"S_item_rank2"}
+                    tooltip={"S_item_tooltip3"}
+                    code={item['_id']}
+                    />
                 <span className="S_item_rank3">{intl.formatMessage({id:'items.'+getItem(item['_id'])['name']})}</span>&nbsp;
                 <span className="S_item_rank4">{(item['top1']/item['totalGames']*100).toFixed(1)}%</span>&nbsp;
                 <span className="S_item_rank5">{(item['totalGames']/total*100).toFixed(1)}%</span>

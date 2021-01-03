@@ -51,12 +51,13 @@ class Match extends Component {
             || (isReNew !== prevState.isReNew && isReNew === false)) { // 유저 검색, 첫 로딩, 재 갱신
             //console.log(query, prevState.matchCond, this.state.matchCond);
             let _user;
+            let _ranking;
             let _userStat;
             let _matchList;
             
             await fetch('/api/User/'+userName)
                 .then(res => res.json())
-                .then(res => { _user = res['user']; _userStat = res['userStat']; });
+                .then(res => { _user = res['user']; _userStat = res['userStat']; _ranking = res['ranking'] });
 
             if (!_user && !_userStat) {
                 console.log('!_user && !_userStat');
@@ -113,7 +114,7 @@ class Match extends Component {
             let maxMmr = 0;
             Object.keys(_userStat['seasonStats']).forEach(s => 
                 Object.keys(_userStat['seasonStats'][s]).forEach(t => {
-                    if (s !== 0) {
+                    if (s === "1") {
                         maxMmr = Math.max(maxMmr, _userStat['seasonStats'][s][t]['mmr']);
                     }
                     mmrCurrent[s][t] = _userStat['seasonStats'][s][t]['mmr'];
@@ -125,7 +126,7 @@ class Match extends Component {
                 matchDetail[key]['view'] = false;
             }
             this.setState({ 
-                user: _user, userName: userName,
+                user: _user, userName: userName, ranking: _ranking,
                 matchCond: { matchMode:matchMode, teamMode: teamMode },
                 userStat: _userStat, matchList: _matchList, matchDetail: matchDetail,
                 matchStat: _matchStat, mmrCurrent: mmrCurrent, isUserLoad: false
@@ -165,7 +166,7 @@ class Match extends Component {
             this.setState({ 
                 matchList:matchList, matchStat:matchStat
             });
-        } else if (isReNew !== prevState.isReNew && isReNew === true) {
+        } else if (isReNew !== prevState.isReNew && isReNew === true) { // 전적 갱신
             await fetch('/api/User/'+user['nickname']+'/renew')
                 .then(res => res.json())
                 .then(res => this.setState({ isReNew: false }) );
@@ -289,8 +290,7 @@ class Match extends Component {
                     </div>}
             </div>
         )
-    }
-    
+    }    
     topView2() {
         const { intl } = this.props;
         const { user, tierList, isReNew } = this.state;
@@ -323,10 +323,10 @@ class Match extends Component {
 
     rankView() {
         const { intl } = this.props;
-        const { user, userStat, tierList, matchingTeamMode } = this.state;
+        const { ranking, userStat, tierList, matchingTeamMode } = this.state;
 
-        return Object.keys(userStat['seasonStats']["1"]).map((keys, idx) => {
-            const rank = userStat['seasonStats']["1"][keys];
+        return Object.keys(userStat['seasonStats']["1"]).map((key, idx) => {
+            const rank = userStat['seasonStats']["1"][key];
 
             const total = rank['totalGames'];
             const top1 = rank['top1'];
@@ -334,7 +334,7 @@ class Match extends Component {
             const tier = Math.floor(rank['mmr']/100);
             const lp   = rank['mmr']-tier*100;
 
-            const teamMode = intl.formatMessage({id: matchingTeamMode[keys] });
+            const teamMode = intl.formatMessage({id: matchingTeamMode[key] });
 
             return (
                 <div className="record_rank_box" key={"rank_box_"+idx}>
@@ -342,7 +342,7 @@ class Match extends Component {
                     <div className="record_rank_span1">{teamMode}</div>
                     <div className="record_rank_span2">{tierList[tier]} / {lp} LP</div>
                     <div className="record_rank_span3">{total}{intl.formatMessage({id: "전" })} {top1}{intl.formatMessage({id: "승" })} {(top1/total*100).toFixed(1)}% / {kdm.toFixed(1)} KA/M</div>
-                    <div className="record_rank_span4">3112{intl.formatMessage({id: "위" })} / {intl.formatMessage({id: "상위" })} 6.8%</div>
+                    <div className="record_rank_span4">{ranking[key]}{intl.formatMessage({id: "위" })} / {intl.formatMessage({id: "상위" })} {(rank['rankPercent']*100)||0.5}%</div>
                     <div className="record_rank_graph" style={{width: lp*3.5}}></div>
                 </div>
             )
@@ -897,7 +897,7 @@ class Match extends Component {
                                                     {this.mostTeamModeTab()}
                                                 </div>
                                                 {this.mostCharacterView()}
-                                                <Link to={'/Character?userName='}>
+                                                <Link to={'/Character?userName='+userName}>
                                                     <button className="record_most_button">{intl.formatMessage({id: "더 보기" })}</button>
                                                 </Link>
                                             </div>

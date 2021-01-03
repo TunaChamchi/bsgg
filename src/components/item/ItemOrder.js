@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { injectIntl } from 'react-intl';
-import { getItem, getWeaponType } from 'lib/data';
+import { getWeaponType } from 'lib/data';
 import { routeCalc } from 'lib/route';
-import armorData from 'data/inGame/armor.json';
+import { Item } from 'components/item';
 import mapImg from 'img/map2.png';
 
 class ItemOrder extends Component {
@@ -61,20 +61,19 @@ class ItemOrder extends Component {
         const { intl, stat, itemOrder } = this.props;
         const { itemOrderFocus } = this.state;
 
-        //console.log('itemOrder', itemOrder);
         return itemOrder.slice(0, 10).map((order, idx) => 
             <div className={'item_tab'+(idx===itemOrderFocus ? ' actived' : '')} key={"item_tab_"+idx}
                 onClick={(e) => this.itemOrderTabHandler(idx)}>
                 <div className="item_tab_imgbox_all">
                     {
                         order['itemList'].map((item, idx) =>
-                            <div className="item_tab_imgbox" key={"tab_imgbox_"+idx}>
-                                <img className="item_tab_bg" src={"img/Item/BackGround/"+item['itemGrade']+".jpg"} />
-                                <img className="item_tab_img" src={"img/Item/"+item['name']+".png"} />
-                                <div className="S_item_tooltip4">
-                                    <span>ㅇㅇ</span>
-                                </div>
-                            </div>
+                            <Item key={'Item_'+idx}
+                                top={"item_tab_imgbox"}
+                                grade={"item_tab_bg"} 
+                                item={"item_tab_img"}
+                                tooltip={"S_item_tooltip4"}
+                                code={item['code']}
+                                />
                         )
                     }
                 </div>
@@ -91,7 +90,7 @@ class ItemOrder extends Component {
         const { intl } = this.props;
         const { routeFocus } = this.state;
         return [0, 1, 2, 3, 4].map(i => 
-            <div className={"item_route_tab"+(i===routeFocus?' actived':'')}
+            <div className={"item_route_tab"+(i===routeFocus?' actived':'')} key={"item_route_tab_"+i}
                 onClick={(e) => this.setState({routeFocus: i})}>
                 {intl.formatMessage({id: "main.banner.menu.route" })}{i+1}
             </div>
@@ -164,20 +163,24 @@ class ItemOrder extends Component {
                     <div className="item_route_spawn_Make">
                         {
                             view['item'].map((item, idx) =>
-                                <div className="item_route_spawn_Make_img" key={"Make_img_"+idx}>
-                                    <img className="item_route_spawn_Make_img1" src={"img/Item/BackGround/"+getItem(item['name'])['itemGrade']+".jpg"} />
-                                    <img className="item_route_spawn_Make_img2" src={"img/Item/"+getItem(item['name'])['name']+".png"} />
-                                </div>
+                                <Item key={'Item_'+idx}
+                                    top={"item_route_spawn_Make_img"}
+                                    grade={"item_route_spawn_Make_img1"} 
+                                    item={"item_route_spawn_Make_img2"}
+                                    code={item['name']}
+                                    />
                             )
                         }
                     </div>
                     <div className="item_route_spawn_Need">
                         {
                             view['getScr'].map((item, idx) =>
-                                <div className="item_route_spawn_Make_img" key={"Make_img_"+idx}>
-                                    <img className="item_route_spawn_Make_img1" src={"img/Item/BackGround/"+getItem(item)['itemGrade']+".jpg"} />
-                                    <img className="item_route_spawn_Make_img2" src={"img/Item/"+getItem(item)['name']+".png"} />
-                                </div>
+                                <Item key={'Item_'+idx}
+                                    top={"item_route_spawn_Make_img"}
+                                    grade={"item_route_spawn_Make_img1"} 
+                                    item={"item_route_spawn_Make_img2"}
+                                    code={item}
+                                    />
                             )
                         }
                     </div>

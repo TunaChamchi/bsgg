@@ -4,6 +4,7 @@ import { injectIntl  } from 'react-intl';
 import { Header, SubBanner, AdS, Footer } from 'components/banner'
 import { getItemTypeList, getItem } from "lib/data";
 //import { Route, Stat } from 'components/route'
+import { Item } from 'components/item';
 import item from 'data/inGame/item.json'
 import weapon from 'data/inGame/weapon.json'
 import armor from 'data/inGame/armor.json'
@@ -70,7 +71,16 @@ class RouteM extends Component {
                 '묘지': 'Cemetery',
                 '번화가': 'Avenue'
             },
-            addStat:[]
+            addStat:[],
+            persentList1:['increaseSkillDamageRatio', 'attackSpeedRatio', 'lifeSteal', 
+                'criticalStrikeChance', 'criticalStrikeDamage', 'hpRegenRatio', 'spRegenRatio', 
+                'cooldownReduction'],
+            persentList2:['increaseSkillDamageRatio', 'attackSpeedRatio', 'lifeSteal', 
+                'criticalStrikeChance', 'criticalStrikeDamage', 'decreaseRecoveryToBasicAttack', 'decreaseRecoveryToSkill', 
+                'preventBasicAttackDamaged', 'preventSkillDamagedRatio', 'hpRegenRatio', 'spRegenRatio', 
+                'cooldownReduction'],
+            exception:['decreaseRecoveryToBasicAttack', 'decreaseRecoveryToSkill']
+        
         };
     }
 
@@ -99,30 +109,24 @@ class RouteM extends Component {
 
     selectItemStat (select) {
         const { intl } = this.props;
+        const { exception } = this.state;
         const addStat = [];
         ['무기', '머리', '옷', '팔', '다리', '장식'].forEach((type, idx) => {
             if (select[type] !== undefined && select[type] !== '') {
-                const name = select[type];
-                const stats = item[name]['stat'];
-
-                for (const stat in stats) {
+                const item = getItem(select[type]);
+                const list = Object.keys(item).filter(key => intl.formatMessage({id: 'stat.'+key}) !== 'stat.'+key );
+        
+                list.forEach(stat => {
                     const statName = intl.formatMessage({id: 'stat.'+stat});
-                    let statValue = stats[stat];
-                    let isPersent = statValue.includes('%') ? '%' : 0;
-
-                    if (statValue.includes('+')) {
-                        statValue = Math.round(parseFloat(statValue.replace('+', ''))*100)/100;
-                    } else if (statValue.includes('-')) {
-                        statValue = Math.round(parseFloat(statValue.replace('-', ''))*-1*100)/100;
-                    }
+                    let statValue = exception.includes(stat) ? -40 : item[stat];
                     
                     const find_idx = addStat.findIndex(_ => _['name'] === statName);
                     if (find_idx > -1) {
-                        addStat[find_idx]['value'] = Math.round((parseFloat(addStat[find_idx]['value']) + statValue)*100)/100 + isPersent;
+                        addStat[find_idx]['value'] = Math.round((parseFloat(addStat[find_idx]['value']) + statValue)*100)/100;
                     } else {
-                        addStat.push({ name:statName, value:statValue+isPersent })
+                        addStat.push({ name:statName, value:statValue })
                     }
-                }
+                })
             }
         });
         this.setState({addStat:addStat})
@@ -142,7 +146,7 @@ class RouteM extends Component {
     routeCalc() {
         const { select, mapSrc, filterType } = this.state;
 
-        console.log('filterType', filterType);
+        //console.log('filterType', filterType);
         //console.log('mapSrc', mapSrc);
 
         if (Object.keys(select).length !== 8) return;
@@ -150,7 +154,7 @@ class RouteM extends Component {
         //console.log('select', select); 
 
         const selectSrc = this.selectSrc();
-        console.log('selectSrc', selectSrc);
+        //console.log('selectSrc', selectSrc);
         
         const allSrc = [];        
         
@@ -159,7 +163,7 @@ class RouteM extends Component {
                 if (!allSrc.includes(src)) allSrc.push(src);
             });
         });
-        console.log('allSrc', allSrc);
+        //console.log('allSrc', allSrc);
         
         const extSrc = {
             ALL: this.extMapByAll(mapSrc, allSrc),
@@ -207,16 +211,16 @@ class RouteM extends Component {
                 _filterType['2'] = '다리';
             }
         }      
-        console.log('_filterType', _filterType);
+        //console.log('_filterType', _filterType);
 
         let routeList = this.routeListByAll(extSrc, 6, _filterType);
 
-        console.log('routeList1', [...routeList]);
+        //console.log('routeList1', [...routeList]);
 
         if (routeList.length < 20)
             routeList = this.routeListByAll(extSrc, 7, _filterType);
 
-        console.log('routeList2', [...routeList]);
+        //console.log('routeList2', [...routeList]);
 
         const extTypeList = ['무기', '머리', '옷', '팔', '다리', '장식'].filter(type => !filterTypeList.includes(type));
         //console.log('extTypeList', extTypeList);
@@ -652,16 +656,24 @@ class RouteM extends Component {
         const { select } = this.state;
         return list.map((type, idx) => {
             const itemName = select[type] ? intl.formatMessage({id: 'items.'+getItem(select[type])['name']}) : intl.formatMessage({id: 'armor.'+type})+' '+intl.formatMessage({id: '선택'});
-            const imgGrade = select[type] ? 'img/Item/BackGround/'+getItem(select[type])['itemGrade']+'.jpg' : 'img/Item/BackGround/일반.jpg';
-            const imgItem = select[type] ? 'img/Item/'+getItem(select[type])['name']+'.png' : '';
             return (
                 <div className="Route_L_PickItem_box" key={'PickItem_box'+idx}> 
                     <div onMouseUp={(e) => this.selectTypeHandler(e, type)}
                         onContextMenu={(e) => e.preventDefault()}>
-                        <div className="Route_L_PickItem">
-                            <img className="Route_L_PickItem1" src={imgGrade} />
-                            <img className="Route_L_PickItem2" src={imgItem} />
-                        </div>
+                        {
+                            select[type] ? 
+                                <Item
+                                    top={"Route_L_PickItem"}
+                                    grade={"Route_L_PickItem1"} 
+                                    item={"Route_L_PickItem2"}
+                                    code={select[type]}
+                                    />
+                                :
+                                <div className="Route_L_PickItem">
+                                    <img className="Route_L_PickItem1" src={''} />
+                                    <img className="Route_L_PickItem2" src={''} />
+                                </div>
+                        }
                         <span className="Route_L_PickItem3">{itemName}</span>
                     </div>
                     <div className="Route_L_PickItem_dropbox_all"> 
@@ -688,10 +700,12 @@ class RouteM extends Component {
             } else {
                 return (
                     <div className="Route_L_PickItem_dropbox" key={type+'_list'+idx} onClick={(e) => this.selectHandler(e, type, name)}>
-                        <div className="Route_L_PickItem_dropbox0">
-                            <img className="Route_L_PickItem_dropbox1" src={'img/Item/BackGround/'+getItem(name)['itemGrade']+'.jpg'} />
-                            <img className="Route_L_PickItem_dropbox2" src={'img/Item/'+getItem(name)['name']+'.png'} />
-                        </div>
+                        <Item
+                            top={"Route_L_PickItem_dropbox0"}
+                            grade={"Route_L_PickItem_dropbox1"} 
+                            item={"Route_L_PickItem_dropbox2"}
+                            code={name}
+                            />
                         <span className="Route_L_PickItem_dropbox3">{intl.formatMessage({id: 'items.'+getItem(name)['name']})}</span>
                     </div>
                 )
@@ -731,13 +745,14 @@ class RouteM extends Component {
         });
     }
     routeListBoxView(itemList) {
-        //console.log('itemList', itemList);
         return itemList.map((_item, idx) => {
             return (
-                <div className='Route_L_Route_item_box' key={'route_Box'+idx}>
-                    <img className='Route_L_Route_item1' src={'img/Item/BackGround/'+getItem(_item['name'])['itemGrade']+'.jpg'} />
-                    <img className='Route_L_Route_item2' src={'img/Item/'+getItem(_item['name'])['name']+'.png'} />
-                </div>
+                <Item key={'Route_L_Route_item_box_'+idx}
+                    top={"Route_L_Route_item_box"}
+                    grade={"Route_L_Route_item1"} 
+                    item={"Route_L_Route_item2"}
+                    code={_item['name']}
+                    />
             )
         });
     }
@@ -761,7 +776,7 @@ class RouteM extends Component {
 
     render() {
         const { intl } = this.props;
-        const { filterType, filterMap, mapList, selectRoute, selectMap, selectMapSrc, addStat } = this.state;
+        const { filterType, filterMap, mapList, selectRoute, selectMap, selectMapSrc, addStat, persentList1, persentList2 } = this.state;
 
         const metaData = {
             title: 'BSGG.kr - ' + intl.formatMessage({id: 'Title.Map'}),
@@ -825,7 +840,7 @@ class RouteM extends Component {
                                 addStat.map((stat, idx) => {
                                     return (
                                         <div className="Route_R_stat_span" key={'stat_'+idx}>
-                                            <span>{stat['name'] + ' : ' + stat['value']}</span>
+                                            <span>{stat['name'] + ' : ' + (persentList1.includes(stat['name']) ? (stat['value']*100).toFixed(0) : stat['value']) + (persentList2.includes(stat['name']) ? '%' : '')}</span>
                                         </div>
                                     )
                                 })
@@ -866,10 +881,12 @@ class RouteM extends Component {
                                     selectMap !== '' &&
                                         selectMapSrc.map((src, idx) => {
                                             return (
-                                                <div className="Route_R_Mapitem_box" key={'Mapitem_'+idx}>
-                                                    <img className="Route_R_Mapitem1" src={'img/Item/BackGround/'+getItem(src)['itemGrade']+'.jpg'} />
-                                                    <img className="Route_R_Mapitem2" src={'img/Item/'+getItem(src)['name']+'.png'} />
-                                                </div>
+                                                <Item key={'Mapitem_'+idx}
+                                                    top={"Route_R_Mapitem_box"}
+                                                    grade={"Route_R_Mapitem1"} 
+                                                    item={"Route_R_Mapitem2"}
+                                                    code={src}
+                                                    />
                                             )
                                         })
                                 }
