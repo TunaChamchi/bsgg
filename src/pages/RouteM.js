@@ -787,7 +787,6 @@ class RouteM extends Component {
                 <Header data={metaData}/>
                 <SubBanner actived={'Route'} />
                 <div className="map_main">
-                    <div className="tri"></div>
                     <div className="map_title">
                         <span className="map_title_span">MAP</span>
                     </div>
