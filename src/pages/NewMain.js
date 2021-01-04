@@ -23,7 +23,7 @@ class Main extends Component {
     searchTypehHandler = (event) => {
         const { searchType } = this.state;
 
-        this.setState({searchType: !searchType});
+        this.setState({searchType: !searchType, search:'', searchList: []});
     }
     fetchHandler = async (name) => {
         await fetch('/api/User?search='+name)

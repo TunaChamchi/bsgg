@@ -19,6 +19,13 @@ class Rank extends Component {
         this.fetchHandler();
     }
 
+    componentDidUpdate(prevProps, prevState){
+        const { tier, preTier, isStartLoad } = this.props;
+        if (isStartLoad === true && (tier === undefined || preTier === undefined)) {
+            this.fetchHandler();
+        }
+    };
+
     fetchHandler = async () => {
         await fetch('/api/Character/Tier')
             .then(res => res.json())

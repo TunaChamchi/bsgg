@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const axios = require('axios');
 const schedule = require('node-schedule');
+const { logger } = require("../config/logConfig")
 
 const UserStat = require('../schemas/userStat');
 const Character = require('../schemas/characterStat');
@@ -24,7 +25,7 @@ function sleep(ms) {
 // 8시 0분에 캐릭터 데이터 업데이트
 //schedule.scheduleJob('0 0 1 * * *', async () => {
 const test = async () => {
-    console.log(new Date().toString().slice(16,24), ': SetCharacterStats Start');
+    logger.info('SetCharacterStats Start');
     const version = await getCurrentVersion();
     const versionMajor = version[0]['_id'].versionMajor;
     const versionMinor = version[0]['_id'].versionMinor;
@@ -38,15 +39,15 @@ const test = async () => {
     if (previousVersion.versionMajor === 0 && previousVersion.versionMinor === 0) {
         previousVersion = { versionMajor:version[1]['_id'].versionMajor, versionMinor:version[1]['_id'].versionMinor};
     }
-    console.log('currentVersion', currentVersion);
-    console.log('previousVersion', previousVersion);
+    logger.info('currentVersion : ' + JSON.stringify(currentVersion));
+    logger.info('previousVersion : ' +  JSON.stringify(previousVersion));
 
     setChacterStat(currentVersion.versionMajor, currentVersion.versionMinor);
 
     if (isVersionChange)
         setChacterStat(previousVersion.versionMajor, previousVersion.versionMinor);
 
-    console.log(new Date().toString().slice(16,24) + ' : SetCharacterStats Complete');
+    logger.info('SetCharacterStats Complete');
 }
 
 // 캐릭터 티어
@@ -401,7 +402,8 @@ const setCharacterTier = async (versionMajor, versionMinor, matchingTeamMode, ch
         characterTier, 
         { upsert:true }
     );
-    console.log(new Date().toString().slice(16,24) + ' : SetCharacterTier Complete', matchingTeamMode);
+
+    logger.info('SetCharacterTier Complete : ', versionMajor, versionMinor, matchingTeamMode);
 }
 
 test();

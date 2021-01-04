@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const axios = require('axios');
 const schedule = require('node-schedule');
+const { logger } = require("../config/logConfig")
 
 const UserStat = require('../schemas/userStat');
 const User = require('../schemas/user');
@@ -20,7 +21,7 @@ function sleep(ms) {
 
 // 6시 0분에 전체 유저 전적 검색
 schedule.scheduleJob('0 10 20 * * *', async () => {
-    console.log(new Date().toString().slice(16,24), ': GetUserStat Start');
+    logger.info(new Date().toString().slice(16,24), ': GetUserStat Start');
     const users = await User.find({}, { _id:0, userNum: 1 }, { sort : { updateDate: 1 }});
 
     for (let i = 0 ; i < users.length ; i++) {        
@@ -90,7 +91,7 @@ router.get('/', async (req, res, next) => {
     console.log('/', req.query);
     const search = req.query.search;
 
-    const users = await UserStat.find({ nickname: { $regex: '^'+search } });
+    const users = await UserStat.find({ nickname: { $regex: '^'+search, $options: 'i' } });
     res.json(users.slice(0, 5));
 });
 
@@ -99,12 +100,14 @@ router.get('/:userName', async (req, res, next) => {
     console.log('/:userName', req.params);
     const userName = req.params.userName;
 
-    let user = await User.findOne({ nickname: userName });
+    let user = await User.findOne({ nickname: { $regex: '^'+userName+'$', $options: 'i' } });
     if (!user) {
+        console.log('user', user);
         await getUserData(userName);
-        user = await User.findOne({ nickname: userName });
+        user = await User.findOne({ nickname: { $regex: '^'+userName+'$', $options: 'i' } });
     }
-    const userStat = await UserStat.findOne({ nickname: userName });
+    let userNum = user.userNum;
+    const userStat = await UserStat.findOne({ userNum: userNum });
     
     const ranking = {};
     if (userStat && userStat['seasonStats'] && userStat['seasonStats'][1]) {
@@ -244,7 +247,7 @@ const getUserData = async (userName) => {
                 for (let j = 0 ; j < userStats.length ; j++) {
                     const userStat = userStats[j];
 
-                    nickname = userStat['mmr'];
+                    nickname = userStat['nickname'];
                     mmr[i][j] = userStat['mmr']
                     rankPercent[i][j] = userStat['rankPercent'];
 
@@ -262,7 +265,6 @@ const getUserData = async (userName) => {
         await User.findOneAndUpdate({ userNum: user['userNum'] }, user, { upsert:true });
 
         if (!isStats) {
-            console.log('isStats : ', isStats);
             return null;
         }
 
@@ -334,7 +336,6 @@ const getUserData = async (userName) => {
 
         // 매치 추가 확인
         if (!isChange) {
-            console.log('isChange : ', isChange);
             return null;
         }
 
@@ -383,6 +384,8 @@ const getUserData = async (userName) => {
                             userStat['seasonStats'][seasonId][j]['rankPercent'] = rankPercent[seasonId][j];
                         } catch (err) {
                             console.log('getUserData : ', nickname, userNum, seasonId, j);
+                            console.log(err.message);
+                            console.log(mmr[seasonId][j], rankPercent[seasonId][j]);
                             return null;
                         }
                     }
@@ -406,6 +409,7 @@ const getUserData = async (userName) => {
         return 'Success'
     } catch (error) {
         console.log(new Date().toString().slice(16,24), ': getUserData() Error', error.message, '{ userName }', { userName });
+        console.log(error);
         return null;
     }
 }
