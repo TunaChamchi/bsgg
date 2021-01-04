@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const axios = require('axios');
 const schedule = require('node-schedule');
-const { logger } = require("../config/logConfig")
+const { logger } = require("../config/logConfig");
 
 const UserStat = require('../schemas/userStat');
 const Character = require('../schemas/characterStat');
@@ -22,38 +22,13 @@ function sleep(ms) {
     });
 }
 
-// 8시 0분에 캐릭터 데이터 업데이트
-//schedule.scheduleJob('0 0 1 * * *', async () => {
-const test = async () => {
-    logger.info('SetCharacterStats Start');
-    const version = await getCurrentVersion();
-    const versionMajor = version[0]['_id'].versionMajor;
-    const versionMinor = version[0]['_id'].versionMinor;
-    let isVersionChange = false;
-
-    if (versionMinor !== currentVersion.versionMinor && versionMajor !== currentVersion.versionMajor) {
-        previousVersion = {...currentVersion};
-        currentVersion = { versionMajor:versionMajor, versionMinor:versionMinor };
-        isVersionChange = true;
-    }
-    if (previousVersion.versionMajor === 0 && previousVersion.versionMinor === 0) {
-        previousVersion = { versionMajor:version[1]['_id'].versionMajor, versionMinor:version[1]['_id'].versionMinor};
-    }
-    logger.info('currentVersion : ' + JSON.stringify(currentVersion));
-    logger.info('previousVersion : ' +  JSON.stringify(previousVersion));
-
-    setChacterStat(currentVersion.versionMajor, currentVersion.versionMinor);
-
-    if (isVersionChange)
-        setChacterStat(previousVersion.versionMajor, previousVersion.versionMinor);
-
-    logger.info('SetCharacterStats Complete');
-}
+// 8시 0분에 캐릭터 데이터 업데이트 1
+schedule.scheduleJob('0 5 */2 * * *', () => {
+    SetCharacterStats();
+})
 
 // 캐릭터 티어
 router.get('/Tier', async (req, res, next) => {
-    console.log('/Tier');
-
     const tier = await CharacterTier.find({ versionMajor:currentVersion.versionMajor, versionMinor:currentVersion.versionMinor });
     const preTier = await CharacterTier.find({ versionMajor:previousVersion.versionMajor, versionMinor:previousVersion.versionMinor });
     const response = {
@@ -65,7 +40,7 @@ router.get('/Tier', async (req, res, next) => {
 
 // 캐릭터 검색
 router.get('/:character', async (req, res, next) => {
-    console.log('/:character', req.params, req.query);
+    logger.info('/:character ' + JSON.stringify(req.params) + ' ' + JSON.stringify(req.query));
     const characterNum = parseInt(req.params.character);
 
     const tier = await CharacterTier.find(
@@ -403,7 +378,33 @@ const setCharacterTier = async (versionMajor, versionMinor, matchingTeamMode, ch
         { upsert:true }
     );
 
-    logger.info('SetCharacterTier Complete : ', versionMajor, versionMinor, matchingTeamMode);
+    logger.info('SetCharacterTier Complete : ' + JSON.stringify({versionMajor, versionMinor, matchingTeamMode}));
 }
 
-test();
+const SetCharacterStats = async () => {
+    logger.info('SetCharacterStats Start');
+    const version = await getCurrentVersion();
+    const versionMajor = version[0]['_id'].versionMajor;
+    const versionMinor = version[0]['_id'].versionMinor;
+    let isVersionChange = false;
+
+    if (versionMinor !== currentVersion.versionMinor && versionMajor !== currentVersion.versionMajor) {
+        previousVersion = {...currentVersion};
+        currentVersion = { versionMajor:versionMajor, versionMinor:versionMinor };
+        isVersionChange = true;
+        logger.info('currentVersion : ' + JSON.stringify(currentVersion));
+    }
+    if (previousVersion.versionMajor === 0 && previousVersion.versionMinor === 0) {
+        previousVersion = { versionMajor:version[1]['_id'].versionMajor, versionMinor:version[1]['_id'].versionMinor};
+        logger.info('previousVersion : ' +  JSON.stringify(previousVersion));
+    }
+
+    setChacterStat(currentVersion.versionMajor, currentVersion.versionMinor);
+
+    if (isVersionChange)
+        setChacterStat(previousVersion.versionMajor, previousVersion.versionMinor);
+
+    logger.info('SetCharacterStats Complete');
+}
+
+SetCharacterStats();

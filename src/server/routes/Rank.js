@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const axios = require('axios');
 const schedule = require('node-schedule');
+const { logger } = require("../config/logConfig");
 
 const Rank = require('../schemas/rank');
 const RankStat = require('../schemas/rankStat');
@@ -16,8 +17,8 @@ function sleep(ms) {
     });
 }
 
-schedule.scheduleJob('10 51 2-20 * * *', async () => {
-    console.log(new Date().toString().slice(16,24), ': GetRankSync Start');
+schedule.scheduleJob('0 */10 2-20 * * *', async () => {
+    logger.info('GetRankSync Start');
 
     await Rank.deleteMany({matchingTeamMode:[1, 2, 3]});
 
@@ -53,10 +54,10 @@ schedule.scheduleJob('10 51 2-20 * * *', async () => {
     
     for (let i = 0 ; i < rankList1.length ; i++) {
         setRankStats(rankList1[i]);
-        await sleep(50);
+        await sleep(20);
     }
     
-    console.log(new Date().toString().slice(16,24), ': GetRankSync Complete');
+    logger.info('GetRankSync Complete');
 })
 
 const setRankStats = async (userNum) => {
@@ -101,7 +102,7 @@ const getRank = async (seasonId, matchingTeamMode) => {
             });
         } catch (error) {
             if (error.response.status !== 429) {
-                console.log(new Date().toString().slice(16,24), ': getRank() Error', error.response.status, '{ seasonId, matchingTeamMode }', { seasonId, matchingTeamMode });
+                logger.info('getRank() Error ' +  error.response.status + ' ' + JSON.stringify({ seasonId, matchingTeamMode }));
                 return;
             }
             
@@ -119,7 +120,7 @@ const getRankStats = async (userNum, seasonId) => {
             });
         } catch (error) {
             if (error.response.status !== 429) {
-                console.log(new Date().toString().slice(16,24), ': getRankStats() Error', error.response.status, '{ userNum, seasonId }', { userNum, seasonId });
+                logger.info('getRankStats() Error ' +  error.response.status + ' ' + JSON.stringify({ userNum, seasonId }));
                 return;
             }
             
@@ -130,7 +131,7 @@ const getRankStats = async (userNum, seasonId) => {
 
 // 랭크 검색
 router.get('/', async (req, res, next) => {
-    console.log(req.query);
+    logger.info('/ ' + JSON.stringify(req.query));
     const mode =  parseInt(req.query.mode);
     const limit = parseInt(req.query.limit);
     const search = req.query.search;
@@ -183,7 +184,7 @@ router.get('/', async (req, res, next) => {
 
 // 장인 랭크
 router.get('/character', async (req, res, next) => {
-    console.log(req.query);
+    logger.info('/character ' + JSON.stringify(req.query));
     const code =  parseInt(req.query.characterCode);
     const characterRank = await UserStat.find(
         { ['characterStats.'+code]: {$exists:true} }, 
