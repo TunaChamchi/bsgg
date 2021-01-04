@@ -334,12 +334,13 @@ class Match extends Component {
 
         return (
             <div className="record_top">
-                <div className="record_top_icon">
-                    <img className="record_top_iconimg" src={''} />
-                    <img className="record_top_iconborder" src={''} />
-                    <span className="record_top_lv"></span>
-                </div>
+                    <div className="record_top_icon">
+                        <img className="record_top_iconimg" src={''} />
+                        <img className="record_top_iconborder" src={''} />
+                        <span className="record_top_lv"></span>
+                    </div>
                 <div className="record_top_right">
+                    
                     <div className="record_top_name">{user['nickname']}</div>
                     {
                         isReNew ?

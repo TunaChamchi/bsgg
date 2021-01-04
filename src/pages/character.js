@@ -4,6 +4,7 @@ import queryString from 'query-string';
 import moment from 'moment';
 import { Header, SubBanner, Footer } from 'components/banner'
 import { getCharacter, getItem, getWeaponType, addJson, getSkill } from 'lib/data'
+import { Link } from 'react-router-dom';
 
 class Character extends Component {
     constructor(props) {
@@ -126,7 +127,9 @@ class Character extends Component {
                     <span className="record_top_lv">{4-tier%4}</span>
                 </div>
                 <div className="record_top_right">
+                <Link to={'/Match?userName='+ user['nickname']}>
                     <div className="record_top_name">{user['nickname']}</div>
+                </Link>
                     {
                         isReNew ?
                             <button className="record_top_renew">
@@ -342,7 +345,7 @@ class Character extends Component {
                                 <div>
                                     {this.topView2()}                                
                                     <div className="Loading_main">
-                                        <div className="Loading_main_span">{intl.formatMessage({id: '전적없음'})}</div>
+                                        <div className="Loading_main_span">{intl.formatMessage({id: '없음'})}</div>
                                     </div>
                                 </div>
                                 :
