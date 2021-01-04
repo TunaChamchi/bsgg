@@ -15,6 +15,10 @@ body {
   font-weight: 300;
   color: rgb(209, 209, 209);
 }
+::-webkit-scrollbar { width: 5.2px; }
+::-webkit-scrollbar-track { background-color:rgba(0,0,0,0); } 
+::-webkit-scrollbar-thumb { background: #3b4147; border-radius: 10px; } 
+::-webkit-scrollbar-button { display: none; } 
 /* ADs */
 .Ad_box_L{
     position: absolute;
