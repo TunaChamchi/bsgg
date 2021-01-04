@@ -88,7 +88,6 @@ const getUserGame = async (userNum, next) => {
 
 // 메인 화면 유저 이름 검색
 router.get('/', async (req, res, next) => {
-    logger.info('/ ' + JSON.stringify(req.query));
     const search = req.query.search;
 
     const users = await UserStat.find({ nickname: { $regex: '^'+search, $options: 'i' } });
@@ -240,17 +239,19 @@ const getUserData = async (userName) => {
         
         // 닉네임 / mmr  값 가져오기
         for (var i = 0 ; i < searchSeason.length ; i++) {
-            const _userStats = await getUserStats(userNum, searchSeason[i]);//.userStats;
+            const seasonId = searchSeason[i];
+            const _userStats = await getUserStats(userNum, seasonId);//.userStats;
             const userStats = _userStats.data.userStats;
             if (userStats !== undefined) {
-                mmr[i] = {};
-                rankPercent[i] = {}
+                mmr[seasonId] = {};
+                rankPercent[seasonId] = {}
                 for (let j = 0 ; j < userStats.length ; j++) {
                     const userStat = userStats[j];
+                    const teamMode = userStat['matchingTeamMode'];
 
                     nickname = userStat['nickname'];
-                    mmr[i][j] = userStat['mmr']
-                    rankPercent[i][j] = userStat['rankPercent'];
+                    mmr[seasonId][teamMode] = userStat['mmr']
+                    rankPercent[seasonId][teamMode] = userStat['rankPercent'];
 
                     isStats = true;
                 }
@@ -322,6 +323,8 @@ const getUserData = async (userName) => {
                         }
                     }
 
+                    let startDtm = new Date(m['startDtm']);
+                    m['startDtm'] = startDtm.setSeconds(startDtm.getSeconds() + m['playTime']);
                     m['equipmentOrder'] = equipmentOrder;
                     m['skillOrder'] = skillOrder;
 
@@ -374,22 +377,16 @@ const getUserData = async (userName) => {
                 }
                 
                 userStat['seasonStats'][seasonId][teamMode] = teamModeStat;
-            }
 
-            // mmr / 랭크 퍼센트 입력
-            if (mmr[seasonId] !== undefined && rankPercent[seasonId] !== undefined) {
-                for (let j = 0 ; j < teamModeStats.length ; j++) {
-                    if (mmr[seasonId][j] !== undefined && rankPercent[seasonId][j] !== undefined) {
-                        try {
-                            userStat['seasonStats'][seasonId][j]['mmr'] = mmr[seasonId][j];
-                            userStat['seasonStats'][seasonId][j]['rankPercent'] = rankPercent[seasonId][j];
-                        } catch (err) {
-                            logger.error('getUserData() ' + JSON.stringify({ nickname, userNum, seasonId, j }));
-                            logger.error(JSON.stringify(mmr) + ' ' + JSON.stringify(rankPercent));
-                            logger.error(err);
-                            return null;
-                        }
-                    }
+                try {
+                    userStat['seasonStats'][seasonId][teamMode]['mmr'] = mmr[seasonId][teamMode];
+                    userStat['seasonStats'][seasonId][teamMode]['rankPercent'] = rankPercent[seasonId][teamMode];
+                } catch (err) {
+                    logger.error('getUserData() ' + JSON.stringify({ nickname, userNum, seasonId, teamMode }));
+                    logger.error(JSON.stringify(mmr) + ' ' + JSON.stringify(rankPercent));
+                    logger.error(JSON.stringify(userStat['seasonStats'][seasonId][teamMode]));
+                    logger.error(err.message);
+                    return null;
                 }
             }
         }
@@ -407,10 +404,10 @@ const getUserData = async (userName) => {
 
         await UserStat.findOneAndUpdate({ userNum: userStat['userNum'] }, userStat, { upsert:true });
         
-        return 'Success'
+        return 'Success';
     } catch (error) {
         logger.error('getUserData() ' + JSON.stringify({ userName }));
-        logger.error(error);
+        logger.error(error.message);
         return null;
     }
 }
