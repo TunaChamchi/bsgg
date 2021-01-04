@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { injectIntl  } from 'react-intl';
-import { Header, MainBanner, AdS, Footer } from 'components/banner'
+import { Header, SubBanner, AdS, Footer } from 'components/banner'
 import { Search, Characters } from 'components/Main/left'
 import { Rank } from 'components/Main/right'
 
@@ -10,16 +10,14 @@ class Main extends Component {
         
         const metaData = {
             title: 'BSGG.kr - ' + intl.formatMessage({id: 'Title.Main'}),
-            description: '영원회귀 : 블랙 서바이벌 통계, 캐릭터 티어, 아이템 트렌드, BS:ER Stats, Character Tier, Item Trend'
         }
 
         return (
             <div>
                 <Header data={metaData}/>
-                <MainBanner />
+                <SubBanner actived={'Tier'} />
                 <div className='main'>
                     <div className='main-left'>
-                        <Search />
                         <Characters />
                         <div className="Ad_box_Main">
                             {/* {<ins 

@@ -7,31 +7,34 @@ class Rank extends Component {
 	constructor(props) {
         super(props);
         this.state = {
-            range: ['RANKER', 'ALL'],
-            rangeFocus: 1,
+            isStartLoad: false,
             type: ['solo', 'duo', 'squad'],
             typeFocus: 0,
         };
     }
     
-    rangeHandler = (idx) => {
-        this.setState({rangeFocus: idx});
+    componentDidMount() {
+        window.scrollTo(0, 0);
+
+        this.fetchHandler();
     }
-    typeHandler = (idx) => {
-        this.setState({typeFocus: idx});
+
+    componentDidUpdate(prevProps, prevState){
+        const { tier, preTier, isStartLoad } = this.props;
+        if (isStartLoad === true && (tier === undefined || preTier === undefined)) {
+            this.fetchHandler();
+        }
+    };
+
+    fetchHandler = async () => {
+        await fetch('/api/Character/Tier')
+            .then(res => res.json())
+            .then(res => this.setState({ tier:res['tier'], preTier:res['preTier'], isStartLoad: true }));
     }
     
-    rangeView = () => {
-        const { range, rangeFocus } = this.state;
-
-        return range.map((name, idx) => 
-            <div className={'tabHeader0 ' + (idx === rangeFocus ? 'actived' : '')}
-                key={'range'+idx}
-                onClick={(e) => this.rangeHandler(idx)}>
-                {name}
-            </div>
-        );
-    }
+    typeHandler = (idx) => {
+        this.setState({typeFocus: idx});
+    }    
     typeView = () => {
         const { intl } = this.props;
         const { type, typeFocus } = this.state;
@@ -47,17 +50,11 @@ class Rank extends Component {
 
     render() {
         const { intl } = this.props;
-        const { range, rangeFocus, type, typeFocus } = this.state;
+        const { isStartLoad, tier, preTier, typeFocus } = this.state;
 
         return (
             <div>
                 <div className="rank0">
-                    <div className="tri"></div>
-                    <div className="rank0-2">
-                        <div className="tabHeaders">
-                            {this.rangeView()}
-                        </div>
-                    </div>
                     <div className="rank0-1">
                         <div className="rank_span">
                             <span >RANK</span>
@@ -74,8 +71,10 @@ class Rank extends Component {
                     </div>
                 </div>
                 <Tier 
-                    range={range[rangeFocus]}
-                    type={type[typeFocus]}/>
+                    tier={tier}
+                    preTier={preTier}
+                    isStartLoad={isStartLoad}
+                    type={typeFocus}/>
             </div>
         );
     };

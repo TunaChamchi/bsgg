@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { injectIntl  } from 'react-intl';
+import queryString from 'query-string';
 import { Header, SubBanner, Footer } from 'components/banner'
+import { getCharacter } from 'lib/data'
 
 class Rank extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            index: 3,
-            gameMode: 0,
+            isStartLoad: false,
+            page: -1,
+            gameMode: -1,
+            search: '',
             gameModeList:['솔로', '듀오', '스쿼드'],
             rank: [],
             rankTop: [],
@@ -20,63 +25,131 @@ class Rank extends Component {
 
     componentDidMount() {
         window.scrollTo(0, 0);
-        fetch('/api/rank?mode=1&skip=0&limit=3')
-            .then(res => res.json())
-            .then(rankTop => this.setState({ rankTop }));
-            
-        fetch('/api/rank?mode=1&skip=3&limit=100')
-            .then(res => res.json())
-            .then(rank => this.setState({ rank }));
+
+        this.setState({ isStartLoad: true })
     }
 
     componentDidUpdate(prevProps, prevState){
-        const { gameMode, index } = this.state;
+        const { location } = this.props;
+        const query = queryString.parse(location.search);
 
-        if (gameMode !== prevState.gameMode) {
-            fetch('/api/rank?mode='+(gameMode+1)+'&skip='+0+'&limit=3')
-                .then(res => res.json())
-                .then(rankTop => this.setState({ rankTop }));
-                
-            fetch('/api/rank?mode='+(gameMode+1)+'&skip='+index+'&limit=100')
-                .then(res => res.json())
-                .then(rank => this.setState({ rank }));
-        } else if (index !== prevState.index) {
-            fetch('/api/rank?mode='+(gameMode+1)+'&skip='+index+'&limit=100')
-                .then(res => res.json())
-                .then(rank => this.setState({ rank }));
+        this.fetchHandler(query, prevState)
+    }
+
+    fetchHandler = async (query, prevState) => {
+        let page = parseInt(query.page) || 1;
+        let mode = parseInt(query.mode) || 0;
+        const search = query.search || '';
+        
+        if (page < 0 || page > 10) {
+            page = 1;
         }
+        if (mode < 0 || mode > 2) {
+            mode = 0;
+        }
+
+        const index = ((page-1)*100) + 3;
+        if (mode !== this.state.gameMode) {
+            //console.log('gameMode', mode, prevState.gameMode);
+            let rank;
+            
+            await fetch('/api/Rank?mode='+(mode+1)+'&skip=0&limit=103')
+                .then(res => res.json())
+                .then(_rank => rank = _rank);
+                
+            this.setState({ gameMode:mode, page:page, rankTop:rank.slice(0, 3), rank:rank.slice(3, 103) });
+        } else if (page !== this.state.page) {
+            window.scrollTo(0, 0);
+            //console.log('page', page, prevState.page);
+            let rank;
+
+            await fetch('/api/Rank?mode='+(mode+1)+'&skip='+index+'&limit=100')
+                .then(res => res.json())
+                .then(_rank => rank = _rank);
+
+            this.setState({ page:page, rank:rank });
+        } else if (search !== prevState.search) {
+            //console.log('search');
+
+            fetch('/api/Rank?mode='+(mode+1)+'&search='+search)
+                .then(res => res.json())
+                .then(rank => this.setState({ rank }));
+
+            this.setState({ search:search });
+        }
+    }
+
+    rankData = (rank) => {
+        const { gameMode } = this.state;
+        const stat = rank['stat'].filter(s => s['index'].includes('1_'+(gameMode+1)))[0];
+
+        if (!stat) return null;
+
+        const total = stat['totalGames'];
+        const top1 = Math.round(stat['top1']*total);
+        const top3 = Math.round(stat['top3']*total) - top1;
+        const loss = total - top1 - top3;
+        const rate = Math.round(stat['top1']*100);
+
+        const kam  = stat['averageKills']+stat['averageAssistants'];
+        const tier = Math.floor(rank['mmr']/100);
+        const lp   = rank['mmr']-tier*100;
+
+        const top1Width = top1/total * 100;
+        const top3Width = top3/total * 100;
+        const lossWidth = loss/total * 100;
+
+        const charName = getCharacter(stat['mostCharacter'])['name'];
+
+        const _stat = {
+            top1: top1,
+            top3: top3,
+            loss: loss,
+            rate: rate,
+            total: total,
+            kam: kam,
+            tier: tier,
+            lp: lp,
+            top1Width: top1Width,
+            top3Width: top1Width+top3Width,
+            lossWidth: lossWidth,
+            character: charName
+        }
+
+        return _stat;
     }
 
     rankTopView = () => {
         const { rankTop, tierList, gameMode } = this.state;
         if (rankTop.length === 0) return;
 
+        //console.log('rankTop', rankTop);
         return [1, 0, 2].map((number, idx) => {
-            const stat = rankTop[number]['stat'].filter(s => s['index'].includes('1_3_'+(gameMode+1)))[0];
-            const loss = stat['totalGames'] - stat['totalWins'] - stat['top3']*stat['totalGames'];
-            const ka   = stat['averageKills']*stat['totalGames'] + stat['averageAssistants']*stat['totalGames'];
-            const tier = Math.floor(rankTop[number]['mmr']/100);
-            const top1Width = stat['totalWins']/stat['totalGames'] * 130;
-            const lossWidth = loss/stat['totalGames'] * 130;
+            const stat = this.rankData(rankTop[number]);
+
+            if (!stat) return;
+
+            //console.log(stat['top1Width'], stat['top3Width']);
+
             return (
                 <div className={"rank_top_"+number} key={"rank_top_"+idx}>
-                    <img className="rank_top_iconimg" src="img/Characters/재키.jpg" />
-                    <img className="rank_top_iconborder" src={'img/border/'+tierList[tier].slice(0, -2)+'.png'} />
-                    <span className="rank_top_lv"></span>
-                    <div className="rank_top_span_box">
-                        <div className="rank_top2_span1">{rankTop[number]['rank']}</div>
-                        <div className="rank_top_span2">{rankTop[number]['nickname']}</div>
-                        <div className="rank_top_span3">{tierList[tier]} {rankTop[number]['mmr']-tier*100} LP</div>
-                            <div className="rank_top_graph">
-                                <div className="rank_top_graphW" style={{width: top1Width}}></div>
-                                <div className="rank_top_graphL" style={{width: lossWidth}}></div>
-                                <div className="rank_top_span4" >{stat['totalWins']}</div>
-                                <div className="rank_top_span5" >{(stat['top3']*stat['totalGames']).toFixed(0)}</div>
-                                <div className="rank_top_span6" >{loss.toFixed(0)}</div>
-                                <div className="rank_top_span7" >{(stat['top1']*100).toFixed(0)}%</div>
-                            </div>
-                            <div className="rank_top_span8">KA/M {(ka/stat['totalGames']).toFixed(2)}</div>
-                    </div>
+                    <img className="rank_top_iconimg" src={"img/Characters/"+stat['character']+".jpg"} />
+                    <img className="rank_top_iconborder" src={'img/border/'+tierList[stat['tier']].slice(0, -2)+'.png'} />
+                    <span className="rank_top_lv">{4-stat['tier']%4}</span>
+                    <Link to={'/Match?userName=' + rankTop[number]['nickname']}>
+                        <div className="rank_top_span_box">
+                            <div className="rank_top2_span1">{rankTop[number]['rank']}</div>
+                            <div className="rank_top_span2">{rankTop[number]['nickname']}</div>
+                            <div className="rank_top_span3">{tierList[stat['tier']]} {stat['lp']} LP</div>
+                                <div className="rank_top_graph" style={{background: 'linear-gradient(to right, rgb(244,216,35) 0% '+stat['top1Width']+'%, rgb(49, 106, 190) '+stat['top1Width']+'% '+stat['top3Width']+'%, gray '+stat['top3Width']+'% 100%)'}}>
+                                    <div className="rank_top_span4" >{stat['top1']}</div>
+                                    <div className="rank_top_span5" >{stat['top3']}</div>
+                                    <div className="rank_top_span6" >{stat['loss']}</div>
+                                    <div className="rank_top_span7" >{stat['rate']}%</div>
+                                </div>
+                                <div className="rank_top_span8">KA/M {stat['kam'].toFixed(2)}</div>
+                        </div>
+                    </Link>    
                 </div>
             );
         });
@@ -86,30 +159,28 @@ class Rank extends Component {
         if (rank.length === 0) return;
         
         return rank.map((user, idx) => {
-            const stat = user['stat'].filter(s => s['index'].includes('1_3_'+(gameMode+1)))[0];
-            const loss = stat['totalGames'] - stat['totalWins'] - Math.round(stat['top3']*stat['totalGames']);
-            const ka   = stat['averageKills']*stat['totalGames'] + stat['averageAssistants']*stat['totalGames'];
-            const tier = Math.abs(Math.floor(user['mmr']/100));
-            const top1Width = stat['totalWins']/stat['totalGames'] * 130;
-            const lossWidth = loss/stat['totalGames'] * 130;
+            const stat = this.rankData(user);
+
+            if (!stat) return;
+            
             return (
                 <div className="record_cha_box" key={'record_cha_'+idx}>
                     <div className="record_cha_span1">{user['rank']}</div>
-                    <img className="record_cha_img" src="img/rank/재키.jpg" />
-                    <div className="record_cha_span2">{user['nickname']}</div>
-                    <img className="record_cha_rankimg" src={'img/rankicon/'+tierList[tier].slice(0, -2)+'.png'} />
-                    <div className="record_rank_span1">{tierList[tier]}</div>
-                    <div className="record_rank_span2">{user['mmr']-tier*100} LP</div>
-                    <div className="record_cha_span3">{stat['totalGames']}</div>
-                    <div className="record_cha_graph">
-                        <div className="record_cha_graphW" style={{width: top1Width}}></div>
-                        <div className="record_cha_graphL" style={{width: lossWidth}}></div>
-                        <div className="record_cha_span4">{stat['totalWins']}</div>
-                        <div className="record_cha_span5">{(stat['top3']*stat['totalGames']).toFixed(0)}</div>
-                        <div className="record_cha_span6">{loss.toFixed(0)}</div>
+                    <img className="record_cha_img" src={"img/Rank/"+stat['character']+".jpg"} />
+                    <Link to={'/Match?userName=' + user['nickname']}>
+                        <div className="record_cha_span2">{user['nickname']}</div>
+                    </Link>
+                    <img className="record_cha_rankimg" src={'img/Rankicon/'+tierList[stat['tier']].slice(0, -2)+'.png'} />
+                    <div className="record_rank_span11">{tierList[stat['tier']]}</div>
+                    <div className="record_rank_span22">{stat['lp']} LP</div>
+                    <div className="record_cha_span3">{stat['total']}</div>
+                    <div className="record_cha_graph" style={{background: 'linear-gradient(to right, rgb(244,216,35) 0% '+stat['top1Width']+'%, rgb(49, 106, 190) '+stat['top1Width']+'% '+stat['top3Width']+'%, gray '+stat['top3Width']+'% 100%)'}}>
+                        <div className="record_cha_span4">{stat['top1']}</div>
+                        <div className="record_cha_span5">{stat['top3']}</div>
+                        <div className="record_cha_span6">{stat['loss']}</div>
                     </div>
-                    <div className="record_cha_span7">{(stat['top1']*100).toFixed(0)}%</div>
-                    <div className="record_rank_span3">{(ka/stat['totalGames']).toFixed(2)}</div>
+                    <div className="record_cha_span7">{stat['rate']}%</div>
+                    <div className="record_rank_span33">{stat['kam'].toFixed(2)}</div>
                 </div>
             );
         });
@@ -119,138 +190,70 @@ class Rank extends Component {
         this.setState({gameMode: index, index:3, rankTop:[], rank:[]});
     }
     gameModeTabView = () => {
-        const { gameMode, gameModeList } = this.state;
+        const { intl } = this.props;
+        const { page, gameMode, gameModeList } = this.state;
         return gameModeList.map((mode, idx) => 
-            <div className={'rank_cha_tab1'+(idx===gameMode?' actived':'')} key={'cha_tab_'+idx}
-                onClick={(e) => this.gameModeHandler(e, idx)}>
-                {mode}
-            </div>
+            <Link to={'/Rank?mode='+idx+'&page='+page} key={'cha_tab_'+idx}>
+                <div className={'rank_cha_tab1'+(idx===gameMode?' actived':'')}>
+                    {intl.formatMessage({id: mode})}
+                </div>
+            </Link>
         )
-    }
-
-    indexHandler = (e, _index) => {
-        const { index } = this.state;
-        if (index + _index >= 3 && index + _index < 1003) {
-            window.scrollTo(0, 0);
-            this.setState({index: index+_index});
-        }
     }
 
     render() {
         const { intl } = this.props;
+        const { gameMode, page } = this.state;
 
         const metaData = {
-            title: 'BSGG.kr - ' + intl.formatMessage({id: 'Title.Map'}),
-            description: '영원회귀 : 블랙 서바이벌 통계, 캐릭터 티어, 아이템 트렌드, BS:ER Stats, Character Tier, Item Trend'
+            title: 'BSGG.kr - ' + intl.formatMessage({id: 'Title.Rank'}),
         }
         
         return (
             <div>
                 <Header data={metaData}/>
-                <SubBanner />
+                <SubBanner actived={'Rank'} />
                 <div className="rank_top">
                     {this.rankTopView()}
                 </div>
                 <div className="record_main">
-                        <div className="record_cha">
-                            <div className="record_cha0">
-                                <span className="record_cha0_span">RANK</span>
-                                <div className="record_cha0_tabs">
-                                    <div className="record_cha0_tab actived">ALL</div>
-                                    <div className="record_cha0_tab">Character</div>
-                                </div>
+                    <div className="record_cha">
+                        <div className="record_cha0">
+                            <span className="record_cha0_span">RANK</span>
+                            <div className="record_cha0_tabs">
+                                <div className="record_cha0_tab actived">{intl.formatMessage({id: '전체'})}</div>
+                                <Link to={'/RankCharacter'}>
+                                    <div className="record_cha0_tab">{intl.formatMessage({id: '장인'})}</div>
+                                </Link>
                             </div>
-                            <div className="rank_cha_tabs">
-                                {this.gameModeTabView()}
-                            </div>
-                            <div className="rank_cha_select">
-                                <div className="rank_cha_select_box">
-                                    <img className="record_select_img actived" src="img/rank/재키.jpg" />
-                                    <span className="record_select_span">재키</span>
-                                </div>
-                                <div className="rank_cha_select_box">
-                                    <img className="record_select_img" src="img/rank/재키.jpg" />
-                                    <span className="record_select_span">재키</span>
-                                </div>
-                                <div className="rank_cha_select_box">
-                                    <img className="record_select_img" src="img/rank/재키.jpg" />
-                                    <span className="record_select_span">재키</span>
-                                </div>
-                                <div className="rank_cha_select_box">
-                                    <img className="record_select_img" src="img/rank/재키.jpg" />
-                                    <span className="record_select_span">재키</span>
-                                </div>
-                                <div className="rank_cha_select_box">
-                                    <img className="record_select_img" src="img/rank/재키.jpg" />
-                                    <span className="record_select_span">재키</span>
-                                </div>
-                                <div className="rank_cha_select_box">
-                                    <img className="record_select_img" src="img/rank/재키.jpg" />
-                                    <span className="record_select_span">재키</span>
-                                </div>
-                                <div className="rank_cha_select_box">
-                                    <img className="record_select_img" src="img/rank/재키.jpg" />
-                                    <span className="record_select_span">재키</span>
-                                </div>
-                                <div className="rank_cha_select_box">
-                                    <img className="record_select_img" src="img/rank/재키.jpg" />
-                                    <span className="record_select_span">재키</span>
-                                </div>
-                                <div className="rank_cha_select_box">
-                                    <img className="record_select_img" src="img/rank/재키.jpg" />
-                                    <span className="record_select_span">재키</span>
-                                </div>
-                                <div className="rank_cha_select_box">
-                                    <img className="record_select_img" src="img/rank/재키.jpg" />
-                                    <span className="record_select_span">재키</span>
-                                </div>
-                                <div className="rank_cha_select_box">
-                                    <img className="record_select_img" src="img/rank/재키.jpg" />
-                                    <span className="record_select_span">재키</span>
-                                </div>
-                                <div className="rank_cha_select_box">
-                                    <img className="record_select_img" src="img/rank/재키.jpg" />
-                                    <span className="record_select_span">재키</span>
-                                </div>
-                                <div className="rank_cha_select_box">
-                                    <img className="record_select_img" src="img/rank/재키.jpg" />
-                                    <span className="record_select_span">재키</span>
-                                </div>
-                                <div className="rank_cha_select_box">
-                                    <img className="record_select_img" src="img/rank/재키.jpg" />
-                                    <span className="record_select_span">재키</span>
-                                </div>
-                                <div className="rank_cha_select_box">
-                                    <img className="record_select_img" src="img/rank/재키.jpg" />
-                                    <span className="record_select_span">재키</span>
-                                </div>
-                                <div className="rank_cha_select_box">
-                                    <img className="record_select_img" src="img/rank/재키.jpg" />
-                                    <span className="record_select_span">재키</span>
-                                </div>
-                                <div className="rank_cha_select_box">
-                                    <img className="record_select_img" src="img/rank/재키.jpg" />
-                                    <span className="record_select_span">재키</span>
-                                </div>
-                                <div className="rank_cha_select_box">
-                                    <img className="record_select_img" src="img/rank/재키.jpg" />
-                                    <span className="record_select_span">재키</span>
-                                </div>
-                            </div>
-                            <div className="record_cha_filter">
-                                <div className="record_cha_filter1">#</div>
-                                <div className="record_cha_filter2">플레이어</div>
-                                <div className="record_rank_filter1">티어</div>
-                                <div className="record_rank_filter2">점수</div>
-                                <div className="record_cha_filter3">게임수</div>
-                                <div className="record_cha_filter4">우승</div>
-                                <div className="record_cha_filter5">승률</div>
-                                <div className="record_rank_filter3">KA/M</div>
-                            </div>
-                            {this.rankTableView()}
                         </div>
-                <button className="rank_left_button" onClick={(e) => this.indexHandler(e, -100)}><div className="rank_left_button_tri"></div></button>
-                <button className="rank_right_button" onClick={(e) => this.indexHandler(e, 100)}><div className="rank_right_button_tri"></div></button>
+                        <div className="rank_cha_tabs">
+                            {this.gameModeTabView()}
+                        </div>
+                        <div className="record_cha_filter">
+                            <div className="record_cha_filter1">#</div>
+                            <div className="record_cha_filter2">{intl.formatMessage({id: '플레이어'})}</div>
+                            <div className="record_rank_filter1">{intl.formatMessage({id: '티어'})}</div>
+                            <div className="record_rank_filter2">{intl.formatMessage({id: '점수'})}</div>
+                            <div className="record_cha_filter3">{intl.formatMessage({id: '게임수'})}</div>
+                            <div className="record_cha_filter4">{intl.formatMessage({id: '우승'})}</div>
+                            <div className="record_cha_filter5">{intl.formatMessage({id: 'winRate'})}</div>
+                            <div className="record_rank_filter3">KA/M</div>
+                        </div>
+                        {this.rankTableView()}
+                    </div>
+                    
+                   
+                    <div>
+                        {
+                            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(idx => 
+                                <Link to={'/Rank?mode='+gameMode+'&page='+idx} key={'page_'+idx}>
+                                    <button className="rank_center_button" ><div className="rank_button_tri">{idx}</div></button>
+                                </Link>
+                            )
+                        }
+                    </div>
+                    
                 </div>
                 <Footer />
             </div>

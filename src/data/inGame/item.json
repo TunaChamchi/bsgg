@@ -1,3 +1,4 @@
+<<<<<<< HEAD
   {
     "머리띠": {
       "grade": "일반",
@@ -4230,4 +4231,7268 @@
       "grade": "희귀",
       "src": ["미스릴", "피아노선"]
     }
+=======
+{
+  "101101": {
+    "name": "가위",
+    "itemType": "Weapon",
+    "weaponType": "단검",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 5,
+    "src": []
+  },
+  "101102": {
+    "name": "만년필",
+    "itemType": "Weapon",
+    "weaponType": "단검",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 5,
+    "src": []
+  },
+  "101104": {
+    "name": "식칼",
+    "itemType": "Weapon",
+    "weaponType": "단검",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 4,
+    "moveSpeed": 0.05,
+    "src": []
+  },
+  "101201": {
+    "name": "군용나이프",
+    "itemType": "Weapon",
+    "weaponType": "단검",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 14,
+    "moveSpeed": 0.08,
+    "src": [
+      101104,
+      108101
+    ]
+  },
+  "101301": {
+    "name": "장미칼",
+    "itemType": "Weapon",
+    "weaponType": "단검",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 20,
+    "cooldownReduction": 0.1,
+    "moveSpeed": 0.1,
+    "src": [
+      101201,
+      205102
+    ]
+  },
+  "101401": {
+    "name": "카른웬난",
+    "itemType": "Weapon",
+    "weaponType": "단검",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 37,
+    "hpRegen": 1.5,
+    "cooldownReduction": 0.1,
+    "moveSpeed": 0.1,
+    "increaseBasicAttackDamage": 29,
+    "src": [
+      101301,
+      205202
+    ]
+  },
+  "101402": {
+    "name": "파산검",
+    "itemType": "Weapon",
+    "weaponType": "단검",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 33,
+    "cooldownReduction": 0.1,
+    "moveSpeed": 0.1,
+    "increaseSkillDamage": 35,
+    "src": [
+      101301,
+      401210
+    ]
+  },
+  "101404": {
+    "name": "초진동나이프",
+    "itemType": "Weapon",
+    "weaponType": "단검",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 57,
+    "attackSpeedRatio": 0.35,
+    "moveSpeed": 0.1,
+    "src": [
+      101201,
+      401303
+    ]
+  },
+  "101405": {
+    "name": "프라가라흐",
+    "itemType": "Weapon",
+    "weaponType": "단검",
+    "itemGrade": "전설",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 75,
+    "moveSpeed": 0.2,
+    "src": [
+      101201,
+      401403
+    ]
+  },
+  "102101": {
+    "name": "녹슨검",
+    "itemType": "Weapon",
+    "weaponType": "양손검",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 11,
+    "src": []
+  },
+  "102201": {
+    "name": "샴쉬르",
+    "itemType": "Weapon",
+    "weaponType": "양손검",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 27,
+    "src": [
+      102101,
+      401107
+    ]
+  },
+  "102301": {
+    "name": "일본도",
+    "itemType": "Weapon",
+    "weaponType": "양손검",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 35,
+    "src": [
+      102101,
+      401213
+    ]
+  },
+  "102401": {
+    "name": "마사무네",
+    "itemType": "Weapon",
+    "weaponType": "양손검",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 40,
+    "attackSpeedRatio": 0.15,
+    "src": [
+      102301,
+      401112
+    ]
+  },
+  "102402": {
+    "name": "무라마사",
+    "itemType": "Weapon",
+    "weaponType": "양손검",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 50,
+    "src": [
+      102301,
+      401114
+    ]
+  },
+  "102403": {
+    "name": "바스타드소드",
+    "itemType": "Weapon",
+    "weaponType": "양손검",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 45,
+    "moveSpeed": -0.1,
+    "src": [
+      102101,
+      401201
+    ]
+  },
+  "102404": {
+    "name": "보검",
+    "itemType": "Weapon",
+    "weaponType": "양손검",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 35,
+    "maxHp": 200,
+    "src": [
+      102201,
+      401204
+    ]
+  },
+  "102405": {
+    "name": "뚜언띠엔",
+    "itemType": "Weapon",
+    "weaponType": "양손검",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 77,
+    "defense": 25,
+    "moveSpeed": -0.1,
+    "src": [
+      102403,
+      401104
+    ]
+  },
+  "102406": {
+    "name": "아론다이트",
+    "itemType": "Weapon",
+    "weaponType": "양손검",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 50,
+    "attackSpeedRatio": 0.25,
+    "increaseBasicAttackDamage": 25,
+    "src": [
+      102401,
+      205109
+    ]
+  },
+  "102407": {
+    "name": "엑스칼리버",
+    "itemType": "Weapon",
+    "weaponType": "양손검",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 60,
+    "maxHp": 400,
+    "hpRegenRatio": 2,
+    "src": [
+      102404,
+      205108
+    ]
+  },
+  "102408": {
+    "name": "플라즈마소드",
+    "itemType": "Weapon",
+    "weaponType": "양손검",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 75,
+    "sightRange": 3,
+    "src": [
+      102403,
+      401108
+    ]
+  },
+  "102409": {
+    "name": "레바테인",
+    "itemType": "Weapon",
+    "weaponType": "양손검",
+    "itemGrade": "전설",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 75,
+    "hpRegen": 1.5,
+    "spRegen": 1.5,
+    "increaseBasicAttackDamage": 20,
+    "src": [
+      205403,
+      102201
+    ]
+  },
+  "102410": {
+    "name": "모노호시자오",
+    "itemType": "Weapon",
+    "weaponType": "양손검",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 70,
+    "lifeSteal": 0.18,
+    "src": [
+      102402,
+      401212
+    ]
+  },
+  "102411": {
+    "name": "호푸어드",
+    "itemType": "Weapon",
+    "weaponType": "양손검",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 45,
+    "maxHp": 300,
+    "criticalStrikeChance": 0.2,
+    "src": [
+      102404,
+      205204
+    ]
+  },
+  "102501": {
+    "name": "다인슬라이프",
+    "itemType": "Weapon",
+    "weaponType": "양손검",
+    "itemGrade": "전설",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 70,
+    "lifeSteal": 0.2,
+    "src": [
+      401401,
+      102301
+    ]
+  },
+  "103201": {
+    "name": "쌍칼",
+    "itemType": "Weapon",
+    "weaponType": "쌍검",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 14,
+    "attackSpeedRatio": 0.1,
+    "src": [
+      101104,
+      102101
+    ]
+  },
+  "103301": {
+    "name": "피렌체식 쌍검",
+    "itemType": "Weapon",
+    "weaponType": "쌍검",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 23,
+    "attackSpeedRatio": 0.1,
+    "lifeSteal": 0.1,
+    "src": [
+      103201,
+      401212
+    ]
+  },
+  "103401": {
+    "name": "이천일류",
+    "itemType": "Weapon",
+    "weaponType": "쌍검",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 44,
+    "attackSpeedRatio": 0.1,
+    "lifeSteal": 0.18,
+    "decreaseRecoveryToSkill": 1,
+    "src": [
+      103301,
+      401101
+    ]
+  },
+  "103402": {
+    "name": "자웅일대검",
+    "itemType": "Weapon",
+    "weaponType": "쌍검",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 55,
+    "attackSpeedRatio": 0.5,
+    "src": [
+      103201,
+      401301
+    ]
+  },
+  "103501": {
+    "name": "디오스쿠로이",
+    "itemType": "Weapon",
+    "weaponType": "쌍검",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 40,
+    "attackSpeedRatio": 0.5,
+    "src": [
+      103201,
+      401306
+    ]
+  },
+  "103502": {
+    "name": "로이거 차르",
+    "itemType": "Weapon",
+    "weaponType": "쌍검",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 33,
+    "attackSpeedRatio": 0.2,
+    "increaseSkillDamage": 36,
+    "src": [
+      103201,
+      401302
+    ]
+  },
+  "104101": {
+    "name": "망치",
+    "itemType": "Weapon",
+    "weaponType": "망치",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 16,
+    "src": []
+  },
+  "104201": {
+    "name": "워해머",
+    "itemType": "Weapon",
+    "weaponType": "망치",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 40,
+    "src": [
+      104101,
+      108102
+    ]
+  },
+  "104301": {
+    "name": "모닝스타",
+    "itemType": "Weapon",
+    "weaponType": "망치",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 55,
+    "src": [
+      104201,
+      112103
+    ]
+  },
+  "104302": {
+    "name": "사슴망치",
+    "itemType": "Weapon",
+    "weaponType": "망치",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 56,
+    "src": [
+      104201,
+      401103
+    ]
+  },
+  "104401": {
+    "name": "낭아봉",
+    "itemType": "Weapon",
+    "weaponType": "망치",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 55,
+    "increaseSkillDamage": 31,
+    "src": [
+      104301,
+      401215
+    ]
+  },
+  "104402": {
+    "name": "다그다의망치",
+    "itemType": "Weapon",
+    "weaponType": "망치",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 95,
+    "hpRegenRatio": 2.5,
+    "src": [
+      104302,
+      205202
+    ]
+  },
+  "104403": {
+    "name": "토르의망치",
+    "itemType": "Weapon",
+    "weaponType": "망치",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 120,
+    "attackSpeedRatio": 0.4,
+    "src": [
+      104302,
+      401306
+    ]
+  },
+  "104404": {
+    "name": "개밥바라기",
+    "itemType": "Weapon",
+    "weaponType": "망치",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 150,
+    "src": [
+      401301,
+      104301
+    ]
+  },
+  "104405": {
+    "name": "마법봉",
+    "itemType": "Weapon",
+    "weaponType": "망치",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 65,
+    "lifeSteal": 0.3,
+    "increaseSkillDamageRatio": 0.27,
+    "src": [
+      104201,
+      205401
+    ]
+  },
+  "105102": {
+    "name": "곡괭이",
+    "itemType": "Weapon",
+    "weaponType": "도끼",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 15,
+    "src": []
+  },
+  "105103": {
+    "name": "손도끼",
+    "itemType": "Weapon",
+    "weaponType": "도끼",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 25,
+    "src": []
+  },
+  "105201": {
+    "name": "사슬낫",
+    "itemType": "Weapon",
+    "weaponType": "도끼",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 50,
+    "attackRange": 0.2,
+    "src": [
+      105102,
+      119101
+    ]
+  },
+  "105202": {
+    "name": "전투도끼",
+    "itemType": "Weapon",
+    "weaponType": "도끼",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 47,
+    "src": [
+      105103,
+      108103
+    ]
+  },
+  "105301": {
+    "name": "경량화도끼",
+    "itemType": "Weapon",
+    "weaponType": "도끼",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 61,
+    "moveSpeed": 0.1,
+    "src": [
+      105202,
+      205101
+    ]
+  },
+  "105302": {
+    "name": "사신의낫",
+    "itemType": "Weapon",
+    "weaponType": "도끼",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 80,
+    "attackRange": 0.5,
+    "src": [
+      105201,
+      108102
+    ]
+  },
+  "105401": {
+    "name": "대부",
+    "itemType": "Weapon",
+    "weaponType": "도끼",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 110,
+    "moveSpeed": -0.1,
+    "src": [
+      105202,
+      401201
+    ]
+  },
+  "105402": {
+    "name": "빔엑스",
+    "itemType": "Weapon",
+    "weaponType": "도끼",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 137,
+    "moveSpeed": -0.1,
+    "sightRange": 4,
+    "src": [
+      105401,
+      401108
+    ]
+  },
+  "105403": {
+    "name": "산타무에르떼",
+    "itemType": "Weapon",
+    "weaponType": "도끼",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 100,
+    "maxHp": 450,
+    "lifeSteal": 0.15,
+    "attackRange": 0.5,
+    "src": [
+      105302,
+      401204
+    ]
+  },
+  "105404": {
+    "name": "스퀴테",
+    "itemType": "Weapon",
+    "weaponType": "도끼",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 130,
+    "attackRange": 1,
+    "increaseSkillDamageRatio": 0.18,
+    "src": [
+      105302,
+      401214
+    ]
+  },
+  "105405": {
+    "name": "파라슈",
+    "itemType": "Weapon",
+    "weaponType": "도끼",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 115,
+    "cooldownReduction": 0.1,
+    "moveSpeed": 0.15,
+    "src": [
+      105301,
+      205207
+    ]
+  },
+  "105406": {
+    "name": "하르페",
+    "itemType": "Weapon",
+    "weaponType": "도끼",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 105,
+    "moveSpeed": 0.1,
+    "attackRange": 0.5,
+    "increaseSkillDamage": 38,
+    "decreaseRecoveryToSkill": 1,
+    "src": [
+      105302,
+      205201
+    ]
+  },
+  "107101": {
+    "name": "단창",
+    "itemType": "Weapon",
+    "weaponType": "창",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 15,
+    "src": []
+  },
+  "107201": {
+    "name": "죽창",
+    "itemType": "Weapon",
+    "weaponType": "창",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 37,
+    "src": [
+      107101,
+      108103
+    ]
+  },
+  "107301": {
+    "name": "바이던트",
+    "itemType": "Weapon",
+    "weaponType": "창",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 52,
+    "src": [
+      107201,
+      101104
+    ]
+  },
+  "107302": {
+    "name": "파이크",
+    "itemType": "Weapon",
+    "weaponType": "창",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 67,
+    "moveSpeed": -0.1,
+    "src": [
+      107101,
+      401201
+    ]
+  },
+  "107303": {
+    "name": "도끼창",
+    "itemType": "Weapon",
+    "weaponType": "창",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 90,
+    "moveSpeed": -0.1,
+    "src": [
+      105103,
+      107302
+    ]
+  },
+  "107401": {
+    "name": "강창",
+    "itemType": "Weapon",
+    "weaponType": "창",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 40,
+    "moveSpeed": 0.1,
+    "src": [
+      107201,
+      205101
+    ]
+  },
+  "107402": {
+    "name": "애각창",
+    "itemType": "Weapon",
+    "weaponType": "창",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 105,
+    "moveSpeed": 0.2,
+    "src": [
+      107401,
+      401206
+    ]
+  },
+  "107403": {
+    "name": "장팔사모",
+    "itemType": "Weapon",
+    "weaponType": "창",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 100,
+    "attackSpeedRatio": 0.4,
+    "src": [
+      107401,
+      401306
+    ]
+  },
+  "107404": {
+    "name": "코스믹바이던트",
+    "itemType": "Weapon",
+    "weaponType": "창",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 150,
+    "src": [
+      107301,
+      401301
+    ]
+  },
+  "107405": {
+    "name": "트리아이나",
+    "itemType": "Weapon",
+    "weaponType": "창",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 120,
+    "moveSpeed": -0.05,
+    "src": [
+      107301,
+      107302
+    ]
+  },
+  "107406": {
+    "name": "화첨창",
+    "itemType": "Weapon",
+    "weaponType": "창",
+    "itemGrade": "전설",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 110,
+    "hpRegen": 1.5,
+    "spRegen": 1.5,
+    "increaseBasicAttackDamage": 30,
+    "src": [
+      205403,
+      107201
+    ]
+  },
+  "107407": {
+    "name": "방천화극",
+    "itemType": "Weapon",
+    "weaponType": "창",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 88,
+    "moveSpeed": -0.1,
+    "increaseSkillDamage": 34,
+    "decreaseRecoveryToSkill": 1,
+    "src": [
+      107303,
+      205210
+    ]
+  },
+  "107408": {
+    "name": "청룡언월도",
+    "itemType": "Weapon",
+    "weaponType": "창",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 130,
+    "moveSpeed": -0.1,
+    "src": [
+      107303,
+      401213
+    ]
+  },
+  "107501": {
+    "name": "롱기누스의창",
+    "itemType": "Weapon",
+    "weaponType": "창",
+    "itemGrade": "전설",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 140,
+    "lifeSteal": 0.2,
+    "src": [
+      401401,
+      107302
+    ]
+  },
+  "108101": {
+    "name": "나뭇가지",
+    "itemType": "Weapon",
+    "weaponType": "배트",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 5,
+    "src": []
+  },
+  "108102": {
+    "name": "단봉",
+    "itemType": "Weapon",
+    "weaponType": "배트",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 15,
+    "src": []
+  },
+  "108202": {
+    "name": "장봉",
+    "itemType": "Weapon",
+    "weaponType": "배트",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 25,
+    "src": [
+      108102,
+      108103
+    ]
+  },
+  "108301": {
+    "name": "도깨비방망이",
+    "itemType": "Weapon",
+    "weaponType": "배트",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 30,
+    "decreaseRecoveryToBasicAttack": 1,
+    "src": [
+      108202,
+      401101
+    ]
+  },
+  "108401": {
+    "name": "우산",
+    "itemType": "Weapon",
+    "weaponType": "배트",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 30,
+    "increaseSkillDamage": 14,
+    "src": [
+      108202,
+      205105
+    ]
+  },
+  "108402": {
+    "name": "횃불",
+    "itemType": "Weapon",
+    "weaponType": "배트",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 40,
+    "hpRegen": 0.5,
+    "attackSpeedRatio": 0.1,
+    "moveSpeed": 0.1,
+    "src": [
+      205209,
+      401202
+    ]
+  },
+  "108403": {
+    "name": "구원의여신상",
+    "itemType": "Weapon",
+    "weaponType": "배트",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 90,
+    "hpRegen": 0.6,
+    "spRegenRatio": 0.6,
+    "attackSpeedRatio": 0.15,
+    "lifeSteal": 0.1,
+    "moveSpeed": 0.1,
+    "src": [
+      108402,
+      205205
+    ]
+  },
+  "108404": {
+    "name": "타구봉",
+    "itemType": "Weapon",
+    "weaponType": "배트",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 80,
+    "attackSpeedRatio": 0.5,
+    "decreaseRecoveryToBasicAttack": 1,
+    "src": [
+      108301,
+      401303
+    ]
+  },
+  "108501": {
+    "name": "스파이의우산",
+    "itemType": "Weapon",
+    "weaponType": "배트",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 65,
+    "increaseSkillDamage": 25,
+    "src": [
+      108401,
+      401302
+    ]
+  },
+  "108502": {
+    "name": "여의봉",
+    "itemType": "Weapon",
+    "weaponType": "배트",
+    "itemGrade": "전설",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 150,
+    "attackRange": 1,
+    "src": [
+      401403,
+      108202
+    ]
+  },
+  "109101": {
+    "name": "채찍",
+    "itemType": "Weapon",
+    "weaponType": "채찍",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 9,
+    "src": []
+  },
+  "109201": {
+    "name": "오랏줄",
+    "itemType": "Weapon",
+    "weaponType": "채찍",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 19,
+    "src": [
+      109101,
+      401109
+    ]
+  },
+  "109202": {
+    "name": "철편",
+    "itemType": "Weapon",
+    "weaponType": "채찍",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 19,
+    "src": [
+      109101,
+      113101
+    ]
+  },
+  "109301": {
+    "name": "바람채찍",
+    "itemType": "Weapon",
+    "weaponType": "채찍",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 25,
+    "increaseSkillDamage": 20,
+    "src": [
+      109201,
+      205105
+    ]
+  },
+  "109401": {
+    "name": "뇌룡편",
+    "itemType": "Weapon",
+    "weaponType": "채찍",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 55,
+    "increaseSkillDamageRatio": 0.18,
+    "src": [
+      109202,
+      401214
+    ]
+  },
+  "109402": {
+    "name": "벽력편",
+    "itemType": "Weapon",
+    "weaponType": "채찍",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 41,
+    "attackSpeedRatio": 0.2,
+    "src": [
+      109202,
+      401205
+    ]
+  },
+  "109403": {
+    "name": "글레이프니르",
+    "itemType": "Weapon",
+    "weaponType": "채찍",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 54,
+    "attackSpeedRatio": 0.3,
+    "src": [
+      109301,
+      302201
+    ]
+  },
+  "109404": {
+    "name": "플라즈마윕",
+    "itemType": "Weapon",
+    "weaponType": "채찍",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 49,
+    "attackSpeedRatio": 0.2,
+    "sightRange": 2.3,
+    "src": [
+      109402,
+      401108
+    ]
+  },
+  "109501": {
+    "name": "혈화구절편",
+    "itemType": "Weapon",
+    "weaponType": "채찍",
+    "itemGrade": "전설",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 70,
+    "lifeSteal": 0.2,
+    "increaseSkillDamage": 40,
+    "src": [
+      401401,
+      109301
+    ]
+  },
+  "110101": {
+    "name": "너클",
+    "itemType": "Weapon",
+    "weaponType": "글러브",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 10,
+    "src": []
+  },
+  "110102": {
+    "name": "목장갑",
+    "itemType": "Weapon",
+    "weaponType": "글러브",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 7,
+    "src": []
+  },
+  "110201": {
+    "name": "글러브",
+    "itemType": "Weapon",
+    "weaponType": "글러브",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 18,
+    "src": [
+      110102,
+      401103
+    ]
+  },
+  "110202": {
+    "name": "아이언너클",
+    "itemType": "Weapon",
+    "weaponType": "글러브",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 20,
+    "src": [
+      110101,
+      401118
+    ]
+  },
+  "110301": {
+    "name": "건틀릿",
+    "itemType": "Weapon",
+    "weaponType": "글러브",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 32,
+    "moveSpeed": -0.1,
+    "src": [
+      110102,
+      401201
+    ]
+  },
+  "110302": {
+    "name": "윙너클",
+    "itemType": "Weapon",
+    "weaponType": "글러브",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 20,
+    "moveSpeed": 0.1,
+    "src": [
+      110202,
+      205101
+    ]
+  },
+  "110401": {
+    "name": "귀골장갑",
+    "itemType": "Weapon",
+    "weaponType": "글러브",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 35,
+    "defense": 13,
+    "moveSpeed": -0.1,
+    "src": [
+      110301,
+      401104
+    ]
+  },
+  "110402": {
+    "name": "벽력귀투",
+    "itemType": "Weapon",
+    "weaponType": "글러브",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 32,
+    "moveSpeed": -0.1,
+    "increaseBasicAttackDamage": 15,
+    "src": [
+      110301,
+      401121
+    ]
+  },
+  "110403": {
+    "name": "유리너클",
+    "itemType": "Weapon",
+    "weaponType": "글러브",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 28,
+    "criticalStrikeChance": 0.1,
+    "src": [
+      110202,
+      205204
+    ]
+  },
+  "110404": {
+    "name": "회단장갑",
+    "itemType": "Weapon",
+    "weaponType": "글러브",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 27,
+    "increaseSkillDamage": 30,
+    "src": [
+      110201,
+      401210
+    ]
+  },
+  "110405": {
+    "name": "단영촌천투",
+    "itemType": "Weapon",
+    "weaponType": "글러브",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 50,
+    "defense": 25,
+    "spRegenRatio": 0.5,
+    "lifeSteal": 0.1,
+    "src": [
+      110401,
+      205205
+    ]
+  },
+  "110406": {
+    "name": "디바인피스트",
+    "itemType": "Weapon",
+    "weaponType": "글러브",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 46,
+    "moveSpeed": -0.05,
+    "increaseBasicAttackDamage": 33,
+    "src": [
+      110402,
+      205109
+    ]
+  },
+  "110407": {
+    "name": "블러드윙너클",
+    "itemType": "Weapon",
+    "weaponType": "글러브",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 53,
+    "maxHp": 250,
+    "moveSpeed": 0.1,
+    "src": [
+      110302,
+      401204
+    ]
+  },
+  "110408": {
+    "name": "빙화현옥수",
+    "itemType": "Weapon",
+    "weaponType": "글러브",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 27,
+    "cooldownReduction": 0.15,
+    "increaseSkillDamage": 38,
+    "src": [
+      110404,
+      301103
+    ]
+  },
+  "110409": {
+    "name": "여래수투",
+    "itemType": "Weapon",
+    "weaponType": "글러브",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 33,
+    "cooldownReduction": 0.1,
+    "increaseSkillDamageRatio": 0.18,
+    "src": [
+      110404,
+      205207
+    ]
+  },
+  "110410": {
+    "name": "브레이질건틀릿",
+    "itemType": "Weapon",
+    "weaponType": "글러브",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 48,
+    "defense": 13,
+    "hpRegen": 1,
+    "attackSpeedRatio": 0.3,
+    "moveSpeed": -0.05,
+    "src": [
+      110401,
+      401202
+    ]
+  },
+  "110411": {
+    "name": "소수",
+    "itemType": "Weapon",
+    "weaponType": "글러브",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 55,
+    "criticalStrikeChance": 0.2,
+    "src": [
+      110403,
+      401206
+    ]
+  },
+  "110412": {
+    "name": "천잠장갑",
+    "itemType": "Weapon",
+    "weaponType": "글러브",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 85,
+    "moveSpeed": 0.1,
+    "src": [
+      502401,
+      110201
+    ]
+  },
+  "108103": {
+    "name": "대나무",
+    "itemType": "Weapon",
+    "weaponType": "톤파",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 12,
+    "src": []
+  },
+  "111201": {
+    "name": "톤파",
+    "itemType": "Weapon",
+    "weaponType": "톤파",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 23,
+    "defense": 8,
+    "src": [
+      108103,
+      108101
+    ]
+  },
+  "111301": {
+    "name": "경찰봉",
+    "itemType": "Weapon",
+    "weaponType": "톤파",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 35,
+    "defense": 8,
+    "src": [
+      111201,
+      401109
+    ]
+  },
+  "111401": {
+    "name": "류큐톤파",
+    "itemType": "Weapon",
+    "weaponType": "톤파",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 38,
+    "defense": 18,
+    "src": [
+      111201,
+      401206
+    ]
+  },
+  "111402": {
+    "name": "택티컬톤파",
+    "itemType": "Weapon",
+    "weaponType": "톤파",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 70,
+    "defense": 10,
+    "lifeSteal": 0.25,
+    "src": [
+      111301,
+      401212
+    ]
+  },
+  "111403": {
+    "name": "마이쏙",
+    "itemType": "Weapon",
+    "weaponType": "톤파",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 50,
+    "defense": 20,
+    "hpRegenRatio": 1,
+    "src": [
+      111401,
+      108102
+    ]
+  },
+  "111404": {
+    "name": "플라즈마톤파",
+    "itemType": "Weapon",
+    "weaponType": "톤파",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 65,
+    "defense": 18,
+    "sightRange": 2.5,
+    "src": [
+      111401,
+      401108
+    ]
+  },
+  "112103": {
+    "name": "쇠구슬",
+    "itemType": "Weapon",
+    "weaponType": "투척",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 12,
+    "src": []
+  },
+  "112105": {
+    "name": "야구공",
+    "itemType": "Weapon",
+    "weaponType": "투척",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 12,
+    "src": []
+  },
+  "112202": {
+    "name": "수류탄",
+    "itemType": "Weapon",
+    "weaponType": "투척",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 25,
+    "increaseBasicAttackDamage": 20,
+    "src": [
+      112103,
+      401121
+    ]
+  },
+  "112203": {
+    "name": "화염병",
+    "itemType": "Weapon",
+    "weaponType": "투척",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 22,
+    "attackSpeedRatio": 0.15,
+    "src": [
+      112104,
+      401112
+    ]
+  },
+  "112204": {
+    "name": "슬링",
+    "itemType": "Weapon",
+    "weaponType": "투척",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 42,
+    "src": [
+      112205,
+      401105
+    ]
+  },
+  "112205": {
+    "name": "싸인볼",
+    "itemType": "Weapon",
+    "weaponType": "투척",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 30,
+    "src": [
+      112105,
+      101102
+    ]
+  },
+  "112301": {
+    "name": "밀가루폭탄",
+    "itemType": "Weapon",
+    "weaponType": "투척",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 58,
+    "attackSpeedRatio": 0.15,
+    "src": [
+      401206,
+      112203
+    ]
+  },
+  "112302": {
+    "name": "소이탄",
+    "itemType": "Weapon",
+    "weaponType": "투척",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 70,
+    "attackSpeedRatio": 0.5,
+    "src": [
+      112203,
+      112303
+    ]
+  },
+  "112303": {
+    "name": "볼라이트닝",
+    "itemType": "Weapon",
+    "weaponType": "투척",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 24,
+    "attackSpeedRatio": 0.2,
+    "src": [
+      112103,
+      401205
+    ]
+  },
+  "112304": {
+    "name": "플러버",
+    "itemType": "Weapon",
+    "weaponType": "투척",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 42,
+    "src": [
+      401105,
+      301201
+    ]
+  },
+  "112305": {
+    "name": "안티오크의수류탄",
+    "itemType": "Weapon",
+    "weaponType": "투척",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 85,
+    "increaseBasicAttackDamage": 80,
+    "src": [
+      112404,
+      205109
+    ]
+  },
+  "112401": {
+    "name": "다비드슬링",
+    "itemType": "Weapon",
+    "weaponType": "투척",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 80,
+    "hpRegenRatio": 1.5,
+    "increaseBasicAttackDamage": 30,
+    "src": [
+      112204,
+      205202
+    ]
+  },
+  "112402": {
+    "name": "연막탄",
+    "itemType": "Weapon",
+    "weaponType": "투척",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 90,
+    "attackSpeedRatio": 0.4,
+    "src": [
+      112301,
+      301209
+    ]
+  },
+  "112403": {
+    "name": "가시탱탱볼",
+    "itemType": "Weapon",
+    "weaponType": "투척",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 36,
+    "decreaseRecoveryToSkill": 1,
+    "src": [
+      112304,
+      401101
+    ]
+  },
+  "112404": {
+    "name": "고폭수류탄",
+    "itemType": "Weapon",
+    "weaponType": "투척",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 56,
+    "increaseBasicAttackDamage": 60,
+    "src": [
+      112202,
+      502307
+    ]
+  },
+  "112501": {
+    "name": "루테늄구슬",
+    "itemType": "Weapon",
+    "weaponType": "투척",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 80,
+    "increaseSkillDamageRatio": 0.2,
+    "decreaseRecoveryToSkill": 1,
+    "src": [
+      112403,
+      401214
+    ]
+  },
+  "113101": {
+    "name": "면도칼",
+    "itemType": "Weapon",
+    "weaponType": "암기",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 11,
+    "src": []
+  },
+  "113102": {
+    "name": "트럼프카드",
+    "itemType": "Weapon",
+    "weaponType": "암기",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 4,
+    "criticalStrikeChance": 0.05,
+    "src": []
+  },
+  "113104": {
+    "name": "분필",
+    "itemType": "Weapon",
+    "weaponType": "암기",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 12,
+    "src": []
+  },
+  "113201": {
+    "name": "다트",
+    "itemType": "Weapon",
+    "weaponType": "암기",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 16,
+    "criticalStrikeDamage": 0.2,
+    "moveSpeed": 0.1,
+    "src": [
+      120101,
+      205101
+    ]
+  },
+  "113202": {
+    "name": "부적",
+    "itemType": "Weapon",
+    "weaponType": "암기",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 40,
+    "increaseSkillDamageRatio": 0.1,
+    "src": [
+      113203,
+      205106
+    ]
+  },
+  "113203": {
+    "name": "빈티지카드",
+    "itemType": "Weapon",
+    "weaponType": "암기",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 15,
+    "criticalStrikeChance": 0.1,
+    "src": [
+      113102,
+      101102
+    ]
+  },
+  "113205": {
+    "name": "표창",
+    "itemType": "Weapon",
+    "weaponType": "암기",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 27,
+    "src": [
+      113101,
+      502104
+    ]
+  },
+  "113206": {
+    "name": "흑건",
+    "itemType": "Weapon",
+    "weaponType": "암기",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 17,
+    "increaseBasicAttackDamage": 10,
+    "src": [
+      113101,
+      205109
+    ]
+  },
+  "113207": {
+    "name": "유엽비도",
+    "itemType": "Weapon",
+    "weaponType": "암기",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 17,
+    "increaseBasicAttackDamage": 20,
+    "src": [
+      113206,
+      108101
+    ]
+  },
+  "113301": {
+    "name": "챠크람",
+    "itemType": "Weapon",
+    "weaponType": "암기",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 38,
+    "src": [
+      113205,
+      401109
+    ]
+  },
+  "113302": {
+    "name": "매화비표",
+    "itemType": "Weapon",
+    "weaponType": "암기",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 14,
+    "cooldownReduction": 0.1,
+    "increaseBasicAttackDamage": 30,
+    "src": [
+      113207,
+      205102
+    ]
+  },
+  "113401": {
+    "name": "미치광이왕의카드",
+    "itemType": "Weapon",
+    "weaponType": "암기",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 49,
+    "attackSpeedRatio": 0.3,
+    "criticalStrikeChance": 0.2,
+    "src": [
+      113203,
+      401306
+    ]
+  },
+  "113402": {
+    "name": "독침",
+    "itemType": "Weapon",
+    "weaponType": "암기",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 55,
+    "criticalStrikeDamage": 0.2,
+    "increaseSkillDamage": 15,
+    "src": [
+      120101,
+      401302
+    ]
+  },
+  "113403": {
+    "name": "법륜",
+    "itemType": "Weapon",
+    "weaponType": "암기",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 34,
+    "increaseSkillDamageRatio": 0.15,
+    "src": [
+      113301,
+      205106
+    ]
+  },
+  "113404": {
+    "name": "플럼바타",
+    "itemType": "Weapon",
+    "weaponType": "암기",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 48,
+    "criticalStrikeDamage": 0.25,
+    "moveSpeed": 0.1,
+    "src": [
+      113201,
+      401201
+    ]
+  },
+  "113405": {
+    "name": "옥전결",
+    "itemType": "Weapon",
+    "weaponType": "암기",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 60,
+    "increaseSkillDamage": 12,
+    "increaseSkillDamageRatio": 0.15,
+    "src": [
+      113202,
+      401210
+    ]
+  },
+  "113406": {
+    "name": "풍마수리검",
+    "itemType": "Weapon",
+    "weaponType": "암기",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 48,
+    "cooldownReduction": 0.15,
+    "increaseBasicAttackDamage": 36,
+    "src": [
+      113302,
+      401111
+    ]
+  },
+  "113408": {
+    "name": "빙백은침",
+    "itemType": "Weapon",
+    "weaponType": "암기",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 80,
+    "criticalStrikeDamage": 0.5,
+    "increaseSkillDamage": 20,
+    "src": [
+      113402,
+      301103
+    ]
+  },
+  "113409": {
+    "name": "푸른색단도",
+    "itemType": "Weapon",
+    "weaponType": "암기",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 20,
+    "increaseBasicAttackDamage": 29,
+    "increaseSkillDamage": 24,
+    "src": [
+      113206,
+      401302
+    ]
+  },
+  "113410": {
+    "name": "플레솃",
+    "itemType": "Weapon",
+    "weaponType": "암기",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 85,
+    "criticalStrikeDamage": 0.4,
+    "moveSpeed": 0.2,
+    "src": [
+      113404,
+      401206
+    ]
+  },
+  "113411": {
+    "name": "건곤권",
+    "itemType": "Weapon",
+    "weaponType": "암기",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 55,
+    "increaseSkillDamageRatio": 0.2,
+    "src": [
+      113403,
+      108103
+    ]
+  },
+  "113412": {
+    "name": "생사부",
+    "itemType": "Weapon",
+    "weaponType": "암기",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 80,
+    "increaseSkillDamageRatio": 0.23,
+    "src": [
+      113202,
+      401208
+    ]
+  },
+  "113501": {
+    "name": "수다르사나",
+    "itemType": "Weapon",
+    "weaponType": "암기",
+    "itemGrade": "전설",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 125,
+    "src": [
+      401403,
+      113205
+    ]
+  },
+  "113502": {
+    "name": "만천화우",
+    "itemType": "Weapon",
+    "weaponType": "암기",
+    "itemGrade": "전설",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 80,
+    "criticalStrikeDamage": 0.5,
+    "increaseBasicAttackDamage": 130,
+    "increaseSkillDamage": 25,
+    "src": [
+      113408,
+      502402
+    ]
+  },
+  "114101": {
+    "name": "양궁",
+    "itemType": "Weapon",
+    "weaponType": "활",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 11,
+    "src": []
+  },
+  "114201": {
+    "name": "목궁",
+    "itemType": "Weapon",
+    "weaponType": "활",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 26,
+    "src": [
+      108101,
+      502104
+    ]
+  },
+  "114202": {
+    "name": "장궁",
+    "itemType": "Weapon",
+    "weaponType": "활",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 25,
+    "src": [
+      114101,
+      401105
+    ]
+  },
+  "114203": {
+    "name": "컴포지트보우",
+    "itemType": "Weapon",
+    "weaponType": "활",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 16,
+    "decreaseRecoveryToBasicAttack": 1,
+    "src": [
+      114202,
+      401101
+    ]
+  },
+  "114301": {
+    "name": "강궁",
+    "itemType": "Weapon",
+    "weaponType": "활",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 26,
+    "attackSpeedRatio": 0.15,
+    "src": [
+      114201,
+      401112
+    ]
+  },
+  "114302": {
+    "name": "국궁",
+    "itemType": "Weapon",
+    "weaponType": "활",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 20,
+    "increaseBasicAttackDamage": 25,
+    "src": [
+      114303,
+      401109
+    ]
+  },
+  "114303": {
+    "name": "벽력궁",
+    "itemType": "Weapon",
+    "weaponType": "활",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 20,
+    "increaseBasicAttackDamage": 11,
+    "src": [
+      114202,
+      401121
+    ]
+  },
+  "114304": {
+    "name": "탄궁",
+    "itemType": "Weapon",
+    "weaponType": "활",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 55,
+    "src": [
+      114201,
+      401215
+    ]
+  },
+  "114401": {
+    "name": "편전",
+    "itemType": "Weapon",
+    "weaponType": "활",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 55,
+    "increaseBasicAttackDamage": 40,
+    "src": [
+      114302,
+      108103
+    ]
+  },
+  "114402": {
+    "name": "화전",
+    "itemType": "Weapon",
+    "weaponType": "활",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 24,
+    "increaseSkillDamage": 18,
+    "src": [
+      114202,
+      401107
+    ]
+  },
+  "114403": {
+    "name": "골든래쇼보우",
+    "itemType": "Weapon",
+    "weaponType": "활",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 68,
+    "increaseSkillDamageRatio": 0.2,
+    "src": [
+      114304,
+      401214
+    ]
+  },
+  "114405": {
+    "name": "트윈보우",
+    "itemType": "Weapon",
+    "weaponType": "활",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 70,
+    "attackSpeedRatio": 0.5,
+    "decreaseRecoveryToBasicAttack": 1,
+    "src": [
+      114301,
+      114203
+    ]
+  },
+  "114501": {
+    "name": "엘리멘탈보우",
+    "itemType": "Weapon",
+    "weaponType": "활",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 60,
+    "moveSpeed": 0.1,
+    "increaseSkillDamage": 41,
+    "decreaseRecoveryToSkill": 1,
+    "src": [
+      114402,
+      205201
+    ]
+  },
+  "114502": {
+    "name": "페일노트",
+    "itemType": "Weapon",
+    "weaponType": "활",
+    "itemGrade": "전설",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 100,
+    "attackSpeedRatio": 0.15,
+    "lifeSteal": 0.15,
+    "src": [
+      401401,
+      114301
+    ]
+  },
+  "115101": {
+    "name": "석궁",
+    "itemType": "Weapon",
+    "weaponType": "석궁",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 12,
+    "src": []
+  },
+  "115201": {
+    "name": "쇠뇌",
+    "itemType": "Weapon",
+    "weaponType": "석궁",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 30,
+    "src": [
+      115101,
+      502104
+    ]
+  },
+  "115202": {
+    "name": "크로스보우",
+    "itemType": "Weapon",
+    "weaponType": "석궁",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 30,
+    "src": [
+      115101,
+      108103
+    ]
+  },
+  "115301": {
+    "name": "노",
+    "itemType": "Weapon",
+    "weaponType": "석궁",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 42,
+    "src": [
+      115201,
+      401105
+    ]
+  },
+  "115302": {
+    "name": "저격궁",
+    "itemType": "Weapon",
+    "weaponType": "석궁",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 30,
+    "sightRange": 2.5,
+    "src": [
+      115202,
+      401108
+    ]
+  },
+  "115303": {
+    "name": "헤비크로스보우",
+    "itemType": "Weapon",
+    "weaponType": "석궁",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 72,
+    "moveSpeed": -0.1,
+    "src": [
+      115201,
+      401201
+    ]
+  },
+  "115401": {
+    "name": "철궁",
+    "itemType": "Weapon",
+    "weaponType": "석궁",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 60,
+    "src": [
+      115202,
+      401213
+    ]
+  },
+  "115402": {
+    "name": "대황",
+    "itemType": "Weapon",
+    "weaponType": "석궁",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 75,
+    "hpRegen": 2,
+    "attackSpeedRatio": 0.5,
+    "src": [
+      115401,
+      401202
+    ]
+  },
+  "115403": {
+    "name": "발리스타",
+    "itemType": "Weapon",
+    "weaponType": "석궁",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 115,
+    "attackSpeedRatio": -0.05,
+    "src": [
+      115303,
+      107101
+    ]
+  },
+  "115404": {
+    "name": "저격크로스보우",
+    "itemType": "Weapon",
+    "weaponType": "석궁",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 85,
+    "sightRange": 3.5,
+    "attackRange": 1,
+    "src": [
+      115302,
+      205206
+    ]
+  },
+  "115405": {
+    "name": "영광금귀신기노",
+    "itemType": "Weapon",
+    "weaponType": "석궁",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 70,
+    "increaseBasicAttackDamage": 37,
+    "src": [
+      115301,
+      502307
+    ]
+  },
+  "115501": {
+    "name": "샤릉가",
+    "itemType": "Weapon",
+    "weaponType": "석궁",
+    "itemGrade": "전설",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 140,
+    "src": [
+      401403,
+      115202
+    ]
+  },
+  "116101": {
+    "name": "발터PPK",
+    "itemType": "Weapon",
+    "weaponType": "권총",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 8,
+    "moveSpeed": 0.1,
+    "src": []
+  },
+  "116201": {
+    "name": "매그넘-파이선",
+    "itemType": "Weapon",
+    "weaponType": "권총",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 15,
+    "attackSpeedRatio": 0.1,
+    "moveSpeed": 0.1,
+    "src": [
+      116101,
+      401112
+    ]
+  },
+  "116202": {
+    "name": "베레타M92F",
+    "itemType": "Weapon",
+    "weaponType": "권총",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 23,
+    "moveSpeed": 0.1,
+    "src": [
+      116101,
+      401103
+    ]
+  },
+  "116301": {
+    "name": "FN57",
+    "itemType": "Weapon",
+    "weaponType": "권총",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 29,
+    "moveSpeed": 0.1,
+    "sightRange": 2.5,
+    "src": [
+      116202,
+      401108
+    ]
+  },
+  "116401": {
+    "name": "더블리볼버SP",
+    "itemType": "Weapon",
+    "weaponType": "권총",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 40,
+    "attackSpeedRatio": 0.1,
+    "moveSpeed": 0.1,
+    "src": [
+      116201,
+      116202
+    ]
+  },
+  "116402": {
+    "name": "매그넘-아나콘다",
+    "itemType": "Weapon",
+    "weaponType": "권총",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 43,
+    "attackSpeedRatio": 0.1,
+    "lifeSteal": 0.1,
+    "moveSpeed": 0.1,
+    "src": [
+      116201,
+      401212
+    ]
+  },
+  "116403": {
+    "name": "마탄의사수",
+    "itemType": "Weapon",
+    "weaponType": "권총",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 30,
+    "attackSpeedRatio": 0.1,
+    "moveSpeed": 0.1,
+    "increaseSkillDamage": 40,
+    "src": [
+      116401,
+      401210
+    ]
+  },
+  "116404": {
+    "name": "엘레강스",
+    "itemType": "Weapon",
+    "weaponType": "권총",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 90,
+    "moveSpeed": 0.2,
+    "sightRange": 5,
+    "src": [
+      116301,
+      205209
+    ]
+  },
+  "116405": {
+    "name": "일렉트론블라스터",
+    "itemType": "Weapon",
+    "weaponType": "권총",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 65,
+    "attackSpeedRatio": 0.5,
+    "moveSpeed": 0.1,
+    "increaseBasicAttackDamage": 28,
+    "src": [
+      116202,
+      401306
+    ]
+  },
+  "116406": {
+    "name": "매그넘-보아",
+    "itemType": "Weapon",
+    "weaponType": "권총",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 90,
+    "attackSpeedRatio": 0.25,
+    "lifeSteal": 0.2,
+    "moveSpeed": 0.1,
+    "sightRange": 3.5,
+    "src": [
+      116402,
+      401201
+    ]
+  },
+  "116501": {
+    "name": "악켈테",
+    "itemType": "Weapon",
+    "weaponType": "권총",
+    "itemGrade": "전설",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 120,
+    "moveSpeed": 0.2,
+    "src": [
+      401403,
+      116202
+    ]
+  },
+  "117101": {
+    "name": "페도로프자동소총",
+    "itemType": "Weapon",
+    "weaponType": "돌격소총",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 11,
+    "src": []
+  },
+  "117201": {
+    "name": "STG44",
+    "itemType": "Weapon",
+    "weaponType": "돌격소총",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 18,
+    "sightRange": 1.5,
+    "increaseBasicAttackDamage": 2,
+    "src": [
+      117101,
+      401121
+    ]
+  },
+  "117301": {
+    "name": "AK-47",
+    "itemType": "Weapon",
+    "weaponType": "돌격소총",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 29,
+    "sightRange": 1.5,
+    "increaseBasicAttackDamage": 2,
+    "src": [
+      117201,
+      502104
+    ]
+  },
+  "117401": {
+    "name": "M16A1",
+    "itemType": "Weapon",
+    "weaponType": "돌격소총",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 25,
+    "sightRange": 1.5,
+    "increaseBasicAttackDamage": 4,
+    "src": [
+      117201,
+      401103
+    ]
+  },
+  "117402": {
+    "name": "기관총",
+    "itemType": "Weapon",
+    "weaponType": "돌격소총",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 20,
+    "attackSpeedRatio": 0.1,
+    "sightRange": 1.5,
+    "increaseBasicAttackDamage": 11,
+    "src": [
+      117201,
+      401303
+    ]
+  },
+  "117403": {
+    "name": "개틀링건",
+    "itemType": "Weapon",
+    "weaponType": "돌격소총",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 50,
+    "attackSpeedRatio": 0.15,
+    "sightRange": 1.5,
+    "increaseBasicAttackDamage": 12,
+    "src": [
+      117402,
+      401112
+    ]
+  },
+  "117404": {
+    "name": "AK-12",
+    "itemType": "Weapon",
+    "weaponType": "돌격소총",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 94,
+    "criticalStrikeChance": 0.2,
+    "sightRange": 1.5,
+    "src": [
+      117301,
+      401305
+    ]
+  },
+  "117405": {
+    "name": "XCR",
+    "itemType": "Weapon",
+    "weaponType": "돌격소총",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 63,
+    "maxHp": 350,
+    "sightRange": 1.5,
+    "increaseBasicAttackDamage": 10,
+    "src": [
+      117401,
+      205303
+    ]
+  },
+  "118101": {
+    "name": "화승총",
+    "itemType": "Weapon",
+    "weaponType": "저격총",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 34,
+    "moveSpeed": -0.1,
+    "src": []
+  },
+  "118201": {
+    "name": "스프링필드",
+    "itemType": "Weapon",
+    "weaponType": "저격총",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 50,
+    "moveSpeed": -0.1,
+    "sightRange": 1.5,
+    "src": [
+      118101,
+      401108
+    ]
+  },
+  "118301": {
+    "name": "하푼건",
+    "itemType": "Weapon",
+    "weaponType": "저격총",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 64,
+    "moveSpeed": -0.1,
+    "sightRange": 2,
+    "src": [
+      118201,
+      107101
+    ]
+  },
+  "118401": {
+    "name": "금교전",
+    "itemType": "Weapon",
+    "weaponType": "저격총",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 56,
+    "moveSpeed": -0.15,
+    "sightRange": 2.5,
+    "increaseSkillDamageRatio": 0.18,
+    "src": [
+      118201,
+      401214
+    ]
+  },
+  "118402": {
+    "name": "레일건",
+    "itemType": "Weapon",
+    "weaponType": "저격총",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 78,
+    "attackSpeedRatio": 0.2,
+    "moveSpeed": -0.15,
+    "sightRange": 2,
+    "src": [
+      118201,
+      401211
+    ]
+  },
+  "118403": {
+    "name": "Tac-50",
+    "itemType": "Weapon",
+    "weaponType": "저격총",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 140,
+    "lifeSteal": 0.2,
+    "moveSpeed": -0.03,
+    "sightRange": 2.5,
+    "src": [
+      118301,
+      401212
+    ]
+  },
+  "118404": {
+    "name": "인터벤션",
+    "itemType": "Weapon",
+    "weaponType": "저격총",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 110,
+    "sightRange": 4.5,
+    "attackRange": 1,
+    "src": [
+      118301,
+      502207
+    ]
+  },
+  "118405": {
+    "name": "NTW-20",
+    "itemType": "Weapon",
+    "weaponType": "저격총",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 95,
+    "moveSpeed": -0.1,
+    "sightRange": 2.5,
+    "increaseSkillDamageRatio": 0.22,
+    "src": [
+      118401,
+      401213
+    ]
+  },
+  "118406": {
+    "name": "폴라리스",
+    "itemType": "Weapon",
+    "weaponType": "저격총",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 135,
+    "attackSpeedRatio": 0.4,
+    "moveSpeed": -0.07,
+    "sightRange": 2,
+    "src": [
+      118402,
+      401206
+    ]
+  },
+  "118501": {
+    "name": "사사성광",
+    "itemType": "Weapon",
+    "weaponType": "저격총",
+    "itemGrade": "전설",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 95,
+    "moveSpeed": -0.1,
+    "sightRange": 2.5,
+    "increaseSkillDamageRatio": 0.3,
+    "src": [
+      401301,
+      118401
+    ]
+  },
+  "119101": {
+    "name": "쇠사슬",
+    "itemType": "Weapon",
+    "weaponType": "쌍절곤",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 11,
+    "src": []
+  },
+  "119201": {
+    "name": "눈차크",
+    "itemType": "Weapon",
+    "weaponType": "쌍절곤",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 27,
+    "src": [
+      119101,
+      401106
+    ]
+  },
+  "119301": {
+    "name": "샤퍼",
+    "itemType": "Weapon",
+    "weaponType": "쌍절곤",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 19,
+    "decreaseRecoveryToSkill": 1,
+    "src": [
+      119201,
+      401101
+    ]
+  },
+  "119302": {
+    "name": "블리더",
+    "itemType": "Weapon",
+    "weaponType": "쌍절곤",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 38,
+    "src": [
+      119201,
+      113101
+    ]
+  },
+  "119401": {
+    "name": "대소반룡곤",
+    "itemType": "Weapon",
+    "weaponType": "쌍절곤",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 50,
+    "increaseSkillDamage": 14,
+    "decreaseRecoveryToSkill": 1,
+    "src": [
+      119301,
+      401210
+    ]
+  },
+  "119402": {
+    "name": "초진동눈차크",
+    "itemType": "Weapon",
+    "weaponType": "쌍절곤",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 65,
+    "attackSpeedRatio": 0.5,
+    "src": [
+      119302,
+      401303
+    ]
+  },
+  "120101": {
+    "name": "바늘",
+    "itemType": "Weapon",
+    "weaponType": "레이피어",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 3,
+    "criticalStrikeDamage": 0.25,
+    "src": []
+  },
+  "120201": {
+    "name": "레이피어",
+    "itemType": "Weapon",
+    "weaponType": "레이피어",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 16,
+    "criticalStrikeDamage": 0.25,
+    "src": [
+      120101,
+      401118
+    ]
+  },
+  "120301": {
+    "name": "매화검",
+    "itemType": "Weapon",
+    "weaponType": "레이피어",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 21,
+    "criticalStrikeChance": 0.1,
+    "criticalStrikeDamage": 0.25,
+    "cooldownReduction": 0.1,
+    "src": [
+      120201,
+      205203
+    ]
+  },
+  "120302": {
+    "name": "활빈검",
+    "itemType": "Weapon",
+    "weaponType": "레이피어",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 30,
+    "hpRegen": 1.5,
+    "spRegenRatio": 2,
+    "criticalStrikeDamage": 0.25,
+    "cooldownReduction": 0.12,
+    "src": [
+      120201,
+      202404
+    ]
+  },
+  "120401": {
+    "name": "듀랜달Mk2",
+    "itemType": "Weapon",
+    "weaponType": "레이피어",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 51,
+    "criticalStrikeChance": 0.1,
+    "criticalStrikeDamage": 0.25,
+    "cooldownReduction": 0.1,
+    "sightRange": 3,
+    "src": [
+      120301,
+      401108
+    ]
+  },
+  "120402": {
+    "name": "미스틸테인",
+    "itemType": "Weapon",
+    "weaponType": "레이피어",
+    "itemGrade": "전설",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 30,
+    "hpRegen": 1.5,
+    "spRegenRatio": 2,
+    "criticalStrikeDamage": 0.25,
+    "cooldownReduction": 0.12,
+    "increaseSkillDamageRatio": 0.15,
+    "src": [
+      120302,
+      108101
+    ]
+  },
+  "120403": {
+    "name": "볼틱레토",
+    "itemType": "Weapon",
+    "weaponType": "레이피어",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 47,
+    "attackSpeedRatio": 0.35,
+    "criticalStrikeChance": 0.1,
+    "criticalStrikeDamage": 0.25,
+    "cooldownReduction": 0.1,
+    "src": [
+      120301,
+      401211
+    ]
+  },
+  "120404": {
+    "name": "유성검",
+    "itemType": "Weapon",
+    "weaponType": "레이피어",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 75,
+    "criticalStrikeDamage": 0.3,
+    "cooldownReduction": 0.1,
+    "src": [
+      120301,
+      401209
+    ]
+  },
+  "120405": {
+    "name": "주와이외즈",
+    "itemType": "Weapon",
+    "weaponType": "레이피어",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 75,
+    "criticalStrikeDamage": 0.3,
+    "moveSpeed": 0.2,
+    "src": [
+      120201,
+      401304
+    ]
+  },
+  "121101": {
+    "name": "보급형기타",
+    "itemType": "Weapon",
+    "weaponType": "기타",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 5,
+    "src": []
+  },
+  "121201": {
+    "name": "골든브릿지",
+    "itemType": "Weapon",
+    "weaponType": "기타",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 8,
+    "increaseSkillDamageRatio": 0.14,
+    "src": [
+      121101,
+      401214
+    ]
+  },
+  "121202": {
+    "name": "싱글픽업",
+    "itemType": "Weapon",
+    "weaponType": "기타",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 8,
+    "attackSpeedRatio": 0.15,
+    "increaseBasicAttackDamage": 2,
+    "src": [
+      121101,
+      401205
+    ]
+  },
+  "121301": {
+    "name": "루비스페셜",
+    "itemType": "Weapon",
+    "weaponType": "기타",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 20,
+    "maxHp": 300,
+    "attackSpeedRatio": 0.2,
+    "increaseBasicAttackDamage": 2,
+    "src": [
+      121202,
+      401204
+    ]
+  },
+  "121302": {
+    "name": "험버커픽업",
+    "itemType": "Weapon",
+    "weaponType": "기타",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 25,
+    "sightRange": 3,
+    "increaseSkillDamageRatio": 0.15,
+    "src": [
+      121201,
+      205206
+    ]
+  },
+  "121303": {
+    "name": "King-V",
+    "itemType": "Weapon",
+    "weaponType": "기타",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 13,
+    "increaseSkillDamageRatio": 0.16,
+    "src": [
+      121201,
+      101101
+    ]
+  },
+  "121304": {
+    "name": "노캐스터",
+    "itemType": "Weapon",
+    "weaponType": "기타",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 15,
+    "attackSpeedRatio": 0.2,
+    "lifeSteal": 0.1,
+    "increaseBasicAttackDamage": 10,
+    "src": [
+      121202,
+      401212
+    ]
+  },
+  "121305": {
+    "name": "슈퍼스트랫",
+    "itemType": "Weapon",
+    "weaponType": "기타",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 19,
+    "attackSpeedRatio": 0.15,
+    "increaseBasicAttackDamage": 2,
+    "src": [
+      121202,
+      108103
+    ]
+  },
+  "121306": {
+    "name": "야생마",
+    "itemType": "Weapon",
+    "weaponType": "기타",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 9,
+    "attackSpeedRatio": 0.25,
+    "increaseBasicAttackDamage": 6,
+    "src": [
+      121202,
+      401112
+    ]
+  },
+  "121401": {
+    "name": "보헤미안",
+    "itemType": "Weapon",
+    "weaponType": "기타",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 50,
+    "maxHp": 380,
+    "attackSpeedRatio": 0.2,
+    "criticalStrikeChance": 0.2,
+    "increaseBasicAttackDamage": 2,
+    "src": [
+      121301,
+      113102
+    ]
+  },
+  "121402": {
+    "name": "천국의계단",
+    "itemType": "Weapon",
+    "weaponType": "기타",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 52,
+    "hpRegenRatio": 2,
+    "sightRange": 4,
+    "increaseSkillDamageRatio": 0.2,
+    "src": [
+      121302,
+      205108
+    ]
+  },
+  "121403": {
+    "name": "퍼플헤이즈",
+    "itemType": "Weapon",
+    "weaponType": "기타",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 85,
+    "increaseSkillDamageRatio": 0.21,
+    "src": [
+      121303,
+      401210
+    ]
+  },
+  "121404": {
+    "name": "새티스팩션",
+    "itemType": "Weapon",
+    "weaponType": "기타",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 30,
+    "attackSpeedRatio": 0.3,
+    "lifeSteal": 0.1,
+    "increaseBasicAttackDamage": 11,
+    "src": [
+      121304,
+      112101
+    ]
+  },
+  "121405": {
+    "name": "원더풀투나잇",
+    "itemType": "Weapon",
+    "weaponType": "기타",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 100,
+    "attackSpeedRatio": 0.45,
+    "increaseBasicAttackDamage": 2,
+    "src": [
+      121305,
+      401209
+    ]
+  },
+  "121406": {
+    "name": "더월",
+    "itemType": "Weapon",
+    "weaponType": "기타",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 70,
+    "attackSpeedRatio": 0.18,
+    "increaseBasicAttackDamage": 2,
+    "src": [
+      121305,
+      401206
+    ]
+  },
+  "121407": {
+    "name": "틴스피릿",
+    "itemType": "Weapon",
+    "weaponType": "기타",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 10,
+    "attackSpeedRatio": 0.25,
+    "increaseBasicAttackDamage": 20,
+    "src": [
+      121306,
+      205207
+    ]
+  },
+  "201101": {
+    "name": "머리띠",
+    "itemType": "Armor",
+    "armorType": "머리",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 4,
+    "maxSp": 130,
+    "src": []
+  },
+  "201102": {
+    "name": "모자",
+    "itemType": "Armor",
+    "armorType": "머리",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 4,
+    "cooldownReduction": 0.05,
+    "src": []
+  },
+  "201104": {
+    "name": "자전거헬멧",
+    "itemType": "Armor",
+    "armorType": "머리",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "maxHp": 90,
+    "src": []
+  },
+  "201201": {
+    "name": "가면",
+    "itemType": "Armor",
+    "armorType": "머리",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 10,
+    "maxSp": 130,
+    "moveSpeed": 0.08,
+    "src": [
+      201101,
+      205101
+    ]
+  },
+  "201202": {
+    "name": "머리테",
+    "itemType": "Armor",
+    "armorType": "머리",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 14,
+    "maxSp": 270,
+    "src": [
+      201101,
+      108101
+    ]
+  },
+  "201203": {
+    "name": "베레모",
+    "itemType": "Armor",
+    "armorType": "머리",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 10,
+    "maxHp": 60,
+    "cooldownReduction": 0.07,
+    "src": [
+      201102,
+      101101
+    ]
+  },
+  "201204": {
+    "name": "사슬코이프",
+    "itemType": "Armor",
+    "armorType": "머리",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 14,
+    "cooldownReduction": 0.1,
+    "src": [
+      201102,
+      119101
+    ]
+  },
+  "201205": {
+    "name": "안전모",
+    "itemType": "Armor",
+    "armorType": "머리",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "maxHp": 210,
+    "src": [
+      201104,
+      112101
+    ]
+  },
+  "201301": {
+    "name": "방탄모",
+    "itemType": "Armor",
+    "armorType": "머리",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 15,
+    "maxHp": 90,
+    "cooldownReduction": 0.08,
+    "src": [
+      201203,
+      201104
+    ]
+  },
+  "201302": {
+    "name": "소방헬멧",
+    "itemType": "Armor",
+    "armorType": "머리",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "maxHp": 280,
+    "src": [
+      201205,
+      301102
+    ]
+  },
+  "201303": {
+    "name": "티아라",
+    "itemType": "Armor",
+    "armorType": "머리",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 14,
+    "maxSp": 460,
+    "src": [
+      201202,
+      401109
+    ]
+  },
+  "201401": {
+    "name": "왕관",
+    "itemType": "Armor",
+    "armorType": "머리",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 16,
+    "maxSp": 360,
+    "increaseSkillDamageRatio": 0.08,
+    "src": [
+      201202,
+      401214
+    ]
+  },
+  "201402": {
+    "name": "투구",
+    "itemType": "Armor",
+    "armorType": "머리",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 20,
+    "maxSp": 130,
+    "cooldownReduction": 0.1,
+    "moveSpeed": 0.1,
+    "src": [
+      201204,
+      201201
+    ]
+  },
+  "201403": {
+    "name": "미스릴투구",
+    "itemType": "Armor",
+    "armorType": "머리",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 38,
+    "attackSpeedRatio": 0.12,
+    "cooldownReduction": 0.15,
+    "moveSpeed": 0.2,
+    "src": [
+      401304,
+      201204
+    ]
+  },
+  "201404": {
+    "name": "수정티아라",
+    "itemType": "Armor",
+    "armorType": "머리",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 14,
+    "maxSp": 700,
+    "criticalStrikeChance": 0.22,
+    "src": [
+      201303,
+      205204
+    ]
+  },
+  "201405": {
+    "name": "오토바이헬멧",
+    "itemType": "Armor",
+    "armorType": "머리",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 10,
+    "maxHp": 300,
+    "sightRange": 1.5,
+    "src": [
+      201302,
+      205110
+    ]
+  },
+  "201406": {
+    "name": "전술OPS헬멧",
+    "itemType": "Armor",
+    "armorType": "머리",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 15,
+    "maxHp": 120,
+    "attackSpeedRatio": 0.2,
+    "cooldownReduction": 0.15,
+    "src": [
+      201301,
+      401211
+    ]
+  },
+  "201407": {
+    "name": "기사단장의투구",
+    "itemType": "Armor",
+    "armorType": "머리",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 20,
+    "maxSp": 200,
+    "cooldownReduction": 0.1,
+    "moveSpeed": 0.1,
+    "preventSkillDamagedRatio": 0.11,
+    "src": [
+      201402,
+      401105
+    ]
+  },
+  "201408": {
+    "name": "월계관",
+    "itemType": "Armor",
+    "armorType": "머리",
+    "itemGrade": "전설",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 18,
+    "maxSp": 580,
+    "hpRegen": 1.5,
+    "spRegen": 2,
+    "increaseBasicAttackDamage": 15,
+    "src": [
+      205403,
+      201202
+    ]
+  },
+  "201409": {
+    "name": "제국왕관",
+    "itemType": "Armor",
+    "armorType": "머리",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 18,
+    "maxHp": 300,
+    "maxSp": 500,
+    "increaseSkillDamageRatio": 0.08,
+    "src": [
+      201401,
+      401204
+    ]
+  },
+  "201410": {
+    "name": "황실부르고넷",
+    "itemType": "Armor",
+    "armorType": "머리",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 10,
+    "maxSp": 200,
+    "cooldownReduction": 0.1,
+    "moveSpeed": 0.1,
+    "increaseSkillDamageRatio": 0.16,
+    "src": [
+      201402,
+      401214
+    ]
+  },
+  "201411": {
+    "name": "변검",
+    "itemType": "Armor",
+    "armorType": "머리",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 16,
+    "maxSp": 300,
+    "lifeSteal": 0.22,
+    "moveSpeed": 0.1,
+    "outOfCombatMoveSpeed": 0.4,
+    "src": [
+      201201,
+      401401
+    ]
+  },
+  "202101": {
+    "name": "바람막이",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "maxHp": 50,
+    "preventBasicAttackDamaged": 3,
+    "src": []
+  },
+  "202103": {
+    "name": "승복",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 5,
+    "cooldownReduction": 0.05,
+    "src": []
+  },
+  "202105": {
+    "name": "전신수영복",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 1,
+    "preventSkillDamagedRatio": 0.05,
+    "src": []
+  },
+  "202106": {
+    "name": "천갑옷",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 11,
+    "src": []
+  },
+  "202201": {
+    "name": "가죽갑옷",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 22,
+    "src": [
+      202106,
+      401103
+    ]
+  },
+  "202202": {
+    "name": "가죽자켓",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 8,
+    "maxHp": 70,
+    "preventBasicAttackDamaged": 6,
+    "src": [
+      202101,
+      401103
+    ]
+  },
+  "202203": {
+    "name": "거북도복",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 10,
+    "cooldownReduction": 0.1,
+    "src": [
+      202103,
+      401104
+    ]
+  },
+  "202205": {
+    "name": "군복",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "maxHp": 50,
+    "preventBasicAttackDamaged": 10,
+    "src": [
+      202101,
+      108101
+    ]
+  },
+  "202206": {
+    "name": "덧댄로브",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 5,
+    "hpRegen": 1,
+    "cooldownReduction": 0.07,
+    "src": [
+      202103,
+      203102
+    ]
+  },
+  "202207": {
+    "name": "드레스",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 8,
+    "defense": 8,
+    "spRegenRatio": 1,
+    "src": [
+      401113,
+      101101
+    ]
+  },
+  "202209": {
+    "name": "비키니",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 4,
+    "preventSkillDamagedRatio": 0.11,
+    "src": [
+      202105,
+      101101
+    ]
+  },
+  "202210": {
+    "name": "잠수복",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 9,
+    "preventSkillDamagedRatio": 0.1,
+    "src": [
+      202105,
+      401105
+    ]
+  },
+  "202301": {
+    "name": "라이더자켓",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 11,
+    "maxHp": 70,
+    "preventBasicAttackDamaged": 9,
+    "src": [
+      202202,
+      119101
+    ]
+  },
+  "202302": {
+    "name": "사슬갑옷",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 30,
+    "src": [
+      202201,
+      119101
+    ]
+  },
+  "202303": {
+    "name": "정장",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "lifeSteal": 0.05,
+    "preventBasicAttackDamaged": 12,
+    "src": [
+      202205,
+      205103
+    ]
+  },
+  "202304": {
+    "name": "치파오",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 10,
+    "defense": 10,
+    "spRegenRatio": 1.5,
+    "src": [
+      202207,
+      113101
+    ]
+  },
+  "202305": {
+    "name": "판금갑옷",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 38,
+    "maxHp": 100,
+    "moveSpeed": -0.1,
+    "src": [
+      202106,
+      401201
+    ]
+  },
+  "202306": {
+    "name": "한복",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 12,
+    "hpRegen": 1,
+    "cooldownReduction": 0.08,
+    "src": [
+      202206,
+      205102
+    ]
+  },
+  "202401": {
+    "name": "방탄조끼",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 10,
+    "maxHp": 130,
+    "preventBasicAttackDamaged": 10,
+    "src": [
+      202205,
+      401213
+    ]
+  },
+  "202402": {
+    "name": "석양의갑옷",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 28,
+    "maxHp": 450,
+    "src": [
+      202201,
+      401204
+    ]
+  },
+  "202404": {
+    "name": "어사의",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 23,
+    "hpRegen": 2.5,
+    "cooldownReduction": 0.15,
+    "src": [
+      202306,
+      401109
+    ]
+  },
+  "202405": {
+    "name": "광학미채수트",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 10,
+    "defense": 20,
+    "criticalStrikeChance": 0.22,
+    "preventSkillDamagedRatio": 0.1,
+    "src": [
+      202210,
+      401305
+    ]
+  },
+  "202406": {
+    "name": "락커의자켓",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 30,
+    "defense": 11,
+    "outOfCombatMoveSpeed": 0.15,
+    "preventBasicAttackDamaged": 15,
+    "decreaseRecoveryToSkill": 1,
+    "src": [
+      202301,
+      502206
+    ]
+  },
+  "202407": {
+    "name": "미스릴갑옷",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 65,
+    "attackSpeedRatio": 0.12,
+    "moveSpeed": 0.2,
+    "src": [
+      401304,
+      202201
+    ]
+  },
+  "202408": {
+    "name": "성기사의갑옷",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 30,
+    "hpRegenRatio": 2,
+    "moveSpeed": -0.02,
+    "increaseBasicAttackDamage": 15,
+    "src": [
+      202305,
+      205202
+    ]
+  },
+  "202410": {
+    "name": "아마조네스아머",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 28,
+    "maxHp": 120,
+    "preventSkillDamagedRatio": 0.2,
+    "src": [
+      202305,
+      202209
+    ]
+  },
+  "202411": {
+    "name": "용의도복",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 11,
+    "defense": 10,
+    "spRegenRatio": 1.5,
+    "cooldownReduction": 0.1,
+    "attackRange": 1,
+    "src": [
+      202304,
+      202203
+    ]
+  },
+  "202412": {
+    "name": "지휘관의갑옷",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 20,
+    "increaseSkillDamageRatio": 0.16,
+    "src": [
+      202302,
+      401214
+    ]
+  },
+  "202413": {
+    "name": "집사복",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 30,
+    "lifeSteal": 0.2,
+    "moveSpeed": 0.1,
+    "preventBasicAttackDamaged": 10,
+    "src": [
+      202303,
+      205209
+    ]
+  },
+  "202415": {
+    "name": "배틀수트",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 25,
+    "maxHp": 140,
+    "preventBasicAttackDamaged": 12,
+    "preventSkillDamagedRatio": 0.12,
+    "src": [
+      202401,
+      202210
+    ]
+  },
+  "202416": {
+    "name": "불꽃드레스",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "전설",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 25,
+    "hpRegen": 2.5,
+    "spRegenRatio": 0.75,
+    "spRegen": 3,
+    "increaseBasicAttackDamage": 18,
+    "src": [
+      205403,
+      202207
+    ]
+  },
+  "202417": {
+    "name": "EOD수트",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 15,
+    "maxHp": 300,
+    "hpRegen": 1,
+    "cooldownReduction": 0.1,
+    "preventBasicAttackDamaged": 12,
+    "src": [
+      202401,
+      202206
+    ]
+  },
+  "202501": {
+    "name": "카바나",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "전설",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 36,
+    "increaseSkillDamageRatio": 0.18,
+    "src": [
+      401209,
+      202412
+    ]
+  },
+  "202502": {
+    "name": "퀸오브하트",
+    "itemType": "Armor",
+    "armorType": "옷",
+    "itemGrade": "전설",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 45,
+    "hpRegen": 3,
+    "cooldownReduction": 0.25,
+    "src": [
+      401401,
+      202306
+    ]
+  },
+  "203101": {
+    "name": "손목시계",
+    "itemType": "Armor",
+    "armorType": "팔",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackSpeedRatio": 0.1,
+    "src": []
+  },
+  "203102": {
+    "name": "붕대",
+    "itemType": "Armor",
+    "armorType": "팔",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "hpRegen": 0.8,
+    "src": []
+  },
+  "203104": {
+    "name": "팔찌",
+    "itemType": "Armor",
+    "armorType": "팔",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "maxSp": 220,
+    "src": []
+  },
+  "203201": {
+    "name": "가죽방패",
+    "itemType": "Armor",
+    "armorType": "팔",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 10,
+    "defense": 10,
+    "src": [
+      401104,
+      401103
+    ]
+  },
+  "203202": {
+    "name": "분대장완장",
+    "itemType": "Armor",
+    "armorType": "팔",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "hpRegen": 1.5,
+    "criticalStrikeDamage": 0.15,
+    "src": [
+      203102,
+      120101
+    ]
+  },
+  "203203": {
+    "name": "브레이서",
+    "itemType": "Armor",
+    "armorType": "팔",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 13,
+    "hpRegen": 1,
+    "src": [
+      203102,
+      401103
+    ]
+  },
+  "203301": {
+    "name": "검집",
+    "itemType": "Armor",
+    "armorType": "팔",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 18,
+    "preventBasicAttackDamaged": 2,
+    "src": [
+      401103,
+      401213
+    ]
+  },
+  "203302": {
+    "name": "금팔찌",
+    "itemType": "Armor",
+    "armorType": "팔",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "maxSp": 220,
+    "increaseSkillDamageRatio": 0.12,
+    "src": [
+      203104,
+      401214
+    ]
+  },
+  "203303": {
+    "name": "바주반드",
+    "itemType": "Armor",
+    "armorType": "팔",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 25,
+    "preventBasicAttackDamaged": 8,
+    "src": [
+      203203,
+      401213
+    ]
+  },
+  "203304": {
+    "name": "진홍팔찌",
+    "itemType": "Armor",
+    "armorType": "팔",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "maxHp": 200,
+    "maxSp": 250,
+    "src": [
+      203104,
+      401204
+    ]
+  },
+  "203401": {
+    "name": "강철방패",
+    "itemType": "Armor",
+    "armorType": "팔",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 23,
+    "defense": 25,
+    "moveSpeed": -0.1,
+    "src": [
+      203201,
+      401201
+    ]
+  },
+  "203402": {
+    "name": "소드스토퍼",
+    "itemType": "Armor",
+    "armorType": "팔",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 28,
+    "preventBasicAttackDamaged": 11,
+    "decreaseRecoveryToBasicAttack": 1,
+    "src": [
+      203303,
+      401101
+    ]
+  },
+  "203403": {
+    "name": "드라우프니르",
+    "itemType": "Armor",
+    "armorType": "팔",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 10,
+    "maxSp": 240,
+    "hpRegen": 1,
+    "increaseSkillDamageRatio": 0.15,
+    "src": [
+      203302,
+      203203
+    ]
+  },
+  "203404": {
+    "name": "미스릴방패",
+    "itemType": "Armor",
+    "armorType": "팔",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 30,
+    "defense": 30,
+    "attackSpeedRatio": 0.12,
+    "moveSpeed": 0.1,
+    "src": [
+      401304,
+      203201
+    ]
+  },
+  "203405": {
+    "name": "바이탈센서",
+    "itemType": "Armor",
+    "armorType": "팔",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 15,
+    "attackSpeedRatio": 0.3,
+    "src": [
+      203101,
+      501401
+    ]
+  },
+  "203406": {
+    "name": "기사의신조",
+    "itemType": "Armor",
+    "armorType": "팔",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 30,
+    "defense": 25,
+    "hpRegen": 1.5,
+    "criticalStrikeDamage": 0.2,
+    "moveSpeed": -0.1,
+    "src": [
+      203401,
+      203202
+    ]
+  },
+  "203407": {
+    "name": "샤자한의검집",
+    "itemType": "Armor",
+    "armorType": "팔",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 28,
+    "maxHp": 300,
+    "preventBasicAttackDamaged": 2,
+    "src": [
+      203301,
+      401204
+    ]
+  },
+  "203408": {
+    "name": "큐브워치",
+    "itemType": "Armor",
+    "armorType": "팔",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 27,
+    "attackSpeedRatio": 0.5,
+    "src": [
+      203101,
+      401301
+    ]
+  },
+  "203501": {
+    "name": "스카디의팔찌",
+    "itemType": "Armor",
+    "armorType": "팔",
+    "itemGrade": "전설",
+    "stackable": 1,
+    "initialCount": 1,
+    "maxHp": 200,
+    "maxSp": 250,
+    "hpRegen": 2,
+    "spRegen": 2,
+    "increaseSkillDamage": 20,
+    "src": [
+      205402,
+      203304
+    ]
+  },
+  "203502": {
+    "name": "레이더",
+    "itemType": "Armor",
+    "armorType": "팔",
+    "itemGrade": "전설",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 15,
+    "attackSpeedRatio": 0.35,
+    "criticalStrikeChance": 0.2,
+    "src": [
+      203405,
+      401305
+    ]
+  },
+  "203503": {
+    "name": "오토암즈",
+    "itemType": "Armor",
+    "armorType": "팔",
+    "itemGrade": "전설",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 40,
+    "defense": 35,
+    "hpRegen": 1.5,
+    "src": [
+      203203,
+      401403
+    ]
+  },
+  "204101": {
+    "name": "슬리퍼",
+    "itemType": "Armor",
+    "armorType": "다리",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "spRegen": 0.5,
+    "moveSpeed": 0.04,
+    "src": []
+  },
+  "204102": {
+    "name": "운동화",
+    "itemType": "Armor",
+    "armorType": "다리",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "moveSpeed": 0.08,
+    "src": []
+  },
+  "204103": {
+    "name": "타이즈",
+    "itemType": "Armor",
+    "armorType": "다리",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 5,
+    "moveSpeed": 0.04,
+    "src": []
+  },
+  "204201": {
+    "name": "무릎보호대",
+    "itemType": "Armor",
+    "armorType": "다리",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 8,
+    "moveSpeed": 0.16,
+    "src": [
+      204103,
+      401103
+    ]
+  },
+  "204202": {
+    "name": "체인레깅스",
+    "itemType": "Armor",
+    "armorType": "다리",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 10,
+    "moveSpeed": 0.14,
+    "src": [
+      204103,
+      119101
+    ]
+  },
+  "204203": {
+    "name": "하이힐",
+    "itemType": "Armor",
+    "armorType": "다리",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "spRegen": 0.8,
+    "moveSpeed": 0.17,
+    "src": [
+      204101,
+      401106
+    ]
+  },
+  "204204": {
+    "name": "힐리스",
+    "itemType": "Armor",
+    "armorType": "다리",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "moveSpeed": 0.12,
+    "outOfCombatMoveSpeed": 0.2,
+    "src": [
+      204102,
+      112103
+    ]
+  },
+  "204301": {
+    "name": "덧댄슬리퍼",
+    "itemType": "Armor",
+    "armorType": "다리",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "spRegenRatio": 0.3,
+    "spRegen": 0.5,
+    "moveSpeed": 0.16,
+    "src": [
+      204101,
+      401113
+    ]
+  },
+  "204302": {
+    "name": "부츠",
+    "itemType": "Armor",
+    "armorType": "다리",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "hpRegen": 0.6,
+    "attackSpeedRatio": 0.02,
+    "moveSpeed": 0.22,
+    "src": [
+      204102,
+      401202
+    ]
+  },
+  "204401": {
+    "name": "강철무릎보호대",
+    "itemType": "Armor",
+    "armorType": "다리",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 20,
+    "moveSpeed": 0.24,
+    "src": [
+      204201,
+      401201
+    ]
+  },
+  "204402": {
+    "name": "경량화부츠",
+    "itemType": "Armor",
+    "armorType": "다리",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "hpRegen": 1,
+    "attackSpeedRatio": 0.3,
+    "moveSpeed": 0.4,
+    "src": [
+      204404,
+      205101
+    ]
+  },
+  "204403": {
+    "name": "매버릭러너",
+    "itemType": "Armor",
+    "armorType": "다리",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackSpeedRatio": 0.15,
+    "moveSpeed": 0.25,
+    "outOfCombatMoveSpeed": 0.5,
+    "src": [
+      204204,
+      401211
+    ]
+  },
+  "204404": {
+    "name": "전투화",
+    "itemType": "Armor",
+    "armorType": "다리",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "hpRegen": 0.6,
+    "attackSpeedRatio": 0.07,
+    "moveSpeed": 0.27,
+    "src": [
+      204302,
+      401103
+    ]
+  },
+  "204405": {
+    "name": "킬힐",
+    "itemType": "Armor",
+    "armorType": "다리",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 5,
+    "spRegen": 0.8,
+    "criticalStrikeChance": 0.1,
+    "moveSpeed": 0.16,
+    "src": [
+      204203,
+      205204
+    ]
+  },
+  "204406": {
+    "name": "풍화륜",
+    "itemType": "Armor",
+    "armorType": "다리",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "spRegenRatio": 0.5,
+    "spRegen": 1,
+    "moveSpeed": 0.35,
+    "increaseSkillDamage": 10,
+    "src": [
+      204301,
+      401210
+    ]
+  },
+  "204407": {
+    "name": "미스릴부츠",
+    "itemType": "Armor",
+    "armorType": "다리",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 22,
+    "attackSpeedRatio": 0.12,
+    "moveSpeed": 0.45,
+    "src": [
+      401304,
+      204202
+    ]
+  },
+  "204408": {
+    "name": "부케팔로스",
+    "itemType": "Armor",
+    "armorType": "다리",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 5,
+    "defense": 5,
+    "spRegen": 1,
+    "criticalStrikeChance": 0.17,
+    "moveSpeed": 0.33,
+    "src": [
+      204405,
+      204202
+    ]
+  },
+  "204409": {
+    "name": "EOD부츠",
+    "itemType": "Armor",
+    "armorType": "다리",
+    "itemGrade": "전설",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 23,
+    "hpRegen": 1,
+    "moveSpeed": 0.33,
+    "src": [
+      204302,
+      204401
+    ]
+  },
+  "204411": {
+    "name": "클링온부츠",
+    "itemType": "Armor",
+    "armorType": "다리",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "hpRegen": 0.7,
+    "attackSpeedRatio": 0.15,
+    "moveSpeed": 0.35,
+    "decreaseRecoveryToBasicAttack": 1,
+    "src": [
+      204404,
+      401101
+    ]
+  },
+  "204410": {
+    "name": "글레이셜슈즈",
+    "itemType": "Armor",
+    "armorType": "다리",
+    "itemGrade": "전설",
+    "stackable": 1,
+    "initialCount": 1,
+    "hpRegen": 2,
+    "spRegenRatio": 0.6,
+    "spRegen": 2,
+    "moveSpeed": 0.15,
+    "outOfCombatMoveSpeed": 0.5,
+    "increaseSkillDamage": 15,
+    "src": [
+      204301,
+      205402
+    ]
+  },
+  "204501": {
+    "name": "헤르메스의부츠",
+    "itemType": "Armor",
+    "armorType": "다리",
+    "itemGrade": "전설",
+    "stackable": 1,
+    "initialCount": 1,
+    "defense": 40,
+    "moveSpeed": 0.4,
+    "outOfCombatMoveSpeed": 0.2,
+    "src": [
+      401403,
+      204204
+    ]
+  },
+  "204502": {
+    "name": "분홍신",
+    "itemType": "Armor",
+    "armorType": "다리",
+    "itemGrade": "전설",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 5,
+    "spRegen": 1,
+    "criticalStrikeChance": 0.1,
+    "lifeSteal": 0.15,
+    "moveSpeed": 0.4,
+    "src": [
+      204405,
+      401401
+    ]
+  },
+  "205101": {
+    "name": "깃털",
+    "itemType": "Armor",
+    "armorType": "장식",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "moveSpeed": 0.08,
+    "src": []
+  },
+  "205102": {
+    "name": "꽃",
+    "itemType": "Armor",
+    "armorType": "장식",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "cooldownReduction": 0.07,
+    "src": []
+  },
+  "205103": {
+    "name": "리본",
+    "itemType": "Armor",
+    "armorType": "장식",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "lifeSteal": 0.05,
+    "src": []
+  },
+  "205105": {
+    "name": "부채",
+    "itemType": "Armor",
+    "armorType": "장식",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "increaseSkillDamage": 11,
+    "src": []
+  },
+  "205106": {
+    "name": "불경",
+    "itemType": "Armor",
+    "armorType": "장식",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "increaseSkillDamageRatio": 0.07,
+    "src": []
+  },
+  "205107": {
+    "name": "상자",
+    "itemType": "Armor",
+    "armorType": "장식",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "maxHp": 90,
+    "src": []
+  },
+  "205108": {
+    "name": "성배",
+    "itemType": "Armor",
+    "armorType": "장식",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "hpRegenRatio": 1.2,
+    "src": []
+  },
+  "205109": {
+    "name": "십자가",
+    "itemType": "Armor",
+    "armorType": "장식",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "increaseBasicAttackDamage": 7,
+    "src": []
+  },
+  "205110": {
+    "name": "쌍안경",
+    "itemType": "Armor",
+    "armorType": "장식",
+    "itemGrade": "일반",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 2,
+    "sightRange": 1.5,
+    "src": []
+  },
+  "205202": {
+    "name": "성자의유산",
+    "itemType": "Armor",
+    "armorType": "장식",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "hpRegenRatio": 1.5,
+    "increaseBasicAttackDamage": 8,
+    "src": [
+      205109,
+      205108
+    ]
+  },
+  "205203": {
+    "name": "운명의꽃",
+    "itemType": "Armor",
+    "armorType": "장식",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "criticalStrikeChance": 0.15,
+    "cooldownReduction": 0.1,
+    "src": [
+      205102,
+      113102
+    ]
+  },
+  "205204": {
+    "name": "유리조각",
+    "itemType": "Armor",
+    "armorType": "장식",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "criticalStrikeChance": 0.13,
+    "src": [
+      112104,
+      112101
+    ]
+  },
+  "205205": {
+    "name": "인형",
+    "itemType": "Armor",
+    "armorType": "장식",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "spRegenRatio": 1,
+    "lifeSteal": 0.11,
+    "src": [
+      205103,
+      401113
+    ]
+  },
+  "205206": {
+    "name": "저격스코프",
+    "itemType": "Armor",
+    "armorType": "장식",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 6,
+    "sightRange": 4,
+    "src": [
+      401108,
+      205110
+    ]
+  },
+  "205207": {
+    "name": "진신사리",
+    "itemType": "Armor",
+    "armorType": "장식",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "cooldownReduction": 0.08,
+    "increaseSkillDamageRatio": 0.08,
+    "src": [
+      205106,
+      202103
+    ]
+  },
+  "205208": {
+    "name": "화살통",
+    "itemType": "Armor",
+    "armorType": "장식",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackSpeedRatio": 0.22,
+    "src": [
+      401103,
+      108103
+    ]
+  },
+  "205209": {
+    "name": "먼지털이개",
+    "itemType": "Armor",
+    "armorType": "장식",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 9,
+    "moveSpeed": 0.1,
+    "src": [
+      108102,
+      205101
+    ]
+  },
+  "205210": {
+    "name": "군선",
+    "itemType": "Armor",
+    "armorType": "장식",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "increaseSkillDamage": 14,
+    "decreaseRecoveryToSkill": 1,
+    "src": [
+      205105,
+      401101
+    ]
+  },
+  "205211": {
+    "name": "비파단도",
+    "itemType": "Armor",
+    "armorType": "장식",
+    "itemGrade": "고급",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 5,
+    "increaseSkillDamageRatio": 0.08,
+    "src": [
+      102101,
+      401109
+    ]
+  },
+  "205301": {
+    "name": "생명의가루",
+    "itemType": "Armor",
+    "armorType": "장식",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "hpRegen": 1.5,
+    "spRegen": 1.5,
+    "src": [
+      401208,
+      112101
+    ]
+  },
+  "205302": {
+    "name": "우치와",
+    "itemType": "Armor",
+    "armorType": "장식",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "spRegenRatio": 1,
+    "lifeSteal": 0.15,
+    "increaseSkillDamage": 21,
+    "src": [
+      205205,
+      205105
+    ]
+  },
+  "205303": {
+    "name": "탄창",
+    "itemType": "Armor",
+    "armorType": "장식",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "maxHp": 350,
+    "preventBasicAttackDamaged": 6,
+    "src": [
+      205107,
+      401213
+    ]
+  },
+  "205201": {
+    "name": "백우선",
+    "itemType": "Armor",
+    "armorType": "장식",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "moveSpeed": 0.1,
+    "increaseSkillDamage": 16,
+    "decreaseRecoveryToSkill": 1,
+    "src": [
+      205210,
+      205101
+    ]
+  },
+  "205401": {
+    "name": "달빛펜던트",
+    "itemType": "Armor",
+    "armorType": "장식",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 20,
+    "lifeSteal": 0.2,
+    "src": [
+      205103,
+      401301
+    ]
+  },
+  "205304": {
+    "name": "궁기병의화살통",
+    "itemType": "Armor",
+    "armorType": "장식",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 10,
+    "attackSpeedRatio": 0.25,
+    "moveSpeed": 0.1,
+    "src": [
+      205208,
+      205209
+    ]
+  },
+  "205305": {
+    "name": "월왕구천",
+    "itemType": "Armor",
+    "armorType": "장식",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 10,
+    "increaseSkillDamageRatio": 0.18,
+    "src": [
+      205211,
+      401212
+    ]
+  },
+  "205404": {
+    "name": "슈뢰딩거의상자",
+    "itemType": "Armor",
+    "armorType": "장식",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "maxHp": 420,
+    "increaseSkillDamage": 7,
+    "src": [
+      205107,
+      401302
+    ]
+  },
+  "205405": {
+    "name": "진리는나의빛",
+    "itemType": "Armor",
+    "armorType": "장식",
+    "itemGrade": "희귀",
+    "stackable": 1,
+    "initialCount": 1,
+    "hpRegenRatio": 1.5,
+    "cooldownReduction": 0.1,
+    "increaseBasicAttackDamage": 12,
+    "increaseSkillDamageRatio": 0.08,
+    "src": [
+      205207,
+      205202
+    ]
+  },
+  "205402": {
+    "name": "만년빙",
+    "itemType": "Armor",
+    "armorType": "장식",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "hpRegen": 1.5,
+    "spRegen": 1.5,
+    "increaseSkillDamage": 18,
+    "src": [
+      205301,
+      301103
+    ]
+  },
+  "205403": {
+    "name": "삼매진화",
+    "itemType": "Armor",
+    "armorType": "장식",
+    "itemGrade": "영웅",
+    "stackable": 1,
+    "initialCount": 1,
+    "hpRegen": 1.5,
+    "spRegen": 1.5,
+    "increaseBasicAttackDamage": 13,
+    "src": [
+      205301,
+      401107
+    ]
+  },
+  "205501": {
+    "name": "에메랄드타블렛",
+    "itemType": "Armor",
+    "armorType": "장식",
+    "itemGrade": "전설",
+    "stackable": 1,
+    "initialCount": 1,
+    "attackPower": 10,
+    "defense": 10,
+    "criticalStrikeChance": 0.15,
+    "cooldownReduction": 0.1,
+    "src": [
+      401403,
+      205203
+    ]
+  },
+  "401101": {
+    "name": "못",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "일반",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": []
+  },
+  "401103": {
+    "name": "가죽",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "일반",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": []
+  },
+  "401104": {
+    "name": "거북이등딱지",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "일반",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": []
+  },
+  "401105": {
+    "name": "고무",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "일반",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": []
+  },
+  "401106": {
+    "name": "고철",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "일반",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": []
+  },
+  "401107": {
+    "name": "라이터",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "일반",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": []
+  },
+  "401108": {
+    "name": "레이저포인트",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "일반",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": []
+  },
+  "401109": {
+    "name": "마패",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "일반",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": []
+  },
+  "401110": {
+    "name": "배터리",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "일반",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": []
+  },
+  "401111": {
+    "name": "알코올",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "일반",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": []
+  },
+  "401112": {
+    "name": "오일",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "일반",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": []
+  },
+  "401113": {
+    "name": "옷감",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "일반",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": []
+  },
+  "401114": {
+    "name": "원석",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "일반",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": []
+  },
+  "401116": {
+    "name": "접착제",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "일반",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": []
+  },
+  "401117": {
+    "name": "종이",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "일반",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": []
+  },
+  "401118": {
+    "name": "철광석",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "일반",
+    "stackable": 3,
+    "initialCount": 3,
+    "src": []
+  },
+  "401120": {
+    "name": "캔",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "일반",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": []
+  },
+  "401121": {
+    "name": "화약",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "일반",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": []
+  },
+  "112101": {
+    "name": "돌멩이",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "일반",
+    "stackable": 3,
+    "initialCount": 2,
+    "src": []
+  },
+  "112104": {
+    "name": "유리병",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "일반",
+    "stackable": 3,
+    "initialCount": 2,
+    "src": []
+  },
+  "401201": {
+    "name": "강철",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "고급",
+    "stackable": 3,
+    "initialCount": 2,
+    "src": [
+      401106,
+      401118
+    ]
+  },
+  "401202": {
+    "name": "기름먹인천",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "고급",
+    "stackable": 3,
+    "initialCount": 2,
+    "src": [
+      401112,
+      203102
+    ]
+  },
+  "401203": {
+    "name": "뜨거운오일",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "고급",
+    "stackable": 3,
+    "initialCount": 3,
+    "src": [
+      401112,
+      401107
+    ]
+  },
+  "401204": {
+    "name": "루비",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "고급",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": [
+      104101,
+      401114
+    ]
+  },
+  "401205": {
+    "name": "방전전지",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "고급",
+    "stackable": 3,
+    "initialCount": 2,
+    "src": [
+      401110,
+      301102
+    ]
+  },
+  "401206": {
+    "name": "백색가루",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "고급",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": [
+      113104,
+      112101
+    ]
+  },
+  "401208": {
+    "name": "생명의나무",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "희귀",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": []
+  },
+  "401209": {
+    "name": "운석",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "고급",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": []
+  },
+  "401210": {
+    "name": "재",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "고급",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": [
+      401117,
+      401107
+    ]
+  },
+  "401211": {
+    "name": "전자부품",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "고급",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": [
+      401110,
+      502104
+    ]
+  },
+  "401212": {
+    "name": "정교한도면",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "고급",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": [
+      101102,
+      401117
+    ]
+  },
+  "401213": {
+    "name": "철판",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "고급",
+    "stackable": 3,
+    "initialCount": 2,
+    "src": [
+      401106,
+      104101
+    ]
+  },
+  "401214": {
+    "name": "황금",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "고급",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": [
+      105102,
+      401114
+    ]
+  },
+  "401215": {
+    "name": "달궈진돌멩이",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "고급",
+    "stackable": 3,
+    "initialCount": 3,
+    "src": [
+      112101,
+      401107
+    ]
+  },
+  "401301": {
+    "name": "문스톤",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "희귀",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": [
+      401209,
+      112101
+    ]
+  },
+  "401302": {
+    "name": "독약",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "희귀",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": [
+      401210,
+      301102
+    ]
+  },
+  "401303": {
+    "name": "모터",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "희귀",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": [
+      401211,
+      401106
+    ]
+  },
+  "401304": {
+    "name": "미스릴",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "희귀",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": []
+  },
+  "401305": {
+    "name": "유리판",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "희귀",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": [
+      205204,
+      401116
+    ]
+  },
+  "401306": {
+    "name": "이온전지",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "희귀",
+    "stackable": 3,
+    "initialCount": 2,
+    "src": [
+      401205,
+      301107
+    ]
+  },
+  "401401": {
+    "name": "VF혈액샘플",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "희귀",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": []
+  },
+  "401403": {
+    "name": "포스코어",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "영웅",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": [
+      205301,
+      401209
+    ]
+  },
+  "501401": {
+    "name": "휴대폰",
+    "itemType": "Misc",
+    "miscItemType": "Material",
+    "itemGrade": "희귀",
+    "stackable": 3,
+    "initialCount": 1,
+    "src": [
+      401212,
+      401211
+    ]
+  },
+  "502101": {
+    "name": "감시카메라",
+    "itemType": "Special",
+    "specialItemType": "Summon",
+    "itemGrade": "일반",
+    "stackable": 5,
+    "initialCount": 1,
+    "consumeCount": 1,
+    "summonCode": 1,
+    "src": []
+  },
+  "502102": {
+    "name": "올가미",
+    "itemType": "Special",
+    "specialItemType": "Summon",
+    "itemGrade": "일반",
+    "stackable": 5,
+    "initialCount": 2,
+    "consumeCount": 1,
+    "summonCode": 2,
+    "src": []
+  },
+  "502103": {
+    "name": "쥐덫",
+    "itemType": "Special",
+    "specialItemType": "Summon",
+    "itemGrade": "일반",
+    "stackable": 5,
+    "initialCount": 2,
+    "consumeCount": 1,
+    "summonCode": 3,
+    "src": []
+  },
+  "502104": {
+    "name": "피아노선",
+    "itemType": "Special",
+    "specialItemType": "Summon",
+    "itemGrade": "일반",
+    "stackable": 5,
+    "initialCount": 1,
+    "consumeCount": 1,
+    "summonCode": 4,
+    "src": []
+  },
+  "502201": {
+    "name": "가시발판",
+    "itemType": "Special",
+    "specialItemType": "Summon",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 2,
+    "consumeCount": 1,
+    "summonCode": 5,
+    "src": [
+      502103,
+      401101
+    ]
+  },
+  "502202": {
+    "name": "개량형쥐덫",
+    "itemType": "Special",
+    "specialItemType": "Summon",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 2,
+    "consumeCount": 1,
+    "summonCode": 6,
+    "src": [
+      502103,
+      401118
+    ]
+  },
+  "502203": {
+    "name": "다이너마이트",
+    "itemType": "Special",
+    "specialItemType": "Summon",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 1,
+    "consumeCount": 1,
+    "summonCode": 7,
+    "src": [
+      502104,
+      401121
+    ]
+  },
+  "502204": {
+    "name": "대나무트랩",
+    "itemType": "Special",
+    "specialItemType": "Summon",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 2,
+    "consumeCount": 1,
+    "summonCode": 8,
+    "src": [
+      502102,
+      108103
+    ]
+  },
+  "502205": {
+    "name": "부비트랩",
+    "itemType": "Special",
+    "specialItemType": "Summon",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 2,
+    "consumeCount": 1,
+    "summonCode": 9,
+    "src": [
+      502102,
+      401116
+    ]
+  },
+  "502206": {
+    "name": "소란발생기",
+    "itemType": "Special",
+    "specialItemType": "Summon",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 5,
+    "consumeCount": 1,
+    "summonCode": 26,
+    "src": [
+      401120,
+      112103
+    ]
+  },
+  "502207": {
+    "name": "망원카메라",
+    "itemType": "Special",
+    "specialItemType": "Summon",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 3,
+    "consumeCount": 1,
+    "summonCode": 27,
+    "src": [
+      502101,
+      205110
+    ]
+  },
+  "502303": {
+    "name": "정글기요틴",
+    "itemType": "Special",
+    "specialItemType": "Summon",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 1,
+    "consumeCount": 1,
+    "summonCode": 12,
+    "src": [
+      502103,
+      101104
+    ]
+  },
+  "502304": {
+    "name": "지뢰",
+    "itemType": "Special",
+    "specialItemType": "Summon",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 2,
+    "consumeCount": 1,
+    "summonCode": 13,
+    "src": [
+      502205,
+      401121
+    ]
+  },
+  "502305": {
+    "name": "펜듈럼도끼",
+    "itemType": "Special",
+    "specialItemType": "Summon",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 2,
+    "consumeCount": 1,
+    "summonCode": 14,
+    "src": [
+      502204,
+      105103
+    ]
+  },
+  "502306": {
+    "name": "폭발트랩",
+    "itemType": "Special",
+    "specialItemType": "Summon",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 1,
+    "consumeCount": 1,
+    "summonCode": 15,
+    "src": [
+      502103,
+      401121
+    ]
+  },
+  "502307": {
+    "name": "RDX",
+    "itemType": "Special",
+    "specialItemType": "Summon",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 1,
+    "consumeCount": 1,
+    "summonCode": 16,
+    "src": [
+      502203,
+      401106
+    ]
+  },
+  "502401": {
+    "name": "미스릴실",
+    "itemType": "Special",
+    "specialItemType": "Summon",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 3,
+    "consumeCount": 1,
+    "summonCode": 17,
+    "src": [
+      401304,
+      502104
+    ]
+  },
+  "502402": {
+    "name": "폭뢰침",
+    "itemType": "Special",
+    "specialItemType": "Summon",
+    "itemGrade": "영웅",
+    "stackable": 5,
+    "initialCount": 1,
+    "consumeCount": 1,
+    "summonCode": 18,
+    "src": [
+      502307,
+      502201
+    ]
+  },
+  "502403": {
+    "name": "화염트랩",
+    "itemType": "Special",
+    "specialItemType": "Summon",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 3,
+    "consumeCount": 1,
+    "summonCode": 19,
+    "src": [
+      502306,
+      401202
+    ]
+  },
+  "502404": {
+    "name": "C4",
+    "itemType": "Special",
+    "specialItemType": "Summon",
+    "itemGrade": "영웅",
+    "stackable": 5,
+    "initialCount": 3,
+    "consumeCount": 1,
+    "summonCode": 20,
+    "src": [
+      502307,
+      401206
+    ]
+  },
+  "502405": {
+    "name": "더블기요틴",
+    "itemType": "Special",
+    "specialItemType": "Summon",
+    "itemGrade": "영웅",
+    "stackable": 5,
+    "initialCount": 2,
+    "consumeCount": 1,
+    "summonCode": 21,
+    "src": [
+      502303,
+      502305
+    ]
+  },
+  "502406": {
+    "name": "크레모어",
+    "itemType": "Special",
+    "specialItemType": "Summon",
+    "itemGrade": "영웅",
+    "stackable": 5,
+    "initialCount": 2,
+    "consumeCount": 1,
+    "summonCode": 22,
+    "src": [
+      502304,
+      502306
+    ]
+  },
+  "502407": {
+    "name": "히든메이든",
+    "itemType": "Special",
+    "specialItemType": "Summon",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 2,
+    "consumeCount": 1,
+    "summonCode": 23,
+    "src": [
+      502201,
+      502303
+    ]
+  },
+  "502501": {
+    "name": "리모트마인",
+    "itemType": "Special",
+    "specialItemType": "Summon",
+    "itemGrade": "전설",
+    "stackable": 5,
+    "initialCount": 3,
+    "consumeCount": 1,
+    "summonCode": 24,
+    "src": [
+      401403,
+      502201
+    ]
+  },
+  "502502": {
+    "name": "스마트폭탄",
+    "itemType": "Special",
+    "specialItemType": "Summon",
+    "itemGrade": "전설",
+    "stackable": 5,
+    "initialCount": 3,
+    "consumeCount": 1,
+    "summonCode": 25,
+    "src": [
+      502307,
+      501401
+    ]
+  },
+  "301101": {
+    "name": "꿀",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "None",
+    "itemGrade": "일반",
+    "stackable": 5,
+    "initialCount": 2,
+    "spRecover": 250,
+    "src": []
+  },
+  "301102": {
+    "name": "물",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "None",
+    "itemGrade": "일반",
+    "stackable": 5,
+    "initialCount": 3,
+    "spRecover": 100,
+    "src": []
+  },
+  "301103": {
+    "name": "얼음",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "None",
+    "itemGrade": "일반",
+    "stackable": 5,
+    "initialCount": 2,
+    "spRecover": 200,
+    "src": []
+  },
+  "301104": {
+    "name": "위스키",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "Alcohol",
+    "itemGrade": "일반",
+    "stackable": 5,
+    "initialCount": 1,
+    "spRecover": 450,
+    "src": []
+  },
+  "301106": {
+    "name": "커피콩",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "None",
+    "itemGrade": "일반",
+    "stackable": 5,
+    "initialCount": 1,
+    "spRecover": 380,
+    "src": []
+  },
+  "301107": {
+    "name": "탄산수",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "None",
+    "itemGrade": "일반",
+    "stackable": 5,
+    "initialCount": 1,
+    "spRecover": 380,
+    "src": []
+  },
+  "301108": {
+    "name": "우유",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "None",
+    "itemGrade": "일반",
+    "stackable": 5,
+    "initialCount": 2,
+    "spRecover": 200,
+    "src": []
+  },
+  "301201": {
+    "name": "뜨거운물",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 3,
+    "spRecover": 200,
+    "src": [
+      301102,
+      401107
+    ]
+  },
+  "301202": {
+    "name": "레몬에이드",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 4,
+    "spRecover": 300,
+    "src": [
+      301107,
+      302105
+    ]
+  },
+  "301203": {
+    "name": "물병",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 2,
+    "spRecover": 350,
+    "src": [
+      301102,
+      112104
+    ]
+  },
+  "301204": {
+    "name": "백주",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "Alcohol",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 1,
+    "spRecover": 1000,
+    "src": [
+      401111,
+      401107
+    ]
+  },
+  "301205": {
+    "name": "소주",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "Alcohol",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 2,
+    "spRecover": 350,
+    "src": [
+      401111,
+      301102
+    ]
+  },
+  "301206": {
+    "name": "아이스커피",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 2,
+    "spRecover": 530,
+    "src": [
+      301103,
+      301106
+    ]
+  },
+  "301207": {
+    "name": "스크류드라이버",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "Alcohol",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 4,
+    "spRecover": 300,
+    "src": [
+      301104,
+      302105
+    ]
+  },
+  "301208": {
+    "name": "커피리큐르",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "Alcohol",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 2,
+    "spRecover": 530,
+    "src": [
+      301106,
+      401111
+    ]
+  },
+  "301209": {
+    "name": "콜라",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 3,
+    "spRecover": 400,
+    "src": [
+      301107,
+      301101
+    ]
+  },
+  "301210": {
+    "name": "카페라테",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 2,
+    "spRecover": 530,
+    "src": [
+      301108,
+      301106
+    ]
+  },
+  "301211": {
+    "name": "꿀탄우유",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 2,
+    "spRecover": 530,
+    "src": [
+      301108,
+      301101
+    ]
+  },
+  "301213": {
+    "name": "하이볼",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "Alcohol",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 2,
+    "spRecover": 530,
+    "src": [
+      301104,
+      301107
+    ]
+  },
+  "301214": {
+    "name": "초코우유",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 3,
+    "spRecover": 400,
+    "src": [
+      302119,
+      301108
+    ]
+  },
+  "301215": {
+    "name": "꿀물",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 2,
+    "spRecover": 400,
+    "src": [
+      301101,
+      301102
+    ]
+  },
+  "301216": {
+    "name": "얼음물",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 2,
+    "spRecover": 350,
+    "src": [
+      301103,
+      301102
+    ]
+  },
+  "301217": {
+    "name": "온더락",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "Alcohol",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 2,
+    "spRecover": 530,
+    "src": [
+      301103,
+      301104
+    ]
+  },
+  "301218": {
+    "name": "카우보이",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "Alcohol",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 2,
+    "spRecover": 530,
+    "src": [
+      301108,
+      301104
+    ]
+  },
+  "301301": {
+    "name": "고량주",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "Alcohol",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 3,
+    "spRecover": 1080,
+    "src": [
+      301204,
+      401107
+    ]
+  },
+  "301302": {
+    "name": "뜨거운꿀물",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "None",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 2,
+    "spRecover": 1080,
+    "src": [
+      301201,
+      301101
+    ]
+  },
+  "301303": {
+    "name": "백일취",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "Alcohol",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 5,
+    "spRecover": 500,
+    "src": [
+      301204,
+      205102
+    ]
+  },
+  "301304": {
+    "name": "아메리카노",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "None",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 2,
+    "spRecover": 1080,
+    "src": [
+      301201,
+      301106
+    ]
+  },
+  "301305": {
+    "name": "약주",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "Alcohol",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 5,
+    "spRecover": 500,
+    "src": [
+      301204,
+      302116
+    ]
+  },
+  "301307": {
+    "name": "위스키콕",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "Alcohol",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 5,
+    "spRecover": 500,
+    "src": [
+      301209,
+      301104
+    ]
+  },
+  "301308": {
+    "name": "정화수",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "None",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 2,
+    "spRecover": 1080,
+    "src": [
+      301201,
+      301103
+    ]
+  },
+  "301309": {
+    "name": "캔콜라",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "None",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 2,
+    "spRecover": 1400,
+    "src": [
+      301209,
+      401120
+    ]
+  },
+  "301310": {
+    "name": "핫초코",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "None",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 4,
+    "spRecover": 450,
+    "src": [
+      301201,
+      302119
+    ]
+  },
+  "301311": {
+    "name": "깔루아밀크",
+    "itemType": "Consume",
+    "consumableType": "음료",
+    "consumableTag": "Alcohol",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 4,
+    "spRecover": 660,
+    "src": [
+      301208,
+      301108
+    ]
+  },
+  "302102": {
+    "name": "감자",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "일반",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 130,
+    "src": []
+  },
+  "302104": {
+    "name": "대구",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "일반",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 130,
+    "src": []
+  },
+  "302105": {
+    "name": "레몬",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "일반",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 100,
+    "src": []
+  },
+  "302106": {
+    "name": "마늘",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "일반",
+    "stackable": 5,
+    "initialCount": 1,
+    "hpRecover": 200,
+    "src": []
+  },
+  "302107": {
+    "name": "반창고",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "일반",
+    "stackable": 5,
+    "initialCount": 1,
+    "hpRecover": 200,
+    "src": []
+  },
+  "302109": {
+    "name": "붕어",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "일반",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 130,
+    "src": []
+  },
+  "302110": {
+    "name": "빵",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "일반",
+    "stackable": 5,
+    "initialCount": 1,
+    "hpRecover": 200,
+    "src": []
+  },
+  "302111": {
+    "name": "고기",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "일반",
+    "stackable": 5,
+    "initialCount": 1,
+    "hpRecover": 200,
+    "src": []
+  },
+  "302112": {
+    "name": "달걀",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "일반",
+    "stackable": 5,
+    "initialCount": 1,
+    "hpRecover": 200,
+    "src": []
+  },
+  "302113": {
+    "name": "생라면",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "일반",
+    "stackable": 5,
+    "initialCount": 1,
+    "hpRecover": 200,
+    "src": []
+  },
+  "302116": {
+    "name": "약초",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "일반",
+    "stackable": 5,
+    "initialCount": 1,
+    "hpRecover": 200,
+    "src": []
+  },
+  "302119": {
+    "name": "초콜렛",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "일반",
+    "stackable": 5,
+    "initialCount": 1,
+    "hpRecover": 200,
+    "src": []
+  },
+  "302120": {
+    "name": "카레가루",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "일반",
+    "stackable": 5,
+    "initialCount": 1,
+    "hpRecover": 200,
+    "src": []
+  },
+  "302201": {
+    "name": "꿀바른대구살",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 1,
+    "hpRecover": 700,
+    "src": [
+      302104,
+      301101
+    ]
+  },
+  "302204": {
+    "name": "대구간통조림",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 1,
+    "hpRecover": 650,
+    "src": [
+      302104,
+      401120
+    ]
+  },
+  "302205": {
+    "name": "마늘빵",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 500,
+    "src": [
+      302110,
+      302106
+    ]
+  },
+  "302206": {
+    "name": "버터",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 1,
+    "hpRecover": 450,
+    "src": [
+      301108,
+      108101
+    ]
+  },
+  "302207": {
+    "name": "보약",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 1,
+    "hpRecover": 650,
+    "src": [
+      302116,
+      401104
+    ]
+  },
+  "302209": {
+    "name": "붕어빵",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 400,
+    "src": [
+      302110,
+      302109
+    ]
+  },
+  "302211": {
+    "name": "성수",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 1,
+    "hpRecover": 600,
+    "src": []
+  },
+  "302213": {
+    "name": "지혈제",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 1,
+    "hpRecover": 600,
+    "src": [
+      401111,
+      302107
+    ]
+  },
+  "302216": {
+    "name": "초코파이",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 1,
+    "hpRecover": 600,
+    "src": [
+      302110,
+      302119
+    ]
+  },
+  "302217": {
+    "name": "한방침",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 1,
+    "hpRecover": 800,
+    "src": [
+      401111,
+      120101
+    ]
+  },
+  "302218": {
+    "name": "난초",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 500,
+    "src": [
+      302116,
+      205102
+    ]
+  },
+  "302222": {
+    "name": "탄두리",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 1,
+    "hpRecover": 600,
+    "src": [
+      302120,
+      302111
+    ]
+  },
+  "302224": {
+    "name": "마늘베이컨말이",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 1,
+    "hpRecover": 650,
+    "src": [
+      302106,
+      302111
+    ]
+  },
+  "302225": {
+    "name": "번",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 1,
+    "hpRecover": 600,
+    "src": [
+      302110,
+      301106
+    ]
+  },
+  "302226": {
+    "name": "햄버거",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 1,
+    "hpRecover": 600,
+    "src": [
+      302111,
+      302110
+    ]
+  },
+  "302227": {
+    "name": "감자빵",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 360,
+    "src": [
+      302102,
+      302110
+    ]
+  },
+  "302228": {
+    "name": "감자스프",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 1,
+    "hpRecover": 600,
+    "src": [
+      302102,
+      301108
+    ]
+  },
+  "302229": {
+    "name": "달걀생선필레",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 1,
+    "hpRecover": 700,
+    "src": [
+      302104,
+      302112
+    ]
+  },
+  "302230": {
+    "name": "시트러스케이크",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 360,
+    "src": [
+      302105,
+      302110
+    ]
+  },
+  "302231": {
+    "name": "레몬아이스크림",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 3,
+    "hpRecover": 500,
+    "src": [
+      302105,
+      302112
+    ]
+  },
+  "302232": {
+    "name": "마늘꿀절임",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 3,
+    "hpRecover": 480,
+    "src": [
+      302106,
+      301101
+    ]
+  },
+  "302234": {
+    "name": "계란빵",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 400,
+    "src": [
+      302112,
+      302110
+    ]
+  },
+  "302235": {
+    "name": "이스터에그",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 1,
+    "hpRecover": 600,
+    "src": [
+      302112,
+      302119
+    ]
+  },
+  "302236": {
+    "name": "위스키봉봉",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 3,
+    "hpRecover": 400,
+    "src": [
+      301104,
+      302119
+    ]
+  },
+  "302237": {
+    "name": "초코아이스크림",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 550,
+    "src": [
+      301103,
+      302119
+    ]
+  },
+  "302238": {
+    "name": "카레빵",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "고급",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 360,
+    "src": [
+      302120,
+      302110
+    ]
+  },
+  "302301": {
+    "name": "매운탕",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 550,
+    "src": [
+      302109,
+      301201
+    ]
+  },
+  "302302": {
+    "name": "감자튀김",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 1,
+    "hpRecover": 600,
+    "src": [
+      302102,
+      401203
+    ]
+  },
+  "302303": {
+    "name": "구운감자",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 600,
+    "src": [
+      302102,
+      401215
+    ]
+  },
+  "302304": {
+    "name": "구운붕어",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 600,
+    "src": [
+      302109,
+      401215
+    ]
+  },
+  "302306": {
+    "name": "메로구이",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 3,
+    "hpRecover": 480,
+    "src": [
+      302104,
+      401215
+    ]
+  },
+  "302307": {
+    "name": "뜨거운라면",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 550,
+    "src": [
+      302113,
+      301201
+    ]
+  },
+  "302308": {
+    "name": "모카빵",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 700,
+    "src": [
+      302110,
+      301208
+    ]
+  },
+  "302309": {
+    "name": "스크램블에그",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 550,
+    "src": [
+      302112,
+      401203
+    ]
+  },
+  "302311": {
+    "name": "초코칩쿠키",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 733,
+    "src": [
+      302119,
+      302206
+    ]
+  },
+  "302312": {
+    "name": "초코파이상자",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 733,
+    "src": [
+      302216,
+      205107
+    ]
+  },
+  "302313": {
+    "name": "카레",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 3,
+    "hpRecover": 480,
+    "src": [
+      302120,
+      301201
+    ]
+  },
+  "302314": {
+    "name": "탕약",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 600,
+    "src": [
+      302116,
+      301201
+    ]
+  },
+  "302315": {
+    "name": "허니버터",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 650,
+    "src": [
+      302206,
+      301101
+    ]
+  },
+  "302316": {
+    "name": "후라이드치킨",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 510,
+    "src": [
+      302111,
+      401203
+    ]
+  },
+  "302317": {
+    "name": "힐링포션",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 700,
+    "src": [
+      302218,
+      112104
+    ]
+  },
+  "302318": {
+    "name": "삶은달걀",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 600,
+    "src": [
+      302112,
+      301201
+    ]
+  },
+  "302319": {
+    "name": "파운드케잌",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 600,
+    "src": [
+      302206,
+      302110
+    ]
+  },
+  "302322": {
+    "name": "카레고로케",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 550,
+    "src": [
+      302120,
+      401203
+    ]
+  },
+  "302323": {
+    "name": "스테이크",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 4,
+    "hpRecover": 420,
+    "src": [
+      302111,
+      401215
+    ]
+  },
+  "302324": {
+    "name": "구급상자",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 1,
+    "hpRecover": 950,
+    "src": [
+      302213,
+      203102
+    ]
+  },
+  "302325": {
+    "name": "버터감자구이",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 650,
+    "src": [
+      302102,
+      302206
+    ]
+  },
+  "302326": {
+    "name": "생선까스",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 1,
+    "hpRecover": 700,
+    "src": [
+      302104,
+      401203
+    ]
+  },
+  "302327": {
+    "name": "볶음라면",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 550,
+    "src": [
+      302113,
+      401203
+    ]
+  },
+  "302328": {
+    "name": "냉면",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 650,
+    "src": [
+      302113,
+      301216
+    ]
+  },
+  "302329": {
+    "name": "대환단",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 850,
+    "src": [
+      302217,
+      302207
+    ]
+  },
+  "302401": {
+    "name": "피시앤칩스",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "영웅",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 900,
+    "src": [
+      302326,
+      302302
+    ]
+  },
+  "302402": {
+    "name": "마늘라면",
+    "itemType": "Consume",
+    "consumableType": "음식",
+    "consumableTag": "None",
+    "itemGrade": "희귀",
+    "stackable": 5,
+    "initialCount": 2,
+    "hpRecover": 700,
+    "src": [
+      302307,
+      302106
+    ]
+>>>>>>> dev
   }
+}

@@ -17,7 +17,7 @@ class Search extends Component {
     onSubmit = (event) => {
         if (event.key === 'Enter') {
             const value = event.target.value;
-            console.log('value', value);
+            //console.log('value', value);
 
             var link = 'http://matchhistory.playeternalreturn.com/kr/name=';
 

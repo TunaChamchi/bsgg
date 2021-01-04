@@ -3,7 +3,6 @@
   "message": "Success",
   "data": {
     "ActionCost": 1503837952,
-    "Area": 107712878,
     "AreaSound": 1925874714,
     "BotAiModel": 1889052284,
     "BotCraft": 517388958,
@@ -11,6 +10,7 @@
     "BotNickName": 2061427971,
     "BotSkillBuild": 1316321053,
     "BulletCapacity": 3898517913,
+	
     "Character": 2706648391,
     "CharacterAttributes": 1126682432,
     "CharacterExp": 722608443,
@@ -21,6 +21,7 @@
     "CharacterStateGroup": 2400381384,
     "CharacterVoice": 2892280041,
     "CharacterVoiceRandomCount": 340379836,
+	
     "Collectible": 319549137,
     "ControlTypeUse": 1705422735,
     "CriticalChance": 1584487193,
@@ -31,22 +32,30 @@
     "GameRankExp": 1050961058,
     "HookLineProjectile": 2837662869,
     "HowToFindItem": 3337130465,
+	
+	
     "ItemArmor": 1782211736,
     "ItemConsumable": 2304251027,
     "ItemMisc": 1722026024,
-    "ItemSearchOption": 3026061046,
-    "ItemSpawn": 536975134,
     "ItemSpecial": 895589061,
     "ItemWeapon": 2101382955,
+	
+    "Area": 107712878,
+    "ItemSpawn": 536975134,
+	
+    "ItemSearchOption": 3026061046,
+	
     "KeyText": 1684758389,
     "Level": 319704056,
     "MasteryExp": 4091936197,
     "MasteryLevel": 1574906982,
     "MatchingQueueTier": 3306495469,
     "Mission": 1081708595,
+	
     "Monster": 4244279643,
     "MonsterLevelUpStat": 631906487,
     "MonsterSpawnLevel": 3701910266,
+	
     "NaviCollectAndHunt": 743480867,
     "NearByArea": 813123875,
     "Noise": 4258494809,
