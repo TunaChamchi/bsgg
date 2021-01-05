@@ -1004,7 +1004,10 @@ class Match extends Component {
                                         <div className="record_left">
                                             <div className="record_rank">
                                                 <span className="record_rank0">RANK</span>
-                                                {this.rankView()}
+                                                {
+                                                    userStat['seasonStats']['1'] &&
+                                                        this.rankView()
+                                                }
                                             </div>
                                             <div className="record_most">
                                                 <span className="record_most0">MOST 5</span>

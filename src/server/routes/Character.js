@@ -40,7 +40,7 @@ router.get('/Tier', async (req, res, next) => {
 
 // 캐릭터 검색
 router.get('/:character', async (req, res, next) => {
-    logger.info('/:character ' + JSON.stringify(req.params) + ' ' + JSON.stringify(req.query));
+    logger.info('/Character/:character ' + JSON.stringify(req.params) + ' ' + JSON.stringify(req.query));
     const characterNum = parseInt(req.params.character);
 
     const tier = await CharacterTier.find(

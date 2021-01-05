@@ -19,8 +19,8 @@ function sleep(ms) {
     });
 }
 
-// 5시 0분에 전체 유저 전적 검색
-schedule.scheduleJob('0 10 20 * * *', async () => {
+// 6시 0분에 전체 유저 전적 검색
+schedule.scheduleJob('0 10 21 * * *', async () => {
     logger.info('GetUserStat Start');
     const users = await User.find({}, { _id:0, userNum: 1 }, { sort : { updateDate: 1 }});
 
@@ -96,36 +96,47 @@ router.get('/', async (req, res, next) => {
 
 // 유저 검색 DB
 router.get('/:userName', async (req, res, next) => {
-    logger.info('/:userName ' + JSON.stringify(req.params));
-    const userName = req.params.userName;
+    try {
+        logger.info('/User/:userName ' + JSON.stringify(req.params));
+        const userName = req.params.userName;
 
-    let user = await User.findOne({ nickname: { $regex: '^'+userName+'$', $options: 'i' } });
-    if (!user) {
-        await getUserData(userName);
-        user = await User.findOne({ nickname: { $regex: '^'+userName+'$', $options: 'i' } });
-    }
-    let userNum = user.userNum;
-    const userStat = await UserStat.findOne({ userNum: userNum });
-    
-    const ranking = {};
-    if (userStat && userStat['seasonStats'] && userStat['seasonStats'][1]) {
-        for (const key in userStat['seasonStats'][1]) {
-            ranking[key] = await UserStat.find({ ["seasonStats.1."+key+".mmr"]: { $gt: userStat['seasonStats'][1][key]['mmr'] } }).count();
-            ++ranking[key];
+        let user = await User.findOne({ nickname: { $regex: '^'+userName+'$', $options: 'i' } });
+        if (!user) {
+            await getUserData(userName);
+            user = await User.findOne({ nickname: { $regex: '^'+userName+'$', $options: 'i' } });
         }
-    }
+        let userNum = user.userNum;
+        const userStat = await UserStat.findOne({ userNum: userNum });
+        
+        const ranking = {};
+        if (userStat && userStat['seasonStats'] && userStat['seasonStats'][1]) {
+            for (const key in userStat['seasonStats'][1]) {
+                ranking[key] = await UserStat.find({ ["seasonStats.1."+key+".mmr"]: { $gt: userStat['seasonStats'][1][key]['mmr'] } }).count();
+                ++ranking[key];
+            }
+        }
 
-    const response = {
-        user:user,
-        userStat:userStat,
-        ranking:ranking
+        const response = {
+            user:user,
+            userStat:userStat,
+            ranking:ranking
+        }
+        res.json(response);
+    } catch (error) {
+        logger.error('/User/:userName ' + error.message + ' ' + JSON.stringify(req.params));
+
+        const response = {
+            user:null,
+            userStat:null,
+            ranking:null
+        }
+        res.json(response);
     }
-    res.json(response);
 });
 
 // 유저 전적 검색 DB
 router.get('/:userNum/match', async (req, res, next) => {
-    logger.info('/:userNum/match ' + JSON.stringify(req.params) + ' ' + JSON.stringify(req.query));
+    logger.info('/User/:userNum/match ' + JSON.stringify(req.params) + ' ' + JSON.stringify(req.query));
     const userNum = parseInt(req.params.userNum) || -1;
     const matchMode =  parseInt(req.query.matchMode) || 0;
     const teamMode =  parseInt(req.query.teamMode) || 0;
@@ -159,7 +170,7 @@ router.get('/:userNum/match', async (req, res, next) => {
 
 // 유저 전적 갱신
 router.get('/:userName/renew', async (req, res, next) => {
-    logger.info('/:userName/renew ' + JSON.stringify(req.params));
+    logger.info('/User/:userName/renew ' + JSON.stringify(req.params));
     const userName = req.params.userName;
     try {    
         await getUserData(userName);
@@ -172,38 +183,43 @@ router.get('/:userName/renew', async (req, res, next) => {
 
 // 상제 전적
 router.get('/Detail/:gameId', async (req, res, next) => {
-    logger.info('/Detail/:gameId ' + JSON.stringify(req.params));
-    const gameId = parseInt(req.params.gameId);
+    try {
+        logger.info('/User/Detail/:gameId ' + JSON.stringify(req.params));
+        const gameId = parseInt(req.params.gameId);
 
-    //const match = await Match.find({ gameId: gameId }, null, { sort: { gameRank: 1 } });
-    const match = await Match.aggregate([
-        { $match: { gameId: gameId } }, 
-        { 
-            $project: {
-                _id:0,
-                gameRank:1,
-                userNum:1,
-                characterNum:1,
-                equipment:1,
-                killDetail:1,
-                damageToPlayer:1,
-                mmrBefore:1,
-                playerKill:1,
-                playerAssistant:1,
-                matchingTeamMode:1,
-            }
-        }, 
-        { 
-            $lookup: {
-                from: 'users',
-                localField: 'userNum',
-                foreignField: 'userNum',
-                as: 'user'
-            }
-        },
-        { $sort: { gameRank: 1 } }
-    ]);
-    res.json(match);
+        //const match = await Match.find({ gameId: gameId }, null, { sort: { gameRank: 1 } });
+        const match = await Match.aggregate([
+            { $match: { gameId: gameId } }, 
+            { 
+                $project: {
+                    _id:0,
+                    gameRank:1,
+                    userNum:1,
+                    characterNum:1,
+                    equipment:1,
+                    killDetail:1,
+                    damageToPlayer:1,
+                    mmrBefore:1,
+                    playerKill:1,
+                    playerAssistant:1,
+                    matchingTeamMode:1,
+                }
+            }, 
+            { 
+                $lookup: {
+                    from: 'users',
+                    localField: 'userNum',
+                    foreignField: 'userNum',
+                    as: 'user'
+                }
+            },
+            { $sort: { gameRank: 1 } }
+        ]);
+        res.json(match);
+    } catch (error) {
+        logger.error('/User/Detail/:gameId ' + error.message + ' ' + JSON.stringify(req.params));
+        res.json(null);
+    }
 });
 
 // 유저 전적 검색 API
@@ -256,6 +272,11 @@ const getUserData = async (userName) => {
                     isStats = true;
                 }
             }
+        }
+
+        if (userName.toLowerCase() !== nickname.toLowerCase()) {
+            logger.info('getUserData() ' + nickname + ' -> ' + userName);
+            nickname = userName;
         }
 
         // 유저 등록
@@ -392,14 +413,19 @@ const getUserData = async (userName) => {
         }
         
         const characterStats = await getCharacterStats(userNum);
-        userStat['mostCharacter'] = characterStats[0]['_id'];
-        userStat['characterStats'] = {};
-        for (var i = 0 ; i < characterStats.length ; i++) {
-            const characterStat = characterStats[i];
-            const characterCode = characterStat['_id'];
-            delete characterStat['_id'];
-
-            userStat['characterStats'][characterCode] = characterStat;
+        if (characterStats.length > 0) {
+            userStat['mostCharacter'] = characterStats[0]['_id'];
+            userStat['characterStats'] = {};
+            for (var i = 0 ; i < characterStats.length ; i++) {
+                const characterStat = characterStats[i];
+                const characterCode = characterStat['_id'];
+                delete characterStat['_id'];
+    
+                userStat['characterStats'][characterCode] = characterStat;
+            }
+        } else {
+            const mostCharacter = await getMostCharacter(userNum);
+            userStat['mostCharacter'] = mostCharacter[0]['_id'];
         }
 
         await UserStat.findOneAndUpdate({ userNum: userStat['userNum'] }, userStat, { upsert:true });
@@ -549,6 +575,19 @@ const getCharacterStats = async (userNum) => {
                     ]
                   }
                 },
+            }
+        },
+        { $sort: { totalGames: -1 } }
+    ]);
+}
+
+const getMostCharacter = async (userNum) => {
+    return await Match.aggregate([
+    { $match: { userNum: userNum } },
+        { 
+            $group: {
+                _id: '$characterNum',
+                totalGames: { $sum: 1 }
             }
         },
         { $sort: { totalGames: -1 } }

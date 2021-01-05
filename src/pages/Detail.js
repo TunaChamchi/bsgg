@@ -162,6 +162,12 @@ class Detail extends Component {
                     order.push('E');
                     order.push('E');
                     order.push('E');
+                } else {
+                    tree.push('T');
+                    order.push('R');
+                    order.push('R');
+                    order.push('T');
+                    order.push('T');
                 }
             }
 

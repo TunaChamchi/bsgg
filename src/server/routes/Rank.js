@@ -131,7 +131,7 @@ const getRankStats = async (userNum, seasonId) => {
 
 // 랭크 검색
 router.get('/', async (req, res, next) => {
-    logger.info('/ ' + JSON.stringify(req.query));
+    logger.info('/Rank/ ' + JSON.stringify(req.query));
     const mode =  parseInt(req.query.mode);
     const limit = parseInt(req.query.limit);
     const search = req.query.search;
@@ -184,7 +184,7 @@ router.get('/', async (req, res, next) => {
 
 // 장인 랭크
 router.get('/character', async (req, res, next) => {
-    logger.info('/character ' + JSON.stringify(req.query));
+    logger.info('/Rank/character ' + JSON.stringify(req.query));
     const code =  parseInt(req.query.characterCode);
     const characterRank = await UserStat.find(
         { ['characterStats.'+code]: {$exists:true} }, 
