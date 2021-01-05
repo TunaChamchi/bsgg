@@ -799,10 +799,10 @@ router.post('/userStat/renew', async (req, res, next) => {
 
         await UserStat.findOneAndUpdate({ userNum: userStat['userNum'] }, userStat, { upsert:true });
         
-        return 'Success';
     } catch (error) {
         logger.error('getUserData() ' + JSON.stringify({ userName }));
         logger.error(error.message);
-        return null;
     }
+    logger.info('/User/userStat/renew Complete : ' + userName);
+    res.json("{ 'data': Date.now() }")
 });
