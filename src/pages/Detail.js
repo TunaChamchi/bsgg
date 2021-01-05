@@ -251,7 +251,7 @@ class Detail extends Component {
         return (
             <div>
                 <Header data={metaData}/>
-                <SubBanner />
+                <SubBanner actived={'Tier'} />
                 <div className="S_main">
                     <Top 
                         stat={stat}

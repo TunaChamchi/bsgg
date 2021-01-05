@@ -19,16 +19,16 @@ function sleep(ms) {
     });
 }
 
-// 6시 0분에 전체 유저 전적 검색
+// 5시 0분에 전체 유저 전적 검색
 schedule.scheduleJob('0 10 20 * * *', async () => {
-    logger.info(new Date().toString().slice(16,24), ': GetUserStat Start');
+    logger.info('GetUserStat Start');
     const users = await User.find({}, { _id:0, userNum: 1 }, { sort : { updateDate: 1 }});
 
     for (let i = 0 ; i < users.length ; i++) {        
         await getUserData(users[i]['userNum']);
     }
 
-    console.log(new Date().toString().slice(16,24), ': GetUserStat Complete');
+    logger.info('GetUserStat Complete : ' + users.length);
 })
 
 const getUserSreach = async (userName) => {
@@ -41,7 +41,7 @@ const getUserSreach = async (userName) => {
             });
         } catch (error) {
             if (error.response.status !== 429) {
-                console.log(new Date().toString().slice(16,24), ': getUserStats() Error', error.response.status, '{ userName }', { userName });
+                logger.error('getUserSreach() ' +  error.response.status + ' ' + JSON.stringify({ userName }));
                 return;
             }
             
@@ -59,7 +59,7 @@ const getUserStats = async (userNum, seasonId) => {
             });
         } catch (error) {
             if (error.response.status !== 429) {
-                console.log(new Date().toString().slice(16,24), ': getUserStats() Error', error.response.status, '{ userNum, seasonId }', { userNum, seasonId });
+                logger.error('getUserStats() ' +  error.response.status + ' ' + JSON.stringify({ userNum, seasonId }));
                 return;
             }
             
@@ -77,7 +77,7 @@ const getUserGame = async (userNum, next) => {
             });
         } catch (error) {
             if (error.response.status !== 429) {
-                console.log(new Date().toString().slice(16,24), ': getUserGame() Error', error.response.status, '{ userNum, next }', { userNum, next });
+                logger.error('getUserGame() ' +  error.response.status + ' ' + JSON.stringify({ userNum, next }));
                 return;
             }
             
@@ -88,7 +88,6 @@ const getUserGame = async (userNum, next) => {
 
 // 메인 화면 유저 이름 검색
 router.get('/', async (req, res, next) => {
-    console.log('/', req.query);
     const search = req.query.search;
 
     const users = await UserStat.find({ nickname: { $regex: '^'+search, $options: 'i' } });
@@ -97,12 +96,11 @@ router.get('/', async (req, res, next) => {
 
 // 유저 검색 DB
 router.get('/:userName', async (req, res, next) => {
-    console.log('/:userName', req.params);
+    logger.info('/:userName ' + JSON.stringify(req.params));
     const userName = req.params.userName;
 
     let user = await User.findOne({ nickname: { $regex: '^'+userName+'$', $options: 'i' } });
     if (!user) {
-        console.log('user', user);
         await getUserData(userName);
         user = await User.findOne({ nickname: { $regex: '^'+userName+'$', $options: 'i' } });
     }
@@ -127,7 +125,7 @@ router.get('/:userName', async (req, res, next) => {
 
 // 유저 전적 검색 DB
 router.get('/:userNum/match', async (req, res, next) => {
-    console.log('/:userNum/match', req.params, req.query);
+    logger.info('/:userNum/match ' + JSON.stringify(req.params) + ' ' + JSON.stringify(req.query));
     const userNum = parseInt(req.params.userNum) || -1;
     const matchMode =  parseInt(req.query.matchMode) || 0;
     const teamMode =  parseInt(req.query.teamMode) || 0;
@@ -161,7 +159,7 @@ router.get('/:userNum/match', async (req, res, next) => {
 
 // 유저 전적 갱신
 router.get('/:userName/renew', async (req, res, next) => {
-    console.log('/:userName/renew', req.params);
+    logger.info('/:userName/renew ' + JSON.stringify(req.params));
     const userName = req.params.userName;
     try {    
         await getUserData(userName);
@@ -174,7 +172,7 @@ router.get('/:userName/renew', async (req, res, next) => {
 
 // 상제 전적
 router.get('/Detail/:gameId', async (req, res, next) => {
-    console.log('/Detail/:gameId', req.params);
+    logger.info('/Detail/:gameId ' + JSON.stringify(req.params));
     const gameId = parseInt(req.params.gameId);
 
     //const match = await Match.find({ gameId: gameId }, null, { sort: { gameRank: 1 } });
@@ -210,6 +208,8 @@ router.get('/Detail/:gameId', async (req, res, next) => {
 
 // 유저 전적 검색 API
 router.post('/userData', async (req, res, next) => {
+    logger.info('/userData');
+
     const userNum = parseInt(req.query.userNum);
     await getUserData(userNum);
 
@@ -239,17 +239,19 @@ const getUserData = async (userName) => {
         
         // 닉네임 / mmr  값 가져오기
         for (var i = 0 ; i < searchSeason.length ; i++) {
-            const _userStats = await getUserStats(userNum, searchSeason[i]);//.userStats;
+            const seasonId = searchSeason[i];
+            const _userStats = await getUserStats(userNum, seasonId);//.userStats;
             const userStats = _userStats.data.userStats;
             if (userStats !== undefined) {
-                mmr[i] = {};
-                rankPercent[i] = {}
+                mmr[seasonId] = {};
+                rankPercent[seasonId] = {}
                 for (let j = 0 ; j < userStats.length ; j++) {
                     const userStat = userStats[j];
+                    const teamMode = userStat['matchingTeamMode'];
 
                     nickname = userStat['nickname'];
-                    mmr[i][j] = userStat['mmr']
-                    rankPercent[i][j] = userStat['rankPercent'];
+                    mmr[seasonId][teamMode] = userStat['mmr']
+                    rankPercent[seasonId][teamMode] = userStat['rankPercent'];
 
                     isStats = true;
                 }
@@ -286,7 +288,7 @@ const getUserData = async (userName) => {
             next = _matchs.data.next;
 
             if (!matchs) {
-                console.log(new Date().toString().slice(16,24), ': getUserData() Error', _matchs);
+                logger.error('getUserData() ' + JSON.stringify({ _matchs }));
                 return;
             }
                 
@@ -321,6 +323,8 @@ const getUserData = async (userName) => {
                         }
                     }
 
+                    let startDtm = new Date(m['startDtm']);
+                    m['startDtm'] = startDtm.setSeconds(startDtm.getSeconds() + m['playTime']);
                     m['equipmentOrder'] = equipmentOrder;
                     m['skillOrder'] = skillOrder;
 
@@ -344,7 +348,7 @@ const getUserData = async (userName) => {
         try {
             delete userStat['_id'];
         } catch (err) {
-            console.log('getUserData : ', userNum, userStat);
+            logger.error('getUserData() ' + JSON.stringify({ userNum, userStat }));
             return;
         }
         userStat['userNum'] = userNum;
@@ -373,22 +377,16 @@ const getUserData = async (userName) => {
                 }
                 
                 userStat['seasonStats'][seasonId][teamMode] = teamModeStat;
-            }
 
-            // mmr / 랭크 퍼센트 입력
-            if (mmr[seasonId] !== undefined && rankPercent[seasonId] !== undefined) {
-                for (let j = 0 ; j < teamModeStats.length ; j++) {
-                    if (mmr[seasonId][j] !== undefined && rankPercent[seasonId][j] !== undefined) {
-                        try {
-                            userStat['seasonStats'][seasonId][j]['mmr'] = mmr[seasonId][j];
-                            userStat['seasonStats'][seasonId][j]['rankPercent'] = rankPercent[seasonId][j];
-                        } catch (err) {
-                            console.log('getUserData : ', nickname, userNum, seasonId, j);
-                            console.log(err.message);
-                            console.log(mmr[seasonId][j], rankPercent[seasonId][j]);
-                            return null;
-                        }
-                    }
+                try {
+                    userStat['seasonStats'][seasonId][teamMode]['mmr'] = mmr[seasonId][teamMode];
+                    userStat['seasonStats'][seasonId][teamMode]['rankPercent'] = rankPercent[seasonId][teamMode];
+                } catch (err) {
+                    logger.error('getUserData() ' + JSON.stringify({ nickname, userNum, seasonId, teamMode }));
+                    logger.error(JSON.stringify(mmr) + ' ' + JSON.stringify(rankPercent));
+                    logger.error(JSON.stringify(userStat['seasonStats'][seasonId][teamMode]));
+                    logger.error(err.message);
+                    return null;
                 }
             }
         }
@@ -406,10 +404,10 @@ const getUserData = async (userName) => {
 
         await UserStat.findOneAndUpdate({ userNum: userStat['userNum'] }, userStat, { upsert:true });
         
-        return 'Success'
+        return 'Success';
     } catch (error) {
-        console.log(new Date().toString().slice(16,24), ': getUserData() Error', error.message, '{ userName }', { userName });
-        console.log(error);
+        logger.error('getUserData() ' + JSON.stringify({ userName }));
+        logger.error(error.message);
         return null;
     }
 }
@@ -558,7 +556,7 @@ const getCharacterStats = async (userNum) => {
 }
 
 router.post('/userStat', async (req, res, next) => {
-    console.log(new Date().toString().slice(16,24), ': GetUserStat Start');
+    logger.error('/userStat Start');
 
     const users = await User.find({}, { _id:0, userNum: 1 }, { sort : { updateDate: 1 }});
 
@@ -566,10 +564,8 @@ router.post('/userStat', async (req, res, next) => {
         await getUserData(users[i]['userNum']);
 
         if (i%100===99)
-            console.log(i+1);
+            logger.error('/userStat : ' + i+1);
     }
-
-    console.log(new Date().toString().slice(16,24), ': GetUserStat Complete', users.length);
-
+    logger.error('/userStat Complete : ' + users.length);
     res.json("{ 'data': Date.now() }")
 });

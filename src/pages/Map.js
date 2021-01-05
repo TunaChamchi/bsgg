@@ -26,7 +26,8 @@ class Map extends Component {
                 '공장': 'Factory',
                 '항구': 'Dock',
                 '묘지': 'Cemetery',
-                '번화가': 'Avenue'
+                '번화가': 'Avenue',
+                '연구소': 'Research'
             },
         };
     }

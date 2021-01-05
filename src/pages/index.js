@@ -9,4 +9,3 @@ export const Match = withSplitting(() => import('./match'));
 export const Character = withSplitting(() => import('./character'));
 export const Rank = withSplitting(() => import('./rank'));
 export const Rank_Character = withSplitting(() => import('./rank_Character'));
-export const Loading = withSplitting(() => import('./Loading'));
