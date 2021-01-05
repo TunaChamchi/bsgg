@@ -274,7 +274,7 @@ const getUserData = async (userName) => {
             }
         }
 
-        if (userName.toLowerCase() !== nickname.toLowerCase()) {
+        if ((userName+"").toLowerCase() !== (nickname+"").toLowerCase()) {
             logger.info('getUserData() ' + nickname + ' -> ' + userName);
             nickname = userName;
         }
