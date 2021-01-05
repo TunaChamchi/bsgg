@@ -662,6 +662,8 @@ router.post('/userStat/renew', async (req, res, next) => {
         await User.findOneAndUpdate({ userNum: user['userNum'] }, user, { upsert:true });
 
         if (!isStats) {
+            logger.info('/User/userStat/renew Complete : ' + userName);
+            res.json("{ 'data': Date.now() }")
             return null;
         }
 
