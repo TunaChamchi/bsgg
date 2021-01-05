@@ -25,7 +25,7 @@ schedule.scheduleJob('0 10 21 * * *', async () => {
     const users = await User.find({}, { _id:0, userNum: 1 }, { sort : { updateDate: 1 }});
 
     for (let i = 0 ; i < users.length ; i++) {        
-        await getUserData(users[i]['userNum']);
+        await getUserData(users[i]['nickname']);
     }
 
     logger.info('GetUserStat Complete : ' + users.length);
@@ -600,7 +600,7 @@ router.post('/userStat', async (req, res, next) => {
     const users = await User.find({}, { _id:0, userNum: 1 }, { sort : { updateDate: 1 }});
 
     for (let i = 0 ; i < users.length ; i++) {        
-        await getUserData(users[i]['userNum']);
+        await getUserData(users[i]['nickname']);
 
         if (i%100===99)
             logger.info('/userStat : ' + (i+1));
