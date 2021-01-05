@@ -18,8 +18,9 @@
 	"Shoichi": "쇼이치",
 	"Silvia": "실비아",
 	"Emma": "엠마",
+            "Lenox":"레녹스",
 	
-	"OneHandSword": "한손검", 
+	"OneHandSword": "단검", 
 	"HighAngleFire": "투척", 
 	"Pistol": "권총", 
 	"AssaultRifle": "돌격소총", 
@@ -44,8 +45,8 @@
 	
 	"Head":"머리",
 	"Chest":"옷",
-	"Arm":"다리",
-	"Leg":"팔",
+	"Arm":"팔",
+	"Leg":"다리",
 	"Trinket":"장식",
 
 	"Beverage":"음료",
