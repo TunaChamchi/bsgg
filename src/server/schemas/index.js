@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { logger } = require("../config/logConfig");
 
 const MONGO_URL = 'mongodb://localhost:27017/bsgg'
 
@@ -8,17 +9,17 @@ module.exports = () => {
             dbName: 'bsgg',
         }, (error) => {
             if (error) {
-                console.log('mongo fail', error);
+                logger.error('mongo fail' + error);
             }
         });
     };
     connect();
 
     mongoose.connection.on('error', (error) => {
-        console.log('mongo fail', error);
+        logger.error('mongo fail' + error);
     });
     mongoose.connection.on('disconnected', (error) => {  
-        console.log('mongo disconnected', error);  
+        logger.error('mongo disconnected' + error);
         connect();
     });
 
