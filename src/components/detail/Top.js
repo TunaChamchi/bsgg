@@ -55,40 +55,46 @@ class Top extends Component {
                     {this.weaponListView()}
                     </div>
                 </div>
-                <div className="S_top-stat">
-                    <span className="S_top-stat1">{intl.formatMessage({ id: 'detail.lv20stat' })}</span>
-                    <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.attackPower' })}</span>
-                    <span className="S_top-stat3">{(character['stat']['attackPower']+statlv['attackPower']*19).toFixed(1)}</span>
-                    <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.defense' })}</span>
-                    <span className="S_top-stat3">{(character['stat']['defense']+statlv['defense']*19).toFixed(1)}</span>
-                    <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.maxHp' })}</span>
-                    <span className="S_top-stat3">{(character['stat']['maxHp']+statlv['maxHp']*19).toFixed(0)}</span>
-                    <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.hpRegen' })}</span>
-                    <span className="S_top-stat3">{(character['stat']['hpRegen']+statlv['hpRegen']*19).toFixed(2)}</span>
-                    <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.maxSp' })}</span>
-                    <span className="S_top-stat3">{(character['stat']['maxSp']+statlv['maxSp']*19).toFixed(0)}</span>
-                    <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.spRegen' })}</span>
-                    <span className="S_top-stat3">{(character['stat']['spRegen']+statlv['spRegen']*19).toFixed(2)}</span>
-                    <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.attackSpeedRatio' })}</span>
-                    <span className="S_top-stat3">{(character['stat']['attackSpeed']+statlv['attackSpeed']*19).toFixed(2)}</span>
-                </div>
-                <div className="S_top-stat">
-                    <span className="S_top-stat1">{intl.formatMessage({ id: 'detail.lv1stat' })}</span>
-                    <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.attackPower' })}</span>
-                    <span className="S_top-stat3">{character['stat']['attackPower']}</span>
-                    <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.defense' })}</span>
-                    <span className="S_top-stat3">{character['stat']['defense']}</span>
-                    <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.maxHp' })}</span>
-                    <span className="S_top-stat3">{character['stat']['maxHp']}</span>
-                    <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.hpRegen' })}</span>
-                    <span className="S_top-stat3">{character['stat']['hpRegen']}</span>
-                    <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.maxSp' })}</span>
-                    <span className="S_top-stat3">{character['stat']['maxSp']}</span>
-                    <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.spRegen' })}</span>
-                    <span className="S_top-stat3">{character['stat']['spRegen']}</span>
-                    <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.attackSpeedRatio' })}</span>
-                    <span className="S_top-stat3">{character['stat']['attackSpeed']}</span>
-                </div>
+                {
+                    statlv &&
+                        <div>
+                            <div className="S_top-stat">
+                                <span className="S_top-stat1">{intl.formatMessage({ id: 'detail.lv20stat' })}</span>
+                                <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.attackPower' })}</span>
+                                <span className="S_top-stat3">{(character['stat']['attackPower']+statlv['attackPower']*19).toFixed(1)}</span>
+                                <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.defense' })}</span>
+                                <span className="S_top-stat3">{(character['stat']['defense']+statlv['defense']*19).toFixed(1)}</span>
+                                <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.maxHp' })}</span>
+                                <span className="S_top-stat3">{(character['stat']['maxHp']+statlv['maxHp']*19).toFixed(0)}</span>
+                                <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.hpRegen' })}</span>
+                                <span className="S_top-stat3">{(character['stat']['hpRegen']+statlv['hpRegen']*19).toFixed(2)}</span>
+                                <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.maxSp' })}</span>
+                                <span className="S_top-stat3">{(character['stat']['maxSp']+statlv['maxSp']*19).toFixed(0)}</span>
+                                <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.spRegen' })}</span>
+                                <span className="S_top-stat3">{(character['stat']['spRegen']+statlv['spRegen']*19).toFixed(2)}</span>
+                                <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.attackSpeedRatio' })}</span>
+                                <span className="S_top-stat3">{(character['stat']['attackSpeed']+statlv['attackSpeed']*19).toFixed(2)}</span>
+                            </div>
+                            <div className="S_top-stat">
+                                <span className="S_top-stat1">{intl.formatMessage({ id: 'detail.lv1stat' })}</span>
+                                <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.attackPower' })}</span>
+                                <span className="S_top-stat3">{character['stat']['attackPower']}</span>
+                                <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.defense' })}</span>
+                                <span className="S_top-stat3">{character['stat']['defense']}</span>
+                                <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.maxHp' })}</span>
+                                <span className="S_top-stat3">{character['stat']['maxHp']}</span>
+                                <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.hpRegen' })}</span>
+                                <span className="S_top-stat3">{character['stat']['hpRegen']}</span>
+                                <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.maxSp' })}</span>
+                                <span className="S_top-stat3">{character['stat']['maxSp']}</span>
+                                <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.spRegen' })}</span>
+                                <span className="S_top-stat3">{character['stat']['spRegen']}</span>
+                                <span className="S_top-stat2">{intl.formatMessage({ id: 'stat.attackSpeedRatio' })}</span>
+                                <span className="S_top-stat3">{character['stat']['attackSpeed']}</span>
+                            </div>
+                        </div>
+                }
+                
             </div>
         );
     };

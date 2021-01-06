@@ -253,6 +253,7 @@ const getUserData = async (userName) => {
         let nickname = u.nickname;
 
         let isStats = false;
+        let max_mmr = 0;
         const mmr = {};
         const rankPercent = {};
         
@@ -269,9 +270,12 @@ const getUserData = async (userName) => {
                     const teamMode = userStat['matchingTeamMode'];
 
                     nickname = userStat['nickname'];
-                    mmr[seasonId][teamMode] = userStat['mmr']
+                    mmr[seasonId][teamMode] = userStat['mmr'];
                     rankPercent[seasonId][teamMode] = userStat['rankPercent'];
 
+                    if (seasonId === 1 && max_mmr < userStat['mmr']) {
+                        max_mmr = userStat['mmr'];
+                    }
                     isStats = true;
                 }
             }
@@ -377,6 +381,8 @@ const getUserData = async (userName) => {
         }
         userStat['userNum'] = userNum;
         userStat['nickname'] = nickname;
+        userStat['max_mmr'] = max_mmr;
+
         
         userStat['seasonStats'] = {};
         for (var i = 0 ; i < searchSeason.length ; i++) {

@@ -392,11 +392,12 @@ const SetCharacterStats = async () => {
         previousVersion = {...currentVersion};
         currentVersion = { versionMajor:versionMajor, versionMinor:versionMinor };
         isVersionChange = true;
-        logger.info('currentVersion : ' + JSON.stringify(currentVersion));
+        logger.info('SetCharacterStats currentVersion : ' + JSON.stringify(currentVersion));
+        logger.info('SetCharacterStats previousVersion : ' +  JSON.stringify(previousVersion));
     }
     if (previousVersion.versionMajor === 0 && previousVersion.versionMinor === 0) {
         previousVersion = { versionMajor:version[1]['_id'].versionMajor, versionMinor:version[1]['_id'].versionMinor};
-        logger.info('previousVersion : ' +  JSON.stringify(previousVersion));
+        logger.info('SetCharacterStats previousVersion : ' +  JSON.stringify(previousVersion));
     }
 
     setChacterStat(currentVersion.versionMajor, currentVersion.versionMinor);

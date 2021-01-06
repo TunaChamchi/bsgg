@@ -292,7 +292,7 @@ class Character extends Component {
             const top3  = char['top3'] - char['top1'];
             
             const top1Width = top1/char['totalGames'] *100;
-            const top3Width = top3/char['totalGames'] *100;
+            const top3Width = top3/char['totalGames'] *100 + top1Width;
 
             const kam = (char['totalKills']+char['totalAssistants'])/char['totalGames'];
             const kamSytle = kam >= 4 ? '3' : kam >= 3 ? '2' : '1';
