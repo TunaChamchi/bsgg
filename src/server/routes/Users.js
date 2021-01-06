@@ -22,7 +22,7 @@ function sleep(ms) {
 // 6시 0분에 전체 유저 전적 검색
 schedule.scheduleJob('0 10 21 * * *', async () => {
     logger.info('GetUserStat Start');
-    const users = await User.find({}, { _id:0, nickname: 1 }, { sort : { updateDate: -1 }});
+    const users = await User.find({}, { _id:0, nickname: 1 }, { sort : { updateDate: 1 }});
 
     for (let i = 0 ; i < users.length ; i++) {        
         await getUserData(users[i]['nickname']);
@@ -606,7 +606,7 @@ const getMostCharacter = async (userNum) => {
 router.post('/userStat', async (req, res, next) => {
     logger.info('/userStat Start');
 
-    const users = await User.find({}, { _id:0, nickname: 1 }, { sort : { updateDate: -1 }});
+    const users = await User.find({}, { _id:0, nickname: 1 }, { sort : { updateDate: 1 }});
 
     for (let i = 0 ; i < users.length ; i++) {        
         await getUserData(users[i]['nickname']);

@@ -14,8 +14,8 @@ const router = express.Router();
 
 const searchSeason = [0, 1];
 const searchTeamMode = [1, 2, 3];
-let previousVersion = { versionMajor:0, versionMinor:0 };
-let currentVersion = { versionMajor:0, versionMinor:0 };
+let previousVersion = { versionMajor:22, versionMinor:4 };
+let currentVersion = { versionMajor:22, versionMinor:5 };
 function sleep(ms) {
     return new Promise((resolve) => {
         setTimeout(resolve, ms);
@@ -23,7 +23,7 @@ function sleep(ms) {
 }
 
 // 8시 0분에 캐릭터 데이터 업데이트 1
-schedule.scheduleJob('0 5 */2 * * *', () => {
+schedule.scheduleJob('0 0 0 * * *', () => {
     SetCharacterStats();
 })
 
@@ -408,4 +408,4 @@ const SetCharacterStats = async () => {
     logger.info('SetCharacterStats Complete');
 }
 
-SetCharacterStats();
+//SetCharacterStats();

@@ -884,7 +884,7 @@ class Match extends Component {
                 const tier = Math.floor(match['mmrBefore']/100);
                 const lp   = match['mmrBefore']-tier*100;
                 return (
-                    <div className={"record_history_detail_box"+(match['userNum']===user['userNum']?' actived':'')} key={'detail_box_left_'+idx}>
+                    <div className={"record_history_detail_box"+(match['gameRank']===matchDetail[gameId]['rank']?' actived':'')} key={'detail_box_left_'+idx}>
                         <div className="record_history_detail_rank" >{match['gameRank']}</div>
                         <img className="record_history_detail_cha" src={"img/Rank/"+getCharacter(match['characterNum'])['name']+".jpg"} />
                         <div className="record_history_detail_box1">
@@ -929,7 +929,7 @@ class Match extends Component {
                 const tier = Math.floor(match['mmrBefore']/100);
                 const lp   = match['mmrBefore']-tier*100;
                 return (
-                    <div className={"record_history_detail_box"+(match['userNum']===user['userNum']?' actived':'')} key={'detail_box_right_'+idx}>
+                    <div className={"record_history_detail_box"+(match['gameRank']===matchDetail[gameId]['rank']?' actived':'')} key={'detail_box_right_'+idx}>
                         <div className="record_history_detail_rank" >{match['gameRank']}</div>
                         <img className="record_history_detail_cha" src={"img/Rank/"+getCharacter(match['characterNum'])['name']+".jpg"} />
                         <div className="record_history_detail_box1">
