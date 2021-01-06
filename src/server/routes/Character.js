@@ -408,4 +408,9 @@ const SetCharacterStats = async () => {
     logger.info('SetCharacterStats Complete');
 }
 
-//SetCharacterStats();
+const currentVersionView = async () => {
+    logger.info('SetCharacterStats currentVersion : ' + JSON.stringify(currentVersion));
+    logger.info('SetCharacterStats previousVersion : ' +  JSON.stringify(previousVersion));
+}
+
+currentVersionView();
