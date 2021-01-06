@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { logger } = require("../config/logConfig");
 
-const MONGO_URL = 'mongodb://localhost:27017/bsgg'
+const MONGO_URL = 'mongodb://192.168.0.155:27017/bsgg'
 
 module.exports = () => {
     const connect = () => {

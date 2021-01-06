@@ -269,7 +269,6 @@ button:hover{
     z-index: 1;
     font-size: 10pt;
     white-space: pre-line;
-    word-break: keep-all;
     border-radius: 3px;
     color:white;
     font-weight: 300;
@@ -285,7 +284,6 @@ button:hover{
     z-index: 1;
     font-size: 10pt;
     white-space: pre-line;
-    word-break: keep-all;
     border-radius: 3px;
     color:white;
     font-weight: 300;
