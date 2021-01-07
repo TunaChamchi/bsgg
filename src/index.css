@@ -53,6 +53,8 @@ body {
 .Ad_box_bottom{
     width: 300px;
     height: 250px;
+    margin-top: 30px;
+    margin-left: 30px;
 }
 /* all pages */
 input:focus{

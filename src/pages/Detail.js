@@ -327,7 +327,7 @@ class Detail extends Component {
                                 className='Ad_box_bottom'
                                 client='ca-pub-7215780243476450'
                                 slot='4378161301'
-                                style={{ display: 'block', width:300, height:250 }}
+                                style={{ display: 'inline-block', width:300, height:250 }}
                                 responsive='true'
                                 />
                         </div>
