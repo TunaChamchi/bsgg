@@ -66,7 +66,7 @@ const getCurrentVersion = async () => {
 
 const getChacterStat = async (versionMajor, versionMinor, characterNum, matchingTeamMode) => {
     return await Match.aggregate([
-        { $match: { versionMajor: versionMajor, versionMinor: versionMinor, characterNum: characterNum, seasonId: 1, matchingTeamMode: matchingTeamMode } },
+        { $match: { versionMajor: versionMajor, versionMinor: versionMinor, characterNum: characterNum, /*seasonId: 1,*/ matchingTeamMode: matchingTeamMode } },
         { 
             $group: {
                 _id: '$bestWeapon',
@@ -99,7 +99,7 @@ const getChacterStat = async (versionMajor, versionMinor, characterNum, matching
 
 const getChacterStatSkill = async (versionMajor, versionMinor, characterNum, bestWeapon, matchingTeamMode) => {
     return await Match.aggregate([
-        { $match: { versionMajor: versionMajor, versionMinor: versionMinor,characterNum: characterNum, bestWeapon: bestWeapon, seasonId: 1, matchingTeamMode: matchingTeamMode, skillOrder: { $ne: "_" } } },
+        { $match: { versionMajor: versionMajor, versionMinor: versionMinor,characterNum: characterNum, bestWeapon: bestWeapon, /*seasonId: 1,*/ matchingTeamMode: matchingTeamMode, skillOrder: { $ne: "_" } } },
         { 
             $group: {
                 _id: '$skillOrder',
@@ -121,7 +121,7 @@ const getChacterStatSkill = async (versionMajor, versionMinor, characterNum, bes
 
 const getChacterStatItem = async (versionMajor, versionMinor, characterNum, bestWeapon, matchingTeamMode) => {
     return await Match.aggregate([
-        { $match: { versionMajor: versionMajor, versionMinor: versionMinor,characterNum: characterNum, bestWeapon: bestWeapon, seasonId: 1, matchingTeamMode: matchingTeamMode } },
+        { $match: { versionMajor: versionMajor, versionMinor: versionMinor,characterNum: characterNum, bestWeapon: bestWeapon, /*seasonId: 1,*/ matchingTeamMode: matchingTeamMode } },
         { 
             $group: {
                 _id: '$equipmentOrder',
@@ -144,7 +144,7 @@ const getChacterStatItem = async (versionMajor, versionMinor, characterNum, best
 
 const getChacterStatItemType = async (versionMajor, versionMinor, characterNum, bestWeapon, type, matchingTeamMode) => {
     return await Match.aggregate([
-        { $match: { versionMajor: versionMajor, versionMinor: versionMinor,characterNum: characterNum, bestWeapon: bestWeapon, seasonId: 1, matchingTeamMode: matchingTeamMode } },
+        { $match: { versionMajor: versionMajor, versionMinor: versionMinor,characterNum: characterNum, bestWeapon: bestWeapon, /*seasonId: 1,*/ matchingTeamMode: matchingTeamMode } },
         { 
             $group: {
                 _id: '$equipment.'+type,
@@ -413,4 +413,4 @@ const currentVersionView = async () => {
     logger.info('currentVersionView previousVersion : ' +  JSON.stringify(previousVersion));
 }
 
-currentVersionView();
+SetCharacterStats();
