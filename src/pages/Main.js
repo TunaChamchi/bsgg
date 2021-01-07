@@ -17,13 +17,15 @@ class Main extends Component {
             <div>
                 <Header data={metaData}/>
                 <SubBanner actived={'Tier'} />
-                <AdSense.Google
-                    className='mainpage_ad'
-                    client='ca-pub-7215780243476450'
-                    slot='1329310229'
-                    style={{ display: 'block', width:970, height:250 }}
-                    responsive='true'
-                    />
+                <div className="Ad_box">
+                    <AdSense.Google
+                        className='mainpage_ad'
+                        client='ca-pub-7215780243476450'
+                        slot='1329310229'
+                        style={{ display: 'block', width:970, height:250 }}
+                        responsive='true'
+                        />
+                </div>
                 <div className='main'>
                     <div className='main-left'>
                         <Characters />

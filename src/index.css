@@ -20,6 +20,13 @@ body {
 ::-webkit-scrollbar-thumb { background: #3b4147; border-radius: 10px; } 
 ::-webkit-scrollbar-button { display: none; } 
 /* ADs */
+.Ad_box{
+    width: 970px;
+    height: 250px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+}
 .Ad_box_L{
     position: absolute;
     top: 480px;
@@ -99,6 +106,7 @@ button:hover{
     vertical-align: center;
     margin-left: auto;
     margin-right: auto;
+    clear: both;
 }
 .footer_logo{
     width: 80px;
@@ -477,7 +485,6 @@ button:hover{
 }
 .Main_search_box{
     background-color: rgb(240, 240, 240) ;
-    position: absolute;
     width: 600px;
     font-size: 13pt;
     padding-top: 1px;
@@ -486,18 +493,20 @@ button:hover{
     border-radius: 3px;
     z-index: 1;
     max-height: 260px;
-    overflow-y: auto;
-    overflow-x: none;
+    overflow-y: scroll;
+    overflow-x: hidden;
     color: #171520;
     margin-top: 15px;
     z-index: 0;
+    margin-bottom: 20px;
 }
 .Main_search_box1{
     width: 600px;
     height: 45px;
     background-color: rgb(240, 240, 240) ;
     margin-top: 2px;
-    color:#171520;    
+    color:#171520;   
+    position: relative; 
 }
 .Main_search_box :hover{
     background-color: rgb(212, 212, 212);
