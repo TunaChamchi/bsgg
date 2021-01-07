@@ -381,7 +381,12 @@ class Match extends Component {
                     <div className="record_rank_span1">{teamMode}</div>
                     <div className="record_rank_span2">{tierList[tier]} / {lp} LP</div>
                     <div className="record_rank_span3">{total}{intl.formatMessage({id: "전" })} {top1}{intl.formatMessage({id: "승" })} {(top1/total*100).toFixed(1)}% / {kdm.toFixed(1)} KA/M</div>
-                    <div className="record_rank_span4">{ranking[key]}{intl.formatMessage({id: "위" })} / {intl.formatMessage({id: "상위" })} {((rank['rankPercent']*100)||0.5).toFixed(1)}%</div>
+                    {
+                        rank['totalGames'] >= 5 ?
+                            <div className="record_rank_span4">{rank['rank'] || ranking[key]}{intl.formatMessage({id: "위" })} / {intl.formatMessage({id: "상위" })} {((rank['rankPercent']*100)||0.5).toFixed(1)}%</div>
+                            :
+                            <div className="record_rank_span4">{intl.formatMessage({id: "배치중" })} ({rank['totalGames']}/5)</div>
+                    }
                     <div className="record_rank_graph" style={{width: lp*3.5}}></div>
                 </div>
             )

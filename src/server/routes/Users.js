@@ -255,6 +255,7 @@ const getUserData = async (userName) => {
         let max_mmr = 0;
         const mmr = {};
         const rank = {};
+        const rankSize = {};
         const rankPercent = {};
         
         // 닉네임 / mmr  값 가져오기
@@ -273,6 +274,7 @@ const getUserData = async (userName) => {
                     nickname = userStat['nickname'];
                     mmr[seasonId][teamMode] = userStat['mmr'];
                     rank[seasonId][teamMode] = userStat['rank'];
+                    rankSize[seasonId][teamMode] = userStat['rankSize'];
                     rankPercent[seasonId][teamMode] = userStat['rankPercent'];
 
                     if (seasonId === 1 && max_mmr < userStat['mmr']) {
@@ -413,6 +415,7 @@ const getUserData = async (userName) => {
                 try {
                     userStat['seasonStats'][seasonId][teamMode]['mmr'] = mmr[seasonId][teamMode];
                     userStat['seasonStats'][seasonId][teamMode]['rank'] = rank[seasonId][teamMode];
+                    userStat['seasonStats'][seasonId][teamMode]['rankSize'] = rankSize[seasonId][teamMode];
                     userStat['seasonStats'][seasonId][teamMode]['rankPercent'] = rankPercent[seasonId][teamMode];
                 } catch (err) {
                     logger.error('getUserData() ' + JSON.stringify({ nickname, userNum, seasonId, teamMode }));
