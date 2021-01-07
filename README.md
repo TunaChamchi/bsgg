@@ -9,6 +9,7 @@ password
 npm run build
 sudo systemctl stop nginx
 sudo systemctl start nginx
+sudo systemctl restart nginx
 
 # nginx start
 sudo systemctl stop nginx
