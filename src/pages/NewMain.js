@@ -141,6 +141,9 @@ class Main extends Component {
                         </div>
                     </div>
                 </div>
+                {/*<div className="mainpage_notice">
+                    <span className="mainpage_notice_span">{intl.formatMessage({id: '공지사항1'})}</span>
+                </div>*/}
                 <div className="mainpage_search">
                     <input type="checkbox" id="switch" /><label className="mainpage_switch1" for="switch" onClick={this.searchTypehHandler}>Toggle</label>
                     <input className="mainpage_search_box" value={search} 

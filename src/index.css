@@ -379,10 +379,9 @@ button:hover{
 .mainpage_banner {
     background-color : #262335;
     width: 100%;
-    height: 500px;
+    height: 498px;
     text-align: center;
-    margin-bottom: 50px;
-    border-bottom: 1px solid #241b2f;
+    border-bottom: 1px solid #262335;
 }
 .mainpage_logo {
     padding-top: 50px;
@@ -399,11 +398,11 @@ button:hover{
     margin-top: -5px;
 }
 .mainpage_buttons :hover{
-    border-bottom: 1px solid rgb(244,216,35);
+    border-bottom: 2px solid rgb(244,216,35);
 }
 .mainpage_button{
     display: inline-block;
-    height: 38px;
+    height: 36px;
     margin-left: 20px;
     margin-right: 10px;
     text-align: center;
@@ -413,8 +412,21 @@ button:hover{
     font-size: 13pt;
     font-weight: 600;
     float: right;
-    border-bottom: 1px solid #241b2f;
+    border-bottom: 2px solid #262335;
     padding-bottom: 15px;
+}
+.mainpage_notice{
+    width: 100%;
+    height: 28px;
+    background-color: #007fd3;
+    text-align: center;
+}
+.mainpage_notice_span{
+    width: 1152px;
+    display: inline-block;
+    margin: auto;
+    font-size: 14pt;
+    margin-top: -1px;
 }
 .mainpage_search{
     width: 600px;
@@ -425,6 +437,7 @@ button:hover{
     margin-bottom: 280px;
     border-bottom: 1px solid #241b2f;
     position: relative;
+    margin-top: 50px;
 }
 .mainpage_search input[type=checkbox]{
 	height: 0;
@@ -543,7 +556,7 @@ button:hover{
     float: left;
 }
 .langaugebutton{
-    width: 90px;
+    width: 105px;
     color: rgb(209, 209, 209);
     border-color: rgba(0,0,0,0);
     background-color: rgb(38, 35, 53);
@@ -2431,6 +2444,9 @@ button:hover{
     text-align: center;
     display: inline-block;
     width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .Route_L_PickItem_dropbox_all{
     position: absolute;
@@ -4180,6 +4196,14 @@ button:hover{
     margin-top: 3px;
     height: 28px;
     padding-right: 52px;
+}
+.record_cha_nodata{
+    display: inline-block;
+    text-align: center;
+    width: 1152px;
+    height: 100px;
+    font-size: 22pt;
+    margin-top: 50px;
 }
 .record_cha_filter6{
     display: inline-block;

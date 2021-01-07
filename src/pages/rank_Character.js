@@ -206,6 +206,7 @@ class Rank_Character extends Component {
                             <div className="record_cha_filter5">{intl.formatMessage({id: 'winRate'})}</div>
                             <div className="record_rank_filter3">KA/M</div>
                         </div>
+                        {/*<div className="record_cha_nodata">{intl.formatMessage({id: 'nodata'})}</div>*/}
                         {this.rankTableView()}
                     </div>
                 </div>
