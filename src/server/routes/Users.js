@@ -7,7 +7,6 @@ const { logger } = require("../config/logConfig")
 const UserStat = require('../schemas/userStat');
 const User = require('../schemas/user');
 const Match = require('../schemas/match');
-const { response } = require('express');
 
 const router = express.Router();
 
@@ -255,6 +254,7 @@ const getUserData = async (userName) => {
         let isStats = false;
         let max_mmr = 0;
         const mmr = {};
+        const rank = {};
         const rankPercent = {};
         
         // 닉네임 / mmr  값 가져오기
@@ -264,6 +264,7 @@ const getUserData = async (userName) => {
             const userStats = _userStats.data.userStats;
             if (userStats !== undefined) {
                 mmr[seasonId] = {};
+                rank[seasonId] = {};
                 rankPercent[seasonId] = {}
                 for (let j = 0 ; j < userStats.length ; j++) {
                     const userStat = userStats[j];
@@ -271,6 +272,7 @@ const getUserData = async (userName) => {
 
                     nickname = userStat['nickname'];
                     mmr[seasonId][teamMode] = userStat['mmr'];
+                    rank[seasonId][teamMode] = userStat['rank'];
                     rankPercent[seasonId][teamMode] = userStat['rankPercent'];
 
                     if (seasonId === 1 && max_mmr < userStat['mmr']) {
@@ -410,6 +412,7 @@ const getUserData = async (userName) => {
 
                 try {
                     userStat['seasonStats'][seasonId][teamMode]['mmr'] = mmr[seasonId][teamMode];
+                    userStat['seasonStats'][seasonId][teamMode]['rank'] = rank[seasonId][teamMode];
                     userStat['seasonStats'][seasonId][teamMode]['rankPercent'] = rankPercent[seasonId][teamMode];
                 } catch (err) {
                     logger.error('getUserData() ' + JSON.stringify({ nickname, userNum, seasonId, teamMode }));
