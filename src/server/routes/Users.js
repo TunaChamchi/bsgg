@@ -256,7 +256,6 @@ const getUserData = async (userName) => {
         const mmr = {};
         const rank = {};
         const rankSize = {};
-        const rankPercent = {};
         
         // 닉네임 / mmr  값 가져오기
         for (var i = 0 ; i < searchSeason.length ; i++) {
@@ -266,7 +265,7 @@ const getUserData = async (userName) => {
             if (userStats !== undefined) {
                 mmr[seasonId] = {};
                 rank[seasonId] = {};
-                rankPercent[seasonId] = {}
+                rankSize[seasonId] = {};
                 for (let j = 0 ; j < userStats.length ; j++) {
                     const userStat = userStats[j];
                     const teamMode = userStat['matchingTeamMode'];
@@ -275,7 +274,6 @@ const getUserData = async (userName) => {
                     mmr[seasonId][teamMode] = userStat['mmr'];
                     rank[seasonId][teamMode] = userStat['rank'];
                     rankSize[seasonId][teamMode] = userStat['rankSize'];
-                    rankPercent[seasonId][teamMode] = userStat['rankPercent'];
 
                     if (seasonId === 1 && max_mmr < userStat['mmr']) {
                         max_mmr = userStat['mmr'];
@@ -416,7 +414,6 @@ const getUserData = async (userName) => {
                     userStat['seasonStats'][seasonId][teamMode]['mmr'] = mmr[seasonId][teamMode];
                     userStat['seasonStats'][seasonId][teamMode]['rank'] = rank[seasonId][teamMode];
                     userStat['seasonStats'][seasonId][teamMode]['rankSize'] = rankSize[seasonId][teamMode];
-                    userStat['seasonStats'][seasonId][teamMode]['rankPercent'] = rankPercent[seasonId][teamMode];
                 } catch (err) {
                     logger.error('getUserData() ' + JSON.stringify({ nickname, userNum, seasonId, teamMode }));
                     logger.error(JSON.stringify(mmr) + ' ' + JSON.stringify(rankPercent));
@@ -499,7 +496,7 @@ const getUserStats2 = async (userNum, seasonId) => {
                 maxKill: { $max: '$playerKill' },
                 totalAssistants:{ $sum: '$playerAssistant' },
                 totalMonsterKills:{ $sum: '$monsterKill' },
-                rank:{ $avg: '$gameRank' },
+                avgRank:{ $avg: '$gameRank' },
                 top1: { 
                   $sum: {
                     $cond : [
