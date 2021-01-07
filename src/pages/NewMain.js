@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { injectIntl  } from 'react-intl';
-import { Footer, Langauge, Header  } from 'components/banner';
+import AdSense from 'react-adsense';
+import { Footer, Langauge, AdS, Header } from 'components/banner';
 import { getCharacterKeys, getCharacter } from 'lib/data'
 import logo from 'img/main_logo.svg';
 import { sync } from 'glob';
@@ -159,6 +160,13 @@ class Main extends Component {
                             </div>
                     }
                 </div>
+                <AdSense.Google
+                    className='mainpage_ad'
+                    client='ca-pub-7215780243476450'
+                    slot='1329310229'
+                    style={{ display: 'block', width:970, height:250 }}
+                    responsive='true'
+                    />
                 <Footer />
             </div>
         );

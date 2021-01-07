@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { injectIntl  } from 'react-intl';
 import queryString from 'query-string';
 import moment from 'moment';
-import { Header, SubBanner, Footer } from 'components/banner'
+import { Header, SubBanner, AdS, Footer } from 'components/banner'
 import { getCharacter, getItem, getWeaponType, addJson, getSkill } from 'lib/data'
 import { Link } from 'react-router-dom';
 
@@ -377,6 +377,7 @@ class Character extends Component {
                                     </div>
                                 </div>
                 }
+                <AdS type={'Detail'}/>
                 <Footer />
             </div>
         );

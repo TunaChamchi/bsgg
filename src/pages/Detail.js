@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { injectIntl } from 'react-intl';
+import AdSense from 'react-adsense';
 import queryString from 'query-string';
 import { Header, SubBanner, AdS, Footer } from 'components/banner';
 import { Top, Trend, Skill } from 'components/detail';
@@ -254,7 +255,6 @@ class Detail extends Component {
 
         const metaData = {
             title: 'BSGG.kr - ' +  intl.formatMessage({id: 'Title.Detail1'})+ " " + intl.formatMessage({id: 'characters.'+getCharacter(stat['characterNum'])['name']}) + ' ' + intl.formatMessage({id: 'weapons.'+getWeaponType(stat['bestWeapon'])}) + intl.formatMessage({id: 'Title.Detail2'}),
-            
         }
 
         return (
@@ -311,7 +311,7 @@ class Detail extends Component {
                             }
                         </div>
                     </div>
-                    <Trend 
+                    <Trend
                         stat={stat}
                         tier={tier}
                         parameter={{character, bestWeapon, gameMode}}

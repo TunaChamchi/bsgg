@@ -23,11 +23,13 @@ class AdS extends Component {
 
         let start, top;
         if (type === 'Main') {
-            start = 465; top = 480;
+            start = 415; top = 430;
         } else if (type === 'Detail') {
             start = 330; top = 345;
         } else if (type === 'Map') {
             start = 185; top = 200;
+        } else if (type === 'Rank') {
+            start = 505; top = 520;
         }
 
         const ad_style1 = { position: 'fixed', top: top };

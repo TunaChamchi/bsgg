@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { injectIntl  } from 'react-intl';
 import queryString from 'query-string';
-import { Header, SubBanner, Footer } from 'components/banner'
+import { Header, SubBanner, AdS, Footer } from 'components/banner'
 import { getCharacter, getCharacterKeys } from 'lib/data'
 
 class Rank_Character extends Component {
@@ -210,6 +210,7 @@ class Rank_Character extends Component {
                         {this.rankTableView()}
                     </div>
                 </div>
+                <AdS type={'Rank'}/>
                 <Footer />
             </div>
         );
