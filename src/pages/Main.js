@@ -23,7 +23,6 @@ class Main extends Component {
                         client='ca-pub-7215780243476450'
                         slot='1329310229'
                         style={{ display: 'block', width:970, height:250 }}
-                        responsive='true'
                         />
                 </div>
                 <div className='main'>
