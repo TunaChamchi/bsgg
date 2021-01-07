@@ -26,6 +26,7 @@ body {
     height: 250px;
     margin: auto;
     text-align: center;
+    margin-top: 25px;
 }
 .Ad_box_L{
     position: absolute;
@@ -449,6 +450,7 @@ button:hover{
     border-bottom: 1px solid #241b2f;
     position: relative;
     margin-top: 50px;
+    margin-bottom: 50px;
 }
 .mainpage_search input[type=checkbox]{
 	height: 0;

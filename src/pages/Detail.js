@@ -324,7 +324,7 @@ class Detail extends Component {
                         </Link>
                         <div className="Ad_box_bottom">  
                             <AdSense.Google
-                                className='Ad_box_Main'
+                                className='Ad_box_bottom'
                                 client='ca-pub-7215780243476450'
                                 slot='4378161301'
                                 style={{ display: 'block', width:300, height:250 }}

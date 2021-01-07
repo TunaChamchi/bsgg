@@ -1022,14 +1022,14 @@ class Match extends Component {
                                                 <Link to={'/Character?userName='+userName}>
                                                     <button className="record_most_button">{intl.formatMessage({id: "더 보기" })}</button>
                                                 </Link>
-                                                <AdSense.Google
-                                                    className='Ad_box_Main'
-                                                    client='ca-pub-7215780243476450'
-                                                    slot='4378161301'
-                                                    style={{ display: 'block', width:300, height:250 }}
-                                                    responsive='true'
-                                                    />
                                             </div>
+                                            <AdSense.Google
+                                                className='Ad_box_bottom'
+                                                client='ca-pub-7215780243476450'
+                                                slot='4378161301'
+                                                style={{ display: 'block', width:300, height:250 }}
+                                                responsive='true'
+                                                />
                                         </div>
                                         <div className="record_rigth">
                                             <div className="record_match">
