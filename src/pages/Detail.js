@@ -322,15 +322,6 @@ class Detail extends Component {
                         <Link to={'/RankCharacter?character=' +character}>
                             <button className="master_button">{intl.formatMessage({id: '더 보기'})}</button>
                         </Link>
-                        <div className="Ad_box_bottom">  
-                            <AdSense.Google
-                                className='Ad_box_bottom'
-                                client='ca-pub-7215780243476450'
-                                slot='4378161301'
-                                style={{ display: 'inline-block', width:300, height:250 }}
-                                responsive='true'
-                                />
-                        </div>
                     </div>
                 </div>
                 <AdS type={'Detail'}/>
