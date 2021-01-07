@@ -19,7 +19,7 @@ function sleep(ms) {
 }
 
 // 6시 0분에 전체 유저 전적 검색
-schedule.scheduleJob('0 10 21 * * *', async () => {
+schedule.scheduleJob('0 0 */6 * * *', async () => {
     logger.info('GetUserStat Start');
     const users = await User.find({}, { _id:0, nickname: 1 }, { sort : { updateDate: 1 }});
 
