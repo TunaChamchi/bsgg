@@ -21,10 +21,11 @@ body {
 ::-webkit-scrollbar-button { display: none; } 
 /* ADs */
 .Ad_box{
+    clear: both;
     width: 970px;
     height: 250px;
     margin: auto;
-    margin-bottom: 20px;
+    text-align: center;
 }
 .Ad_box_L{
     position: absolute;
@@ -51,8 +52,6 @@ body {
 .Ad_box_bottom{
     width: 300px;
     height: 250px;
-    margin-top: 20px;
-    margin-left: 30px;
 }
 /* all pages */
 input:focus{
@@ -447,7 +446,6 @@ button:hover{
     background-color: #262335;
     border-radius: 50px;
     margin: auto;
-    margin-bottom: 280px;
     border-bottom: 1px solid #241b2f;
     position: relative;
     margin-top: 50px;
@@ -490,6 +488,7 @@ button:hover{
 }
 .Main_search_box{
     background-color: rgb(240, 240, 240) ;
+    float: left;
     width: 600px;
     font-size: 13pt;
     padding-top: 1px;
@@ -541,12 +540,6 @@ button:hover{
     margin-left: 80px;
     margin-top: 13px;
     color: rgb(209, 209, 209) ;
-}
-.mainpage_ad{
-    width: 970px;
-    height: 250px;
-    margin: auto;
-    margin-top: 25px;
 }
 /* 1 page */
 .banner {
