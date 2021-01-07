@@ -26,7 +26,6 @@ body {
     margin: auto;
     margin-bottom: 20px;
 }
-}
 .Ad_box_L{
     position: absolute;
     top: 480px;
@@ -48,6 +47,12 @@ body {
     height: 90px;
     margin-left: 11px;
     margin-top: 15px;
+}
+.Ad_box_bottom{
+    width: 300px;
+    height: 250px;
+    margin-top: 20px;
+    margin-left: 30px;
 }
 /* all pages */
 input:focus{

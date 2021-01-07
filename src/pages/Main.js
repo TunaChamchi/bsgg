@@ -29,13 +29,6 @@ class Main extends Component {
                 <div className='main'>
                     <div className='main-left'>
                         <Characters />
-                        <AdSense.Google
-                            className='Ad_box_Main'
-                            client='ca-pub-7215780243476450'
-                            slot='4378161301'
-                            style={{ display: 'block', width:300, height:250 }}
-                            responsive='true'
-                            />
                     </div>
                     <div className='main-right'>
                         <Rank />

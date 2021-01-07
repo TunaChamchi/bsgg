@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { injectIntl  } from 'react-intl';
+import AdSense from 'react-adsense';
 import queryString from 'query-string';
 import moment from 'moment';
 import { Header, SubBanner, AdS, Footer } from 'components/banner'
@@ -1021,6 +1022,13 @@ class Match extends Component {
                                                 <Link to={'/Character?userName='+userName}>
                                                     <button className="record_most_button">{intl.formatMessage({id: "더 보기" })}</button>
                                                 </Link>
+                                                <AdSense.Google
+                                                    className='Ad_box_Main'
+                                                    client='ca-pub-7215780243476450'
+                                                    slot='4378161301'
+                                                    style={{ display: 'block', width:300, height:250 }}
+                                                    responsive='true'
+                                                    />
                                             </div>
                                         </div>
                                         <div className="record_rigth">
