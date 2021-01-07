@@ -372,6 +372,8 @@ class Match extends Component {
             const kdm = (rank['totalKills'] + rank['totalAssistants']) / total
             const tier = Math.floor(rank['mmr']/100);
             const lp   = rank['mmr']-tier*100;
+            let rankPercent = rank['rank']/rank['rankSize']*100
+            rankPercent = rankPercent.toFixed(1) !== "0.0" ? rankPercent.toFixed(1) : rankPercent.toFixed(2) !== "0.00" ? rankPercent.toFixed(2) : "0.01";
 
             const teamMode = intl.formatMessage({id: matchingTeamMode[key] });
 
@@ -383,7 +385,7 @@ class Match extends Component {
                     <div className="record_rank_span3">{total}{intl.formatMessage({id: "전" })} {top1}{intl.formatMessage({id: "승" })} {(top1/total*100).toFixed(1)}% / {kdm.toFixed(1)} KA/M</div>
                     {
                         rank['totalGames'] >= 5 ?
-                            <div className="record_rank_span4">{rank['rank'] || ranking[key]}{intl.formatMessage({id: "위" })} / {intl.formatMessage({id: "상위" })} {((rank['rankPercent']*100)||0.5).toFixed(1)}%</div>
+                            <div className="record_rank_span4">{rank['rank'] || ranking[key]}{intl.formatMessage({id: "위" })} / {intl.formatMessage({id: "상위" })} {rankPercent}%</div>
                             :
                             <div className="record_rank_span4">{intl.formatMessage({id: "배치중" })} ({rank['totalGames']}/5)</div>
                     }
