@@ -177,9 +177,9 @@ router.get('/:userName/renew', async (req, res, next) => {
     try {    
         await getUserData(userName);
         
-        res.json('{ "code": 200, "message": "Success" }');
+        res.json({ code:200, message:'Success' });
     } catch (error) {
-        res.json('{ "code": 500, "message": "Fail" }');
+        res.json({ code:200, message:'Fail' });
     }
 });
 
@@ -270,17 +270,21 @@ const getUserData = async (userName) => {
                     const userStat = userStats[j];
                     const teamMode = userStat['matchingTeamMode'];
 
-                    nickname = userStat['nickname'];
                     mmr[seasonId][teamMode] = userStat['mmr'];
                     rank[seasonId][teamMode] = userStat['rank'];
                     rankSize[seasonId][teamMode] = userStat['rankSize'];
 
                     if (seasonId === 1 && max_mmr < userStat['mmr']) {
                         max_mmr = userStat['mmr'];
+                        nickname = userStat['nickname'];
                     }
                     isStats = true;
                 }
             }
+        }
+
+        if (nickname === "") {
+            logger.error('getUserData() ' + JSON.stringify({ userName }) + ' ' + JSON.stringify({ nickname }));
         }
 
         if ((userName+"").toLowerCase() !== (nickname+"").toLowerCase()) {
@@ -820,3 +824,250 @@ router.post('/userStat/renew', async (req, res, next) => {
     logger.info('/User/userStat/renew Complete : ' + userName);
     res.json("{ 'data': Date.now() }")
 });
+
+router.post('/userStat/killer', async (req, res, next) => {
+    logger.info('/userStat/killer Start');
+
+    const users = await Match.aggregate([
+        { $match: { killer: "player" } }, 
+        {
+            $group: {
+                _id: '$killerUserNum',
+                killerUserNum: { $max: '$killerUserNum' },
+                killer: { $max: '$killer' }
+            }
+        }, 
+        {
+            $lookup: {
+                from: 'users',
+                localField: 'killerUserNum',
+                foreignField: 'userNum',
+                as: 'string'
+            }
+        },
+        { $match: { string: { $size: 0 } } }
+    ]);
+    logger.info('/userStat/killer Count : ' + users.length);
+
+    const l = Math.round(users.length/3)+1;
+    for (let i = 0 ; i < 3 ; i++) {
+        getUserkiller(users.splice(0, l), i);
+    }
+
+    //logger.info('/userStat/killer Complete : ' + users.length);
+    res.json({ 'data': Date.now() })
+});
+
+const getUserkiller = async (users, index) => {
+    logger.info('/getUserkiller Count '  + index + ' : ' + users.length);
+    logger.info('/getUserkiller Count '  + index + ' : ' + JSON.stringify(users[0]));
+    for (let i = 0 ; i < users.length ; i++) {
+        await getUserData2(users[i]['killerUserNum']);
+
+        if (i%100===99)
+            logger.info('/getUserkiller ' + index + ' : ' + (i+1) + ' ' + JSON.stringify(users[i]));
+    }
+    logger.info('/getUserkiller Complete ' + index + ' : ' + users.length);
+}
+
+const getUserData2 = async (userNum) => {
+    try {
+        let nickname = '';
+
+        let isStats = false;
+        let max_mmr = 0;
+        const mmr = {};
+        const rank = {};
+        const rankSize = {};
+        
+        // 닉네임 / mmr  값 가져오기
+        for (var i = 0 ; i < searchSeason.length ; i++) {
+            const seasonId = searchSeason[i];
+            const _userStats = await getUserStats(userNum, seasonId);//.userStats;
+            const userStats = _userStats.data.userStats;
+            if (userStats !== undefined) {
+                mmr[seasonId] = {};
+                rank[seasonId] = {};
+                rankSize[seasonId] = {};
+                for (let j = 0 ; j < userStats.length ; j++) {
+                    const userStat = userStats[j];
+                    const teamMode = userStat['matchingTeamMode'];
+
+                    mmr[seasonId][teamMode] = userStat['mmr'];
+                    rank[seasonId][teamMode] = userStat['rank'];
+                    rankSize[seasonId][teamMode] = userStat['rankSize'];
+
+                    if (seasonId === 1 && max_mmr < userStat['mmr']) {
+                        max_mmr = userStat['mmr'];
+                        nickname = userStat['nickname'];
+                    }
+                    isStats = true;
+                }
+            }
+        }
+
+        if (nickname === "") {
+            return null;
+        }
+
+        // 유저 등록
+        const user = {
+            userNum: userNum,
+            nickname: nickname,
+            updateDate: Date.now()
+        }
+        await User.findOneAndUpdate({ userNum: user['userNum'] }, user, { upsert:true });
+
+        if (!isStats) {
+            return null;
+        }
+
+        // 최근 매치 전적 검색
+        const matchLately = await Match.findOne({ userNum:userNum }, null, { sort: { startDtm:-1 } });
+        let lately;
+
+        if (matchLately !== null)
+            lately = new Date(matchLately['startDtm']);
+        else
+            lately = new Date('2020-01-01');
+
+        // 매치 검색
+        let isChange = false;
+        let next;
+        while(true) {
+            const _matchs = await getUserGame(userNum, next);
+            const matchs = _matchs.data.userGames;
+            next = _matchs.data.next;
+
+            if (!matchs) {
+                logger.error('getUserData2() ' + JSON.stringify({ _matchs }));
+                return;
+            }
+                
+            const insertMatchs = matchs.filter(m => new Date(m['startDtm']) > lately);
+
+            if (insertMatchs.length !== 0) {
+                isChange = true;
+
+                for (var i = 0 ; i < insertMatchs.length ; i++) {
+                    const m = insertMatchs[i];
+                    let equipmentOrder = '_';
+                    let skillOrder = '_';
+
+                    for (const key in m['equipment']) {
+                        equipmentOrder += m['equipment'][key] + '_';
+                    }
+
+                    const keys = Object.keys(m['skillOrderInfo']).filter(code => parseInt(m['skillOrderInfo'][code]/1000000)!==3);
+                    if (keys.length >= 16) {
+                        for (var j = 0 ; j < 16 ; j++) {
+                            const key = keys[j];
+                            let skillCode = parseInt(m['skillOrderInfo'][key]);
+                            if (skillCode > 1016500 && skillCode < 1017000) {
+                                m['skillOrderInfo'][key] -= 400;
+                                skillCode -= 400;
+                            }
+                            if (skillCode === 1016900) {
+                                m['skillOrderInfo'][key] = 1016900;
+                                skillCode = 1016900;
+                            }
+                            skillOrder += skillCode + '_';
+                        }
+                    }
+
+                    let startDtm = new Date(m['startDtm']);
+                    m['startDtm'] = startDtm.setSeconds(startDtm.getSeconds() + m['playTime']);
+                    m['equipmentOrder'] = equipmentOrder;
+                    m['skillOrder'] = skillOrder;
+
+                    const _ = await new Match(m).save();
+                }
+            } else {
+                break;
+            }
+
+            if (!next)
+                break;
+        }
+
+        // 매치 추가 확인
+        if (!isChange) {
+            return null;
+        }
+
+        // userStat 변경
+        const userStat = (await getUserStats1(userNum))[0];
+        try {
+            delete userStat['_id'];
+        } catch (err) {
+            logger.error('getUserData2() ' + JSON.stringify({ userNum, userStat }));
+            return;
+        }
+        userStat['userNum'] = userNum;
+        userStat['nickname'] = nickname;
+        userStat['max_mmr'] = max_mmr;
+
+        
+        userStat['seasonStats'] = {};
+        for (var i = 0 ; i < searchSeason.length ; i++) {
+            const seasonId = searchSeason[i];
+            userStat['seasonStats'][seasonId] = {};
+
+            const teamModeStats = await getUserStats2(userNum, seasonId);
+            for (var j = 0 ; j < teamModeStats.length ; j++) {
+                const teamModeStat = teamModeStats[j];
+                const teamMode = teamModeStat['_id'];
+                delete teamModeStat['_id'];
+                teamModeStat['characterStats'] = {};
+
+                const characterStats = await getUserStats3(userNum, seasonId, teamMode);
+                teamModeStat['mostCharacter'] = characterStats[0]['_id'];
+                for (var k = 0 ; k < characterStats.length ; k++) {
+                    const characterStat = characterStats[k];
+                    const characterCode = characterStat['_id'];
+                    delete characterStat['_id'];
+
+                    teamModeStat['characterStats'][characterCode] = characterStat;
+                }
+                
+                userStat['seasonStats'][seasonId][teamMode] = teamModeStat;
+
+                try {
+                    userStat['seasonStats'][seasonId][teamMode]['mmr'] = mmr[seasonId][teamMode];
+                    userStat['seasonStats'][seasonId][teamMode]['rank'] = rank[seasonId][teamMode];
+                    userStat['seasonStats'][seasonId][teamMode]['rankSize'] = rankSize[seasonId][teamMode];
+                } catch (err) {
+                    logger.error('getUserData2() ' + JSON.stringify({ nickname, userNum, seasonId, teamMode }));
+                    logger.error(JSON.stringify(mmr) + ' ' + JSON.stringify(rankPercent));
+                    logger.error(JSON.stringify(userStat['seasonStats'][seasonId][teamMode]));
+                    logger.error(err.message);
+                    return null;
+                }
+            }
+        }
+        
+        const characterStats = await getCharacterStats(userNum);
+        if (characterStats.length > 0) {
+            userStat['mostCharacter'] = characterStats[0]['_id'];
+            userStat['characterStats'] = {};
+            for (var i = 0 ; i < characterStats.length ; i++) {
+                const characterStat = characterStats[i];
+                const characterCode = characterStat['_id'];
+                delete characterStat['_id'];
+    
+                userStat['characterStats'][characterCode] = characterStat;
+            }
+        } else {
+            const mostCharacter = await getMostCharacter(userNum);
+            userStat['mostCharacter'] = mostCharacter[0]['_id'];
+        }
+
+        await UserStat.findOneAndUpdate({ userNum: userStat['userNum'] }, userStat, { upsert:true });
+        
+        return 'Success';
+    } catch (error) {
+        logger.error('getUserData2() ' + JSON.stringify({ userNum }));
+        logger.error(error.message);
+        return null;
+    }
+}
