@@ -7,7 +7,6 @@ const { logger } = require("../config/logConfig")
 const UserStat = require('../schemas/userStat');
 const User = require('../schemas/user');
 const Match = require('../schemas/match');
-const { response } = require('express');
 
 const router = express.Router();
 
@@ -20,7 +19,7 @@ function sleep(ms) {
 }
 
 // 6시 0분에 전체 유저 전적 검색
-schedule.scheduleJob('0 10 21 * * *', async () => {
+schedule.scheduleJob('0 0 */6 * * *', async () => {
     logger.info('GetUserStat Start');
     const users = await User.find({}, { _id:0, nickname: 1 }, { sort : { updateDate: 1 }});
 
@@ -255,7 +254,8 @@ const getUserData = async (userName) => {
         let isStats = false;
         let max_mmr = 0;
         const mmr = {};
-        const rankPercent = {};
+        const rank = {};
+        const rankSize = {};
         
         // 닉네임 / mmr  값 가져오기
         for (var i = 0 ; i < searchSeason.length ; i++) {
@@ -264,14 +264,16 @@ const getUserData = async (userName) => {
             const userStats = _userStats.data.userStats;
             if (userStats !== undefined) {
                 mmr[seasonId] = {};
-                rankPercent[seasonId] = {}
+                rank[seasonId] = {};
+                rankSize[seasonId] = {};
                 for (let j = 0 ; j < userStats.length ; j++) {
                     const userStat = userStats[j];
                     const teamMode = userStat['matchingTeamMode'];
 
                     nickname = userStat['nickname'];
                     mmr[seasonId][teamMode] = userStat['mmr'];
-                    rankPercent[seasonId][teamMode] = userStat['rankPercent'];
+                    rank[seasonId][teamMode] = userStat['rank'];
+                    rankSize[seasonId][teamMode] = userStat['rankSize'];
 
                     if (seasonId === 1 && max_mmr < userStat['mmr']) {
                         max_mmr = userStat['mmr'];
@@ -410,7 +412,8 @@ const getUserData = async (userName) => {
 
                 try {
                     userStat['seasonStats'][seasonId][teamMode]['mmr'] = mmr[seasonId][teamMode];
-                    userStat['seasonStats'][seasonId][teamMode]['rankPercent'] = rankPercent[seasonId][teamMode];
+                    userStat['seasonStats'][seasonId][teamMode]['rank'] = rank[seasonId][teamMode];
+                    userStat['seasonStats'][seasonId][teamMode]['rankSize'] = rankSize[seasonId][teamMode];
                 } catch (err) {
                     logger.error('getUserData() ' + JSON.stringify({ nickname, userNum, seasonId, teamMode }));
                     logger.error(JSON.stringify(mmr) + ' ' + JSON.stringify(rankPercent));
@@ -493,7 +496,7 @@ const getUserStats2 = async (userNum, seasonId) => {
                 maxKill: { $max: '$playerKill' },
                 totalAssistants:{ $sum: '$playerAssistant' },
                 totalMonsterKills:{ $sum: '$monsterKill' },
-                rank:{ $avg: '$gameRank' },
+                avgRank:{ $avg: '$gameRank' },
                 top1: { 
                   $sum: {
                     $cond : [
