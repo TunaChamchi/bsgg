@@ -116,10 +116,10 @@ button:hover{
     clear: both;
 }
 .footer_logo{
-    width: 80px;
-    margin-top: 10px;
+    width: 60px;
+    margin-top: 5px;
     margin-bottom: 10px;
-    margin-left: 5px;
+    margin-left: 10px;
     float: left;
 }
 .footer_button{
@@ -131,17 +131,20 @@ button:hover{
     float: right;
     margin-top: 15px;
     margin-right: 10px;
+    position: relative;
 }
 .footer_span{
     float: left;
-    font-size: 12pt;
+    font-size: 9pt;
     text-align: left;
     display: inline-block;
     width: 900px;
-    height: 90px;
-    margin-top: 15px;
+    margin-top: 8px;
     margin-left: 15px;
     white-space: pre-line;
+}
+.footer_img{
+    margin-left: 10px;
 }
 .rank_span_tooltip{
     visibility: hidden;
@@ -306,6 +309,22 @@ button:hover{
     text-align: center;
     margin-top: -4px;
 }
+.footer_tooltip{
+    visibility: hidden;
+    width: 150px;
+    height: 28px;
+    background-color: rgb(209, 209, 209);
+    position: absolute;
+    z-index: 1;
+    font-size: 12pt;
+    white-space: pre-line;
+    border-radius: 3px;
+    color:black;
+    font-weight: 500;
+    text-align: center;
+    top: -28px;
+    right: -50px;
+}
 .rank_span:hover .rank_span_tooltip{
     visibility: visible;
 }
@@ -352,6 +371,9 @@ button:hover{
     visibility: visible;
 }
 .record_top_medal_box:hover .medal_span_tooltip{
+    visibility: visible;
+}
+.footer_button:hover .footer_tooltip{
     visibility: visible;
 }
 .rank_span{
