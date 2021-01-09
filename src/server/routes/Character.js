@@ -4,7 +4,6 @@ const axios = require('axios');
 const schedule = require('node-schedule');
 const { logger } = require("../config/logConfig");
 
-const UserStat = require('../schemas/userStat');
 const Character = require('../schemas/characterStat');
 const CharacterTier = require('../schemas/characterTier');
 const Match = require('../schemas/match');
@@ -23,9 +22,9 @@ function sleep(ms) {
 }
 
 // 8시 0분에 캐릭터 데이터 업데이트 1
-schedule.scheduleJob('0 0 0 * * *', () => {
-    SetCharacterStats();
-})
+// schedule.scheduleJob('0 0 0 * * *', () => {
+//     SetCharacterStats();
+// })
 
 // 캐릭터 티어
 router.get('/Tier', async (req, res, next) => {
@@ -54,19 +53,53 @@ router.get('/:character', async (req, res, next) => {
     res.json(response);
 });
 
+router.post('/Version', async (req, res, next) => {
+    logger.info('/Character/Version ' + JSON.stringify(req.query));
+    currentVersion = {
+        versionMajor: parseInt(req.query.character.currentVersionMajor),
+        versionMinor: parseInt(req.query.character.currentVersionMinor)
+    } 
+    previousVersion = {
+        versionMajor: parseInt(req.query.character.previousVersionMajor),
+        versionMinor: parseInt(req.query.character.previousVersionMinor)
+    }
+    res.json({ currentVersion: currentVersion, previousVersion: previousVersion});
+});
+router.post('/SetCharacterStats', async (req, res, next) => {
+    logger.info('/Character/SetCharacterStats ' + JSON.stringify(req.query));
+    const MinVersion = {
+        versionMajor: parseInt(req.query.character.minVersionMajor),
+        versionMinor: parseInt(req.query.character.minVersionMinor)
+    }
+    const MaxVersion = {
+        versionMajor: parseInt(req.query.character.maxVersionMajor),
+        versionMinor: parseInt(req.query.character.maxVersionMinor)
+    } 
+
+    setCharacterStats(MinVersion, MaxVersion);
+    res.json({ code:200, message:'Success' });
+});
+router.post('/GetVersionList', async (req, res, next) => {
+    logger.info('/Character/GetVersionList ' + JSON.stringify(req.query));
+
+    const list = await CharacterTier.find({}, {_id:-1, versionMajor:1, versionMinor:1, totalGames:1}, {sort:{versionMajor:-1, versionMinor:-1}});
+
+    res.json({ code:200, message:'Success', data:list });
+});
+
 module.exports = router;
 
-const getCurrentVersion = async () => {
-    return Match.aggregate([
-        { $group: { _id: { versionMajor: '$versionMajor', versionMinor: '$versionMinor' } } }, 
-        { $sort: { '_id.versionMajor': -1, '_id.versionMinor': -1 } },
-        { $limit: 2 } 
-    ]);
-}
-
-const getChacterStat = async (versionMajor, versionMinor, characterNum, matchingTeamMode) => {
+const getChacterStat = async (MinVersion, MaxVersion, characterNum, matchingTeamMode) => {
     return await Match.aggregate([
-        { $match: { versionMajor: versionMajor, versionMinor: versionMinor, characterNum: characterNum, /*seasonId: 1,*/ matchingTeamMode: matchingTeamMode } },
+        { 
+            $match: { 
+                $and: [
+                    { versionMajor: {$gte: MinVersion.versionMajor} }, { versionMajor: {$lte: MaxVersion.versionMajor} },
+                    { versionMinor: {$gte: MinVersion.versionMinor} }, { versionMinor: {$lte: MaxVersion.versionMinor} },
+                    { characterNum: characterNum }, { seasonId: 1 }, { matchingTeamMode: matchingTeamMode }
+                ]
+            } 
+        },
         { 
             $group: {
                 _id: '$bestWeapon',
@@ -97,9 +130,17 @@ const getChacterStat = async (versionMajor, versionMinor, characterNum, matching
     ]);
 }
 
-const getChacterStatSkill = async (versionMajor, versionMinor, characterNum, bestWeapon, matchingTeamMode) => {
+const getChacterStatSkill = async (MinVersion, MaxVersion, characterNum, bestWeapon, matchingTeamMode) => {
     return await Match.aggregate([
-        { $match: { versionMajor: versionMajor, versionMinor: versionMinor,characterNum: characterNum, bestWeapon: bestWeapon, /*seasonId: 1,*/ matchingTeamMode: matchingTeamMode, skillOrder: { $ne: "_" } } },
+        { 
+            $match: { 
+                $and: [
+                    { versionMajor: {$gte: MinVersion.versionMajor} }, { versionMajor: {$lte: MaxVersion.versionMajor} },
+                    { versionMinor: {$gte: MinVersion.versionMinor} }, { versionMinor: {$lte: MaxVersion.versionMinor} },
+                    { characterNum: characterNum }, { seasonId: 1 }, { matchingTeamMode: matchingTeamMode }, { bestWeapon: bestWeapon }
+                ]
+            } 
+        },
         { 
             $group: {
                 _id: '$skillOrder',
@@ -119,9 +160,17 @@ const getChacterStatSkill = async (versionMajor, versionMinor, characterNum, bes
     ]);
 }
 
-const getChacterStatItem = async (versionMajor, versionMinor, characterNum, bestWeapon, matchingTeamMode) => {
+const getChacterStatItem = async (MinVersion, MaxVersion, characterNum, bestWeapon, matchingTeamMode) => {
     return await Match.aggregate([
-        { $match: { versionMajor: versionMajor, versionMinor: versionMinor,characterNum: characterNum, bestWeapon: bestWeapon, /*seasonId: 1,*/ matchingTeamMode: matchingTeamMode } },
+        { 
+            $match: { 
+                $and: [
+                    { versionMajor: {$gte: MinVersion.versionMajor} }, { versionMajor: {$lte: MaxVersion.versionMajor} },
+                    { versionMinor: {$gte: MinVersion.versionMinor} }, { versionMinor: {$lte: MaxVersion.versionMinor} },
+                    { characterNum: characterNum }, { seasonId: 1 }, { matchingTeamMode: matchingTeamMode }, { bestWeapon: bestWeapon }
+                ]
+            } 
+        },
         { 
             $group: {
                 _id: '$equipmentOrder',
@@ -142,9 +191,17 @@ const getChacterStatItem = async (versionMajor, versionMinor, characterNum, best
     ]);
 }
 
-const getChacterStatItemType = async (versionMajor, versionMinor, characterNum, bestWeapon, type, matchingTeamMode) => {
+const getChacterStatItemType = async (MinVersion, MaxVersion, characterNum, bestWeapon, type, matchingTeamMode) => {
     return await Match.aggregate([
-        { $match: { versionMajor: versionMajor, versionMinor: versionMinor,characterNum: characterNum, bestWeapon: bestWeapon, /*seasonId: 1,*/ matchingTeamMode: matchingTeamMode } },
+        { 
+            $match: { 
+                $and: [
+                    { versionMajor: {$gte: MinVersion.versionMajor} }, { versionMajor: {$lte: MaxVersion.versionMajor} },
+                    { versionMinor: {$gte: MinVersion.versionMinor} }, { versionMinor: {$lte: MaxVersion.versionMinor} },
+                    { characterNum: characterNum }, { seasonId: 1 }, { matchingTeamMode: matchingTeamMode }, { bestWeapon: bestWeapon }
+                ]
+            } 
+        },
         { 
             $group: {
                 _id: '$equipment.'+type,
@@ -165,33 +222,33 @@ const getChacterStatItemType = async (versionMajor, versionMinor, characterNum, 
     ]);
 }
 
-const setChacterStat = async (versionMajor, versionMinor) => {
+const setCharacterStats = async (MinVersion, MaxVersion) => {
     for (var matchingTeamMode = 1 ; matchingTeamMode < 4 ; matchingTeamMode++) {
         const charList = [];
         for (const code in character) {
             const characterNum = parseInt(code);
-            const chars = await getChacterStat(versionMajor, versionMinor, characterNum, matchingTeamMode);
+            const chars = await getChacterStat(MinVersion, MaxVersion, characterNum, matchingTeamMode);
             
             for (var i = 0 ; i < chars.length ; i++) {
                 const char = chars[i];
                 const bestWeapon = parseInt(char['_id']);
                 delete char['_id'];
                 char['matchingTeamMode'] = matchingTeamMode;
-                char['versionMajor'] = versionMajor;
-                char['versionMinor'] = versionMinor;
+                char['versionMajor'] = MaxVersion.versionMajor;
+                char['versionMinor'] = MaxVersion.versionMinor;
 
                 char['characterNum'] = characterNum;
                 char['bestWeapon'] = bestWeapon;
 
-                const skillOrder = await getChacterStatSkill(versionMajor, versionMinor, characterNum, bestWeapon, matchingTeamMode);
-                const itemOrder = await getChacterStatItem(versionMajor, versionMinor, characterNum, bestWeapon, matchingTeamMode);
+                const skillOrder = await getChacterStatSkill(MinVersion, MaxVersion, characterNum, bestWeapon, matchingTeamMode);
+                const itemOrder = await getChacterStatItem(MinVersion, MaxVersion, characterNum, bestWeapon, matchingTeamMode);
 
                 char['skillOrder'] = skillOrder;
                 char['itemOrder'] = itemOrder;
 
                 char['itemStats'] = {};
                 for (var j = 0 ; j < 6 ; j++) {
-                    const itemType = await getChacterStatItemType(versionMajor, versionMinor, characterNum, bestWeapon, j, matchingTeamMode);
+                    const itemType = await getChacterStatItemType(MinVersion, MaxVersion, characterNum, bestWeapon, j, matchingTeamMode);
                     const itemCode = itemType['_id'];
                     delete itemType['_id'];
                     itemType['itemCode'] = itemCode;
@@ -201,17 +258,17 @@ const setChacterStat = async (versionMajor, versionMinor) => {
 
                 charList.push(char);
                 await Character.findOneAndUpdate(
-                    { versionMajor: versionMajor, versionMinor: versionMinor, matchingTeamMode: matchingTeamMode, characterNum:characterNum, bestWeapon:bestWeapon,  }, 
+                    { versionMajor: MaxVersion.versionMajor, versionMinor: MaxVersion.versionMinor, matchingTeamMode: matchingTeamMode, characterNum:characterNum, bestWeapon:bestWeapon,  }, 
                     char, 
                     { upsert:true }
                 );
             }
         }
-        setCharacterTier(versionMajor, versionMinor, matchingTeamMode, charList);
+        setCharacterTier(MinVersion, versionMinor, matchingTeamMode, charList);
     }
 }
 
-const setCharacterTier = async (versionMajor, versionMinor, matchingTeamMode, charList) => {
+const setCharacterTier = async (MinVersion, MaxVersion, matchingTeamMode, charList) => {
     const tier = [];
     let max = {};
     let min = {};
@@ -350,10 +407,11 @@ const setCharacterTier = async (versionMajor, versionMinor, matchingTeamMode, ch
     });
 
     const characterTier = {
-        versionMajor: versionMajor, 
-        versionMinor: versionMinor,
+        versionMajor: MaxVersion.versionMajor, 
+        versionMinor: MaxVersion.versionMinor,
         matchingTeamMode: matchingTeamMode,
         max: max, min: min, avg: avg,
+        totalGames: totalGames,
         tier: {},
     }
     tier.forEach(data => {
@@ -373,44 +431,44 @@ const setCharacterTier = async (versionMajor, versionMinor, matchingTeamMode, ch
         }
     });
     await CharacterTier.findOneAndUpdate(
-        { versionMajor: versionMajor, versionMinor: versionMinor, matchingTeamMode: matchingTeamMode }, 
+        { versionMajor: MaxVersion.versionMajor, versionMinor: MaxVersion.versionMinor, matchingTeamMode: matchingTeamMode }, 
         characterTier, 
         { upsert:true }
     );
 
-    logger.info('SetCharacterTier Complete : ' + JSON.stringify({versionMajor, versionMinor, matchingTeamMode}));
+    logger.info('SetCharacterTier Complete : ' + JSON.stringify({MinVersion, MaxVersion, matchingTeamMode}));
 }
 
-const SetCharacterStats = async () => {
-    logger.info('SetCharacterStats Start');
-    const version = await getCurrentVersion();
-    const versionMajor = version[0]['_id'].versionMajor;
-    const versionMinor = version[0]['_id'].versionMinor;
-    let isVersionChange = false;
+// const SetCharacterStats = async () => {
+//     logger.info('SetCharacterStats Start');
+//     const version = await getCurrentVersion();
+//     const versionMajor = version[0]['_id'].versionMajor;
+//     const versionMinor = version[0]['_id'].versionMinor;
+//     let isVersionChange = false;
 
-    if (versionMinor !== currentVersion.versionMinor && versionMajor !== currentVersion.versionMajor) {
-        previousVersion = {...currentVersion};
-        currentVersion = { versionMajor:versionMajor, versionMinor:versionMinor };
-        isVersionChange = true;
-        logger.info('SetCharacterStats currentVersion : ' + JSON.stringify(currentVersion));
-        logger.info('SetCharacterStats previousVersion : ' +  JSON.stringify(previousVersion));
-    }
-    if (previousVersion.versionMajor === 0 && previousVersion.versionMinor === 0) {
-        previousVersion = { versionMajor:version[1]['_id'].versionMajor, versionMinor:version[1]['_id'].versionMinor};
-        logger.info('SetCharacterStats previousVersion : ' +  JSON.stringify(previousVersion));
-    }
+//     if (versionMinor !== currentVersion.versionMinor && versionMajor !== currentVersion.versionMajor) {
+//         previousVersion = {...currentVersion};
+//         currentVersion = { versionMajor:versionMajor, versionMinor:versionMinor };
+//         isVersionChange = true;
+//         logger.info('SetCharacterStats currentVersion : ' + JSON.stringify(currentVersion));
+//         logger.info('SetCharacterStats previousVersion : ' +  JSON.stringify(previousVersion));
+//     }
+//     if (previousVersion.versionMajor === 0 && previousVersion.versionMinor === 0) {
+//         previousVersion = { versionMajor:version[1]['_id'].versionMajor, versionMinor:version[1]['_id'].versionMinor};
+//         logger.info('SetCharacterStats previousVersion : ' +  JSON.stringify(previousVersion));
+//     }
 
-    setChacterStat(currentVersion.versionMajor, currentVersion.versionMinor);
+//     setChacterStat(currentVersion.versionMajor, currentVersion.versionMinor);
 
-    if (isVersionChange)
-        setChacterStat(previousVersion.versionMajor, previousVersion.versionMinor);
+//     if (isVersionChange)
+//         setChacterStat(previousVersion.versionMajor, previousVersion.versionMinor);
 
-    logger.info('SetCharacterStats Complete');
-}
+//     logger.info('SetCharacterStats Complete');
+// }
 
-const currentVersionView = async () => {
-    logger.info('currentVersionView currentVersion : ' + JSON.stringify(currentVersion));
-    logger.info('currentVersionView previousVersion : ' +  JSON.stringify(previousVersion));
-}
+// const currentVersionView = async () => {
+//     logger.info('currentVersionView currentVersion : ' + JSON.stringify(currentVersion));
+//     logger.info('currentVersionView previousVersion : ' +  JSON.stringify(previousVersion));
+// }
 
-SetCharacterStats();
+// SetCharacterStats();

@@ -19,7 +19,7 @@ function sleep(ms) {
 }
 
 // 6시 0분에 전체 유저 전적 검색
-schedule.scheduleJob('0 0 */6 * * *', async () => {
+schedule.scheduleJob('0 10 21 * * *', async () => {
     logger.info('GetUserStat Start');
     const users = await User.find({}, { _id:0, nickname: 1 }, { sort : { updateDate: 1 }});
 
@@ -849,26 +849,16 @@ router.post('/userStat/killer', async (req, res, next) => {
     ]);
     logger.info('/userStat/killer Count : ' + users.length);
 
-    const l = Math.round(users.length/3)+1;
-    for (let i = 0 ; i < 3 ; i++) {
-        getUserkiller(users.splice(0, l), i);
-    }
-
-    //logger.info('/userStat/killer Complete : ' + users.length);
-    res.json({ 'data': Date.now() })
-});
-
-const getUserkiller = async (users, index) => {
-    logger.info('/getUserkiller Count '  + index + ' : ' + users.length);
-    logger.info('/getUserkiller Count '  + index + ' : ' + JSON.stringify(users[0]));
     for (let i = 0 ; i < users.length ; i++) {
         await getUserData2(users[i]['killerUserNum']);
 
         if (i%100===99)
             logger.info('/getUserkiller ' + index + ' : ' + (i+1) + ' ' + JSON.stringify(users[i]));
     }
-    logger.info('/getUserkiller Complete ' + index + ' : ' + users.length);
-}
+
+    logger.info('/userStat/killer Complete : ' + users.length);
+    res.json({ 'data': Date.now() })
+});
 
 const getUserData2 = async (userNum) => {
     try {
