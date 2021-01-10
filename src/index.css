@@ -462,8 +462,8 @@ button:hover{
     width: 1152px;
     display: inline-block;
     margin: auto;
-    font-size: 14pt;
-    margin-top: -1px;
+    font-size: 12pt;
+    margin-top: 1px;
 }
 .mainpage_search{
     width: 600px;
