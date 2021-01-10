@@ -17,48 +17,48 @@ function sleep(ms) {
     });
 }
 
-schedule.scheduleJob('0 */10 2-20 * * *', async () => {
-    logger.info('GetRankSync Start');
+// schedule.scheduleJob('0 */5 * * * *', async () => {
+//     logger.info('GetRankSync Start');
 
-    await Rank.deleteMany({matchingTeamMode:[1, 2, 3]});
+//     await Rank.deleteMany({matchingTeamMode:[1, 2, 3]});
 
-    const rankList1 = [];
-    const rankList2 = [];
-    for (let index = 1; index < 4; index++) {
-        const resRank = await getRank(1, index);
-        const ranks = resRank.data.topRanks;
+//     const rankList1 = [];
+//     const rankList2 = [];
+//     for (let index = 1; index < 4; index++) {
+//         const resRank = await getRank(1, index);
+//         const ranks = resRank.data.topRanks;
 
-        for (let i = 0 ; i < ranks.length ; i++) {
-            const rank = ranks[i];
-            rank['matchingTeamMode'] = index;
-            new Rank(rank).save();
+//         for (let i = 0 ; i < ranks.length ; i++) {
+//             const rank = ranks[i];
+//             rank['matchingTeamMode'] = index;
+//             new Rank(rank).save();
 
-            if (!rankList1.includes(rank['userNum'])) {
-                rankList1.push(rank['userNum']);
-                rankList2.push(rank['userNum']);
-            }
-        }
-    }
+//             if (!rankList1.includes(rank['userNum'])) {
+//                 rankList1.push(rank['userNum']);
+//                 rankList2.push(rank['nickname']);
+//             }
+//         }
+//     }
     
-    for (let i = 0 ; i < rankList1.length ; i++) {
-        const user = await User.find({ userNum: rankList1[i] });
-        if (user.length === 0) {
-            const _user = {
-                userNum: rankList1[i],
-                nickname: rankList2[i],
-                updateDate: new Date('2020-01-01')
-            }
-            new User(_user).save();
-        }
-    }
+//     for (let i = 0 ; i < rankList1.length ; i++) {
+//         const user = await User.find({ userNum: rankList1[i] });
+//         if (user.length === 0) {
+//             const _user = {
+//                 userNum: rankList1[i],
+//                 nickname: rankList2[i],
+//                 updateDate: new Date('2020-01-01')
+//             }
+//             new User(_user).save();
+//         }
+//     }
     
-    for (let i = 0 ; i < rankList1.length ; i++) {
-        setRankStats(rankList1[i]);
-        await sleep(20);
-    }
+//     for (let i = 0 ; i < rankList1.length ; i++) {
+//         setRankStats(rankList1[i]);
+//         await sleep(20);
+//     }
     
-    logger.info('GetRankSync Complete');
-})
+//     logger.info('GetRankSync Complete');
+// })
 
 const setRankStats = async (userNum) => {
     const resRankStats = await getRankStats(userNum, 1);
@@ -187,7 +187,7 @@ router.get('/character', async (req, res, next) => {
     logger.info('/Rank/character ' + JSON.stringify(req.query));
     const code =  parseInt(req.query.characterCode);
     const characterRank = await UserStat.find(
-        { ['characterStats.'+code]: {$exists:true} }, 
+        { ['characterStats.'+code]: {$exists:true}, max_mmr: {$gte: 1200} }, 
         { _id: 0, userNum: 1, ['characterStats.'+code]: 1, nickname: 1, 'seasonStats.1':1 }, 
         { 
             limit: 50,

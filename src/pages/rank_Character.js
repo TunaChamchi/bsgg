@@ -170,10 +170,13 @@ class Rank_Character extends Component {
 
     render() {
         const { intl } = this.props;
+        const { rank } = this.state;
 
         const metaData = {
             title: 'BSGG.kr - ' + intl.formatMessage({id: 'Title.Rank2'}),
         }
+
+        console.log('rank', rank);
         
         return (
             <div>
@@ -206,8 +209,12 @@ class Rank_Character extends Component {
                             <div className="record_cha_filter5">{intl.formatMessage({id: 'winRate'})}</div>
                             <div className="record_rank_filter3">KA/M</div>
                         </div>
-                        {/*<div className="record_cha_nodata">{intl.formatMessage({id: 'nodata'})}</div>*/}
-                        {this.rankTableView()}
+                        {
+                            rank.length === 0 ?
+                                <div className="record_cha_nodata">{intl.formatMessage({id: 'nodata'})}</div>
+                                :
+                                this.rankTableView()
+                        }
                     </div>
                 </div>
                 <AdS type={'Rank'}/>

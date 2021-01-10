@@ -19,19 +19,19 @@ function sleep(ms) {
 }
 
 // 6시 0분에 전체 유저 전적 검색
-schedule.scheduleJob('0 10 21 * * *', async () => {
-    logger.info('GetUserStat Start');
-    const users = await User.find({}, { _id:0, nickname: 1 }, { sort : { updateDate: 1 }});
+// schedule.scheduleJob('0 10 21 * * *', async () => {
+//     logger.info('GetUserStat Start');
+//     const users = await UserStat.find({max_mmr: { $gte:900 }}, { _id:0, nickname: 1 }, { sort : { updateDate: 1 }});
 
-    for (let i = 0 ; i < users.length ; i++) {        
-        await getUserData(users[i]['nickname']);
+//     for (let i = 0 ; i < users.length ; i++) {        
+//         await getUserData(users[i]['nickname']);
         
-        if (i%100===99)
-            logger.info('GetUserStat : ' + (i+1) + ' ' + users[i]['nickname']);
-    }
+//         if (i%100===99)
+//             logger.info('GetUserStat : ' + (i+1) + ' ' + users[i]['nickname']);
+//     }
 
-    logger.info('GetUserStat Complete : ' + users.length);
-})
+//     logger.info('GetUserStat Complete : ' + users.length);
+// })
 
 const getUserSreach = async (userName) => {
     while (true) {
@@ -362,7 +362,7 @@ const getUserData = async (userName) => {
                     m['equipmentOrder'] = equipmentOrder;
                     m['skillOrder'] = skillOrder;
 
-                    const _ = await new Match(m).save();
+                    await Match.findOneAndUpdate({ gameId: m['gameId'], userNum: m['userNum'] }, m, { upsert:true });
                 }
             } else {
                 break;
@@ -613,17 +613,30 @@ const getMostCharacter = async (userNum) => {
 router.post('/userStat', async (req, res, next) => {
     logger.info('/userStat Start');
 
-    const users = await User.find({}, { _id:0, nickname: 1 }, { sort : { updateDate: 1 }});
+    const users = await UserStat.find({max_mmr: { $gte:900 }}, { _id:0, nickname: 1 }, { sort : { updateDate: 1 }});
 
-    for (let i = 0 ; i < users.length ; i++) {        
+    logger.info('/userStat Count : ' + users.length);
+
+    const count = 10;
+    const l = users.length/count;
+    for (let i = 0 ; i < count ; i++) {
+        postUserStat(users.slice(l*i, (i+1)*l), i);
+    }
+    logger.info('/userStat Complete : ' + users.length);
+    res.json({ 'data': Date.now() })
+});
+
+postUserStat = async (users, index) => {
+    logger.info('/postUserStat start : ' + index + ' : ' + users.length);
+    //logger.info('/postUserStat ' + index + ' : ' + JSON.stringify(users[0]));
+    for (let i = 0 ; i < users.length ; i++) {
         await getUserData(users[i]['nickname']);
 
         if (i%100===99)
-            logger.info('/userStat : ' + (i+1) + ' ' + users[i]['nickname']);
+            logger.info('/postUserStat ' + index + ' : ' + (i+1) + ' ' + JSON.stringify(users[i]));
     }
-    logger.info('/userStat Complete : ' + users.length);
-    res.json("{ 'data': Date.now() }")
-});
+    logger.info('/postUserStat Complete : ' + index + ' : ' + users.length);
+}
 
 router.post('/userStat/renew', async (req, res, next) => {
     logger.info('/User/userStat/renew ' + JSON.stringify(req.query));
@@ -741,7 +754,7 @@ router.post('/userStat/renew', async (req, res, next) => {
                     m['equipmentOrder'] = equipmentOrder;
                     m['skillOrder'] = skillOrder;
 
-                    const _ = await new Match(m).save();
+                    await Match.findOneAndUpdate({ gameId: m['gameId'], userNum: m['userNum'] }, m, { upsert:true });
                 }
             } else {
                 break;
@@ -829,7 +842,7 @@ router.post('/userStat/killer', async (req, res, next) => {
     logger.info('/userStat/killer Start');
 
     const users = await Match.aggregate([
-        { $match: { killer: "player" } }, 
+        { $match: { killer: "player", seasonId:1, mmrBefore: { $gte:900 } } }, 
         {
             $group: {
                 _id: '$killerUserNum',
@@ -849,16 +862,27 @@ router.post('/userStat/killer', async (req, res, next) => {
     ]);
     logger.info('/userStat/killer Count : ' + users.length);
 
-    for (let i = 0 ; i < users.length ; i++) {
-        await getUserData2(users[i]['killerUserNum']);
-
-        if (i%100===99)
-            logger.info('/getUserkiller ' + index + ' : ' + (i+1) + ' ' + JSON.stringify(users[i]));
+    const count = 15;
+    const l = users.length/count;
+    for (let i = 0 ; i < count ; i++) {
+        getUserkiller2(users.slice(l*i, (i+1)*l), i);
     }
 
     logger.info('/userStat/killer Complete : ' + users.length);
     res.json({ 'data': Date.now() })
 });
+
+getUserkiller2 = async (users, index) => {
+    logger.info('/userStat/killer2 start : ' + index + ' : ' + users.length);
+    //logger.info('/getUserkiller2 ' + index + ' : ' + JSON.stringify(users[0]));
+    for (let i = 0 ; i < users.length ; i++) {
+        await getUserData2(users[i]['killerUserNum']);
+
+        if (i%100===99)
+            logger.info('/getUserkiller2 ' + index + ' : ' + (i+1) + ' ' + JSON.stringify(users[i]));
+    }
+    logger.info('/userStat/killer2 Complete : ' + index + ' : ' + users.length);
+}
 
 const getUserData2 = async (userNum) => {
     try {
@@ -944,8 +968,11 @@ const getUserData2 = async (userNum) => {
                     let equipmentOrder = '_';
                     let skillOrder = '_';
 
-                    for (const key in m['equipment']) {
-                        equipmentOrder += m['equipment'][key] + '_';
+                    const equipmentCount = Object.keys(m['equipment']);
+                    if (equipmentCount.length === 6) {
+                        for (const key in m['equipment']) {
+                            equipmentOrder += m['equipment'][key] + '_';
+                        }
                     }
 
                     const keys = Object.keys(m['skillOrderInfo']).filter(code => parseInt(m['skillOrderInfo'][code]/1000000)!==3);
@@ -970,7 +997,7 @@ const getUserData2 = async (userNum) => {
                     m['equipmentOrder'] = equipmentOrder;
                     m['skillOrder'] = skillOrder;
 
-                    const _ = await new Match(m).save();
+                    await Match.findOneAndUpdate({ gameId: m['gameId'], userNum: m['userNum'] }, m, { upsert:true });
                 }
             } else {
                 break;
