@@ -27,6 +27,7 @@ class Main extends Component {
                         />
                 </div>
                 <div className='main'>
+                <div className="main_notice">{intl.formatMessage({id: '표본안내'})}</div>
                     <div className='main-left'>
                         <Characters />
                     </div>

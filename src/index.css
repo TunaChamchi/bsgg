@@ -620,6 +620,15 @@ button:hover{
     margin-top: 8px;
     margin-right: 5px;
 }
+.main_notice{
+    display: inline-block;
+    width: 1152px;
+    font-size: 11pt;
+    height: 30px;
+    float: left;
+    text-align: left;
+    margin-top: 0px;
+}
 .main{
     text-align: center;
     margin: auto;
@@ -1249,7 +1258,7 @@ button:hover{
 .detail_notice{
     display: inline-block;
     width: 1152px;
-    font-size: 12pt;
+    font-size: 11pt;
     height: 30px;
     float: left;
     text-align: left;
@@ -4147,11 +4156,11 @@ button:hover{
 .master_notice{
     display: inline-block;
     width: 1152px;
-    font-size: 12pt;
+    font-size: 11pt;
     height: 26px;
     float: left;
     text-align: left;
-    margin-top: -6px;
+    margin-top: -5px;
 }
 .record_cha0_span{
     display: inline-block;
