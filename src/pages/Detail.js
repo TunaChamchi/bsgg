@@ -292,6 +292,7 @@ class Detail extends Component {
                         weaponData={{weaponList, weaponTotal}}
                         parameter={{character, bestWeapon, gameMode}}
                         />
+                    <div className="detail_notice">{intl.formatMessage({id: '표본안내'})}</div>
                     <div className="S_left">
                         <span className="S_left0">Guide</span>
                         <div className="tabHeaders">
