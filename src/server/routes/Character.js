@@ -13,8 +13,8 @@ const router = express.Router();
 
 const searchSeason = [0, 1];
 const searchTeamMode = [1, 2, 3];
-let previousVersion = { versionMajor:22, versionMinor:4 };
-let currentVersion = { versionMajor:22, versionMinor:5 };
+let currentVersion = { versionMajor:23, versionMinor:1 };
+let previousVersion = { versionMajor:22, versionMinor:5 };
 function sleep(ms) {
     return new Promise((resolve) => {
         setTimeout(resolve, ms);
@@ -30,7 +30,7 @@ function sleep(ms) {
 router.get('/GetVersionList', async (req, res, next) => {
     logger.info('/Character/GetVersionList ' + JSON.stringify(req.query));
 
-    const list = await CharacterTier.find({}, {_id:-1, versionMajor:1, versionMinor:1, totalGames:1}, {sort:{versionMajor:-1, versionMinor:-1}});
+    const list = await CharacterTier.find({}, { _id:-1, versionMajor:1, versionMinor:1, matchingTeamMode:1, totalGames:1 }, { sort:{versionMajor:-1, versionMinor:-1 } });
 
     res.json({ code:200, message:'Success', data:list });
 });
@@ -451,36 +451,19 @@ const setCharacterTier = async (MinVersion, MaxVersion, matchingTeamMode, charLi
     logger.info('SetCharacterTier Complete : ' + JSON.stringify({MinVersion, MaxVersion, matchingTeamMode}));
 }
 
-// const SetCharacterStats = async () => {
-//     logger.info('SetCharacterStats Start');
-//     const version = await getCurrentVersion();
-//     const versionMajor = version[0]['_id'].versionMajor;
-//     const versionMinor = version[0]['_id'].versionMinor;
-//     let isVersionChange = false;
+const currentVersionView = async () => {
+    const list = await CharacterTier.find({ matchingTeamMode: 1 }, { _id:-1, versionMajor:1, versionMinor:1, totalGames:1 }, { sort:{versionMajor:-1, versionMinor:-1 } });
+    currentVersion = {
+        versionMajor: parseInt(list[0].versionMajor),
+        versionMinor: parseInt(list[0].versionMinor)
+    } 
+    previousVersion = {
+        versionMajor: parseInt(list[1].versionMajor),
+        versionMinor: parseInt(list[1].versionMinor)
+    }
 
-//     if (versionMinor !== currentVersion.versionMinor && versionMajor !== currentVersion.versionMajor) {
-//         previousVersion = {...currentVersion};
-//         currentVersion = { versionMajor:versionMajor, versionMinor:versionMinor };
-//         isVersionChange = true;
-//         logger.info('SetCharacterStats currentVersion : ' + JSON.stringify(currentVersion));
-//         logger.info('SetCharacterStats previousVersion : ' +  JSON.stringify(previousVersion));
-//     }
-//     if (previousVersion.versionMajor === 0 && previousVersion.versionMinor === 0) {
-//         previousVersion = { versionMajor:version[1]['_id'].versionMajor, versionMinor:version[1]['_id'].versionMinor};
-//         logger.info('SetCharacterStats previousVersion : ' +  JSON.stringify(previousVersion));
-//     }
+    logger.info('currentVersionView currentVersion : ' + JSON.stringify(currentVersion));
+    logger.info('currentVersionView previousVersion : ' +  JSON.stringify(previousVersion));
+}
 
-//     setChacterStat(currentVersion.versionMajor, currentVersion.versionMinor);
-
-//     if (isVersionChange)
-//         setChacterStat(previousVersion.versionMajor, previousVersion.versionMinor);
-
-//     logger.info('SetCharacterStats Complete');
-// }
-
-// const currentVersionView = async () => {
-//     logger.info('currentVersionView currentVersion : ' + JSON.stringify(currentVersion));
-//     logger.info('currentVersionView previousVersion : ' +  JSON.stringify(previousVersion));
-// }
-
-// SetCharacterStats();
+currentVersionView();
