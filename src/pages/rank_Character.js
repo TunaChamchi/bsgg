@@ -175,8 +175,6 @@ class Rank_Character extends Component {
         const metaData = {
             title: 'BSGG.kr - ' + intl.formatMessage({id: 'Title.Rank2'}),
         }
-
-        console.log('rank', rank);
         
         return (
             <div>
