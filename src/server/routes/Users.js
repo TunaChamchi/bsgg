@@ -19,19 +19,31 @@ function sleep(ms) {
 }
 
 // 6시 0분에 전체 유저 전적 검색
-// schedule.scheduleJob('0 10 21 * * *', async () => {
-//     logger.info('GetUserStat Start');
-//     const users = await UserStat.find({max_mmr: { $gte:900 }}, { _id:0, nickname: 1 }, { sort : { updateDate: 1 }});
+schedule.scheduleJob('0 0 5 * * *', async () => {
+    logger.info('GetUserStat Start');
 
-//     for (let i = 0 ; i < users.length ; i++) {        
-//         await getUserData(users[i]['nickname']);
+    await GetUserStat();
+    // for (let i = 0 ; i < users.length ; i++) {
+    //     await getUserData(users[i]['nickname']);
         
-//         if (i%100===99)
-//             logger.info('GetUserStat : ' + (i+1) + ' ' + users[i]['nickname']);
-//     }
+    //     if (i%100===99)
+    //         logger.info('GetUserStat : ' + (i+1) + ' ' + users[i]['nickname']);
+    // }
 
-//     logger.info('GetUserStat Complete : ' + users.length);
-// })
+    // logger.info('GetUserStat Complete : ' + users.length);
+})
+
+const GetUserStat = async () => {
+    const users = await UserStat.find({max_mmr: { $gte:900 }}, { _id:0, nickname: 1 }, { sort : { updateDate: 1 }});
+
+    logger.info('GetUserStat Count : ' + users.length);
+
+    const count = 10;
+    const l = users.length/count;
+    for (let i = 0 ; i < count ; i++) {
+        postUserStat(users.slice(l*i, (i+1)*l), i);
+    }
+}
 
 const getUserSreach = async (userName) => {
     while (true) {
@@ -627,15 +639,15 @@ router.post('/userStat', async (req, res, next) => {
 });
 
 postUserStat = async (users, index) => {
-    logger.info('/postUserStat start : ' + index + ' : ' + users.length);
+    logger.info('postUserStat start : ' + index + ' : ' + users.length);
     //logger.info('/postUserStat ' + index + ' : ' + JSON.stringify(users[0]));
     for (let i = 0 ; i < users.length ; i++) {
         await getUserData(users[i]['nickname']);
 
         if (i%100===99)
-            logger.info('/postUserStat ' + index + ' : ' + (i+1) + ' ' + JSON.stringify(users[i]));
+            logger.info('postUserStat ' + index + ' : ' + (i+1) + ' ' + JSON.stringify(users[i]));
     }
-    logger.info('/postUserStat Complete : ' + index + ' : ' + users.length);
+    logger.info('postUserStat Complete : ' + index + ' : ' + users.length);
 }
 
 router.post('/userStat/renew', async (req, res, next) => {
