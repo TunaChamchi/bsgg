@@ -7,7 +7,7 @@ const { logger } = require("../config/logConfig");
 const Character = require('../schemas/characterStat');
 const CharacterTier = require('../schemas/characterTier');
 const Match = require('../schemas/match');
-const character = require('../../data/inGame/character.json');
+const character = require('../data/character.json');
 
 const router = express.Router();
 
@@ -15,6 +15,8 @@ const searchSeason = [0, 1];
 const searchTeamMode = [1, 2, 3];
 let currentVersion = { versionMajor:23, versionMinor:1 };
 let previousVersion = { versionMajor:22, versionMinor:5 };
+let currentMinVersion = { versionMajor:23, versionMinor:0 };
+let currentMaxVersion = { versionMajor:23, versionMinor:1 };
 function sleep(ms) {
     return new Promise((resolve) => {
         setTimeout(resolve, ms);
@@ -22,9 +24,11 @@ function sleep(ms) {
 }
 
 // 8시 0분에 캐릭터 데이터 업데이트 1
-// schedule.scheduleJob('0 0 0 * * *', () => {
-//     SetCharacterStats();
-// })
+schedule.scheduleJob('0 0 8 * * *', async () => {
+    logger.info('/SetCharacterStats Start : ' + JSON.stringify({currentMinVersion, currentMaxVersion}));
+    await setCharacterStats(currentMinVersion, currentMaxVersion);
+    logger.info('/SetCharacterStats Complete');
+});
 
 // 현재 버전 확인
 router.get('/GetVersionList', async (req, res, next) => {
@@ -74,6 +78,18 @@ router.post('/Version', async (req, res, next) => {
     }
     res.json({ currentVersion: currentVersion, previousVersion: previousVersion});
 });
+router.post('/VersionMinMax', async (req, res, next) => {
+    logger.info('/Character/VersionMinMax ' + JSON.stringify(req.query));
+    currentMinVersion = {
+        versionMajor: parseInt(req.query.minVersionMajor),
+        versionMinor: parseInt(req.query.minVersionMinor)
+    }
+    currentMaxVersion = {
+        versionMajor: parseInt(req.query.maxVersionMajor),
+        versionMinor: parseInt(req.query.maxVersionMinor)
+    } 
+    res.json({ currentMinVersion: currentMinVersion, currentMaxVersion: currentMaxVersion});
+});
 router.post('/SetCharacterStats', async (req, res, next) => {
     logger.info('/Character/SetCharacterStats ' + JSON.stringify(req.query));
     const MinVersion = {
@@ -98,7 +114,8 @@ const getChacterStat = async (MinVersion, MaxVersion, characterNum, matchingTeam
                 $and: [
                     { versionMajor: {$gte: MinVersion.versionMajor} }, { versionMajor: {$lte: MaxVersion.versionMajor} },
                     { versionMinor: {$gte: MinVersion.versionMinor} }, { versionMinor: {$lte: MaxVersion.versionMinor} },
-                    { characterNum: characterNum }, { seasonId: seasonId }, { matchingTeamMode: matchingTeamMode }, { mmrBefore: {$gte:900} }
+                    { characterNum: characterNum }, { seasonId: seasonId }, { matchingTeamMode: matchingTeamMode }, 
+                    { mmrBefore: { $gte: seasonId === 0 ? 0 : 900 } }
                 ]
             } 
         },
@@ -139,8 +156,8 @@ const getChacterStatSkill = async (MinVersion, MaxVersion, characterNum, bestWea
                 $and: [
                     { versionMajor: {$gte: MinVersion.versionMajor} }, { versionMajor: {$lte: MaxVersion.versionMajor} },
                     { versionMinor: {$gte: MinVersion.versionMinor} }, { versionMinor: {$lte: MaxVersion.versionMinor} },
-                    { characterNum: characterNum }, { seasonId: seasonId }, { matchingTeamMode: matchingTeamMode }, { bestWeapon: bestWeapon }, { mmrBefore: {$gte:900} },
-                    { skillOrder: { $ne : "_" } }
+                    { characterNum: characterNum }, { seasonId: seasonId }, { matchingTeamMode: matchingTeamMode }, { bestWeapon: bestWeapon }, 
+                    { mmrBefore: { $gte: seasonId === 0 ? 0 : 900 } }, { skillOrder: { $ne : "_" } }
                 ]
             } 
         },
@@ -170,7 +187,8 @@ const getChacterStatItem = async (MinVersion, MaxVersion, characterNum, bestWeap
                 $and: [
                     { versionMajor: {$gte: MinVersion.versionMajor} }, { versionMajor: {$lte: MaxVersion.versionMajor} },
                     { versionMinor: {$gte: MinVersion.versionMinor} }, { versionMinor: {$lte: MaxVersion.versionMinor} },
-                    { characterNum: characterNum }, { seasonId: seasonId }, { matchingTeamMode: matchingTeamMode }, { bestWeapon: bestWeapon }, { mmrBefore: {$gte:900} }
+                    { characterNum: characterNum }, { seasonId: seasonId }, { matchingTeamMode: matchingTeamMode }, { bestWeapon: bestWeapon }, 
+                    { mmrBefore: { $gte: seasonId === 0 ? 0 : 900 } }
                 ]
             } 
         },
@@ -201,7 +219,8 @@ const getChacterStatItemType = async (MinVersion, MaxVersion, characterNum, best
                 $and: [
                     { versionMajor: {$gte: MinVersion.versionMajor} }, { versionMajor: {$lte: MaxVersion.versionMajor} },
                     { versionMinor: {$gte: MinVersion.versionMinor} }, { versionMinor: {$lte: MaxVersion.versionMinor} },
-                    { characterNum: characterNum }, { seasonId: seasonId }, { matchingTeamMode: matchingTeamMode }, { bestWeapon: bestWeapon }, { mmrBefore: {$gte:900} }
+                    { characterNum: characterNum }, { seasonId: seasonId }, { matchingTeamMode: matchingTeamMode }, { bestWeapon: bestWeapon }, 
+                    { mmrBefore: { $gte: seasonId === 0 ? 0 : 900 } }
                 ]
             } 
         },
@@ -234,7 +253,7 @@ const setCharacterStats = async (MinVersion, MaxVersion) => {
             const characterNum = parseInt(code);
             let chars = await getChacterStat(MinVersion, MaxVersion, characterNum, matchingTeamMode, seasonId);
             if (chars.length === 0) {
-                logger.info('setCharacterStats character is Null : ' + JSON.stringify({code, MinVersion, MaxVersion, matchingTeamMode}));
+                logger.info('SetCharacterStats character is Null : ' + JSON.stringify({code, MinVersion, MaxVersion, matchingTeamMode}));
                 seasonId = 0;
                 isRank = false;
                 chars = await getChacterStat(MinVersion, MaxVersion, characterNum, matchingTeamMode, seasonId);

@@ -12,9 +12,9 @@ class Thend extends Component {
     }
 
     trendView = (name, idx) => {
-        const { intl, stat, tier, parameter } = this.props;
+        const { intl, tier, parameter } = this.props;
 
-        if (!tier) return;
+        if (!tier || !tier[parameter['gameMode']-1]['tier'][parameter['character']]) return;
 
         const avg = tier[parameter['gameMode']-1]['avg'];
         const max = tier[parameter['gameMode']-1]['max'];
@@ -43,7 +43,7 @@ class Thend extends Component {
     }
 
     render() {
-        const { intl } = this.props;
+        const { intl, tier, parameter } = this.props;
         const { trend } = this.state;
 
         return (
@@ -53,20 +53,14 @@ class Thend extends Component {
                 </div>
                 <div className="S_Trend2">
                     {
-                        trend.map((name, idx) =>
-                            this.trendView(name, idx)
-                        )
+                        tier[parameter['gameMode']-1]['tier'][parameter['character']] ? 
+                            trend.map((name, idx) =>
+                                this.trendView(name, idx)
+                            )
+                            :
+                            <div style={{marginTop: 100, fontSize: '15pt'}}>{intl.formatMessage({id: 'nodata'})}</div>
                     }
                 </div>
-                {/* <div className="master">
-                    <div className="master0">Master</div>
-                    <div className="master_rank">
-                        <span className="master_rank1">1</span>
-                        <span className="master_rank2">에미디</span>
-                        <span className="master_rank3">150게임</span>
-                    </div>
-                    <button className="master_button">더 보기</button>
-                </div> */}
             </div>
         );
     };
