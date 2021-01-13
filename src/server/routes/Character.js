@@ -24,7 +24,7 @@ function sleep(ms) {
 }
 
 // 8시 0분에 캐릭터 데이터 업데이트 1
-schedule.scheduleJob('0 0 10 * * *', async () => {
+schedule.scheduleJob('0 0 8 * * *', async () => {
     logger.info('/SetCharacterStats Start : ' + JSON.stringify({currentMinVersion, currentMaxVersion}));
     await setCharacterStats(currentMinVersion, currentMaxVersion);
     logger.info('/SetCharacterStats Complete');
@@ -253,7 +253,7 @@ const setCharacterStats = async (MinVersion, MaxVersion) => {
             const characterNum = parseInt(code);
             let chars = await getChacterStat(MinVersion, MaxVersion, characterNum, matchingTeamMode, seasonId);
             if (chars.length === 0) {
-                logger.info('setCharacterStats character is Null : ' + JSON.stringify({code, MinVersion, MaxVersion, matchingTeamMode}));
+                logger.info('SetCharacterStats character is Null : ' + JSON.stringify({code, MinVersion, MaxVersion, matchingTeamMode}));
                 seasonId = 0;
                 isRank = false;
                 chars = await getChacterStat(MinVersion, MaxVersion, characterNum, matchingTeamMode, seasonId);

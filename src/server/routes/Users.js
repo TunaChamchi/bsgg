@@ -34,14 +34,20 @@ schedule.scheduleJob('0 0 5 * * *', async () => {
 })
 
 const GetUserStat = async () => {
-    const users = await UserStat.find({max_mmr: { $gte:900 }}, { _id:0, nickname: 1 }, { sort : { updateDate: 1 }});
+    try {
+        const users = await UserStat.find({max_mmr: { $gte:900 }}, { _id:0, nickname: 1 });
 
-    logger.info('GetUserStat Count : ' + users.length);
+        logger.info('GetUserStat Count : ' + users.length);
 
-    const count = 10;
-    const l = users.length/count;
-    for (let i = 0 ; i < count ; i++) {
-        postUserStat(users.slice(l*i, (i+1)*l), i);
+        const count = 10;
+        const l = users.length/count;
+        for (let i = 0 ; i < count ; i++) {
+            postUserStat(users.slice(l*i, (i+1)*l), i);
+        }
+    }
+    catch(error) {
+        logger.error('GetUserStat : ' + error.message);        
+        res.json({ 'error': error.message })
     }
 }
 
@@ -54,8 +60,13 @@ const getUserSreach = async (userName) => {
                     }
             });
         } catch (error) {
-            if (error.response.status !== 429) {
-                logger.error('getUserSreach() ' +  error.response.status + ' ' + JSON.stringify({ userName }));
+            try {
+                if (error.response.status !== 429) {
+                    logger.error('getUserSreach() ' +  error.response.status + ' ' + JSON.stringify({ userName }));
+                    return;
+                }
+            } catch (error2) {
+                logger.error('getUserSreach() ' +  error2.message);
                 return;
             }
             
@@ -72,8 +83,13 @@ const getUserStats = async (userNum, seasonId) => {
                     }
             });
         } catch (error) {
-            if (error.response.status !== 429) {
-                logger.error('getUserStats() ' +  error.response.status + ' ' + JSON.stringify({ userNum, seasonId }));
+            try {
+                if (error.response.status !== 429) {
+                    logger.error('getUserStats() ' +  error.response.status + ' ' + JSON.stringify({ userNum, seasonId }));
+                    return;
+                }
+            } catch (error2) {
+                logger.error('getUserSreach() ' +  error2.message);
                 return;
             }
             
@@ -90,8 +106,13 @@ const getUserGame = async (userNum, next) => {
                     }
             });
         } catch (error) {
-            if (error.response.status !== 429) {
-                logger.error('getUserGame() ' +  error.response.status + ' ' + JSON.stringify({ userNum, next }));
+            try {
+                if (error.response.status !== 429) {
+                    logger.error('getUserGame() ' +  error.response.status + ' ' + JSON.stringify({ userNum, next }));
+                    return;
+                }
+            } catch (error2) {
+                logger.error('getUserSreach() ' +  error2.message);
                 return;
             }
             
@@ -252,8 +273,12 @@ router.post('/userData', async (req, res, next) => {
 
 module.exports = router;
 
-const getUserData = async (userName) => {
+const getUserData = async (userName, debug) => {
     try {
+        if (debug) {
+            logger.info('getUserData() : start ' + userName);
+        }
+
         // api에서 유저 검색
         const u = (await getUserSreach(userName)).data.user;
         if (!u) {
@@ -296,7 +321,7 @@ const getUserData = async (userName) => {
         }
 
         if (nickname === "") {
-            logger.error('getUserData() ' + JSON.stringify({ userName }) + ' ' + JSON.stringify({ nickname }));
+            logger.error('getUserData() ' + userName + ' ' + JSON.stringify({ nickname }));
         }
 
         if ((userName+"").toLowerCase() !== (nickname+"").toLowerCase()) {
@@ -313,6 +338,9 @@ const getUserData = async (userName) => {
         await User.findOneAndUpdate({ userNum: user['userNum'] }, user, { upsert:true });
 
         if (!isStats) {
+            if (debug) {
+                logger.info('getUserData() : isStats is null ' + JSON.stringify({ nickname, userName, isStats }));
+            }
             return null;
         }
 
@@ -325,6 +353,9 @@ const getUserData = async (userName) => {
         else
             lately = new Date('2020-01-01');
 
+        if (debug) {
+            logger.info('getUserData() ' + JSON.stringify({ lately }) + ' ' + JSON.stringify({ nickname }));
+        }
         // 매치 검색
         let isChange = false;
         let next;
@@ -386,6 +417,9 @@ const getUserData = async (userName) => {
 
         // 매치 추가 확인
         if (!isChange) {
+            if (debug) {
+                logger.info('getUserData() : not Change ' + JSON.stringify({ nickname }));
+            }
             return null;
         }
 
@@ -458,6 +492,10 @@ const getUserData = async (userName) => {
 
         await UserStat.findOneAndUpdate({ userNum: userStat['userNum'] }, userStat, { upsert:true });
         
+        if (debug) {
+            logger.info('getUserData() : Success ' + JSON.stringify({ nickname }));
+        }
+
         return 'Success';
     } catch (error) {
         logger.error('getUserData() ' + JSON.stringify({ userName }));
@@ -625,24 +663,43 @@ const getMostCharacter = async (userNum) => {
 router.post('/userStat', async (req, res, next) => {
     logger.info('/userStat Start');
 
-    const users = await UserStat.find({max_mmr: { $gte:900 }}, { _id:0, nickname: 1 }, { sort : { updateDate: 1 }});
+    try {
+        const users = await UserStat.find({max_mmr: { $gte:900 }}, { _id:0, nickname: 1 });
+    
+        logger.info('/userStat Count : ' + users.length);
 
-    logger.info('/userStat Count : ' + users.length);
+        // for (let i = 0 ; i < 10 ; i++) {
+        //     const user = JSON.parse((JSON.stringify(users[i])));
+        //     await getUserData(user['nickname'], true);
 
-    const count = 10;
-    const l = users.length/count;
-    for (let i = 0 ; i < count ; i++) {
-        postUserStat(users.slice(l*i, (i+1)*l), i);
+        //     // const user = JSON.parse((JSON.stringify(users[i])));
+        //     // const nickname = JSON.stringify(users[i]).replace(/\"/gi, '').replace(':', '').replace('{', '').replace('}', '').replace('nickname', '');
+        //     // logger.info('getUserData() 0 : ' + nickname);
+        //     // logger.info('getUserData() 1 : ' + user['nickname'] + ' ' + JSON.stringify(user));
+        //     // logger.info('getUserData() 2 : ' + users[i]['nickname'] + ' ' + JSON.stringify(users[i]));
+        //     //if (i%100===99)
+        //     //   logger.info('postUserStat ' + index + ' : ' + (i+1) + ' ' + JSON.stringify(users[i]));
+        // }
+        const count = 10;
+        const l = users.length/count;
+        for (let i = 0 ; i < count ; i++) {
+            postUserStat(users.slice(l*i, (i+1)*l), i);
+        }
+        logger.info('/userStat Complete : ' + users.length);
+        res.json({ 'data': Date.now() })
     }
-    logger.info('/userStat Complete : ' + users.length);
-    res.json({ 'data': Date.now() })
+    catch(error) {
+        logger.error('/userStat : ' + error.message);         
+        res.json({ 'error': error.message })
+    }
 });
 
 postUserStat = async (users, index) => {
     logger.info('postUserStat start : ' + index + ' : ' + users.length);
     //logger.info('/postUserStat ' + index + ' : ' + JSON.stringify(users[0]));
     for (let i = 0 ; i < users.length ; i++) {
-        await getUserData(users[i]['nickname']);
+        const user = JSON.parse((JSON.stringify(users[i])));
+        await getUserData(user['nickname']);
 
         if (i%100===99)
             logger.info('postUserStat ' + index + ' : ' + (i+1) + ' ' + JSON.stringify(users[i]));
@@ -870,7 +927,8 @@ router.post('/userStat/killer', async (req, res, next) => {
                 as: 'string'
             }
         },
-        { $match: { string: { $size: 0 } } }
+        { $match: { string: { $size: 0 } } },
+        //{ $count: 'string' }
     ]);
     logger.info('/userStat/killer Count : ' + users.length);
 
