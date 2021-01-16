@@ -566,7 +566,7 @@ button:hover{
 .mainpage_search_box{
     background-color: rgba(0,0,0,0);
     width: 460px;
-    border:none;s
+    border:none;
     font-size: 16pt;
     margin-left: 80px;
     margin-top: 13px;
@@ -4755,6 +4755,253 @@ button:hover{
     margin-top: 300px;
   }
 /* 7 page */
+.stat{
+    width: 1152px;
+    height: 800px;
+    margin: auto;
+    background-color: #262335;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.stat_span{
+    width: 1152px;
+    background-color: #241b2f;
+    font-size: 23pt;
+    padding-top: 5px;
+    height: 40px;
+    text-align: center;
+    font-family: 'Big Shoulders Stencil Display';
+}
+.stat_left{
+    width: 800px;
+    float: left;
+    background-color: #262335;
+    padding-bottom: 380px;
+}
+.stat_left_bar{
+    width: 780px;
+    margin-left: 15px;
+    margin-top: 30px;
+    height: 330px;
+    background-color: #171520;
+    position: relative;
+}
+.stat_left_bar_span{
+    text-align: center;
+    background-color: #241b2f;
+    font-size: 15pt;
+    height: 30px;
+}
+.stat_left_bar_graphs{
+    margin-left: 15px;
+    float: left;
+}
+.stat_left_bar_graph_iron{
+    width: 13px;
+    height: 300px;
+    margin-left: 10px;
+    float: left;
+    background: linear-gradient(to top, gray 0% 20%, rgba(0,0,0,0) 20% 100%);
+}
+.stat_left_bar_graph_bronze{
+    width: 13px;
+    height: 300px;
+    margin-left: 10px;
+    float: left;
+    background: linear-gradient(to top, rgb(168, 64, 64) 0% 20%, rgba(0,0,0,0) 20% 100%);
+}
+.stat_left_bar_graph_silver{
+    width: 13px;
+    height: 300px;
+    margin-left: 10px;
+    float: left;
+    background: linear-gradient(to top, silver 0% 20%, rgba(0,0,0,0) 20% 100%);
+}
+.stat_left_bar_graph_gold{
+    width: 13px;
+    height: 300px;
+    margin-left: 10px;
+    float: left;
+    background: linear-gradient(to top, rgb(187, 168, 60) 0% 20%, rgba(0,0,0,0) 20% 100%);
+}
+.stat_left_bar_graph_platinum{
+    width: 13px;
+    height: 300px;
+    margin-left: 10px;
+    float: left;
+    background: linear-gradient(to top, rgb(131, 187, 209) 0% 20%, rgba(0,0,0,0) 20% 100%);
+}
+.stat_left_bar_graph_diamond{
+    width: 13px;
+    height: 300px;
+    margin-left: 10px;
+    float: left;
+    background: linear-gradient(to top, rgb(51, 60, 185) 0% 20%, rgba(0,0,0,0) 20% 100%);
+}
+.stat_left_bar_graph_demigod{
+    width: 13px;
+    height: 300px;
+    margin-left: 10px;
+    float: left;
+    background: linear-gradient(to top, rgb(111, 196, 163) 0% 20%, rgba(0,0,0,0) 20% 100%);
+}
+.stat_left_bar_graph_eternity{
+    width: 13px;
+    height: 300px;
+    margin-left: 10px;
+    float: left;
+    background: linear-gradient(to top, rgb(221, 88, 177) 0% 20%, rgba(0,0,0,0) 20% 100%);
+}
+.stat_left_bar_graph_spans_all{
+    background-color: #251f32;
+    float: left;
+}
+.stat_left_bar_graph_spans{
+    float: left;
+    margin-left: 15px;
+}
+.stat_left_bar_graph_span{
+    margin-left: 13px;
+    font-size: 12pt;
+    word-spacing: 10.3px;
+    float: left;
+}
+.stat_left_bar_graph_span2s{
+    float: left;
+    margin-left: 15px;
+}
+.stat_left_bar_graph_span2{
+    width: 82px;
+    margin-left: 10px;
+    display: inline-block;
+    text-align: center;
+}
+.stat_right{
+    width: 352px;
+    float: right;
+    background-color: #262335;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.stat_right_span{
+    width: 335px;
+    text-align: center;
+    background-color: #241b2f;
+    font-size: 15pt;
+    height: 30px;
+}
+.stat_right_span_filter{
+    width: 335px;
+    font-size: 11pt;
+    background-color: #251f32;
+    padding-top: 5px;
+    float: left;
+}
+.stat_right_span_filter1{
+    width: 95px;
+    display: inline-block;
+    float: left;
+    background-color: #251f32;
+}
+.stat_right_span_filter2{
+    width: 120px;
+    display: inline-block;
+    float: left;
+    background-color: #251f32;
+}
+.stat_right_span_filter3{
+    width: 120px;
+    display: inline-block;
+    float: left;
+    background-color: #251f32;
+}
+.stat_right_span_tier{
+    width: 333px;
+    font-size: 10pt;
+    float: left;
+}
+.stat_right_span_tier_eternity{
+    width: 333px;
+    margin-top: 2px;
+    border-left: 2px solid rgb(221, 88, 177);
+    float: left;
+}
+.stat_right_span_tier_demigod{
+    width: 333px;
+    background-color: #251f32;
+    margin-top: 2px;
+    border-left: 2px solid rgb(111, 196, 163);
+    float: left;
+}
+.stat_right_span_tier_diamond{
+    width: 333px;
+    background-color: #251f32;
+    margin-top: 2px;
+    border-left: 2px solid rgb(51, 60, 185);
+    float: left;
+}
+.stat_right_span_tier_platinum{
+    width: 333px;
+    background-color: #251f32;
+    margin-top: 2px;
+    border-left: 2px solid rgb(131, 187, 209);
+    float: left;
+}
+.stat_right_span_tier_gold{
+    width: 333px;
+    background-color: #251f32;
+    margin-top: 2px;
+    border-left: 2px solid rgb(187, 168, 60);
+    float: left;
+}
+.stat_right_span_tier_silver{
+    width: 333px;
+    background-color: #251f32;
+    margin-top: 2px;
+    border-left: 2px solid silver;
+    float: left;
+}
+.stat_right_span_tier_bronze{
+    width: 333px;
+    background-color: #251f32;
+    margin-top: 2px;
+    border-left: 2px solid rgb(168, 64, 64);
+    float: left;
+}
+.stat_right_span_tier_iron{
+    width: 333px;
+    background-color: #251f32;
+    margin-top: 2px;
+    border-left: 2px solid gray;
+    float: left;
+}
+.stat_right_span_tier1{
+    width: 93px;
+    display: inline-block;
+    float: left;
+    background-color: #251f32;
+}
+.stat_right_span_tier2{
+    width: 120px;
+    display: inline-block;
+    float: left;
+    background-color: #251f32;
+}
+.stat_right_span_tier3{
+    width: 120px;
+    display: inline-block;
+    float: left;
+    background-color: #251f32;
+}
+
+
+
+
+
+
+
+/* Talk */
 .talk_top {
     width: 1152px;
     background-color: #d1d1d1;
