@@ -12,5 +12,6 @@ export const Rank_Character = withSplitting(() => import('./rank_Character'));
 export const Talk = withSplitting(() => import('./Talk'));
 export const Talk2 = withSplitting(() => import('./Talk2'));
 export const Talk3 = withSplitting(() => import('./Talk3'));
+export const Talk4 = withSplitting(() => import('./Talk4'));
 
 export const Error404 = withSplitting(() => import('./404'));
