@@ -23,14 +23,6 @@ schedule.scheduleJob('0 0 5 * * *', async () => {
     logger.info('GetUserStat Start');
 
     await GetUserStat();
-    // for (let i = 0 ; i < users.length ; i++) {
-    //     await getUserData(users[i]['nickname']);
-        
-    //     if (i%100===99)
-    //         logger.info('GetUserStat : ' + (i+1) + ' ' + users[i]['nickname']);
-    // }
-
-    // logger.info('GetUserStat Complete : ' + users.length);
 })
 
 const GetUserStat = async () => {
@@ -125,8 +117,8 @@ const getUserGame = async (userNum, next) => {
 router.get('/', async (req, res, next) => {
     const search = req.query.search;
 
-    const users = await UserStat.find({ nickname: { $regex: '^'+search, $options: 'i' } });
-    res.json(users.slice(0, 5));
+    const users = await UserStat.find({ nickname: { $regex: '^'+search, $options: 'i' } }, null, { sort: { nickname:1 }, limit: 5 });
+    res.json(users);
 });
 
 // 유저 검색 DB
@@ -313,8 +305,8 @@ const getUserData = async (userName, debug) => {
 
                     if (seasonId === 1 && max_mmr < userStat['mmr']) {
                         max_mmr = userStat['mmr'];
-                        nickname = userStat['nickname'];
                     }
+                    nickname = userStat['nickname'];
                     isStats = true;
                 }
             }
@@ -324,7 +316,7 @@ const getUserData = async (userName, debug) => {
             logger.error('getUserData() ' + userName + ' ' + JSON.stringify({ nickname }));
         }
 
-        if ((userName+"").toLowerCase() !== (nickname+"").toLowerCase()) {
+        if ((userName+"") !== (nickname+"")) {
             logger.info('getUserData() ' + nickname + ' -> ' + userName);
             nickname = userName;
         }
@@ -927,8 +919,7 @@ router.post('/userStat/killer', async (req, res, next) => {
                 as: 'string'
             }
         },
-        { $match: { string: { $size: 0 } } },
-        //{ $count: 'string' }
+        { $match: { string: { $size: 0 } } }
     ]);
     logger.info('/userStat/killer Count : ' + users.length);
 

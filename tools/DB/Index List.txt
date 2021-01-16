@@ -1,0 +1,17 @@
+// 전적갱신, 캐릭터스태이트, 매치리스트 검색, 매치 상세
+db.matches.createIndex({userNum:1, seasonId:1, matchingTeamMode:1, characterNum:1, bestWeapon:1})
+db.matches.createIndex({versionMajor:-1, versionMinor:-1, seasonId:1, matchingTeamMode:1, mmrBefore: -1, characterNum:1, bestWeapon:1})
+db.matches.createIndex({userNum:1, startDtm:-1})
+db.matches.createIndex({gameId:1, gameRank:1})
+
+db.users.createIndex({nickname:1})
+db.users.createIndex({userNum:1})
+
+db.userstats.createIndex({userNum:1})
+db.userstats.createIndex({max_mmr:-1})
+
+
+db.charactertiers.createIndex({versionMajor:-1, versionMinor:-1, matchingTeamMode:1})
+db.charactertiers.createIndex({versionMajor:-1, versionMinor:-1, matchingTeamMode:1, characterNum:1, bestWeapon:1})
+
+

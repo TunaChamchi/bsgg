@@ -25,7 +25,6 @@
     "Collectible": 319549137,
     "ControlTypeUse": 1705422735,
     "CriticalChance": 1584487193,
-    "DropGroup": 50042002,
     "EffectAndSound": 1390495431,
     "Emotion": 3203556121,
     "FootStep": 2375672571,
@@ -33,6 +32,7 @@
     "HookLineProjectile": 2837662869,
     "HowToFindItem": 3337130465,
 	
+    "DropGroup": 50042002,
 	
     "ItemArmor": 1782211736,
     "ItemConsumable": 2304251027,
@@ -72,11 +72,13 @@
     "RewardItem": 2854449904,
     "SecurityConsolEvent": 1584900824,
     "ServerRegion": 1233180340,
+	
     "Skill": 2031096693,
     "SkillEvolution": 1085838709,
     "SkillEvolutionPoint": 3887898118,
     "SkillExtension": 1199810687,
     "SkillGroup": 2932633488,
+	
     "SoundGroup": 4019760751,
     "StartItem": 892174504,
     "SummonObject": 1702820728,
