@@ -24,11 +24,6 @@ textarea {
     font-weight: 300;
     resize: none;
 }
-button{
-    font-family: "Noto Sans KR", "noto sans sc";
-    font-weight: 300;
-    color: rgb(209, 209, 209);
-}
 /* ADs */
 .Ad_box{
     clear: both;
