@@ -565,8 +565,8 @@ button:hover{
 }
 .mainpage_search_box{
     background-color: rgba(0,0,0,0);
-    width: 500px;
-    border:none;
+    width: 460px;
+    border:none;s
     font-size: 16pt;
     margin-left: 80px;
     margin-top: 13px;
@@ -1101,7 +1101,7 @@ button:hover{
     font-size: 11pt;
     margin-top: 5px;
     float: left;
-    width: 230px;
+    width: 220px;
     padding-left: 10px;
     margin-left: 40px;
     color:gray;
@@ -4491,7 +4491,6 @@ button:hover{
     position: absolute;
     bottom: 115px;
     text-align: center;
-    display: inline-block;
     width: 200px;
     color: gold;
     font-family: 'Big Shoulders Stencil Display';
@@ -4501,7 +4500,6 @@ button:hover{
     position: absolute;
     bottom: 115px;
     text-align: center;
-    display: inline-block;
     width: 200px;
     color: silver;
     font-family: 'Big Shoulders Stencil Display';
@@ -4511,7 +4509,6 @@ button:hover{
     position: absolute;
     bottom: 115px;
     text-align: center;
-    display: inline-block;
     width: 200px;
     color: brown;
     font-family: 'Big Shoulders Stencil Display';
@@ -4521,7 +4518,6 @@ button:hover{
     position: absolute;
     bottom: 85px;
     text-align: center;
-    display: inline-block;
     width: 200px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -4532,7 +4528,6 @@ button:hover{
     position: absolute;
     bottom: 67px;
     text-align: center;
-    display: inline-block;
     width: 200px;
 }
 .rank_top_graph{
@@ -4949,6 +4944,9 @@ button:hover{
     margin-top: 16px;
     margin-left: 15px;
     font-size: 12pt;
+}
+.board_top_tag:hover{
+    background-color: #1c1524;
 }
 .board_top_title{
     float: left;
