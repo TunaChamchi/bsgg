@@ -9,16 +9,26 @@
     font-display: swap;
 }
 body {
-  margin: 0;
-  background-color: rgb(23, 21, 32);
-  font-family: "Noto Sans KR", "noto sans sc";
-  font-weight: 300;
-  color: rgb(209, 209, 209);
+    margin: 0;
+    background-color: rgb(23, 21, 32);
+    font-family: "Noto Sans KR", "noto sans sc";
+    font-weight: 300;
+    color: rgb(209, 209, 209);
 }
 ::-webkit-scrollbar { width: 5.2px; }
 ::-webkit-scrollbar-track { background-color:rgba(0,0,0,0); } 
 ::-webkit-scrollbar-thumb { background: #3b4147; border-radius: 10px; } 
 ::-webkit-scrollbar-button { display: none; } 
+textarea {
+    font-family: "Noto Sans KR", "noto sans sc";
+    font-weight: 300;
+    resize: none;
+}
+button{
+    font-family: "Noto Sans KR", "noto sans sc";
+    font-weight: 300;
+    color: rgb(209, 209, 209);
+}
 /* ADs */
 .Ad_box{
     clear: both;
@@ -4754,3 +4764,846 @@ button:hover{
     margin-bottom: 50px;
     margin-top: 300px;
   }
+/* 7 page */
+.talk_top {
+    width: 1152px;
+    background-color: #d1d1d1;
+    margin:auto;
+    margin-top: 30px;
+}
+.talk_main{
+    width: 1152px;
+    margin:auto;
+    margin-top: 30px;
+}
+.talk_left{
+    width: 200px;
+    margin-right: 22px;
+    background-color: #262335;
+    text-align: center;
+    font-size: 12pt;
+    border-radius: 3px;
+    float: left;
+}
+.talk_left_span{
+    color: white;
+    font-size: 21pt;
+    padding-bottom: 3px;
+    height: 35px;
+    padding-top: 3px;
+    border-left: 3px solid #d1d1d1;
+    border-radius: 3px 0px 0px 0px;
+    font-family: 'Big Shoulders Stencil Display';
+}
+.talk_left .actived{
+    color: rgb(244,216,35);
+    border-left: 3px solid rgb(244,216,35);;
+}
+.talk_left_tabs :hover{
+    background-color: #433f57;
+}
+.talk_left_tab{
+    height: 32px;
+    padding-top: 3px;
+    cursor: pointer;
+    border-left: 3px solid #d1d1d1;
+}
+.talk_left_bottom{
+    height: 3px;
+    border-left: 3px solid #3b4147;
+    border-radius: 0px 0px 0px 3px;
+}
+.talk_right{
+    width: 930px;
+    float: left;
+    margin-bottom: 50px;
+}
+.talk_right_banner{
+    width: 930px;
+    height: 70px;
+    background-color: #262335;
+    border-radius: 3px;
+    border-bottom: 2px solid #d1d1d1;
+    margin-bottom: 30px;
+}
+.talk_right_banner .actived{
+    background-color: #1c1524;
+}
+.talk_right_banners :hover{
+    background-color: #433f57;
+}
+.talk_right_write{
+    float: left;
+    margin: 8px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #1c1524;
+    border-radius: 100%;
+    margin-left: 25px;
+    margin-right: 25px;
+    border: 2px solid #d1d1d1;
+}
+.talk_right_tab{
+    float: left;
+    font-size: 14pt;
+    font-weight: 400;
+    cursor: pointer;
+    width: 100px;
+    height: 40px;
+    margin-top: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 20px;
+    vertical-align: middle;
+}
+.talk_left_tab_span{
+    margin-left: 10px;
+    vertical-align: middle;
+}
+.talk_left_tab_img{
+    vertical-align: middle;
+    margin-top: 5px;
+    margin-left: 7px;
+    margin-right: 1px;
+}
+.talk_left_tab_img1{
+    margin-top: 10px;
+}
+.talk_right_search{
+    width: 250px;
+    height: 30px;
+    background-color: #171520;
+    float: right;
+    margin-top: 18px;
+    margin-right: 25px;
+    border-radius: 25px;
+    border: 2px solid #d1d1d1;
+}
+.talk_right_search_input{
+    background-color: rgba(0,0,0,0);
+    border: none;
+    color: white;
+    margin-left: 10px;
+    font-size: 10pt;
+    margin-top: 2px;
+    margin-left: 15px;
+    width: 225px;
+}
+.talk_right_search_input::placeholder{
+    color: gray;
+}
+.talk_right_board{
+    width: 930px;
+    margin-top: 15px;
+    border-radius: 3px;
+}
+.talk_right_board_box{
+    width: 930px;
+    height: 80px;
+    background-color: #262335;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-bottom: 4px;
+}
+.talk_right_board :hover{
+    background-color: #433f57;
+}
+.board_like{
+    float: left;
+    width: 100px;
+    margin-top: 20px;
+}
+.board_like_tri{
+    width: 0px;
+    height: 0px;
+    border-bottom: 15px solid #d1d1d1 ;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    margin-left: 40px;
+    cursor: pointer;
+}
+.board_like_num{
+    width: 100px;
+    margin-top: 5px;
+    text-align:center;
+}
+.board_img{
+    width: 80px;
+    height: 60px;
+    margin-top: 10px;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    float: left;
+}
+.board_top{
+    width: 700px;
+    font-size: 14pt;
+    font-weight: 400;
+    float: left;
+}
+.board_top_tag{
+    float: left;
+    background-color: #1c1524;
+    border-radius: 15px;
+    padding-left: 13px;;
+    padding-right: 13px;
+    margin-right: 10px;
+    margin-top: 16px;
+    margin-left: 15px;
+    font-size: 12pt;
+}
+.board_top_title{
+    float: left;
+    margin-top: 13px;
+}
+.board_bot{
+    float: left;
+    font-size: 10pt;
+    margin-left: 15px;
+    margin-top: 5px;
+    color: rgb(184, 184, 184);
+}
+.board_top_writter{
+    float: left;
+    margin-right: 15px;
+    padding-right: 15px;
+    border-right: 1px solid rgb(99, 99, 99);
+}
+.board_top_reply{
+    float: left;
+    margin-right: 15px;
+    padding-right: 15px;
+    border-right: 1px solid rgb(99, 99, 99);
+}
+.board_top_time{
+    float: left;
+    margin-right: 15px;
+}
+.talk_right_board_button{
+    width: 180px;
+    margin:auto;
+    cursor: pointer;
+}
+.talk_right_board_pre{
+    display: inline-block;
+    font-size: 15pt;
+    text-align: center;
+    width: 78px;
+    height: 30px;
+    float: left;
+    border-radius: 3px;
+    background-color: #262335;
+    border: 1px solid #251f32;
+    margin-top: 10px;
+    margin-bottom: 60px;
+    margin-right: 10px;
+}
+.talk_right_board_next{
+    display: inline-block;
+    font-size: 15pt;
+    text-align: center;
+    width: 78px;
+    height: 30px;
+    float: left;
+    border-radius: 3px;
+    background-color: #262335;
+    border: 1px solid #251f32;
+    margin-top: 10px;
+    margin-bottom: 60px;
+    margin-left: 10px;
+}
+.talk_right_letter{
+    width: 930px;
+    background-color: #262335;
+    margin-bottom: 30px;
+    border-radius: 3px;
+}
+.talk_right_letter_title{
+    width: 930px;
+    height: 120px;
+    border-bottom: 2px solid #d1d1d1;
+}
+.letter_top{
+    width: 900px;
+    display: inline-block;
+    font-size: 19pt;
+    margin-top: 10px;
+    margin-left: 5px;
+    font-weight: 400;
+}
+.letter_top_tag{
+    float: left;
+    background-color: #1c1524;
+    border-radius: 35px;
+    padding-left: 15px;;
+    padding-right: 15px;
+    margin-right: 10px;
+    margin-top: 18px;
+    margin-left: 15px;
+    font-size: 17pt;
+}
+.letter_top_title{
+    float: left;
+    width: 600px;
+    margin-top: 13px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+.letter_top_button{
+    font-size: 12pt;
+    font-weight: 300;
+    float: right;
+    margin-left: 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: rgba(0,0,0,0);
+    border:none;
+    position: relative;
+}
+.letter_bot{
+    font-size: 11pt;
+}
+.letter_writter{
+    float: left;
+    margin: 10px;
+    margin-left: 25px;
+    padding-right: 20px;
+    border-right: 1px solid rgb(99, 99, 99);
+}
+.letter_time{
+    float: left;
+    margin: 10px;
+}
+.letter_view{
+    float: right;
+    margin: 10px;
+    margin-right: 20px;
+}
+.letter_reply{
+    float: right;
+    margin: 10px;
+    padding-right: 20px;
+    border-right: 1px solid rgb(99, 99, 99);
+}
+.letter_like{
+    float: right;
+    margin: 10px;
+    padding-right: 20px;
+    border-right: 1px solid rgb(99, 99, 99);
+    color: #f4d823;
+}
+.talk_right_letter_board{
+    border-bottom: 1px solid #3b4147;
+    font-size: 14pt;
+    width: 850px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.talk_right_letter_bot{
+    width: 234px;
+    margin: auto;
+    height: 50px;
+    text-align: center;
+    font-size: 12pt;
+    margin-top: 18px;
+}
+.letter_bot_like{
+    float: left;
+    height: 28px;
+    padding-top: 2px;
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    border-radius: 30px;
+    background-color: #241b2f;
+    margin-right: 15px;
+    border: 1px solid #3b4147;
+    cursor: pointer;
+}
+.letter_bot_like_tri{
+    width: 0px;
+    height: 0px;
+    border-bottom: 12px solid #d1d1d1 ;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    margin-top: 7px;
+    margin-left: 9px;
+    cursor: pointer;
+    float: left;
+}
+.letter_bot_report{
+    float: left;
+    height: 28px;
+    padding-top: 2px;
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    border-radius: 30px;
+    background-color: #241b2f;
+    margin-left: 15px;
+    border: 1px solid #3b4147;
+    cursor: pointer;
+    position: relative;
+}
+.alk_right_reply{
+    width: 930px;
+    background-color: #262335;
+    border-radius: 3px 3px 0px 0px;
+}
+.talk_right_reply_text{
+    width: 930px;
+    height: 145px;
+    background-color: #262335;
+    border-bottom: 1px solid #3b4147;
+    border-radius: 3px 3px 0px 0px;
+    float: left;
+}
+.talk_right_reply_text_input::placeholder{
+    color: gray;
+}
+.talk_right_reply_text2{
+    width: 930px;
+    height: 145px;
+    background-color: #262335;
+    border-bottom: 1px solid #3b4147;
+    border-radius: 3px 3px 0px 0px;
+    float: left;
+}
+.talk_right_reply_text3{
+    width: 930px;
+    height: 145px;
+    background-color: #262335;
+    border-bottom: 1px solid #3b4147;
+    border-radius: 3px 3px 0px 0px;
+    float: left;
+}
+.talk_right_reply_text_input{
+    width: 680px;
+    height: 100px;
+    overflow-y: scroll;
+    font-size: 13pt;
+    background-color: #171520;
+    border: none;
+    border-radius: 3px;
+    margin-top: 10px;
+    margin-left: 20px;
+    color:  #d1d1d1;
+    float: left;
+    border:1px solid #3b4147;
+    padding : 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.talk_right_reply_text_input2{
+    width: 600px;
+    height: 100px;
+    overflow-y: scroll;
+    font-size: 13pt;
+    background-color: #171520;
+    border: none;
+    border-radius: 3px;
+    margin-top: 10px;
+    margin-left: 100px;
+    color:  #d1d1d1;
+    float: left;
+    border:1px solid #3b4147;
+    padding : 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.talk_right_reply_name{
+    float: left;
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.talk_right_reply_name_input{
+    width: 145px;
+    color:  #d1d1d1;
+    height: 25px;
+    border-radius: 3px;
+    background-color: #171520;
+    font-size: 11pt;
+    margin-bottom: 10px;
+    border:1px solid #3b4147;
+    padding-left: 5px;
+}
+.talk_right_reply_name_input::placeholder{
+    color: gray;
+    font-size: 11pt;
+}
+.talk_right_reply_comment{
+    width: 130px;
+    color:  white;
+    font-weight: 400;
+    height: 29px;
+    padding-top: 1px;
+    margin-top: 10px;
+    margin-left: 12px;
+    border-radius: 30px;
+    background-color:  #241b2f;
+    font-size: 13pt;
+    cursor: pointer;
+    border:1px solid #d1d1d1;
+    text-align: center;
+}
+.talk_right_reply_cancel{
+    width: 130px;
+    color:  white;
+    font-weight: 400;
+    height: 29px;
+    padding-top: 1px;
+    margin-top: 47px;
+    margin-left: 12px;
+    border-radius: 30px;
+    background-color:  #241b2f;
+    font-size: 13pt;
+    cursor: pointer;
+    border:1px solid #d1d1d1;
+    text-align: center;
+}
+.talk_right_reply_edit{
+    width: 130px;
+    color:  white;
+    font-weight: 400;
+    height: 29px;
+    padding-top: 1px;
+    margin-top: 10px;
+    margin-left: 12px;
+    border-radius: 30px;
+    background-color:  #241b2f;
+    font-size: 13pt;
+    cursor: pointer;
+    border:1px solid #d1d1d1;
+    text-align: center;
+}
+.talk_right_reply_comments :hover{
+    background-color: #433f57;
+}
+.talk_right_replys_filter{
+    background-color: #262335;
+    width: 930px;
+    height: 45px;
+    border-bottom: 1px solid #3b4147;
+    float: left;
+}
+.talk_right_replys_filter .actived{
+    border-bottom: 2px solid #d1d1d1;
+}
+.talk_right_replys_filter_tab{
+    width: 80px;
+    height: 30px;
+    margin-top: 14px;
+    text-align: center;
+    font-size: 14pt;
+    font-weight: 400;
+    float: left;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.talk_right_replys_box{
+    width: 930px;
+    background-color: #262335;
+    float: left;
+    border-bottom:1px solid #3b4147;
+    padding-bottom: 10px;
+}
+.talk_right_replys_box2{
+    width: 930px;
+    background-color: #262335;
+    float: left;
+    border-bottom:1px solid #3b4147;
+    padding-bottom: 10px;
+}
+.talk_right_replys_like{
+    float: left;
+    width: 100px;
+    margin-top: 20px;
+}
+.talk_right_replys_L{
+    width: 100px;
+    height: 50px;
+    float: left;
+    position: relative;
+    margin-left: -10px;
+}
+.talk_right_replys_icon{
+    position:absolute;
+    right: 20px;
+    top: -10px;
+    font-size: 23pt;
+}
+.talk_right_replys_like_tri{
+    width: 0px;
+    height: 0px;
+    border-bottom: 15px solid #d1d1d1 ;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    margin-left: 40px;
+    cursor: pointer;
+}
+.talk_right_replys_like_num{
+    width: 100px;
+    margin-top: 5px;
+    text-align:center;
+}
+.talk_right_replys_like{
+    float: left;
+    width: 100px;
+    margin-top: 20px;
+}
+.talk_right_replys_text{
+    width: 900px;
+    margin-left:10px;
+    margin-top: 10px;
+}
+.talk_right_replys_text .actived{
+    color : #f4d823;
+}
+.talk_right_replys_name{
+    font-size: 14pt;
+    float: left;
+    padding-right: 20px;
+    font-weight: 400;
+}
+.talk_right_replys_slash{
+    float: left;
+    padding-top: 3px;
+    padding-right: 20px;
+    color: gray;
+}
+.talk_right_replys_time{
+    padding-top: 6px;
+    padding-left: 20px;
+    color: gray;
+    font-size: 11pt;
+}
+.talk_right_replys_main{
+    margin-top: 15px;
+}
+.talk_right_replys_buttons{
+    margin-top: 15px;
+    margin-left: 60px;
+    font-size: 11pt;
+}
+.talk_right_replys_buttons :hover{
+    color: #d1d1d1;
+}
+.talk_right_replys_button{
+    float: left;
+    margin-left: 30px;
+    cursor: pointer;
+    color: gray;
+    position: relative;
+}
+.talk_right_talk{
+    width: 930px;
+    background-color: #262335;
+    border-radius: 3px;
+    float: left;
+    padding-bottom: 20px;
+}
+.talk_right_talk_title{
+    width: 850px;
+    height: 20px;
+    font-size: 13pt;
+    background-color: #171520;
+    border: none;
+    border-radius: 3px;
+    margin-top: 10px;
+    margin-left: 30px;
+    color:  #d1d1d1;
+    border:1px solid #3b4147;
+    padding : 10px;
+    float: left;
+}
+.talk_right_talk_title::placeholder{
+    color: gray;
+}
+.talk_right_talk_title:focus {
+    border: 1px solid #d1d1d1;
+}
+.talk_right_talk_board{
+    width: 850px;
+    min-height: 500px;
+    height:auto;
+    font-size: 13pt;
+    background-color: #171520;
+    border: none;
+    border-radius: 3px;
+    margin-top: 10px;
+    margin-left: 30px;
+    color:  #d1d1d1;
+    border:1px solid #3b4147;
+    padding : 10px;
+    resize: vertical;
+    overflow: auto;
+    float: left;
+}
+.talk_right_talk_name{
+    float: left;
+    margin-top: 10px;
+    margin-left: 30px;
+    margin-right: -20px;
+    width: 130px;
+    color:  #d1d1d1;
+    height: 25px;
+    border-radius: 3px;
+    background-color: #171520;
+    font-size: 11pt;
+    margin-bottom: 10px;
+    border:1px solid #3b4147;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.talk_right_talk_name::placeholder{
+    color: gray;
+    font-size: 11pt;
+}
+.talk_right_talk_button{
+    width: 130px;
+    color:  white;
+    font-weight: 300;
+    height: 27px;
+    margin-top: 10px;
+    margin-right: 30px;
+    margin-left: -20px;
+    border-radius: 30px;
+    background-color:  #241b2f;
+    font-size: 13pt;
+    cursor: pointer;
+    border:1px solid #d1d1d1;
+    text-align: center;
+    float: right;
+}
+.talk_right_talk_tag{
+    float: left;
+    margin-left: 40px;
+    font-size: 20pt;
+    margin-top: 18px;
+    margin-right: 15px;
+}
+.talk_right_talk_tag_button{
+    float: left;
+    background-color: #241b2f;
+    border-radius: 25px;
+    padding: 15px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-size: 13pt;
+    margin-top: 22px;
+    cursor: pointer;
+    margin-left: 10px;
+    border: 1px solid #241b2f;
+}
+.talk_right_talk_tag_buttons .actived{
+    background-color: #1c1524;
+    border: 1px solid #d1d1d1;
+}
+.talk_report_tooltip{
+    width: 280px;
+    background-color: #241b2f;
+    position: absolute;
+    z-index: 1;
+    font-size: 11pt;
+    border-radius: 3px;
+    text-align: center;
+    right: -95px;
+    top: 35px;
+    border: 1px solid #d1d1d1;
+    color: #d1d1d1;
+}
+.talk_report_tooltip:hover{
+    background-color: #241b2f;
+}
+.talk_report_tooltip_input:hover{
+    background-color: #171520;
+}
+.talk_report_tooltip_cancel:hover{
+    background-color: #241b2f;
+}
+.talk_report_tooltip_edit:hover{
+    background-color: #241b2f;
+}
+.talk_password_tooltip{
+    width: 150px;
+    background-color: #241b2f;
+    position: absolute;
+    z-index: 1;
+    font-size: 11pt;
+    border-radius: 3px;
+    text-align: center;
+    right: 0px;
+    border: 1px solid #d1d1d1;
+    color: #d1d1d1;
+}
+.talk_password_tooltip2{
+    width: 150px;
+    background-color: #241b2f;
+    position: absolute;
+    z-index: 1;
+    font-size: 11pt;
+    border-radius: 3px;
+    text-align: center;
+    right: -65px;
+    border: 1px solid #d1d1d1;
+    color: #d1d1d1;
+}
+.talk_password_tooltip_input{
+    width: 120px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: #171520 ;
+    color: white;
+    border: 1px solid #d1d1d1;
+    height: 20px;
+    border-radius: 3px;
+}
+.talk_password_tooltip_input::placeholder{
+    color: gray;
+}
+.talk_report_tooltip_input{
+    width: 250px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: #171520 ;
+    color: white;
+    border: 1px solid #d1d1d1;
+    height: 20px;
+    border-radius: 3px;
+}
+.talk_report_tooltip_input::placeholder{
+    color:gray;
+    text-align: center;
+}
+.talk_password_tooltip_cancel{
+    float: left;
+    display: inline-block;
+    width: 50px;
+    padding-bottom: 5px;
+    margin-left: 25px;
+}
+.talk_password_tooltip_edit{
+    float: left;
+    display: inline-block;
+    width: 50px;
+    padding-bottom: 5px;
+}
+.talk_report_tooltip_cancel{
+    float: left;
+    display: inline-block;
+    width: 70px;
+    padding-bottom: 5px;
+    margin-left: 70px;
+}
+.talk_report_tooltip_edit{
+    float: left;
+    display: inline-block;
+    width: 70px;
+    padding-bottom: 5px;
+}
