@@ -112,6 +112,10 @@ const matchSchema = new Schema({
     versionMinor: {
         type: Number,
         required: true
+    },
+
+    serverName: {
+        type: String
     }
 }, {
     versionKey: false // You should be aware of the outcome after set to false
