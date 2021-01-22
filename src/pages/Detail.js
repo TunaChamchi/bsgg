@@ -299,7 +299,9 @@ class Detail extends Component {
                             <div className="detail_notice">{intl.formatMessage({id: '신캐안내'})}</div>
                     }
                     <div className="S_left">
-                        <span className="S_left0">Guide</span>
+                        <div className="S_left_title">
+                            <span className="S_left0">Guide</span>
+                        </div>
                         <div className="tabHeaders">
                             {this.gameModeTabView()}
                         </div>
