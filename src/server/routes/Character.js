@@ -405,12 +405,12 @@ const setCharacterTier = async (MinVersion, MaxVersion, matchingTeamMode, charLi
     tier.forEach(data => {
         data['score'] = {
             'winRate' : data['data']['winRate']     /max_winRate    *100,
-            'pickRate': data['rank']['pickRate']    /max_pickRate   *100,
+            'pickRate': (1-data['rank']['pickRate']/tier.length)    *100,
             'avgKAM' :  data['data']['avgKAM']      /max_avgKAM     *100,
             'avgRank' : (1-data['rank']['avgRank']  /tier.length)   *100
         }
 
-        data['score']['total'] = (data['score']['winRate']*1 + data['score']['pickRate']*0.75 + data['score']['avgKAM']*1 + data['score']['avgRank']*0.75)/3.5;
+        data['score']['total'] = (data['score']['winRate']*0.9 + data['score']['pickRate']*0.6 + data['score']['avgKAM']*1 + data['score']['avgRank']*0.5)/3;
         
         if (data['score']['total'] > max_score) max_score = data['score']['total'];
     });
