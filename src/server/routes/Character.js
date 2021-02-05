@@ -404,13 +404,13 @@ const setCharacterTier = async (MinVersion, MaxVersion, matchingTeamMode, charLi
     // 점수 계산
     tier.forEach(data => {
         data['score'] = {
-            'winRate' : data['data']['winRate']   /max_winRate*100,
-            'pickRate': (1-data['rank']['pickRate']/tier.length)*100,
-            'avgKAM' : data['data']['avgKAM']   /max_avgKAM*100,
-            'avgRank' : (1-data['rank']['avgRank']/tier.length)*100
+            'winRate' : data['data']['winRate']     /max_winRate    *100,
+            'pickRate': data['rank']['pickRate']    /max_pickRate   *100,
+            'avgKAM' :  data['data']['avgKAM']      /max_avgKAM     *100,
+            'avgRank' : (1-data['rank']['avgRank']  /tier.length)   *100
         }
 
-        data['score']['total'] = (data['score']['winRate']*1   + data['score']['pickRate']*0.8 + data['score']['avgKAM']*1    + data['score']['avgRank']*0.5)/3;
+        data['score']['total'] = (data['score']['winRate']*1 + data['score']['pickRate']*0.75 + data['score']['avgKAM']*1 + data['score']['avgRank']*0.75)/3.5;
         
         if (data['score']['total'] > max_score) max_score = data['score']['total'];
     });
@@ -470,19 +470,19 @@ const setCharacterTier = async (MinVersion, MaxVersion, matchingTeamMode, charLi
     logger.info('SetCharacterTier Complete : ' + JSON.stringify({MinVersion, MaxVersion, matchingTeamMode}));
 }
 
-const currentVersionView = async () => {
-    const list = await CharacterTier.find({ matchingTeamMode: 1 }, { _id:-1, versionMajor:1, versionMinor:1, totalGames:1 }, { sort:{versionMajor:-1, versionMinor:-1 } });
-    currentVersion = {
-        versionMajor: parseInt(list[0].versionMajor),
-        versionMinor: parseInt(list[0].versionMinor)
-    } 
-    previousVersion = {
-        versionMajor: parseInt(list[1].versionMajor),
-        versionMinor: parseInt(list[1].versionMinor)
-    }
+// const currentVersionView = async () => {
+//     const list = await CharacterTier.find({ matchingTeamMode: 1 }, { _id:-1, versionMajor:1, versionMinor:1, totalGames:1 }, { sort:{versionMajor:-1, versionMinor:-1 } });
+//     currentVersion = {
+//         versionMajor: parseInt(list[0].versionMajor),
+//         versionMinor: parseInt(list[0].versionMinor)
+//     } 
+//     previousVersion = {
+//         versionMajor: parseInt(list[1].versionMajor),
+//         versionMinor: parseInt(list[1].versionMinor)
+//     }
 
-    logger.info('currentVersionView currentVersion : ' + JSON.stringify(currentVersion));
-    logger.info('currentVersionView previousVersion : ' +  JSON.stringify(previousVersion));
-}
+//     logger.info('currentVersionView currentVersion : ' + JSON.stringify(currentVersion));
+//     logger.info('currentVersionView previousVersion : ' +  JSON.stringify(previousVersion));
+// }
 
-currentVersionView();
+// currentVersionView();
