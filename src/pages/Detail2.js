@@ -285,29 +285,27 @@ class Detail extends Component {
             <div>
                 <Header data={metaData}/>
                 <SubBanner actived={'Tier'} />
-                <div className="S_main">
+                <div className="S_main2">
                     <Top 
                         stat={stat}
                         tier={tier}
                         weaponData={{weaponList, weaponTotal}}
                         parameter={{character, bestWeapon, gameMode}}
                         />
-                    {
-                        tier[(gameMode-1)]['tier'][character] ? 
-                            <div className="detail_notice">{intl.formatMessage({id: '표본안내'})}</div>
-                            :
-                            <div className="detail_notice">{intl.formatMessage({id: '신캐안내'})}</div>
-                    }
+                    <div className="S_detail_tabbanner">
+                        <div className="S_detail_tabs">
+                            <div className="S_detail_tab">종합</div>
+                            <div className="S_detail_tab">랭커빌드</div>
+                            <div className="S_detail_tab actived">정보</div>
+                            <div className="S_detail_tab">스킨</div>
+                        </div>
+                    </div>
                     <div className="S_left">
                         <div className="S_left_title">
-                            <span className="S_left0">Guide</span>
-                            <div className="S_left0_tabs">
-                                <div className="S_left0_tab actived">위키</div>
-                                <div className="S_left0_tab">추천</div>
-                            </div>
+                            <span className="S_left0">Skill Info</span>
                         </div>
                         <div className="S_left_wiki">
-                            <div className="S_left_wiki_skill">스킬 정보</div>
+                            <div className="S_left_wiki_skill"></div>
                             <div className="S_left_wiki_vod"></div>
                             <div className="S_left_wiki_skill_imgbox">
                                 <img className="S_left_wiki_skill_img actived" src="img/Skill/로지/로지_Q.jpg" />
@@ -322,76 +320,102 @@ class Detail extends Component {
                                 <span className="S_left_wiki_skill_detail2">세부스탯</span>
                             </div>
                         </div>
-                        <div className="S_left_wiki_stats_all">
-                            <div className="S_left_wiki_stats_title">능력치 정보</div>
-                            <div className="S_left_wiki_stats">
-                                <div className="S_left_wiki_stat_title">LV1 능력치</div>
-                                <div className="S_left_wiki_stat">
-                                    <div className="S_left_wiki_stat1">공격력</div>
-                                    <div className="S_left_wiki_stat2">33</div>
-                                </div>
-                                <div className="S_left_wiki_stat">
-                                    <div className="S_left_wiki_stat1">공격력</div>
-                                    <div className="S_left_wiki_stat2">33</div>
-                                </div>
-                                <div className="S_left_wiki_stat">
-                                    <div className="S_left_wiki_stat1">공격력</div>
-                                    <div className="S_left_wiki_stat2">33</div>
-                                </div>
+                    </div>
+                    <div className="S_left_wiki_stats_all">
+                        <div className="S_left_wiki_stats_title">Stats</div>
+                        <div className="S_left_wiki_stats">
+                            <div className="S_left_wiki_stat_title">LV1 능력치</div>
+                            <div className="S_left_wiki_stat">
+                                <div className="S_left_wiki_stat1">공격력</div>
+                                <div className="S_left_wiki_stat2">33</div>
                             </div>
-                            <div className="S_left_wiki_stats">
-                                <div className="S_left_wiki_stat_title">LV20 능력치</div>
-                                <div className="S_left_wiki_stat">
-                                    <div className="S_left_wiki_stat1">공격력</div>
-                                    <div className="S_left_wiki_stat2">33</div>
-                                </div>
-                                <div className="S_left_wiki_stat">
-                                    <div className="S_left_wiki_stat1">공격력</div>
-                                    <div className="S_left_wiki_stat2">33</div>
-                                </div>
-                                <div className="S_left_wiki_stat">
-                                    <div className="S_left_wiki_stat1">공격력</div>
-                                    <div className="S_left_wiki_stat2">33</div>
-                                </div>
+                            <div className="S_left_wiki_stat">
+                                <div className="S_left_wiki_stat1">공격력</div>
+                                <div className="S_left_wiki_stat2">33</div>
                             </div>
-                            <div className="S_left_wiki_stats">
-                                <div className="S_left_wiki_stat_title">성장치</div>
-                                <div className="S_left_wiki_stat">
-                                    <div className="S_left_wiki_stat1">공격력</div>
-                                    <div className="S_left_wiki_stat2">33</div>
-                                </div>
-                                <div className="S_left_wiki_stat">
-                                    <div className="S_left_wiki_stat1">공격력</div>
-                                    <div className="S_left_wiki_stat2">33</div>
-                                </div>
-                                <div className="S_left_wiki_stat">
-                                    <div className="S_left_wiki_stat1">공격력</div>
-                                    <div className="S_left_wiki_stat2">33</div>
-                                </div>
+                            <div className="S_left_wiki_stat">
+                                <div className="S_left_wiki_stat1">공격력</div>
+                                <div className="S_left_wiki_stat2">33</div>
+                            </div>
+                            <div className="S_left_wiki_stat">
+                                <div className="S_left_wiki_stat1">공격력</div>
+                                <div className="S_left_wiki_stat2">33</div>
+                            </div>
+                            <div className="S_left_wiki_stat">
+                                <div className="S_left_wiki_stat1">공격력</div>
+                                <div className="S_left_wiki_stat2">33</div>
+                            </div>
+                            <div className="S_left_wiki_stat">
+                                <div className="S_left_wiki_stat1">공격력</div>
+                                <div className="S_left_wiki_stat2">33</div>
+                            </div>
+                            <div className="S_left_wiki_stat">
+                                <div className="S_left_wiki_stat1">공격력</div>
+                                <div className="S_left_wiki_stat2">33</div>
                             </div>
                         </div>
-                    </div>
-                    <Trend
-                        stat={stat}
-                        tier={tier}
-                        parameter={{character, bestWeapon, gameMode}}
-                        />
-                    <div className="master">
-                        <div className="master0">Master</div>
-                        {
-                            tier[(gameMode-1)]['tier'][character] ? 
-                                this.mostUserView()
-                                :
-                                <div style={{backgroundColor: 'rgb(38, 35, 53)', height:100, paddingTop:60, fontSize: '15pt'}}>{intl.formatMessage({id: 'nodata'})}</div>
-                        }
-                        {
-                            tier[(gameMode-1)]['tier'][character] ? 
-                                <Link to={'/RankCharacter?character=' +character}>
-                                    <button className="master_button">{intl.formatMessage({id: '더 보기'})}</button>
-                                </Link>
-                                :
-                                ''
-                        }
+                        <div className="S_left_wiki_stats">
+                            <div className="S_left_wiki_stat_title">LV20 능력치</div>
+                            <div className="S_left_wiki_stat">
+                                <div className="S_left_wiki_stat1">공격력</div>
+                                <div className="S_left_wiki_stat2">33</div>
+                            </div>
+                            <div className="S_left_wiki_stat">
+                                <div className="S_left_wiki_stat1">공격력</div>
+                                <div className="S_left_wiki_stat2">33</div>
+                            </div>
+                            <div className="S_left_wiki_stat">
+                                <div className="S_left_wiki_stat1">공격력</div>
+                                <div className="S_left_wiki_stat2">33</div>
+                            </div>
+                            <div className="S_left_wiki_stat">
+                                <div className="S_left_wiki_stat1">공격력</div>
+                                <div className="S_left_wiki_stat2">33</div>
+                            </div>
+                            <div className="S_left_wiki_stat">
+                                <div className="S_left_wiki_stat1">공격력</div>
+                                <div className="S_left_wiki_stat2">33</div>
+                            </div>
+                            <div className="S_left_wiki_stat">
+                                <div className="S_left_wiki_stat1">공격력</div>
+                                <div className="S_left_wiki_stat2">33</div>
+                            </div>
+                            <div className="S_left_wiki_stat">
+                                <div className="S_left_wiki_stat1">공격력</div>
+                                <div className="S_left_wiki_stat2">33</div>
+                            </div>
+                        </div>
+                        <div className="S_left_wiki_stats">
+                            <div className="S_left_wiki_stat_title">성장치</div>
+                            <div className="S_left_wiki_stat">
+                                <div className="S_left_wiki_stat1">공격력</div>
+                                <div className="S_left_wiki_stat2">33</div>
+                            </div>
+                            <div className="S_left_wiki_stat">
+                                <div className="S_left_wiki_stat1">공격력</div>
+                                <div className="S_left_wiki_stat2">33</div>
+                            </div>
+                            <div className="S_left_wiki_stat">
+                                <div className="S_left_wiki_stat1">공격력</div>
+                                <div className="S_left_wiki_stat2">33</div>
+                            </div>
+                            <div className="S_left_wiki_stat">
+                                <div className="S_left_wiki_stat1">공격력</div>
+                                <div className="S_left_wiki_stat2">33</div>
+                            </div>
+                            <div className="S_left_wiki_stat">
+                                <div className="S_left_wiki_stat1">공격력</div>
+                                <div className="S_left_wiki_stat2">33</div>
+                            </div>
+                            <div className="S_left_wiki_stat">
+                                <div className="S_left_wiki_stat1">공격력</div>
+                                <div className="S_left_wiki_stat2">33</div>
+                            </div>
+                            <div className="S_left_wiki_stat">
+                                <div className="S_left_wiki_stat1">공격력</div>
+                                <div className="S_left_wiki_stat2">33</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <AdS type={'Detail'}/>

@@ -285,85 +285,50 @@ class Detail extends Component {
             <div>
                 <Header data={metaData}/>
                 <SubBanner actived={'Tier'} />
-                <div className="S_main">
+                <div className="S_main2">
                     <Top 
                         stat={stat}
                         tier={tier}
                         weaponData={{weaponList, weaponTotal}}
                         parameter={{character, bestWeapon, gameMode}}
                         />
-                    {
-                        tier[(gameMode-1)]['tier'][character] ? 
-                            <div className="detail_notice2">{intl.formatMessage({id: '표본안내'})}</div>
-                            :
-                            <div className="detail_notice2">{intl.formatMessage({id: '신캐안내'})}</div>
-                    }
-                    <div className="S_left">
-                        <div className="S_left_title">
-                            <span className="S_left0">Guide</span>
-                        </div>
-                        <div className="tabHeaders">
-                            {this.gameModeTabView()}
-                        </div>
-                        <Skill
-                            stat={stat}
-                            skillTree={skillTree}
-                            parameter={{character, bestWeapon, gameMode}}
-                            />
-                        <div className="item">
-                            <div className="item0"> 
-                                <div className="item0_span">{intl.formatMessage({id: '추천아이템'})}</div>
-                                <div className="tabHeaders">
-                                    <div className={"item0_tab"+(itemTabFocus===1?' actived':'')}
-                                        onClick={(e) => this.setState({ itemTabFocus:1 })}>
-                                        {intl.formatMessage({id: 'rank'})}
-                                    </div>
-                                    <div className={"item0_tab"+(itemTabFocus===0?' actived':'')}
-                                        onClick={(e) => this.setState({ itemTabFocus:0 })}>
-                                        {intl.formatMessage({id: '빌드'})}
-                                    </div>
-                                </div>
-                            </div>
-                            {
-                                itemTabFocus === 0 ?
-                                    <ItemOrder 
-                                        itemOrder={itemOrder}
-                                        bestWeapon={bestWeapon}
-                                        gameMode={gameMode}
-                                        />
-                                    :
-                                    <div className="item_rank">
-                                        <Weapons 
-                                            stat ={stat}
-                                            />
-                                        <Armors 
-                                            stat={stat}
-                                            />
-                                    </div>
-                            }
+                    <div className="S_detail_tabbanner">
+                        <div className="S_detail_tabs">
+                            <div className="S_detail_tab">종합</div>
+                            <div className="S_detail_tab">랭커빌드</div>
+                            <div className="S_detail_tab">정보</div>
+                            <div className="S_detail_tab actived">스킨</div>
                         </div>
                     </div>
-                    <Trend
-                        stat={stat}
-                        tier={tier}
-                        parameter={{character, bestWeapon, gameMode}}
-                        />
-                    <div className="master">
-                        <div className="master0">Master</div>
-                        {
-                            tier[(gameMode-1)]['tier'][character] ? 
-                                this.mostUserView()
-                                :
-                                <div style={{backgroundColor: 'rgb(38, 35, 53)', height:100, paddingTop:60, fontSize: '15pt'}}>{intl.formatMessage({id: 'nodata'})}</div>
-                        }
-                        {
-                            tier[(gameMode-1)]['tier'][character] ? 
-                                <Link to={'/RankCharacter?character=' +character}>
-                                    <button className="master_button">{intl.formatMessage({id: '더 보기'})}</button>
-                                </Link>
-                                :
-                                ''
-                        }
+                    <div className="S_left">
+                        <div className="S_left_title">
+                            <span className="S_left0">Skin Info</span>
+                        </div>
+                        <div className="S_left_wiki">
+                            <div className="S_left_wiki_skill"></div>
+                            <div className="S_left_wiki_vod"></div>
+                            <div className="S_left_wiki_skill_detailbox">
+                                <span className="S_left_wiki_skill_detail3">스킨설명</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="S_left_skin_all">
+                        <div className="S_left_skin_title">Skin List</div>
+                        <div className="S_left_skin_list actived">
+                            <div className="S_left_skin_list_name">처형자 재키</div>
+                            <div className="S_left_skin_list_price">1075 NP</div>
+                            <img className="S_left_skin_list_img" src="/img/Skin/처형자재키.png" />
+                        </div>
+                        <div className="S_left_skin_list">
+                            <div className="S_left_skin_list_name">처형자ddddd 재키</div>
+                            <div className="S_left_skin_list_price">1075 NP</div>
+                            <img className="S_left_skin_list_img" src="/img/Skin/처형자재키.png" />
+                        </div>
+                        <div className="S_left_skin_list">
+                            <div className="S_left_skin_list_name">처형자 재키</div>
+                            <div className="S_left_skin_list_price">1075 NP</div>
+                            <img className="S_left_skin_list_img" src="/img/Skin/처형자재키.png" />
+                        </div>
                     </div>
                 </div>
                 <AdS type={'Detail'}/>

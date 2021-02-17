@@ -2,7 +2,9 @@ import withSplitting from 'withSplitting';
 
 export const Main = withSplitting(() => import('./Main'));
 export const Detail = withSplitting(() => import('./Detail'));
+export const DetailRanker = withSplitting(() => import('./DetailRanker'));
 export const Detail2 = withSplitting(() => import('./Detail2'));
+export const Detail2skin = withSplitting(() => import('./Detail2skin'));
 export const Map = withSplitting(() => import('./Map'));
 export const RouteM = withSplitting(() => import('./RouteM'));
 export const NewMain = withSplitting(() => import('./NewMain'));

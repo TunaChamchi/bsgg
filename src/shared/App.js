@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import { Main, Detail, Detail2, Map, RouteM, NewMain ,Match, Character, Rank, Rank_Character, Error404, Stat, } from 'pages';
+import { Main, Detail, Detail2, Detail2skin, DetailRanker, Map, RouteM, NewMain ,Match, Character, Rank, Rank_Character, Error404, Stat, } from 'pages';
 
 class App extends Component {
     render() {
@@ -10,7 +10,9 @@ class App extends Component {
                 <Switch>
                     <Route path="/Tier" component={Main}/>
                     <Route path="/Detail" component={Detail}/>
+                    <Route path="/DetailRanker" component={DetailRanker}/>
                     <Route path="/Detail2" component={Detail2}/>
+                    <Route path="/Detail2skin" component={Detail2skin}/>
 
                     <Route path="/Map" component={Map}/>
                     <Route path="/Route" component={RouteM}/>
