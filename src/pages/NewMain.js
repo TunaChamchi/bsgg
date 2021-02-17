@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { injectIntl  } from 'react-intl';
 import AdSense from 'react-adsense';
 import { Footer, Langauge, AdS, Header } from 'components/banner';
-import { getCharacterKeys, getCharacter } from 'lib/data'
+import { getCharacterKeys, getCharacter, getWeaponCode } from 'lib/data'
 import logo from 'img/main_logo.svg';
 import { sync } from 'glob';
 
@@ -101,14 +101,17 @@ class Main extends Component {
         const { intl } = this.props;
         const { searchList } = this.state;
 
-        return searchList.map((data, idx) => 
-            <Link to={'Detail?character='+data} key={idx}>
-                <div className="Main_search_box1" >
-                    <img className="Main_search_img" src={'img/Rank/'+getCharacter(data)['name']+'.jpg'} />
-                    <div className="Main_search_font"> {intl.formatMessage({id: 'characters.'+getCharacter(data)['name']})} </div>
-                </div>
-            </Link>
-        );
+        return searchList.map((data, idx) => {
+            const character = getCharacter(data);
+            return (
+                <Link to={'Detail?character='+data+'&bestWeapon='+getWeaponCode(character['weapons'][0])} key={idx}>
+                    <div className="Main_search_box1" >
+                        <img className="Main_search_img" src={'img/Rank/'+character['name']+'.jpg'} />
+                        <div className="Main_search_font"> {intl.formatMessage({id: 'characters.'+character['name']})} </div>
+                    </div>
+                </Link>
+            )
+        });
     }
 
     render() {

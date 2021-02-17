@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { injectIntl  } from 'react-intl';
 import { Langauge  } from 'components/banner';
 import logo from 'img/sub_logo.svg';
-import { getCharacterKeys, getCharacter } from 'lib/data'
+import { getCharacterKeys, getCharacter, getWeaponCode } from 'lib/data'
 
 class SubBanner extends Component {
 	constructor(props) {
@@ -100,14 +100,17 @@ class SubBanner extends Component {
         const { intl } = this.props;
         const { searchList } = this.state;
 
-        return searchList.map((data, idx) => 
-            <Link to={'Detail?character='+data} key={idx} onClick={(e)=> this.selectHandler(e)}>
-                <div className="S_search4" >
-                    <img className="searchimg" src={'img/Rank/'+getCharacter(data)['name']+'.jpg'} />
-                    <div className="searchfont"> {intl.formatMessage({id: 'characters.'+getCharacter(data)['name']})} </div>
-                </div>
-            </Link>
-        );
+        return searchList.map((data, idx) => {
+            const character = getCharacter(data);
+            return (
+                <Link to={'Detail?character='+data+'&bestWeapon='+getWeaponCode(character['weapons'][0])} key={idx} onClick={(e)=> this.selectHandler(e)}>
+                    <div className="S_search4" >
+                        <img className="searchimg" src={'img/Rank/'+character['name']+'.jpg'} />
+                        <div className="searchfont"> {intl.formatMessage({id: 'characters.'+character['name']})} </div>
+                    </div>
+                </Link>
+            )
+        });
     }
 
     render() {
