@@ -1899,7 +1899,7 @@ button:hover{
     height: 425px;
     position: relative;
     margin-left: 40px;
-    margin-top: 75px;
+    margin-top: 100px;
 }
 .item_route_map2{
     width: 370px;
@@ -2446,7 +2446,7 @@ button:hover{
     position: absolute;
     border-radius: 3px;
     width: 53px;
-    border: 1px solid  gray;
+    border: 1px solid  #171520;
 }
 .S_Ranker_detail{
     width: 1152px;
@@ -2496,6 +2496,14 @@ button:hover{
     font-weight: 400;
     margin-top: 20px;
 }
+.S_Ranker_detail_span3{
+    clear: both;
+    float: left;
+    font-size: 13pt;
+    margin-left: 0px;
+    font-weight: 400;
+    margin-top: 30px;
+}
 .S_Ranker_route_boxs{
     clear: both;
     margin-left: 50px;
@@ -2534,7 +2542,7 @@ button:hover{
     height: 240px;
     background-color: gray;
     margin-left: 50px;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 30px;
 }
 .S_Ranker_detail_right{

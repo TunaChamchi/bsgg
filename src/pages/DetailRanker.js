@@ -403,12 +403,12 @@ class Detail extends Component {
                                                 <img className="S_Ranker_detail_item" src="/img/Item/ak-47.png"/>
                                             </div>
                                         </div>
-                                        <div className="S_Ranker_route_v">></div>
+                                        <div className="S_Ranker_route_v"></div>
                                         <div className="S_Ranker_route_box">
                                             <div className="S_Ranker_route_locate">항구</div>
                                         </div>
                                         
-                                        <div className="S_Ranker_route_v">></div>
+                                        <div className="S_Ranker_route_v"></div>
                                         <div className="S_Ranker_route_box">
                                             <div className="S_Ranker_route_locate">성당</div>
                                             <div className="S_Ranker_detail_itembox">
@@ -424,7 +424,7 @@ class Detail extends Component {
                                                 <img className="S_Ranker_detail_item" src="/img/Item/ak-47.png"/>
                                             </div>
                                         </div>
-                                        <div className="S_Ranker_route_v">></div>
+                                        <div className="S_Ranker_route_v"></div>
                                         <div className="S_Ranker_route_box">
                                             <div className="S_Ranker_route_locate">고급 주택가</div>
                                             <div className="S_Ranker_detail_itembox">
@@ -432,7 +432,7 @@ class Detail extends Component {
                                                 <img className="S_Ranker_detail_item" src="/img/Item/ak-47.png"/>
                                             </div>
                                         </div>
-                                        <div className="S_Ranker_route_v">></div>
+                                        <div className="S_Ranker_route_v"></div>
                                         <div className="S_Ranker_route_box">
                                             <div className="S_Ranker_route_locate">고급 주택가</div>
                                             <div className="S_Ranker_detail_itembox">
@@ -442,9 +442,11 @@ class Detail extends Component {
                                         </div>
                                     </div>
                                 <div className="S_Ranker_detail_itemlist"></div>
+                                <div className="S_Ranker_detail_span2">스킬 트리</div>
                                 <div className="S_Ranker_detail_skilltree">skilltree</div>
                             </div>
                             <div className="S_Ranker_detail_right">
+                                <div className="S_Ranker_detail_span3">추천 루트</div>
                                 <div className="item_route_map">
                                     <img className="item_route_map2" src={mapImg} />
                                 </div>
