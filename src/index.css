@@ -1765,7 +1765,7 @@ button:hover{
 }
 .item{
     width: 780px;
-    height: 534px;
+    height: 544px;
     background-color: #262335;
     margin-top: 10px;
     border-radius: 3px 3px 0px 0px;
@@ -1899,7 +1899,7 @@ button:hover{
     height: 425px;
     position: relative;
     margin-left: 40px;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 .item_route_map2{
     width: 370px;
