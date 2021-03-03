@@ -197,10 +197,11 @@ router.get('/:userNum/match', async (req, res, next) => {
 
 // 유저 전적 갱신
 router.get('/:userName/renew', async (req, res, next) => {
-    logger.info('/User/:userName/renew ' + JSON.stringify(req.params));
+    logger.info('/User/:userName/renew ' + JSON.stringify(req.params) + ' ' + JSON.stringify(req.query));
     const userName = req.params.userName;
-    try {    
-        await getUserData(userName);
+    const debug = req.query.debug || false;
+    try {
+        await getUserData(userName, debug);
         
         res.json({ code:200, message:'Success' });
     } catch (error) {
@@ -272,9 +273,18 @@ const getUserData = async (userName, debug) => {
         }
 
         // api에서 유저 검색
-        const u = (await getUserSreach(userName)).data.user;
+        let u = (await getUserSreach(userName)).data.user;
         if (!u) {
-            return;
+            if (debug) {
+                logger.error('getUserData() : api user no ' + userName);
+            }
+            u = await User.findOne({ nickname: userName });
+            if (!u) {
+                if (debug) {
+                    logger.info('getUserData() : no user ' + userName);
+                }
+                return;
+            }
         }
 
         const userNum = u.userNum;
@@ -322,6 +332,10 @@ const getUserData = async (userName, debug) => {
         }
 
         // 유저 등록
+        if (debug) {
+            logger.info('getUserData() : user update ' + userName);
+        }
+
         const user = {
             userNum: userNum,
             nickname: nickname,
@@ -491,7 +505,7 @@ const getUserData = async (userName, debug) => {
         return 'Success';
     } catch (error) {
         logger.error('getUserData() ' + JSON.stringify({ userName }));
-        logger.error(error.message);
+        logger.error('getUserData() ' + error.message);
         return null;
     }
 }
