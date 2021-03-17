@@ -44,7 +44,7 @@ export const changeLang = (lang) => {
     window.location.reload();
 }
 
-export const charList = () => {    
+export const charList = () => {
     const charList = locale[defaultLang()]['data']['characters'];
 
     const list = [];
