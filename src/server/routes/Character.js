@@ -105,6 +105,18 @@ router.post('/SetCharacterStats', async (req, res, next) => {
     res.json({ code:200, message:'Success' });
 });
 
+router.post('/GameCount', async (req, res, next) => {
+    logger.info('/GameCount ' + JSON.stringify(req.query));
+    const versionMajor = parseInt(req.query.versionMajor);
+    const versionMinor = parseInt(req.query.versionMinor);
+    const seasonId = parseInt(req.query.seasonId) || 1;
+    const mmrBefore = parseInt(req.query.mmrBefore) || 900;
+
+    const count = await Match.count({versionMajor:versionMajor, versionMinor:versionMinor, seasonId:seasonId, mmrBefore: { $gte: mmrBefore }});
+
+    res.json({ versionMajor: versionMajor, versionMinor: versionMinor, count: count});
+});
+
 module.exports = router;
 
 const getChacterStat = async (MinVersion, MaxVersion, characterNum, matchingTeamMode, seasonId) => {
