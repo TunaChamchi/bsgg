@@ -112,11 +112,12 @@ class Match extends Component {
             const mmrCurrent = {
                 0: { 1: 0, 2: 0, 3: 0, },
                 1: { 1: 0, 2: 0, 3: 0, },
+                2: { 1: 0, 2: 0, 3: 0, },
             }
             let maxMmr = 0;
             Object.keys(_userStat['seasonStats']).forEach(s => 
                 Object.keys(_userStat['seasonStats'][s]).forEach(t => {
-                    if (s === "1") {
+                    if (s === "2") {
                         maxMmr = Math.max(maxMmr, _userStat['seasonStats'][s][t]['mmr']);
                     }
                     mmrCurrent[s][t] = _userStat['seasonStats'][s][t]['mmr'];
@@ -247,7 +248,7 @@ class Match extends Component {
             strDay = diffMinutes + intl.formatMessage({id: '분 전'});
         } else {
             strDay = intl.formatMessage({id: '몇초 전'});
-        } 
+        }
 
         let tier = Math.floor(userStat['maxMmr']/100);
         if (tier > tierList.length - 1) {
@@ -275,7 +276,7 @@ class Match extends Component {
             <div className="record_top">
                 <div className="record_top_icon">
                     <img className="record_top_iconimg" src={"img/Characters/" + getCharacter(userStat['mostCharacter'])['name'] + ".jpg"} />
-                    <img className="record_top_iconborder" src={"img/border/" + tierList[tier].slice(0, -2) + ".png"} />
+                    {tierList[tier] && <img className="record_top_iconborder" src={"img/border/" + tierList[tier].slice(0, -2) + ".png"} />}
                     <span className="record_top_lv">{4-tier%4}</span>
                 </div>
                 <div className="record_top_right">
@@ -369,8 +370,8 @@ class Match extends Component {
         const { intl } = this.props;
         const { ranking, userStat, tierList, matchingTeamMode } = this.state;
 
-        return Object.keys(userStat['seasonStats']["1"]).map((key, idx) => {
-            const rank = userStat['seasonStats']["1"][key];
+        return Object.keys(userStat['seasonStats']["2"]).map((key, idx) => {
+            const rank = userStat['seasonStats']["2"][key];
 
             const total = rank['totalGames'];
             const top1 = rank['top1'];
@@ -432,10 +433,12 @@ class Match extends Component {
         const matchMode = mostCond.matchMode;
         const teamMode = mostCond.teamMode;
 
+        console.log('userStat', userStat);
+
         const list = [];
         const characterStat = {};
         if (matchMode === 0 && teamMode === 0) { // 전체의 전체
-            [0, 1].forEach(i => {
+            [0, 1, 2].forEach(i => {
                 if (userStat['seasonStats'][i]) {
                     [1, 2, 3].forEach(j => {
                         if (userStat['seasonStats'][i][j]) {
@@ -454,7 +457,7 @@ class Match extends Component {
                 list.push({ code: key, ...characterStat[key] });
             }
         } else if (matchMode === 0) { // 전체의 솔로, 듀오, 스쿼드
-            [0, 1].forEach(i => {
+            [0, 1, 2].forEach(i => {
                 if (userStat['seasonStats'][i] && userStat['seasonStats'][i][teamMode]) {
                     for (const key in userStat['seasonStats'][i][teamMode]['characterStats']) {
                         if (characterStat[key]) {
@@ -469,13 +472,20 @@ class Match extends Component {
                 list.push({ code: key, ...characterStat[key] });
             }
         } else if (teamMode === 0) { // 랭크의 전체
-            for (const key in userStat['characterStats']) {
-                list.push({ code: key, ...userStat['characterStats'][key] });
+            if (userStat['seasonStats'][2]) {
+                for (const teamMode in userStat['seasonStats'][2]) {
+                    for (const key in userStat['seasonStats'][2][teamMode]['characterStats']) {
+                        list.push({ code: key, ...userStat['seasonStats'][2][teamMode]['characterStats'][key] });
+                    }
+                }
             }
+            // for (const key in userStat['characterStats']) {
+            //     list.push({ code: key, ...userStat['characterStats'][key] });
+            // }
         } else { // 랭크의 솔로, 듀오, 스쿼드
-            if (userStat['seasonStats'][1] && userStat['seasonStats'][1][teamMode]) {
-                for (const key in userStat['seasonStats'][1][teamMode]['characterStats']) {
-                    list.push({ code: key, ...userStat['seasonStats'][1][teamMode]['characterStats'][key] });
+            if (userStat['seasonStats'][2] && userStat['seasonStats'][2][teamMode]) {
+                for (const key in userStat['seasonStats'][2][teamMode]['characterStats']) {
+                    list.push({ code: key, ...userStat['seasonStats'][2][teamMode]['characterStats'][key] });
                 }
             }
         }
@@ -1024,7 +1034,7 @@ class Match extends Component {
                                             <div className="record_rank">
                                                 <span className="record_rank0">RANK</span>
                                                 {
-                                                    userStat['seasonStats']['1'] &&
+                                                    userStat['seasonStats']['2'] &&
                                                         this.rankView()
                                                 }
                                             </div>

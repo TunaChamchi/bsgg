@@ -92,6 +92,9 @@ const matchSchema = new Schema({
     killer: {
         type: String
     },
+    killerCharacter: {
+        type: String
+    },
     killDetail: {
         type: String
     },
@@ -116,7 +119,23 @@ const matchSchema = new Schema({
 
     serverName: {
         type: String
-    }
+    },
+    
+    giveup: {
+        type: Number
+    },
+
+    placeOfStart: {
+        type: String
+    },
+    placeOfDeath: {
+        type: String
+    },
+    
+    routeIdOfStart: {
+        type: Number
+    },
+
 }, {
     versionKey: false // You should be aware of the outcome after set to false
 })
