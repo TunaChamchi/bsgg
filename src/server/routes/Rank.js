@@ -29,7 +29,7 @@ const GetRankSync = async () => {
     const rankList1 = [];
     const rankList2 = [];
     for (let index = 1; index < 4; index++) {
-        const resRank = await getRank(1, index);
+        const resRank = await getRank(3, index);
         const ranks = resRank.data.topRanks;
 
         for (let i = 0 ; i < ranks.length ; i++) {

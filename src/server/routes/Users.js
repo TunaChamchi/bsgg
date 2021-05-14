@@ -10,7 +10,7 @@ const Match = require('../schemas/match');
 
 const router = express.Router();
 
-const searchSeason = [0, 1, 2];
+const searchSeason = [0, 1, 2, 3];
 const searchTeamMode = [1, 2, 3];
 function sleep(ms) {
     return new Promise((resolve) => {
