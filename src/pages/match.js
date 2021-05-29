@@ -5,7 +5,7 @@ import AdSense from 'react-adsense';
 import queryString from 'query-string';
 import moment from 'moment';
 import { Header, SubBanner, AdS, Footer } from 'components/banner'
-import { getCharacter, getItem, getWeaponType, addJson, getSkill } from 'lib/data'
+import { getCharacter, getItem, getWeaponType, addJson, getSkill, getSeason, getSeasonString } from 'lib/data'
 
 class Match extends Component {
     constructor(props) {
@@ -109,15 +109,14 @@ class Match extends Component {
             _matchStat['playerAssistant'] /= _matchStat['total'];
             _matchStat['gameRank'] /= _matchStat['total'];
 
-            const mmrCurrent = {
-                0: { 1: 0, 2: 0, 3: 0, },
-                1: { 1: 0, 2: 0, 3: 0, },
-                2: { 1: 0, 2: 0, 3: 0, },
+            const mmrCurrent = {}
+            for (var i = 0 ; i <= getSeason() ; i++) {
+                mmrCurrent[i] = { 1: 0, 2: 0, 3: 0, };
             }
             let maxMmr = 0;
             Object.keys(_userStat['seasonStats']).forEach(s => 
                 Object.keys(_userStat['seasonStats'][s]).forEach(t => {
-                    if (s === "2") {
+                    if (s === getSeasonString()) {
                         maxMmr = Math.max(maxMmr, _userStat['seasonStats'][s][t]['mmr']);
                     }
                     mmrCurrent[s][t] = _userStat['seasonStats'][s][t]['mmr'];
@@ -370,8 +369,8 @@ class Match extends Component {
         const { intl } = this.props;
         const { ranking, userStat, tierList, matchingTeamMode } = this.state;
 
-        return Object.keys(userStat['seasonStats']["2"]).map((key, idx) => {
-            const rank = userStat['seasonStats']["2"][key];
+        return Object.keys(userStat['seasonStats'][getSeasonString()]).map((key, idx) => {
+            const rank = userStat['seasonStats'][getSeasonString()][key];
 
             const total = rank['totalGames'];
             const top1 = rank['top1'];
@@ -472,10 +471,10 @@ class Match extends Component {
                 list.push({ code: key, ...characterStat[key] });
             }
         } else if (teamMode === 0) { // 랭크의 전체
-            if (userStat['seasonStats'][2]) {
-                for (const teamMode in userStat['seasonStats'][2]) {
-                    for (const key in userStat['seasonStats'][2][teamMode]['characterStats']) {
-                        list.push({ code: key, ...userStat['seasonStats'][2][teamMode]['characterStats'][key] });
+            if (userStat['seasonStats'][getSeasonString()]) {
+                for (const teamMode in userStat['seasonStats'][getSeasonString()]) {
+                    for (const key in userStat['seasonStats'][getSeasonString()][teamMode]['characterStats']) {
+                        list.push({ code: key, ...userStat['seasonStats'][getSeasonString()][teamMode]['characterStats'][key] });
                     }
                 }
             }
@@ -483,9 +482,9 @@ class Match extends Component {
             //     list.push({ code: key, ...userStat['characterStats'][key] });
             // }
         } else { // 랭크의 솔로, 듀오, 스쿼드
-            if (userStat['seasonStats'][2] && userStat['seasonStats'][2][teamMode]) {
-                for (const key in userStat['seasonStats'][2][teamMode]['characterStats']) {
-                    list.push({ code: key, ...userStat['seasonStats'][2][teamMode]['characterStats'][key] });
+            if (userStat['seasonStats'][getSeasonString()] && userStat['seasonStats'][getSeasonString()][teamMode]) {
+                for (const key in userStat['seasonStats'][getSeasonString()][teamMode]['characterStats']) {
+                    list.push({ code: key, ...userStat['seasonStats'][getSeasonString()][teamMode]['characterStats'][key] });
                 }
             }
         }
@@ -1034,7 +1033,7 @@ class Match extends Component {
                                             <div className="record_rank">
                                                 <span className="record_rank0">RANK</span>
                                                 {
-                                                    userStat['seasonStats']['2'] &&
+                                                    userStat['seasonStats'][getSeasonString()] &&
                                                         this.rankView()
                                                 }
                                             </div>
