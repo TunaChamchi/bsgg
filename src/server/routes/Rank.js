@@ -11,6 +11,8 @@ const User = require('../schemas/user');
 
 const router = express.Router();
 
+const currentSeason = 3;
+
 function sleep(ms) {
     return new Promise((resolve) => {
         setTimeout(resolve, ms);
@@ -29,7 +31,7 @@ const GetRankSync = async () => {
     const rankList1 = [];
     const rankList2 = [];
     for (let index = 1; index < 4; index++) {
-        const resRank = await getRank(3, index);
+        const resRank = await getRank(currentSeason, index);
         const ranks = resRank.data.topRanks;
 
         for (let i = 0 ; i < ranks.length ; i++) {
@@ -191,7 +193,7 @@ router.get('/character', async (req, res, next) => {
     const limit =  parseInt(req.query.limit) || 50;
     const characterRank = await UserStat.find(
         { ['characterStats.'+code]: {$exists:true}, max_mmr: {$gte: 1200} }, 
-        { _id: 0, userNum: 1, ['characterStats.'+code]: 1, nickname: 1, 'seasonStats.1':1 }, 
+        { _id: 0, userNum: 1, ['characterStats.'+code]: 1, nickname: 1, 'seasonStats':1 }, 
         { 
             limit: limit,
             sort: { ['characterStats.'+code+'.totalGames']: -1 }
