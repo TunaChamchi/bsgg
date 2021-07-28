@@ -11,6 +11,7 @@ const character = require('../data/character.json');
 
 const router = express.Router();
 
+const currentSeason = 4;
 const searchSeason = [0, 1, 2];
 const searchTeamMode = [1, 2, 3];
 let currentVersion = { versionMajor:23, versionMinor:1 };
@@ -260,12 +261,12 @@ const setCharacterStats = async (MinVersion, MaxVersion) => {
     for (var matchingTeamMode = 1 ; matchingTeamMode < 4 ; matchingTeamMode++) {
         const charList = [];
         for (const code in character) {
-            let seasonId = 3;
+            let seasonId = currentSeason;
             let isRank = true;
             const characterNum = parseInt(code);
             let chars = await getChacterStat(MinVersion, MaxVersion, characterNum, matchingTeamMode, seasonId);
             if (chars.length === 0) {
-                logger.info('SetCharacterStats character is Null : ' + JSON.stringify({code, MinVersion, MaxVersion, matchingTeamMode}));
+                logger.info('SetCharacterStats character is Null : ' + JSON.stringify({code, MinVersion, MaxVersion, matchingTeamMode, seasonId}));
                 seasonId = 0;
                 isRank = false;
                 chars = await getChacterStat(MinVersion, MaxVersion, characterNum, matchingTeamMode, seasonId);
