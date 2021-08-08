@@ -223,7 +223,8 @@
         "리오": "Rio",
         "윌리엄": "William",
         "니키": "Nicky",
-        "나타폰": "Nathapon"
+        "나타폰": "Nathapon",
+        "얀": "Jan"
     },
     "weapons": {
         "투척": "Throw", 
@@ -702,7 +703,15 @@
         "능동위장": " Active Camouflage",
         "미스릴퀴버": "Mithril Quiver",
         "오르골": "Music Box",
-        "쿤달라": "Kundala"
+        "쿤달라": "Kundala",
+        "히드라": "Hydra",
+        "흑요석짓테": "Obsidian Jitte",
+        "필럼": "Pilum",
+        "아스트라페": "Astrapē",
+        "사제복": " Deacon Robes",
+        "고위사제복": "Cardinal Robes",
+        "성법의": "Holy Orders",
+        "창파오": "Chang Pao"
     },
     "skill": {
         "아야": {
@@ -1454,6 +1463,28 @@
                 "Detail": "Nathapon snaps a photo of everything in the targeted area after 1 second.\nAll photographed units are put into stasis for 2.5 seconds and are unable to perform any action.\nPhotographed enemies gain 3 stacks of Picturesque."
             }
         },
+        "얀": {
+            "T": {
+                "name": "Unyielding",
+                "Detail": "Jan attacks with a knee strike, dealing 60/80/100/120/140(+Attack Power 30%) damage to enemies and slowing them by 60% for 1 seconds. \nReactivate to use Leaping Knee.\nEnhanced: Reduces enemy’s defense by 30% for 4 seconds."
+            },
+            "Q": {
+                "name": "Knee Strike / Leaping Knee",
+                "Detail": "Jan launches a flying knee strike, dealing 85/110/135/160/185(+Attack Power 45%) damage to enemies and knocking them airborne for 0.85 second.\nEnhanced: Hitting an enemy will reset the cooldown of Bob and Weave."
+            },
+            "W": {
+                "name": "Tomahawk Roundhouse",
+                "Detail": "Jan sweeps the area in front of him with a kick, dealing 80/110/140/170/200(+Attack Power 40%) damage to enemies in range.\n Enemies hit in the outer cone will be knocked back.\n Enhanced: Deals 110/140/170/200/230(+Attack Power 60%) damage and knocks back all enemies in range.\n Enemies knocked into terrain are stunned for 1 seconds."
+            },
+            "E": {
+                "name": "Bob and Weave",
+                "Detail": "Jan dashes forward and causes his next basic attack to deal 20/30/40/50/60(+Attack Power 35%) extra basic attack damage. Hitting Knee Strike or Tomahawk Roundhouse after dashing heals him for 40/45/50/55/60% percent of damage dealt, increasing by 200% based on his missing HP.\n Jan can Bob and Weave while using Tomahawk Roundhouse.\nEnhanced: The cooldown of Bob and Weave is reduced by 40%."
+            },
+            "R": {
+                "name": "The Tetragon",
+                "Detail": "Jan summons a square ring for 6.5 seconds, granting him 1 stack of Unyielding every second.\n Enemies that touch the ropes are slowed by 80% for 2 seconds and take 50/75/100(+Attack Power 45%) damage. \nEnemies that are knocked back into the ropes are then knocked back towards the center of the ring and stunned for 1.3 seconds. Ropes disappear upon contact.\nKilling a player inside the ring grants 5 stacks of Unyielding and increases Jan’s movement speed by 35% for 3 seconds."
+            }
+        },
 
 
         
@@ -1536,6 +1567,10 @@
         "채찍": {
             "name": "Grappling Whip",
             "Detail": "Snap your whip in front of you, dealing damage to enemies hit and pulling them towards you."
+        },
+        "카메라": {
+            "name": "Flash",
+            "Detail": "Turn your flash on in the targeted direction, dealing 80/160(+Attack Power 50%/100%) damage.\n Enemies facing you take 100/200 additional damage and are blinded for 1.5 seconds."
         }
     }
 
