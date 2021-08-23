@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { injectIntl  } from 'react-intl';
 import AdSense from 'react-adsense';
 import { Footer, Langauge, AdS, Header } from 'components/banner';
-import { getCharacterKeys, getCharacter, getWeaponCode } from 'lib/data'
+import { getCharacterKeys, getCharacter, getWeaponCode, getSeasonString } from 'lib/data'
 import logo from 'img/main_logo.svg';
 import { sync } from 'glob';
 
@@ -51,9 +51,9 @@ class Main extends Component {
 
         return searchList.map((user, idx) => {
             let maxMmr = 0;
-            if (user['seasonStats'] && user['seasonStats'][1]) {
-                Object.keys(user['seasonStats'][1]).forEach(t => {
-                    maxMmr = Math.max(maxMmr, user['seasonStats'][1][t]['mmr']);
+            if (user['seasonStats'] && user['seasonStats'][getSeasonString()]) {
+                Object.keys(user['seasonStats'][getSeasonString()]).forEach(t => {
+                    maxMmr = Math.max(maxMmr, user['seasonStats'][getSeasonString()][t]['mmr']);
                 })
             }
             let tier = Math.floor(maxMmr/100);

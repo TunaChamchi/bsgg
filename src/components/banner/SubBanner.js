@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { injectIntl  } from 'react-intl';
 import { Langauge  } from 'components/banner';
 import logo from 'img/sub_logo.svg';
-import { getCharacterKeys, getCharacter, getWeaponCode } from 'lib/data'
+import { getCharacterKeys, getCharacter, getWeaponCode, getSeasonString } from 'lib/data'
 
 class SubBanner extends Component {
 	constructor(props) {
@@ -54,9 +54,9 @@ class SubBanner extends Component {
 
         return searchList.map((user, idx) => {
             let maxMmr = 0;
-            if (user['seasonStats'] && user['seasonStats'][1]) {
-                Object.keys(user['seasonStats'][1]).forEach(t => {
-                    maxMmr = Math.max(maxMmr, user['seasonStats'][1][t]['mmr']);
+            if (user['seasonStats'] && user['seasonStats'][getSeasonString()]) {
+                Object.keys(user['seasonStats'][getSeasonString()]).forEach(t => {
+                    maxMmr = Math.max(maxMmr, user['seasonStats'][getSeasonString()][t]['mmr']);
                 })
             }
             const tier = Math.floor(maxMmr/100);
