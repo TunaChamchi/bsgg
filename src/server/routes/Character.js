@@ -11,7 +11,7 @@ const character = require('../data/character.json');
 
 const router = express.Router();
 
-const currentSeason = 4;
+const currentSeason = 5;
 const searchSeason = [0, 1, 2];
 const searchTeamMode = [1, 2, 3];
 let currentVersion = { versionMajor:23, versionMinor:1 };

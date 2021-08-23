@@ -11,7 +11,7 @@ const User = require('../schemas/user');
 
 const router = express.Router();
 
-const currentSeason = 4;
+const currentSeason = 5;
 
 function sleep(ms) {
     return new Promise((resolve) => {
